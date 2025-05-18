@@ -1,0 +1,1314 @@
+% !TeX encoding = UTF-8
+% 此文件从2019.10.18开始写作
+
+
+
+
+\chapter{CODATA推荐物理常数}\label{chphyconst}
+\begin{longtable}{*4{l}}
+\caption{物理常数表（2022年）}  \label{tab:fund-phys-const}  \\    \hline
+物理量 & 符号 & 数值 & 单位  \\ \hline
+\endfirsthead
+\multicolumn{2}{l}{（续表）} \\ \hline
+物理量 & 符号 & 数值 & 单位    \\ \hline
+\endhead \hline
+\multicolumn{2}{c}{(接下一页表格……)} \\[2ex]
+\endfoot
+%\hline
+\endlastfoot
+% data begins here
+真空中光速（精确） & $ c,c_{\rm 0} $ & \num{299792458} & \si{m.s^{-1}}  \\
+普朗克常数（精确） & $ h $ & \num{6.62607015d-34} & \si{J.s} \\
+基本电荷（精确） & $ e $ & \num{1.602176634d-19} & \si{C} \\
+Avogadro常数（精确） & $N_{\rm A}$ & \num{6.02214076e23} & \si{mol^{-1}}  \\
+玻尔兹曼常数（精确）  & $k,k_{\rm B}$ & \num{1.380649d-23} & \si{J.K^{-1}}  \\
+精细结构常数 $e^2\!/4\pi\epsilon_0 \hbar c$ & $\alpha$ & \num{7.2973525643(11)d-3} &\num{1}  \\
+真空磁导率 $4\pi\alpha\hbar/e^2 c$ & $\mu_0$ & \num{1.25663706127(20)d-6} & \si{N.A^{-2}} \\
+真空介电常数 1/$\mu_{\rm 0}c^{2}$ & $\epsilon_0$ &\num{8.8541878188(14)d-12} & \si{F.m^{-1}} \\
+万有引力常数 & $ G,G_N $ & \num{6.67430(15)d-11} & \si{m^{3}kg^{-1}s^{-2}} \\
+玻尔半径 $4\pi\epsilon_0\hbar^2\!/m_{\rm e}e^2$ & $a_{\rm 0}$ & \num{0.529177210544(82)d-10} & \si{m}  \\
+电子质量  & $m_{\rm e}$ & \num{9.1093837139(28)d-31} & \si{kg}  \\
+质子质量 & $m_{\rm p}$ & \num{1.67262192595(52)d-27} & \si{kg}  \\
+中子质量 & $m_{\rm n}$ & \num{1.67492750056(85)d-27} & \si{kg}  \\
+%相对原子质量 & $m_{\rm u}$ & \num{1.66053906660(50)d-27} & \si{kg}  \\ 
+\hline
+太阳质量 & $M_{\odot}$ & \num{1.9885e30} & \si{kg} \\
+太阳半径 & $R_{\odot}$ & \num{6.957e8} & \si{m} \\
+地球质量 & $M_{\oplus}$ & \num{5.9724e24} & \si{kg} \\
+地球半径 & $R_{\oplus}$ & \num{6.371e6} & \si{m} \\
+日地平均距离 & $1AU$ & \num{1.495978707e11} & \si{m} \\
+\hline
+\end{longtable}
+
+CODATA是 the Committee on Data for Science and Technology 的缩写．
+这个委员会每四年更新一次物理常数表{\footnote{见 \url{ https://physics.nist.gov/constants }.}}．
+其中，真空中光速、普朗克常数、基本电荷、阿伏伽德罗常数和玻尔兹曼常数是
+定义值，无需实验测量．由这几个常数组合出来的基本常数也是定义值．
+由于规定光速$c$、普朗克常数$\hbar$和电荷电量$e$是定义值，那么电磁学基本
+系数$\epsilon_0$和$\mu_0$就不再是常数（见精细结构常数定义），而应由实验测定．
+
+
+
+表中括号内万有引力常数{\footnote{中国实验物理学家罗俊教授（1956-）在万有引力常数测量领域
+有突出贡献，详见文献\parencite{luo_2018}．}}
+实验误差数值$6.674\,30(15)$表示$6.674\,30\pm 0.000\,15$．
+其它常数的误差类似．
+
+物理常数实验测量误差的有效位数一般只有一位，然而由CODATA提供的物理常数却有两位有效位数字，为何？
+这源于1929年 R. T. Birge 引入最小二乘平差方法
+来处理实验测量值，此方法导致物理常数实验测量误差出现两位有效数字；
+可参考文献\parencite{Taylor-1969-RevModPhys.41.375}．
+
+
+基本常数的数值，比如光速，是否会随时间的推移而发生微小变化呢？我们无法判断有量纲常数是否会随时间改变而变化！
+其中一个原因是：不同时代测量基准不同，单位制定义也不相同；比如长度单位米的定义，
+最初定义为通过巴黎的子午线上从地球赤道到北极点的距离的千万分之一，
+现今用光速来定义．这种定义的更新会导致因时代不同而引入定义误差，而这种
+定义误差并不容易追寻．但无量纲常数（比如精细结构常数）会消除这种不确定性，
+故我们可以考察无量纲常数是否会随时间流逝而改变．
+
+
+
+\printbibliography[heading=subbibliography,title=附录\ref{chphyconst}参考文献]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{量纲与单位制}\label{chunit-dim}
+中国传统的计量单位制叫度量衡（指在日常生活中用于计量物体长短、容积、轻重的标准的统称）．
+可见中国古代对物理学基本单位制的部分内容有着深刻认知．
+然而，什么是量纲？什么是单位？回答这些基本的问题是困难的．
+
+使用同一单位制会给不同领域交流带来诸多便利，
+所以这个附录重点介绍国际单位制，以其为核心顺带介绍自然单位制，
+除此外不再赘述其它单位制了．
+
+
+\section{国际单位制}
+国际单位制{\footnote{法语：Le {\bf S}ystème {\bf I}nternational d'Unités，
+        简称SI制．英语：International System of Units．中文简称为国际制．}}
+源于十进制单位系统{\kaishu 公制}，是世界上普遍采用的标准度量系统．
+国际单位制以七个基本单位为基础，由此建立起一系列相互换算关系明确的“一致单位”．
+另有二十个基于十进制的词头，当加在单位或符号前的时候，可
+表达该单位的倍数或分数．
+
+%1929年，民国政府进行“一二三”制改革，
+%令{\kaishu 1公升=1市升，1公斤=2市斤，1公尺=3市尺．}这套制度在现今
+%仍在广泛使用，只不过公斤改称千克，公尺改称米．
+
+国际物理量系统（International System of Quantities）是以以下七个基本物理量为
+基础的系统：长度（$\si{L}$）、质量（$\si{M}$）、时间（$\si{T}$）、
+电流强度（$\si{I}$）、热力学温度（$\Theta$）、物质的量（$\si{N}$）和发光强度（$\si{J}$）．
+其它物理量，如面积、压强等等，都可以根据明确、不相互矛盾的公式从这些
+基本物理量推导得出．在实际使用中，量纲符号的记号通常会加一个方括号，
+比如质量记为$[\si{M}]$，或者记为$\rm{dim} \si{M}$；具体符号见表\ref{tab:base-units}．
+
+
+在SI单位制下，任何物理量$P$的量纲可以
+表示成七个基本量的幂次，即
+\begin{equation} \label{chunit-dim:eqn_si-dim}
+    [P]=\si{L}^{d_1} \si{M}^{d_2} \si{T}^{d_3} \si{I}^{d_4} \Theta^{d_5} \si{N}^{d_6} \si{J}^{d_7} ,
+\end{equation}
+且这些幂次（即$d_1,d_2,\cdots$）都是实数，有时候部分幂次为零．
+
+
+%在2018年11月16日，第26届国际计量大会一致通过了新的国际单位制基本单位定义的提案，
+%新定义于2019年5月20日生效．改写核心是将定义由“单位中心”变为“常数中心”，
+%并将几个普适的物理常数指定为定义值，不再需要实验测量．
+%其中无量纲的平面角弧度和立体角球面度归为导出单位，但这两个单位较为重要，
+%仍在表\ref{tab:base-units}中列出．
+
+\begin{landscape}
+    \begin{table}[htb]
+        \centering
+        \caption{国际单位制基本单位以及弧度、球面度定义} \label{tab:base-units}
+        \begin{tabular}{|*6{c|}}
+            \hline
+            物理量 & 符号 & 基本单位名称及符号 & 量纲符号 & 定义 \\        \hline
+            时间 & $t$ & 秒， \si{s} & \si{T} & \makecell{当铯133原子不受干扰的基态超精细能级跃迁\\频率$\Delta\nu_{Cs}$
+                以赫兹(\si{s^{-1}})为单位表示时，将其取\\为固定数值\num{9192631770}，用此种方式来定义秒．}   \\ \hline
+            长度 & $l$ & 米， \si{m} & \si{L} & \makecell{当真空中光的速度$c$以
+                单位\si{m.s^{-1}}表示时，\\ 将光速取为固定数值\num{299792458}来定义米．}  \\ \hline
+            质量 & $m$ & 千克，\si{kg} & \si{M} & \makecell{当普朗克常数$h$以单位\si{kg.m^2 s^{-1}}
+                表示时，将其\\取为固定数值\num{6.62607015d-34}来定义千克．}  \\ \hline
+            电流 & $I$ & 安培，\si{A} & \si{I} & \makecell{当基本电荷$e$以单位\si{A.s}表示时，
+                将其取为\\固定数值\num{1.602176634d-19}来定义安培．}  \\ \hline
+            热力学温度 & $T$ & 开尔文，\si{K} & $\Theta$ & \makecell{当玻尔兹曼常数$k_{\rm B}$以单位\si{kg.m^2s^{-2}K^{-1}}
+                表示时，\\将其取为固定数值\num{1.380649d-23}来定义开尔文．}  \\ \hline
+            物质的量 & $n$ & 摩尔，\si{mol} & \si{N} & \makecell{当阿伏伽德罗常数$N_{\rm A}$以单位\si{mol^{-1}}表示时，\\
+                将其取为固定数值\num{6.02214076e23}来定义摩尔．}  \\ \hline
+            发光强度 & $I_v$ & 坎德拉，\si{cd} & \si{J} & \makecell{当频率为\num{540e12}\si{Hz}单色辐射
+                的发光效率以\\单位\si{cd.sr.kg^{-1}m^{-2}s^3}，即\si{cd.sr.W^{-1}}，
+                表示时，\\将其取为固定数值683来定义坎德拉．} \\ \hline
+            平面角 & & 弧度，\si{rad} &  & \makecell{一个圆内两条半径之间的平面角．
+                其值是\\ 这两条半径在圆周上截取的弧长与半径之比．} \\ \hline
+            立体角 & & 球面度， \si{sr} &  & \makecell{一个立体角，其顶点位于球心，
+                其值是\\ 它在球面上所截取的面积与球半径平方之比．} \\ \hline
+        \end{tabular}
+    \end{table}
+\end{landscape}
+
+我们分别对这七个基本单位做些补充说明．
+
+
+\noindent\fbox{甲}七个基本量中只有时间的定义与实物相关，
+其它六个都是由物理常数来定义．
+这源于物理学家对时间的认识较为模糊，
+目前还未找到较好办法使它脱离实物．原子核外电子
+跃迁辐射后会发出光子，因微观世界是量子化的，这个
+光子的频率$\nu$是固定不变的．因此，在未受外界影响下，
+将铯-133基态超精细能级跃迁频率$\Delta\nu_{\rm Cs}$指定为一个固定数值：
+\num{9192631770}\si{Hz}．
+而\si{Hz}的倒数就是\si{s}，这样就可以给{\heiti 秒}一个确切的定义了．
+
+\noindent\fbox{乙}在相对论发现后，人们认识到{\kaishu 时空}才
+是最基本的物理概念，时间和空间需要由时空作3+1分解后派生得到，
+时间、空间已不能绝对分离．而光速又是一个常数，
+{\footnote{光速是现实物理世界量子化粒子最大飞行速度，这源于
+光子静质量为零．任何静质量为零的粒子运行速度皆为光速．
+所以光速是指那些零质量粒子的飞行速度，而不是特指光子一种．
+这一速度具有普适性．
+但是，能够自由存在现实世界中的零质量粒子，
+目前只发现了光子．}}
+所以将光速指定为
+一个确定数值后，再加上{\kaishu 秒}已经定义，就可以定义长度了；
+而且不需要任何实物就能定义．不过需要注意在非相对论领域，时间
+和空间物理意义并不等同，这个时候最好不要用同一单位表出长度和时间．
+
+\noindent\fbox{丙}普朗克常数的量纲是：{\kaishu 能量$\cdot$时间}，
+时间已经在\fbox{甲}中确切定义，再将普朗克常数指定为固定值之后，
+{\kaishu 能量}这个量纲就确定了，
+进而质量（通过$E_0=mc^2$）也就有了不依赖于实物的定义．
+
+
+\noindent\fbox{丁}我们都知道电流强度的量纲是{\kaishu 电量/时间}，单位是
+{\kaishu 库仑/秒}．所以定义了基本电荷的数值后就可以定义安培这个量了；
+从而也可以看到，在现在的定义中安培是个傀儡定义，只是为了与以前的定义兼容才
+把电流强度作为基本量，而没有把电量作为基本量．
+
+\noindent\fbox{戊}同理指定玻尔兹曼常数后，就可以将与能量同意义的热力学温度确切定义．
+物质的量本质就是数数，数出阿伏伽德罗常数$N_{\rm A}$个原子就是\SI{1}{mol}原子；
+也可以数出$N_{\rm A}$个太阳，那就是\SI{1}{mol}太阳．所以本质上物质的量是无量纲的，
+人们只是为了在宏观与微观间建立一座桥梁，才定义了{\kaishu 摩尔}这个基本单位．
+
+\noindent\fbox{己}发光强度单位坎德拉（Candela）不是人名，旧译“烛光”．
+其定义是：在给定方向上单位立体角发出的光通量
+（辐射能通量乘以无量纲的人眼{\heiti 视见函数}），
+单位是：{\kaishu 瓦特/球面度}．很显然这本应该是个导出单位，
+只因为人眼的特殊性，才把它规定为基本量纲．
+
+
+\noindent\fbox{庚}单位制体系必须是由七个基本量纲构成吗？
+显然不是，例如高斯单位制就只有三个基本单位，没有给
+电磁学物理量设立基本量纲，同样可以描述整个物理．
+温度微观本质是能量，从纯粹的理论物理角度不需要给它赋予基本量纲；
+但实际应用中如果说今天温度是$\frac{1}{40}{\rm eV}$，那肯定有人说你脑子有问题，
+即使转换成\SI{290}{K}($\approx \frac{1}{40}{\rm eV}$)也不行，必须说
+今天温度是\SI{17}{\degreeCelsius}($\approx \frac{1}{40}{\rm eV} \approx \SI{290}{K}$)
+才算正常．所以为了照顾大家生活习惯，国际制强制性地赋予温度基本量纲地位．
+目前经过综合考量，设立了七个基本量纲．
+
+\noindent\fbox{辛}目前的国际制并不能包打天下．比如计算机领域的
+基本单位{\kaishu 字节}（byte）没有包含在其中，或者说现有的国际制
+是基于物理学构建的体系，计算机领域在物理学之外，{\kaishu 字节}也在国际制之外．
+另一个例子，国际制是描述自然界的单位制体系；人类社会中特有的
+货币单位（比如人民币、美元、欧元等）自然也不能由国际单位制来描述．
+
+国际单位制导出单位是基本单位在乘幂、乘积或相除后产生的单位，如此形成的导出单位可以有无限多个．
+每个导出单位都与物理定律、定理相对应，
+例如，速度是建立在时间和长度上的物理量，在国际制中所对应的
+导出单位是{\kaishu 米每秒}（符号为\si{m/s}）．
+导出单位的量纲可以用基本单位的量纲组合来表达．
+不同领域的导出单位并不相同，
+后面给出了国际制的部分导出单位，
+见表\ref{chunit-dim:unitdimenG} 和\ref{chunit-dim:unitdimen} ．
+
+虽然国际单位制本身已足以表达任何物理量，
+但在科技界和商界等的出版物中仍会出现许多非国际单位制单位，
+而这些单位的使用可能会持续很长一段时间．
+也有一些单位由于深深地植根在历史和个别文化当中，
+所以将在可见的未来内继续使用下去．
+它们包括但不限于下列单位：分钟、小时、日、角度、角分、角秒、
+公顷、公升、公吨、天文单位、秒差距、分贝、电子伏特、
+巴、毫米汞柱、埃格斯特朗、海里、靶恩、节、奈培等等．
+
+
+
+\section{量纲与单位制的定义}
+人们在生产实践或者说在认识自然的过程中发现很多事情会有不同的含义
+{\footnote{在此，只限于物理意义或者几何意义等学术意义．}}，
+比如王五从张村走到李村走了{\kaishu 多远}呢？走的过程中总共走了{\kaishu 多久}？
+这些最基本的想法用物理概念来描述就是：张村到李村{\kaishu 距离}是多少，王五走了这段距离花多少{\kaishu 时间}．
+人们发现距离和时间意义是不同的，没有办法对两者进行直接比较；
+物理学家就称距离和时间有着不同的量纲，要用不同的标记来区分，距离的量纲称为{\kaishu 长度}，时间
+的量纲就是{\kaishu 时间}，物理学家没有再选择另一专属词汇．
+在进一步介绍这些概念之前，需要先引入一个定义：
+
+\begin{definition}\label{chunit-dim:quantity-class}
+    所有物理意义相同的量构成一个集合，称之为{\heiti 量类}．
+\end{definition}
+量类是物理意义相同量的一个简称，没有其它意思．
+{\footnote{ 我借用了文献\parencite[\S 1.1]{liang_cao2020}中{\kaishu 量类}这个名词，
+        此文献的定义与我的定义略有不同．}}
+人们发现物理意义相同的两个量或多个量（也就是一个量类内的不同物理量）可以进行比较大小和加减．
+进而，同一个量类中的物理量可以被赋予一个称之为{\kaishu 量纲}的基本属性．
+这是量纲的一个描述性定义．为了更深入理解这些概念，我们给出如下几个注解．
+
+{\heiti 基本原则I：} \label{chunit-dim:principle1}
+{\kaishu 物理学家喜欢将物理意义不同的量赋予不同的量纲，
+    同时物理学家也喜欢将物理意义相同的量赋予相同的量纲．}
+
+\begin{remark}
+    物理学量纲、单位制体系的建立是与物理学基本定律、原理、重要定理密切相关的．
+    所有单位制与量纲建立过程严重依赖于物理认识深度．
+\end{remark}
+
+\begin{remark}
+基本原则I在物理学的量纲理论中占有重要位置．
+两个物理意义不同的量，即便有相同的量纲，也是不能
+相加减、不能比较大小，不能算作同一量类．
+比如电磁学的高斯单位制中，电容具有长度量纲，但电容和距离物理意义不同；
+两者不能相加减及比较大小．
+再比如：力矩（单位是{\kaishu 牛顿$\cdot$米}）和
+能量（单位是{\kaishu 焦耳$\equiv$ 牛顿$\cdot$米}）的量纲相同，但物理意义不同，
+两者不属同一量类．
+\end{remark}
+
+
+\begin{remark}
+    在物理学早期，学者们没有意识到热量和功的物理意义是相同的，分别赋予了它们
+    的单位是：{\kaishu 卡路里}和{\kaishu 焦耳}．在那个时候这两个量分属两个量类．
+    随着认识的深入，知道了它们
+    深层意义一样，就整出来一个热功当量：$\SI{1}{cal} \approx \SI{4.184}{J}$，
+    令两者具有相同量纲；从此以后两者属于同一量类．
+    在认识到热量与能量是同义语后约二三十年就认识到
+    能量与热力学温度微观物理意义也相同，都可用能量单位表出；
+    这是将玻尔兹曼常数取为固定值的理论依据，这与热功当量非常相似．
+    现今物理学中经常用能量单位（如\si{eV}）来表示物质温度．
+    今天的物理学认为热量、热力学温度、能量可以算作一个量类．
+\end{remark}
+
+
+{\heiti 基本原则II：} \label{chunit-dim:principle2}
+{\kaishu 谈论量纲时一定要清楚知道研究对象的范畴．}
+
+\begin{remark}
+    这一原则也至关重要．比如牛顿力学内，
+    长度和时间物理意义不同，它们两者{\kaishu 不能}相加减、{\kaishu 不能}比较大小．
+    质量与长度、时间就更没有可比性了，它们间不能相互表出．
+    当在相对论范畴内，长度和时间是可以通过Lorentz变换相互转换的，两者
+    的物理意义基本相同，两者可以相加减、比较大小．
+    由此可见，在牛顿力学范畴内，长度和时间属于两个不同的量类，两者应该被赋予不同量纲；
+    然而，在相对论范畴内，长度和时间属于同一个量类，两者可以具有相同量纲（见
+    自然单位制），也可以被赋予不同的量纲（比如国际单位制）．
+
+    还有一些属于同一量类但被赋予不同量纲的量，比如：国际制中的电场和磁场；
+    前面注解中给出的热量、温度、能量．
+
+    物理量是否属于同一量类与物理学认识深度（或研究领域）密切相关．
+\end{remark}
+
+\begin{remark}\label{chunit-dim:remark_num}
+    同样因为这一原则，依笔者浅见，牛顿力学范畴内，最少要设置三个基本量纲．
+    一般选择{\kaishu 质量}（M）、{\kaishu 长度}（L）和{\kaishu 时间}（T），
+    当然也可以选成其它的三个量，比如：密度、速度和长度，等等．
+
+    在狭义相对论力学中（光速$c$是普适常数），基本量纲个数可以减为两个．
+
+    在电动力学（包括电磁学）中，%{\footnote{不存在非相对论电动力学，请读者思考为什么．}}
+    如果给电磁学设立一个单独的基本量纲（如国际制中的电流强度），那么最少基本量纲
+    个数是三个．如果不给电磁学设立一个单独的基本量纲（如高斯单位制），那么最少
+    基本量纲是两个．下面几条中皆不给电磁学赋予基本量纲．
+
+    在非相对论量子论中，因微观物理世界是量子化的（普朗克常数$\hbar$是普适常数），
+    使得能量和频率物理意义相同，即存在普遍的关系式$E \propto \hbar \omega $，
+    这样，这个领域的最少基本量纲也可以减为两个．
+
+    在相对论量子论中，比如QED，依上面分析，最少基本量纲是一个．
+
+    在宏观广义相对论中，万有引力常数$G$是一个普适常数（光速自然也是普适常数），此领域
+    最少基本量纲个数是一个．
+
+    在量子引力论中，因$\hbar$、$c$、$G$都是普适常数，此领域最少基本量纲是零个，
+    最常用的单位制就是普朗克自然单位制．
+
+    对于本这条注解需要作几点说明：首先，在建立一套单位制过程中，原则上不能依赖于
+    实物（比如不能依赖于电子质量、原子核外电子跃迁能级，等等）．
+    {\footnote {国际制中的电子电荷与时间是依赖于实物的．目前的物理
+    认为电子基本电荷是任何带电物体所带电量的最小量子化数值；
+    其它任何物质（除夸克附带电荷外）所带电量皆是这个值的整数倍；
+    从这个角度来说可以认为基本电荷数值是一个普适常数．
+    由于万有引力常数的测量精度太差，如果用普朗克时间来定义秒，那
+    精度同样很差，所以国际制中采用了其它方式来定义秒．}}
+    其次，各种单位制建立只能依赖于现有的、已认识到的基本物理规律；
+    例如牛顿力学与相对论的单位制对长度、时间的认识差异．
+\end{remark}
+
+
+\subsection{量纲与单位制的描述性建立}
+我们继续以长度为例来说明量纲与单位．
+例如张村到李村距离是$L_{zl}$，李村到王村距离是$L_{lw}$，那么如何比较$L_{zl}$与$L_{lw}$的大小呢？
+假设某好事者张三拿着一根拐棍儿，一下一下地量了村子间距离，$L_{zl}$长度是100拐棍儿，$L_{lw}$是98拐棍儿；
+显然$L_{zl} > L_{lw}$．很自然可以想到，丈量某个量$L$的大小需要先选一个基准，在这里就是拐棍儿的长度，然后
+用这个基准去度量量$L$；用物理语言来说，这个基准就是{\heiti 基本单位}，
+所得数值就是这个基本单位的某个倍数，这样就建立了{长度的单位制}．
+同一量纲可以有不同的基本单位，比如我们不用拐棍儿而用{\kaishu 步长}来丈量村子间的距离．
+
+人们在认识自然的过程中发现有些物理量间是有联系的．对土地大小
+进行丈量，这个大小称为{\kaishu 面积}，在中国一般用{\kaishu 亩}
+{\footnote{1亩等于60平方丈；1丈等于10/3米，朝代不同，{\kaishu 丈}的大小可能不同．}}
+来标记大小．
+中国古人很早就发现面积和长度有联系，比如长方形土地的面积与边长关系可以用公式
+$S=kab$来表示，其中$a,b$是长方形边长，$k$是比例系数，当选取不同单位时，系数
+一般也不同．比如长度单位选成丈，面积单位选成亩，那么$k=\frac{1}{60}$；如果面积单位选成
+{\kaishu 平方丈}，那$k=1$．
+对于物理学来说，为了简单起见，也是为了理论的优美，
+既然面积和长度间有关系式$S=kab$，在固定系数$k$后，
+那么面积和长度的单位只能选一个了．
+比如选定长度作为基本单位，那么面积成了{\heiti 导出单位}．
+
+上面，我们建立了一套最简单的单位制，长度被选为基本单位，面积被选为导出单位．
+整套单位制的建立还需补充很多其它内容，可参见国际制介绍．
+
+
+
+\subsection{量纲的幂次表示}
+我们以时间为例来说明量纲的幂次表示\cite[\S 1.4]{sedov1982}．
+时间可以用{\kaishu 秒}来表示，也可以用{\kaishu 分钟}来表示，
+大家都知道$\SI{1}{min}=\SI{60}{s}$．
+同一段时间用不同的单位表示时，数值是不同的；
+比如公交车从甲地到乙地用时是$T\si{min}$，也可以说成$60T\si{s}$．
+也就是说当时间单位变化至原来的$\alpha$倍时，被测量的
+时间数值变化至$\alpha^{-1}$倍，即用$\alpha^{-1}T$代替$T$．
+对于其它单位，比如质量、长度、电流等等，情况类似．
+
+甲作匀加速运动，加速度为$A_a$，$t_{a}$时间内走过的距离是$s_a=\frac{1}{2}A_a t_a^2$；
+乙同样作匀加速运动，加速度为$A_b$，$t_{b}$时间内走过的距离是$s_b=\frac{1}{2}A_b t_b^2$．
+当时间表示单位变化时（比如从{\kaishu 秒}变成{\kaishu 小时}），甲乙走过
+的距离之比$s_b/s_a$是不变的；这种不变性具有普适性．
+
+我们假设有两个同类型的物理量
+\begin{equation}
+  y=f(t_1,\cdots,t_n), \qquad
+  \bar{y}=f(\bar{t}_1,\cdots,\bar{t}_n).
+\end{equation}
+它们（即$y$或$\bar{y}$）依赖于有限数量的一组物理量（即$t_i$或$\bar{t}_i$），
+这些物理量仅由时间构成
+（后面会推广到包含其它量，比如长度、质量等），上式中函数形式$f$是相同的．
+当时间表示单位变化至原来的$\alpha^{-1}$倍时，被测量的
+时间数值变化至$\alpha$倍；物理学中有如下{\heiti 比值基本假设}
+{\footnote{笔者是从文献\parencite{sedov1982}中了解到这个基本假设的，
+没有仔细追寻这个假设最早是由哪个学者提出的．}}：
+%目前，笔者不清楚这个假设适用范围是什么，也不清楚导出单位制的幂次表述是否还需要其它基本假设．
+两者比值不变，即
+\begin{equation}\label{chunit-dim:eqn_ratio-axiom}
+\frac{\bar{y}}{y}=\frac{f(\bar{t}_1,\cdots,\bar{t}_n)}{f(t_1,\cdots,t_n)}
+=\frac{f(\alpha\bar{t}_1,\cdots,\alpha\bar{t}_n)}{f(\alpha t_1,\cdots,\alpha t_n)} .
+\end{equation}
+上面甲乙两人作常加速度运动是这个假设的一个特例．
+式\eqref{chunit-dim:eqn_ratio-axiom}表明如下函数
+\begin{equation}\label{chunit-dim:eqn_ratio-phi}
+\varphi(\alpha) \overset{def}{=}
+\frac{f(\alpha {t}_1,\cdots,\alpha {t}_n)}{f({t}_1,\cdots,{t}_n)}=
+\frac{f(\alpha\bar{t}_1,\cdots,\alpha\bar{t}_n)}{f(\bar{t}_1,\cdots,\bar{t}_n)},
+\end{equation}
+只依赖于（纯数）参量$\alpha$，%由此可以求出函数$\varphi(\alpha)$的表达式；
+很明显$\varphi(\alpha)$是无量纲的．如下推导成立，
+\begin{align*}
+ & \frac{\varphi(\alpha_{1})}{\varphi(\alpha_{2})}=
+\frac{f(\alpha_{1} {t}_1,\cdots,\alpha_{1} {t}_n)}{f(\alpha_{2} {t}_1,\cdots,\alpha_{2} {t}_n)}
+\xlongequal[t'_i= \alpha_{2}t_i ]{\text{作代换}}
+\frac{f\left(\frac{\alpha_{1}}{\alpha_{2}} {t}'_1,\cdots,
+    \frac{\alpha_{1}}{\alpha_{2}} {t}'_n\right)}{f({t}'_1,\cdots,{t}'_n)}
+\xlongequal[{\text{可得}} ]{\text{依定义}}
+\varphi\left(\frac{\alpha_{1}}{\alpha_{2}}\right)  \\
+{\color{red}\Rightarrow} &
+\frac{\varphi(\alpha_{1})}{\varphi(\alpha_{2})}=
+\varphi\left(\frac{\alpha_{1}}{\alpha_{2}}\right) .
+\end{align*}
+我们需要假设函数$\varphi(\alpha)$连续可微，对上式中的$\alpha_1$求导，得
+\begin{equation}
+\frac{\varphi'(\alpha_{1})}{\varphi(\alpha_{2})}=
+\varphi'\left(\frac{\alpha_{1}}{\alpha_{2}}\right) \frac{1}{\alpha_{2}}
+\xLongrightarrow[\text{将}\alpha_{1}\text{换成}\alpha]{\text{令}\alpha_{2}=\alpha_{1}\text{并}}
+\frac{\varphi'(\alpha)}{\varphi(\alpha)}=
+\varphi'\left(1\right) \frac{1}{\alpha},
+\end{equation}
+因为$\varphi(1)=1$，所以上式可以积分出
+\begin{equation}
+\varphi(\alpha) = \alpha^d, \qquad {\text{其中}\ } d\equiv \varphi'(1).
+\end{equation}
+显然$d$是一个常实数．
+这样，我们得到了量纲的幂指数函数形式，原因是我们使用了上面的比值基本假设．
+我们可以把上面的推导推广到包含多个基本量的情形，比如假设包含质量、长度、时间等等，
+则函数关系变为
+\begin{equation}
+y=f(t_1,\cdots,t_{n1};l_1,\cdots,l_{n2};\cdots;m_1,\cdots,m_{nk})
+\end{equation}
+不同基本单位的变量组相互独立，根据比值基本假设，可以定义函数
+\begin{equation*}
+\varphi(\alpha_1,\cdots,\alpha_k) \overset{def}{=}
+\frac{f(\alpha_1 {t}_1,\cdots,\alpha_1 {t}_{n1};
+    \alpha_2 {l}_1,\cdots,\alpha_2 {l}_{n2};\cdots;
+    \alpha_k {m}_1,\cdots,\alpha_k {m}_{nk})}
+{f(t_1,\cdots,t_{n1};l_1,\cdots,l_{n2};\cdots;m_1,\cdots,m_{nk})} .
+\end{equation*}
+通过类似的推导，可以得到如下{\heiti 量纲函数}
+\begin{equation}\label{chunit-dim:eqn_ratio-phik}
+\varphi(\alpha_1,\cdots,\alpha_k) = \alpha_1^{d_1}\cdots\alpha_k^{d_k}.
+\end{equation}
+显然，参量$\alpha_i$是无量纲的正实数，
+量纲函数$\varphi(\alpha_1,\cdots,\alpha_k)$是无量纲的，
+有量纲物理量$y$的{\heiti 量纲向量}$(d_1,\cdots,d_k)$也是无量纲的．
+
+
+%我们说过量纲是单位制依赖的，不同单位制，同一物理量的量纲未必相同，
+%典型的例子是国际制和高斯制中的电磁学物理量量纲．
+由此可以给单位制和量纲下一个比较准确的定义．
+
+\begin{definition}\label{chunit-dim:du}
+    定义需要分数个步骤．
+
+\fbox{甲}
+先确定研究问题的领域范畴．
+    {\footnote{第\pageref{chunit-dim:remark_num}页注解\ref{chunit-dim:remark_num}
+    已经说明范畴不同最少基本量纲个数不同，此注解和本定义需要结合起来理解．}}
+
+\fbox{乙}
+根据这一领域的物理学基本原理、定律、基本方程、基本定理等将所有物理量分为$M$个量类
+{\footnote{量类定义见第\pageref{chunit-dim:quantity-class}页，其意义
+是物理意义相同的量．牛顿力学范畴内，时间和长度一定属于两个不同量类；
+相对论范畴内，时间和长度属于同一量类；从此可以看到\fbox{甲}步骤的重要性与必要性．
+量类个数$M$一定是有限的正整数，不会是无穷大．}}，
+同一量类内的量可用同一单位表示．比如距离量类内的量可以用
+拐棍儿长度或步长或手肘长度等等，就是选定一个测量基准，这个基准称为
+{\heiti 单位}；单位显然有无穷多个，可以选用1倍拐棍儿长度，也可以选用1.5倍长度，等等．
+
+\fbox{丙}
+在所有$M$个量类中选择$N(\leqslant M)$个称为{\heiti 基本量类}．
+这$N$个基本量类不能任意选择，剩余$M-N$个量类的量必须
+可以通过已知物理公式由基本量类来导出；
+这$M-N$个量类称为{\heiti 导出量类}．
+在每个基本量类中任选一单位赋予它一个特别的
+名称：{\heiti 基本单位}，也称{\heiti 主单位}．
+{\footnote{国际单位制中选定{\kaishu 米}作为基本单位，高斯制中选定{\kaishu 厘米}作为基本单位；等等．
+        从此，读者可看出基本单位的选择具有很大任意性，目前国际制选取的基本单位与
+        人们日常生活接触到的数值较为接近，比如米、秒、千克、摄氏度等．}}
+在每个导出量类中通过已知物理公式由基本单位在满足{\kaishu 一致性原则}下
+导出的单位称为{\heiti 导出单位}．
+由基本单位和导出单位构成物理体系的{\heiti 单位制体系}．
+
+\fbox{丁}
+式\eqref{chunit-dim:eqn_ratio-phik}可以导出式\eqref{chunit-dim:eqn_si-dim}
+（即$ [P]=\si{L}^{d_1} \si{M}^{d_2} \si{T}^{d_3} \si{I}^{d_4} \Theta^{d_5} \si{N}^{d_6} \si{J}^{d_7}$）．
+比如长度的单位由{\kaishu 米}变成{\kaishu 厘米}，
+那么由式\eqref{chunit-dim:eqn_ratio-phik}可知
+物理量$P$中有关长度部分变为$100^{d_1}$，
+这说明量$P$单位中关于长度的部分是$\si{L}^{d_1}$．
+对于某个确定量类，式\eqref{chunit-dim:eqn_ratio-phik}中的
+实变数$\{\alpha_i\}$被称为这个量类的{\heiti 量纲}，
+基本量类的相应实变数$\{\alpha_i\}$是这个基本量类的{\heiti 基本量纲}．
+{\footnote{经过如此复杂的推演，至此，量纲才有了一个较为明确的定义．
+对不同的量类，我们分别赋予不同的符号来代替式\eqref{chunit-dim:eqn_ratio-phik}中
+的$\{\alpha_i\}$．
+如国际单位制为:长度（$\si{L}$）、质量（$\si{M}$）、时间（$\si{T}$）、
+电流强度（$\si{I}$）、热力学温度（$\Theta$）、物质的量（$\si{N}$）和发光强度（$\si{J}$）．
+换句话说，
+式\eqref{chunit-dim:eqn_si-dim}中的\si{L}、\si{M}等符号只不过是通过代换
+式\eqref{chunit-dim:eqn_ratio-phik}中的$\{\alpha_i\}$而得到的．
+笔者第一次认识到量纲可以定义成“实变数”是从文献\parencite[\S 1.4]{liang_cao2020}中了解到的，
+不过该书作者是从另外一个角度给出了此定义．}}
+\end{definition}
+
+\vspace{1ex}
+
+\begin{remark}
+    国际单位制中为了平衡各个领域设置了七个基本量纲．从相对论角度来看，
+    没必要将长度和时间分开来；但站在牛顿力学角度必须把两者分别设置
+    成基本量纲．这说明基本量纲的设置很大程度上是人为的．国际单位制的
+    建立过程不可能只考虑理论物理一个因素，工业、贸易、文化、人的生活习惯、
+    实验测量精度等等都影响国际制的建立．
+
+    从这个定义过程，读者应该能看出必须先建立单位制，才能谈论物理量
+    的量纲；单位制不同，量纲可能不同；量纲是单位制依赖的；量纲是用来
+    描述量类属性的，是物理学家为了区分意义不同物理量，在满足一定条件下
+    引入的；没有其它意义了．
+\end{remark}
+
+\begin{remark}
+    单位制、量纲理论中有诸多人为因素．物理量有很多，选哪几个为基本单位、基本量纲完全是因人而异．
+\end{remark}
+
+下面给出由傅里叶论述的{\heiti 量纲齐次性原理}（dimensional  homogenity），
+设物理现象中涉及物理量$A,B,C,\cdots$，它们在某个单位制中，满足如下等式
+    \begin{equation}
+        A=B+C+\cdots ,
+    \end{equation}
+那么物理量$A,B,C,\cdots$必属于同一量类，具有相同量纲．
+
+这条原理就是说只有量纲且物理意义相同的物理量才能相加减．
+由这个原理可以说明指数函数、对数函数、三角函数等初等函数
+（即除了幂函数外）的宗量应当是无量纲的．
+比如指数函数可以展开成幂级数（暂不考虑收敛性）
+\begin{equation*}
+    \exp(x) = 1 + x + \frac{1}{2 !}x^2 + \frac{1}{3 !}x^3 + \cdots,
+\end{equation*}
+如果宗量$x$是有量纲的，比如是\si{L}，那么上式等号右端各项量纲必然不同，
+分别是\si{L^0}、\si{L^1}、\si{L^2}、\si{L^3}、……；它们不能相加减，
+这不满足量纲齐次性原理．
+
+麦克斯韦等物理学家曾经提出过导出单位的{\heiti 一致性原则}
+{\footnote{coherent principle 可以翻译为一致性原则、一贯性原则或协和原则等．}}
+定义如下：
+\begin{definition}
+    应用物理公式由基本单位推出导出单位时，选择其前的系数为1．
+\end{definition}
+以功率的定义来作说明：
+\begin{equation*}
+    P=\alpha W/t .
+\end{equation*}
+如果选定上式中的系数$\alpha=1$且无量纲，那么就是满足一致性原则；
+比如功单位选为焦耳，时间单位为秒，那么功率单位便是瓦特．
+只要选定上式中的系数$\alpha\neq 1$，不论是否有量纲，那就不满足一致性原则；
+比如功单位选为焦耳，时间单位为秒，$\alpha=735$，那么功率单位便是马力．
+
+
+\begin{example}
+    增加一个单位与量纲．
+\end{example}
+
+前面，我们说了量纲为了区分意义不同物理量；现在举个例子来进一步说明．
+在牛顿力学范畴内我们认为$x$轴、$y$轴、$z$轴具有相同的量纲，
+那是因为空间具有三维各向同性；如果是各向异性的，我们便可增加一个量纲．
+我们生活在地球表面，地球被大气包裹着，我们处在大气边界层里．
+边界层是各向异性的，垂直于地面的$z$轴与平行于地面的$x$、$y$轴是不同的；
+容易看出$x$、$y$方向是各向同性的，而$z$轴方向的物理、力学、化学等等属性均不同于$x$、$y$方向；
+比如沿地表平移$\SI{100}{km}$，温度、压强、密度的变化甚微；而垂直于
+地面向上移动$\SI{100}{km}$，这些量会经历非常剧烈的变化．
+假设$x$、$y$方向的量纲仍旧是长度；而$z$向赋予一个新的单位与量纲，均叫“Prandtl（普朗特）”．
+在这种（人为的）“新”的单位制下，流体力学方程（边界层方程）变得更合理；
+至少物理量的梯度（如温度梯度）不再那么大，而趋于平缓．
+\qed
+
+
+\section{无量纲化}
+我们应该注意到，有量纲量和无量纲量是相对概念．
+比如一个人身高变量为$y(t)$，单位是米．
+另取一个长度$L_0$固定为1.2米的木棍去量他的身高，就有
+$y'(t)=y(t)/L_0$，新“身高”函数$y'(t)$就成了无量纲变量．
+{\footnote{另一个著名例子：以{\kaishu 弧度}来度量的平面角认为是无量纲的．
+以{\kaishu 度}来度量的平面角可以认为是有量纲的．}}
+这个过程称为无量纲化．对于有多个量纲的系统也可以进行无量纲化．
+
+无量纲化是指通过一个合适的变量替代，
+将一个涉及物理量的方程的部分或全部的量纲移除，以求简化实验或者计算的目的，
+是物理中一种重要的方法．
+
+无量纲化的前提是原来系统是有量纲的，
+要无量纲化单位制，需要选择几个有量纲的{\kaishu 特征量}；特征量的选取与具体问题
+相关，不存在通用、普适的原则．特征量之间的量纲不能相互表出，否则它们内部
+就存在重复；特征量个数不能超过基准单位制中基本量纲的个数．
+举个例子说明，要无量纲化碳原子质量$m_C$，我们可以选电子质量$m_{\rm e}$或质子质量$m_{\rm p}$为特征量，
+但不能同时选择它们两个作为特征量；同时选择两个带来的矛盾是显而易见的．
+特征量必须选取有量纲的物理量，
+例如，精细结构常数 $\alpha\approx 1/137$不具有量纲；
+它的数值在任何单位制下，包括无量纲单位制，都不会改变；
+它不能无量纲化其它量．
+
+
+
+在SI制电磁学中有四个基本量纲，所以最多只能选4个特征量；如果选择3个特征量，
+那么只能在保留一个量纲的前提下无量纲化此系统．
+我们选定特征量为：普朗克常数$\hbar$，真空磁导率$\mu_0$，光速$c$；
+{\footnote{需注意因$\mu_0\epsilon_0 c^2 =1$，所以这三个量不能全选．}}
+为了无量纲化全部物理量，我们选择万有引力常数$G$为特征量
+{\footnote{不能选择基本电荷$e$为特征量；$e,c,\mu_0,\hbar$
+这四个量纲有如下关系：
+$[e]^2=\frac{[\hbar]}{[c][\mu_0]}=[\hbar][c][\epsilon_0]$．}}
+（表\ref{chunit-dim:unitdimen}中列出一些常用物理量的量纲）．特征量量纲如下
+\begin{equation*}
+  [\hbar] = \si{L^{2}M^{}T^{-1}} , \quad  [c] = \si{LT^{-1}}, \quad
+  [\mu_0] = \si{L^{}M^{}T^{-2}I^{-2}}, \quad  [G] = \si{L^{3}M^{-1}T^{-2}}.
+\end{equation*}
+设电磁学中任一物理量$P$的量纲为$[P]=\si{L}^\alpha \si{M}^\beta \si{T}^\gamma \si{I}^\delta$．
+无量纲化就是求出$w$、$x$、$y$、$z$让下式的量纲为1．
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chunit-dim:eqn_dimensionless-0}
+  \frac{[P]}{[\hbar]^w[c]^x[\mu_0]^y[G]^z} =
+   \frac{ \si{L}^\alpha \si{M}^\beta \si{T}^\gamma \si{I}^\delta }
+  {(\si{L^{2}M^{}T^{-1}} )^w (\si{LT^{-1}})^x
+  (\si{L^{}M^{}T^{-2}I^{-2}})^y (\si{L^{3}M^{-1}T^{-2}})^z}  =1 .
+\end{equation}\setlength{\mathindent}{2em}
+各个基本量纲的幂次应该相等，由此得到下列代数方程
+\begin{equation}
+\begin{aligned}
+  2w+x+y+3z &= \alpha \\
+  w+y-z &= \beta \\
+  -w-x-2y-2z &= \gamma \\
+  -2y &= \delta
+\end{aligned}
+\end{equation}
+此方程组分别是\si{L}、\si{M}、\si{T}、\si{I}的量纲幂次等式．上式等价于
+\begin{small}
+\begin{equation}\label{chunit-dim:eqn_dimensionless-1}
+  \begin{pmatrix}
+    w \\ x \\ y \\z
+  \end{pmatrix} =
+  \begin{pmatrix}
+    2 & 1 & 1 & 3 \\
+    1 & 0 & 1 &-1 \\
+    -1&-1 &-2 &-2 \\
+    0 & 0 &-2 & 0
+  \end{pmatrix}^{-1}
+  \begin{pmatrix}
+    \alpha \\ \beta \\ \gamma \\ \delta
+  \end{pmatrix} = \ \dfrac{\bf 1}{\bf 2}
+  \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    -3& 1 & -5& 4 \\
+    0 & 0 & 0 & -1 \\
+    1 & -1& 1 & -1
+  \end{pmatrix}\begin{pmatrix}
+  \alpha \\ \beta \\ \gamma \\ \delta
+  \end{pmatrix} .
+\end{equation}
+\end{small}
+%比如选上面的物理量$P$为磁感应强度，
+%它的量纲是$[{\boldsymbol{B}]=\si{M^{}T^{-2}I^{-1}} $，
+%将$\alpha=0,\beta=1,\gamma=-2,\delta=-1$
+%带入上式后就有$w=-\frac{1}{2},x=\frac{7}{2},y=\frac{1}{2} ,z=-1$，令
+%\begin{equation*}
+%  \bar{\boldsymbol{B}} = \dfrac{\boldsymbol{B}}{\hbar^{-\frac{1}{2}}c^{\frac{7}{2}}\mu_0^{\frac{1}{2}}G^{-1}}
+%\end{equation*}
+%我们就得到无量纲的磁感应强度$\bar{\boldsymbol{B}}$．
+
+上面只是给出无量纲化的一个例子，具体应用中是否要去除全部量纲，还是
+保留一两个量纲，要因问题而异，也因个人喜好而异．
+
+\section{自然单位制}\label{chunit-dim:sec_nature-units}
+在物理学里，自然单位制（natural unit）是建立于基础物理常数之上的一种计量单位制度．
+自然单位制之所谓“自然”，是因为其定义乃基于自然界中基础物理常数，而不是基于人为操作．
+例如，电荷的自然单位是基本电荷$e$、速度的自然单位是光速$c$、
+角动量的自然单位是约化普朗克常数$\hbar$等等，这些都是基础物理常数．
+{在本节，我们选用一些基础物理常数去无量纲化其它所有物理量．}
+这些基础物理常数被自己无量纲化后，数值自然为纯数1；例如光速$c$无量纲化自己
+当然得到无量纲的纯数1．
+
+自然单位制的出现与人们对物理认识的深入有密切关系．
+在相对论与量子力学之前，长度、质量、时间再加上一个电磁基本量纲完全
+可以描述整个物理学量纲、单位制体系．
+发现相对论后，很快人们就认识到，时间和空间是密切相关的，它们是
+同一个物理量，时空，通过3+1分解后得到派生量，唯一的差别就是它们
+在度规中的符号相反．物理学家追求物理规律的简单性，既然时间和空间
+物理意义基本相同可以相互转化，就没有必要保留两个量纲了，只需令
+光速去无量纲化一下系统就可以减少一个基本量纲．同样因为相对论，
+质量和能量变成恒同，两者没有任何差别．量子论出现后，人们又发现
+能量和频率物理意义相同，也就是说能量和时间倒数的物理意义相同；
+因此能量的倒数、长度、时间的物理意义在相对论量子学中是完全同义的，
+只需保留一个基本量纲即可．
+
+在静电场中库仑定律是严格成立的，由此可以导出相距为$r$的两个点电荷间
+的相互作用能是$E=\frac{e^2}{4\pi\epsilon_0 r}$．由此可以看到能量量纲
+与电荷量纲密切相关，结合长度量纲，是可以相互表出的．
+在新的SI单位制中电子电量$e$被规定为固定值，这是基于物理实验的精确
+确定此基本电荷是个不变量，所有电量都是$e$的整数倍（夸克等是分数倍）．
+不过在实际使用过程中一般不选$e$作为无量纲化的特征量，一般选择
+$\epsilon_0$或者$\mu_0$中的一个．
+
+如果涉及引力，那么牛顿万有引力常数$G$就可以作为无量纲化特征量．
+再补上量子论中的普适常数$\hbar$，就有4个基础物理常数：
+$\hbar,c,\mu_0,G$．
+
+前面我们说过，温度本质是能量，通过设置$k_B=1$就可以去除这个基本量纲．
+摩尔本身是数数，就是无量纲的．发光强度也是导出量，只是因为人眼视见函数
+才把它作为基本量；本附录中不讨论发光强度这个量纲．
+除去温度、物质的量、发光强度后，七个基本量只剩下四个，用上面给出
+的四个基础物理常数就可以将整个物理学中的变量都无量纲化．
+这就是下面要简要介绍的{\kaishu 普朗克单位制}．
+
+\subsection{普朗克单位制}
+这是自然单位制较为常用的一种．
+
+令物理量[\si{P}]是SI制下的距离[\si{d}]，即令
+$\alpha=1,\beta=0,\gamma=0,\delta=0$，
+带入公式\eqref{chunit-dim:eqn_dimensionless-0}和
+\eqref{chunit-dim:eqn_dimensionless-1}；
+则有$w=\frac{1}{2},x=-\frac{3}{2},y=0,z=\frac{1}{2}$，
+即[\si{d}/($\sqrt{\hbar G/c^3}$)]=\num{1}，
+一般记作$l_{\rm P}=\sqrt{\hbar G/c^3}$．
+
+令物理量[\si{P}]是SI制下的质量[\si{Mass}]，即令
+$\alpha=0,\beta=1,\gamma=0,\delta=0$，
+带入公式\eqref{chunit-dim:eqn_dimensionless-0}和
+\eqref{chunit-dim:eqn_dimensionless-1}；
+则有$w=\frac{1}{2},x=\frac{1}{2},y=0,z=-\frac{1}{2}$，
+即$m_{\rm P}=\sqrt{\hbar c/G}$．
+
+令物理量[\si{P}]是SI制下的时间[\si{time}]，即令
+$\alpha=0,\beta=0,\gamma=1,\delta=0$，
+带入公式\eqref{chunit-dim:eqn_dimensionless-0}和
+\eqref{chunit-dim:eqn_dimensionless-1}；
+则有$w=\frac{1}{2},x=-\frac{5}{2},y=0,z=\frac{1}{2}$，
+即$t_{\rm P}=\sqrt{\hbar G/c^5}$．
+
+令物理量[\si{P}]是SI制下的电流[\si{i}]，即令
+$\alpha=0,\beta=0,\gamma=0,\delta=1$，
+带入公式\eqref{chunit-dim:eqn_dimensionless-0}和
+\eqref{chunit-dim:eqn_dimensionless-1}；
+则有$w=0,x=2,y=-\frac{1}{2},z=-\frac{1}{2}$，
+即$i_{\rm P}=\sqrt{c^4/\mu_0 G}\approx \num{9.8e24}  \si{A}$．
+通常情况下普朗克电荷比普朗克电流更具通用性
+（其原因是普朗克电荷不含万有引力常数，精度较高），
+其表达式为
+$q_{\rm P}=i_{\rm P} t_{\rm P}=\sqrt{\hbar/\mu_0 c}
+=\sqrt{\epsilon_0\hbar c}=e/\sqrt{4\pi \alpha} \approx \num{3.3}\times e$．
+这里给出的是有理化普朗克电荷，无理化量需乘以$\sqrt{4\pi}$，
+即 $q'_{\rm P}=\sqrt{4\pi}q_{\rm P}=\sqrt{4\pi\epsilon_0\hbar c}
+=e/\sqrt{\alpha}\approx\num{11.7}\times e \approx\num{1.87d-18}\si{C}$．
+
+
+表中还列出了普朗克电荷与温度，这两个量可以由上面四个量导出．
+既然SI制中的质量、长度、时间、电流可以用普朗克特征量
+$m_{\mathrm{P}},l_{\mathrm{P}},t_{\mathrm{P}},i_{\mathrm{P}}$
+来无量纲化，这样整个物理系统就都是无量纲的．
+
+\begin{table}[htb]
+    \centering
+    \caption{基本普朗克单位} \label{tab:planck-const}
+    \begin{tabular}{ccll}
+        \toprule
+        单位名称 & 量纲 & 表达式 & SI制下数值 \\
+        \midrule
+        普朗克长度 & \si{L}   & $l_{\rm P}=\sqrt{\hbar G/c^3}$     & \num{1.616255d-35} \si{m}  \\
+        普朗克质量 & \si{M}   & $m_{\rm P}=\sqrt{\hbar c/G}$       & \num{2.176434d-8}  \si{kg} \\
+        普朗克时间 & \si{T}   & $t_{\rm P}=\sqrt{\hbar G/c^5}$     & \num{5.391247d-44} \si{s} \\
+        普朗克电荷 & \si{Q}   & $q_{\rm P}=\sqrt{\hbar/\mu_0 c}$   & \num{5.290817459d-19} \si{C} \\
+        普朗克温度 & $\Theta$ & $T_{\rm P}=\sqrt{\hbar c^5/G k^2_{\rm B}}$ & \num{1.416784e32}  \si{K}  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+我们来看看普朗克单位制和SI制的关系．
+以磁感应强度为例来说明如何无量纲化，
+它在SI制下量纲是$[\boldsymbol{B}]=\si{M^{}T^{-2}I^{-1}} $，
+将$\alpha=0,\beta=1,\gamma=-2,\delta=-1$
+带入上式\eqref{chunit-dim:eqn_dimensionless-1}
+后就有$w=-\frac{1}{2},x=\frac{7}{2},y=\frac{1}{2} ,z=-1$，令
+\begin{equation*}
+\bar{\boldsymbol{B}} = \dfrac{\boldsymbol{B}}{\hbar^{-\frac{1}{2}}c^{\frac{7}{2}}\mu_0^{\frac{1}{2}}G^{-1}}
+= \dfrac{\num{1}\si{M^{}T^{-2}I^{-1}}}{m_{\rm P} t_{\rm P}^{-2} i_{\rm P}^{-1}}
+\approx \num{7.6e53}  .
+\end{equation*}
+其中$\bar{\boldsymbol{B}}$是无量纲化的磁感应强度．
+将\num{1}\si{Tesla}的数值带入后，
+可得无量纲化值．
+
+
+再举一例．在SI制下，一个质量为\num{100}\si{kg}的人，在普朗克单位制下就是
+$\num{100}\si{kg}/m_{\rm P}
+=  \num{100}\si{kg}/\sqrt{\hbar c/G}
+= \num{100}\si{kg}/(\num{2.176434d-8}\si{kg} )\approx \num{4.6e9} $．
+%结果是无量纲的纯数．
+
+从普朗克制到SI制，按如下方式变换．
+比如普朗克无量纲化后的两地距离是$2\times 10^{35}$，那恢复到SI制后，两地距离就是
+$2\times 10^{35}\times l_{\rm{P}}=2\times 10^{35}\times \sqrt{\hbar G/c^3} =
+2\times 10^{35}\times \num{1.616255d-35} \si{m} = \num{3.23251} \si{m}$．
+
+再比如普朗克无量纲化后某质点速度是$\num{1d-8}$，那恢复到SI制后，该质点速度是
+$\num{1d-8}\times l_{\rm P }/t_{\rm P}
+= \num{1d-8} \times \frac{\num{1.616255d-35}}{\num{5.391247d-44}} \si{m/s}
+= \num{2.99792458}\si{m/s}$．
+
+其它量纲物理量在普朗克无量纲化后值与SI制下值关系皆可类推．
+
+
+\subsection{引力论中的自然单位制}\label{chunit-dim:sec_gravity}
+在量子引力中可以用普朗克自然单位制．在经典引力论中，一般不涉及量子化问题，
+所以一般不引进普朗克常数$\hbar$．
+在经典引力场中选择$c,\mu_0, G$为特征量去无量纲化系统，
+这样，系统仍会保留一个量纲，一般保留质量即可；这种自然单位制也称为{\heiti 几何单位制}．
+三个特征量的量纲是：
+\begin{align*}
+[c] = \si{LT^{-1}}, \quad [\mu_0] = \si{L^{}M^{}T^{-2}I^{-2}},  \quad [G] = \si{L^{3}M^{-1}T^{-2}} .
+\end{align*}
+设任一物理量$P$的量纲为$[P]=\si{L}^\alpha \si{M}^\beta \si{T}^\gamma \si{I}^\delta$．令
+\begin{equation}\label{chunit-dim:eqn_dimensionless-gravity-0}
+\dfrac{[P]}{[c]^x[\mu_0]^y[G]^z}
+= \frac{\si{L}^\alpha \si{M}^\beta \si{T}^\gamma \si{I}^\delta}
+{(\si{LT^{-1}})^x (\si{L^{}M^{}T^{-2}I^{-2}})^y (\si{L^{3}M^{-1}T^{-2}})^z } .
+%= \frac{\si{L}^\alpha \si{M}^\beta \si{T}^\gamma \si{I}^\delta}
+%{\si{L}^{x+y+3z}  \si{M}^{y-z} \si{T}^{-x-2y-2z} \si{I}^{-2y} }
+\end{equation}  %\setlength{\mathindent}{27pt}
+由于我们要保留质量量纲[\si{M}]，所以不处理这个方程．
+令其它几个量纲幂次为零，得到下列代数方程：
+\begin{equation}\label{chunit-dim:eqn_dimensionless-gravity-1}
+\begin{cases}
+{x+y+3z = \alpha } \\
+{-x-2y-2z = \gamma } \\
+{ - 2y = \delta }
+\end{cases}  \quad {\color{red}\Rightarrow} \quad
+\begin{pmatrix}
+x \\   y \\     z
+\end{pmatrix}  =  \begin{pmatrix}
+-2&-3&-4 \\
+0&0&1 \\
+1&1&1
+\end{pmatrix} \begin{pmatrix}
+\alpha  \\   \gamma  \\    - \frac{1}{2}\delta
+\end{pmatrix}.
+\end{equation}
+上面第一个方程是关于长度$\si{L}$的方程，第二个是关于时间$\si{T}$的方程，
+第三个是关于电流$\si{I}$的方程；省略了关于质量$\si{M}$的方程．
+很显然如果物理量\si{P}不是电磁学量，那$\mu_0$的幂次$y\equiv 0$．
+
+令物理量[\si{P}]是SI制下的距离[\si{d}]，即把
+$\alpha=1,\beta=0,\gamma=0,\delta=0$
+带入式\eqref{chunit-dim:eqn_dimensionless-gravity-1}，
+得到$x=-2,y=0,z=1$；
+再带入式\eqref{chunit-dim:eqn_dimensionless-gravity-0}，
+得到[\si{d}/($c^{-2}G$)]=\si{M}．
+也就是在自然单位制中，距离的量纲是质量．
+
+令物理量[\si{P}]是SI制下的质量[\si{Mass}]，即把
+$\alpha=0,\beta=1,\gamma=0,\delta=0$
+带入公式\eqref{chunit-dim:eqn_dimensionless-gravity-0}和
+\eqref{chunit-dim:eqn_dimensionless-gravity-1}；
+则有$x=0,y=0,z=0$，即[\si{Mass}/($1$)]=\si{M}，
+也就是在自然单位制中，质量的量纲是质量．当然如此，否则就错了．
+
+令物理量[\si{P}]是SI制下的时间[\si{time}]，即把
+$\alpha=0,\beta=0,\gamma=1,\delta=0$
+带入公式\eqref{chunit-dim:eqn_dimensionless-gravity-0}和
+\eqref{chunit-dim:eqn_dimensionless-gravity-1}；
+则有$x=-3,y=0,z=1$，即[\si{time}/($c^{-3}G$)]=\si{M}，
+也就是在自然单位制中，时间的量纲是质量．
+
+令物理量[\si{P}]是SI制下的电流[\si{i}]，即把
+$\alpha=0,\beta=0,\gamma=0,\delta=1$
+带入公式\eqref{chunit-dim:eqn_dimensionless-gravity-0}和
+\eqref{chunit-dim:eqn_dimensionless-gravity-1}；
+则有$x=2,y=z=-\frac{1}{2}$，即[\si{i}/$(c^2(\mu_0 G)^{-1/2})$]=\si{1}，
+这说明电流是无量纲的．
+
+其物理量量纲可仿照上述作法来求得，已列在表\ref{chunit-dim:unitdimenG}中．
+
+\begin{example}
+    表\ref{chunit-dim:unitdimenG}中物理量的自然单位制与SI单位制互换．
+\end{example}
+\noindent {\heiti 解}：以速度为例来说明这个互换过程．
+在SI制下速度$v$的量纲是\si{LT^{-1}}；在几何单位制下是无量纲的，将其记为$\bar{v}$．
+表\ref{chunit-dim:unitdimenG}最后一列表示SI单位制下的物理量与几何单位制下物理量之比，
+即$SI/GU=v/\bar{v}=c$，也就是$v=\bar{v} \cdot c$．
+换句话说，可以把$SI/GU$列当成特征量去乘自然单位制下的物理量．
+再比如SI制下的电荷密度$\rho_e$与自然单位制下的电荷密度$\bar{\rho}_e$的换算关系
+是 $\rho_e =\bar{\rho}_e \cdot c^{5} /\sqrt{\mu_0 G^5}$ ．
+下一节中SI制量与自然单位制量的换算关系与本例类似．
+\qed
+
+\begin{example}
+    上面例题的简便记忆方法．
+\end{example}
+\noindent {\heiti 解}：
+以磁感应强度为例来说明，
+它在SI制下量纲是$[\boldsymbol{B}]=\si{M^{}T^{-2}I^{-1}} $，
+我们只需把表\ref{chunit-dim:unitdimenG}中的质量、时间和电流强度行中的最后一列
+带入如下式子即可
+\begin{equation*}
+    \bar{\boldsymbol{B}} = \frac{\boldsymbol{B}}{m t^{-2} i^{-1}}
+    = \dfrac{\boldsymbol{B} \ ( [\boldsymbol{B}] = \si{M^{}T^{-2}I^{-1}})}
+    {1\cdot (c^{-3}G)^{-2} (c^2 /\sqrt{\mu_0 G})^{-1}}
+    =\dfrac{\boldsymbol{B}} {c^{4} \sqrt{\mu_0/G^{3}}} .
+\end{equation*}
+其中$\bar{\boldsymbol{B}}$是几何单位制下的磁感应强度．
+\qed
+
+
+\begin{longtable}{|*5{l|}}
+    \caption{引力论中常用量单位及量纲}    \label{chunit-dim:unitdimenG}  \\    \hline
+    物理量 & 符号   &   \si{SI}制   &    几何单位制 &  $SI/GU$  \\ \hline
+    \endfirsthead
+    \multicolumn{2}{l}{（续表）} \\ \hline
+    物理量 & 符号   &   \si{SI}制   &   几何单位制  &  $SI/GU$ \\ \hline
+    \endhead \hline
+    \multicolumn{2}{c}{（接下一页表格……）} \\[2ex]
+    \endfoot
+    %\hline
+    \endlastfoot
+    % data begins here
+    长度 & $l$ & \si{L} &  \si{M^{}} & $c^{-2}G$ \\
+    质量 & $m$ & \si{M} &  \si{M^{}}&  ${1}$ \\
+    时间 & $t$ & \si{T} &  \si{M^{}} & $c^{-3}G$ \\
+    速度 & $v$ & \si{LT^{-1}}  & \si{1}& $c$ \\
+    加速度 & $a$ & \si{LT^{-2}}  & \si{M^{-1}}      & $c^4 G^{-1}$ \\
+    动量 & $p$ & \si{L^{}M^{}T^{-1}}    & \si{M^{}} & $c^{}$ \\
+    角动量 & $L$ & \si{L^{2}M^{}T^{-1}}   & \si{M^{2}}&  $c^{-1}G$ \\
+    能量 & $E,W$ & \si{L^{2}M^{}T^{-2}}   &  \si{M^{}} & $c^2$ \\
+    引力势 & $\Phi$ & \si{L^{2}M^{}T^{-2}}   &  \si{M} & $c^{2}$ \\
+    力 & $F$ & \si{L^{}M^{}T^{-2}}   &  \si{1} & $c^{4}G^{-1}$ \\
+    功率 & $P$ & \si{L^{2}M^{}T^{-3}}     & \si{1}&  $c^{5}G^{-1}$ \\
+    质量密度 & $\rho_m$ & \si{L^{-3}M^{}}     & \si{M^{-2}}&  $c^{6}G^{-3}$ \\
+    压强 & $Pre$ & \si{L^{-1}M^{}T^{-2}}     & \si{M^{-2}}&  $c^{8}G^{-3}$ \\
+    能量密度 & $E/V$     &  \si{L^{-1}M^{}T^{-2}}      &   \si{M^{-2}}&   $c^{8}G^{-3}$ \\
+    能流密度 & $S$ & \si{M^{}T^{-3}}    & \si{M^{-2}} & $c^{9}G^{-3}$ \\
+    拉氏密度 & $\mathscr{L}$     &  \si{L^{-1}M^{}T^{-2}}      &   \si{M^{-2}}&   $c^{8}G^{-3}$ \\
+    电流强度 & $I$     &   \si{I}        & \si{1}  &$c^2 /\sqrt{\mu_0 G}$ \\
+    电流强度矢量 & $\boldsymbol{j,J}$     &   \si{L^{-2}I}        &  \si{M^{-2}} & $c^{6} /\sqrt{\mu_0 G^5}$ \\
+    电荷 & $q,Q$     &   \si{TI}        &  \si{M} & $c^{-1} \sqrt{G/\mu_0}$ \\
+    电荷密度 & $\rho_e$     &   \si{L^{-3}TI}      &   \si{M^{-2}} & $c^{5} /\sqrt{\mu_0 G^5}$ \\
+    电标量势 & $U,\phi$  &   \si{L^{2}M^{}T^{-3}I^{-1}}       &   \si{1}& $c^{3} \sqrt{\mu_0 /G}$ \\
+    电场强度 &  $\boldsymbol{E}$   &   \si{L^{}M^{}T^{-3}I^{-1}}    &  \si{M^{-1}} & $c^{5} \sqrt{\mu_0 /G^3}$  \\
+    磁矢量势 & $\boldsymbol{A}$     &   \si{L^{}M^{}T^{-2}I^{-1}}      &  \si{1} &  $c^{2} \sqrt{\mu_0 /G}$ \\
+    电磁场张量 & $F^{\mu\nu}$ &   \si{M^{}T^{-2}I^{-1}}      &  \si{M^{-1}} & $c^{4} \sqrt{\mu_0 /G^3}$  \\
+    磁感应强度 & $\boldsymbol{B}$     &   \si{M^{}T^{-2}I^{-1}}      &  \si{M^{-1}} & $c^{4} \sqrt{\mu_0 /G^3}$  \\
+    磁荷 & $q_m$     &   \si{LI}      &   \si{M}&   $\sqrt{ G/ \mu_0}$ \\
+    真空介电常数 & $\epsilon_0$    &   \si{L^{-3}M^{-1}T^{4}I^{2}} &  \si{1}  & $c^{-2} \mu_0^{-1}$\\
+    %真空磁导率 & $\mu_0$  &   \si{L^{}M^{}T^{-2}I^{-2}}       & \si{1}  & $\mu_0$\\
+    %万有引力常数 & $G$ & \si{L^{3}M^{-1}T^{-2}}  &  \si{1} & $G$\\
+    %    玻尔兹曼常数 & $k_B$ & \si{L^{2}M^{}T^{-2}}$\Theta^{-1}$   & N.A. & N.A. \\
+    % more data here
+    \hline
+\end{longtable}
+表\ref{chunit-dim:unitdimenG}最后一列的$SI/GU$表示SI单位制下的物理量与几何单位制下物理量之比．
+几何单位制那一列是以SI制为基准单位的，其中\si{1}表示无量纲．
+
+
+\begin{example}
+    从自然单位制到国际单位制的变换．
+\end{example}
+\noindent {\heiti 解}：
+同样以磁感应强度（在SI制下量纲是$[\boldsymbol{B}]=\si{M^{}T^{-2}I^{-1}} $）为例来说明，
+只需把上例中的程序反过来即可，
+\begin{equation*}
+    \boldsymbol{B} = \bar{\boldsymbol{B}} \times {m t^{-2} i^{-1}}
+    = \bar{\boldsymbol{B}} \times
+    {1\cdot (c^{-3}G)^{-2} (c^2 /\sqrt{\mu_0 G})^{-1}}
+    =\bar{\boldsymbol{B}} \times  {c^{4} \sqrt{\mu_0/G^{3}}} .
+\end{equation*}
+其中$\bar{\boldsymbol{B}}$是几何单位制下的磁感应强度．
+\qed
+
+
+\subsubsection{基本量的量纲}\label{chunit-dim:sec_basic-dim}
+本小节分析一下广义相对论中基本物理、几何量在国际单位制下的量纲．
+
+度规的线元表达式为${\rm d}s^2 = g_{\mu\nu} {\rm d}x^\mu {\rm d}x^\nu$，
+其中${\rm d}s^2$的量纲是已知的，即长度平方\si{L^{2}}．
+由于坐标$x^\mu$的量纲不是固定的，可能是长度也可能是无量纲的，
+故我们没有办法确定度规分量$g_{\mu\nu}$的量纲．
+但抽象指标下的度规是绝对量，$g_{ab}=g_{\mu\nu} ({\rm d}x^\mu)_a ({\rm d}x^\nu)_b$，
+故有$[g_{ab}]=\si{L^{2}}$，以及$[g^{ab}]=\si{L^{-2}}$、$[\delta^{a}_b]=1$．
+
+虽然无法判断$g_{\mu\nu}$、$x^\rho$的量纲，但是无限小积分体积元的量纲是确定的，
+即$\left[\sqrt{|\det(g_{\mu\nu})|}\,{\rm d} x^1\cdots {\rm d} x^D\right]={\rm L}^D$（$D$是时空维数，相对论取$D=4$）．
+这是因为：行列式$\det(g_{\mu\nu})$展开后是诸如$g_{11}\cdots g_{DD}$之类的代数和（共$n!$项）；
+而$([g_{11}][{\rm d} x^1 {\rm d} x^1] )\cdots ([g_{DD}][{\rm d} x^D {\rm d} x^D] )= {\rm L}^{2D}$，
+行列式的展开式的每一项再结合${\rm d} x^\mu {\rm d} x^\nu $之后的量纲都是相同的；
+故可得上述无限小积分体积元的量纲．
+
+抽象指标下的自然坐标偏导数是$\partial_a =({\rm d }x^j)_a \frac{\partial}{\partial x^j}$，
+故有$[\partial_a]=1$，即坐标偏导数是无量纲的．
+很明显第二克氏符（$\Gamma_{ab}^c = \frac{1}{2}{g^{ce}}\left( {\frac{{\partial {g_{ae}}}}{{\partial {x^b}}}
+    + \frac{{\partial {g_{eb}}}}{{\partial {x^a}}}  - \frac{{\partial {g_{ab}}}}
+    {{\partial {x^e}}}} \right)$）是无量纲的，$[\Gamma_{ab}^c]=1$．
+由此可得协变导数也是无量纲的，$[\nabla_{a}]=1$．
+
+由黎曼曲率定义（${\nabla_a}{\nabla_b}{\omega_c} - {\nabla_b}{\nabla_a}{\omega_c}
+= -R_{cab}^e{\omega _e}$）可知：$[R_{cab}^e]=1$．
+进而可知$[R_{dcab}]=[g_{de}R_{cab}^e]=\si{L^{2}}$；
+Ricci曲率$[R_{cb}]=[g^{da}R_{dcab}]=1$；
+标量曲率$[R]=[g^{cb}R_{cb}]=\si{L^{-2}}$．
+
+
+四维时空中，超曲面单位法矢量（见\pageref{chsm:eqn_unit-normal-Phi}页的式\eqref{chsm:eqn_unit-normal-Phi}）量纲：
+$[n^a]={\rm L}^{-1}$、$[n_a]={\rm L}$．
+外曲率（$K_{ab} =- {\rm D}_a n_b$、$K = g^{ab} K_{ab}$）的量纲：
+$[K_{ab}]={\rm L}$、$[K]={\rm L}^{-1}$．
+
+
+电磁规范势$[A^a]=[A^\mu (\frac{\partial}{\partial x^\mu})^a]= \si{M^{}T^{-2}I^{-1}}$．
+电磁张量$[F^{ab}]=[\partial^a A^b]=\si{L^{-2}M^{}T^{-2}I^{-1}}$，
+$[F_{ab}]=[\partial_a A_b]=\si{L^{2}M^{}T^{-2}I^{-1}}$，
+$[F_{a}^b]=[g_{ac} F^{cb}]=\si{M^{}T^{-2}I^{-1}}$．
+
+电磁场能动张量$[T_{ab}]=[\frac{1}{\mu_0} F_{ac} F_{b}^{\cdot c}]
+%=(\si{L^{}M^{}T^{-2}I^{-2}})^{-1} \si{L^{2}M^{}T^{-2}I^{-1}} \si{M^{}T^{-2}I^{-1}}
+= \si{L^{}M^{}T^{-2}}  $；也可以这样理解它的量纲，
+$[T_{ab}]=T_{\mu\nu}({\rm d}x^\mu)_a ({\rm d}x^\nu)_b=\si{L^{}M^{}T^{-2}}$，
+即能量密度乘长度平方．
+
+
+\subsection{量子化电磁场的自然单位制}\label{chunit-dim:sec_qed}
+如果不涉及引力，比如在相对论量子电磁动力学（QED）中，
+这个时候没有理由再把万有引力常数$G$选作无量纲特征量，
+因此选择$\hbar,c,\mu_0$去无量纲化系统，
+这样，系统仍会保留一个量纲，
+可以是质量、能量、长度、时间、频率、电荷等中的任意一个，
+多数人会选择保留能量量纲．
+无量纲化后，$\hbar,c,\mu_0$本身自然也被无量纲为1的纯数，进而
+$\epsilon_0$也是1；电子电荷$e$本身也成为无量纲量，其数值是
+$e=\sqrt{\alpha\cdot 4\pi \hbar c \epsilon_0} =
+\sqrt{4\pi\alpha}\approx \num{0.303}$，
+$\alpha$是精细结构常数．
+为了保留能量量纲，我们把$\hbar,c,\mu_0$中的质量量纲换成能量量纲[\si{W}]．
+\begin{equation*}
+  [c] = \si{LT^{-1}},\quad  [\hbar] = \si{L^{2}M^{}T^{-1}} = \si{W^{}T^{}}, \quad
+  [\mu_0] = \si{L^{}M^{}T^{-2}I^{-2}}= \si{L^{-1}W^{}I^{-2}} .
+\end{equation*}
+设任一物理量$P$的量纲为$[P]=\si{L}^\alpha \si{W}^\beta \si{T}^\gamma \si{I}^\delta$．令
+\begin{equation}\label{chunit-dim:eqn_dimensionless-qed-0}
+  \dfrac{[P]}{[\hbar]^x[c]^y[\mu_0]^z}
+  = \frac{\si{L}^\alpha \si{W}^\beta \si{T}^\gamma \si{I}^\delta}
+    {(\si{W^{}T^{}} )^x (\si{LT^{-1}})^y (\si{L^{-1}W^{}I^{-2}})^z }
+  = \frac{\si{L}^\alpha \si{W}^\beta \si{T}^\gamma \si{I}^\delta}
+    {\si{L}^{y-z}  \si{W}^{x+z} \si{T}^{x-y} \si{I}^{-2z} } .
+\end{equation}
+由于我们要保留能量量纲[\si{W}]，所以不处理这个方程．
+令其它几个量纲幂次为零，得到下列代数方程
+\begin{equation}\label{chunit-dim:eqn_dimensionless-qed-1}
+  \left\{ \begin{array}{*{20}{c}}
+    {y - z = \alpha } \\
+    {x - y = \gamma } \\
+    { - 2z = \delta }
+    \end{array} \right. \quad {\color{red}\Rightarrow} \quad
+    \begin{pmatrix}
+      x \\   y \\     z
+    \end{pmatrix}  =  \begin{pmatrix}
+      1&1&1 \\
+      1&0&1 \\
+      0&0&1
+    \end{pmatrix} \begin{pmatrix}
+      \alpha  \\   \gamma  \\    - \frac{1}{2}\delta
+    \end{pmatrix}.
+\end{equation}
+很显然如果物理量\si{P}不是电磁学量，那$\mu_0$的幂次$z\equiv 0$．
+
+令物理量[\si{P}]是SI制下的距离[\si{d}]，即把
+$\alpha=1,\beta=0,\gamma=0,\delta=0$
+带入公式\eqref{chunit-dim:eqn_dimensionless-qed-0}和
+\eqref{chunit-dim:eqn_dimensionless-qed-1}；
+则有$x=1,y=1,z=0$，即[\si{d}/($\hbar c$)]=\si{W}$^{-1}$，
+也就是在自然单位制中，距离的量纲是能量的倒数．
+
+
+令物理量[\si{P}]是SI制下的能量[\si{Energy}]，即把
+$\alpha=0,\beta=1,\gamma=0,\delta=0$
+带入公式\eqref{chunit-dim:eqn_dimensionless-qed-0}和
+\eqref{chunit-dim:eqn_dimensionless-qed-1}；
+则有$x=0,y=0,z=0$，即[\si{Energy}/($1$)]=\si{W}，
+也就是在自然单位制中，能量的量纲是能量．当然如此，否则就错了．
+SI制下质量的量纲在自然单位制下也是能量．
+
+令物理量[\si{P}]是SI制下的时间[\si{time}]，即把
+$\alpha=0,\beta=0,\gamma=1,\delta=0$
+带入公式\eqref{chunit-dim:eqn_dimensionless-qed-0}和
+\eqref{chunit-dim:eqn_dimensionless-qed-1}；
+则有$x=1,y=0,z=0$，即[\si{time}/($\hbar$)]=\si{W}$^{-1}$，
+也就是在自然单位制中，时间的量纲是能量的倒数．
+
+
+
+
+\begin{longtable}{|*5{l|}}
+    \caption{电磁学常用单位及量纲}  \label{chunit-dim:unitdimen}  \\    \hline
+    物理量 & 符号   &   \si{SI}制   &   自然单位制 &  $SI/NU$  \\ \hline
+    \endfirsthead
+    \multicolumn{2}{l}{（续表）} \\ \hline
+    物理量 & 符号   &   \si{SI}制   &   自然单位制 &  $SI/NU$ \\ \hline
+    \endhead \hline
+    \multicolumn{2}{c}{（接下一页表格……）} \\ [2ex]
+    \endfoot
+    %\hline
+    \endlastfoot
+    % data begins here
+    长度 & $l$ & \si{L} &  \si{W^{-1}} & $\hbar c$ \\
+    质量 & $m$ & \si{M} &  \si{W^{}}   & $c^{-2}$ \\
+    时间 & $t$ & \si{T} &  \si{W^{-1}} & $\hbar$ \\
+    速度 & $v$ & \si{LT^{-1}}  & \si{1}& $c$ \\
+    加速度 & $a$ & \si{LT^{-2}}  & \si{W^{}}& $\hbar^{-1} c$ \\
+    动量 & $p$ & \si{L^{}M^{}T^{-1}}    & \si{W^{}} & $c^{-1}$ \\
+    角动量 & $L$ & \si{L^{2}M^{}T^{-1}}   & \si{1}&  $\hbar$ \\
+    能量 & $E,W$ & \si{L^{2}M^{}T^{-2}}   &  \si{W^{}} & \si{1} \\
+%    力 & $F$ & \si{L^{}M^{}T^{-2}}   &  \si{W^{2}} & $\hbar^{-1}c^{-1}$ \\
+%    功率 & $P$ & \si{L^{2}M^{}T^{-3}}     & \si{W^2}&  $\hbar^{-1}$ \\
+    质量密度 & $\rho_m$ & \si{L^{-3}M^{}}     & \si{W^{4}}&  $\hbar^{-3}c^{-5}$  \\
+    压强 & $P$ & \si{L^{-1}M^{}T^{-2}}     & \si{W^{4}}&  $\hbar^{-3}c^{-3}$ \\
+    拉氏密度 & $\mathscr{L}$     &  \si{L^{-1}M^{}T^{-2}}      &   \si{W^4}&   $\hbar^{-3}c^{-3}$ \\
+    能量密度 & $E/V$     &  \si{L^{-1}M^{}T^{-2}}      &   \si{W^4}&   $\hbar^{-3}c^{-3}$ \\
+    能流密度 & $S$ & \si{M^{}T^{-3}}    & \si{W^{4}} & $\hbar^{-3}c^{-2}$ \\
+    电流强度 & $I$     &   \si{I}        & \si{W^{}}  &$(\hbar c \mu_0)^{-1/2}$ \\
+    电荷 & $q,Q$     &   \si{TI}        &  \si{1} & $\sqrt{\hbar/(c\mu_0)}$\\
+    电荷密度 & $\rho_e$     &   \si{L^{-3}TI}      &   \si{W^{3}} & $(\hbar^5 c^7 \mu_0)^{-1/2}$ \\
+    电流强度矢量 & $\boldsymbol{j,J}$     &   \si{L^{-2}I}        &  \si{W^{3}} & $(\hbar^5 c^5 \mu_0)^{-1/2}$ \\
+    电场强度 &  $\boldsymbol{E}$   &   \si{L^{}M^{}T^{-3}I^{-1}}    &  \si{W^{2}} & $\sqrt{\mu_0 /(\hbar^3c)}$  \\
+    电标量势 & $U,\phi$  &   \si{L^{2}M^{}T^{-3}I^{-1}}       &   \si{W}&  $\sqrt{c\mu_0 /\hbar}$\\
+%    极化强度 & $\boldsymbol{P}$     &   \si{L^{-2}T^{}I^{}}       & \si{W^{2}} &  $(\hbar^3 c^5 \mu_0)^{-1/2}$\\
+%    电位移矢量 & $\boldsymbol{D}$     &   \si{L^{-2}T^{}I^{}}      &  \si{W^{2}}&   $(\hbar^3 c^5 \mu_0)^{-1/2}$ \\
+%    电导率 &   $\sigma$   &   \si{L^{-3}M^{-1}T^{3}I^{2}}       &  \si{W^{}}&  $\hbar^{-1} c^{-2} \mu_0^{-1}$\\
+%    电阻 & $R$     &   \si{L^{2}M^{}T^{-3}I^{-2}}       &  \si{1}&  $c \mu_0$\\
+%    电容 & $C$     &   \si{L^{-2}M^{-1}T^{4}I^{2}}      &  \si{W^{-1}}&  $\hbar/(c \mu_0)$\\
+%    电感 & $L$     &   \si{L^{2}M^{}T^{-2}I^{-2}}     &  \si{W^{-1}}&   $\hbar c \mu_0$ \\
+    $0$自旋场& $\Phi$ & \si{L^{-3/2}M^{-1/2}} & \si{W} & $\hbar^{-3/2} c^{-1/2}$ \\
+    $\frac{1}{2}$自旋场& $\psi$ & \si{L^{-3/2}} & \si{W^{3/2}} & $(\hbar c)^{-3/2} $ \\
+    磁矢量势 & $\boldsymbol{A}$     &   \si{L^{}M^{}T^{-2}I^{-1}}      &  \si{W^{}} &  $\sqrt{ \mu_0/(\hbar c)}$ \\
+    电磁场张量 & $F^{\mu\nu}$ &   \si{M^{}T^{-2}I^{-1}}      &  \si{W^{2}} &  $\sqrt{ \mu_0/(\hbar c)^3}$   \\
+    磁感应强度 & $\boldsymbol{B}$     &   \si{M^{}T^{-2}I^{-1}}      &  \si{W^{2}}&  $\sqrt{ \mu_0/(\hbar c)^3}$ \\
+    磁场强度 & $\boldsymbol{H}$     &   \si{L^{-1}I^{}}        &  \si{W^{2}} & $(\hbar^3 c^3 \mu_0)^{-1/2}$ \\
+%    磁化强度 & $\boldsymbol{M}$     &   \si{L^{-1}I^{}}       &  \si{W^{2}}&  $(\hbar^3 c^3 \mu_0)^{-1/2}$ \\
+%    磁极化强度 & $\boldsymbol{J}$   &   \si{M^{}T^{-2}I^{-1}}       &  \si{W^{2}} & $\sqrt{ \mu_0/(\hbar c)^3}$  \\
+%    磁通量 & $\Phi_{\rm B}$   &   \si{L^{2}M^{}T^{-2}I^{-1}}       &  \si{1}  &  $\sqrt{ \hbar c \mu_0}$ \\
+    磁荷 & $q_m$     &   \si{L^{}I^{}}      &   \si{1}&   $\sqrt{ \hbar c /\mu_0}$ \\
+    真空介电常数 & $\epsilon_0$    &   \si{L^{-3}M^{-1}T^{4}I^{2}} &  \si{1}  & $c^{-2} \mu_0^{-1}$\\
+%    真空磁导率 & $\mu_0$  &   \si{L^{}M^{}T^{-2}I^{-2}}       & \si{1}  & $\mu_0$\\
+%    普朗克常数 & $\hbar$ & \si{L^{2}M^{}T^{-1}}  & \si{1} & $\hbar$\\
+%    万有引力常数 & $G$ & \si{L^{3}M^{-1}T^{-2}}  &  \si{W^{-2}} & $\hbar c^{5}$\\
+%    玻尔兹曼常数 & $k_B$ & \si{L^{2}M^{}T^{-2}}$\Theta^{-1}$   & N.A. & N.A. \\
+    % more data here
+    \hline
+\end{longtable}
+
+令物理量[\si{P}]是SI制下的电流[\si{i}]，即把
+$\alpha=0,\beta=0,\gamma=0,\delta=1$
+带入公式\eqref{chunit-dim:eqn_dimensionless-qed-0}和
+\eqref{chunit-dim:eqn_dimensionless-qed-1}；
+则有$x=y=z=-\frac{1}{2}$，即[\si{i}/$(\hbar c \mu_0)^{-1/2}$]=\si{W}，
+也就是在自然单位制中，电流的量纲是能量．
+
+其它物理量量纲可仿照上述作法来求得，已列在表\ref{chunit-dim:unitdimen}中．
+
+表\ref{chunit-dim:unitdimen}最后一列的$SI/NU$表示SI单位制下的物理量与（量子）电磁自然单位制下物理量之比．
+自然单位制那一列是以SI制为基准单位的，其中\si{W}代表能量量纲；\si{1}表示无量纲．
+
+
+
+
+\subsection*{小结}
+上面几节在国际单位制基础上，选用几个基本常数来无量纲化单位制得到几种不同的自然单位制；
+这样做的目的是为了更加明显地将国际单位制与自然单位制联系起来，并阐明两者是如何转换的．
+需要强调的是，自然单位制不是必须构建在国际单位制之上的，是一种可以独立存在的单位制系统；
+一般的文献上都是独立构建各种自然单位制，与SI制是平行的．可参考文献\parencite[Ch. 5]{liang_cao2020}．
+
+
+
+
+\section{有理化单位制与无理化单位制}
+有理化单位制与无理化单位制的区别就是因子$4\pi$所处位置不同．
+麦克斯韦方程组里没有因子$4\pi$，
+库仑定律和毕奥-萨伐尔定律的方程里含有因子$4\pi$；
+属于{\kaishu 有理化单位制}，如国际单位制． 反之，
+麦氏方程组里含有因子$4\pi$，库仑定律等方程里没有因子$4\pi$；
+属于{\kaishu 无理化单位制}，如高斯单位制．
+
+
+
+\section{静电制、电磁制、高斯制}
+
+笔者无意介绍这些单位制，如果读者想了解详细内容，可请参阅文献\parencite{liang_cao2020}．
+
+    由于电磁学的庞大
+{\footnote{力矩的应用范围实在无法与电磁学相提并论，没有
+        必要单独给力矩设立基本量纲；当然如果给力矩也设立一个基本量纲也是允许的，
+        不会带来任何错误．}}，
+    在国际单位制中，为了区分电磁学量与力学量，
+    专门给电磁学赋予了一个基本量纲：电流强度．
+    这样，电容和距离的量纲就不同了．这是国际制的优势．
+
+
+    而在静电制、电磁制、高斯制中没有给电磁学另赋予基本量纲，
+    而是用力学量的量纲来表示；
+    这导致静电制、高斯制中的电容（以及电磁制中的电感）与距离在量纲上相同，
+    意义略显含混．这是它们的劣势．
+
+    在发现狭义相对论后，
+    电场$\boldsymbol{E}$、磁场$\boldsymbol{B}$被统一成反对称电磁张量$F_{\mu\nu}$，
+    电场、磁场具有相同的物理意义，它们应该具有相同的单位与量纲．
+    在国际单位制中，它们却有不同的量纲，对于理论物理来说这是不方便的，
+    这是国际制的劣势．
+    在任何一种自然单位制中，两者量纲皆相同．
+    {\footnote{这源于令光速$c=1$且无量纲．国际制中
+            电场、磁场量纲不同，相差一个光速$c$的量纲．}}
+
+
+
+    在高斯单位制和Heaviside--Lorentz单位制
+    {\footnote{这两种单位制主要区别是$4\pi$因子位置的不同．}}下，
+    $\boldsymbol{B,E}$确实具有相同的量纲，
+    这是此两种单位制的优势，很多理论物理学家因此而喜欢用它们．
+
+
+    从上面几种单位制的简单对比中，可以看到
+    是否给电磁学设立一个基本量纲是个矛盾的选择．
+
+\paragraph{思考题}
+当初建立国际单位制时，为何要把电场$\boldsymbol{E}$、磁场$\boldsymbol{B}$的
+量纲设为不同呢？没弄懂！其实只需重新定义磁场即可，令
+\begin{equation*}
+    \boldsymbol{B} =  \boldsymbol{B}_{old} c \quad \Leftrightarrow \quad
+    \boldsymbol{B}_{old} = \boldsymbol{B}/c
+\end{equation*}
+那么对于新定义的$\boldsymbol{B}$，麦克斯韦方程组变为
+\begin{equation*}
+    \nabla \cdot  \boldsymbol{E} = \dfrac{\rho }{\epsilon_0 }, \quad
+    \nabla \cdot  \boldsymbol{B} = 0,  \quad
+    \nabla \times \boldsymbol{E} = -\frac{\partial \boldsymbol{B}}{c\, \partial t} , \quad
+    \nabla \times \boldsymbol{B} = \frac{\partial \boldsymbol{E}}{c\, \partial t}
+                + {c\mu_0}\boldsymbol{J}.
+\end{equation*}
+其中各种电磁系数的数值以及量纲皆与国际制相同．
+这种新定义的磁场量纲与电场量纲便相同了，只不过数值变得特别大，
+原来的\SI{1}{Tesla}变成了\SI{299792458}{new Tesla}．
+新\si{new Tesla}的量纲是老\si{Tesla}量纲（\si{M^{}T^{-2}I^{-1}}）乘以速度量纲，
+即\si{L^{}M^{}T^{-3}I^{-1}}，这也是电场强度量纲．
+
+这样定义的磁场$\boldsymbol{B}$及相关量的量纲不会与力学量量纲相同，同时
+具有高斯制的优点．当然，现在的国际单位制不可能再作任何更改！
+
+
+
+\section*{总结}
+上面介绍了国际单位制、三种自然单位制，还有
+许多其它的单位制系统（如英制），这些单位制都是彼此独立的、平行的，
+每种单位制（有的需要些许补充）都可以独立描述
+整个物理系统．读者可以看到各种单位制并存的场面十分混乱，使用起来十分不便．
+各个领域、各个国家（或地区）统一到某种单位制
+{\footnote{自然首选国际单位制．}}
+有助于各种交流、支撑国际贸易等等．
+
+仍需再次强调：量的物理意义是否相同是由基本理论以及认识深度决定，物理意义相同的量归为一个量类．
+而量类的单位与量纲是\uwave{人为定制}的（如国际制、高斯制、英制、各种自然单位制等等），
+是可变的，不是量类的不变属性．既然有诸多人为因素，那量纲与单位制就很难公理化，或者
+说没有必要（也无可能）公理化．以后，如果物理学有新的科学发现，现有量纲与单位制不能
+满足这个新的理论时，再\uwave{定制}一个（或多个）新量纲便是；由此更可看出物理定律是
+科学发现，量纲、单位制是\uwave{人为选择}！
+
+
+
+
+\printbibliography[heading=subbibliography,title=附录\ref{chunit-dim}参考文献]
+
+\endinput
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+

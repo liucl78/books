@@ -1,0 +1,631 @@
+% !TeX spellcheck = <none>
+% !TeX encoding = UTF-8
+% 此文件从2022.3.04开始写作
+
+\chapter{后牛顿近似} \label{chppn}
+爱因斯坦引力场方程是非线性的，很难严格求解．
+由爱因斯坦本人提出并发展的后牛顿近似方法是处理引力束缚系统
+的常用方法．
+为了便于比较量级以及使用，本章以及下一章使用国际单位制；
+并且基本用分量语言来描述；坐标系则需要根据要处理的问题
+进行选取，如无特殊要求，我们选取固有坐标系（见\S\ref{chfd:sec_proper-coord}）．
+
+需要强调：所有张量场（除$g_{\mu\nu},\, g^{\mu\nu}$外）都
+需用洛伦兹度规$\eta_{\mu\nu},\, \eta^{\mu\nu}$来升降指标．
+由于我们采用的度规号差是$(-+++)$，故在三维纯空间部分，
+当用$\eta_{\mu\nu}$（或$\delta_{ij}$）升降指标时，只有象征意义，
+不会产生额外的正负号．正是这个原因，在纯空间部分本章很多公式等号两端
+的上下指标不匹配．
+
+本章主要参考了文献\parencite[Ch. 9]{weinberg_grav-1972}．
+%\parencite[Ch. 7-8]{xu-wu-1999}，
+%\parencite{poisson-will-2014}．
+
+\section{量级估算}
+只有清楚了各物理量的数量级，才能作可靠的近似．
+考虑一个由引力束缚在一起的质点系统（如太阳系）
+$M$、$r$、$v$分别代表质点的质量、平均距离和速度．
+根据位力定理
+\begin{equation}
+    v^2 \approx \frac{GM}{r} \equiv U .
+\end{equation}
+其中$U$是引力势函数，
+\begin{equation}
+    U = -\phi = +\int \frac{G \rho(\boldsymbol{y})}{|\boldsymbol{x}-\boldsymbol{y}|} {\rm d}^3y
+      = +\frac{G M }{r} .
+\end{equation}
+后牛顿近似中更喜欢用$U$，而不是$\phi$．
+对于太阳表面而言
+\begin{equation}
+    \frac{v^2}{c^2}=\frac{G M_{\odot} }{c^2 R_{\odot}} \approx 2 \times 10^{-6} .
+\end{equation}
+对于地球表面而言
+\begin{equation}
+    \frac{v^2}{c^2}=\frac{G M_{\oplus} }{c^2 R_{\oplus}} \approx 7 \times 10^{-10} .
+\end{equation}
+可见不论太阳还是地球表面都可看成弱引力场，
+在此区域飞行的质点速度$v/c$都不高．令
+\begin{equation}\label{chppn:eqn_vdc}
+    \bar{v}\equiv \frac{v}{c}.
+\end{equation}
+我们将借助参量$\bar{v}$将各种物理量展开．
+
+物质内能可通过压强来表述，单位质量内能与引力势处于同一量级，
+\begin{equation}
+    \frac{E_{\text{内能}}}{c^2} \sim \frac{p}{c^2 \rho}\sim
+    \frac{\phi}{c^2} \sim \bar{v}^2
+\end{equation}
+
+系统中的距离和时间尺度分别$r$和$r/v$，故导数量级大约是
+\begin{equation}
+    \frac{\partial}{\partial x^i}\sim \frac{1}{r},\qquad
+    \frac{\partial}{\partial x^0}\sim \frac{\partial}{c \partial t}
+    \sim \frac{v}{cr} \sim  \bar{v} \frac{\partial}{\partial x^i}.
+\end{equation}
+
+
+后牛顿近似本质上是对$\bar{v}$（式\eqref{chppn:eqn_vdc}）的近似展开，
+也经常说成是对光速$c^{-1}$展开．展开后精确到不同量级，
+比如$O(\bar{v}),\, O(\bar{v}^2),\, O(\bar{v}^4),\cdots$，
+这些量级会在公式中有显示表示；通常我们会把上述量级简记
+为$O(1),\, O(2),\, O(4),\cdots$．
+
+
+\section{基本方法}
+基本出发点是引力场方程和自由质点运动方程（即测地线方程）．
+先讨论测地线方程
+\begin{equation}
+    \frac{{\rm d}^2 x^\mu}{{\rm d}\tau ^2}+ {\Gamma}_{\nu\lambda}^{\mu}
+      \frac{{\rm d} x^\nu}{{\rm d}\tau} \frac{{\rm d} x^\lambda}{{\rm d}\tau} =0,
+\end{equation}
+其中$\tau$是固有时．由此出发可以算出空间的三维加速度是（注$x^0=ct$）
+\begin{align}
+    \frac{{\rm d}^2 x^i}{{\rm d} t^2} =& \frac{{\rm d} \tau}{{\rm d}t}
+       \frac{{\rm d} }{{\rm d}\tau} \left( \frac{{\rm d} \tau}{{\rm d}t}
+       \frac{{\rm d} x^i}{{\rm d} \tau} \right)
+    =\left(\frac{{\rm d} t}{{\rm d}\tau} \right)^{-2} \frac{{\rm d}^2 x^i}{{\rm d} \tau^2}
+     -\left(\frac{{\rm d} t}{{\rm d}\tau} \right)^{-3}
+     \frac{{\rm d}^2 x^0}{c\, {\rm d} \tau^2} \frac{{\rm d} x^i}{{\rm d} \tau}  \notag \\
+    =&-{\Gamma}_{\nu\lambda}^{i} \frac{{\rm d} x^\nu}{{\rm d}t} \frac{{\rm d} x^\lambda}{{\rm d}t}
+      +\frac{1}{c} {\Gamma}_{\nu\lambda}^{0} \frac{{\rm d} x^i}{{\rm d}t}
+       \frac{{\rm d} x^\nu}{{\rm d}t} \frac{{\rm d} x^\lambda}{{\rm d}t} \notag \\
+    =& -c^2 \Gamma_{00}^{i} - 2c \Gamma_{0j}^{i}\frac{{\rm d} x^j}{{\rm d}t}
+       -\Gamma_{jk}^{i} \frac{{\rm d} x^j}{{\rm d}t} \frac{{\rm d} x^k}{{\rm d}t} \notag \\
+      & +\frac{1}{c}\frac{{\rm d} x^i}{{\rm d}t} \left(
+        c^2 \Gamma_{00}^{0} + 2c \Gamma_{0j}^{0}\frac{{\rm d} x^j}{{\rm d}t}
+       +\Gamma_{jk}^{0} \frac{{\rm d} x^j}{{\rm d}t}
+       \frac{{\rm d} x^k}{{\rm d}t}  \right) . \label{chppn:eqn_PN}
+\end{align}
+回顾\S\ref{chle:sec_Newton-limit}，当$\bar{v} \ll 1$时，我们
+只保留一阶项，有$g_{00}=-(1+ 2\phi/c^2)$和$g_{0i}=0,\, g_{ij}=\delta_{ij}$，
+那么牛顿第二定律和万有引力公式结合之后是
+\begin{equation}
+    \frac{{\rm d}^2 x^i}{{\rm d}t^2}=-c^2{\Gamma}_{00}^i
+    =\frac{c^2}{2} \frac{\partial g_{00}}{\partial x^i}
+    =-\frac{\partial \phi}{\partial x^i} .
+\end{equation}
+由此可见牛顿近似中$\frac{{\rm d}^2 x^i}{{\rm d}t^2}$准确到量级
+$\frac{G M}{r^2} \sim \frac{v^2}{r}$．
+也就是$\Gamma_{00}^i\sim \frac{G M}{c^2 r^2} \sim \frac{\bar{v}^2}{r} $．
+在我们这个后牛顿近似的初步介绍中，
+只要求式\eqref{chppn:eqn_PN}中其它各项
+准确到$\frac{\bar{v}^4}{r}$量级（忽略更高量级的项），那么
+对Christoffel符号诸分量的要求是
+\begin{subequations}
+\begin{align}
+    & \Gamma_{00}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^4}{r},  \\
+    & \Gamma_{0j}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^3}{r},  \\
+    & \Gamma_{jk}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^2}{r},  \\
+    & \Gamma_{00}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}^3}{r},  \\
+    & \Gamma_{0j}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}^2}{r},  \\
+    & \Gamma_{jk}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}}{r}.
+\end{align}
+\end{subequations}
+以上只是对有质量粒子的要求，对于光子的后牛顿近似另行讨论．
+
+\subsection{度规场近似}
+因为克氏符是由度规来表述的，下面我们来看度规的近似展开．
+\begin{equation}
+    \frac{{\rm d} s^2}{{\rm d}t^2} = c^2 g_{00} + 2 c g_{0i} \frac{{\rm d} x^i}{{\rm d}t}
+     + g_{ij} \frac{{\rm d} x^i}{{\rm d}t}  \frac{{\rm d} x^j}{{\rm d}t} .
+\end{equation}
+后牛顿方法是弱场、低速近似，度规场不会偏离洛伦兹度规太远，故假设度规可以展开为
+\begin{subequations}\label{chppn:eqn_gdab}
+\begin{align}
+    g_{00} =& -1 + \oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00}+ \cdots,  \\
+    g_{ij} =& \delta_{ij} + \oversetmy{2}{g}_{ij}+\oversetmy{4}{g}_{ij}+ \cdots,  \\
+    g_{i0} =& \oversetmy{3}{g}_{i0}+\oversetmy{5}{g}_{i0}+ \cdots
+\end{align}
+\end{subequations}
+{\kaishu 其中$\oversetmy{N}{g}_{\mu\nu}$表示$g_{\mu\nu}$中
+    量级为$\bar{v}^N$（见式\eqref{chppn:eqn_vdc}）的近似项；
+其它量也采取类似的表述方式．} 因为在时间反演下${\rm d} s^2$必然是个不变量，
+而速度$v^i=\frac{{\rm d} x^i}{{\rm d}t}$是要改变符号的，
+故式\eqref{chppn:eqn_gdab}中$g_{0i}$必须是$\bar{v}$的奇数次幂；
+而$g_{00},\, g_{ij}$只能包含$\bar{v}$的偶数次幂项．
+如果有辐射阻尼之类的作用，那么可能打破上述奇偶规律；遇到该问题时再行讨论．
+
+我们知道度规场有关系式：$g^{\mu\rho}g_{\rho\nu}=\delta^\mu_\nu$；把它展开
+\begin{subequations}
+\begin{align}
+    g^{0\rho}g_{\rho 0}=& g^{00}g_{0 0}+g^{0k}g_{k 0} = 1, \qquad \text{一个方程} \\
+    g^{0\rho}g_{\rho j}=& g^{00}g_{0 j}+g^{0k}g_{k j} = 0, \qquad \text{三个方程} \\
+    g^{i\rho}g_{\rho j}=& g^{i0}g_{0 j}+g^{ik}g_{k j} =\delta^i_j. \qquad \text{六个方程}
+\end{align}
+\end{subequations}
+我们预估逆变度规有如下形式（为了方便引用，第二个等号是把
+式\eqref{chppn:eqn_gugd}带入后的结果）
+\begin{subequations}\label{chppn:eqn_guab}
+\begin{align}
+    g^{00} =& -1 + \oversetmy{2}{g}^{00}+\oversetmy{4}{g}^{00}+ \cdots
+      &=& -1 -\oversetmy{2}{g}_{00} -\oversetmy{4}{g}_{00}-(\oversetmy{2}{g}_{00})^2 +\cdots  \\
+    g^{ij} =& \delta^{ij} + \oversetmy{2}{g}^{ij}+ \cdots
+      &=&  \delta_{ij}  -\oversetmy{2}{g}_{ij} + \cdots \\
+    g^{i0} =& \oversetmy{3}{g}^{i0}+ \cdots
+      &=& \oversetmy{3}{g}_{0i} + \cdots
+\end{align}
+\end{subequations}
+利用互逆关系（$g^{\mu\rho}g_{\rho\nu}=\delta^\mu_\nu$），把式\eqref{chppn:eqn_guab}第二个等号前的
+表达式代入式\eqref{chppn:eqn_gdab}，有
+\begin{equation}\label{chppn:eqn_gugd}
+    \oversetmy{2}{g}^{00} = -\oversetmy{2}{g}_{00}, \quad
+    \oversetmy{4}{g}^{00} = -\oversetmy{4}{g}_{00}-(\oversetmy{2}{g}_{00})^2, \quad
+    \oversetmy{2}{g}^{ij} = -\oversetmy{2}{g}_{ij}, \quad
+%    \oversetmy{4}{g}^{ij} = -\oversetmy{4}{g}_{ij}+ \oversetmy{2}{g}_{ik}\oversetmy{2}{g}_{kj}, \quad
+    \oversetmy{3}{g}^{0i} = +\oversetmy{3}{g}_{0i}, \quad    \cdots
+\end{equation}
+注意：得到上式后，再代入式\eqref{chppn:eqn_guab}才得到第二个等号后面的公式．
+
+\subsection{Christoffel符号近似}
+克氏符定义为
+%\begin{equation}
+$    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}(
+      \frac{\partial g_{\rho\nu}}{\partial x^\lambda}
+     +\frac{\partial g_{\lambda\rho}}{\partial x^\nu}
+     -\frac{\partial g_{\lambda\nu}}{\partial x^\rho} ) $．
+%\end{equation}
+从而可以求出
+\begin{align*}
+    \Gamma^i_{00}=&\frac{1}{2}g^{i0}\left(
+     \frac{\partial g_{0 0}}{\partial x^0}
+    +\frac{\partial g_{0 0}}{\partial x^0}
+    -\frac{\partial g_{00}}{\partial x^0} \right)
+    +\frac{1}{2}g^{ij}\left(
+    \frac{\partial g_{j 0}}{\partial x^0}
+    +\frac{\partial g_{0 j}}{\partial x^0}
+    -\frac{\partial g_{00}}{\partial x^j} \right) \\
+%    =&\frac{1}{2} \oversetmy{3}{g}^{i0} \left(
+%     \frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0}
+%    +\frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0}
+%    -\frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0} \right)
+%    +\frac{1}{2}(\delta_{ij}+\oversetmy{2}{g}^{ij})\left(
+%     \frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
+%    +\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
+%    -\frac{\partial (-1+\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})}
+%       {\partial x^j} \right) \\
+    =& \frac{1}{2}(\delta_{ij}+\oversetmy{2}{g}^{ij})\left(
+    2\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
+    -\frac{\partial (\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})}
+      {\partial x^j} \right) + O(5)\\
+    =& \frac{1}{2} \left(
+    2\frac{\partial \oversetmy{3}{g}_{i0}}{\partial x^0}
+    -\frac{\partial (\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})} {\partial x^i}
+    -\oversetmy{2}{g}^{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+      \right) + O(5)
+\end{align*}
+利用式\eqref{chppn:eqn_gugd}，由上式可得
+\begin{equation}
+    \Gamma^i_{00}= \frac{1}{2} \left(
+    -\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
+    +2\frac{\partial \oversetmy{3}{g}_{i0}}{\partial x^0}
+    -\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
+    +\oversetmy{2}{g}_{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+    \right) + O(5)
+\end{equation}
+与上述过程类似，可以得到如下各阶克氏符近似表达式
+\begin{subequations}\label{chppn:eqn_Gammag}
+\begin{align}
+    \oversetmy{2}{\Gamma}^i_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} ;\\
+    \oversetmy{4}{\Gamma}^i_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
+       + \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^0}
+       + \frac{1}{2}\oversetmy{2}{g}_{ij}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} ;  \\
+    \oversetmy{3}{\Gamma}^i_{0j} = & \frac{1}{2}\left(
+         \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^j}
+       + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^0}
+       - \frac{\partial \oversetmy{3}{g}_{0j}} {\partial x^i} \right) ; \\
+    \oversetmy{2}{\Gamma}^i_{jk} = & \frac{1}{2}\left(
+      \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^k}
+    + \frac{\partial \oversetmy{2}{g}_{ik}} {\partial x^j}
+    - \frac{\partial \oversetmy{2}{g}_{jk}} {\partial x^i} \right) ; \\
+    \oversetmy{3}{\Gamma}^0_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0} ; \\
+    \oversetmy{2}{\Gamma}^0_{0j} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^j} ; \\
+    \oversetmy{1}{\Gamma}^0_{ij} = & 0 =\oversetmy{2}{\Gamma}^0_{ij}, \qquad
+    \oversetmy{3}{\Gamma}^0_{ij} = -\frac{1}{2} \left(
+    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
+    +\frac{\partial \oversetmy{3}{g}_{0k}}{\partial x^j}
+    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^0} \right) .
+\end{align}
+\end{subequations}
+
+显然，我们必须知道度规分量$g_{ij}$准确到量级$\bar{v}^2$，
+$g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
+应当把这一点同纯牛顿力学对照一下，在那里我们
+需要$g_{00}$精确到量级$\bar{v}^2$；而$g_{i0}=0$，$g_{ij}=\delta_{ij}$，
+即只需精确到零级．
+
+
+%其它各项推导过程
+%\begin{align*}
+%    \Gamma^i_{0j}=&\frac{1}{2}g^{i0}\left(
+%     \frac{\partial g_{0 j}}{\partial x^0}
+%    +\frac{\partial g_{0 0}}{\partial x^j}
+%    -\frac{\partial g_{0j}}{\partial x^0} \right)
+%    +\frac{1}{2}g^{il}\left(
+%     \frac{\partial g_{l 0}}{\partial x^j}
+%    +\frac{\partial g_{j l}}{\partial x^0}
+%    -\frac{\partial g_{0 j}}{\partial x^l} \right) \\
+%    =&\frac{1}{2}\oversetmy{3}{g}_{0i} \left(
+%    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^0}
+%    +\frac{\partial \oversetmy{2}{g}_{00} }{\partial x^j}
+%    -\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^0} \right)
+%    +\frac{1}{2}(\delta_{il}  -\oversetmy{2}{g}_{il})\left(
+%    \frac{\partial \oversetmy{3}{g}_{0l} }{\partial x^j}
+%    +\frac{\partial  \oversetmy{2}{g}_{lj} }{\partial x^0}
+%    -\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^l} \right) \\
+%    =& \frac{1}{2}  \left(
+%    \frac{\partial \oversetmy{3}{g}_{0i} }{\partial x^j}
+%    +\frac{\partial  \oversetmy{2}{g}_{ij} }{\partial x^0}
+%    -\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^i} \right)
+%\end{align*}
+%\begin{align*}
+%    \Gamma^i_{jk}=&\frac{1}{2}g^{i0}\left(
+%    \frac{\partial g_{0 j}}{\partial x^k}
+%    +\frac{\partial g_{0 k}}{\partial x^j}
+%    -\frac{\partial g_{0j}}{\partial x^0} \right)
+%    +\frac{1}{2}g^{il}\left(
+%     \frac{\partial g_{l k}}{\partial x^j}
+%    +\frac{\partial g_{j l}}{\partial x^k}
+%    -\frac{\partial g_{k j}}{\partial x^l} \right) \\
+%    =&\frac{1}{2}\oversetmy{3}{g}_{0i} \left(
+%    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
+%    +\frac{\partial \oversetmy{3}{g}_{0k} }{\partial x^j}
+%    -\frac{\partial \oversetmy{3}{g}_{0j}}{\partial x^0} \right)
+%    +\frac{1}{2}(\delta_{il}  -\oversetmy{2}{g}_{il})\left(
+%    \frac{\partial \oversetmy{2}{g}_{lk} }{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{jl} }{\partial x^k}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^l} \right) \\
+%    =&\frac{1}{2}\left(
+%    \frac{\partial \oversetmy{2}{g}_{ik} }{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{ji} }{\partial x^k}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^i} \right)
+%\end{align*}
+%\begin{align*}
+%    \Gamma^0_{00}=&\frac{1}{2}g^{00}\left(
+%    \frac{\partial g_{0 0}}{\partial x^0}
+%    +\frac{\partial g_{0 0}}{\partial x^0}
+%    -\frac{\partial g_{00}}{\partial x^0} \right)
+%    +\frac{1}{2}g^{0j}\left(
+%    \frac{\partial g_{j 0}}{\partial x^0}
+%    +\frac{\partial g_{0 j}}{\partial x^0}
+%    -\frac{\partial g_{00}}{\partial x^j} \right) \\
+%    =&\frac{1}{2}(-1 -\oversetmy{2}{g}_{00})
+%    \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%    +\frac{1}{2}\oversetmy{3}{g}_{0j}\left(
+%    \frac{\partial \oversetmy{3}{g}_{j0} }{\partial x^0}
+%    +\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
+%    -\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right)
+%    =-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%\end{align*}
+%\begin{align*}
+%    \Gamma^0_{0j}=&\frac{1}{2}g^{00}\left(
+%    \frac{\partial g_{0 j}}{\partial x^0}
+%    +\frac{\partial g_{0 0}}{\partial x^j}
+%    -\frac{\partial g_{0j}}{\partial x^0} \right)
+%    +\frac{1}{2}g^{0l}\left(
+%    \frac{\partial g_{l 0}}{\partial x^j}
+%    +\frac{\partial g_{j l}}{\partial x^0}
+%    -\frac{\partial g_{0 j}}{\partial x^l} \right) \\
+%    =&\frac{1}{2}(-1 -\oversetmy{2}{g}_{00})
+%    \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%    +\frac{1}{2}\oversetmy{3}{g}_{0l}\left(
+%    \frac{\partial \oversetmy{3}{g}_{l0} }{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{lj} }{\partial x^0}
+%    -\frac{\partial \oversetmy{3}{g}_{j0} }{\partial x^l} \right)
+%    =-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%\end{align*}
+%\begin{align*}
+%    \Gamma^0_{jk}=&\frac{1}{2}g^{00}\left(
+%    \frac{\partial g_{0 j}}{\partial x^k}
+%    +\frac{\partial g_{0 k}}{\partial x^j}
+%    -\frac{\partial g_{jk}}{\partial x^0} \right)
+%    +\frac{1}{2}g^{0l}\left(
+%    \frac{\partial g_{l k}}{\partial x^j}
+%    +\frac{\partial g_{j l}}{\partial x^k}
+%    -\frac{\partial g_{k j}}{\partial x^l} \right) \\
+%    =&\frac{1}{2}(-1-\oversetmy{2}{g}_{00})\left(
+%    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
+%    +\frac{\partial \oversetmy{3}{g}_{0k}}{\partial x^j}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^0} \right)
+%    +\frac{1}{2} \oversetmy{3}{g}_{0l} \left(
+%    \frac{\partial \oversetmy{2}{g}_{lk} }{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{jl} }{\partial x^k}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^l} \right)\\
+%    =&-\frac{1}{2} \left(
+%    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
+%    +\frac{\partial \oversetmy{3}{g}_{0k}}{\partial x^j}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^0} \right)
+%    \sim O(3)
+%\end{align*}
+
+
+
+
+
+\subsection{曲率近似}
+下面我们来近似Ricci曲率
+（$ R_{\mu\beta} = \partial_\nu \Gamma_{\mu\beta}^{\nu} -\partial_\beta \Gamma_{\mu\nu}^{\nu}
+ + \Gamma_{\mu\beta}^{\pi} \Gamma_{\pi\nu}^{\nu} - \Gamma_{\mu\nu}^{\pi} \Gamma_{\pi\beta}^{\nu} $）．
+由\eqref{chppn:eqn_Gammag}式可知$R_{\mu\nu}$分量有如下展开式，
+\begin{subequations}
+\begin{align}
+    R_{00} =& \oversetmy{2}{R}_{00} + \oversetmy{4}{R}_{00} + \cdots \\
+    R_{0i} =& \oversetmy{3}{R}_{0i} + \cdots \\
+    R_{ij} =& \oversetmy{2}{R}_{ij} + \cdots
+\end{align}
+\end{subequations}
+%$\oversetmy{4}{R}_{ij}=\oversetmy{2}{\Gamma}^k_{ij}\oversetmy{2}{\Gamma}^l_{kl}
+%+\oversetmy{2}{\Gamma}^k_{ij}\oversetmy{2}{\Gamma}^0_{k0}
+%-\oversetmy{2}{\Gamma}^0_{i0}\oversetmy{2}{\Gamma}^0_{j0}
+%-\oversetmy{2}{\Gamma}^l_{ik}\oversetmy{2}{\Gamma}^k_{lj}$ 四阶项不为零，为何忽略？
+其中
+\begin{subequations}\label{chppn:eqn_ricciijk}
+\begin{align}
+    \oversetmy{2}{R}_{00} =& \frac{\partial \oversetmy{2}{\Gamma}^i_{00}}{\partial x^i}
+      = -\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^i \partial x^i}
+      = -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00} \\
+    \oversetmy{4}{R}_{00} =& \frac{\partial \oversetmy{4}{\Gamma}^i_{00}}{\partial x^i}
+       -\frac{\partial \oversetmy{3}{\Gamma}^i_{0i}}{\partial x^0}
+       + \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^j_{ij}
+       - \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^0_{0i}   \notag\\
+%       =& \frac{\partial }{\partial x^i} \left(
+%       -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
+%       + \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^0}
+%       + \frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}\right)
+%       -\frac{1}{2} \frac{\partial^2 \sum_{i} \oversetmy{2}{g}_{ii}  }{\partial x^0\partial x^0}
+%       -\frac{1}{4}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
+%        \left(  \frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^i}
+%        + \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} \right)  \\
+       =& -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
+        +\frac{\partial^2 \oversetmy{3}{g}_{0i}} {\partial x^i \partial x^0}
+        -\frac{1}{2} \frac{\partial^2 \sum_{i} \oversetmy{2}{g}_{ii}  }{\partial x^0\partial x^0}
+        +\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
+         {\partial x^k\partial x^i} \notag \\
+        &+\frac{1}{2} \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}
+         \left(\frac{\partial\oversetmy{2}{g}_{ki}}{\partial x^i}
+        -\frac{1}{2}\frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^k} \right)
+        -\frac{1}{4} \left|\nabla \oversetmy{2}{g}_{00} \right|^2          \\
+    \oversetmy{3}{R}_{0i} =& \frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^0}
+       +\frac{\partial \oversetmy{3}{\Gamma}^j_{0i}}{\partial x^j}
+       -\frac{\partial \oversetmy{3}{\Gamma}^0_{00}}{\partial x^i}
+       -\frac{\partial \oversetmy{3}{\Gamma}^j_{0j}}{\partial x^i} \notag \\
+%       =& -\cancel{\frac{1}{2} \frac{\partial^2 \oversetmy{2}{g}_{00} }{\partial x^i \partial x^0}}
+%       +\frac{1}{2}\frac{\partial }{\partial x^j}\left(
+%       \frac{\partial \oversetmy{3}{g}_{0j}} {\partial x^i}
+%       + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^0}
+%       - \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^j} \right)
+%       +\cancel{\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}}{\partial x^0\partial x^i}}
+%       -\frac{1}{2}\frac{\partial^2 \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0\partial x^i} \\
+       =&\frac{1}{2}\frac{\partial^2 \oversetmy{3}{g}_{0j}} {\partial x^j\partial x^i}
+       + \frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{ij}} {\partial x^j\partial x^0}
+       - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{0i}
+       -\frac{1}{2}\frac{\partial^2 \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0\partial x^i} \\
+    \oversetmy{2}{R}_{ij} =& \frac{\partial \oversetmy{2}{\Gamma}^k_{ij}}{\partial x^k}
+       -\frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^j}
+       -\frac{\partial \oversetmy{2}{\Gamma}^k_{ik}}{\partial x^j} \notag \\
+       =&\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{kj}} {\partial x^k \partial x^i}
+       + \frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{ik}} {\partial x^k \partial x^j}
+       - \frac{1}{2}\nabla^2 \oversetmy{2}{g}_{ij}
+       +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^i\partial x^j}
+       -\frac{1}{2}\frac{\partial^2 \sum_{k}\oversetmy{2}{g}_{kk} }{\partial x^i\partial x^j}
+\end{align}
+\end{subequations}
+
+
+上述方程很复杂，为了简化方程需引入规范条件；
+规范条件有很多种，我们使用最常用的谐和坐标．
+把式\eqref{chppn:eqn_guab}、\eqref{chppn:eqn_Gammag}代
+入$g^{\mu\nu}\Gamma^\lambda_{\mu\nu}=0$可得近似后的公式．
+先取$\lambda=0$，得
+\begin{equation}\label{chppn:eqn_gauge03}
+    \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0}
+    -2\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^j}
+    +\frac{\partial \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0} =0 .
+\end{equation}
+%\begin{align*}
+%    0  %=g^{\mu\nu}\Gamma^\lambda_{\mu\nu}
+%    =& g^{0 0}\Gamma^0_{0 0} + 2g^{j 0}\Gamma^0_{j 0} + g^{j k}\Gamma^0_{j k} \\
+%    =& (-1 -\oversetmy{2}{g}_{00} )
+%    (-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0} )
+%    -\oversetmy{3}{g}_{0j} \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^j}
+%    -(\delta_{kj}  -\oversetmy{2}{g}_{jk}) \times \frac{1}{2} \left(
+%    \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
+%    +\frac{\partial \oversetmy{3}{g}_{0k}}{\partial x^j}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^0} \right) \\
+%    =&\frac{1}{2}\left( \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0}
+%    -\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^j}
+%    -\frac{\partial \oversetmy{3}{g}_{0j}}{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{jj} }{\partial x^0} \right) +O(4)
+%\end{align*}
+再取$\lambda=i \, (1\leqslant i \leqslant 3)$，得
+\begin{equation}\label{chppn:eqn_gaugei2}
+    \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
+    + 2\frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^j}
+    - \frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^i} =0 .
+\end{equation}
+%\begin{align*}
+%    0=&g^{0 0}\Gamma^i_{0 0} +2 g^{j 0}\Gamma^i_{j 0} + g^{j k}\Gamma^i_{j k} \\
+%    =&(-1 -\oversetmy{2}{g}_{00} )
+%    \left(-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
+%    -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
+%    + \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^0}
+%    + \frac{1}{2}\oversetmy{2}{g}_{ij}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}\right) \\
+%    &+\oversetmy{3}{g}_{0j}\left(
+%    \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^j}
+%    + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^0}
+%    - \frac{\partial \oversetmy{3}{g}_{0j}} {\partial x^i} \right)
+%    +(\delta_{kj}  -\oversetmy{2}{g}_{jk})\frac{1}{2}\left(
+%    \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^k}
+%    + \frac{\partial \oversetmy{2}{g}_{ik}} {\partial x^j}
+%    - \frac{\partial \oversetmy{2}{g}_{jk}} {\partial x^i} \right) \\
+%    =&\frac{1}{2}\left(\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
+%    + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^j}
+%    + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^j}
+%    - \frac{\partial \oversetmy{2}{g}_{jj}} {\partial x^i} \right) +O(3)
+%\end{align*}
+利用谐和坐标\eqref{chppn:eqn_gauge03}、\eqref{chppn:eqn_gaugei2}，
+经过一些计算，Ricci曲率\eqref{chppn:eqn_ricciijk}简化为
+\begin{subequations}\label{chppn:eqn_ricci-gauge}
+    \begin{align}
+        \oversetmy{2}{R}_{00} =& -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00} \\
+        \oversetmy{4}{R}_{00} %=&
+%         -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
+%        +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
+%        +\frac{1}{2}\frac{\partial^2 \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0\partial x^0}
+%        -\frac{1}{2} \frac{\partial^2 \sum_{i} \oversetmy{2}{g}_{ii}  }{\partial x^0\partial x^0} \\
+%        &+\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
+%        {\partial x^k\partial x^i}
+%        -\frac{1}{4} \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}
+%        \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}
+%        -\frac{1}{4} \left|\nabla \oversetmy{2}{g}_{00} \right|^2          \\
+        =& -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
+        +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
+        -\frac{1}{2} \left|\nabla \oversetmy{2}{g}_{00} \right|^2 +\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
+        {\partial x^k\partial x^i}  \\
+        \oversetmy{3}{R}_{0i} =& - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{0i} \\
+        \oversetmy{2}{R}_{ij} =& - \frac{1}{2}\nabla^2 \oversetmy{2}{g}_{ij}
+    \end{align}
+\end{subequations}
+
+
+
+
+
+
+
+\section{基本方程}
+本节继续叙述上节未完成的内容．
+
+\subsection{能动张量近似}
+能量--动量张量$T^{ab}$中，$T^{00}$是质量密度，最大量级$\sim  c^2$；
+$T^{0i}$是动量密度，最大量级$\sim  c^1$；
+$T^{ij}$是动量流密度，最大量级$\sim  c^0$．
+在爱因斯坦引力场方程中，能动张量前还有系数$\frac{8\pi G}{c^4}$；
+考虑此点后上述三个物理量的最大量级分别是：
+$O(\bar{v}^2)$，$O(\bar{v}^3)$，$O(\bar{v}^4)$．
+下面我们写出能动张量的展开表达式，
+为了便于使用我们写出的是$\frac{8\pi G}{c^4}T^{ab}$的分量
+表达式；但如果包含系数$\frac{8\pi G}{c^4}$，那公式
+变得十分臃肿、笨重，故我们省略这个系数．
+虽然省略了该系数，但在量级标注上是把它乘上之后的，
+比如$\oversetmy{2}{T}^{00}$表示$O(\bar{v}^2)$量．
+
+参考上节内容，我们预估能动张量可以展开成
+\begin{subequations}
+    \begin{align}
+        T^{00} =& \oversetmy{2}{T}^{00} + \oversetmy{4}{T}^{00} + \cdots \\
+        T^{0i} =& \oversetmy{3}{T}^{0i} + \cdots \\
+        T^{ij} =& \oversetmy{4}{T}^{ij} + \cdots
+    \end{align}
+\end{subequations}
+能动张量的迹$T=g_{\mu\nu}T^{\mu\nu}$的展开式为
+\begin{align*}
+    T=& g_{\mu\nu}T^{\mu\nu}=
+    g_{00}T^{00}+2g_{0i}T^{0i}+g_{ij}T^{ij} \\
+    =&(-1 +\oversetmy{2}{g}_{00} ) (\oversetmy{2}{T}^{00} + \oversetmy{4}{T}^{00})
+    +2 \oversetmy{3}{g}_{0i} \oversetmy{3}{T}^{0i}
+    +(\delta_{ij}  +\oversetmy{2}{g}_{ij}) \oversetmy{4}{T}^{ij} \\
+    =&-\oversetmy{2}{T}^{00} -\oversetmy{4}{T}^{00} +\oversetmy{2}{g}_{00}\oversetmy{2}{T}^{00}
+     +\sum_{k}\oversetmy{4}{T}^{kk}
+\end{align*}
+由此可得
+\begin{equation}
+    \oversetmy{2}{T} = -\oversetmy{2}{T}^{00}; \qquad
+    \oversetmy{4}{T} = -\oversetmy{4}{T}^{00}
+      +\oversetmy{2}{g}_{00}\oversetmy{2}{T}^{00}
+      +\sum_{k}\oversetmy{4}{T}^{kk}  .
+\end{equation}
+
+借助上述展开式，求取反迹能动张量
+$\overline{T}^{ab}=T^{ab} - \frac{1}{2}g^{ab}T$
+（见式\eqref{chfd:eqn_Einstein-B-form}）展开式
+\begin{subequations}
+\begin{align}
+    \oversetmy{2}{\overline{T}}^{00} =& \oversetmy{2}{T}^{00}
+      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{2}{T}
+      = \frac{1}{2}\oversetmy{2}{T}^{00}  \\
+    \oversetmy{4}{\overline{T}}^{00} =& \oversetmy{4}{T}^{00}
+      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{4}{T}
+      - \frac{1}{2} \oversetmy{2}{g}^{00} \oversetmy{2}{T}
+      = \frac{1}{2}\Bigl( \oversetmy{4}{T}^{00} +\sum_{k=1}^3\oversetmy{4}{T}^{kk} \Bigr) \\
+    \oversetmy{3}{\overline{T}}^{0i} =& \oversetmy{3}{T}^{0i}  \\
+    \oversetmy{2}{\overline{T}}^{ij} =& - \frac{1}{2}\oversetmy{0}{g}^{ij}
+      \oversetmy{2}{T} =  \frac{1}{2} \delta^{ij} \oversetmy{2}{T}^{00}
+\end{align}
+\end{subequations}
+
+爱氏场方程中需要的是协变张量，把反迹能动张量指标降下来，有
+\begin{equation}
+    \overline{T}_{\mu\nu}= g_{\mu\rho}g_{\nu\sigma}\overline{T}^{\rho\sigma}=
+       g_{\mu 0}g_{\nu 0}\overline{T}^{00}+2g_{\mu 0}g_{\nu i} \overline{T}^{0i}
+      +g_{\mu i}g_{\nu j} \overline{T}^{ij} .
+\end{equation}
+把度规展开式和逆变反迹能动张量展开式代入，经过略显啰嗦的推导可得
+\begin{subequations}\label{chppn:eqn_EMT}
+    \begin{align}
+        \oversetmy{2}{\overline{T}}_{00} =& \frac{1}{2}\oversetmy{2}{T}^{00}  \\
+        \oversetmy{4}{\overline{T}}_{00} =& \frac{1}{2}\Bigl( \oversetmy{4}{T}^{00} +\sum_{k=1}^3\oversetmy{4}{T}^{kk}
+        -2\oversetmy{2}{g}_{00} \oversetmy{2}{T}^{00} \Bigr) \\
+        \oversetmy{3}{\overline{T}}_{0i} =& - \oversetmy{3}{T}^{0i}  \\
+        \oversetmy{2}{\overline{T}}_{ij} =& \frac{1}{2} \delta_{ij} \oversetmy{2}{T}^{00}
+    \end{align}
+\end{subequations}
+
+我们以理想流体（见式\eqref{chlh:eqn_perfect-fluid-Tab}）为例，给出上式的具体表达式．
+\begin{equation}
+    T^{ab}=\left(\rho \Bigl(1+ \frac{\Pi}{c^2} \Bigr) + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} .
+    \tag{\ref{chlh:eqn_perfect-fluid-Tab}}
+\end{equation}
+$\rho$是质量密度，$\Pi$是单位质量内能，$p$是压强，$U^a$是质点四速度
+
+\subsection{后牛顿引力场方程式}
+利用Ricci曲率展开式\eqref{chppn:eqn_ricci-gauge}和
+能动张量展开式\eqref{chppn:eqn_EMT}，
+再由爱因斯坦引力场方程\eqref{chfd:eqn_Einstein-B-form}可以
+得到谐和坐标（\eqref{chppn:eqn_gauge03}、\eqref{chppn:eqn_gaugei2}）下
+的后牛顿方程式：
+\begin{subequations}\label{chppn:eqn_Post-Newtonian}
+    \begin{align}
+        \nabla^2 \oversetmy{2}{g}_{00} =& -\frac{8\pi G}{c^4} \oversetmy{2}{T}^{00}  \\
+        \nabla^2 \oversetmy{4}{g}_{00} =&
+        \frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
+        - \left|\nabla \oversetmy{2}{g}_{00} \right|^2 +\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}  {\partial x^k\partial x^i}
+        +\frac{8\pi G}{c^4}\left(2\oversetmy{2}{g}_{00} \oversetmy{2}{T}^{00}
+        -\oversetmy{4}{T}^{00} -\sum_{k=1}^3\oversetmy{4}{T}^{kk}  \right)     \\
+        \nabla^2 \oversetmy{3}{g}_{0i} =& 2\times \frac{8\pi G}{c^4}\oversetmy{3}{T}^{0i}  \\
+        \nabla^2 \oversetmy{2}{g}_{ij} =& - \delta_{ij} \frac{8\pi G}{c^4}\oversetmy{2}{T}^{00}
+    \end{align}
+\end{subequations}
+我们已将能动张量前的系数$\frac{8\pi G}{c^4}$显示写出；
+$\oversetmy{2}{T}^{00}$上面的量级阶数“2”是指乘上系数$\frac{8\pi G}{c^4}$之后
+的量级为$O(\bar{v}^2)$，其它能动张量项也作同样理解．
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography[heading=subbibliography,title=第\ref{chppn}章参考文献]
+
+\endinput

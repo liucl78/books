@@ -1,0 +1,264 @@
+% !Mode:: "TeX:UTF-8"
+% 此文件从2021.10.10开始写作
+
+
+%本书包括十五章以及三个附录．前两章是数学准备知识；第三章描述了多重线性代数；
+%第四章到第七章分别讲述了微分流形、型式场、联络以及矢量丛；
+%之后详细描述了黎曼几何、测地线、子流形、超曲面、零模、复几何知识；
+%继而较为详细地介绍了李群、李代数和对称空间内容；最后初步阐述了旋量．
+%
+%本书适用于物理系高年级本科生、研究生，尤其是相对论从业者．
+
+
+\section*{自序}
+
+
+本书是写给理论物理工作者的，主要是为相对论学者提供一份微分几何的{\kaishu 初级}读物．
+与类似的纯数学书籍相比，在深度、广度以及严谨性方面自然是逊色的，这是物理工作者撰写数学书籍的必然结果．
+
+
+%目录已经非常完备地反映了书籍体系、内容；仿照惯例，简介如下．
+%
+%古典微分几何是研究嵌入到三维欧氏空间的二维正则曲面的学科，一般说来这不属于现代微分几何，
+%我们只在第一章予以简单的综述．
+%之后，扼要介绍了微分几何所需的代数概念和点集拓扑知识．
+%接着，较为详尽地给出了多重线性代数内容，并由此给出了张量的确切定义．
+%以上三章是微分几何必要的准备知识．
+%
+%第四章阐述了微分流形体系；首先给出微分流形定义，并由此引入切空间、诱导映射以及子流形概念，
+%其中切空间是整个微分几何随处会用到的概念；
+%再者，介绍了切丛，这为后面引入仿射联络奠定了基础；
+%然后，细致地描述了切矢量场和张量场的知识，这是微分流形中极为重要的概念；
+%本章最后给出了单参数微分同胚群和李导数．
+%第五章，首先引入外微分知识；然后简单叙述了Frobenius定理；最后给出了流形上积分的知识．
+%第六章，先是定义了切丛上的仿射联络，并详尽讨论相关知识；接着定义了黎曼曲率，此曲率是整个微分几何的核心；
+%然后讨论切标架丛上的黎曼曲率，这是Cartan的杰作．
+%第七章，简要介绍了矢量丛（向量丛）的相关知识，它是切丛的推广．
+%
+%
+%第八章书写了黎曼几何的相关知识．首先给光滑流形配以黎曼度量，这样流形就成了黎曼流形；
+%再者更为详尽地讨论了各种曲率（包括相对论中用到的爱氏张量）；
+%接着描述了等距映射和Killing切矢量场知识，这是广义相对论中所需的最基本概念；
+%然后给出体积元的定义，以及Hodge算子等概念；
+%进而细致讲述了度量场下的黎曼曲率型式理论；
+%最后初步讨论了截面曲率和共形映射．
+%第九章阐述了黎曼流形中的测地线以及Jacobi场等相关知识，比如指数映射、法坐标系等．
+%第十章先是介绍了子流形的一般内容，然后细致地讲解了超曲面知识，这是学习广义相对论所必需了解的．
+%第十一章阐述了与零模（Null，类光）相关的几何，这是正定度量几何中没有的内容；
+%先讲解了类光超曲面，以补上第十章所缺内容；
+%然后详尽介绍了Newman--Penrose框架；
+%最后介绍了Weyl张量的Petrov分类和Goldberg--Sachs定理．
+%前十一章内容是微分几何中基础知识，是学习广义相对论必需要掌握内容．
+%
+%第十二章概述了复几何知识，将复几何放在此处是为李群作准备．
+%第十三章是内容庞杂的一章，介绍了物理学中所需要的李群、李代数初步知识．
+%第十四章讲解了对称空间内容，是广义相对论中的高阶内容．
+%第十五章具体讲述了物理学中最为常用的两个李群$SU(2)$、$SL(2,\mathbb{C})$；
+%进而阐述了Lorentz旋量的初步知识．
+
+
+{\kaishu
+    整本书中几乎没有我的原创或首创内容，但几乎每个公式我都计算过．
+    唯一的原创、首创\cite{liu2018}（见\S\ref{chfd:sec_liu2018}）是：  
+    用解存在性需求阐述了源守恒定律为何独立于场方程；
+    这纠正了过去一个多世纪以来理论物理最底层存在的错误．
+    具体来说，对于电磁场，电荷守恒定律独立于麦克斯韦方程组；
+    麦氏散度方程（$\nabla\cdot \boldsymbol{D}=\rho,\ \nabla \cdot \boldsymbol{B}=0$）独立于麦氏旋度方程，
+    它们不能看成旋度方程的初始条件．
+    对于引力场，源运动方程（$\nabla^a T_{ab}=0$）独立于爱因斯坦引力场方程（$G_{ab}=8\pi T_{ab}$）．
+}
+
+
+严格说来，整本书是我的读书笔记．
+笔者主要研读了\textcite{cc2001-zh}名著，此教材以“浓缩”著称，不易阅读．
+陈维桓教授的几本教材\cite{chenwh2001,chen-li-2023-2ed-v1}相对容易多了，  %,chen-li-2004v2
+本书较多参考了这几本书．
+除了上述书籍，笔者还参考了\textcite{oneill1983}的专著；
+此书是深入学习广义相对论的必备数学书籍．
+
+
+%，但愿概念性错误较少（不奢求没有）至于数学或物理概念理解不够深入、不到位的情形更是无法避免．
+%；但我需理解你的批评、指正后才能回复你
+
+由于笔者学识所限，肯定存在这样或那样的错误；欢迎建设性的批评、指正．
+
+%\vspace{1em}
+%\begin{flushright}
+%    刘长礼（LIUCL78@qq.com）  %, ORCID: 0000-0002-3592-2449 ）
+%    
+%%    {\today}于北京
+%\end{flushright}
+%\vspace{1em}
+
+
+
+\printbibliography[heading=subbibliography,title=参考文献]
+
+
+\endinput
+
+
+%
+%\newpage
+%
+%\section*{指标惯例}
+%本书主要采用由Penrose创立的抽象指标记号；同时也采用数学家熟悉的记号；但在同一章内只用一种记号．
+%从{\kaishu 第二部分}（相对论部分）开始，角标是拉丁字母时，如$i,j,\cdots$，表示$i=1,2,3$；
+%角标是希腊字母时，如$\mu,\nu,\cdots$，表示$\mu=0,1,2,3$．
+%{\kaishu 第一部分}是纯粹的微分几何内容，度规可正定也可不定，也不会限制在四维空间，
+%所以没有理由作上述要求；在第一部分（微分几何部分），角标一般是$1\leqslant i, \mu \leqslant m$．
+%
+%
+%\section*{部分数学符号表}
+%\begin{tabular}{ll}
+%    $\mathbb{R},\, \mathbb{C}$ & 全体实数，实数域；全体复数，复数域 \\
+%    $\bar{z},\,z^*$ & 数$z$的复共轭 \\
+%    $\overset{def}{=}$ & 定义，有时候“$\equiv$”也有定义的含义 \\
+%    $f:A\to B$、$A\xrightarrow{f}B$ & 定义从$A$到$B$的映射$f$ \\
+%    $\cong$ & 同构 \\
+%    $\otimes$ & 张量积 \\
+%    $\circ$ & 复合映射．例如$f\circ g$代表先作用$g$再作用$f$ \\
+%    $C^r_p(U)$ & $p\in U$点的全体$r$阶连续可微函数集合 \\
+%    $V^*$ & 矢量空间$V$的对偶空间 \\
+%    $\frac{\partial }{\partial x^\mu}$或$(\frac{\partial }{\partial x^\mu})^a$ &  第$\mu$个坐标基矢 \\
+%    ${\rm d}x^\mu$或$({\rm d}x^\mu)^a$ & 第$\mu$个对偶坐标基矢 \\
+%    $\mathfrak{T}^p_q(V)$ & 矢量空间$V$上全体$(p,q)$型张量场 \\
+%    $\mathfrak{X}(M),\, \mathfrak{X}^*(M)$ & 流形$M$上的全体切矢量场，余切矢量场 \\
+%    $\nabla,\, {\rm D}$ & 联络 \\
+%    $\phi^*$ & 映射$\phi$诱导出的余切映射或拉回映射 \\
+%    $\phi_*$ & 映射$\phi$诱导出的切映射或推前映射 \\
+%    $\ln, \log$ & 以$e$为底的对数 \\
+%    ${\rm Span},\, {\rm Span}_{\mathbb{F}}$ & 组合系数是$\mathbb{F}$中的常数 \\
+%    ${\rm Span}_{\infty}$ & 组合系数是$C^{\infty}(M)$中的函数 \\
+%\end{tabular}
+
+
+
+
+
+
+%\newpage
+%
+%\section*{广义黎曼几何}
+%\noindent{\heiti\bfseries  甲}： 度规符号：$(- + + +)$．
+%
+%\noindent{\heiti\bfseries  乙}：
+%Riemann（黎曼）曲率张量和Ricci曲率张量定义
+%\begin{align*}
+%    R_{\hphantom{d} cab}^d{X^a}{Y^b}{Z^c} &\equiv {\nabla _X}{\nabla _Y}{Z^d} -
+%       {\nabla _Y}{\nabla _X}{Z^d} - {\nabla _{[X,Y]}}{Z^d} \\
+%    R_{dcab} &\equiv g_{de}R_{\hphantom{d} cab}^e   \\
+%    R_{cb} &\equiv R_{\hphantom{d} cab}^a = g^{ad}R_{dcab}  \ = - g^{ad}R_{dcba} \\
+%    R &\equiv  g^{cb}R_{cb} = g^{cb} g^{ad}R_{dcab}
+%\end{align*}
+%
+%Riemann曲率和Ricci曲率在自然坐标系的分量表达式为
+%\begin{align*}
+%    R_{ijkn} =& \frac{1}{2}\left(
+%        \frac{\partial^2 g_{in}} {\partial x^j\partial x^k}
+%        - \frac{\partial^2 g_{jn}} {\partial x^i\partial x^k}
+%        - \frac{\partial^2 g_{ik}} {\partial x^j\partial x^n}
+%        + \frac{\partial^2 g_{jk}} {\partial x^i\partial x^n} \right) 
+%        + \Gamma_{jk}^l\Gamma _{lin} - \Gamma _{jn}^l\Gamma _{lik}  \\  
+%    R_{\hphantom{d} jln}^i =& {\partial_l} \Gamma_{jn}^{i} -\partial_n \Gamma_{jl}^{i}+
+%      \Gamma_{jn}^{k} \Gamma_{kl}^{i} - \Gamma_{jl}^{k}\Gamma_{kn}^{i}   \\
+%    R_{jn} =& R_{\hphantom{d} jkn}^k = {\partial_k} \Gamma_{jn}^{k} -\partial_n \Gamma_{jk}^{k}
+%    + \Gamma_{jn}^{k} \Gamma_{kl}^{l}- \Gamma_{jl}^{k}\Gamma_{kn}^{l}
+%\end{align*}
+%
+%第二类Christoffel（克氏）记号：
+%$\Gamma_{ab}^c = \frac{1}{2}{g^{ce}}\left( {\frac{{\partial {g_{ae}}}}{{\partial {x^b}}}
+%    + \frac{{\partial {g_{eb}}}}{{\partial {x^a}}}  - \frac{{\partial {g_{ab}}}}
+%    {{\partial {x^e}}}} \right) $
+%
+%普通导数：$f_{,\mu}\equiv\frac{\partial f}{\partial x^\mu}$
+%
+%协变导数：$v^\mu_{\hphantom{\nu} ;\nu}= v^\mu _{\hphantom{\mu} ,\nu}+ \Gamma^\mu_{\rho\nu}v^\rho,\qquad
+%\omega_{\mu ;\nu}=\omega_{\mu ,\nu}- \Gamma^\rho_{\mu\nu}\omega_\rho$
+%
+%
+%\noindent{\heiti\bfseries  丙}：
+%正定能量密度，即能动张量的“时时”分量为正：$T_{00}>0$或$T^{00}>0$．
+%
+%理想流体：$T_{ab}=\bigl(\rho + p/c^2 \bigr) U_a U_b +p g_{ab}$
+%
+%电磁场：$T_{ab}=\frac{1}{\mu_0} \left( F_{ac} F_{b}^{\cdot c} - \frac{1}{4} g_{ab} F_{cd} F^{cd} \right)$
+%
+%\noindent{\heiti\bfseries  丁}：
+%Einstein（爱因斯坦）引力场方程（度规号差不影响方程右端的符号）
+%\begin{equation*}
+%    G_{ab} \equiv  R_{ab} - \frac{1}{2}g_{ab} R  = +\frac{8\pi G}{c^4} T_{ab}
+%\end{equation*}
+
+%\noindent{\heiti\bfseries  戊}：
+
+
+
+
+
+%\newpage
+%%\vspace{0.1cm}
+%\begin{longtable}{|*5{c|}}
+%    \caption{号差习惯表}\label{sign-convention} \\ \hline 
+%    文献 & 度规号差   &   $R^{d}_{abc}$   &  Einstein   &    位置   \\ \hline
+%    \endfirsthead
+%    \multicolumn{2}{l}{（续表）} \\ \hline
+%    文献 & 度规号差   &   Riemann   &  Einstein   &    位置   \\ \hline
+%    \endhead \hline
+%    \multicolumn{2}{c}{（接下一页表格……）} \\[2ex]
+%    \endfoot
+%    \hline
+%    \endlastfoot
+%    %    % data begins here
+%    本书 & + & + & + &  1  \\ \hline
+%    \textcite{carroll-stg2019} & + & + & + &  1  \\
+%    \textcite{Choquet-Bruhat-2009} & + & + & + &  3  \\
+%    \textcite{dirac-rela-1975} & $-$ & + & $-$ &  1  \\
+%    \textcite{hawking-ellis1973} & + & + & + &  1  \\
+%    \textcite{mtw1973} & + & + & + &  1  \\
+%    \textcite{oneill1983} & + & $-$ & + &  1  \\
+%    \textcite{ohanian-ruffini-2013} & $-$ & + & $-$ &  1  \\
+%    \textcite{padmanabhan2010}  & + & + & + &  1  \\
+%    \textcite{penrose-Rindler1984} & $-$ & + & $-$ &  4  \\
+%    \textcite{poisson-will-2014} & + & + & + &  1  \\
+%    \textcite{sachs-wu-1977} & + & + & + &  1  \\
+%    \textcite{schutz-2022} & + & + & + &  1  \\
+%    \textcite{stephani-exe-2003} & + & + & + &  1  \\
+%    \textcite{straumann2013} & + & + & + &  1  \\
+%    \textcite{wald1984} & + & $-$ & + &  4  \\
+%    \textcite{weinberg_grav-1972}  & + & $-$ & $-$ &  1  \\
+%    \textcite{will_tegp-2018}  & + & + & + &  1  \\
+%    \textcite{chenbin2018} & + & + & + &  1  \\
+%    \textcite{liang_zhou2006_1} & + & $-$ & + &  4  \\
+%    \textcite{wangyj-2011}  & $-$ & + & + &  1  \\
+%    \textcite{xu-wu-1999}  & + & + & + &  1  \\
+%    %
+%    %    % more data here
+%    \hline
+%\end{longtable}
+
+
+%\vspace{1em}
+%
+%我们仿照\textcite{mtw1973}所著《引力论》的扉页上的度规号差等约定，
+%上表列出了1972年之后主要引力论书籍采用的符号习惯．
+%第一列为参考文献；第二列是度规号差；
+%第三列是$\Tpq{1}{3}$型黎曼张量$R^{d}_{abc}$前符号；
+%第四列是爱因斯坦方程右端能量-动量张量$T_{ab}$前的正负号；
+%第五列是$\Tpq{1}{3}$型黎曼张量的逆变指标降下来后所处的位置．
+
+
+
+
+
+
+
+
+
+
+%\newpage
+
+\printbibliography[heading=subbibliography,title=参考文献]
+
+
+\endinput

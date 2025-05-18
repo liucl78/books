@@ -1,0 +1,73 @@
+\documentclass[border=2pt]{standalone}
+
+\usepackage{ctex}
+
+% Drawing
+\usepackage{tikz}
+
+% Tikz Library
+\usetikzlibrary{calc, quotes, angles}
+
+% Notation
+%\usepackage{physics, bm}
+\usepackage{amsmath}
+
+\begin{document}
+    
+    %Macros
+    \pgfmathsetmacro{\r}{0.8}	
+    \pgfmathsetmacro{\Phi}{40}
+    \pgfmathsetmacro{\Theta}{60}
+    
+    \begin{tikzpicture}
+        %Grid
+        %		\draw[thin, dotted] (0,0) grid (8,8);
+        %		\foreach \i in {1,...,8}
+        %		{
+            %			\node at (\i,-2ex) {\i};	
+            %		}
+        %		\foreach \i in {1,...,8}
+        %		{
+            %			\node at (-2ex,\i) {\i};	
+            %		}
+        %		\node at (-2ex,-2ex) {0};
+        
+        % Coordinates
+        \coordinate (earth) at (1,2);
+        \coordinate (em) at (1.5,2);
+        \coordinate (moon) at (8,2);
+        \coordinate (earth-point1) at ({\r*cos(\Theta)+1},{\r*sin(\Theta)+2});
+        \coordinate (A) at (1,3.0);
+        \coordinate (B) at (7.9,2.5);
+        
+        % Earth
+        \draw[thick] (earth) circle (\r);
+        % Text
+        \node (a) at (A) {$\text{地球}$};
+        
+        % Moon
+        \node[circle, inner sep=1.5pt, outer sep=2pt, fill=black!30] (MOON) at (moon) {};
+        % Text 
+        \node[below, shift={(0,-0.1)}] at (MOON)   {$M$};
+        \node (b) at (B) {$\text{月球}$};
+        
+        
+        
+        % Lines
+        \draw[-latex] (earth) -- (MOON) node[pos=.55, below left] {$\boldsymbol{r}$};
+        \draw[-latex] (earth) -- (earth-point1) node [pos=0.6, left] {$\boldsymbol{R}$};
+        \draw[-latex] (earth-point1) -- (MOON) node [pos=0.5, above] {$\boldsymbol{r}'$};
+        %\draw[-stealth] (a) to[bend left=30] ({\r*cos(\Phi)+1},{\r*sin(\Phi)+2});
+        %\draw[-stealth] (b) to[bend left=30] (MOON);
+%        \draw[dashed, -latex, black] (earth) -- (MOON) -- ($(earth)!1.3!(moon)$) node [above, shift={(-0.1,0.1)}] {$z$};
+        
+        % Angles
+        \pic[draw, "$\theta$", angle eccentricity=2.5, angle radius=5pt] {angle = moon--earth--earth-point1};
+        
+        % Point
+        \draw[fill=black] (earth)        circle (1pt) node[below, shift={(0,-0.1)}] {$\mathrm{O}$};
+        \draw[fill=black] (em)           circle (1pt) node[below, shift={(0,-0.1)}] {$\mathrm{O}'$};
+        \draw[fill=black] (earth-point1) circle (1pt) node[above right, shift={(0,-0.1)}] {$P$};
+    \end{tikzpicture}
+    
+\end{document}

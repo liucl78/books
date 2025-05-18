@@ -1,0 +1,1930 @@
+% !TeX encoding = UTF-8
+% 此文件从2021.8开始
+
+\chapter{对称空间与齐性空间}\label{chhss}
+
+本章主要描述广义黎曼流形的对称性．
+首先引入局部对称空间概念，在该节叙述数条重要定理．
+然后初步介绍整体对称空间，并讨论它与局域对称的异同．
+接着引入齐性空间，陪集空间；进而讨论了常曲率的空间型式．
+最后讨论了具有空间型式子空间的流形．
+
+\index[physwords]{对称空间}
+\index[physwords]{局部对称空间}
+
+\section{局部对称空间}
+
+\begin{definition}\label{chhss:def_local-symmetry}
+    给定广义黎曼流形$(M,g)$，$R$是$\binom{1}{3}$型黎曼曲率．
+    若$\forall Z \in \mathfrak{X}(M)$有$\nabla_Z R=0$，则
+    称$M$是{\heiti 局部对称}的（locally symmetric）．
+\end{definition}
+%如果再给流形$M$指定了正定或不定度规场，那么它就是广义黎曼流形了；
+%若它还是仿射局部对称的，则我们称$M$为{\heiti 局部对称广义黎曼空间}．
+
+很明显，常曲率空间是局部对称的．
+
+\begin{theorem}\label{chhss:thm_local-symmetry}
+    设有广义黎曼流形$(M,g)$，则下述条件相互等价：    
+    {\bfseries (1)} $M$局部对称．    
+    {\bfseries (2)} $\nabla R=0$．    
+    {\bfseries (3)} 若$X,Y,Z$是沿曲线$\alpha(t)\in M$的平行移动不变矢量场，
+    则矢量场$R(X,Y)Z$也是沿$\alpha(t)$平行移动不变矢量场．    
+    {\bfseries (4)} 截面曲率沿曲线$\alpha(t)$平行移动不变．
+\end{theorem}
+\begin{proof}
+    任取$M$中正则曲线$\alpha(t)$，它没有自交点，且处处光滑．
+    
+    $(1)\Leftrightarrow (2)$． $M$是局部对称意味着$\forall V \in \mathfrak{X}(M)$都有$\nabla_V R =0$，
+    因$V$的任意性，自然可以得到$\nabla R = 0$．
+    反之；$\nabla R = 0 \Rightarrow \nabla_V R=0$是自然的．
+    用抽象指标表示便是：$\forall V \in \mathfrak{X}(M)$，
+    $\nabla_V R^d_{cab}=0 \ \Leftrightarrow \ \nabla_e R^d_{cab} =0 $．
+    
+    $(1)\Rightarrow (3)$． 继续用上面的记号；
+    既然$V$是任意的，我们把它取成曲线$\alpha(t)$的切线切矢量．
+    再设$X,Y,Z$是沿曲线$\alpha(t)$的平行移动矢量场，
+    即$\nabla_V X=0$，$\nabla_V Y=0$，$\nabla_V Z=0$；    那么有
+    \begin{align*}
+        0=&(\nabla_V R)(X, Y) Z \\
+        =& \nabla_V\bigl(R(X, Y) Z\bigr)  - R(\nabla_V X, Y) Z - R (X, \nabla_V Y)  Z
+        - R (X, Y) (\nabla_V Z)   \\
+        =&\nabla_V\bigl(R(X, Y) Z\bigr) .
+    \end{align*}
+    这说明$R(X,Y)Z$也是沿$\alpha(t)$平行移动不变的．
+    上式用抽象指标表示为
+    \begin{align*}
+        0=&(\nabla_V R^d_{cab})X^a Y^b Z^c \\
+        =& \nabla_V(R^d_{cab}X^a Y^b Z^c) 
+         - R^d_{cab} (\nabla_V X^a) Y^b Z^c - R^d_{cab} X^a (\nabla_V Y^b)  Z^c
+         - R^d_{cab} X^a Y^b (\nabla_V Z^c)   \\
+        =&\nabla_V(R^d_{cab}X^a Y^b Z^c) .
+    \end{align*}
+    读者可以对比一下抽象指标与普通指标的异同．
+    
+    $(3) \Rightarrow (1)$．把上面的式子倒着推回去，得到$0=(\nabla_V R)(X, Y) Z$，
+    其中$V$是$\alpha(t)$的切线切矢量，$X,Y,Z$是沿$\alpha$平行移动不变的矢量场．
+    这样可以得到限制在曲线$\alpha(t)$上有$(\nabla_V R)|_{\alpha(t)}=0$；
+    因曲线$\alpha(t)$也是任意取定的，故可得到对于任意矢量场$V$有$\nabla_V R=0$．
+    
+    $(2) \Rightarrow (4)$．
+    截面曲率$\Pi$沿曲线$\alpha(t)$平行移动是指：截面$\Pi$上有两个不共线的矢量$u,v$，
+    且$u,v$沿曲线$\alpha(t)$平行移动不变；同时截面曲率沿$\alpha$导数为零．
+    
+    由式\eqref{chrg:eqn_sectional-curvature}可得
+    $ \nabla_V K([u\wedge v]) =  \nabla_V \frac{\left<u,\ R (u, v) v \right>}{Q(u,v)} $；
+    其中$Q(u,v)= \left<u,u\right> \left<v,v\right> -   \left<u,v\right>^2 $，
+    因$u,v$沿曲线$\alpha(t)$平行移动不变的，故$\nabla_V Q(u,v)=0$．
+    进而，截面曲率的导数是
+    \begin{equation}
+    \nabla_V K([u\wedge v]) =  \nabla_V \frac{\left<u,\,R (u, v) v \right>}{Q(u,v)}
+    = \frac{1}{Q(u,v)} \nabla_V \left<u,\, R (u, v) v \right> = 0 .
+    \end{equation}
+    即截面曲率沿$\alpha(t)$平行移动不变．
+    
+    $(4)\Rightarrow (2)$．由(4)可得：沿$\alpha(t)$有$\left<u,\, R (u, v) v \right>= c $，
+    其中$c$是非零实常数；因$v$沿$\alpha(t)$平行移动不变，故由前面的内积可知$R (u, v) v$沿$\alpha(t)$平行移动不变，
+    即沿$\alpha(t)$是常数．将沿$\alpha(t)$平行移动不变的矢量$v$分解成$v=X+Y$，并要求$X,Y$沿$\alpha(t)$平行移动不变；
+    带入上式有
+    \begin{equation*}
+        c'= R (u, v) v = R (u,X+Y) (X+Y)=R (u,X) X + R (u,X) Y+R (u,Y) X+R (u,Y) Y .
+    \end{equation*}
+    利用黎曼曲率对称性可以得到（参见定理\ref{chrg:thm_const-curvature}的证明过程）：
+    $R (u,X) Y$是沿$\alpha(t)$平行移动不变的；这便是(3)，进而得到(2)．
+\end{proof}
+
+由上面定理中的(4)可以直接得到：
+\begin{corollary}
+    若广义黎曼流形$M$的截面曲率是常数，则$M$是局部对称的．
+\end{corollary}
+
+
+%\subsection{法邻域的局部等距映射}
+下面讨论法邻域上的局部等距映射．
+设有两个维数相同的广义黎曼流形$M$和$N$，它们的度规号差也相同．
+令$p\in M$，$q\in N$，给定一个从$T_p(M)$到$T_q(N)$的局部等距同构映射；
+目标是寻找一个局部等距同胚，它将$p\in M$点法邻域等距映射到$q\in N$点法邻域．
+
+\index[physwords]{极映射}
+
+\begin{definition}\label{chhss:def_polarmap}
+    令${\rm L }:T_p(M)\to T_q(N)$是线性同构等距；
+    再取$p\in M$点足够小的法邻域$\mathscr{U}\subset M$使得$N$上指数映射$\exp_q$在
+    集合${\rm  L}\bigl(\exp_p^{-1}(\mathscr{U})\bigr)$上有定义．则映射
+    \begin{equation}\label{chhss:eqn_polarmap}
+        \phi_{\rm L} = \exp_q \circ {\rm L}\circ \exp^{-1}_p : \mathscr{U}\to N ,
+    \end{equation}
+    称为$\mathscr{U}$上关于$\rm L$的{\heiti 极映射}（polar map）．
+\end{definition}
+
+简单来说，$\forall v\in T_p M$，$\phi_{\rm L}$将$\exp_p(v)$映射成$\exp_q({\rm L}v)$．
+
+数学上可以证明只要法邻域$\mathscr{U}$取得足够小，极映射就存在．
+
+
+\begin{proposition}\label{chhss:thm_plphi}
+    {\bfseries (1)} $\phi_{\rm L}$将测地线映射为测地线． %（径向测地线定义见注解\ref{chgd:rmk_geo-sph}）．
+    
+    {\bfseries (2)} $\phi_{\rm L}$的切映射（推前映射）是$\rm L$，即$\forall v\in T_pM$，$\phi_{{\rm L}*} (v) = {\rm L}v$．
+    
+    {\bfseries (3)} 若$\mathscr{U}$足够小，则$\phi_{\rm L}$是局部微分同胚．
+    
+    {\bfseries (4)} 若$M$是完备的，则$\phi_{\rm L}$在$p\in M$的每个法邻域都有定义．
+\end{proposition}
+\begin{proof}
+    (1)  设$v\in T_pM$，有$M$中测地线$\gamma(t;p,v)=\exp_p(tv)$，则有
+    \begin{equation}\label{chhss:eqn_pgg}
+         \phi_{\rm L}\bigl( \gamma(t;p,v) \bigr) = \exp_q \circ {\rm L}\circ \exp^{-1}_p \circ \gamma(t;p,v)
+         =\exp_q \bigl(t ({\rm L} v)\bigr) . %= \gamma(t;q,{\rm L}v) .
+    \end{equation}
+%    我们来验证由式\eqref{chhss:eqn_pgg}得到的$\exp_q \bigl(t ({\rm L} v)\bigr)$是
+%    流形$N$中的测地线．已知$\gamma(t)$是$M$中测地线，则$\nabla_{\gamma'}\gamma'=0$；
+%    对此式取极映射的推前，有
+%    \begin{equation*}
+%        0= \phi_{\rm L *} \nabla_{\gamma'}\gamma' \xlongequal{\ref{chrg:eqn_isometry-connection-vec}}
+%        \nabla_{\phi_{\rm L *}\gamma'}(\phi_{\rm L *}\gamma')
+%        =\nabla_{\exp'_q (t ({\rm L} v))}\Bigl(\exp'_q \bigl(t ({\rm L} v)\bigr)\Bigr) .
+%    \end{equation*}    
+    指数映射$\exp_q \bigl(t ({\rm L} v)\bigr)$本身就是$N$中测地线；
+    故$\phi_{\rm L}$将测地线映射为测地线．
+    
+    (2) 对式\eqref{chhss:eqn_pgg}求$t$的导数，得
+    \begin{equation}
+        \left.\frac{\rm d}{{\rm d}t}\right|_{t=0} \phi_{\rm L}\bigl( \gamma(t;p,v) \bigr) 
+        = \left.\frac{\rm d}{{\rm d}t}\right|_{t=0} \exp_q \bigl(t ({\rm L} v)\bigr)
+        \ \xRightarrow{\ref{chdm:eqn_phiD=Dphi}} \ 
+        \phi_{{\rm L}*} (v) = {\rm L}v .
+    \end{equation}
+        
+    
+    (3) 流形中任意一点都存在包含该点的测地凸邻域（测地球），见\S\ref{chgd:sec_RNC}讨论以及
+    所列参考文献；在测地球内指数映射有着良好定义．由于$\phi_{\rm L}$是连续映射，
+    故只要缩小$\mathscr{U}$，那么$\phi_{\rm L}(\mathscr{U})$一定可以小到完全
+    属于点$N\ni q = \phi_{\rm L}(p)$的测地球内，即$\phi_{\rm L}(\mathscr{U})\subset \mathscr{B}_q(\delta)$
+    （见\eqref{chgd:eqn_gdBall}式）．在$p$、$q$局部$\exp_p$、$\exp_q$分别是局部微分同胚的；
+    $\rm L$是局部线性同构；又因$\phi_{\rm L}$是这三个映射的组合，故$\phi_{\rm L}$是局部微分同胚的．
+    注：微分同胚是流形上的术语，线性同构是矢量空间上的术语，两者都是双射．
+    
+    (4) 若$M$完备，则测地线可以延拓至整个实数轴，指数映射在任一点都有定义，
+    那么$\phi_{\rm L}$在$p\in M$的每个法邻域都有定义．
+\end{proof}
+
+
+
+
+设有两个广义黎曼流形$M$、$N$，两者间存在局部等距映射$f:M\to N$；
+由定理\ref{chrg:thm_isometry-Riemann}可知：
+其切映射${\rm L}=f_*$保黎曼曲率不变，即
+\begin{equation}\label{chhss:eqn_LR}
+    {\rm L} \bigl(R^M(X,Y)Z \bigr) = R^N({\rm L}X,{\rm L}Y)({\rm L}Z),
+    \qquad \forall X,Y,Z \in T_p M .
+\end{equation}
+由上式容易得到${\rm L}$也保$M$和$N$的截面曲率不变．
+
+现在考虑反问题．设有两个广义黎曼流形$M$、$N$，若存在微分同胚$f:M\to N$
+使得$\forall p\in M$以及$v,w\in T_p M$；当$v,w$不共线时，有截面曲率间的关系
+\begin{equation}
+    K^M(v,w)=K^N\bigl(f_*(v), f_*(w)\bigr)\quad \text{成立}.
+\end{equation}
+那么，映射$f$是否局部等距呢？一般情形下答案是否定的，一个反例见下．
+
+
+
+
+
+\begin{example}\label{chhss:exam_NOiso}
+    设有二维曲面 $S$ 和 $\tilde{S}$，它们的参数方程分别是：
+    \begin{align*}
+        \boldsymbol{r}=\left(a u,\  b v,\   \frac{1}{2}\left(a u^2+b v^2\right)\right); \qquad
+        \boldsymbol{\tilde{r}}=\left(\tilde{a} \tilde{u},\   \tilde{b} \tilde{v},\   
+        \frac{1}{2}\left(\tilde{a} \tilde{u}^2+\tilde{b} \tilde{v}^2\right)\right) .
+    \end{align*}
+    并且非零实参数满足$a b=\tilde{a} \tilde{b}$．
+    请证明：曲面 $S$ 和 $\tilde{S}$ 在对应点$\tilde{u}=u,\ \tilde{v}=v$有
+    相同的黎曼曲率（也就是Gauss曲率）；
+    但是当$(a^2, b^2) \neq (\tilde{a}^2, \tilde{b}^2)$以及
+    $(a^2, b^2) \neq(\tilde{b}^2, \tilde{a}^2)$时，
+    在曲面$S$和$\tilde{S}$之间不存在等距映射．    
+\end{example}
+\begin{proof}
+经直接计算得到曲面$S$的第一、第二基本形式是
+\begin{align}
+    \mathrm{I}=& a^2 (1+u^2 )(\mathrm{d} u)^2 + 2 a b u v \mathrm{d} u \mathrm{d} v
+      +b^2 (1+v^2)(\mathrm{d} v)^2, \\
+    \mathrm{II}=& \frac{a}{\sqrt{1+u^2+v^2}}(\mathrm{d} u)^2+\frac{b}{\sqrt{1+u^2+v^2}}(\mathrm{d} v)^2 .
+\end{align}
+可得度规行列式和曲面$S$的Gauss曲率（式\eqref{chcdg:eqn_Gauss-Curvature}）为：
+\begin{equation}
+    \det g = a^2 b^2(1+u^2+v^2),\qquad
+    K=\frac{1}{a b\left(1+u^2+v^2\right)^2} .
+\end{equation}
+因 $\tilde{S}$ 和 $S$ 的参数方程相同，
+只是系数不同，故曲面 $\tilde{S}$的总曲率为：
+\begin{equation}
+\tilde{K}=\frac{1}{\tilde{a} \tilde{b} \left(1+\tilde{u}^2+\tilde{v}^2\right)^2}
+ \xlongequal[\text{知条件}] {\text{应用已}}\frac{1}{a b\left(1+\tilde{u}^2+\tilde{v}^2\right)^2} .
+\end{equation}
+由此可见，曲面$S$和$\tilde{S}$在对应点$u=\tilde{u}, v=\tilde{v}$有相同的Gauss曲率．
+
+
+用反证法证明剩余部分．假设在曲面$S$和$\tilde{S}$之间存在等距映射：
+\begin{equation}\label{chhss:eqn_tmpiso}
+    \tilde{u}=\tilde{u}(u, v), \quad \tilde{v}=\tilde{v}(u, v) .
+\end{equation}
+根据定理\ref{chrg:thm_isometry-Riemann}等距映射\eqref{chhss:eqn_tmpiso}保二维曲面的黎曼曲率不变，
+也就是保Gauss曲率不变，即$S$和$\tilde{S}$在对应点有相同的Gauss曲率，用公式表示便是：
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chhss:eqn_uv=uv}
+    \frac{1}{a b\left(1+\tilde{u}^2+\tilde{v}^2\right)^2} = \frac{1}{a b \left(1+u^2+v^2\right)^2} 
+    \ \Rightarrow \  \tilde{u}^2(u, v)+\tilde{v}^2(u, v)=u^2+v^2 
+\end{equation}\setlength{\mathindent}{2em}
+因此曲面$S$上的$(u, v)=(0,0)$点必然对应着曲面$\tilde{S}$上的$(\tilde{u}, \tilde{v})=(0,0)$点，
+即$\tilde{u}(0,0)=0, \ \tilde{v}(0,0)=0 $．
+将式\eqref{chhss:eqn_uv=uv}分别对$u$、$v$求导得到：
+\begin{equation}
+    \tilde{u} \frac{\partial \tilde{u}}{\partial u}+\tilde{v} \frac{\partial \tilde{v}}{\partial u}=u, 
+    \qquad \tilde{u} \frac{\partial \tilde{u}}{\partial v}+\tilde{v} \frac{\partial \tilde{v}}{\partial v}=v.
+\end{equation}
+将上面的式子再次对$u$、$v$求导，并且让$u=0=v$，则得到：
+\begin{align*}
+    &\left(\frac{\partial \tilde{u}}{\partial u}\right)^2+\left(\frac{\partial \tilde{v}}{\partial u}\right)^2=1, \quad
+    \left(\frac{\partial \tilde{u}}{\partial v}\right)^2+\left(\frac{\partial \tilde{v}}{\partial v}\right)^2=1, \quad
+    \frac{\partial \tilde{u}}{\partial u} \frac{\partial \tilde{u}}{\partial v}
+    +\frac{\partial \tilde{v}}{\partial u} \frac{\partial \tilde{v}}{\partial v}=0 .  \\
+  \text{令}&\qquad J=\begin{pmatrix}
+    \frac{\partial \tilde{u}}{\partial u} & \frac{\partial \tilde{v}}{\partial u} \\
+    \frac{\partial \tilde{u}}{\partial v} & \frac{\partial \tilde{v}}{\partial v}
+\end{pmatrix} .
+\end{align*}
+则上式表明$J|_{(u, v)=(0,0)}$是正交矩阵，不妨设
+\begin{equation}\label{chhss:eqn_tmpJ00}
+    \left. J\right|_{(u, v)=(0,0)} = \begin{pmatrix}
+        \cos \theta & \sin \theta \\ 
+        -\varepsilon \sin \theta & \varepsilon \cos \theta
+    \end{pmatrix}; 
+    \qquad \text{其中} \varepsilon= \pm 1
+\end{equation}
+因为映射\eqref{chhss:eqn_tmpiso}是等距映射，根据式\eqref{chrg:eqn_isometry-MNcoord}得到
+\begin{equation}
+    \begin{pmatrix}
+        a^2\left(1+u^2\right) & a b u v \\
+        a b u v & b^2\left(1+v^2\right)
+    \end{pmatrix} = J \begin{pmatrix}
+        \tilde{a}^2\left(1+\tilde{u}^2\right) & \tilde{a} \tilde{b} \tilde{u} \tilde{v} \\
+        \tilde{a} \tilde{b} \tilde{u} \tilde{v} & \tilde{b}^2\left(1+\tilde{v}^2\right)
+    \end{pmatrix} J^{\mathrm{T}} .
+\end{equation}
+让$(u, v)=(0,0)$，则根据$\tilde{u}(0,0)=0,\ \tilde{v}(0,0)=0 $和
+式\eqref{chhss:eqn_tmpJ00}，上式成为：
+\begin{equation}
+    \begin{pmatrix}
+        a^2 & 0 \\   0 & b^2
+    \end{pmatrix}= \begin{pmatrix}
+        \cos \theta & \sin \theta \\
+        -\varepsilon \sin \theta & \varepsilon \cos \theta
+    \end{pmatrix} \begin{pmatrix}
+        \tilde{a}^2 & 0 \\ 0 & \tilde{b}^2
+    \end{pmatrix} \begin{pmatrix}
+        \cos \theta & -\varepsilon \sin \theta \\
+        \sin \theta & \varepsilon \cos \theta
+    \end{pmatrix} .
+\end{equation}
+将上式展开得到三个方程式：
+\setlength{\mathindent}{0em}
+\begin{equation*} %\label{chhss:eqn_tmpabt}
+    \tilde{a}^2 \cos ^2 \theta+\tilde{b}^2 \sin ^2 \theta =a^2, \quad
+    \left(\tilde{b}^2-\tilde{a}^2\right) \sin \theta \cos \theta  =0, \quad
+    \tilde{a}^2 \sin ^2 \theta+\tilde{b}^2 \cos ^2 \theta  =b^2 .
+\end{equation*} \setlength{\mathindent}{2em}
+若$\tilde{b}^2=\tilde{a}^2$，则从上式得到$\tilde{b}^2=\tilde{a}^2=b^2=a^2$．
+若$\tilde{b}^2 \neq \tilde{a}^2$，则从上式的第二式得到或$\theta=0$，
+或$\theta=\pi / 2$，即
+\begin{equation}
+    \left(a^2, b^2\right)=\left(\tilde{a}^2, \tilde{b}^2\right)
+    \quad \text { 或者 } \quad 
+    \left(a^2, b^2\right)=\left(\tilde{b}^2, \tilde{a}^2\right) .
+\end{equation}
+所以，当$(a^2, b^2) \neq (\tilde{a}^2, \tilde{b}^2 )$以
+及$(a^2, b^2)\neq(\tilde{b}^2, \tilde{a}^2)$时，
+在曲面$S$和曲面$\tilde{S}$之间不存在等距映射．
+\end{proof}
+
+
+若增加{\kaishu 局部对称}条件后，则有下面等距定理．
+
+\index[physwords]{Cartan等距定理}
+
+\begin{theorem}\label{chhss:thm_cartan-isometry}
+    设有\uwave{局部对称}的广义黎曼流形$M$、$N$，
+    令${\rm L }:T_p(M)\to T_q(N)$是保持黎曼曲率不变的线性同构等距映射．则：    
+    {\bfseries (1)}  若$\mathscr{U}$是$p$足够小的法邻域，那么在$\mathscr{U}$上存在唯一的
+    局部等距映射$\phi:\mathscr{U}\to \mathscr{V}$，
+    它将$\mathscr{U}$映射到$q=\phi(p)$点的法邻域$\mathscr{V}$中，并且$\phi_{p*} = {\rm L}$．    
+    {\bfseries (2)} 若$N$是完备的，则对$p$点任意的法邻域$\mathscr{U}$，都存在唯一的局部
+    等距$\phi:\mathscr{U}\to N$使得$\phi_{p*} = {\rm L}$．
+\end{theorem}
+\begin{proof}
+    定理中两条内容中的{\kaishu 唯一性}证明可由命题\ref{chlg:thm_isopall}得到．
+    本定理主要内容是证明局部等距映射$\phi$的存在性；
+    其实极映射$\phi_{\rm L} : \mathscr{U}\to N$就是
+    我们要寻找的那个局部等距映射，令$\phi=\phi_{\rm L}$．    
+    因此，我们只需证明极映射是局部等距的，
+    即证明：$\forall p\in \mathscr{U}$，$\forall v\in T_p M$有$\left<v,v\right>=
+    \left<\phi_{{\rm L}*}v,\phi_{{\rm L}*}v\right>=\left<\phi_{*}v,\phi_{*}v\right>$．
+    我们的想法是使用推论\ref{chgd:thm_Jexp}，并证明对应的Jacobi场在两个流形中以相同的速率增长．
+    下面，我们分几步来证明定理．
+    
+    \fbox{甲} $T_pM$中有邻域$\widetilde{\mathscr{U}}$，它对应于法邻域$\mathscr{U}\subset M$．
+    存在唯一的$x\in \widetilde{\mathscr{U}}$及$y_x \in T_x (T_pM)$使得$v=\exp_{*p}(y_x)$．
+    由推论\ref{chgd:thm_Jexp}中的式\eqref{chgd:eqn_Jexp-2}可得：
+    $\left<v,v\right>=\left<J(1),J(1)\right>$，其中$J$是测地线$C_x$上的Jacobi场，
+    它的初值是$J(0)=0$，$J'(0)=y \in T_pM$．
+    
+    \fbox{乙} 现在来看看$N$中的对应情形．因${\rm L}$是线性的，故${\rm L}_* (y_x) = ({\rm L} y)_{{\rm L}x}$．
+    因此，根据极映射定义，有$\phi_{*} (v) = \exp_{*p}\bigl(({\rm L}y)_{{\rm L}x}\bigr)$．
+    同样，由式\eqref{chgd:eqn_Jexp-2}可得：$\left<\phi_{*} (v),\phi_{*} (v)\right>
+    =\left<\bar{J}(1),\bar{J}(1)\right>$，其中$\bar{J}$是$N$中的测地线$C_{{\rm L}x}$上唯一Jacobi场，
+    它使得$\bar{J}(0)=0$，$\bar{J}'(0)={\rm L}y \in T_q(N)$．
+    
+    \fbox{丙} 令$E_1,\cdots,E_m$和$\bar{E}_1,\cdots,\bar{E}_m$分别是$C_x$和$C_{{\rm L}x}$上
+    的平行移动标架场，并且有${\rm L}\bigl(E_i(0)\bigr)= \bar{E}_i(0)$，$\forall i$．
+    为简单起见，我们将$E_1$（$\bar{E}_1$）选为测地线$C_x$（$C_{{\rm L}x}$）的切线切矢量．
+    由于$\rm L$是线性同构的，我们可以认为与$E_i(0)$相关的坐标$x$、$y$和$\bar{E}_i(0)$相关的
+    坐标${\rm L}x$、${\rm L}y$是相同的，即认为初始点坐标相同，$x^i(0) = {\rm L}x^i(0)$、$y^i(0) = {\rm L}y^i(0)$．
+    
+    如果令$J(s)= J^i(s) E_i(s)$、$\bar{J}(s)= \bar{J}^i(s) \bar{E}_i(s)$，那么
+    它们满足的方程式为\eqref{chgd:eqn_Jacobi-componet}，即
+    \begin{align}
+        \frac{{\rm d}^2 J^i(s)}{{\rm d} s^2} =& R^i_{11j}\bigl(C_x(s)\bigr) J^j(s) , 
+        \ J^i(0)=0,\quad \frac{{\rm d} J^i(0)}{{\rm d}s} = y^i(0) ; \label{chhss:eqn_tmpJ} \\
+        \frac{{\rm d}^2 \bar{J}^i(s)}{{\rm d} s^2} =& \bar{R}^i_{11j}\bigl(C_{{\rm L}x}(s)\bigr) \bar{J}^j(s) , 
+        \ \bar{J}^i(0)=0,\ \frac{{\rm d} \bar{J}^i(0)}{{\rm d}s} = {\rm L}y^i(0) = y^i(0) .
+        \label{chhss:eqn_tmpJb}
+    \end{align}
+    
+    \fbox{丁} 由定理中的条件可知线性同构$\rm L$保黎曼曲率不变，即有$R^i_{klj}(0)=\bar{R}^i_{klj}(0)$．
+    由于$M$是{\kaishu 局部对称}广义黎曼流形，故由定理\ref{chhss:thm_local-symmetry}第(3)条可知：
+    \begin{align*}
+        R^i_{klj}(s)=&\left<R(E_l,E_j)E_k,\ E^{*i}\right>(s)=\left<R(E_l,E_j)E_k,\ E^{*i}\right>(0)
+        =R^i_{klj}(0)=\bar{R}^i_{klj}(0) \\
+        =&\left<\bar{R}(\bar{E}_l,\bar{E}_j)\bar{E}_k ,\ \bar{E}^{*i}\right>(0)
+        =\left<\bar{R}(\bar{E}_l,\bar{E}_j)\bar{E}_k,\ \bar{E}^{*i}\right>(s)
+        =\bar{R}^i_{klj}(s) .
+    \end{align*}
+    上式证明中用到了$E_i$、$\bar{E}_i$沿测地线是平行移动不变的，以及它们的内积沿测地线也是不变的．
+    这样，便得到了沿测地线$C_x(s)$、$C_{{\rm L}x}(s)$的黎曼曲率是相等的：$R^i_{klj}(s)=\bar{R}^i_{klj}(s)$．
+    
+    \fbox{戊} $M$中Jacobi场$J$的分量$J^i(s)$满足方程\eqref{chhss:eqn_tmpJ}，
+    $N$中Jacobi场$\bar{J}$的分量$\bar{J}^i(s)$满足方程\eqref{chhss:eqn_tmpJb}；
+    因$R^i_{klj}(s)=\bar{R}^i_{klj}(s)$，故这两个方程本身是相同的；它们的初始条件也是相同的．
+    因此，从常微分方程组解存在唯一性定理可知：$J^i(s)=\bar{J}^i(s)$，$1\leqslant i \leqslant m$．
+    综上，可以得到
+    \setlength{\mathindent}{0em}
+    \begin{equation*}
+        \left<\phi_{*} (v),\phi_{*} (v)\right>  =\left<\bar{J}(1),\bar{J}(1)\right>
+        =\sum \bar{\eta}_{ij} \bar{J}^i(1)\bar{J}^j(1) =\sum \eta_{ij} J^i(1)J^j(1)
+        %=\left<J(1),J(1)\right>
+        =\left<v,v\right> .
+    \end{equation*}\setlength{\mathindent}{2em}
+    其中$\eta_{ij}$、$\bar{\eta}_{ij}$是正交归一基矢下$M$、$N$的度规，
+    它们的对角元是$\pm 1$，非对角元是零；
+    线性等距同构$\rm L$保证了它们相等，即$\eta_{ij}=\bar{\eta}_{ij}$．
+    最终证明了极映射$\phi=\phi_{{\rm L}}$是局部等距的．
+    
+    
+    \fbox{己} 关于第(2)条．由于$N$是完备的，故此流形中的任意测地线都可延拓至整个实数轴，
+    也就是说$M$中$p$点任意法邻域$\mathscr{U}$都不会令$N$中对应法邻域$\mathscr{V}$上
+    的测地线没有定义．故第(2)条成立．
+    
+    需注意$\rm L$是流形\uwave{切空间}$T_p M$和$T_q N$间的线性等距同构；
+    而极映射$\phi_{{\rm L}}$是流形$M$上$p$点的法邻域$\mathscr{U}$
+    和$N$上$q=\phi(p)$法邻域$\mathscr{V}$间的局部等距同胚．
+\end{proof}
+
+
+Cartan等距定理的最初叙述形式与定理\ref{chhss:thm_cartan-isometry}相去甚远．
+但因定理\ref{chhss:thm_cartan-isometry}的证明仍旧主要归功于Cartan，
+故仍称定理\ref{chhss:thm_cartan-isometry}为{\bfseries\heiti Cartan等距定理}．
+定理\ref{chhss:thm_cartan-isometry}只在局部成立，
+把它推广到整体情形便是{\bfseries\heiti Cartan--Ambrose--Hicks定理}．
+
+\index[physwords]{Cartan--Ambrose--Hicks定理}
+
+\begin{theorem}\label{chhss:thm_CAH-iso}    
+    设有广义黎曼流形$M$和$N$，它们是完备的、连通的、局部对称的；其中$M$还是单连通的．
+    如果${\rm L}: T_p M \to T_q N$是保黎曼曲率不变的线性等距同构映射，那么存在
+    唯一的覆叠映射$\phi:M\to N$使得$\phi_{p*} = {\rm L}$．
+\end{theorem}
+\begin{proof}
+    覆叠映射定义见\ref{chtop:def_covering-map}．
+    证明过程可参考\parencite[8.17]{oneill1983}或
+    \parencite[2.3.11]{wolf_SCC-2011}．
+\end{proof}
+
+%由Cartan等距定理可知极映射便是定义\ref{chhss:def_polarmap}前面一段所要寻找的那个等距映射．
+
+\begin{theorem}\label{chhss:thm_const-curvature}
+    设有两个$m$维广义黎曼流形$M$、$N$，它们度规号差相同，且两个流形的曲率都是常数$K$；
+    则任意点$p\in \mathscr{U}\subset M$和任意点$q\in \mathscr{V}\subset N$间
+    都存在局部等距$\phi:\mathscr{U}\to \mathscr{V}$．
+\end{theorem}
+\begin{proof}
+    点$p\in \mathscr{U}\subset M$、$q\in \mathscr{V}\subset N$的切空间
+    分别是$T_p M$和$T_q N$，$\mathscr{U}$、$\mathscr{V}$是法邻域．
+    已知切空间的维数相同，给$T_p M$选定正交归一基$e_1,\cdots,e_m$，
+    给$T_p N$选定正交归一基$\epsilon_1,\cdots,\epsilon_m$．
+    由定理\ref{chrg:thm_isometry-VW}可知存在{\kaishu 等距线性同构}${\rm L}:T_p M\to T_q N$．
+    
+    又因$M$、$N$的黎曼曲率都是常数$K$，故由定理\ref{chhss:thm_cartan-isometry}可知
+    在点$p\in M$法邻域$\mathscr{U}\subset M$和点$q\in N$法邻域$\mathscr{V}\subset N$间
+    存在唯一的局部等距映射$\phi_{\rm L}:\mathscr{U}\to \mathscr{V}$．
+    
+    这个定理是在说：在局部等距同构意义下，定理中描述的空间是{\kaishu 唯一的}；
+    即相同的维数、相同的度规号差、相同的曲率$K$决定了{\kaishu 常曲率}空间的{\kaishu 惟一性}．
+\end{proof}
+
+\index[physwords]{整体对称空间}
+
+\section{整体对称空间初步}
+我们先从正定的欧几里得空间谈起．设$\mathbb{R}^m$为$m$维欧氏空间，它同时又是一个实线性空间．
+%分别用 $d$ 和 $\langle\cdot, \cdot\rangle$ 表示其中的欧氏距离和标准内积．
+在欧氏空间中任取两个不重合的固定点$p$和$q$，我们取$\overrightarrow{pq}$的中点为$c$，
+那么$p$、$q$以点$c$为中心相互对称．这种描述方式自然不够严谨，下面我们用略微严谨一点的语言来描述这种对称．
+
+对于任意取定的一点$p \in \mathbb{R}^m$，都有$\mathbb{R}^m$关于点$p$的“中心对称”
+$\sigma_p: \mathbb{R}^m \rightarrow \mathbb{R}^m$，它把任意一点$q \in \mathbb{R}^m$
+映为点$q_1=\sigma_p(q)$，使得有向线段$\overrightarrow{p q_1}=-\overrightarrow{p q}$．
+从几何上来讲，关于点 $p$ 的中心对称 $\sigma_p$ 就是 $\mathbb{R}^m$ 关于点 $p$ 的反射变换．
+如果在$\mathbb{R}^m$中取以点$p$为原点的笛卡尔直角坐标系$\{x^i\}$，
+则上面引入的关于点$p$的中心对称$\sigma_p$可以用坐标表示为：
+\begin{equation*}
+    \sigma_p\left(x^1, \cdots, x^m\right)=\left(-x^1, \cdots,-x^m\right) .
+\end{equation*}
+可以总结出，中心对称$\sigma_p$具有下列性质：
+
+(1) $\sigma_p$ 是等距变换．
+%即$\forall q, \tilde{q} \in \mathbb{R}^m$，
+%距离 $d\left(\sigma_p(q), \sigma_p(\tilde{q})\right)=d(q, \tilde{q})$．
+%或等价地讲，对于在$\mathbb{R}^m$的任意一点$q$处的任意两个切矢量$X, Y$，
+%都有 $\left< (\sigma_p)_{* q}(X), (\sigma_p)_{* q}(Y)\right>=\langle X, Y\rangle$．
+%这里需要指出的是由于目前的$\sigma_p$是一个线性映射，
+%它的切映射 $\left(\sigma_p\right)_{* q}$ 和它自身是等同的．
+
+(2) $\sigma_p \circ \sigma_p=\mathrm{id}$，即$\sigma_p$是$\mathbb{R}^m$上的一个对合变换．
+
+(3) $p$是$\sigma_p$的孤立不动点，即$\sigma_p(p)=p$，并且在点$p$的一个邻域
+内除点$p$以外$\sigma_p$没有其他不动点．
+
+
+我们已经总结出欧几里得空间对称需满足上述三条属性，下面把它们推广到广义黎曼流形上．
+
+\begin{definition}\label{chhss:def_center-sym}
+    设$M$是连通广义黎曼流形，$p \in M$，若有映射$\sigma_p: M \rightarrow M$满足：
+    
+    {\bfseries (1)} $\sigma_p$是广义黎曼流形$M$到它自身的\uwave{等距变换}；
+    
+    {\bfseries (2)} $\sigma_p$是{\heiti 对合}映射（involution），即 $\sigma_p \circ \sigma_p=\mathrm{id}$；
+    
+    {\bfseries (3)} $p$是$\sigma_p$的\uwave{孤立不动点}，即$\sigma_p(p)=p$，
+    并且存在点$p$的一个邻域$U$使得$\sigma_p$在$U$内除点$p$以外，$\sigma_p$没有其他不动点．
+    
+    则称映射$\sigma_p$是$M$关于点$p$的 {\heiti 中心对称}，$p$是$M$的{\heiti 对称中心}．
+\end{definition}
+
+\begin{definition}\label{chhss:def_global-symmetry}
+    若广义黎曼流形$(M,g)$中每一点都是对称中心，
+    则称$M$是{\heiti 广义黎曼整体对称空间}（globally symmetric space）， 
+    简称{\heiti 对称空间}．
+\end{definition}
+
+“整体”（或全局）二字的目的之一是为了区分“局部”对称\ref{chhss:def_local-symmetry}；
+在不引起混淆的情形下我们只用“对称空间”这个术语；而“局部对称”则不作任何省略．
+
+\begin{example}
+    正定欧几里得空间 $\mathbb{R}^m$ 是黎曼整体对称空间．
+\end{example}    
+\begin{example}
+    正定$\mathbb{R}^{m+1}$中$m$ 维单位球面 $S^m$．
+\end{example}    
+设$S^m$是$\mathbb{R}^{m+1}$中以原点$O$为中心的单位球面，定义可见\ref{chdm:exm_sphere1}．
+$\forall p \in S^m$，用$\tilde{\sigma}_p$记$\mathbb{R}^{m+1}$关于直线$Op$的对称，
+即$\forall q \in \mathbb{R}^{m+1}$，$q_1=\tilde{\sigma}_p(q)$满足条件
+\begin{equation}
+    \overrightarrow{O q_1}=-\overrightarrow{O q}+ 
+     2\langle\overrightarrow{O q}, \overrightarrow{O p}\rangle \overrightarrow{O p},
+\end{equation}
+则$\tilde{\sigma}_p$是$\mathbb{R}^{m+1}$到它自身的等距变换，并把$S^m$映到它自己．
+
+令$\sigma_p=\tilde{\sigma}_p|_{S^m}$，则$\sigma_p:S^m\to S^m$仍是等距变换，且$\sigma_p(p)=p$．
+可验证$\sigma_p\circ \sigma_p ={\rm id}$，故$\sigma_p$是对合的．
+因$\tilde{\sigma}_p$以直线$Op$为不动点集，故$\sigma_p$的不动点是$Op$与$S^m$的交点，
+也就是$p$点自身和其对径点$-p$，因而$p$是$\sigma_p$的孤立不动点．
+根据定义，$\sigma_p$是$S^m$的关于点$p$的中心对称；由于$p$是任选的，故$S^m$是黎曼对称空间．
+\qed
+
+
+
+
+
+\begin{theorem}\label{chhss:thm_sss}
+设$M$是广义黎曼整体对称空间，$\sigma_p$是$M$关于点$p\in M$的中心对称，
+则$(\sigma_p)_{*p}=-\mathrm{id}\ :\  T_p M \rightarrow T_p M $．
+\end{theorem}
+\begin{proof}
+对称中心$p$是$\sigma_p$的孤立不动点．
+因$\sigma_p(p)=p$，故它的切映射$(\sigma_p)_{* p} $是$T_p M$到它自身的等距线性同构．
+由$\sigma_p \circ \sigma_p= {\rm id} $可知$(\sigma_p)_{* p} \circ (\sigma_p)_{* p}= {\rm id}$，
+即$(\sigma_p)_{* p}$也是对合的．令
+\begin{equation*}
+    V^{+}=\left\{v \in T_p M \ | \ \left(\sigma_p\right)_{* p}(v)=v\right\}, \quad
+    V^{-}=\left\{v \in T_p M \ | \ \left(\sigma_p\right)_{* p}(v)=-v\right\},
+\end{equation*}
+显然有$V^+ \cap V^- =\{0\}$．
+$\forall v\in T_p M$，利用$(\sigma_p)_{* p}$的对合性容易看出
+$ v+ (\sigma_p)_{* p} v \in V^{+}$，$v- (\sigma_p)_{* p} v \in V^{-} $．
+因$v=\frac{1}{2}\bigl(v+(\sigma_p)_{*p}(v)\bigr)+\frac{1}{2}\bigl(v-(\sigma_p)_{*p} (v)\bigr)$，
+故$T_p M=V^{+} \oplus V^{-}$，并且$V^{\pm}$是$(\sigma_p)_{* p}$的不变子空间．
+
+下面用反证法证明 $V^{+}=\{0\}$．
+如若不然，则有$v\in V^+$且$v\neq 0$；考虑测地线$\gamma(t)=\exp_p(t v)$．
+由于$\sigma_p$是等距映射，故从定理\ref{chrg:thm_geodesic-MN}可
+知$\sigma_p\bigl(\gamma(t)\bigr)$仍是$M$上一条测地线．
+它的起始点和初始切矢量分别是：
+\begin{align*}
+    \sigma_p\bigl(\gamma(0)\bigr)=& \sigma_p(p)=p=\gamma(0), \\
+    \left.\frac{\mathrm{d}}{\mathrm{d} t}\right|_{t=0}\Bigl(\sigma_p\bigl(\gamma(t)\bigr)\Bigr)=&
+    (\sigma_p)_{* p}\bigl(\gamma^{\prime}(0)\bigr)=(\sigma_p)_{* p}(v)=v=\gamma^{\prime}(0) .
+\end{align*}
+因测地线是由其起始点和初始切矢量唯一确定的，
+所以有$\sigma_p\bigl(\gamma(t)\bigr)=\gamma(t)$．
+这说明$\gamma(t)$上的点都是$\sigma_p$的不动点，与$p$是$\sigma_p$的孤立不动点相矛盾．
+
+由此可见，$T_p M=V^-$，即$(\sigma_p)_{*p} =-\mathrm{id}: T_p M \rightarrow T_p M$．
+\end{proof}
+
+
+从上面的证明过程不程看出，\uwave{$\sigma_p$把每一条经过点$p$的测地线反向}，即
+\begin{equation}\label{chhss:eqn_inv-gd-s}
+    \sigma_p\bigl(\exp _p(t v)\bigr) \xlongequal[\ref{chlg:thm_feef}]{\text{定理}}
+    \exp _p\bigl(t (\sigma_p)_{*p} v\bigr)=\exp_p(-t v) .
+\end{equation}
+指数映射本身就是测地线，为使公式简单令$\gamma(t)=\exp_p(t v)$，
+则上式成为$\sigma_p\bigl(\gamma(t)\bigr)=\gamma(-t) $．
+设$(U;x^i)$是点$p$处的法坐标系，则测地线$\gamma(t)$的参数方程为
+\begin{equation}
+x^{i}(t)=x^i\bigl(\gamma(t)\bigr)=x^{i}\bigl(\exp_p(t v)\bigr)=t v^{i}.
+\end{equation}
+因而$\gamma(-t)$的参数方程
+是$x^{i}(-t)=x^{i}\bigl(\gamma(-t)\bigr)=-t v^{i}=  -x^{i}(t)$；
+故\eqref{chhss:eqn_inv-gd-s}为
+\begin{equation}\label{chhss:eqn_sigmat-t}
+    \sigma_p\bigl(x^1(t),\cdots,x^m(t)\bigr) %=\bigl(x^1(-t),\cdots,x^m(-t)\bigr)
+    =\bigl(-x^1(t),\cdots,-x^m(t)\bigr) .
+\end{equation}
+\uwave{上式便是中心对称$\sigma_p$在法坐标系$(U;x^i)$的表达式}．
+
+局部对称空间定义\ref{chhss:def_local-symmetry}与整体对称空间定义\ref{chhss:def_global-symmetry}表观
+上来看相去甚远；其实局部对称空间也有类似于整体对称空间的叙述，请见下述定理．
+
+\begin{theorem}\label{chhss:thm_lsg}
+    设$M$是局部对称黎曼空间，则$\forall p \in M$，都有点$p$的一个开邻域$U$以及
+    局部光滑等距$\sigma_p: U \rightarrow U$，使得$\sigma_p \circ \sigma_p=\mathrm{id}$是对合，
+    并且以$p$为其唯一的不动点（这样的映射$\sigma_p$称为$M$关于点$p$的{\heiti 局部中心对称}）．
+\end{theorem}
+\begin{proof}
+    设$p \in M$，取小正数$\varepsilon$使得指数映射$\exp_p$在$B_p(\varepsilon)\subset T_p M$上有定义，
+    且$\exp_p: B_p(\varepsilon) \to \mathscr{B}_p(\varepsilon)=\exp_p\bigl(B_p(\varepsilon)\bigr)$是光滑同胚；
+    $B_p(\varepsilon)$、$\mathscr{B}_p(\varepsilon)$定义见\eqref{chgd:eqn_Ball}、\eqref{chgd:eqn_gdBall}．令
+    \begin{equation}
+        {\rm L}=-\mathrm{id}: T_p M \to T_p M, \quad 
+        \sigma_p=\exp _p \circ {\rm L} \circ \exp _p^{-1}:
+        \mathscr{B}_p(\varepsilon) \to \mathscr{B}_p(\varepsilon) .
+    \end{equation}
+    显然${\rm L}$是保曲率不变的．
+    则$\sigma_p$是从$\mathscr{B}_p(\varepsilon)$到它自身的光滑同胚，
+    以$p$为该邻域内仅有的不动点，并且$\sigma_p \circ \sigma_p=\mathrm{id}:
+    \mathscr{B}_p(\varepsilon) \rightarrow \mathscr{B}_p(\varepsilon)$．
+    根据定理\ref{chhss:thm_plphi}知${\rm L}= (\sigma_p)_{*p}$；
+    取$U=\mathscr{B}(\varepsilon)$，
+    由Cartan等距定理\ref{chhss:thm_cartan-isometry}可
+    知$\sigma_p$是$U=\mathscr{B}_p(\varepsilon)$上局部等距映射．
+    
+    {\kaishu 
+    式\eqref{chhss:eqn_sigmat-t}指出，对称将测地线反向只在$p$点成立，
+    本定理将其延拓至$p$点法邻域球$\mathscr{B}_p(\varepsilon)$内成立；
+    沿测地线任一点都是反向对称的正是“局部对称”的几何诠释．
+    需要指出的是：测地线反向对称是将测地线映射成自身的，
+    从式\eqref{chhss:eqn_geo-sym}能更明显地看出此点．}
+\end{proof}
+
+
+
+\begin{theorem}
+    设$M$是广义黎曼整体对称空间，则$M$是局部对称的．
+\end{theorem}
+\begin{proof}
+设$R$是$M$的黎曼曲率张量，只需证明$\forall V\in \mathfrak{X}(M)$有$\nabla_V R=0$．
+
+由协变导数定义知$R$和$\nabla_V R$都是$\binom{1}{3}$型张量场；
+$\forall X, Y, Z \in \mathfrak{X}(M)$有
+\begin{equation}\label{chhss:eqn_DRXYZ}
+    \begin{aligned}
+             (\nabla_V R)(X, Y) Z = &\nabla_V\bigl(R(X, Y) Z\bigr)  
+        - R(\nabla_V X, Y) Z \\
+        &- R (X, \nabla_V Y)Z- R (X, Y) \nabla_V Z   .
+    \end{aligned}
+\end{equation} %\setlength{\mathindent}{2em}
+
+设$\sigma$等距变换，则由定理\ref{chrg:thm_isometry-Riemann}中
+式\eqref{chrg:eqn_isometry-Riemann}可得
+\begin{equation}
+    \sigma_{*}\bigl(R (X, Y) Z\bigr) = R \bigl((\sigma_{*} X), (\sigma_{*} Y)\bigr) 
+     (\sigma_{*} Z) . \tag{\ref{chrg:eqn_isometry-Riemann}}
+\end{equation}
+结合式\eqref{chhss:eqn_DRXYZ}和\eqref{chrg:eqn_isometry-Riemann}可以得到
+\setlength{\mathindent}{0em}
+\begin{align*}
+    & (\nabla_{\sigma_* V} R)(\sigma_* X, \sigma_* Y)(\sigma_* Z) 
+     =\nabla_{\sigma_* V}\bigl(R (\sigma_* X, \sigma_* Y)(\sigma_*Z )\bigr) 
+      -R\bigl(\nabla_{\sigma_* V} (\sigma_* X), \sigma_* Y\bigr) \sigma_* Z \\ 
+    &\qquad -R\bigl(\sigma_* X, \nabla_{\sigma_*V}(\sigma_* Y)\bigr)\sigma_* Z
+      -R(\sigma_* X, \sigma_* Y)\bigl(\nabla_{\sigma_* V }(\sigma_* Z)\bigr) \\
+    & =\nabla_{\sigma_* V}\Bigl(\sigma_*\bigl(R(X, Y) Z\bigr)\Bigr) 
+      -\sigma_* \bigl(R(\nabla_V X, Y) Z\bigr) 
+      -\sigma_* \bigl(R(X, \nabla_V Y) Z\bigr)-\sigma_*\bigl(R(X, Y)\nabla_V Z\bigr) \\
+    & =\sigma_* \bigl((\nabla_V R)(X, Y) Z\bigr) . 
+\end{align*}\setlength{\mathindent}{2em}
+即对于任意的 $X, Y, Z, V \in \mathfrak{X}(M)$， 有
+\begin{equation}\label{chhss:eqn_sDR}
+  \sigma_*^{-1} \circ\bigl((\nabla_{\sigma_*V } R)(\sigma_* X, \sigma_* Y)(\sigma_* Z) \bigr)
+  =(\nabla_V R)(X, Y) Z .
+\end{equation}
+
+注意到$(\nabla_V R)(X, Y) Z$关于四个自变量$X, Y, Z, V \in \mathfrak{X}(M)$都
+是$C^{\infty}(M)$-线性的，故$\nabla R$是$M$上$\binom{1}{4}$型光滑张量场．
+特别地，$\forall p \in M$及$\forall X, Y, Z, V \in T_p M$，
+$(\nabla_V R)(X, Y) Z$是有定义的，并且是$T_p M$中的一个成员．
+取$\sigma=\sigma_p$，则$\sigma_{*p}=(\sigma_{p})_{*p}=-\mathrm{id} : T_p M \rightarrow T_p M$；
+于是式\eqref{chhss:eqn_sDR}成为
+\begin{equation}
+    (\nabla_V R)(X, Y) Z= -(\nabla_V R)(X, Y) Z, \quad \forall X, Y, Z, V \in T_p M.
+\end{equation}
+上式中那个负号是这样得来的：$\sigma_*^{-1}$和$\sigma_*$在$X, Y, Z, V \in T_p M$上分别产生一个负号，
+两者相消了；$(\nabla_V R^a_{bcd})(X^c, Y^d) Z^b$也是一个切矢量（上指标$a$），
+$\sigma_*^{-1}$在它上面生成了这个负号．
+故$(\nabla_V R)(X, Y) Z=0,\ \forall X, Y, Z, V \in T_p M$；
+因$X, Y, Z, V$的任意性，
+可得$\nabla R=0$；这便证明了$M$是局部对称的．
+\end{proof}
+
+整体对称空间必是局部对称空间，反之未必；
+因局部对称空间未必是测地完备的．然而有如下命题：
+\begin{theorem}\label{chhss:thm_SSC}
+    广义黎曼整体对称空间$M$是测地完备的．
+\end{theorem}
+\begin{proof}
+    证明$M$上测地线可延拓至整个实数轴即可；
+    主要是运用定理\ref{chhss:thm_lsg}思想． %及式\eqref{chhss:eqn_sigmat-t}．
+    在区间$[0,l]$内部$l$点附近选择$q$，设$\sigma_q$为$\gamma(q)$处的整体中心对称映射．
+    由式\eqref{chhss:eqn_sigmat-t}可知$\sigma_q$通过$\gamma(q)$反转测地线，
+    $\sigma_q \circ \gamma$的重参数化将$\gamma$延拓至$l$之外；重复这个过程
+    可将原$[0,l]$延拓至整个实数轴．具体操作如下．
+
+    设$\gamma(t),\ 0 \leqslant t \leqslant l$，是从 $p=\gamma(0)$出发的任意一条正规测地线，长度为$l$．
+    令$q=\gamma(\frac{2}{3} l)$，$v=\gamma^{\prime}(\frac{2}{3} l) \in T_q M$．
+    用$\sigma_q$表示$M$关于点$q$的中心对称，则 $\sigma_q\bigl(\gamma(t)\bigr)$仍然
+    是$M$上的一条正规测地线，   并且
+    \begin{equation*}
+        \sigma_q\left(\gamma\left(\frac{2}{3} l\right)\right)=\sigma_q(q)=q .
+    \end{equation*}
+    对测地线$\sigma_q\bigl(\gamma(t)\bigr)$作参数
+    变换$t=\frac{4}{3} l-s, \ \frac{1}{3} l \leqslant s \leqslant \frac{4}{3} l $；    并设
+    \begin{equation}
+       \tilde{\gamma}(s)=\sigma_q\left(\gamma\left(\frac{4}{3} l-s\right)\right),
+        \qquad \frac{1}{3} l \leqslant s \leqslant \frac{4}{3} l .
+    \end{equation}
+    则$\tilde{\gamma}(s)$是$M$上的正规测地线，并且有
+    \begin{align*}
+        \tilde{\gamma}\left(\frac{2}{3} l\right)  =&\sigma_q\left(\gamma\left(
+          \frac{2}{3} l\right)\right)=\gamma\left(\frac{2}{3} l\right)=q, \\
+        \tilde{\gamma}^{\prime}\left(\frac{2}{3} l\right)  =& 
+          \left(\sigma_q\right)_{* q}\left(\left.\frac{\mathrm{d}}{\mathrm{d} s} 
+          \gamma\left(\frac{4}{3} l-s\right)\right|_{s=\frac{2}{3} l}\right) 
+         =\left(\sigma_q\right)_{* q}\left(-\left.\frac{\mathrm{d}}{\mathrm{d} t}
+          \gamma(t)\right|_{t=\frac{2}{3} l}\right) \\
+         =&\left(\sigma_q\right)_{* q}\left(-\gamma^{\prime}
+         \left(\frac{2}{3} l\right)\right)=\gamma^{\prime}\left(\frac{2}{3} l\right) .
+    \end{align*}
+    这意味着测地线 $\gamma$和$\tilde{\gamma}$都经过点$q=\gamma(\frac{2}{3} l)$，
+    且在该点有相同的切矢量$\gamma^{\prime}(\frac{2}{3} l)$．
+    故，由测地线的唯一性可知：$\gamma$和$\tilde{\gamma}$在公共的定义域内是重合的．
+    特别地有$\gamma(t)=\tilde{\gamma}(t), \ \frac{1}{3} l \leqslant t \leqslant l $．
+    于是可以定义新的映射$\gamma_1:\left[0, \frac{4}{3} l\right] \rightarrow M$，使得
+    \begin{equation}\label{chhss:eqn_tmp-gd20}
+        \gamma_1(t)=   \begin{cases} 
+            \gamma(t), & 0 \leqslant t \leqslant l ; \\ 
+            \tilde{\gamma}(t), & \frac{1}{3} l \leqslant t \leqslant \frac{4}{3} l .
+        \end{cases}
+    \end{equation}
+    则$\gamma_1(t)$是在$M$上从点$p$出发、长度为$\frac{4}{3} l$的正规测地线．
+    显然$\gamma_1(t)$是测地线$\gamma$的延拓．
+    继续此过程，测地线$\gamma$能够延伸至整个实数轴；
+    故$M$是测地完备的广义黎曼流形．
+\end{proof}
+
+从定理\ref{chhss:thm_SSC}的证明过程可以看出：设$\gamma(t)(-\infty < t< +\infty)$是
+广义黎曼流形$(M,g)$上一条测地线，任意取定$t_0\in (-\infty , +\infty)$，并令$q=\gamma(t_0)$；
+则中心对称$\sigma_q$将测地线$\gamma$映射到它自身，同时$\sigma_q$在$\gamma$上的限制
+是$\gamma$关于点$q$的对称，即
+\begin{equation}\label{chhss:eqn_geo-sym}
+    \sigma_q\bigl(\gamma(2t_0- t)\bigr) = \gamma(t) \ \Leftrightarrow \
+    \sigma_q\bigl(\gamma(t_0- t)\bigr) = \gamma(t_0+t) .
+    %\quad \forall t\in (-\infty , +\infty) .
+\end{equation}
+
+\begin{proposition}\label{chhss:thm_l2g}
+    测地完备、单连通、局部对称、广义黎曼流形$M$是整体对称的．
+\end{proposition}
+\begin{proof}
+    见\parencite{oneill1983}命题8.21，或\parencite{helgason-2001}定理4.5.6．
+\end{proof}
+
+
+\begin{theorem}\label{chhss:thm_SS1SG}
+设$(M, g)$是广义黎曼整体对称空间，$\gamma(t)(-\infty<t<\infty)$是$M$上一条正规测地线．
+定义映射 $\varphi: \mathbb{R} \rightarrow I(M)$，使得$\forall t\in \mathbb{R}$，
+$\varphi(t)=\sigma_{\gamma(\frac{t}{2})} \circ \sigma_{\gamma(0)}$，
+其中 $\sigma_{\gamma(0)}$、$ \sigma_{\gamma(\frac{t}{2})}$
+分别是$M$关于$\gamma(0)$和$\gamma(\frac{t}{2})$的中心对称．
+若记 $\varphi_t\equiv\varphi(t)$，则
+
+{\bfseries (1)} $\varphi_t\bigl(\gamma(s)\bigr)=\gamma(s+t)$；
+
+{\bfseries (2)} $\left(\varphi_t\right)_{* \gamma(s)}: T_{\gamma(s)} M \rightarrow T_{\gamma(s+t)} M$ 是沿测地线 $\gamma$ 的平行移动；
+
+{\bfseries (3)} $\left\{\varphi_t ;\  -\infty<t<\infty\right\}$ 是 $I(M)$ 单参数子群；$\varphi_t$自然诱导出Killing场．
+\end{theorem}
+\begin{proof}    
+    (1) 根据式\eqref{chhss:eqn_geo-sym}前面的讨论可知：$\sigma_{\gamma(0)}$在$\gamma$上的作用是$\gamma$关于点$\gamma(0)$的对称， $\sigma_{\gamma(\frac{t}{2})}$在$\gamma$上的作用是$\gamma$关于点$\gamma(\frac{t}{2})$的对称，即有
+\begin{equation}
+    \sigma_{\gamma(0)}\bigl(\gamma(s)\bigr)=\gamma(-s), \quad 
+    \sigma_{\gamma(\frac{t}{2})}\bigl(\gamma(s)\bigr)=\gamma(t-s)
+    , \quad \forall s \in(-\infty, \infty)  .
+\end{equation}
+所以有
+\begin{equation}
+\varphi_t\bigl(\gamma(s)\bigr)=\sigma_{\gamma(\frac{t}{2})} \circ \sigma_{\gamma(0)}\bigl(\gamma(s)\bigr)=\sigma_{\gamma(\frac{t}{2})}\bigl(\gamma(-s)\bigr)=\gamma(t+s) .
+\end{equation}
+由此可见，$\varphi_t$ 在测地线 $\gamma$ 上的作用是沿测地线 $\gamma$ 的位移．
+
+
+(2) 设$X$是任意一个沿测地线$\gamma$平行移动不变的切矢量场．
+取任意固定$\tau \in(-\infty, \infty)$，则$\sigma_{\gamma(\tau)}: M \rightarrow M$ 是等距变换，并且
+\begin{equation}
+\sigma_{\gamma(\tau)}\bigl(\gamma(s)\bigr) \xlongequal{\ref{chhss:eqn_geo-sym}}
+\gamma(2 \tau-s), \quad \forall s \in(-\infty, \infty) .
+\end{equation}
+因此，存在等距线性同构$(\sigma_{\gamma(\tau)})_{* \gamma(s)}: T_{\gamma(s)} M \rightarrow T_{\gamma(2 \tau-s)}M$使得
+\begin{align}
+    (\sigma_{\gamma(\tau)})_{* \gamma(s)} \bigl(\gamma^{\prime}(s)\bigr)
+    = & -\gamma^{\prime}(2 \tau-s), \quad \forall s \in(-\infty, \infty) . \\
+    \text{令}\qquad\qquad \tilde{X}(2 \tau-s)\equiv&
+    \bigl(\sigma_{\gamma(\tau)}\bigr)_{* \gamma(s)}\bigl(X(s)\bigr), 
+    \quad \forall s\in \mathbb{R},  \label{chhss:eqn_tmp224}
+\end{align}
+则$\tilde{X}$是沿测地线$\gamma$定义的切矢量场．
+由于等距变换$\sigma_{\gamma(\tau)}$保持Levi-Civita联络不变
+（见定理\ref{chrg:thm_isometry-connection-vector}），
+故由上两式得到
+\begin{align*}
+    \nabla_{\gamma'(2 \tau-s)} \tilde{X} = -\nabla_{(\sigma_{\gamma(\tau)})_{* \gamma(s)}(\gamma'(s))}
+        \bigl((\sigma_{\gamma(\tau)})_{* \gamma(s)} X \bigr) 
+     =-(\sigma_{\gamma(\tau)})_{*\gamma(s)}(\nabla_{\gamma'(s)} X)=0,
+\end{align*}
+所以$\tilde{X}$仍然是沿$\gamma$平行的切矢量场．
+因为在$\tau$处有
+\begin{equation}
+    \tilde{X}(\tau)=(\sigma_{\gamma(\tau)})_{* \gamma(\tau)} \bigl(X(\tau)\bigr) = -X(\tau) ,
+\end{equation}
+故，由$\tilde{X}$、$X$沿$\gamma$的平行性得到$\tilde{X}(t)=-X(t), \forall t \in\mathbb{R}$，
+再利用\eqref{chhss:eqn_tmp224}得知
+\begin{equation}
+    (\sigma_{\gamma(\tau)})_{*\gamma(s)}\bigl(X(s)\bigr)
+    =\tilde{X}(2 \tau-s) = -X(2 \tau-s), \quad \forall \tau, s .
+\end{equation}
+由此得到
+\setlength{\mathindent}{0em}
+\begin{align*}
+    (\varphi_t)_{* \gamma(s)}\bigl(X(s)\bigr) = (\sigma_{\gamma(\frac{t}{2})})_{* \gamma(-s)}
+      \circ (\sigma_{\gamma(0)})_{* \gamma(s)}\bigl(X(s)\bigr) 
+    = (\sigma_{\gamma(\frac{t}{2} ) } )_{* \gamma(-s)} \bigl(-X(-s)\bigr)=X(t+s) .
+\end{align*}\setlength{\mathindent}{2em}
+这意味着$(\varphi_t)_{* \gamma(s)}: T_{\gamma(s)} M \to T_{\gamma(s+t)} M$是沿测地线$\gamma$的平行移动．
+
+(3) 由命题\ref{chlg:thm_isopall}可知$M$到它自身的等距变换是由它在任意一点的像以及在该点的切映射唯一确定的．
+现在$\varphi_t \circ \varphi_s$和$\varphi_{t+s}$都是$M$到它自身的等距变换，
+所以要证明它们是同一个等距变换，只要验证它们在点$\gamma(0)$的像及其在点$\gamma(0)$的切映射分别相同就可以了．
+事实上，由 (1) 得到
+\begin{equation}
+    \varphi_t \circ \varphi_s\bigl(\gamma(0)\bigr)
+    =\varphi_t\bigl(\gamma(s)\bigr)=\gamma(t+s)=\varphi_{t+s}\bigl(\gamma(0)\bigr) .
+\end{equation}
+再由(2)得到$(\varphi_{t+s})_{* \gamma(0)}: T_{\gamma(0)} M \to T_{\gamma(t+s)} M$是
+沿测地线$\gamma$的平行移动．此外
+\begin{equation}
+    (\varphi_t \circ \varphi_s )_{* \gamma(0)}= (\varphi_t)_{* \gamma(s)} \circ(\varphi_s)_{* \gamma(0)},
+\end{equation}
+而$(\varphi_s)_{* \gamma(0)}$和$(\varphi_t)_{* \gamma(s)}$依次是
+沿测地线$\gamma$从$T_{\gamma(0)} M$到$T_{\gamma(s)} M$以及
+从$T_{\gamma(s)} M$到$T_{\gamma(t+s)} M$的平行移动．
+所以由平行移动的传递性得知
+\begin{equation}
+    (\varphi_t \circ \varphi_s )_{* \gamma(0)}=  (\varphi_{t+s})_{* \gamma(0)} .
+\end{equation}
+因此$\varphi_t \circ \varphi_s=\varphi_{t+s} $；这是单参数子群的主要特征．
+再有$\varphi_0=\sigma_{\gamma(0)} \circ \sigma_{\gamma(0)}=\mathrm{id}$，
+因此$\varphi_t \circ \varphi_{-t}=\varphi_0=\mathrm{id}$；
+故有$\varphi_{-t}=(\varphi_t)^{-1}$．
+所以$\{\varphi_t ;\ -\infty<t<\infty \}$是$M$等距群$I(M)$的单参数子群；
+单参数等距子群$\varphi_t$的切线切矢量是Killing场．
+\end{proof}
+
+
+
+
+
+
+
+
+
+\index[physwords]{齐性空间}
+
+\section{齐性空间}\label{chhss:sec_Homogeneous}
+
+%在本节之前，我们几乎没有使用李群知识；从本节开始借用李群、李代数内容．
+%在物理上，各点性质都相同的空间称为均匀空间；用严谨的数学语言来描述便是：
+
+\subsection{基本属性}
+
+
+\begin{definition}\label{chhss:def_Homogeneous}
+    设$(M,g)$是广义黎曼流形，存在左（或右）作用在$M$的\uwave{可迁的}李变换群$G$；
+    如果$G$还是等距群$I(M)$的子群，则称$M$是{\heiti 均匀空间}或
+    {\heiti 齐性空间}（Homogeneous）．
+\end{definition}
+
+在纯数学上，齐性空间的定义一般并不要求$G$是等距群．
+本书是给物理学写的，故要求$G$是等距群．
+后文中，如无明显标识，皆指物理上的齐性空间，即要求$G$是等距群．
+
+
+\begin{definition}\label{chhss:def_isotropic-space}
+    设$(M,g)$是广义黎曼流形，$p\in M$．对于任意非零矢量$v,w \in T_p M$，
+    如果有$\langle v, v \rangle = \langle w, w \rangle$成立，那么就存在等距映射$\phi\in I(M)$使
+    得$\phi_* v = w$；此时，称$p$点是{\heiti 各向同性的}．
+    若$M$上任意点都是各向同性的，则称$M$是{\heiti 各向同性空间}（isotropic space）．
+\end{definition}
+
+
+
+
+齐性空间是一类十分重要的光滑流形，许多常见的空间都是齐性空间．
+%另外，因为在齐性空间上容有一个可迁变换群的作用，故它们在各点的性质是相同的．
+%下面我们举几个常见的齐性空间的例子．
+
+
+\begin{example}
+    $m$维欧氏空间$E^m$是齐性空间．
+\end{example}
+
+需要指出的是：$E^m$是{\kaishu 点}的空间，$\mathbb{R}^m$是{\kaishu 矢量}空间．
+
+$E^m$中任意两点$x,y$，很明显可以通过平移操作使它们重合，即$y=\boldsymbol{T}\cdot x$，
+$\boldsymbol{T}$是平移群中的元素．
+平移操作构成李群，可看作是左作用在$E^m$上的李变换群；
+这说明了$E^m$是可迁的，故它是齐性空间．
+\qed
+
+\begin{example}
+    单位球面 $S^2 \in \mathbb{R}^{3}$是齐性空间．
+\end{example}
+我们已知二维球面$S^2$的等距群是$O(3)$．
+根据欧拉定理\ref{chlg:thm_Euler}可知$O(3)$子群$SO(3)$是绕某轴转动某个角度的操作；
+单位球面$S^2$上任意一点和原点相连是一个单位矢量；
+根据\S\ref{chlg:sec_rotation}可知：通过三次欧拉角的转动可将
+单位矢量旋转到任意角度．这便说明了通过三次转动可将二维单位球面上任意两点都联系起来，
+即单位球面是可迁的，李变换群是$SO(3)$；
+故单位球面$S^2$是齐性空间．  
+一般情形见\S\ref{chhss:sec_sphere}． \qed
+
+
+%本例可自然地推广为：超球面 $S^m \in \mathbb{R}^{m+1}$（定义见\S\ref{chsm:sec_sphere}）是齐性空间．
+
+
+
+\begin{proposition}\label{chhss:thm_srh}
+    广义黎曼整体对称空间$(M,g)$是广义黎曼均匀空间．
+\end{proposition}
+\begin{proof}
+    设$\gamma:[-1,1]\to M$为测地线．由定理\ref{chhss:thm_lsg}可
+    设$\sigma_0$是一个关于点$\gamma(0)$的反向测地线的等距映射，
+    $\sigma_0$将$\gamma(-1)$对称成$\gamma(+1)$．
+    因对称空间定义要求$M$必须是连通的，故$\forall p,q \in M$，
+    都可以被一条分段测地线连接起来．
+    因此通过有限的、如上所述等距映射$\sigma_0$的组合
+    可以得到从$p$到$q$的等距，记为$\sigma$．
+    $\sigma$便是$M$的可迁的等距群．
+\end{proof}
+
+
+\uwave{度规正定的黎曼均匀空间是完备的}；度规不定的黎曼均匀空间可能完备，也可能不完备；
+证明可见\parencite[9.37]{oneill1983}．因广义均匀空间未必完备，故它也未必是广义黎曼整体对称空间．
+对于度规不定的黎曼空间，\textcite{marsden-1973}证明了如下定理：
+
+\begin{theorem}\label{chhss:thm_marsden}
+    若$M$是紧致、广义黎曼齐性空间，则$M$是测地完备的．    
+\end{theorem}
+
+
+\begin{proposition}\label{chhss:thm_h-killing}
+    广义黎曼均匀空间的任意切矢量都可以延拓成Killing 矢量场．
+\end{proposition}
+\begin{proof}
+    可参考\parencite{oneill1983}推论9.38．
+\end{proof}
+
+
+\begin{proposition}\label{chhss:thm_iso-sym-comp}
+    若广义黎曼流形是各向同性空间，则它是整体对称空间且测地完备．
+\end{proposition}
+\begin{proof}
+    因$M$是各向同性的，故可以令$M$上任意点的任意测地线反向，此反向是等距操作，
+    符合定义\ref{chhss:def_center-sym}中的要求，故$M$必然是整体对称空间．
+    由定理\ref{chhss:thm_SSC}可知其测地完备．
+\end{proof}
+
+
+\begin{proposition}
+    若广义黎曼流形$M$是连通各向同性空间，则$M$是均匀空间．
+\end{proposition}
+\begin{proof}
+    由命题\ref{chhss:thm_iso-sym-comp}可知$M$是整体对称空间，
+    再由命题\ref{chhss:thm_srh}可知其均匀．
+\end{proof}
+
+
+\index[physwords]{强各向同性流形}   \index[physwords]{frame-homogeneous}
+
+\paragraph{强各向同性流形}
+定义\ref{chhss:def_isotropic-space}给出了{\kaishu 各向同性流形}的定义，还有一个性质更强的定义．
+对于广义黎曼流形$(M,g)$来说，\S\ref{chfb:sec_tangent-frame-bundles}给出了正交切标架丛$\mathcal{O}(TM)$的定义；
+对于任意点$p,q\in M$，在$T_p M$和$T_q M$上任意各选一个正交归一切标架（它们自然属于$\mathcal{O}(TM)$），
+如果存在等距映射$\phi\in I(M)$将两个正交切标架同构，
+那么称$M$是{\heiti 强各向同性流形}（strongly isotropic; 或frame-homogeneous ）．
+
+强各向同性流形是完备的齐性流形．（\parencite{wolf_SCC-2011}引理11.6.6）
+
+强各向同性流形{\kaishu 等价于}它是各向同性的、且是常曲率的．（\parencite{wolf_SCC-2011}推论11.6.10）
+
+强各向同性流形的等距群具有最高的对称性．（\parencite{wolf_SCC-2011}定理11.6.7、11.6.8）
+
+
+
+\index[physwords]{陪集流形}
+
+\subsection{陪集流形}
+%本节内容参考了．
+
+\begin{theorem}\label{chhss:thm_coset}
+    设$G$为李群，$H$为$G$的闭子群，令$G/H\equiv \{g H \ |\ \forall g\in G \}$是$H$的左陪集空间；
+    再设$\pi(g)=g H$是从$G$到$G/H${\heiti 自然投影映射}．那么：    
+    {\bfseries (1)} $G/H$上存在一个唯一的微分结构，使之成为光滑流形，称$G/H$是{\heiti 陪集流形}；    
+    {\bfseries (2)} $\pi$是$C^\infty$的{\kaishu 淹没}映射；    
+    {\bfseries (3)} $G$是$G/H$的李变换群；        
+    {\bfseries (4)} ${\rm dim}G = {\rm dim}H + {\rm dim}G/H$．
+\end{theorem}
+\begin{proof}
+    请参考\parencite{helgason-2001}定理2.4.2；或\parencite{warner-1983-FDMLG}定理3.58；
+    或\parencite[\S 1.5]{wolf_SCC-2011}定理1.5.6．
+    若还要求$H$是\uwave{正规闭子群}（见\ref{chtop:def_normal-subgroup}），
+    则还可证明（\parencite{warner-1983-FDMLG}定理3.64）$G/H$是{\kaishu 李群}．
+\end{proof}
+
+\begin{example}\label{chhss:exm_ghtra}
+    $G$左作用在$G/H$上总是可迁的．
+\end{example}
+由定理\ref{chhss:thm_coset}可知$G$是作用在$G/H$上的李变换群；
+设有$G/H$中任意两个元素$gH$和$g' H$，其中$g,g'\in G$；
+那么，因为$g' g^{-1} \in G$使得$(g' g^{-1}) (gH) = g' H$成立；
+所以$G/H$是（纯数学上）可迁的．\qed
+
+%根据群的陪集定义，陪集流形$G/H$可以表示成$g H$的形式，其中$g\in G$．
+%如果$g=e$那么$gH=H$；如果$g\in H$，则$g H \equiv H$，故一般情形下
+%除了单位元$e$外，设$g\in G$并且$g\notin H$；这样我们便可以利用闭子集$H$将$G$作一个划分．
+
+
+\begin{theorem}\label{chhss:thm_homcl}
+    设$M$是一个$m$维广义齐性流形，$G$是可迁地左作用在$M$上的李变换群．
+    任意取定一点$x \in M$，再取$G$的迷向子群$K_x$（定义见\ref{chlg:def_isotropy}）．
+    则有：    
+    {\bfseries (1)} $K_x$是$G$的闭子群；    
+    {\bfseries (2)} $M$与光滑流形$G/K_x$是\uwave{光滑同胚}的，记为$\jmath : G/K_x \to M$；      
+    {\bfseries (3)} $G/K_x$是齐性流形．
+\end{theorem}
+\begin{proof}
+    前两条证明请参考\parencite{helgason-2001}定理2.4.3，
+    或\parencite{warner-1983-FDMLG}定理3.62．
+    由例\ref{chhss:exm_ghtra}可知：$G$可迁地作用在$G/K_x$上；
+    故$G/K_x$是纯数学上的齐性流形．
+\end{proof}
+
+定理\ref{chhss:thm_homcl}表明：齐性流形$M$可以由流形$G/K_x$来确定，我们可以通过研究
+李变换群$G$和迷向子群$K_x$来描述齐性流形$M$．
+定理\ref{chhss:thm_homcl}中的光滑同胚映射是一个{\heiti 自然映射}，
+它将$g K_x$变成$g \cdot x$；具体表达为
+\begin{equation}\label{chhss:eqn_jnm}
+    \jmath(g K_x)\overset{def}{=}   g\cdot x, \qquad \forall g\in G ,\quad \forall x\in M.
+\end{equation}
+上述定义的自变宗量是左陪集，不是元素$g$；可以这样验证．
+如果有$g'\in g K_x$，则必然存在$k\in K_x$使得$g'=g k$成立；
+故有$g'\cdot x = gk\cdot x=g\cdot x \in M$．
+
+定理\ref{chlg:thm_subclosed}表明式\eqref{chlg:eqn_clinvsub}（$G$的核$K$）是正规闭子群，
+故$G/K$是李群．
+
+
+
+
+
+\subsection{标准球面例子}\label{chhss:sec_sphere}
+\paragraph{实数域}
+由命题\ref{chhss:thm_ssh}可知标准球面$S^m(1)$的等距群是$O(m+1)$；
+由例题\ref{chlg:exm_GLonV}可知可以把$GL(m+1,\mathbb{R})$看成左作用在$\mathbb{R}^{m+1}$上的李变换群．
+而$O(m+1)$是$GL(m+1,\mathbb{R})$的闭李子群，$S^m(1)$是$\mathbb{R}^{m+1}$的闭子集；
+故可以得到$O(m+1)$是左作用在$S^m(1)$上的可迁的等距群，验证过程大致如下．
+为此，我们先验证$GL(m+1,\mathbb{R}):\mathbb{R}^{m+1}\to \mathbb{R}^{m+1}$是双射；
+对于$\mathbb{R}^{m+1}$中任意两个非零矢量$y=(y^1,\cdots,y^{m+1})^T$、$x=(x^1,\cdots,x^{m+1})^T$，
+因$\forall A\in GL(m+1,\mathbb{R})$是可逆矩阵，它必然是单射，
+由命题\ref{chmla:thm_iso_single2full}可知它还是满射，故是双射；
+因此必然存在一个可逆矩阵$A$使得$y=A\cdot x$成立．
+也就是说$GL(m+1,\mathbb{R})${\kaishu 可迁的}左作用在$\mathbb{R}^{m+1}$上．
+当我们把$\mathbb{R}^{m+1}$中矢量限制在单位球面上时，就得到$S^m(1)$；
+矩阵$A$也被限制在$O(m+1)$中了，同时$A$仍是可迁的．
+也就是说标准球面$S^m$是{\kaishu 均匀流形}，其左作用等距群是$O(m+1)$．
+
+$O(m+1)$中具有如下形式
+\begin{equation}\label{chhss:eqn_tmpsph1}
+    A=\begin{pmatrix}
+        (\tilde{A}) & \boldsymbol{0} \\ \boldsymbol{0} & 1
+    \end{pmatrix}
+\end{equation}
+的矩阵的集合构成$O(m+1)$的一个闭子集，出现在上式中的矩阵$\tilde{A}$恰好是$O(m)$中的矩阵，
+所以$O(m)$作为这个自然的闭子群就在$O(m+1)$中．
+不难判断$(0,\cdots,0,1)\in S^m$的迷向子群是形如式\eqref{chhss:eqn_tmpsph1}的矩阵（本质上是$O(m)$），
+由定理\ref{chhss:thm_homcl}可知$O(m+1)/O(m)$微分同胚于齐性流形$S^m$，
+即（见式\eqref{chhss:eqn_jnm}，注意$\jmath$是光滑双射）
+\begin{equation}
+    \jmath^{-1} (S^m)=O(m+1)/O(m)=SO(m+1)/SO(m).
+\end{equation}
+上式在忽略掉正交群行列式正负号前提下成立．
+
+
+\paragraph{复数域}
+与实数域类似，我们讨论复数域上的情形．
+以把$GL(m+1,\mathbb{C})$看成左作用在$\mathbb{C}^{m+1}$上的李变换群．
+而$U(m+1)$是$GL(m+1,\mathbb{C})$的闭李子群，$S^{2m+1}(1)$是$\mathbb{C}^{m+1}$的闭子集；
+经过类似过程可以得到$U(m+1)$是左作用在$S^{2m+1}$上的可迁的等距群．
+
+$U(m+1)$中具有如下形式
+\begin{equation}\label{chhss:eqn_tmpsu1}
+    B=\begin{pmatrix}
+        (\tilde{B}) & \boldsymbol{0} \\ \boldsymbol{0} & 1
+    \end{pmatrix}
+\end{equation}
+的矩阵的集合构成$U(m+1)$的一个闭子集，出现在上式中的矩阵$\tilde{B}$恰好是$U(m)$中的矩阵，
+所以$U(m)$作为这个自然的闭子群就在$U(m+1)$中．
+不难判断$(0,\cdots,0,1)\in S^{2m+1}$的迷向子群是形如式\eqref{chhss:eqn_tmpsu1}的矩阵（本质上是$U(m)$），
+由定理\ref{chhss:thm_homcl}可知$U(m+1)/U(m)$微分同胚于齐性流形$S^{2m+1}$，即
+\begin{equation}
+    \jmath^{-1} (S^{2m+1})=U(m+1)/U(m)=SU(m+1)/SU(m).
+\end{equation}
+上式在忽略掉幺正群行列式正负号前提下成立．
+特别地，由于$SU(1)$是$1\times 1$的单位矩阵，故$S^3$光滑同胚于$SU(2)$；
+进而$S^3$具有与$SU(2)$相同的李群结构．
+
+
+
+更多例子请参考\parencite[\S 11.14-11.20]{oneill1983}和\parencite[3.65]{warner-1983-FDMLG}．
+
+
+
+
+
+
+\index[physwords]{空间型式}
+
+
+\section{空间型式}\label{chhss:sec_SF}
+
+我们先叙述一下广义黎曼覆叠流形的概念．
+设有广义黎曼流形$(M,g)$和{\kaishu 单连通}$C^\infty$流形$\widetilde{M}$，
+如果$\pi : \widetilde{M} \to M$是覆叠映射（定义见\ref{chtop:def_covering-map}），
+那么$\pi$必是局部微分同胚的；
+所以可以把$\tilde{g}=\pi^* (g)$看成$\widetilde{M}$上的度规场，
+称为$\widetilde{M}$上的{\heiti 覆叠度规场}．
+于是$(\widetilde{M},\tilde{g})$成为广义黎曼流形，
+并且覆叠映射$\pi: (\widetilde{M},\tilde{g}) \to (M,g)$是\uwave{局部等距同胚}的．
+此时，称$(\widetilde{M},\tilde{g}) $是$ (M,g)$的{\heiti 广义黎曼覆叠空间}．
+再次提醒：复叠空间是\uwave{单连通}的．
+\index[physwords]{覆叠空间!黎曼覆叠空间}
+
+\begin{definition}
+    单连通、完备的、常曲率广义黎曼流形称为{\heiti 空间型式}（space form）．
+\end{definition}
+
+可以认为空间型式是最简单的一类流形，也是极其重要的一类．
+
+\begin{theorem}\label{chhss:thm_CR-iso}
+    空间型式$M$、$N$整体等距同胚充要条件是：它们都是单连通的、完备的，且具有相同的维数、
+    相同的度规号差和相同曲率的常曲率空间．  
+\end{theorem}
+\begin{proof}
+    “$\Rightarrow$”是显然的．
+    
+    “$\Leftarrow$”．首先，常曲率空间必然是局部对称的，由命题\ref{chhss:thm_l2g}可知
+    空间型式$M$和$N$必然各自整体对称．
+    其次，由$M$和$N$有相同的维数、度规号差和曲率常数，再结合
+    定理\ref{chhss:thm_const-curvature}可知：$M$和$N$之间存在局部等距同胚$\phi:M\to N$．
+    最后，由单连通和完备条件，从定理\ref{chhss:thm_CAH-iso}可知$\phi$是整体等距同胚．
+\end{proof}
+
+%\parencite{wolf_SCC-2011}定理2.4.11
+\begin{theorem}\label{chhss:thm_SRH-riemann}
+    设$(M,g)$是$m(>1)$维的广义黎曼流形，令$C$为实常数．则下面命题等价：
+    
+    {\bfseries (1)} $M$是常曲率空间，曲率是$C$．
+    
+    {\bfseries (2)} 如果$x\in M$，则存在$x$点附近邻域$U$，$U$局部等距同胚于
+    $S^m_\nu(r)$ 若$C>0$，或者$\mathbb{R}^m_\nu$若$C=0$，
+    或者$H^m_\nu(r)$ 若$C<0$中的一个开子集．
+    
+    {\bfseries (3)} 若$x\in M$，则存在$x$点附近邻域$(U;u^i)$，使得度规可表示为
+    \begin{equation}\label{chhss:eqn_CK-riemann}
+        {\rm d}s^2=\frac{e_1 {\rm d}u^1 \otimes {\rm d}u^1 + \cdots +e_m {\rm d}u^m \otimes {\rm d}u^m}
+        {\left(1+\tfrac{C}{4} \sum_{i=1}^{m} e_i (u^i)^2\right)^2},\qquad e_i=\pm 1.
+    \end{equation}
+    %    \begin{equation}\label{chhss:eqn_CK-riemann}
+        %        g_{ab}=\frac{e_1 ({\rm d}u^1)_a ({\rm d}u^1)_b + \cdots +e_m ({\rm d}u^m)_a ({\rm d}u^m)_b}
+        %        {\left(1+\tfrac{K}{4} \sum_{i=1}^{m} e_i (u^i)^2\right)^2},\qquad e_i=\pm 1.
+        %    \end{equation}
+\end{theorem}
+\begin{proof}
+    我们已知：$\mathbb{R}^m_\nu$曲率恒为零，
+    伪球面$S^m_\nu(r)$是曲率大于零（见例\ref{chsm:exm_SK}）的常曲率空间，
+    伪双曲面$H^m_\nu(r)$是曲率小于零（见例\ref{chsm:exm_HK}）的常曲率空间．
+    由定理\ref{chhss:thm_CR-iso}可以看出(1)、(2)的等价性．
+    
+    (3)$\Leftrightarrow $(1)．只需验证式\eqref{chhss:eqn_CK-riemann}中局部坐标$u^i$使得黎曼曲率是常数．
+    为使表达式简洁一些，令$\sigma(u) =-\ln \left(1+\tfrac{C}{4} \sum_{i=1}^{m} e_i (u^i)^2\right) $．
+    那么$\{e^{-\sigma} (\frac{\partial}{\partial u^i})^a \}$是一个正交归一活动标架场，它的
+    对偶基矢场为$\{(\theta^i)_a\equiv e^{\sigma} ({\rm d}u^i)_a \}$．
+    我们通过计算$(\theta^i)_a$的Cartan结构方程来求取黎曼曲率，计算过程很繁琐，
+    得到的结果是黎曼曲率等于$C$．
+    %    如何从一般坐标变换到式\eqref{chhss:eqn_CK-riemann}中形式，变换过程是复杂的．
+\end{proof}
+
+
+因此，在等距同胚意义下，至多存在一个维数为$m$，度规负特征值个数为$\nu$，
+曲率常数为$C$的空间型式$M(m, \nu, C)$．
+在$C = 0$时，广义欧几里德空间$\mathbb{R}^m_\nu$便是我们要寻找的空间型式．
+定理\ref{chhss:thm_SRH-riemann}还说明：
+对$C>0$是伪球面；$C<0$是伪双曲空间；具体表达式见\S\ref{chsm:sec_Hyperquadric}．
+
+
+定理\ref{chhss:thm_SRH-riemann}只是局部情形，下面把它推广到大范围情形．
+由于一维流形的黎曼曲率恒为零，此时的空间型式只有实直线$\mathbb{R}$．
+故只讨论维数大于一的空间型式．大范围的、常曲率空间型式可作如下分类：
+
+\begin{theorem}\label{chhss:thm_SFM}
+    $m\geqslant 2$的空间型式可以表示为：
+    \begin{equation}\label{chhss:eqn_SFM}
+        M(m,\nu,C)=\begin{cases}
+            S^m_\nu(r) & \text{当}\  C=1/r^2,\quad  0\leqslant \nu \leqslant m-2 , \\
+            \mathbb{R}^m_\nu & \text{当}\  C=0, \\
+            H^m_\nu(r) & \text{当}\  C=-1/r^2,\quad 2\leqslant \nu \leqslant m .
+        \end{cases}
+    \end{equation}
+\end{theorem}
+
+讨论上面定理中没有涉及的几个特殊情形如下．
+
+$M(m,m,1/r^2)=cS^m_m(r)$，$cS^m_m(r)$是$S^m_m(r)$中的一叶．
+
+$M(m,m-1,1/r^2)=\widetilde{S}^m_{m-1}(r)$，$\widetilde{S}^m_{m-1}(r)$是$S^m_{m-1}(r)$的覆叠空间．
+
+$M(m,0,-1/r^2)=H^m_+(r)$，$H^m_+(r)$是双曲空间中的上叶，见\S\ref{chsm:sec_hyperbolic}．
+
+$M(m,1,-1/r^2)=\widetilde{H}^m_1(r)$，$\widetilde{H}^m_{1}(r)$是$H^m_{1}(r)$的覆叠空间．
+
+由于$\mathbb{R}^m$是$S^1\times \mathbb{R}^{m-1}$的覆叠流形，上述四种特殊情形
+都微分同胚于$\mathbb{R}^m$．
+
+若流形$M$不是单连通，则常曲率空间分类要复杂的多，请参考\parencite{wolf_SCC-2011}第11章．
+
+
+
+\begin{theorem}\label{chhss:thm_Lorentz-SF}
+    完备、单连通、广义Lorentz度规、常曲率空间等距同胚于：
+    \begin{align*}
+        & S^m_1(r)\  \text{当}\  C=1/r^2,\quad  m\geqslant 3 ; &
+        &\widetilde{S}^2_1(r)\  \text{当}\  C=1/r^2,\quad  m=2 . \\
+        &\mathbb{R}^m_1 \ \text{当}\  C=0,\quad  m \geqslant 2 ; &
+        &\widetilde{H}^m_1(r) \ \text{当}\  C=-1/r^2,\quad  m\geqslant2 . 
+    \end{align*}
+\end{theorem}
+
+$S^4_1(r)$是{\bfseries\heiti de Sitter 时空}，
+$\widetilde{H}^4_1(r)$是{\bfseries\heiti 反de Sitter 时空}的覆叠空间．
+
+
+
+\begin{proposition}\label{chhss:thm_ssh}
+    伪球面的等距群：
+    $I(S^m_\nu)=O(\nu,m+1-\nu)$，$ \nu < m$；及
+    $I(cS^m_m)=O^{++}(m,1)\cup O^{-+}(m,1)$．
+    伪双曲面的等距群：
+    $I(H^m_\nu)=O(\nu+1,m-\nu)$，$ \nu > 0$；及
+    $I(H^m_+)=O^{++}(1,m)\cup O^{+-}(1,m)$．
+    平直流形$\mathbb{R}^m_\nu$的等距群：$\hat{T}(m)\rtimes O(\nu,m-\nu)$．
+\end{proposition}
+\begin{proof}
+    请参考\parencite{oneill1983}命题9.8、9.9．本书例\ref{chlg:exm_Rmnu}．
+%    命题中符号见\S\ref{chsm:sec_Hyperquadric}、\pageref{chlg:tab-GO}页表\ref{chlg:tab-GO}．
+\end{proof}
+
+\begin{proposition}\label{chhss:thm_SF-isotropic}
+    若$(M,g)$是空间型式，则$M$是各向同性的，且是整体对称空间．
+\end{proposition}
+\begin{proof}
+    由命题\ref{chhss:thm_ssh}可知空间型式中的等距群包含旋转群．
+    而该旋转群能够将它所对应的空间型式切空间$T_pM$中的任意非零矢量
+    旋转为$T_pM$中任意其它方向的矢量（但矢量长度不变），
+    也就是可将$T_pM$内任意两个等长切矢量进行等距变换．
+    又因$p$是任意的，故$M$是各向同性的．
+    由命题\ref{chhss:thm_iso-sym-comp}可知$M$是整体对称空间．
+    整体对称空间自然测地完备．
+\end{proof}
+
+上面介绍了不定度规空间型式的一些基本属性．历史上，自然是先解决正定度规的空间型式，然后才是不定度规；
+为此，单独介绍一个正定度规的定理（\parencite{wolf_SCC-2011}定理8.12.2）：
+
+\begin{theorem}\label{chhss:thm_isotropic-manifold}
+    设$(M,g)$是$m$维、度规正定的、实数域上的整体对称空间．
+    “$M$是{\kaishu 各向同性流形}”这一论断等价于：
+    或者{\bfseries (1)} $M$等距同胚于$\mathbb{R}^m$；
+    或者{\bfseries (2)} $M$等距同胚于$S^m$（超球面，见\ref{chsm:sec_sphere}）；
+    或者{\bfseries (3)} $M$等距同胚于$H^m$（双曲空间，见\S\ref{chsm:sec_hyperbolic}）；
+    或者{\bfseries (4)} $M$等距同胚于$\mathbb{RP}^m$（实射影空间）．
+\end{theorem}
+
+实射影空间$\mathbb{RP}^m$可以看作把超球面$S^m$的对径点粘合起来得到的空间，
+故超球面是其通用（正定）黎曼覆叠空间（\parencite[\S 2.5]{wolf_SCC-2011}）；
+$\mathbb{RP}^m$曲率与超球面相同．
+虽然定理\ref{chhss:thm_isotropic-manifold}中的流形都是常曲率；
+但是空间$M$是各向同性的，并不意味其它数域上的空间也是常曲率的，比如复射影空间$\mathbb{CP}^m$就不是；
+详见\parencite{wolf_SCC-2011}第12章，或\parencite[\S 4.1]{mengdj-dckj-2005}例3．
+由定理\ref{chhss:thm_isotropic-manifold}可知，在\uwave{实流形}上：
+强各向同性等同于各向同性．
+
+若$M$是局部或整体对称空间，也不意味着$M$是常曲率空间（\parencite[Ch.12]{wolf_SCC-2011}）．
+
+
+
+
+
+\index[physwords]{最大对称空间} \index[physwords]{对称空间!最大}
+
+\subsection{最大对称空间}
+
+
+\begin{definition}
+    当$m$维、连通的、完备的广义黎曼流形$(M,g)$上有$m(m+1)/2$个线性独立的Killing矢量场时，
+    称$(M,g)$为{\heiti 最大对称空间}．  %（maximally symmetric space）
+\end{definition}
+
+\textcite[\S 13.1]{weinberg_grav-1972}给出的定义中并未提及空间的连通性和完备性，
+笔者觉得应该附加上这两个条件．其实他的整本书貌似都没有涉及连通、完备属性．
+
+因强各向同性流形的等距群具有最高的对称性，故强各向同性流形和最大对称空间本质相同，
+只不过是不同领域的不同叫法罢了．
+
+由定理\ref{chlg:thm_la-killing}可知：若$M$不完备，
+则完备的Killing矢量场个数会少于$M$的对称群$I(M)$的
+李群李代数$\mathfrak{I}(M)$独立矢量的个数
+（见例\ref{chlg:exm_incomplete-iso2}，此例的空间曲率恒为零，但空间不完备）．
+故对于$M$而言完备的Killing场和李代数$\mathfrak{I}(M)$都需要研究．
+
+由命题\ref{chsm:thm_SH-complete}可知：伪球面、为双曲空间是测地完备的；
+平直的$\mathbb{R}^m_\nu$自然也是测地完备的．
+若$M$是{\kaishu 空间型式}，则$M$是测地完备的；
+命题\ref{chhss:thm_ssh}中的$O(\nu,m+1-\nu)$实维数是$m(m+1)/2$，
+它左作用在$M$上，依据定理\ref{chlg:thm_la-killing}第(3)条可知：
+$O(\nu,m+1-\nu)$（或$O(\nu+1,m-\nu)$）的李代数与空间型式的Killing矢量场反同构，
+故它们的个数都是$m(m+1)/2$个；
+所以：{\kaishu 空间型式$M$是最大对称空间}．
+
+
+
+
+%上述命题的逆命题是不成立的．比如复射影空间$\mathbb{C}P^m$（见\parencite[\S 2.5]{mengdj-dckj-2005}）是
+%对称空间，并且各向同性；但它不是最大对称空间．
+
+\begin{proposition}
+    若$m$维的$(M,g)$是最大对称空间，则$M$是常曲率空间．
+\end{proposition}
+\begin{proof}
+    任取$M$的非零Killing矢量场$\xi^a$；黎曼曲率$R_{abcd}$沿$\xi^a$的李导数恒为零
+    （参见式\eqref{chrg:eqn_LieR=0}，$\Lie_{\xi} R_{abcd} =0$），则其分量方程是：
+    \begin{align}
+      %  0&= \xi^n R_{ijkl;n}
+      %  + R_{njkl} \xi^n_{\hphantom{n};i} + R_{inkl} \xi^n_{\hphantom{n};j}
+      %  + R_{ijnl} \xi^n_{\hphantom{n};k} + R_{ijkn} \xi^n_{\hphantom{n};l}\\
+        0&=   \xi^n R_{ijkl;n}
+        + \bigl(R^n_{\hphantom{n}jkl} \delta_i^o 
+        + R_{i\hphantom{n}kl}^{\hphantom{i}n} \delta_j^o 
+        + R_{ij\hphantom{n}l}^{\hphantom{ij}n} \delta_k^o 
+        + R_{ijk}^{\hphantom{ijk}n} \delta_l^o 
+        \bigr) \xi_{n;o} .
+    \end{align}
+    最大对称空间上任意点$p\in M$都有$m(m+1)/2$个独立的Killing矢量场．
+    上式中的Killing场$\xi^a$的分量$\xi^n$、$\xi_{n;o}$（反对称）恰好是$m(m+1)/2$个．
+    注意曲率$R_{ijkl}$与Killing场$\xi^a$没有任何关系．
+    由\pageref{chrg:eqn_kvm}页的式\eqref{chrg:eqn_kvm}可知：该式左端的系数矩阵
+    是满秩的，秩为$m(m+1)/2$；行秩等于列秩．    故由上式可以得到：
+    \begin{small}
+    \setlength{\mathindent}{0em}
+    \begin{align}
+        &R_{ijkl;n}=0 .  \label{chhss:eqn_DR=0} \\
+        & R^o_{\hphantom{n}jkl} \delta_i^n 
+        + R_{i\hphantom{n}kl}^{\hphantom{i}o} \delta_j^n 
+        + R_{ij\hphantom{n}l}^{\hphantom{ij}o} \delta_k^n
+        + R_{ijk}^{\hphantom{ijk}o} \delta_l^n
+        = R^n_{\hphantom{n}jkl} \delta_i^o 
+        + R_{i\hphantom{n}kl}^{\hphantom{i}n} \delta_j^o 
+        + R_{ij\hphantom{n}l}^{\hphantom{ij}n} \delta_k^o 
+        + R_{ijk}^{\hphantom{ijk}n} \delta_l^o . \label{chhss:eqn_kras}
+    \end{align} \setlength{\mathindent}{2em}
+    \end{small}
+    令式\eqref{chhss:eqn_kras}中的$i$、$n$缩并，并把上指标降下来，
+    再利用式\eqref{chccr:eqn_Bianchi-I-global}，有
+    \begin{equation}\label{chhss:eqn_Rojkl}
+        (m-1)R_{ojkl} = R_{jl} g_{ko}   - R_{jk} g_{lo} .
+    \end{equation}
+    交换上式中的$o$、$j$有$(m-1)R_{jokl} = R_{ol} g_{kj}   - R_{ok} g_{lj} $；
+    利用$R_{jokl}$关于$o$、$j$反对称，有
+    \begin{equation}
+        -R_{ol} g_{kj} + R_{ok} g_{lj} = R_{jl} g_{ko}   - R_{jk} g_{lo} .
+    \end{equation}
+    缩并上式中的$o$、$l$，有$   R_{jk} = \frac{1}{m} R g_{kj} $．
+    将此式带入式\eqref{chhss:eqn_Rojkl}，有
+    \begin{equation}
+        R_{ijkl} = \frac{1}{m(m-1)} R (g_{jl}  g_{ki}   -  g_{kj} g_{li}) .
+    \end{equation}
+    把上式带入式\eqref{chhss:eqn_DR=0}可知$R$是常数，令$R= m(m-1)K$；故最终有
+    \begin{equation}
+        R_{ijkl} = K  (g_{jl}  g_{ki}   -  g_{kj} g_{li}) .
+        \qquad K\text{是实常数}
+    \end{equation}
+    这便证明了$M$是常曲率空间．
+\end{proof}
+
+
+已知最大对称空间$M$是连通的、完备常曲率空间，但未必单连通的．
+我们知道$M$的覆叠空间一定是单连通的，
+那么最大对称空间$M$的覆叠空间$\widetilde{M}$是空间型式．
+
+
+由定理\ref{chhss:thm_SRH-riemann}可知：
+对实流形而言，最大对称空间{\kaishu 等价于}各向同性流形．
+
+常曲率空间未必是最大对称空间．比如例\ref{chlg:exm_incomplete-iso2}，此例的空间曲率恒为零，
+但空间不完备，只有一个完备的Killing场，显然不是最大对称空间．
+
+
+
+
+
+\section{具有最大对称子空间的空间}\label{chhss:sec_maxsymss}
+
+本节取自\parencite{weinberg_grav-1972}的\S 13.5．
+
+我们着眼于局部坐标，用对称性化简度规．先看一个例子．
+
+
+\begin{example}\label{chhss:exm_sphere}
+    将欧几里得空间$\mathbb{R}^3$分成无穷多层二维球面$S^2$．
+\end{example}
+参考例\ref{chrg:exm_S3}，$\mathbb{R}^3$球坐标系的度规场为：
+\begin{equation}
+    g_{ab}= ({\rm d}r)_a ({\rm d}r)_b 
+    +r^2 \left[({\rm d}\theta)_a ({\rm d}\theta)_b
+    +\sin^2\theta ({\rm d}\phi)_a ({\rm d}\phi)_b \right].
+\end{equation}
+当半径$r$是常数时，二维球面$S^2$的三个线性独立Killing场为式\eqref{chlg:eqn_S2-killing}．
+
+对上述公式做点解释．
+我们将三维欧几里得空间$\mathbb{R}^3$分解为一族中心在原点的球面，
+其中的每一个球面$S^2$均是二维最大对称空间；这样我们就把三维欧氏空间分解为无穷多个
+最大对称子空间（二维球面）的并集．
+这种分解有一个假奇点：原点．因为换另外一点当新原点，旧原点便不再是奇点了．
+\qed
+
+与上述例题类似；
+在许多有重大物理意义的情形中，整个空间（或时空）$(M,g)$不是最大对称的，
+但它可分解为许多最大对称子空间$\Sigma_\alpha$（$\alpha$是描述这族子空间的指标）的并集．
+我们将看到，最大对称子空间族的存在给整个空间的度规以很强的约束．
+如果空间$M$是$m$维，它的开子集$V$（自然也是$m$维）上的
+最大对称子空间族$U_\alpha=V\cap \Sigma_\alpha$是$n$维的；
+根据假设，在$n$维开子集$U_\alpha (\subset \Sigma_\alpha \subset M)$中存在$n(n+1)/2$个
+Killing矢量场．我们在最大对称子空间的开子集$U_\alpha$上建立局部坐标$(U_\alpha;u^i)$，
+其中$1 \leqslant i \leqslant n $；这$n$个坐标自然也是开子集$V$上的部分坐标．
+比如在上面例题\ref{chhss:exm_sphere}中，$\theta$、$\phi$便是这类$\{u\}$坐标．
+$V$中其它坐标可以用$(m-n)$个坐标$\{v^{\mathfrak{a}}\}$来标记，
+其中$n+1 \leqslant \mathfrak{a} \leqslant m$．
+在例\ref{chhss:exm_sphere}中，半径$r$便是$\{v\}$坐标，但只有一个，
+其它流形的$\{v\}$坐标可能不止一个．
+同时，还假设子流形$\Sigma_\alpha$可以用$v^{\mathfrak{a}}=const$
+（$n+1 \leqslant \mathfrak{a} \leqslant m$）来描述．
+
+本节中，求和约定要求 $\mathfrak{a},\mathfrak{b} \cdots$ 遍历 $m-n$ 个 $\{v\}$坐标；
+$i, j, k, l, \cdots$ 遍历 $n$ 个 $\{u\}$ 坐标；$\mu,\nu,\cdots$遍历所有坐标．
+需注意，开集$V$的局部坐标是$(V;u^i, v^{\mathfrak{a}})$．
+
+需要强调一下，在物理上，整个流形$M$可能不是完备的、不是单连通的，比如有奇点（黑洞）．
+但物理学不可能顾忌这么多数学的要求，我们只能采取折中观点，
+只要求$M$上的开子集$V$是局部完备的、局部单连通的（笔者杜撰的两个概念）；
+这样上节有关空间型式的诸多定理在$V$上都能用．
+或者直接假定空间型式的内容在$U_\alpha$上都成立．
+
+
+由例\ref{chhss:exm_sphere}可猜测出如下{\heiti 定理}：最大对称子空间$\Sigma_\alpha$上
+的Killing矢量场使得我们可以选择适当的$\{u\}$坐标和$\{v\}$坐标，
+这些坐标令开子集$V$上的度规场取如下线元形式：
+\begin{equation}\label{chhss:eqn_MSSS-gab}
+    \mathrm{d} s^2= \sum_{\mathfrak{ab}=n+1}^{m}
+    g_{\mathfrak{ab}}(v) \mathrm{d} v^{\mathfrak{a}} \mathrm{d} v^{\mathfrak{b}}
+    +f(v)\sum_{ij=1}^{n} \tilde{g}_{i j}(u) {\rm d}u^i  {\rm d}u^j.
+\end{equation}
+式中$g_{\mathfrak{ab}}(v)$与$f(v)$ 仅是 $\{v\}$ 坐标的函数，
+而$\tilde{g}_{i j}(u)$ 仅是 $\{u\}$ 坐标的函数，
+它本身是 $n$ 维最大对称空间的度规．
+本节就是要证明式\eqref{chhss:eqn_MSSS-gab}中的分解是允许的．
+
+\subsection{定理证明}
+
+根据假设，在开子集$U_\alpha$上存在$n(n+1)/2$个线性独立的、完备的Killing矢量场，
+度规场对这些Killing场的李导数恒为零（$\Lie_{\xi} g_{ab}=0$），
+由式\eqref{chccr:eqn_LieD-tensor-Partial}得分量形式：
+\begin{equation}\label{chhss:eqn_Lieg}
+    \sum_{k=1}^{n} \left( \xi^k \frac{\partial g_{\mu\nu}}{\partial u^k}
+    + g_{k \nu} \frac{\partial \xi^k}{\partial x^\mu }  
+    + g_{\mu k} \frac{\partial \xi^k}{\partial x^\nu } \right)=0 . 
+\end{equation}
+其中Killing场只是$U$上的矢量场，它在$U$外的分量恒为零，即
+\begin{equation}
+    \xi^{\mathfrak{a}}(u, v)=0,\qquad  n+1 \leqslant \mathfrak{a} \leqslant m.
+\end{equation}
+但现在需假设$\xi^k(u,v)$是$\{u,v\}$的函数；我们需要证明$\xi^k$只是$\{u\}$的函数．
+
+将式\eqref{chhss:eqn_Lieg}分为三组．对 $\mu=i$、$\nu=j$，可得第一组方程
+\begin{equation}\label{chhss:eqn_Lieg-1}
+    \xi^k(u, v) \frac{\partial g_{i j}(u, v)}{\partial u^k}
+    +\frac{\partial \xi^k(u, v)}{\partial u^i} g_{k j}(u, v)
+    +\frac{\partial \xi^k(u, v)}{\partial u^j} g_{k i}(u, v)   = 0 .
+\end{equation}
+对$\mu=i$、$\nu=\mathfrak{a}$，可得第二组方程
+\begin{equation}\label{chhss:eqn_Lieg-2}
+    \xi^k(u, v) \frac{\partial g_{i \mathfrak{a}}(u, v)}{\partial u^k}
+    +\frac{\partial \xi^k(u, v)}{\partial u^i} g_{k \mathfrak{a}}(u, v)
+    +\frac{\partial \xi^k(u, v)}{\partial v^{\mathfrak{a}}} g_{i k}(u, v)  = 0 .
+\end{equation}
+对$\mu=\mathfrak{a}$、$\nu=\mathfrak{b}$，可得第三组方程
+\begin{equation}\label{chhss:eqn_Lieg-3}
+    \xi^k(u, v) \frac{\partial g_{\mathfrak{ab}}(u, v)}{\partial u^k} 
+    +\frac{\partial \xi^k(u, v)}{\partial v^{\mathfrak{a}}} g_{k \mathfrak{b}}(u, v)
+    +\frac{\partial \xi^k(u, v)}{\partial v^{\mathfrak{b}}} g_{k \mathfrak{a}}(u, v) = 0 .
+\end{equation}
+
+
+第一个方程组\eqref{chhss:eqn_Lieg-1}只告诉我们，对于每一组固定的 $v^{\mathfrak{a}}$，
+矩阵$ g_{i j}(u, v)$ 必是一个 $n$ 维空间的度规，
+其坐标是 $u^i$，而且允许有 Killing 矢量 $\xi^i$（大于$n$分量指标都是零）．
+我们这里假设存在 $n(n+1) / 2$ 个独立 Killing 矢量，
+故这就意味着对每一组固定的 $v^{\mathfrak{a}}$， 
+子度规 $g_{i j}(u, v)$ 本身是一个最大对称空间的度规．
+根据之前约定，$V$的子空间$U$是最大对称空间，
+也就是空间型式，因此定理\ref{chhss:thm_SFM}是适用的；
+这样，结合定理\ref{chhss:thm_isotropic-manifold}可知：
+度规 $g_{i j}(u, v)$ 对每个固定的 $v$ 来说既是 $u$ 均匀的又是点点各向同性的．
+
+另外两组方程包括了有关其它元素 $g_{\mathfrak{a} i}$ 与 $g_{\mathfrak{ab}}$ 的信息，
+也说明了 Killing 矢量的 $v$ 依赖性．这种 $v$ 依赖性不是完全任意的．
+比方说， 我们重新定义 $u$ 坐标，总能使得度规 $g_{i j}(u, v)$ 有与 $v$ 无关的 
+Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立． 
+但是$V$的 Killing 矢量 $\xi^i(u, v)$ 一般是 $\bar{\xi}^i(u)$ 的线性组合，
+而线性组合的系数可能与 $v$ 坐标有关．
+
+
+为了把包含在\eqref{chhss:eqn_Lieg-2}与\eqref{chhss:eqn_Lieg-3}中的不同信息解开，
+最好是选择最大对称子空间的一组新的坐标 $u^{\prime i}(u, v)$ 使得 $g_{j a}^{\prime}$ 为零．
+设有新坐标 $u^{\prime i}$ 及 $v^{\prime \mathfrak{a}}$ 为
+\begin{equation}\label{chhss:eqn_newUv}
+    u^i=U^i\left(v^{\prime} ; u^{\prime}\right);\qquad
+    v^{\mathfrak{a}}=v^{\prime \mathfrak{a}} .
+\end{equation}
+在新坐标系中，度规分量是（见式\eqref{chdm:eqn_tensor-component-trans}）
+\begin{equation}
+\begin{aligned}
+    g_{j \mathfrak{a}}^{\prime}\left(u^{\prime}, v^{\prime}\right)
+    =&\frac{\partial u^l}{\partial u^{\prime j}} 
+    \frac{\partial u^k}{\partial v^{\prime \mathfrak{a}}} g_{l k}(u, v)
+    +\frac{\partial u^l}{\partial u^{\prime j}} g_{l \mathfrak{a}}(u, v) \\
+    =&\frac{\partial U^l\left(v^{\prime} ; u^{\prime}\right)}{\partial u^{\prime j}}
+    \left\{\frac{\partial U^k\left(v^{\prime} ; u^{\prime}\right)}{\partial v^{\prime \mathfrak{a}}} 
+    g_{l k}\left(U, v^{\prime}\right)+g_{l \mathfrak{a}}\left(U, v^{\prime}\right)\right\} .
+\end{aligned}
+\end{equation}
+如果我们能找到一组函数 $U^k\left(v ; u_0\right)$，它满足微分方程
+\begin{equation}\label{chhss:eqn_gkUv}
+    g_{l k}(U, v) \frac{\partial U^k}{\partial v^{\mathfrak{a}}}=-g_{l \mathfrak{a}}(U, v) ;
+    \ \text{及在点$v_0^{\hphantom{0}\mathfrak{a}}$的初条件}\ 
+    U^k\left(v_0 ; u_0\right) \equiv u_0^{\hphantom{0}k} 
+\end{equation}
+那么，由式\eqref{chhss:eqn_gkUv}便得到新的坐标系，
+度规在这组新坐标下\uwave{交叉项$g_{j \mathfrak{a}}^{\prime}=0$}．
+这样一来，只要我们能找到带任意初始条件微分方程\eqref{chhss:eqn_gkUv}的解，
+就可以构造 $u^{\prime}$ 坐标使得 $g_{j \mathfrak{a}}^{\prime}=0$．
+我们可以把式\eqref{chhss:eqn_gkUv}中的微分方程改写为它的等价形式
+\begin{equation}\label{chhss:eqn_UFa}
+    \frac{\partial U^k}{\partial v^{\mathfrak{a}}}=-F_{\hphantom{k}\mathfrak{a}}^k(U, v) ; \qquad
+    F^k_{\hphantom{k}\mathfrak{a}}(U, v) \equiv \bar{g}^{k i}(U, v) g_{i \mathfrak{a}}(U, v)
+\end{equation}
+而 $\bar{g}^{i j}$ 是 $g_{i j}$ 的逆矩阵，即$ \bar{g}^{i j} g_{j k}=\delta_k^i $．
+一横提醒我们， $\bar{g}^{i j}$ 是 $g_{i j}$ 的逆矩阵的 $i j$ 元素，
+它不同于 $g_{\mu \nu}$ 的逆矩阵 $g^{\mu \nu}$中的 $i j$ 元素 $g^{i j}$．
+若$v$ 坐标只有一个（常微分方程），式\eqref{chhss:eqn_UFa}显然
+对任意初始条件都有解（需符合常微分方程解存在性条件：Lipschitz条件．坐标变换都符合这一要求）．
+在一般情况下（偏微分方程），式\eqref{chhss:eqn_UFa}有解的
+条件是Frobenius定理\ref{chdf:thm_1d-exist}，
+它可积的条件为式\eqref{chdf:eqn_1d-exist}，即
+\begin{equation}\label{chhss:eqn_Frosn}
+    \frac{\partial F^k_{\hphantom{k}\mathfrak{a}}(u, v)}{\partial u^l} F^l_{\hphantom{l}\mathfrak{b}}(u, v)
+    -\frac{\partial F^k_{\hphantom{k}\mathfrak{a}}(u, v)}{\partial v^{\mathfrak{b}}} 
+    =\frac{\partial F^k_{\hphantom{k}\mathfrak{b}}(u, v)}{\partial u^l} F^l_{\hphantom{l}\mathfrak{a}}(u, v)
+    -\frac{\partial F^k_{\hphantom{k}\mathfrak{b}}(u, v)}{\partial v^{\mathfrak{a}}} .
+\end{equation}
+
+
+下面验证Killing矢量场条件\eqref{chhss:eqn_Lieg-1}至\eqref{chhss:eqn_Lieg-3}确实
+能令式\eqref{chhss:eqn_Frosn}成立． 
+将式\eqref{chhss:eqn_Lieg-2}乘以 $\bar{g}^{i l}$，有
+\begin{equation}
+    \frac{\partial \xi^l}{\partial v^{\mathfrak{a}}}
+    =-\bar{g}^{i l} \frac{\partial \xi^o}{\partial u^i} g_{o \mathfrak{a}}
+     -\bar{g}^{i l} \xi^k \frac{\partial g_{i \mathfrak{a}}}{\partial u^k} .
+\end{equation}
+式\eqref{chhss:eqn_Lieg-1}乘以 $\bar{g}^{i l} \bar{g}^{j o}$，得
+\begin{equation}
+    \bar{g}^{i l} \frac{\partial \xi^o}{\partial u^i}
+    +\bar{g}^{j o} \frac{\partial \xi^l}{\partial u^j}
+    =-\xi^k \bar{g}^{i l} \bar{g}^{j o} \frac{\partial g_{i j}}{\partial u^k}
+    \xlongequal[\bar{g}^{j o}g_{i j}=\delta^o_i ]{\text{利用}}
+    \xi^k \frac{\partial \bar{g}^{l o}}{\partial u^k} .
+\end{equation}
+利用上式，将上上式改为：
+\begin{equation}
+\frac{\partial \xi^l}{\partial v^{\mathfrak{a}}}=\bar{g}^{j o} 
+\frac{\partial \xi^l}{\partial u^j} g_{o \mathfrak{a}}-\xi^k 
+\frac{\partial \bar{g}^{l o}}{\partial u^k} g_{o \mathfrak{a}}
+-\xi^k \bar{g}^{l o} \frac{\partial g_{o \mathfrak{a}}}{\partial u^k} .
+\end{equation}
+考虑到式\eqref{chhss:eqn_UFa}中$F$的表达式，我们可以把上式改写为
+\begin{equation}\label{chhss:eqn_tmp-xiva}
+    \frac{\partial \xi^l}{\partial v^{\mathfrak{a}}}
+    =F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial \xi^l}{\partial u^j}
+    -\xi^k \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^k} .
+\end{equation}
+对上式求$v^{\mathfrak{b}}$的导数，有
+\begin{equation}
+    \frac{\partial^2 \xi^l}{\partial v^{\mathfrak{b}} \partial v^{\mathfrak{a}}}
+    =F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial}{\partial u^j}
+    \left(\frac{\partial \xi^l}{\partial v^{\mathfrak{b}}}\right)
+    +\frac{\partial F^j_{\hphantom{j}\mathfrak{a}}}{\partial v^{\mathfrak{b}}}  \frac{\partial \xi^l}{\partial u^j}
+    -\frac{\partial \xi^k}{\partial v^{\mathfrak{b}}} \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^k}
+    -\xi^k \frac{\partial^2 F^l_{\hphantom{l}\mathfrak{a}}}{\partial v^{\mathfrak{b}} \partial u^k} .
+\end{equation}
+将式\eqref{chhss:eqn_tmp-xiva}带入上式等号右端，有
+\begin{align*}
+    \frac{\partial^2 \xi^l}{\partial v^{\mathfrak{b}} \partial v^{\mathfrak{a}}}= & 
+    F^j_{\hphantom{j}\mathfrak{a}} F^i_{\hphantom{i}\mathfrak{b}} 
+    \frac{\partial^2 \xi^l}{\partial u^j \partial u^i}+F^j_{\hphantom{j}\mathfrak{a}} 
+    \frac{\partial F^i_{\hphantom{i}\mathfrak{b}}}{\partial u^j} \frac{\partial \xi^l}{\partial u^i} 
+    -F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial F^l_{\hphantom{l}\mathfrak{b}}}{\partial u^k}
+     \frac{\partial \xi^k}{\partial u^j}      -F^j_{\hphantom{j}\mathfrak{a}} 
+     \frac{\partial^2 F^l_{\hphantom{l}\mathfrak{b}}}{\partial u^k \partial u^j} \xi^k \\
+    & +\frac{\partial F^j_{\hphantom{j}\mathfrak{a}}}{\partial v^{\mathfrak{b}}} \frac{\partial \xi^l}{\partial u^j} 
+    -F^i_{\hphantom{i}\mathfrak{b}} \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^k} 
+    \frac{\partial \xi^k}{\partial u^i}+\frac{\partial F^k_{\hphantom{k}\mathfrak{b}}}{\partial u^i} 
+    \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^k} \xi^i
+    -\frac{\partial^2 F^l_{\hphantom{l}\mathfrak{a}}}{\partial v^{\mathfrak{b}} \partial u^k} \xi^k .
+\end{align*}
+但上式一定是对 $\mathfrak{a}$ 与 $\mathfrak{b}$ 对称的，故
+\begin{equation}\label{chhss:eqn_tmp-xif}
+    \begin{aligned}
+        &0=  \left\{F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial F^i_{\hphantom{i}\mathfrak{b}}}{\partial u^j}
+        -F^j_{\hphantom{j}\mathfrak{b}} \frac{\partial F^i_{\hphantom{i}\mathfrak{a}}}{\partial u^j}
+        +\frac{\partial F^i_{\hphantom{i}\mathfrak{a}}}{\partial v^{\mathfrak{b}}}
+        -\frac{\partial F^i_{\hphantom{i}\mathfrak{b}}}{\partial v^{\mathfrak{a}}}\right\} 
+        \frac{\partial \xi^l}{\partial u^i} 
+        +\left\{-F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial^2 F^l_{\hphantom{l}\mathfrak{b}}}
+        {\partial u^k \partial u^j} \right. \\
+        &\left. +F^j_{\hphantom{j}\mathfrak{b}} \frac{\partial^2 F^l_{\hphantom{l}\mathfrak{a}}}
+        {\partial u^k \partial u^j}+\frac{\partial   F^i_{\hphantom{i}\mathfrak{b}}}{\partial u^k} 
+        \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^i}
+        -\frac{\partial F^i_{\hphantom{i}\mathfrak{a}}}{\partial u^k} 
+        \frac{\partial F^l_{\hphantom{l}\mathfrak{b}}}{\partial u^i}
+        -\frac{\partial^2 F^l_{\hphantom{l}\mathfrak{a}}}{\partial v^{\mathfrak{b}} \partial u^k}
+        +\frac{\partial^2 F^l_{\hphantom{l}\mathfrak{b}}}{\partial v^{\mathfrak{a}} \partial u^k}\right\} \xi^k .
+    \end{aligned}
+\end{equation}
+我们已经说过， 存在 $n(n+1) / 2$ 个线性独立 Killing 矢量场的假设，便有
+\pageref{chrg:eqn_kvm}页式\eqref{chrg:eqn_kvm}的左端的系数矩阵为满秩；
+那么上式中“$\frac{\partial \xi^l}{\partial u^i} $”、“$\xi^k$”前的系数必须都是零．
+故可得
+\begin{equation}
+    F^j_{\hphantom{j}\mathfrak{a}} \frac{\partial  F^{i}_{\hphantom{i}\mathfrak{b}}}{\partial u^j}
+    -F^j_{\hphantom{j}\mathfrak{b}} \frac{\partial F^{i}_{\hphantom{i}\mathfrak{a}}}{\partial u^j}
+    =\frac{\partial F^{i}_{\hphantom{i}\mathfrak{b}}}{\partial v^{\mathfrak{a}}}
+    -\frac{\partial F^{i}_{\hphantom{i}\mathfrak{a}}}{\partial v^{\mathfrak{b}}}     .
+\end{equation}
+这就是我们希望得到的 \eqref{chhss:eqn_Frosn}.
+“$\xi^k$”前的系数对本问题无用．
+
+
+既然已经证明了\eqref{chhss:eqn_Frosn}，
+我们知道了 \eqref{chhss:eqn_UFa} 是可积的，故我们可以构造由 \eqref{chhss:eqn_newUv} 定义
+的坐标 $u^{\prime i}$ 与 $v^{\prime a}$ 使得度规分量 $g_{i a}^{\prime}$ 为零．
+做到这点后，我们取消撇号，即
+\begin{equation}
+    g_{i \mathfrak{a}}=0 ; \qquad 1\leqslant i \leqslant n,\quad 
+    n+1 \leqslant \mathfrak{a} \leqslant m.
+\end{equation}
+现在 Killing 矢量的条件 \eqref{chhss:eqn_Lieg-2} 与 \eqref{chhss:eqn_Lieg-3} 变为
+\begin{equation}\label{chhss:eqn_xiggu}
+    \frac{\partial \xi^k}{\partial v^{\mathfrak{a}}} g_{i k}=0, \qquad
+    \xi^k \frac{\partial g_{\mathfrak{ab}}}{\partial u^k}=0 ; \quad 
+    1\leqslant i,k \leqslant n,\quad  n+1 \leqslant \mathfrak{a},\mathfrak{b} \leqslant m.
+\end{equation}
+因为 $g_{i k}$ 的行列式不等于零，从\eqref{chhss:eqn_xiggu}第一式得出
+\begin{equation}\label{chhss:eqn_xi-u}
+    \frac{\partial \xi^k}{\partial v^{\mathfrak{a}}}=0 ; \qquad 
+    1\leqslant k \leqslant n,\quad  n+1 \leqslant \mathfrak{a} \leqslant m.
+\end{equation}
+上式说明$\xi^k$与$\{v^\mathfrak{a}\}$无关，只是$\{u\}$的函数．
+此外，我们已经知道，\pageref{chrg:eqn_kvm}页式\eqref{chrg:eqn_kvm}的左端的系数矩阵为满秩；
+故\eqref{chhss:eqn_xiggu}第二式中 $\xi^k$ 的系数必为零：
+\begin{equation}\label{chhss:eqn_gab-v}
+    \frac{\partial g_{\mathfrak{ab}}}{\partial u^k}=0 ; \quad 
+    1\leqslant k \leqslant n,\quad  n+1 \leqslant \mathfrak{a},\mathfrak{b} \leqslant m.
+\end{equation}
+上式说明$g_{\mathfrak{ab}}$与$\{u\}$无关，只是$\{v^\mathfrak{a}\}$的函数．
+
+
+剩下要做的事情是说明最大对称子空间上的度规场$g_{i j}(u, v)$是可变量分离的，即$u$、$v$不耦合．
+本节初始假定了$M$可以分解为最大对称空间$\Sigma_\alpha$的并集，
+在每一个$U_\alpha = \Sigma_\alpha \cap V$上只需要$\{u\}$坐标，$\{v\}$坐标都是常数．
+当然对不同的$\alpha$来说，$\{v\}$的常数数值可能不同．
+由定理\ref{chhss:thm_SRH-riemann}第三条可知最大对称子空间度规可以写为
+式\eqref{chhss:eqn_CK-riemann}的形式；这说明最大对称子空间的度规由空间自身决定，
+唯一的参数是空间的曲率；$V$只能以几何不变量的形式影响$U_\alpha$，不能以坐标的形式$U_\alpha$的度规．
+则$M$上度规式\eqref{chhss:eqn_MSSS-gab}可写为：
+\begin{equation}\label{chhss:eqn_g-mss-tmp}
+    \mathrm{d} s^2= \sum_{\mathfrak{ab}=n+1}^{m}
+    g_{\mathfrak{ab}}(v) \mathrm{d} v^{\mathfrak{a}} \mathrm{d} v^{\mathfrak{b}}
+    +f(v)\left\{\frac{\sum_{ij=1}^{n} \eta_{ij} {\rm d}u^i \otimes {\rm d}u^j }
+    {\left(1+\tfrac{K}{4} \sum_{i=1}^{n}\eta_{ij}  u^i u^j\right)^2}\right\} .
+\end{equation}
+其中$\eta_{ij}={\rm diag}(-1,\cdots,-1,+1,\cdots,+1)$，$\pm 1$个数总和是$n$；
+$K$是最大对称子空间的曲率．
+当把度规\eqref{chhss:eqn_g-mss-tmp}限制在某个最大对称子空间$\Sigma_\alpha$的时候，
+必然要得到式\eqref{chhss:eqn_CK-riemann}；故上式中的$f(v)\equiv 1$．
+式\eqref{chhss:eqn_g-mss-tmp}的$\{u\}$坐标未必是我们需要的，对$\{u\}$坐标进行
+变换，将最大对称子空间的度规变成$\tilde{g}_{i j}(u)$形式，此时其前面的系数
+不再是$1$，仍只与最大对称子空间曲率相关的函数，将其记为$f(v)$．
+这便证明了式\eqref{chhss:eqn_MSSS-gab}的分解是允许的．
+
+
+
+\subsection{应用}
+
+本节仅限四维闵氏时空及其子流形．我们先给球对称下个定义．
+
+\index[physwords]{球对称}
+
+\begin{definition}\label{chhss:def_Spherical-Symmetry}
+    若四维闵氏流形$(M,g)$的等距群$I(M)$中包含$SO(3)$作为其子群，
+    且此子群的轨道是类空二维曲面；
+    则称$M$是{\heiti 球对称的}（spherically symmetric）．
+\end{definition}
+
+
+在有实际重要应用的全部情形中，最大对称子空间是度规正定的流形，而不是度规不定的时空．
+此时，定理\ref{chhss:thm_SRH-riemann}可知正定度规的空间型式分别为：
+超球面、平直空间、双曲空间．
+在\S\ref{chsm:sec_hyperbolic}中，计算过双曲空间的度规，
+我们选取式\eqref{chsm:eqn_gphihabb}中间那个式子，即
+\begin{small}
+\setlength{\mathindent}{0em}
+\begin{align*}
+    {\rm d}\hat{s}^2_H= \sum_{ij=1}^{n}\left(\delta_{ij}-\frac{x^i x^j}{r^2+\sum_{k=1}^{n}(x^k)^2}\right) {\rm d} x^i {\rm d} x^j 
+    \xlongequal{x=ru} r^2 \sum_{ij=1}^{n}\left(\delta_{ij}-\frac{ u^i u^j}{1+\sum_{k=1}^{n}(u^k)^2}\right)  {\rm d} u^i {\rm d} u^j .
+\end{align*}\setlength{\mathindent}{2em}
+\end{small}
+与上式类似，可得超球面的线元表达式
+\begin{small}
+    \setlength{\mathindent}{0em}
+\begin{align*}
+    {\rm d}\hat{s}^2_S= \sum_{ij=1}^{n}\left(\delta_{ij}+\frac{x^i x^j}{r^2-\sum_{k=1}^{n}(x^k)^2}\right) {\rm d} x^i {\rm d} x^j 
+    \xlongequal{x=ru} r^2 \sum_{ij=1}^{n}\left(\delta_{ij}+\frac{ u^i u^j}{1-\sum_{k=1}^{n}(u^k)^2}\right)  {\rm d} u^i {\rm d} u^j .
+\end{align*} \setlength{\mathindent}{2em}
+\end{small}
+我们已知超球面曲率是$1/r^2$，双曲面曲率是$-1/r^2$．
+故，式\eqref{chhss:eqn_MSSS-gab}可以写为
+\begin{small}
+\begin{equation}\label{chhss:eqn_pg-mss}
+    \mathrm{d} s^2=\sum_{\mathfrak{ab}=n+1}^{m} 
+    g_{\mathfrak{ab}}(v) {\rm d} v^{\mathfrak{a}} {\rm d} v^{\mathfrak{b}}
+    +f(v) \sum_{ij=1}^{n} \left\{\delta_{ij} + \frac{k \ u^i u^j}{1-k \sum_{k=1}^{n}(u^k)^2}\right\} 
+    {\rm d} u^i {\rm d} u^j.
+\end{equation}
+\end{small}
+其中 $f(v)$ 是正的，以及
+\begin{equation}
+    k= \begin{cases}
+        +1 & \text { 当最大对称子空间的 } K>0 \\ 
+        -1 & \text { 当最大对称子空间的 } K<0 \\ 
+        0  & \text { 当最大对称子空间的 } K=0
+        \end{cases} .
+\end{equation}
+已经把出现在超球面、双曲空间中的常数 $|K|^{-1}=r^2$吸收到函数 $f(v)$ 中去了．
+
+现在让我们用这些公式去处理列入表\ref{chhss:tab-msss}中的那些特殊情形．
+
+\begin{table}[htb]
+    \centering
+    \caption{具有最大对称子空间的空间的例子} \label{chhss:tab-msss}
+    \begin{tabular}{c|c|c}
+        \hline 例子 & $v$ 坐标 & $u$ 坐标 \\
+        \hline 球对称空间 & $r$ & $\theta, \phi$ \\
+        球对称时空 & $r, t$ & $\theta, \phi$ \\
+        球对称均匀时空 & $t$ & $r, \theta, \phi$ \\
+        定态轴对称时空 & $x^2,x^3 $ & $t,\phi$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\index[physwords]{球对称空间}
+
+\paragraph{球对称空间}
+假设整个空间的维数是 $m=3$，其度规的所有特征值都是正的，
+而且它有最大对称的二维正曲率子空间．于是，$v$ 坐标只有一个， 我们叫它 $r$．
+$u$ 坐标有 2 个，我们用 $\theta, \phi$ 表示它们， 定义是
+\begin{equation}\label{chhss:eqn_u-sphere}
+    u^1=\sin \theta \cos \phi, \qquad u^2=\sin \theta \sin \phi .
+\end{equation}
+于是当 $k=1$ 时由式\eqref{chhss:eqn_pg-mss}得
+\begin{equation}\label{chhss_eqn_g-sphere}
+    \mathrm{d} s^2=g(r) \mathrm{d} r^2+f(r)\left\{\mathrm{d} \theta^2+\sin ^2 \theta \mathrm{d} \phi^2\right\} .
+\end{equation}
+式中 $f(r)$ 与 $g(r)$ 为 $r$ 的正函数．
+
+本例与本节开头的例子不同点在于：此例中的空间可能是弯曲的．
+
+
+\index[physwords]{球对称时空}
+
+\paragraph{球对称时空}
+假设整个时空的维数是 $m=4$，其度规的特征值三正一负，它有最大对称的二维子空间，
+子度规有正特征值与正曲率．于是 $v$ 坐标有 2 个，我们称它们为 $r$ 与 $t$．
+$u$ 坐标 2 个， 如同式\eqref{chhss:eqn_u-sphere}那样可把它们换为 $\theta$ 与 $\phi$． 
+则由 $k=1$ 的度规\eqref{chhss:eqn_pg-mss}得出
+\begin{small}
+\begin{equation}\label{chhss_eqn_g-st-sphere}
+    \mathrm{d} s^2=  g_{t t}(r, t) \mathrm{d} t^2+2 g_{r t}(r, t) \mathrm{d} r \mathrm{d} t+g_{r r}(r, t) \mathrm{d} r^2 
+     +f(r, t)\left\{\mathrm{d} \theta^2+\sin ^2 \theta \mathrm{d} \phi^2\right\} .
+\end{equation}
+\end{small}
+式中 $f(r, t)$ 是正函数；$g_{i j}(r, t)$ 是特征值一正一负的 $2 \times 2$ 矩阵．
+
+\index[physwords]{球对称均匀时空}
+
+\paragraph{球对称均匀时空}
+假设整个时空的维数是 $m=4$，其度规的特征值三正一负，它有最大对称的三维子空间．
+子度规的特征值是正的，而曲率是任意的．于是有一个 $v$ 坐标和三个 $u$ 坐标；
+由\eqref{chhss:eqn_pg-mss}得
+\begin{equation}\label{chhss:eqn_g-cos}
+    \mathrm{d} s^2=g(v) \mathrm{d} v^2  +f(v) \sum_{ij=1}^{3} \left\{\delta_{ij} 
+    + \frac{k u^i u^j}{1-k \sum_{k=1}^{3}(u^k)^2}\right\} {\rm d} u^i {\rm d} u^j.
+\end{equation}
+式中 $f(v)$ 是正函数， $g(v)$ 是 $v$ 的负函数．
+我们用
+\begin{align*}
+    t\equiv\int \sqrt{-g(v)}\mathrm{d} v,\quad
+    u^1 \equiv r \sin \theta \cos \phi, \quad
+    u^2 \equiv r \sin \theta \sin \phi, \quad
+    u^3 \equiv r \cos \theta .
+\end{align*}
+来定义新坐标 $t, r, \theta, \phi$；且 $\mathrm{d} s^2 \to -\mathrm{d} \tau^2$，
+$R(t) \equiv \sqrt{f(v)}$．于是，有
+\begin{equation}\label{chhss:eqn_g-cos-2}
+    \mathrm{d} \tau^2=\mathrm{d} t^2-R^2(t)\left\{\frac{\mathrm{d} r^2}{1-k r^2}
+    +r^2 \mathrm{d} \theta^2+r^2 \sin ^2 \theta \mathrm{d} \phi^2\right\}    .
+\end{equation}
+
+
+\paragraph{定态轴对称时空}\label{chhss:sec_axis-sym}
+
+设四维闵氏时空$(M,g)$有一个类空Killing场$\psi^a$，
+其积分曲线是$M$中闭合类空曲线（对称群为$SO(2)$）；则称$M$是{\heiti 轴对称的}（axis-symmetric）．
+再假设$M$上存在一个类时Killing场$\xi^a$；
+并且$[\psi,\xi]^a=0$，即两个Killing场对易．
+利用这些，可以给$M$选局部坐标系$\{t\equiv x^0,\ \phi=x^1, \  x^2, x^3\}$使
+得$\xi^a=(\frac{\partial}{\partial t})^a$、$\psi^a=(\frac{\partial}{\partial \phi})^a$．
+将$t$、$\phi$选为适配坐标系，由式\eqref{chhss:eqn_MSSS-gab}可知度规线元可表示为
+\begin{equation*}
+    \mathrm{d} s^2= \sum_{\mathfrak{a,b}=2}^{3}
+    g_{\mathfrak{ab}}(x^2,x^3) \mathrm{d} x^{\mathfrak{a}} \mathrm{d} x^{\mathfrak{b}}
+    +\sum_{i,j=0}^{1} \tilde{g}_{i j}(x^2,x^3) {\rm d}x^i  {\rm d}x^j.
+\end{equation*}
+由$x^2$、$x^3$描述的二维流形的度规$g_{\mathfrak{ab}}$是正定的，经过适当的坐标变换
+可以将度规分量$g_{\mathfrak{ab}}$变成对角形式（见存在性定理\ref{chrg:thm_exist-oth-coord}）．
+这样，有两个Killing场$\xi^a$和$\psi^a$的轴对称度规独立分量只剩下四个，
+见下式中的$\nu$、$\omega$、$\psi$、$\mu$，且都只是$x^2$、$x^3$的标量函数．
+\begin{equation}\label{chhss:eqn_AS-metric}
+    \mathrm{d} s^2= - (e^{\nu}{\rm d}t)^2 
+    + \bigl(e^{\psi} ({\rm d}\phi -\omega {\rm d}t )\bigr)^2
+    + (e^{\mu}{\rm d}x^2)^2 +(e^{\mu}{\rm d}x^3)^2 .
+\end{equation}
+
+
+\begin{remark}
+    球对称黑洞问题会用到式\eqref{chhss_eqn_g-st-sphere}．
+    宇宙学中会用到式\eqref{chhss:eqn_g-cos-2}．
+    轴对称的Kerr解会用到式\eqref{chhss:eqn_AS-metric}．
+\end{remark}
+
+
+
+
+
+\section*{小结}
+本章直接取（译）自\parencite{oneill1983,weinberg_grav-1972,
+    wolf_SCC-2011,chen-li-2004v2}的相应章节．
+
+
+文献\parencite{wolf_SCC-2011}是常曲率空间的权威专著．
+
+虽然\textcite{helgason-2001}的著作成书于1960年代，
+但是这本书仍是{\kaishu 对称空间}领域的最权威、最全面的专著．
+其它类似书籍或直接、或间接取自这本书籍；
+比如\parencite[Ch.9]{chen-li-2004v2}取自\parencite{mengdj-dckj-2005}，
+而\parencite{mengdj-dckj-2005}直接取自该书．
+文献\parencite{oneill1983}相应章节的内容也是取自该书．
+
+对黎曼对称空间的分类需要更多李代数知识，
+如读者有兴趣可参考\parencite{helgason-2001, chen-li-2004v2,mengdj-dckj-2005}．
+
+\printbibliography[heading=subbibliography,title=第\ref{chhss}章参考文献]
+
+\endinput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

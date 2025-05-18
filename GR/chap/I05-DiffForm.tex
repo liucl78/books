@@ -1,0 +1,1567 @@
+%% !TeX encoding = UTF-8
+%% June 2022
+
+\chapter{外微分型式} \label{chdf}
+
+外微分的现代形式是由法国数学家\'{E}lie Cartan（1869-1951）提出并发展的一种微分几何中常用方法．
+本章主要介绍微分型式场的概念，以及外微分运算；
+继而，介绍Frobenius定理及其外微分表示；
+然后介绍流形定向与单位分解，最后引入流形上的积分概念．
+
+\index[physwords]{外微分型式场}
+\index[physwords]{外型式场|see{外微分型式场}}
+
+\section{外微分型式场}\label{chdf:sec_exterior-diff-fields}
+在\S \ref{chmla:sec_exterior-algebra}中，我们已经引入了线性空间$V$中外代数
+的概念；那里只是针对一个特定空间$V$（或其对偶空间$V^*$），而本节我们将这些概念推广到\uwave{场}中．
+在\S \ref{chdm:sec_tensor-fields}中引入了张量场的概念，微分型式场是全反对称的协变张量场．
+
+\begin{definition}
+设有$m$维光滑流形$M$，其上一个$C^\infty$\uwave{全反对称}$r$阶\uwave{协变}张量\uwave{场}称为
+流形$M$上的一个$r$次{\heiti 外微分型式\uwave{场}}，简称为{\heiti 外型式场}；也称为{\heiti 外微分式}．
+\end{definition}
+上面已将\S \ref{chmla:sec_exterior-form}中“型式”定义\ref{chmla:def_exterior-form}推广到了\uwave{场}．
+在不引起误解时，可以省略前缀“外”字．
+此\uwave{场}自然是构建在余切丛$T^*M$上的，对于点$x\in M$，有局部坐标系$(U;x^i)$；
+仿照式\eqref{chmla:eqn_expand-on-base}，$r$型式场有如下表达式
+\begin{subequations}\label{chdf:eqn_omega-expand-on-bases}
+\begin{align}
+    \left. \omega_{a_{1}\cdots a_{r}} \right|_U
+    & =\sum_{\mu_{1}<\cdots<\mu_{r}} \omega_{\mu_{1}\cdots \mu_{r}}
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}},
+    \quad \{\mu\} \text{有序} \label{chdf:eqn_omega-expand-on-oldbases} \\
+    &= \frac{1}{r!} \omega_{\mu_{1}\cdots \mu_{r}}
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}} .
+    \quad \{\mu\} \text{无序}\label{chdf:eqn_omega-expand-on-newbases}
+\end{align}
+\end{subequations}
+上面公式中，$\omega_{a_{1}\cdots a_{r}}$和$\omega_{\mu_{1}\cdots \mu_{r}}$的下标
+是全反对称的，即交换其中任意两个指标都会产生一个负号．
+很明显，当$r>m$时，外微分式恒为零（为什么？）．
+
+我们将$M$上$r$次全体光滑外微分型式场的集合记为$A^r(M)$．
+为方便起见，规定$M$上全体光滑函数场是$0$次微分型式场，即$A^0(M)=C^\infty(M)$；
+通常的$1$次微分式便是$1$次外微分型式场$A^1(M)$或$\mathfrak{X}^{*}(M)$．
+
+微分型式场自然也可以看成多重线性函数，也有类似于
+公式\eqref{chmla:eqn_xiv0}和\eqref{chmla:eqn_xiv}的求值公式，
+请读者自行写出表达式．
+
+可将\S \ref{chdm:sec_tensor-fields}中定义的张量间的加法和数量乘法，以及$C^\infty(M)$-乘法
+直接运用到微分型式场（微分型式场只是张量场的特例，自然可直接运用这些运算）．
+除此之外，还可仿照\S \ref{chmla:sec_exterior-product}逐点定义外积，使
+\begin{equation}
+    A(M)= \bigoplus_{r=0}^{m} A^r(M)
+\end{equation}
+成为{\heiti 外代数}；一般说来它是无穷维的．
+
+很容易把定义\ref{chdm:def_pullback-1form-onfield}（不需要映射是微分同胚的）用到微分型式场上，
+所拉回的映射是同阶的外型式场．
+\begin{theorem}\label{chdf:thm_dfs-fsd}
+    设有光滑流形$M$和$N$，维数分别是$m$和$n$；流形间存在光滑映射$\phi:M\to N$，
+    拉回映射$\phi^*: A^r(N) \to A^r(M)$（ $0\leqslant r \leqslant \min(m,n)$）是
+    线性的，且与外积可交换，即
+    \begin{equation*}
+        \phi^{*} (\alpha \wedge \beta ) = (\phi^{*}\alpha) \wedge \phi^{*}\beta,
+        \qquad \forall \alpha \in A^p(N), \ \beta \in A^q(N), \quad 0\leqslant p+q \leqslant \min(m,n) .
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    设点$x\in M$有局部坐标$(U;x^i)$；点$y=\phi(x)\in N$有局部坐标$(V;y^i)$．
+    \begin{align*}
+        & \phi^{*}(\alpha_{a_1\cdots a_p} \wedge \beta_{b_1\cdots b_q}) =
+           \frac{(p+q)!}{p! q!} \phi^{*}(\alpha_{[a_1\cdots a_p} \beta_{b_1\cdots b_q]} ) \\
+        =& \frac{(p+q)!}{p! q!} \phi^{*}\left(
+           a_{j_1\cdots j_p} b_{k_1\cdots k_q}
+           ({\rm d}y^{j_1})_{[a_1}  \cdots  ({\rm d}y^{j_p})_{a_p}
+           ({\rm d}y^{k_1})_{b_1}  \cdots  ({\rm d}y^{k_q})_{b_q]} \right) \\
+        =& \frac{1}{p! q!} a_{j_1\cdots j_p} b_{k_1\cdots k_q}
+           \delta^{j_1 \cdots j_p k_1 \cdots k_q}_{i_1 \cdots i_p l_1 \cdots l_q}
+           \phi^{*}\left(
+             ({\rm d}y^{i_1})_{a_1} \otimes \cdots \otimes ({\rm d}y^{i_p})_{a_p} \otimes
+             ({\rm d}y^{l_1})_{b_1} \otimes \cdots \otimes ({\rm d}y^{l_q})_{b_q} \right) \\
+        =& \frac{1}{p! q!} a_{j_1\cdots j_p} b_{k_1\cdots k_q}
+           \delta^{j_1 \cdots j_p k_1 \cdots k_q}_{i_1 \cdots i_p l_1 \cdots l_q}
+           \frac{\partial y^{i_1} }{\partial x^{\pi_1} } \cdots
+           \frac{\partial y^{i_p} }{\partial x^{\pi_p} } \times
+           \frac{\partial y^{l_1} }{\partial x^{\sigma_1} } \cdots
+           \frac{\partial y^{l_q} }{\partial x^{\sigma_q} } \\
+           & \qquad \times
+           ({\rm d}x^{\pi_1})_{a_1} \otimes \cdots \otimes ({\rm d}x^{\pi_p})_{a_p} \otimes
+           ({\rm d}x^{\sigma_1})_{b_1} \otimes \cdots \otimes ({\rm d}x^{\sigma_q})_{b_q}  \\
+        =& \left( \frac{1}{p!} a_{j_1\cdots j_p}
+           \frac{\partial y^{j_1} }{\partial x^{\pi_1} } \cdots
+           \frac{\partial y^{j_p} }{\partial x^{\pi_p} }
+           ({\rm d}x^{\pi_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{\pi_p})_{a_p} \right) \\
+          & \qquad \wedge \left(\frac{1}{q!} b_{k_1\cdots k_q}
+            \frac{\partial y^{k_1} }{\partial x^{\sigma_1} } \cdots
+           \frac{\partial y^{k_q} }{\partial x^{\sigma_q} }
+           ({\rm d}x^{\sigma_1})_{b_1} \wedge \cdots \wedge ({\rm d}x^{\sigma_q})_{b_q} \right)  \\
+         =&   (\phi^{*}\alpha_{a_1\cdots a_p} ) \wedge \phi^{*}\beta_{b_1\cdots b_q} .
+    \end{align*}
+    证明过程需参阅式\eqref{chmla:eqn_alpha-beta}、\eqref{chdm:eqn_pull-bases}和式\eqref{chdf:eqn_omega-expand-on-bases}．
+\end{proof}
+证明过程中，我们还得到了一个常用公式：
+\begin{equation}\label{chdf:eqn_fsalpha}
+    \left. \phi^{*}\alpha_{a_1\cdots a_p} \right|_U =
+      \left(\frac{1}{p!} \alpha_{j_1\cdots j_p} \circ \phi \right) 
+    \frac{\partial y^{j_1} }{\partial x^{\pi_1} } \cdots
+    \frac{\partial y^{j_p} }{\partial x^{\pi_p} } 
+    ({\rm d}x^{\pi_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{\pi_p})_{a_p} .
+\end{equation}
+
+
+\begin{example}\label{chdf:exam_eiapk}
+	计算$(e^{i_1})_{a_1} \wedge \cdots \wedge (e^{i_p})_{a_p} (e_\kappa)^{a_p}$和
+	$(e_\kappa)^{a_1} (e^{i_1})_{a_1} \wedge \cdots \wedge (e^{i_p})_{a_p} $．
+\end{example}
+参考式\eqref{chmla:eqn_ep-base}，有
+\begin{equation*} %\label{chmla:eqn_eiap}
+	(e^{i_1})_{a_1} \wedge \cdots \wedge (e^{i_p})_{a_p}
+	= \delta^{i_1 \cdots i_p}_{j_1 \cdots j_p}
+	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_p})_{a_p} ;
+	\quad 1\leqslant \{i\},  \{j\}  \leqslant m .
+\end{equation*}
+利用式\eqref{chmla:eqn_gkd-95}，有
+\begin{align*}
+	&(e^{i_1})_{a_1} \wedge \cdots \wedge (e^{i_p})_{a_p} (e_k)^{a_p} = 
+	\sum_{s=1}^{p} (-)^{p+s} \delta_{j_p}^{i_s} \cdot
+	\delta_{j_1 \cdots  j_{p-1}}^{i_1 \cdots\hat{i}_s \cdots i_{p}}
+	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_p})_{a_p} (e_\kappa)^{a_p} \\
+	=&\sum_{s=1}^{p} (-)^{p+s} \delta_{\kappa}^{i_s} \cdot
+	\delta_{j_1 \cdots  j_{p-1}}^{i_1 \cdots\hat{i}_s \cdots i_{p}} 
+	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_{p-1}})_{a_{p-1}} \\
+	=& \sum_{s=1}^{p} (-)^{p+s} \delta_{\kappa}^{i_s} \cdot
+	(e^{i_1})_{a_1} \wedge\cdots \wedge \widehat{e^{i_s}}
+	\wedge \cdots \wedge (e^{i_p})_{a_{p-1}} .
+\end{align*}
+上式对$s$求和过程中至多有一项非零．给出两个具体的示例．
+\setlength{\mathindent}{0em}
+\begin{align*}
+	&({\rm d}x^{0})_{a_{0}} \wedge({\rm d}x^{1})_{a_{1}}\wedge({\rm d}x^{2})_{a_{2}}
+	\wedge ({\rm d}x^{3})_{a_{3}} (\partial_\kappa)^{a_3}
+	=(-)^{3+\kappa} ({\rm d}x^{0})_{a_{0}} \wedge\cdots \wedge \widehat{{\rm d}{x}^{\kappa}}
+	\wedge \cdots \wedge ({\rm d}x^{3})_{a_{2}} . \\
+	& (\partial_\kappa)^{a_0} ({\rm d}x^{0})_{a_{0}} \wedge({\rm d}x^{1})_{a_{1}}
+	\wedge({\rm d}x^{2})_{a_{2}}	\wedge ({\rm d}x^{3})_{a_{3}} 
+	=(-)^{\kappa} ({\rm d}x^{0})_{a_{1}} \wedge\cdots \wedge \widehat{{\rm d}{x}^{\kappa}}
+	\wedge \cdots \wedge ({\rm d}x^{3})_{a_{3}} . 
+\end{align*}\setlength{\mathindent}{2em}
+其中$0\leqslant \kappa \leqslant 3$．在广义相对论中会经常用到上两式中的缩并．
+\qed
+
+%\begin{align*}
+%	&(e_\kappa)^{a_1} (e^{i_1})_{a_1} \wedge \cdots \wedge (e^{i_p})_{a_p}  = 
+%	\sum_{s=1}^{p} (-)^{1+s} \delta_{j_1}^{i_s} \cdot
+%	\delta_{j_2 \cdots  j_{p}}^{i_1 \cdots\hat{i}_s \cdots i_{p}} 
+%	(e_\kappa)^{a_1} (e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_p})_{a_p} \\
+%	=& \sum_{s=1}^{p} (-)^{1+s} \delta_{\kappa}^{i_s} \cdot
+%	\delta_{j_2 \cdots  j_{p}}^{i_1 \cdots\hat{i}_s \cdots i_{p}} 
+%	(e^{j_2})_{a_2}  \otimes	\cdots \otimes (e^{j_{p}})_{a_{p}} \\
+%	=& \sum_{s=1}^{p} (-)^{1+s} \delta_{\kappa}^{i_s} \cdot
+%	(e^{i_1})_{a_2} \wedge\cdots \wedge \widehat{e^{i_s}}
+%	\wedge \cdots \wedge (e^{i_p})_{a_{p}} .
+%\end{align*}
+
+\begin{exercise}
+	补全例\ref{chdf:exam_eiapk}中未给出的证明．
+\end{exercise}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index[physwords]{外微分“${\rm d}$”}
+\section{外微分}\label{chdf:sec_exterior-diff}
+本节介绍微分型式场上的重要运算——外微分．
+\begin{theorem}\label{chdf:thm_exterior-differential}
+    设$M$是$m$维光滑流形，则存在唯一的映射${\rm d}: A(M)\to A(M)$，
+    使得${\rm d}\bigl(A^r(M)\bigr)\subset A^{r+1}(M)$，
+    并且满足如下条件：
+
+    {\bfseries (1)} $\mathbb{R}$-线性性：$\forall \alpha, \beta \in A^r(M), \ \forall \lambda \in \mathbb{R}$，有
+      ${\rm d}(\alpha+ \lambda \cdot \beta) = {\rm d} \alpha+ \lambda \cdot {\rm d} \beta$；
+
+    {\bfseries (2)} 准Leibitz律：$\forall \alpha \in A^{r}(M)$，有
+      ${\rm d}(\alpha \wedge \beta) = {\rm d} \alpha \wedge \beta + (-)^{r} \alpha \wedge {\rm d} \beta$；
+
+    {\bfseries (3)} $\forall f \in A^0(M) \equiv C^\infty(M)$，${\rm d} f$是$f$的普通微分；
+
+    {\bfseries (4)} $\forall \omega \in A^r(M)$，${\rm d}({\rm d} \omega)=0$．
+
+    满足上面条件的映射“${\rm d}$”称为{\heiti 外微分}．
+\end{theorem}
+我们稍后证明此定理，先叙述一些必要信息．为令公式表述简洁，叙述此定理时未使用抽象指标记号．
+这个定理是流形$M$的整体描述，我们需要一个\uwave{局部性定理}，才能得到局部坐标系中的外微分表达式．
+\begin{lemma}\label{chdm:thm_d-exiterior-local}
+    假设满足上述四个条件的外微分${\rm d}$存在；
+    如果$\alpha, \beta \in A(M)$，并且在开子集$U\subset M$上
+    有$\alpha|_U = \beta|_U$，则必然有${\rm d}\alpha|_U = {\rm d}\beta|_U$．
+\end{lemma}
+\begin{proof}
+    因并未指定$\alpha,\beta$的阶，故仍旧不使用抽象指标记号．
+
+\index[physwords]{局部性定理!外微分}
+
+%    利用条件(1)（即线性性），令$\lambda =1,\ \alpha=0,\ \beta=0$，则有
+%    ${\rm d}(0+0)={\rm d}(0)+{\rm d}(0) {\color{red}\Rightarrow}
+%    {\rm d}(0)=2{\rm d}(0){\color{red}\Rightarrow} {\rm d}(0)=0$；
+%    这说明映射${\rm d}$将零微分型式场映射为零标量场．
+
+    由条件(1)可知，引理等价于证明${\rm d}(\alpha-\beta)|_U = 0$；
+    因此只需证明：若$\omega \in A(M)$且$\omega|_U=0$，则${\rm d}\omega|_U =0$．
+
+    任取一点$p\in U$，因流形是局部紧致的，所以存在$p$点开邻域$V$使得$\overline{V}$紧致，
+    并且有$p \in V \subset \overline{V} \subset U$；
+    令$h\in C^\infty(M)$是满足命题\ref{chdm:thm_exp1UVM}中条件的标量场；
+    则有$h\cdot \omega \in A(M)$且$ h\cdot \omega =0$（这两式是针对整个流形$M$而言）．
+    将外微分作用在此式上，并利用准Leibnitz律（条件(2)）和条件(3)，
+    有（需注意：截止到此处，外微分${\rm d}$只能作用在流形$M$上的型式场，
+    不能作用在局部邻域$U$上的型式场，即${\rm d}_U (\omega|_U)$意义不明）
+    \begin{equation*}
+        0={\rm d}\bigl(h\cdot \omega\bigr)=( {\rm d}h ) \cdot \omega + h \cdot {\rm d}\omega.
+    \end{equation*}
+    因$h$限制在$V$上是恒为$1$的，而$\omega|_V=0$；所以将上式限制在$V$上取值时，
+    可以得到$({\rm d}\omega)|_V=0$．
+    又因$p$点取值的任意性，所以必然可得$({\rm d}\omega)|_U=0$；也就证明了引理．
+\end{proof}
+
+%有了局部性定理，原来只作用在流形$M$上的型式场才有意义的外微分算符${\rm d}$，现在作用在局部邻域$U$的型式场也有意义了．
+
+关于局部性定理，请先参考切矢量场的评注\ref{chdm:rmk_local}．
+$\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \overline{V} \subset U$；
+取$\omega \in A(U)$，根据命题\ref{chdm:thm_Flocal-equiv-Fglobal}可以将$\omega$延拓至
+整个流形$M$上的$\hat{\omega}\in A(M)$，并且有$\omega|_V= \hat{\omega}|_V$．
+根据局部性定理，可将${\rm d}\omega$在$p\in U$点的局部值定义为
+\begin{equation}\label{chdf:eqn_daflg}
+    ({\rm d}\omega )(p) \overset{def}{=} ({\rm d}\hat{\omega} )(p) .
+\end{equation}
+定义号“$\overset{def}{=}$”右端是$A(M)$中的型式场，本来就有意义．
+需要注意的是，这个定义与开集$V$选取无关；
+可以将$V$换成任意其它开集$V'$，只要满足$V' \subset \overline{V'} \subset U$即可；
+证明过程与上面完全相同．
+也和$\hat{\omega}$的选取无关，可以将$\hat{\omega}$换成任意$\tilde{\omega}$，
+只需满足$\omega|_V=\hat{\omega}|_V=\tilde{\omega}|_V$即可．
+因此，如果${\rm d}|_M$是流形$M$上的外微分算子，那么通过式\eqref{chdf:eqn_daflg}可以定义出
+局部开集$U$中的外微分算子${\rm d}|_U$，而且${\rm d}|_U$同样具有
+定理\ref{chdf:thm_exterior-differential}中所陈述的四条性质．
+
+下面开始证明定理\ref{chdf:thm_exterior-differential}；先解决外微分的存在性问题，
+自然是寻找符合定理中四个条件的外微分定义．
+为此，先回顾一下数学分析中的（一元）二次普通微分${\rm d}({\rm d}x)=0$；
+因$x$是自变量，所以${\rm d}x$是不依赖于$x$的任意数，那么对其再次求普通微分时自然为零．
+多元微分学中，不同自变量$x^\mu$是相互独立的（例如$x^1$独立于$x^2$）；
+那么，${\rm d}x^\mu$是不依赖于$x^\mu$以及其它$x^\nu$（$\mu \neq \nu$）的任意数，
+自然也有${\rm d}({\rm d}x^\mu)=0$．
+
+虽然${\rm d}({\rm d}x)=0$，但标量函数$f(x)$的两次普通微分一般是不为零的，
+有${\rm d}^2f=f''(x) {\rm d}x^2$；可见普通微分算符不满足
+条件(4)（但满足条件(3)）不能当成外微分算符定义．其实略加修改，便可满足
+条件(4)；考虑多元标量函数场$f$，把外积“$\wedge$”引入到${\rm d}x\ {\rm d}x$之间：
+\begin{align}
+    {\rm d}_{c}({\rm d}_{a}f)&\equiv {\rm d}_{c}\left(\frac{\partial f}{\partial x^\mu} ({\rm d}x^{\mu})_{a}\right)
+    \overset{def}{=}\frac{\partial^2 f}{\partial x^\mu \partial x^\sigma}
+    ({\rm d}x^{\sigma})_{c}\wedge ({\rm d}x^{\mu})_{a} +
+    \frac{\partial f}{\partial x^\mu} {\rm d}_{c}({\rm d}x^{\mu})_{a} \notag \\
+    &\xlongequal{{\rm d}\circ{\rm d}x=0}
+    \frac{\partial^2 f}{\partial x^\mu \partial x^\sigma}
+    ({\rm d}x^{\sigma})_{c}\wedge ({\rm d}x^{\mu})_{a} = 0. \label{chdf:eqn_ddf=0}
+\end{align}
+上式倒数第二步用的是自变量二次普通微分恒为零（${\rm d}({\rm d}x)=0$）
+{\footnote{条件(4)是自变量$x$两次普通微分恒为零（${\rm d}({\rm d}x)=0$）的推广；
+    推广成任何全反对称协变张量场的两次外微分皆为零．
+    把作为自变量的坐标的两次外微分定义成两次普通微分，
+即${\rm d}_{c}({\rm d}_{a}x^\mu) \overset{def}{=} {\rm d}({\rm d}x^\mu) =0$，
+是为了消除可能存在的循环定义．}}；
+最后一步用到了标量函数对偏导数具有对称性，而外积有反对称性，求和为零（展开即可验证）；
+对于标量函数场，这样定义的算符满足条件(4)．我们将上述定义推广到
+一般情形；设流形$M$有局部坐标系$(U;x^i)$，
+微分型式场$\omega$有局部表达式\eqref{chdf:eqn_omega-expand-on-bases}，
+则可定义它的外微分局部表达式为：
+\begin{equation}\label{chdf:eqn_exterior-differential}
+    ({\rm d}\omega_{b a_{1}\cdots a_{r}})|_U \overset{def}{=}
+    \frac{1}{r!} {\rm d}_{b}(\omega_{\mu_{1}\cdots \mu_{r}}) \wedge
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}
+\end{equation}
+易见，这个局部定义满足第(1){\footnote{当条件(1)中的$\alpha$和$\beta$不是
+同阶微分型式场时，条件(1)是定义，是无法证明的（至少笔者不知道如何证明）！}}、(3)条．
+%定义\eqref{chdf:eqn_exterior-differential}中不能（也没必要）有
+%对坐标$x^\mu$的两次（或更高阶）微分（${\rm d}{\rm d}x=0$！）！
+
+\index[physwords]{外微分“${\rm d}$”!定义式}
+
+首先，验证式\eqref{chdf:eqn_exterior-differential}满足条件(4)；
+为验证此条件，我们计算一般外型式场的两次外微分
+（使公式简洁，下面诸式皆省略下标“$|_U$”）．
+\begin{align*}
+    & {\rm d}_{c}{\rm d}_{b}(\alpha_{a_1\cdots a_r})
+    = \frac{1}{r!} {\rm d}_{c}\left(\frac{\partial \alpha_{\mu_{1}\cdots \mu_{r}}}{\partial x^\rho}
+    ({\rm d}x^\rho)_{b} \wedge
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \right) \\
+    =& \frac{1}{r!(r+1)!}
+    \frac{\partial^2 \alpha_{\mu_{1}\cdots \mu_{r}}}{\partial x^\rho \partial x^\sigma}
+    ({\rm d}x^\sigma)_{c} \wedge ({\rm d}x^\rho)_{b} \wedge
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  =0.
+\end{align*}
+与\eqref{chdf:eqn_ddf=0}同样的理由，上式最后一步为零；
+这样便验证了定义\eqref{chdf:eqn_exterior-differential}符合条件(4)．
+%因局部坐标$x^{\mu}\in C^\infty(U)$，是标量场，由式\eqref{chdf:eqn_ddf=0}可知其值为零，即${\rm d}_{c}({\rm d}_{a}x^\mu) = 0$；
+
+其次，验证式\eqref{chdf:eqn_exterior-differential}满足第(2)条
+\setlength{\mathindent}{0em}
+\begin{align*}
+    & {\rm d}_{c}(\alpha_{a_1\cdots a_r} \wedge \beta_{b_1\cdots b_s}) \\
+   =& \frac{1}{r! s!} {\rm d}_{c}\left(\alpha_{\mu_{1}\cdots \mu_{r}} \beta_{\sigma_1\cdots \sigma_q}
+      ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \right) \\
+   =& \frac{1}{r! s!} \left( {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_q}
+     +\alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_q})\right) \\
+      &\wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
+   =& \frac{1}{r! s!}  {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_q}
+      \wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
+     &+ \frac{1}{r! s!} \alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_q})
+      \wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
+    =& \frac{1}{r!}  {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}})
+      \wedge  ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
+      \frac{1}{s!} \beta_{\sigma_1\cdots \sigma_q}
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  + \\
+      & (-)^r \frac{1}{r!} \alpha_{\mu_{1}\cdots \mu_{r}}
+       ({\rm d}x^{\mu_1})_{c} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r-1}}  \wedge
+      \frac{1}{s!} {\rm d}_{a_r}(\beta_{\sigma_1\cdots \sigma_q})\wedge
+      ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}.
+\end{align*}
+\setlength{\mathindent}{2em}
+上式最后一个等号用到了外积的反对称性，产生了$r$个负号；最终，上面推导可表示为
+\begin{equation}\label{chdf:eqn_dabddatbpadb}
+    {\rm d}_{c}(\alpha_{a_1\cdots a_r} \wedge \beta_{b_1\cdots b_s}) =
+    ( {\rm d}_{c}\alpha_{a_1\cdots a_r}) \wedge \beta_{b_1\cdots b_s} + (-)^r
+    \alpha_{ca_1\cdots a_{r-1}} \wedge {\rm d}_{a_r}\beta_{b_1\cdots b_s} .
+\end{equation}
+式\eqref{chdf:eqn_exterior-differential}给出的定义满足四个条件，这便证明了外微分算符的存在性．
+将$\alpha$和$\beta$取为一次微分型式场，由式\eqref{chdf:eqn_dabddatbpadb}可得到一个常用公式
+\begin{equation}\label{chdf:eqn_dwm}
+    {\rm d}_c (\alpha_a \wedge \beta_b) =  ({\rm d}\alpha)_{ca} \wedge \beta_b
+    - \alpha_c \wedge ({\rm d}\beta)_{ab} .
+\end{equation}
+
+
+%将公式\eqref{chdf:eqn_daflg}前后论述反过来便可从局部定义整体；
+%首先，将$\omega \in A(U)$延拓至$\hat{\omega} \in A(M)$，并
+%保持$\omega|_U= \hat{\omega}|_U$；那么通过式\eqref{chdf:eqn_daflg}（从右到左定义）
+%使得只在局部$U$上有意义的式\eqref{chdf:eqn_exterior-differential}在整个流形$M$上都有意义．
+虽然解决了外微分算子的局部、整体存在性问题（并且局部、整体定义是相容的），但
+仍需证明式\eqref{chdf:eqn_exterior-differential}中的定义是唯一的，
+以及与局部坐标的选取无关．
+
+先证明唯一性．
+假设另有一个算符$\bar{\rm d}$同样满足定理\ref{chdf:thm_exterior-differential}中的四个条件；
+需要注意，标量函数场$f$的普通微分是唯一确定的（这是数学分析中的结论），由条件(3)可
+知$\bar{\rm d} f = {\rm d}f$，也就是两个算符作用在标量场上是相等的．
+由于微分型式场$\omega_{a_{1}\cdots a_{r}}$的分量$\omega_{\mu_{1}\cdots \mu_{r}}$及
+坐标$x^{\mu}$都是标量函数场，即它们属于$C^\infty(U)$；因此，
+从式\eqref{chdf:eqn_exterior-differential}可以
+看到$\bar{\rm d}\omega_{b a_{1}\cdots a_{r}} = {\rm d}\omega_{b a_{1}\cdots a_{r}}$，
+也就说明了外微分算符的唯一性！
+
+再证，定义\eqref{chdf:eqn_exterior-differential}与局部坐标选取无关．
+设有开子集$(W;y^i)$，并且$U\cap W \neq \varnothing$，那么
+微分型式场$\omega$可有两组相等的表达式：
+\begin{align}
+    \left. \omega_{a_{1}\cdots a_{r}} \right|_{U\cap W}
+    &= \frac{1}{r!} \omega_{\mu_{1}\cdots \mu_{r}}(x)
+    ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}} ,
+      \quad  \label{chdf:eqn_omega-UU} \\
+    &= \frac{1}{r!} \tilde{\omega}_{\mu_{1}\cdots \mu_{r}}(y)
+    ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}} .
+      \quad  \label{chdf:eqn_omega-WW}
+\end{align}
+下面推导过程中，注意利用关系式\eqref{chdm:eqn_xy-transform}和\eqref{chdm:eqn_xy-cov-transform}，
+以及式\eqref{chdm:eqn_tensor-component-trans}；不再单独提示．
+对式\eqref{chdf:eqn_omega-WW}取外微分，有
+\begin{align*}
+    {\rm d}_b ( \omega_{a_{1}\cdots a_{r}}) =&
+       \frac{1}{r!} {\rm d}_b (\tilde{\omega}_{\mu_{1}\cdots \mu_{r}}) \wedge
+      ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}}  \\
+    =& \frac{1}{r!} {\rm d}_b \left( {\omega}_{j_1\cdots j_r}
+    \frac{\partial x^{j_1}}{\partial y^{\mu_1}} \cdots
+    \frac{\partial x^{j_r}}{\partial y^{\mu_r}} \right) \wedge
+    ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}}  \\
+    =& \frac{1}{r!} \biggl( {\rm d}_b ({\omega}_{j_1\cdots j_r} )
+     \times \frac{\partial x^{j_1}}{\partial y^{\mu_1}} \cdots
+    \frac{\partial x^{j_r}}{\partial y^{\mu_r}}
+    +  {\omega}_{j_1\cdots j_r}
+    \frac{\partial^2 x^{j_1}}{\partial y^{\mu_1} \partial y^{\sigma} } \times\\
+    &({\rm d}y^{\sigma})_{b}
+    \frac{\partial x^{j_2}}{\partial y^{\mu_2}} \cdots
+    \frac{\partial x^{j_r}}{\partial y^{\mu_r}} + \cdots  \biggr) \wedge
+    ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}}  \\
+    =& \frac{1}{r!} \frac{\partial x^{j_1}}{\partial y^{\mu_1}} \cdots
+    \frac{\partial x^{j_r}}{\partial y^{\mu_r}}  \times
+     {\rm d}_b ({\omega}_{j_1\cdots j_r} ) \wedge
+    ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}}  \\
+    =& \frac{1}{r!}  {\rm d}_b (\omega_{j_{1}\cdots j_{r}})\wedge
+    ({\rm d}x^{j_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{j_r})_{a_{r}} .
+\end{align*}
+上面推导中用到了坐标$x^j$（标量场）二阶偏导是对称的，且外积“$\wedge$”是反对称的，
+所以对坐标的二次偏导数求和之后都是零．最后一个等号显示外微分运算与坐标选取无关，具有形式不变性！
+至此，定理\ref{chdf:thm_exterior-differential}证毕． \qed
+\begin{remark}
+    此定理表明，在光滑流形上，通过外微分运算能够把一个光滑{\kaishu 全反对称协变}张量场变成
+    {\kaishu 高一阶}的光滑反对称协变张量场．
+
+    若对一般的切矢量场，或混合张量场，或者非全反对称（只有部分指标反对称或没有任何对称性）的协变张量场
+    进行{\kaishu 微分}运算，进而得到协变阶数增加一阶的光滑张量场；
+    仅有微分结构（即相容的坐标图册）是不够的，还需附加上联络或者度规结构．
+    但{\kaishu 全反对称协变}张量场不需要这些结构便能进行{\kaishu 微分}运算．
+\end{remark}
+
+下面给出外微分运算的一些性质．
+
+
+\begin{theorem}
+对于一次微分型式场$\omega_a$和任意切矢量场$X^a,Y^b$，有如下重要公式：
+\begin{equation}\label{chdf:eqn_d1form-value}
+    ({\rm d}_a \omega_b) X^a Y^b = X(\omega_b Y^b)-Y(\omega_b X^b) -\omega_b [X,Y]^b .
+\end{equation}
+\end{theorem}
+\begin{proof}
+    因式\eqref{chdf:eqn_d1form-value}两边对于$\omega_a$是线性的，故不妨假设它是单项式，
+       即$\omega_a = g {\rm d}_a f$，其中$f,g \in C^\infty(M)$；
+    因此，${\rm d}_a \omega_b = {\rm d}_a g \wedge {\rm d}_b f$．
+    式\eqref{chdf:eqn_d1form-value}等号左端为
+    \setlength{\mathindent}{0em}
+    \begin{equation*}
+        LHS = ({\rm d}_a g \wedge {\rm d}_b f)X^a Y^b
+        = ({\rm d}_a g) {\rm d}_b f  X^a Y^b -({\rm d}_b g) {\rm d}_a f X^a Y^b
+        = X(g)  Y(f) - X(f)  Y(g) .
+    \end{equation*}\setlength{\mathindent}{2em}
+    再计算式\eqref{chdf:eqn_d1form-value}等号右端
+    \begin{align*}
+        RHS &= X(g {\rm d}_b f  Y^b)-Y(g {\rm d}_b f X^b) - g {\rm d}_b f  [X,Y]^b \\
+        &= X\bigl(g  Y(f)\bigr)-Y\bigl(g X(f)\bigr) - g  [X,Y](f)
+        = X(g) \cdot Y(f) - X(f) \cdot Y(g) .
+    \end{align*}
+    综合以上两式，定理得证．
+    更高次微分型式场的相关公式表达式十分复杂，需要更多的辅助切矢量场；
+    在引入联络后有较为简洁的表达式，见\S \ref{chccr:sec_exD-Nalba}．
+\end{proof}
+
+之前，我们证明了公式\eqref{chdm:eqn_dfphi}
+（即${\phi ^*} ({\rm d} f)_a={\rm d}_a ({\phi ^*}f)={\rm d}_a (f \circ \phi)$）；
+此公式说明外微分与拉回映射可交换，这个结论是以推广至一般情形．
+\begin{theorem}\label{chdf:thm_Dphis-phisD}
+    设光滑流形$M$和$N$的维数分别是$m$和$n$，两者间存在光滑映射$\phi:M\to N$，
+    其诱导映射是$\phi^{*}: A^r(N)\to A^r(M)$，其中$0\leqslant r < \min(m,n)$．
+    则$\forall \omega_{a_{1}\cdots a_{r}} \in A^r(N)$有
+    ${\phi ^*} ({\rm d}_b \omega_{a_{1}\cdots a_{r}})={\rm d}_b ({\phi ^*}\omega_{a_{1}\cdots a_{r}})$．
+\end{theorem}
+\begin{proof}
+    定理中对微分型式场阶数的要求保证其外微分不为零．
+    外微分有局部性，其局部坐标表达式为式\eqref{chdf:eqn_exterior-differential}，由于这个式子
+    具有坐标变换不变性，可以看成整体上皆有意义的定义式．首先将其看成流形$N$上的外微分
+    （有局部坐标系$(V;y)$），再将此式拉回到流形$M$上（有局部坐标系$(U;x)$，且$\phi(U)\subset V$）．
+    \setlength{\mathindent}{0em}
+    \begin{align*}
+        {\phi ^*}({\rm d}\omega_{b a_{1}\cdots a_{r}}){=}& {\phi ^*} \left(
+        \frac{1}{r!} \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}} }{\partial y^\rho}
+        ({\rm d}y^\rho)_{b} \wedge ({\rm d}y^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}y^{\mu_r})_{a_{r}} \right) \\
+        \xlongequal{\ref{chdf:eqn_fsalpha}} & \frac{1}{r!}
+        \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}}\circ \phi }{\partial y^\rho}
+        \cdot \frac{\partial y^{\rho} }{\partial x^{j_0} }
+        \frac{\partial y^{\mu_1} }{\partial x^{j_1} } \cdots
+        \frac{\partial y^{\mu_r} }{\partial x^{j_r} } \cdot ({\rm d}x^{j_0})_{b}\wedge
+        ({\rm d}x^{j_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{j_r})_{a_r} \\
+        =& \frac{1}{r!} \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}}\circ \phi }{\partial x^{j_0}}
+        \cdot \frac{\partial y^{\mu_1} }{\partial x^{j_1} } \cdots
+        \frac{\partial y^{\mu_r} }{\partial x^{j_r} } \cdot ({\rm d}x^{j_0})_{b}\wedge
+        ({\rm d}x^{j_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{j_r})_{a_r} .
+    \end{align*}\setlength{\mathindent}{2em}
+    再对式\eqref{chdf:eqn_fsalpha}求外微分，有
+    \begin{align*}
+         {\rm d}_b (\phi^{*}\omega_{a_1\cdots a_r}) = & {\rm d}_b \left(
+        \frac{1}{r!} (\omega_{j_1\cdots j_r} \circ \phi) \cdot
+        \frac{\partial y^{j_1} }{\partial x^{\pi_1} } \cdots
+        \frac{\partial y^{j_r} }{\partial x^{\pi_r} } \cdot
+        ({\rm d}x^{\pi_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{\pi_r})_{a_r} \right) \\
+        = & \frac{1}{r!} \frac{\partial \omega_{j_{1}\cdots j_{r}}\circ \phi }{\partial x^{\pi_0}}
+        \cdot  \frac{\partial y^{j_1} }{\partial x^{\pi_1} } \cdots
+        \frac{\partial y^{j_r} }{\partial x^{\pi_r} } \cdot ({\rm d}x^{\pi_0})_{b}
+        \wedge ({\rm d}x^{\pi_1})_{a_1} \wedge \cdots \wedge ({\rm d}x^{\pi_r})_{a_r} .
+    \end{align*}
+    上式最后一步省略了$\frac{\partial^2 y^{j} }{\partial x^{\pi} \partial x^{\sigma}}
+     ({\rm d}x^{\pi})_{a}\wedge ({\rm d}x^{\sigma})_{b}=0$（读者应该能看出此式为何为零吧？）这一步．
+    综合以上两式可见，外微分与拉回映射可交换．
+\end{proof}
+
+\begin{definition}
+    对于$\omega \in A^r(M)$，若${\rm d}\omega =0$，则称$\omega$是{\heiti 闭的}（closed）．
+    若存在$\sigma \in A^{r-1}(M)$使得$\omega = {\rm d}\sigma$，则称$\omega$是{\heiti 恰当的}（exact）．
+\end{definition}
+
+很明显，如果微分型式场$\omega$是恰当的，那么它必然是闭的；（整体上来说）反之未必．
+但我们有如下定理说明{\kaishu 局部上}是闭的，则它必然是{\kaishu 局部上}恰当的．
+
+\index[physwords]{Poincar\'{e}引理}
+
+\begin{theorem}\label{chdf:thm_poincare-lemma}
+     （Poincar\'{e}引理）设$U=B_0(a)$是$\mathbb{R}^m$中以原点为中心、$a$为半径的
+     球形开邻域（可弱化为星形开邻域）；设$\omega \in A^r(U)$且${\rm d}\omega =0$，
+     则存在$\sigma \in A^{r-1}(U)$使得$\omega = {\rm d}\sigma$．
+\end{theorem}
+\begin{proof}
+    因$U$是$\mathbb{R}^m$中开集，可假定它由一个坐标域覆盖；设$\omega$的表达式为：
+    \begin{equation}
+         \omega_{a_{1}\cdots a_{r}} = \sum_{\mu_{1}<\cdots<\mu_{r}} \omega_{\mu_{1}\cdots \mu_{r}}
+          ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}} .
+    \end{equation}
+    证明过程需利用一个具有技巧性的积分，定义映射$I:A^r(U)\to A^{r-1}(U)$如下
+    \begin{equation}\label{chdf:eqn_I-omega}
+    \begin{aligned}
+        I_r(\omega )_{a_{1}\cdots a_{r-1}} \overset{def}{=}& \sum_{\mu_{1}<\cdots<\mu_{r}}
+         \left( \int_{0}^{1}t^{r-1} \omega_{\mu_{1}\cdots \mu_{r}}(tx){\rm d}t \right) \times
+         \sum_{i=1}^{r}  (-)^{i-1} x^{\mu_i} \times \\
+         & \times ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge
+         (\widehat{{\rm d}x^{\mu_i}}) \wedge \cdots \wedge ({\rm d}x^{\mu_r})_{a_{r-1}} .
+    \end{aligned}
+    \end{equation}
+    其中脱字符$\widehat{}$表示没有这个基矢$(\widehat{{\rm d}x^{\mu_i}})$；
+    脱字符下的基矢不再占用抽象指标记号．
+    需要证明此映射有如下性质：
+    \begin{equation}\label{chdm:eqn_dIpId}
+        {\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr)
+        + I_{r+1}({\rm d}\omega )_{ba_{1}\cdots a_{r-1}} = \omega_{ba_{1}\cdots a_{r-1}} .
+    \end{equation}
+    直接计算便可证明；先计算
+\setlength{\mathindent}{0em}
+    \begin{small}
+    \begin{align*}
+        &{\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr) =  \sum_{\mu_{1}<\cdots<\mu_{r}}
+        \left( \int_{0}^{1}t^{r-1} \omega_{\mu_{1}\cdots \mu_{r}}(tx){\rm d}t \right)\cdot r\cdot
+        ({\rm d}x^{\mu_1})_{b}\wedge ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r-1}}  + \\
+        &\sum_{\mu_{0}<\cdots<\mu_{r}}
+        \left( \int_{0}^{1}t^{r} \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}}(tx)}
+        {\partial x^{\mu_{0}}} {\rm d}t \right)  \sum_{i=1}^{r} (-)^{i-1}
+        x^{\mu_i}({\rm d}x^{\mu_{0}})_{b}\wedge  ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge
+        (\widehat{{\rm d}x^{\mu_i}}) \wedge \cdots \wedge ({\rm d}x^{\mu_r})_{a_{r-1}}
+    \end{align*}
+    \end{small}\setlength{\mathindent}{2em}
+    再借用式\eqref{chdf:eqn_exterior-differential}可以得到
+    \begin{align*}
+        &I_{r+1}({\rm d}\omega )_{ba_{1}\cdots a_{r-1}} = \sum_{\mu_{0}<\cdots<\mu_{r}}
+         \left( \int_{0}^{1}t^{r}  \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}}(tx) }{\partial x^{\mu_{0}}}
+         {\rm d}t \right) \times   \sum_{i=0}^{r}  (-)^{i} x^{\mu_i} \times \\
+        &\qquad ({\rm d}x^{\mu_{0}})_{b} \wedge
+        ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots \wedge(\widehat{{\rm d}x^{\mu_i}})\wedge \cdots
+        \wedge ({\rm d}x^{\mu_r})_{a_{r-1}}
+    \end{align*}
+    上两式求和，有
+    \begin{align*}
+        &{\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr)+I_{r+1}({\rm d}\omega )_{ba_{1}\cdots a_{r-1}}\\
+        =& \sum_{\mu_{1}<\cdots<\mu_{r}}
+        \left( \int_{0}^{1}t^{r-1} \omega_{\mu_{1}\cdots \mu_{r}}(tx){\rm d}t \right)\cdot r\cdot
+        ({\rm d}x^{\mu_1})_{b}\wedge ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r-1}}   \\
+        & + \sum_{\mu_{1}<\cdots<\mu_{r}}  \left( \int_{0}^{1}t^{r}
+        \frac{\partial \omega_{\mu_{1}\cdots \mu_{r}}(tx) }{\partial x^{\mu_{0}}}   {\rm d}t \right)
+        \times   x^{\mu_0} ({\rm d}x^{\mu_{1}})_{b} \wedge
+        ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots  \wedge ({\rm d}x^{\mu_r})_{a_{r-1}} \\
+        =& \sum_{\mu_{1}<\cdots<\mu_{r}} \left( \int_{0}^{1}
+        \frac{{\rm d} \bigl(t^{r} \omega_{\mu_{1}\cdots \mu_{r}}(tx)\bigr) } {{\rm d}t} {\rm d}t \right)
+        ({\rm d}x^{\mu_1})_{b}\wedge ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r-1}} \\
+        =& \sum_{\mu_{1}<\cdots<\mu_{r}} \omega_{\mu_{1}\cdots \mu_{r}}(x)
+         ({\rm d}x^{\mu_1})_{b}\wedge ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots\wedge
+         ({\rm d}x^{\mu_r})_{a_{r-1}} = \omega_{b a_{1} \cdots a_{r-1}}.
+    \end{align*}
+    这便证明了式\eqref{chdm:eqn_dIpId}．当$\omega$为闭型式时，也就是${\rm d}\omega=0$时，
+    由式\eqref{chdm:eqn_dIpId}可得$\omega_{b a_{1} \cdots a_{r-1}}=
+    {\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr) $，这说明$\omega$是恰当的；
+    其中$\sigma = I_r (\omega)$．
+\end{proof}
+
+\begin{remark}\label{chdf:rek_poincare-lemma}
+    从Poincar\'{e}引理的证明过程来看（见式\eqref{chdf:eqn_I-omega}），只有微分型式场
+    $\omega$的分量$\omega_{\mu_{1}\cdots \mu_{r}}(x)$不为零时才能使得积分后的
+    式\eqref{chdf:eqn_I-omega}不为零；如果$\omega$的分量为零，那么定理中的$\sigma$也为零．
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Frobenius定理}\label{chdf:sec_frobenius}
+
+在\S \ref{chdm:sec_One-Parameter-Transformations-Groups}中，已经指出流形上切矢量场
+与其积分曲线（单参数可微变换群）有一一对应关系，这其实是在说单个切矢量场是否可积；
+本节将讲述多个切矢量场是否可积的问题，由常微分方程组过渡到偏微分方程组．
+我们将省略定理证明过程，可参考文献\parencite[\S 1.4]{cc2001-zh}或\parencite[\S 3.4]{chenwh2001}或其它类似书籍． 
+需要事先声明，本节所叙述的定理只在局部成立；关于Frobenius定理的大范围描述
+可参阅\parencite[\S 6.6-6.7]{spivak-dif-1}．
+
+设有一阶偏微分方程组
+\begin{equation}\label{chdf:eqn_1d-eqs}
+    \frac{\partial y^\alpha(x)}{\partial x^i} = f_i^\alpha (x^1,\cdots, x^m;y^1,\cdots,y^n),
+    \quad 1 \leqslant \alpha \leqslant n, \ 1 \leqslant i \leqslant m .
+\end{equation}
+假定$f_i ^\alpha (x^j; y^\beta)$是定义在区域$D=U \times V $上的$C^r$阶连续可微函数，
+其中$U$是$\mathbb{R}^m$开凸子集，$V$是$\mathbb{R}^n$开凸子集；并且这两个子集的
+边界（$\partial U$和$\partial  V$）是$C^{r-1}$阶连续可微的，除了有限个测度为零的不可微子区域．
+\begin{theorem}\label{chdf:thm_1d-exist}
+    对于任意给定初值$(x^1_0,\cdots, x^m _0;y^1_0,\cdots,y^n_0)\in D$，
+    方程组\eqref{chdf:eqn_1d-eqs}在点$(x^1_0,\cdots, x^m _0)\in U$的一个
+    邻域$\tilde{U}$内有连续可微解$y^\alpha=y^\alpha(x^1,\cdots, x^m)$，
+    并且满足初始条件$y^\alpha(x^1_0,\cdots, x^m _0)=y^\alpha_0$（其中$ 1 \leqslant \alpha \leqslant n$）
+    的充分条件是，在区域$D$上下述恒等式成立：
+    \begin{equation}\label{chdf:eqn_1d-exist}
+        \frac{\partial f_i^\alpha}{\partial x^j} - \frac{\partial f^\alpha_j}{\partial x^i}
+        = \sum_{\sigma=1}^{n} \left(\frac{\partial f^\alpha_j}{\partial y^\sigma} f^\sigma_i
+          - \frac{\partial f_i^\alpha}{\partial y^\sigma} f^\sigma_j \right),
+        \quad  1 \leqslant \alpha \leqslant n, \ 1 \leqslant i,j \leqslant m.
+    \end{equation}
+    此时简称该方程组完全可积；并且该解是唯一的．
+    反之，如果假设方程组\eqref{chdf:eqn_1d-eqs}解存在，那么
+    条件\eqref{chdf:eqn_1d-exist}也是其必要条件（即推论）之一．
+\end{theorem}
+需要提醒读者注意，此定理在叙述中省略了区域$D$的拓扑性质（已在定理前给出），
+这些性质也是解存在的充分条件．
+只有单独一个条件\eqref{chdf:eqn_1d-exist}无法保证方程组\eqref{chdf:eqn_1d-eqs}解的存在，
+仍需拓扑条件、初边值条件等．
+
+\begin{example}\label{chdf:exm_Fij2d}
+    令定理\ref{chdf:thm_1d-exist}中的$n=1,m=2$，即方程\eqref{chdf:eqn_1d-eqs}为
+    \begin{equation}
+        \partial_x u = f(x,y;u),\qquad \partial_y u=g(x,y;u).
+    \end{equation}
+    注意有两个方程，一个未知量$u$；但方程组是确定的，
+    见\S \ref{chmla:sec_diff-linear-dependence}．
+    解存在性条件\eqref{chdf:eqn_1d-exist}只有
+    一个$\partial_x g -\partial_y f = g \partial_u f-f \partial_u g $，其它全部
+    为$0=0$的恒等式；如果假设$f,g$与$u$无关，
+    则上述解存在性条件变为$\partial_x g -\partial_y f =0$．\qed
+\end{example}
+
+\begin{example}\label{chdf:exm_Fij2d-2}
+    将例题\ref{chdf:exm_Fij2d}稍微改变一下表述方式，令
+    \begin{equation}
+        F_{ij}=\begin{pmatrix}
+            0 & -u \\ u &0
+        \end{pmatrix} ,\qquad
+        J_{i}= \begin{pmatrix}
+            g\\ -f
+        \end{pmatrix}.
+    \end{equation}
+    则例\ref{chdf:exm_Fij2d}中方程变为
+    \begin{equation}
+        \sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} .
+    \end{equation}
+    假设$f,g$与$u$无关，则解存在性条件是
+    $\sum_{i}\frac{\partial}{\partial x^i}J_i= \partial_x g -\partial_y f =0 $．     \qed
+\end{example}
+
+\begin{example}\label{chdf:exm_Fij2d-3}
+    令
+    \begin{equation}
+        F_{ij}=\begin{pmatrix}
+            0   & -u_3 &  u_2 \\
+            u_3 &  0   & -u_1 \\
+            -u_2&  u_1 & 0
+        \end{pmatrix} ,\qquad
+        J_{i}= \begin{pmatrix}
+            J_1 \\  J_2 \\  J_3
+        \end{pmatrix}.
+    \end{equation}
+    其中$J_i$与$u_i$无关．    则有如下方程
+    \begin{equation}
+        \sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i}
+        {\quad \color{red}\Leftrightarrow \quad}
+        \nabla\times \boldsymbol{u} = \boldsymbol{J} .
+    \end{equation}
+    解存在性条件变为
+    $\sum_{i}\frac{\partial}{\partial x^i}J_i= \nabla \cdot \boldsymbol{J}=0 $．    \qed
+\end{example}
+
+定理\ref{chdf:thm_1d-exist}是Frobenius定理的经典形式；下面我们用切矢量场
+以及微分型式场方式再次叙述此定理，为此需要做些准备．
+
+
+\begin{definition}
+    设光滑流形$M$是$m$维的．若对每一点$p\in M$都指定切空间$T_pM$的一个$h$维子空间$L^h(p)\subset T_pM$，
+    则$L^h=\bigcup_{p\in M} L^h(p)$构成切丛$TM$的一个子集，称为$M$上的一个$h$维{\heiti 分布}．
+    若上述$L^h$只在流形$M$的某开子集$U$上成立，则称$L^h$是$U$上的$h$维{\heiti 分布}．
+\end{definition}
+流形上每点切空间都与流形同维数，分布的含义便是先在$T_pU$ %（此式及下面诸式中的$U$皆可换成$M$）
+找到$h$个线性无关的切矢量$X^a_1(p),\cdots,X^a_h(p)$；然后让点$p$遍历$U$，这样就有$h$个线性无关的
+切矢量\uwave{场}$X^a_1,\cdots,X^a_h\ \in \mathfrak{X}(U)$；
+分布便是由这些切矢量场张成（为简单起见，要求这些切矢量场是光滑的），记为
+\begin{equation}
+    L^h|_U \equiv \text{Span}_{\infty}\{X^a_1,\cdots,X^a_h \},\quad
+    {\rm Span}_{\infty} \text{的组合系数是} C^\infty(U) \text{函数}.
+\end{equation}
+切矢量场能够进行非退化$C^\infty(U)$函数变换（包括$\mathbb{R}$-线性变换） %见\eqref{chdm:eqn_functimesv}式后论述
+\begin{equation}
+    Y^a_\alpha = c^\beta_\alpha X_\beta ^a, \qquad
+    \forall c^\beta_\alpha \in C^\infty(U) {\ \text{且}\ }\det(c^\beta_\alpha)\neq 0.
+\end{equation}
+这$h$个切矢量$Y^a_\alpha$仍是$\mathbb{R}$-线性无关的；此时，分布$L^h|_U$也可记为
+\begin{equation}
+    L^h|_U \equiv \text{Span}_{\infty}\{Y^a_1,\cdots,Y^a_h \}.
+\end{equation}
+
+如果光滑流形$M$上存在$h$个处处线性无关的光滑切矢量场，那么在$U$上就存在一个$h$维光滑分布．
+反过来，$U$上存在一个$h$维光滑分布，那么在$M$上未必存在$h$个处处线性无关的光滑切矢量场．
+典型的例子便是二维球面$S^2$上的光滑切矢量场必有奇点，因此$S^2$整体上不可能存在两个
+处处线性无关的切矢量场；然而$S^2$的局部上的切矢量场显然是个2维分布．
+虽然在整个流形（或者称之为大范围情形）两者并不等价，但在局部开子集$U$上，两者是等价的，
+即一个$h$维光滑分布等价于存在$h$个处处线性无关的光滑切矢量场．
+
+\index[physwords]{积分流形}
+
+\begin{definition}\label{chdf:def_solution}
+    设$L^h$是定义在开子集$U\subset M$上的光滑分布，如果有包含映射$\imath:N\to U$对每一
+    点$p \in N$有$\imath_{*}(T_p N)\subset L^h\bigl(\imath(p)\bigr)$，则
+    称$(\imath,N)$是光滑分布$L^h$的一个{\heiti 积分流形}．
+    若$\forall q\in U$，都有分布$L^h$的一个$h$维积分流形经过它，则称
+    分布$L^h$是{\heiti 完全可积}的．
+\end{definition}
+由于包含映射一定是嵌入映射，那么必然是单射；同时流形$N$的维数不可能超过$h$．
+积分流形只要求$\forall p \in N$可积，完全积分流形要求$\forall q \in U$可积．
+
+当$h=1$时，$L^1$分布便是$U$上的切矢量场；很明显，分布是切矢量场向高维空间的推广；
+矢量场的积分曲线正是它作为分布时的积分流形．
+定理\ref{chdm:thm_1PDG-ppy}阐述了任意切矢量场（在坐标变换后）都可以表示
+成$X^a |_U = (\frac{\partial }{\partial x^1} )^a$，即其积分曲线
+是$x^1$-参数曲线，在此条曲线上只有自变量$x^1$是变化的，其它
+自变量$x^i(2\leqslant i)$都是常数．一个自然的问题是定理\ref{chdm:thm_1PDG-ppy}能否
+推广到高维，即是否存在局部坐标系使得$L^h={\rm Span}_{\infty}\{(\frac{\partial }{\partial x^1} )^a,
+\cdots,(\frac{\partial }{\partial x^h} )^a\}$成立？这便是Frobenius定理．
+
+\begin{definition}\label{chdf:def_frobenius-conditions}
+    设$L^h$是定义在开子集$U\subset M$上的光滑分布．若$\forall p\in U$，存在$p$点一个
+    开邻域$p\in V\subset U$，以及$h$个光滑切矢量场$X_1^a,\cdots,X^a_h\in \mathfrak{X}(V)$使
+    得$L^h={\rm Span}_{\infty}\{ X_1^a,\cdots,X^a_h\}$；并且这些光滑切矢量场满足封闭
+    条件$[X_\alpha,X_\beta]^a=c_{\alpha\beta}^{\gamma} X_\gamma^a$，
+    其中$c_{\alpha\beta}^{\gamma} \in C^\infty(V)$、$1\leqslant \alpha,\beta\leqslant h$，
+    则称$L^h$满足{\heiti \bfseries Frobenius条件}．
+\end{definition}
+
+\index[physwords]{Frobenius条件}
+\index[physwords]{Frobenius定理}
+
+\begin{theorem}\label{chdf:thm_frobenius}
+    （Frobenius定理）设$L^h$是开子集$U\subset M$上的光滑分布，若$L^h$满足Frobenius条件，
+    则$\forall p\in U$，存在局部坐标系$(V;x^i)$使得$p\in V\subset U$，且
+    \begin{equation}\label{chdf:eqn_frobenius-h}
+        L^h={\rm Span}_{\infty}\left\{\left(\frac{\partial }{\partial x^1} \right)^a,
+        \cdots,\left(\frac{\partial }{\partial x^h} \right)^a \right\}.
+    \end{equation}
+    $L^h$有如此表述形式，自然是完全可积的．
+\end{theorem}
+定理\ref{chdf:thm_frobenius}告诉我们，开子集$V$中的坐标
+面$\{(x^1,\cdots,x^m) \mid x^{h+1}=const, \cdots, x^{m}=const\}$是
+分布$L^h$的$h$维积分流形．
+此定理的逆也成立，即
+\begin{theorem}\label{chdf:thm_frobenius-converse}
+    如果$L^h$完全可积，则$L^h$必然满足Frobenius条件．
+\end{theorem}
+
+\section{Frobenius定理的外型式表述}\label{chdf:sec_frobenius-ed}
+\S\ref{chdf:sec_frobenius}中是Frobenius定理的经典描述方式，本节用外型式场方式
+再次表述此定理．同\S\ref{chdf:sec_frobenius}表述类似，
+通过包含映射$\imath$将$n$维子流形$N$嵌入到$m$流形$M$中，且$n < m$；
+我们需要用到拉回映射来表述$(\imath,N)$是积分流形这一概念，
+因$N$的维数小于$M$的维数，所以从$M$拉回到$N$的一次
+外型式场$\imath^*(\omega^i)_a,\  \forall(\omega^i)_a\in\mathfrak{X}^*(M),
+\ 1\leqslant i \leqslant m$中必然有些为零．
+
+\index[physwords]{Pfaff方程组}
+%\subsection{Pfaff方程与定理表述}
+定义在$m$维光滑流形$M$的开子集$U$上的$r$个一次外微分型式场
+\begin{equation}\label{chdf:eqn_Pfaff}
+    (\omega^\alpha)_a = 0;\qquad {\text{其中}}\ (\omega^\alpha)_a
+    \in\mathfrak{X}^*(U), \quad 1\leqslant \alpha \leqslant r.
+\end{equation}
+称为$U$上的{\bfseries \heiti Pfaff方程组}．内指标标记微分式的个数．
+这里的$(\omega^\alpha)_a = 0$不是指一次外微分式为恒零元，恒零元
+是指$\forall v^a\in \mathfrak{X}(U)$有$(\omega^\alpha)_a v^a =\left<(\omega^\alpha)_a, v^a\right>=0$．
+而Pfaff方程\eqref{chdf:eqn_Pfaff}是指寻找子流形$(\imath,N)$使得
+\begin{equation}\label{chdf:eqn_solution-ed}
+    \imath^* \bigl((\omega^\alpha)_a \bigr) = 0; \qquad \text{其中包含映射}\ \imath:N\to U .
+\end{equation}
+或者说$(\omega^\alpha)_a$在子流形$N$上的限制为零．
+满足上述条件的映射$\imath$和流形$N$未必存在，其存在性条件就是Frobenius条件．
+
+
+先看一个例子．若$r=1$，在二维流形上，Pfaff方程是
+\begin{equation}
+    (\omega)_a = P(x,y)({\rm d}x)_a +Q(x,y)({\rm d}y)_a =0, \qquad P,Q\in C^\infty(U).
+\end{equation}
+当$Q\neq 0$时，上述方程等价于（直接去掉抽象指标记号）
+\begin{equation}
+    \frac{{\rm d}y}{{\rm d}x}=-\frac{P(x,y)}{Q(x,y)}.
+\end{equation}
+这是通常的常微分方程式．它完全可积条件是（可查阅微积分书籍）
+\begin{equation}
+    \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}.
+\end{equation}
+在$U$上处处成立．
+
+
+
+%下面进一步来描述偏微分方程与Pfaff方程组\eqref{chdf:eqn_Pfaff}的关系．
+在光滑流形$M$上开子集$U$的一次微分式\eqref{chdf:eqn_Pfaff}在各点的线性无关
+个数未必相同，这给研究带来诸多不便．下面，我们只研究$U$上各点线性无关的
+一次微分式（$(\omega^\alpha)_a$）个数均为相同常数的情形，此常数称为Pfaff方程组的{\heiti 秩}．
+我们不妨假设它的秩是$r$．到目前为止，积分流形的定义仍旧模糊，下述命题有助于清晰化此概念．
+
+%下面指出分布$L^h$与Pfaff方程组有如下关系．
+\begin{proposition}\label{chdf:thm_dwwd}
+    给定$m$维光滑流形$M$，定义在开子集$U\subset M$上的秩为$r$的Pfaff方程组
+    在局部上{\kaishu 等价于}$h(=m-r)$维光滑分布$L^h$．
+\end{proposition}
+\begin{proof}
+    需要提醒读者这个命题只在局部成立．我们先从分布导出Pfaff方程组．
+
+%与它们对偶的是$m$个切矢场$(v_i)^a (1\leqslant i\leqslant m)$．
+%在两者作内积过程中（即$(v_i)^a(\omega^\alpha)_a$），
+%至少有$r$个切矢场$(v_\beta)^a(1\leqslant \beta\leqslant r)$使得
+%\begin{equation}
+%    (v_\beta)^a(\omega^\alpha)_a= \delta_\beta^\alpha,\qquad 1\leqslant \alpha, \beta\leqslant r .
+%\end{equation}
+%而剩余的$h=m-r$个切矢场与$(\omega^\alpha)_a$作内积是恒为零的，将它们记为
+%\begin{equation}
+%    L^h(p)=\left\{(v_\lambda)^a\in T_pU| (\omega^\alpha)_a(v_\lambda)^a=0,\
+%    1\leqslant \alpha\leqslant r,\ 1+r\leqslant \lambda\leqslant m \right\}.
+%\end{equation}
+%这便是Pfaff方程组的几何意义：式\eqref{chdf:eqn_Pfaff}在$U$上给出了
+%一个$h=m-r$维光滑分布$L^h$．
+
+
+假设点$p\in V\subset U$邻域有局部坐标系$(V;x^i)$（进一步缩小开集$U$的
+主要目的是：缩小后的$p$点开邻域$V$可用一个坐标域覆盖，同时紧致集$\overline{V}\subset U$），
+$h(=m-r)$维光滑分布$L^h$可用$V$上处处线性无关的光滑切矢量场来张成，即
+\begin{equation}
+    L^h|_V = {\rm Span}_{\infty} \left\{(v_{r+1})^a,\cdots, (v_m)^a \right\}.
+\end{equation}
+将此$h$个切矢量场延拓至$m$个在$V$上处处线性无关的切矢量场，
+假设这些切矢量场的局部展开式为（其中$1\leqslant i\leqslant m$）
+\begin{equation}\label{chdf:eqn_tmp-v1}
+    (v_i)^a= \sum_{j=1}^{m} v_i^j \left(\frac{\partial}{\partial x^j}\right)^a
+    =\sum_{\alpha=1}^{r}v_i^\alpha \left(\frac{\partial}{\partial x^\alpha}\right)^a
+    +\sum_{\mu=r+1}^{m}v_i^\mu \left(\frac{\partial}{\partial x^\mu}\right)^a .
+\end{equation}
+因分布$L^h$要有$h$个处处线性无关的切矢量场，故不妨假设展开系数$\det(v_\lambda^\mu)\neq 0$，
+$r< \mu,\lambda \leqslant m$．其逆记为$b_\lambda^{\mu'}$，
+即$v^\mu_{\mu'} b_\lambda^{\mu'} =\delta^\mu_\lambda$；
+将逆矩阵乘在式\eqref{chdf:eqn_tmp-v1}上，有
+\begin{align*}
+    (u_\lambda)^a \overset{def}{=}&  \sum_{\mu'=r+1}^{m} b_\lambda^{\mu'} (v_{\mu'})^a
+    =\sum_{\alpha=1}^{r} b_\lambda^{\mu'} v_{\mu'}^\alpha \left(\frac{\partial}{\partial x^\alpha}\right)^a
+    +\sum_{\mu,{\mu'}=r+1}^{m} b_\lambda^{\mu'} v_{\mu'}^\mu
+        \left(\frac{\partial}{\partial x^\mu}\right)^a   \\
+    =&-\sum_{\alpha=1}^{r} l_\lambda^{\alpha} \left(\frac{\partial}{\partial x^\alpha}\right)^a
+    + \left(\frac{\partial}{\partial x^\lambda}\right)^a ,
+    \qquad \text{其中}\ l_\lambda^{\alpha} 
+   \equiv - \sum_{\mu'=r+1}^{m}b_\lambda^{\mu'} v_{\mu'}^\alpha .
+\end{align*}
+显然$l_\lambda^{\alpha} \in C^\infty(U)$，所以仍然有
+\begin{equation}
+    L^h|_V = {\rm Span}_{\infty} \left\{(u_{r+1})^a,\cdots, (u_m)^a \right\}.
+\end{equation}
+补上$r$个切基矢$(u_\alpha)^a= \left(\frac{\partial}{\partial x^\alpha}\right)^a$，
+其中$1\leqslant \alpha \leqslant r$；这样切标架场$\{ (u_{1})^a,\cdots, (u_m)^a \}$便
+构成了$V$上的切基矢场．容易验证与$\{u^a\}$对偶的余切标架场是
+\begin{equation}
+    (\theta^\alpha)_a =  ({\rm d}x^\alpha)_a + \sum_{\mu=r+1}^{m} l^\alpha_\mu ({\rm d}x^\mu)_a  ,
+    \   (\theta^\lambda)_a = ({\rm d}x^\lambda)_a.  
+\end{equation}
+其中$1 \leqslant \alpha \leqslant r,\ r<\lambda\leqslant m$．
+由上式可见，$h$维光滑分布$L^h$可以导出$r(=m-h)$个Pfaff方程
+组$(\theta^\alpha)_a =  ({\rm d}x^\alpha)_a + \sum_{\mu=r+1}^{m} l^\alpha_\mu ({\rm d}x^\mu)_a $，
+其系数$l^\alpha_\mu$是由分布$L^h$基矢场的展开系数决定的．
+
+反之．假设先给定秩为$r$的Pfaff方程组$(\omega^\alpha)_a$，其中$1 \leqslant \alpha \leqslant r$．
+在每一点$p\in V$最多的线性无关微分型式场自然是$m$个，
+我们将$r$个一次外微分式延拓到$m$个处处相互独立的外微分式，并在局部坐标系展开，有
+\begin{equation}\label{chdf:eqn_tmp-w1}
+    (\omega^i)_a= \sum_{k=1}^{m} \omega^i_k ({\rm d}x^k)_a
+    =\sum_{\beta=1}^{r} \omega^i_\beta ({\rm d}x^\beta)_a
+    +\sum_{\nu=r+1}^{m} \omega^i_\nu ({\rm d}x^\nu)_a ,
+    \ 1\leqslant i\leqslant m .
+\end{equation}
+同理，不妨假设$\det(\omega^\alpha_\beta)\neq 0$，其中$1 \leqslant \alpha,\beta \leqslant r$；
+这个方阵自然有逆$b^\gamma_\alpha$，即$\omega^\alpha_\beta b^\gamma_\alpha = \delta^\gamma_\beta$，
+其中$1 \leqslant \gamma \leqslant r$．将逆矩阵乘在式\eqref{chdf:eqn_tmp-w1}上，有
+\begin{align}
+    (\varphi^\gamma)_a \overset{def}{=}& \sum_{\alpha=1}^{r} b^\gamma_\alpha(\omega^\alpha)_a
+    =\sum_{\alpha,\beta=1}^{r} b^\gamma_\alpha\omega^\alpha_\beta ({\rm d}x^\beta)_a
+      +\sum_{\nu=r+1}^{m} b^\gamma_\alpha\omega^\alpha_\nu ({\rm d}x^\nu)_a \notag \\
+    =&  ({\rm d}x^\gamma)_a + \sum_{\nu=r+1}^{m} c^\gamma_\nu ({\rm d}x^\nu)_a ,
+    \qquad \text{其中} \  c^\gamma_\nu \equiv b^\gamma_\alpha\omega^\alpha_\nu .
+\end{align}
+由于乘的是可逆矩阵，所以$(\varphi^\gamma)_a$和$(\omega^\gamma)_a$是等价的．
+$(\varphi^\gamma)_a (1 \leqslant \gamma \leqslant r)$在$V$上是处处
+线性无关的，我们可以补上$h=(m-r)$个余切矢量
+场$(\varphi^\lambda)_a=({\rm d}x^\lambda)_a (r< \lambda \leqslant m)$，
+这样$m$个$\{(\varphi^1)_a,\cdots,(\varphi^m)_a \}$便构成了$\mathfrak{X}^*(V)$的基矢场．
+容易求出与其对偶的切标架场$\{(X_1)^a,\cdots,(X_m)^a\}$是
+（其中$1 \leqslant \alpha \leqslant r$，$r< \lambda \leqslant m$）
+\begin{equation}
+    (X_\alpha)^a = \left(\frac{\partial }{\partial x^\alpha}\right)^a, \qquad
+    (X_\lambda)^a = \left(\frac{\partial }{\partial x^\lambda}\right)^a
+    -\sum_{\beta=1}^{r}c^\beta_\lambda  \left(\frac{\partial }{\partial x^\beta}\right)^a .
+\end{equation}
+上式说明，从秩为$r$的Pfaff方程组$(\omega^\alpha)_a$出发，可以找到一个$h$维光滑分布
+\begin{equation}
+    L^h|_V = {\rm Span}_{\infty} \left\{(X_{r+1})^a,\cdots, (X_m)^a \right\}.
+\end{equation}
+其系数$c^\beta_\lambda$是由Pfaff方程组$(\omega^\alpha)_a$的展开系数决定的．
+
+最终可以看到，秩为$r$的Pfaff方程组与$h(=m-r)$维的分布$L^h$是相互确定、相互伴随的．
+这说明，当给定一个Pfaff方程组时，便同时给定了一个光滑分布；反之亦然．
+\end{proof}
+
+取$L^h|_V = {\rm Span}_{\infty} \left\{(v_{r+1})^a,\cdots, (v_m)^a \right\}$和
+$(\omega^\alpha)_a \ (1 \leqslant \alpha \leqslant r)$是命题\ref{chdf:thm_dwwd}中
+相互伴随的分布$L^h$和一次外型式场．
+因两者是相互对偶的，$\forall X^a\in L^h|_V$必然有$(\omega^\alpha)_a X^a =0$．
+按照\S \ref{chdf:sec_frobenius}中论述，假设光滑分布$L^h|_V$的积分流形
+是$(\imath,N)$（见定义\ref{chdf:def_solution}）；其中包含映射$\imath$的定义
+是$\imath:N\to V\subset U \subset M$．此时虽然$TN$中的切矢量场与$L^h|_V$是同构的，
+但需要用包含映射推前到$TV$中才能与$V$中的余切矢量场（即一次外型式场）
+$(\omega^\alpha)_a \in \mathfrak{X}^*(V)$作用．$\forall u^a\in TN \cong L^h|_V$，必然有
+\begin{equation}\label{chdf:eqn_solution-ed2}
+    (\omega^\alpha)_a \bigl(\imath_{*}u^a\bigr) =0 \quad \Leftrightarrow \quad
+    \bigl(\imath^*(\omega^\alpha)_a\bigr) (u^a) =0.
+\end{equation}
+本节开头说过，Pfaff方程组是在寻找一个子流形$(\imath,N)$使得$\imath^*(\omega^\alpha)_a=0$成立，
+从上式可以看到：命题\ref{chdf:thm_dwwd}中描述的、与Pfaff方程组\eqref{chdf:eqn_Pfaff}伴随的
+光滑分布$L^h$的积分流形$(\imath,N)$就满足此要求．
+$\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$外的空间不是恒零元．
+
+我们再大致叙述一下这一过程：
+\textcircled{1} 给定$m$维光滑流形$M$的一个开子集$U$（根据需要可适当将其缩小至$V$）；
+\textcircled{2} 给定开子集$U$上秩为$r$的Pfaff方程组\eqref{chdf:eqn_Pfaff}（即$r$个余切矢量场）；
+\textcircled{3} 通过命题\ref{chdf:thm_dwwd}中论述的方法找到与Pfaff方程组\eqref{chdf:eqn_Pfaff}相
+互伴随的光滑分布$L^h$，分布维数是$h=m-r$；
+\textcircled{4} 光滑分布$L^h$会对应一个积分流形$(\imath,N)$，见定义\ref{chdf:def_solution}，
+这个积分流形中的切矢量场满足式\eqref{chdf:eqn_solution-ed2}，同时我们也把这个积分流形称为
+Pfaff方程组\eqref{chdf:eqn_Pfaff}的积分流形；
+\textcircled{5} 积分流形$(\imath,N)$的存在性条件就是下面叙述的Frobenius定理．
+
+在叙述Frobenius定理之前，先看一下Pfaff方程组与一般偏微分微分方程组的关系．
+给定一般的一阶偏微分方程组
+\begin{equation}\label{chdf:eqn_pde1d}
+    \frac{\partial y^\alpha(x)}{\partial x^i} = f_i ^\alpha (x^1,\cdots, x^m;y^1,\cdots,y^n),
+    \quad 1 \leqslant \alpha \leqslant n, \quad 1 \leqslant i \leqslant m .
+\end{equation}
+其中$f_i ^\alpha$是自变量的光滑函数．上式可改写为
+开子集$U\times V\subset \mathbb{R}^m\times \mathbb{R}^n$的Pfaff方程组
+\begin{equation}\label{chdf:eqn_pde1d-pfaff}
+    (\omega^\alpha)_a = ({\rm d}y^\alpha)_a - \sum_{i=1}^{m}f_i ^\alpha(x,y)({\rm d}x^i)_a,
+     \quad 1 \leqslant \alpha \leqslant n.
+\end{equation}
+如果方程组\eqref{chdf:eqn_pde1d}有解$y^\alpha=g^\alpha(x^1,\cdots, x^m)$，
+那么构建映射$\imath:U\to U\times V$为
+\begin{equation}
+    \imath(x^1,\cdots, x^m)=\left(x^1,\cdots, x^m;\ g^1(x),\cdots,g^n(x)\right).
+\end{equation}
+可以看出$(\imath,U)$是$\mathbb{R}^m\times \mathbb{R}^n$的嵌入子流形．
+式\eqref{chdf:eqn_pde1d-pfaff}中描述的Pfaff方程组是流形$\mathbb{R}^m\times \mathbb{R}^n$中
+开子集$U\times V$上的余切矢量场，可用映射$\imath$将其拉回至$U$中
+\begin{equation*}
+    \imath^*\bigl((\omega^\alpha)_a\bigr)=({\rm d}g^\alpha(x))_a - f_i ^\alpha\bigl(x,g(x)\bigr)({\rm d}x^i)_a
+    =\left( \frac{\partial g^\alpha(x)}{\partial x^i} -f_i ^\alpha\bigl(x,g(x)\bigr) \right)({\rm d}x^i)_a .
+\end{equation*}
+因为$g^\alpha(x^1,\cdots, x^m)$是方程组\eqref{chdf:eqn_pde1d}的解，
+所以显然有$\imath^*\bigl((\omega^\alpha)_a\bigr)=0$．
+
+
+\index[physwords]{Frobenius定理!外型式}
+
+\begin{theorem}\label{chdf:thm_frobenius-Diff-Form}
+    设式\eqref{chdf:eqn_Pfaff}是定义在开子集$U\subset M$上的秩为$r$的Pfaff方程组，
+    则它完全可积的充分必要条件是：满足下述条件之一即可（其中$1 \leqslant \alpha \leqslant r$）
+    \begin{subequations}\label{chdf:eqn_frobenius-Diff-Form}
+    \begin{align}
+        ({\rm d} \omega^\alpha)_{ab} =& \sum_{\beta=1}^{r}(\phi^\alpha_\beta)_a \wedge (\omega^\beta)_b ,
+           \label{chdf:eqn_frobenius-Diff-Form-a} \\
+        0 =& ({\rm d} \omega^\alpha)_{ab} \wedge (\omega^1)_{c_1} \wedge (\omega^2)_{c_2}
+           \cdots \wedge (\omega^r)_{c_r}, \label{chdf:eqn_frobenius-Diff-Form-b} \\
+        (\omega^\alpha)_{a} =& \sum_{\beta=1}^{r} g^\alpha_\beta(x^1,\cdots,x^r) \cdot ({\rm d} x^\beta)_a,
+        \quad \text{存在}\  g^\alpha_\beta \in C^\infty(V).
+        \label{chdf:eqn_frobenius-Diff-Form-c}
+    \end{align}
+    \end{subequations}
+    式\eqref{chdf:eqn_frobenius-Diff-Form}称为Frobenius条件．
+    条件\eqref{chdf:eqn_frobenius-Diff-Form-a}要求$\forall p\in U$存在
+    点$p$的开邻域$V\subset U$使得存在$r^2$个$(\phi^\alpha_\beta)_a\in \mathfrak{X}^*(V)$满足
+    式\eqref{chdf:eqn_frobenius-Diff-Form-a}．
+    条件\eqref{chdf:eqn_frobenius-Diff-Form-c}是指存在$g^\alpha_\beta(x^1,\cdots,x^r)\in C^\infty(V)$和
+    局部坐标系$\{x\}$使得式\eqref{chdf:eqn_frobenius-Diff-Form-c}成立即可．
+\end{theorem}
+\begin{proof}
+    定理证明可参考文献\parencite[\S 7.14-7.17]{spivak-dif-1}、
+    \parencite[\S 3.2]{cc2001-zh}或其它类似书籍． %\parencite[\S 4.3]{chenwh2001}
+
+    我们简单论述一下几个Frobenius条件的等价性．
+    通过定理\ref{chmla:thm_0mod}极易证明条件\eqref{chdf:eqn_frobenius-Diff-Form-a}与
+    条件\eqref{chdf:eqn_frobenius-Diff-Form-b}的等价性．
+
+
+    对条件\eqref{chdf:eqn_frobenius-Diff-Form-c}取外微分可得到
+    条件\eqref{chdf:eqn_frobenius-Diff-Form-a}；这是说如果
+    条件\eqref{chdf:eqn_frobenius-Diff-Form-c}成立，那么Pfaff方程组完全可积．
+    反之，如果那么Pfaff方程组完全可积，从定理\ref{chdf:thm_frobenius}可知
+    存在开子集$V$中的坐标面$\{(x^1,\cdots,x^m) \mid x^{r+1}=const,\cdots,x^{m}=const\}$是
+    分布$L^h$的$h$维积分流形．在此坐标系下，Pfaff方程中的一次外微分型式场只能表示为
+    \begin{equation}
+        (\omega^\alpha)_{a} = \sum_{\beta=1}^{r} g^\alpha_\beta(x^1,\cdots,x^r) \cdot ({\rm d} x^\beta)_a,
+        \qquad g^\alpha_\beta(x^1,\cdots,x^r) \in C^\infty(V).
+    \end{equation}
+    这就是条件\eqref{chdf:eqn_frobenius-Diff-Form-c}．
+\end{proof}
+
+
+%\subsection{例题}
+在本节开头，我们描述了二维平面上的一个例子，下面把它拓展到$\mathbb{R}^3$中．
+\begin{example}
+    取$r=1$，在$\mathbb{R}^3$的凸开子集$U$上，给定Pfaff方程
+    \begin{equation*}
+        (\omega)_a = P(x,y,z)({\rm d}x)_a +Q(x,y,z)({\rm d}y)_a +R(x,y,z)({\rm d}z)_a  , \quad P,Q,R\in C^\infty(U).
+    \end{equation*}
+    通过式\eqref{chdf:eqn_frobenius-Diff-Form-b}，很容易得到上述方程的完全可积条件，先计算其外微分
+    \begin{equation}
+        {\rm d}_b (\omega)_a = ({\rm d}P)_b\wedge({\rm d}x)_a +({\rm d}Q)_b\wedge({\rm d}y)_a +({\rm d}R)_b\wedge ({\rm d}z)_a .
+    \end{equation}
+    然后与$(\omega)_c$作外积
+    \begin{equation*}
+        {\rm d}_b (\omega)_a \wedge(\omega)_c= ({\rm d}P)_b\wedge({\rm d}x)_a \wedge(\omega)_c
+          +({\rm d}Q)_b\wedge({\rm d}y)_a\wedge(\omega)_c +({\rm d}R)_b\wedge ({\rm d}z)_a\wedge(\omega)_c .
+    \end{equation*}
+    将此式展开可得Frobenius条件，计算过程留给读者完成．
+    \begin{equation}
+        P\left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right)
+       +Q\left(\frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right)
+       +R\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) =0.
+    \end{equation}
+\end{example}
+
+
+%需要更深入了解Frobenius定理的读者可参考文献\parencite[Ch.8]{westenholz-1978}；
+%那里给出了更多（物理、力学）的例题（约30道例题），以及更加详尽、全面地描述．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{流形定向与带边流形}\label{chdf:sec_oriented-manifold}
+\subsection{流形定向}
+在$\mathbb{R}^3$中的直角坐标系可以分为左手和右手两种，这称为坐标系的{\kaishu 定向}；
+定向概念可以向高维空间推广，但三维空间中直观的左手或右手定则很难推广．
+设$\mathbb{R}^3$中有两个原点重合的、正交归一坐标系$\boldsymbol{e}_i$和$\boldsymbol{f}_i$，
+联系这个坐标系的是一个实正交矩阵，即$\boldsymbol{f}_i = a_i^j \boldsymbol{e}_j$；
+这个矩阵的行列式$\det (a_i^j)=\pm 1$，当其值为$+1$时，我们称两个坐标系是
+定向相同的，否则是定向相反的．这个方式可以推广到高维．
+
+
+设$V$是$m$维矢量空间，有两组基矢$(e_i)^a$和$(\epsilon_i)^a$（一般不要求它们
+正交归一），联系它们的是一个非奇异$m\times m$矩阵$A$，
+即$(\epsilon_i)^a = A_i^j (e_j)^a$；当$\det(A)>0$时，我们称两组
+基矢量定向相同，当$\det(A)<0$时，我们称两组基矢量定向相反；
+也就是行列式的正负将所有基矢组分为两个等价类，此时可称其一为右手的，另一个
+为左手的．需要注意，矢量空间的变换矩阵$A$是常数矩阵，它的行列式只能大于或者
+小于零；这一方式可以推广至微分流形的切空间（一类矢量空间），但流形切空间是逐点不同的．
+用不那么严格的语言来说：
+
+\index[physwords]{定向}
+\index[physwords]{定向!微分流形}
+
+\begin{definition}\label{chdf:def_orientation}
+    设$M$是$m$维光滑流形，其相互容许的坐标卡集
+    合$\{(U,\varphi;x^i), (V,\psi;y^i), \cdots \}$构成
+    流形$M$的开覆盖；如果当$U \cap V\neq \varnothing$时，
+    坐标变换$\psi \circ \varphi^{-1}: \varphi(U \cap V )\to \psi(U \cap V)$的Jacobi行列
+    式$\det(\frac{\partial y^i }{\partial x^j}) >0$，
+    则称$M$是{\heiti 可定向}的光滑流形；满足Jacobi行列式大于零的两个坐标
+    卡$(U,\varphi)$和$(V,\psi)$称为{\heiti 定向相符的}或{\heiti 同向的}；
+    由定向相符的坐标卡组成的极大坐标卡集合（也就是微分结构）称为流形$M$的一个{\heiti 定向}．
+\end{definition}
+
+上面的定义大意是，先在流形$M$取一个开覆盖集合（同时取定坐标系），
+当点$p\in U \cap V\neq \varnothing$时，$p$点有两个坐标系
+{\footnote{单独一个开子集$(U;x^i)$内，定向是确定的，或者说不存在定向问题．
+因为$U$是能够被一个坐标系覆盖住，定向一定存在且相符合；
+如果非要讨论定向，可取恒等坐标变换，那么Jacobi行列式为$+1$．}}；
+在$p$点切空间便有两组基矢量$\{(\frac{\partial }{\partial x^i})^a\}$和
+$\{(\frac{\partial }{\partial y^i})^a\}$，这两组基矢量
+坐标变换的Jacobi行列式（取式\eqref{chdm:eqn_tensor-component-trans}中逆变部分即可）
+肯定不是零；当$p$在流形$M$上移动时，此行列式的正负
+可能逐点不同，也就是有的点是正的，有的点是负的．如果能够通过
+调节坐标取向（比如令$y^1=-y^1$） { \footnote{比如通过调节坐标取向已将
+开子集$U$和$V$调整成定向相符．而$V\cap W\neq \varnothing$，
+此时$V$中坐标必须和$U$中一致，不能再次调整$V$的坐标与$W$定向相符合，
+只能调整$W$的坐标与$V$定向相符合；以此类推．}}
+可以令所有点Jacobi行列式都大于零，
+则流形$M$是可定向的．否则就是不可定向的，典型例子是M\"{o}bius带．
+
+上面定义是由切空间来描述的，这个定义能很好地退化到$\mathbb{R}^3$中的定义；
+更为常用的定义是由余切空间来描述，此时会用到外微分型式场．
+先给出定义\ref{chdf:def_orientation}的对偶定义：
+\begin{definition}\label{chdf:def_orientation-dual}
+    如果$m$阶光滑流形$M$上\uwave{存在}一个连续的、处处非零的$m$阶外微分型式场$\omega$，
+    则称$M$是{\heiti 可定向}的光滑流形；$\omega$称为流形$M$的{\heiti 定向}．
+    反之，流形$M$不可定向．
+\end{definition}
+下面来分析两个定义的等价性．
+假设$M$有局部坐标系$(U;x^i)$和$(V;y^\alpha)$且$U\cap V\neq \varnothing$，
+在$U\cap V$上满足定义\ref{chdf:def_orientation-dual}中的外微分型式$\omega$可表示为
+\begin{align}
+    \omega_{a_1 \cdots a_m}=&h(x)\cdot ({\rm d}x^1)_{a_1} \wedge \cdots \wedge ({\rm d}x^m)_{a_m}
+      =f(y) \cdot ({\rm d}y^1)_{a_1} \wedge \cdots \wedge ({\rm d}y^m)_{a_m} \notag \\
+      =& f(y)\frac{\partial (y^1,\cdots, y^m)} {\partial (x^1, \cdots, x^m)}
+      ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m}. \label{chdf:eqn_hfJ}
+\end{align}
+定义\ref{chdf:def_orientation-dual}中还要求$h(x)$和$f(y)$是连续的、处处非零的，
+那么必然有$h(x)>0$或$h(x)<0$，不存在任何一个开子集$U$，其上的$h(x)$可变正负号；$f(y)$也如此．
+不妨假设$h>0$且$f>0$，如果任何一个小于零（比如$f<0$），只需令坐标取负号（$y^1=-y^1$，其它坐标不变），
+然后新的系数大于零了（$-f(y)>0$）．因$h>0$且$f>0$，故由式\eqref{chdf:eqn_hfJ}可知
+坐标变换产生的Jacobi行列式$J'=\frac{\partial (y^1,\cdots, y^m)} {\partial (x^1, \cdots, x^m)}$处处大于零；
+$J'$是定义\ref{chdf:def_orientation}中Jacobi行列式$J$的逆，即$J'=J^{-1}$；可见$J>0$等价于$J'>0$．
+这便说明了两个定义是等价的．
+
+如果$h(x)$可变正负号，那么$f(y)$也是可变正负号的，那么不能得出Jacobi行列式$J'>0$了，
+定义\ref{chdf:def_orientation-dual}也就不等价于定义\ref{chdf:def_orientation}了．
+即便只有一个点$p\in U$为零，其它点都大于零，那么$p$点的$J'$的正负号也是不能确定的．
+
+我们要求$\omega$是$m$阶的，而流形$M$也是$m$阶的；由此可知
+流形$M$上任意两个连续且处处非零的$m$阶外微分型式场$\omega$和$\omega'$只相差一个非零倍数，
+即$\omega'=c\cdot \omega$，其中$c\in C^0(M)$．因为$c$连续，所以
+要么$c>0$要么$c<0$，在任何点都有$c\neq 0$．
+这更加清晰地说明了：定向只有两种，可称为左手定向或右手定向．
+
+外微分型式场$\omega$与局部坐标系$(U;x)$定向相符合或者说同向是指
+式\eqref{chdf:eqn_hfJ}中$h(x)>0$；如果$h(x)<0$则称定向相反．
+
+%有了定向概念之后，我们只考虑可定向的流形．
+
+%
+%假定已按照定义\ref{chdf:def_orientation}取好定向，
+%下面来描述如何诱导出用余切矢量给出的对偶定义．流形$M$任一点$p$都有
+%余切空间作为切空间的对偶空间，在余切空间$T_p^*M$（当然是$m$维的）上可以定义一个$m$维外微分型式，
+%比如$\omega_{a_1 \cdots a_m}=h(x)\cdot({\rm d}x^1)_{a_1} \wedge \cdots \wedge ({\rm d}x^m)_{a_m}$，
+%需要注意这个$m$维外微分型式同构于实标量场．
+%当切标架场在进行坐标变换时，产生的Jacobi行列式记为$J$．
+%相应的余切标架场也在进行坐标变换，此时外微分型式场$\omega_{a_1 \cdots a_m}$会
+%自动产生一个Jacobi行列式$J'$，此Jacobi行列式是
+%定义\ref{chdf:def_orientation-dual}要求$\omega_{a_1 \cdots a_m}$连续
+%且处处不为零（比如大于零），尤其是两个坐标卡重叠区域（如$U\cap V$），
+%重叠区的坐标变换前后的$\omega_{a_1 \cdots a_m}$都大于零，
+%$m$阶协变矢量间的变换公式可由式\eqref{chdm:eqn_tensor-component-trans}得到，刚好
+%是定义\ref{chdf:def_orientation}中切矢量变换矩阵之逆；
+%再把$m$阶协变矢量取全反对称得到外微分型式场，则这些变换矩阵恰好
+%组成Jacobi行列式，记为$J'$，见命题\ref{chmla:thm_b2b}及注解\ref{chmla:rmk_b2b}；
+%因定义\ref{chdf:def_orientation-dual}中的外微分型式场处处非零且连续，
+%所以$J$与$J'$的正负号是相同的，不会因坐标变换而变得不同；从而可知两个定义本质相同．
+
+
+\index[physwords]{微分流形!带边}
+\subsection{带边流形}\label{chdf:sec_manifold-boundary}
+定义\ref{chdm:def_Dmanifold}中的开集不包含边界，比如包含边界的实心立方体在此定义下
+便不是流形；为了更好地描述现实中的物体，需要给出带边流形的定义．引入记号：
+\begin{align}
+    \mathbb{R}^m_{+} \equiv & \{(x^1,\cdots,x^m)\in \mathbb{R}^m | x^1 \geqslant 0 \}, \label{chdf:eqn_Rn+} \\
+    \partial \mathbb{R}^m_{+} \equiv &\{(x^1,\cdots,x^m)\in \mathbb{R}^m | x^1 = 0 \}
+    = \mathbb{R}^{m-1} \times \{0\} . \label{chdf:eqn_pRn+}
+\end{align}
+如果局部坐标是从$x^0$开始的，则把上两式中的$x^1 \geqslant 0$换成$x^0 \geqslant 0$，及$x^1 = 0$换成$x^0 = 0$．
+很明显$\mathbb{R}^m_{+}$是$\mathbb{R}^m$的子集，如果用$\mathbb{R}^m$中标准拓扑的定义来看，$\mathbb{R}^m_{+}$不是
+开子集．我们采用如下策略：使用诱导拓扑（见定义\ref{chtop:def_induced-top}）定义$\mathbb{R}^m_{+}$中的开集．
+此时$\mathbb{R}^m_{+}$本身便是诱导拓扑下的开集；$\partial \mathbb{R}^m_{+}$称为$\mathbb{R}^m_{+}$的{\heiti 边界}，
+${\rm i}(\mathbb{R}^m_{+})=\mathbb{R}^m_{+}- \partial \mathbb{R}^m_{+}$称为$\mathbb{R}^m_{+}$的{\heiti 内部}．
+
+\begin{definition}
+    只需把定义\ref{chdm:def_Dmanifold}中的$\mathbb{R}^m$换成$\mathbb{R}^m_{+}$便
+    可得到{\heiti 带边流形}定义，就不再重复叙述了．
+    有了带边流形定义，定义\ref{chdm:def_Dmanifold}中的流形可称为无边流形，以示区分．
+\end{definition}
+
+
+在带边流形定义中，若有局部坐标$(U,\phi)$将点$p\in U$映射到$\partial \mathbb{R}^m_{+}$，
+即$\phi(p)\in \partial \mathbb{R}^m_{+}$，则称点$p$为流形$M$的{\heiti 边界点}，
+所有这样的点构成的集合记为$\partial M$．
+
+\begin{theorem}\label{chdf:thm_induced-orientation}
+    设$M$是$m$为光滑带边流形，且$\partial M\neq \varnothing$．那么可由$M$的微分结构$\mathscr{A}$诱导
+    出$\partial M$上的微分结构$\widetilde{\mathscr{A}}$，使得$\partial M$成为$m-1$维光滑无边流形．
+    此时包含映射$(\imath,\partial M)$是$M$的正则嵌入闭子流形．
+    如果$M$是可定向的，那么$\partial M$也是可（诱导）定向的．
+\end{theorem}
+
+上述定理证明可参阅\parencite[\S3.4]{cc2001-zh}定理4.1．
+超曲面的诱导定向见\S \ref{chsm:sec_induced-VE}．
+
+%我们将$M$的定向与$\partial M$的诱导定向作如下规定： %将在\S\ref{chrg:sec_volume}叙述．
+%设带边流形$M$有局部坐标系$(U;x^i)$，
+%%\begin{equation}
+%%  \left\{((-)^m\cdot x^1,x^2,\cdots,x^{m-1},(-)^m\cdot x^m)\right\}.
+%%\end{equation}
+%对应的自然标架场表示的定向取为
+%\begin{subequations}\label{chdf:eqn_induced-orientation-nt}
+%\begin{align}
+%    &\left\{  \left(\frac{\partial }{\partial x^1}\right)^a,
+%    \left(\frac{\partial }{\partial x^2}\right)^a,\cdots,
+%    \left(\frac{\partial }{\partial x^{m-1}}\right)^a,
+%     \left(\frac{\partial }{\partial x^m}\right)^a \right\}
+%    {\quad \color{red}\Leftrightarrow} \\
+%    &({\rm d}x^1)_{a_1} \wedge ({\rm d}x^2)_{a_2} \wedge \cdots\wedge({\rm d}x^m)_{a_m}.
+%\end{align}
+%\end{subequations}
+%%在以外微分型式场表示定向时，两个$(-)^m$相乘后为$+1$．
+%当$\widetilde{U}=U\cap \partial M=\{(x^1,\cdots,x^m)\in U
+%\ | \ x^1=0 \}\neq \varnothing $时，
+%%\begin{equation}
+%%    \widetilde{U}=U\cap \partial M=\left\{(x^1,\cdots,x^m)\in U|\ x^m=0\right\}\neq \varnothing
+%%\end{equation}
+%在$\widetilde{U}$上{\heiti 诱导定向}表示为
+%\begin{subequations}\label{chdf:eqn_induced-orientation-nc}
+%\begin{align}
+%    &\left\{
+%    \left(\frac{\partial }{\partial x^2}\right)^a,\cdots,
+%    \left(\frac{\partial }{\partial x^{m}}\right)^a\right\}
+%    {\quad \color{red}\Leftrightarrow} \\
+%    & ({\rm d}x^2)_{a_2} \wedge \cdots\wedge({\rm d}x^{m})_{a_{m}}.
+%\end{align}
+%\end{subequations}
+%将$M$和$\partial M$定向规定的如此复杂，是为了Stokes--Cartan定理\ref{chdf:thm_stokes-cartan}证明简洁．
+
+\index[physwords]{定向!微分流形}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{单位分解定理}\label{chdf:sec_partition-unity}
+单位分解是近代数学中才产生的一个概念，它可将局部拼接成整体．
+我们将略去定理的证明，可参考\textcite[\S 3.3]{cc2001-zh}．
+%文献\parencite[\S 16]{munkres-1997-Analysis}提供了一份较易理解的证明，它
+%只讨论了$\mathbb{R}^n$空间问题，没有讨论一般流形．
+
+\index[physwords]{单位分解定理}
+
+\begin{definition}
+    设光滑流形$M$上存在实函数$f:M\to \mathbb{R}$，函数$f$的{\heiti 支撑集}（support set）是指
+    使$f$取非零值的点集的闭包，
+    记作${\rm supp} f \equiv \overline{\{p\mid f(p)\neq 0, \forall p\in M \}}$．
+\end{definition}
+如果$x\notin {\rm supp} f$，那么$x$必然有一邻域使得函数$f$在该邻域内恒为零．
+
+\begin{definition}
+    设$\Sigma$是光滑流形$M$的一个开覆盖；如果$M$的任意一个紧致子集只与$\Sigma$中
+    有限个成员相交，则$\Sigma$是$M$的{\heiti 局部有限开覆盖}．
+\end{definition}
+
+%\begin{definition}\label{chdf:def_paracompact}
+%    若光滑流形$M$任意开覆盖都有局部有限子覆盖，则$M$是{\heiti 仿紧}的．
+%\end{definition}
+
+\begin{theorem}\label{chdf:thm_partition-unity}
+    （单位分解定理）设$\Sigma$是光滑流形$M$的一个开覆盖，则在$M$上{\heiti 存在}一族
+    光滑函数$\{g_\alpha\}$，满足如下条件：
+    {\bfseries (1)} 对每一个$\alpha$，$0\leqslant g_\alpha \leqslant 1$，
+    支撑集${\rm supp}g_\alpha$是紧致的，并且有开集$W_i \in \Sigma$使
+    得${\rm supp}g_\alpha \subset W_i$；
+    {\bfseries (2)} $\forall p\in M$，存在$p$点的邻域$U$，它只与有限多个支撑集${\rm supp}g_\alpha$相交；
+    {\bfseries (3)} $\sum_{\alpha} g_\alpha =1$．
+\end{theorem}
+条件(2)一般称为{\kaishu 局部有限性}；这说明条件(3)左边的$g_\alpha$只有有限个不为零，
+故和式是平凡收敛的．{\kaishu 函数族$\{g_\alpha\}$称为从属于开覆盖$\Sigma$的单位分解}．
+%这个定理也表明任何光滑流形都是仿紧的．
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{流形上的积分}\label{chdf:sec_integral-on-manifold}
+在数学分析中讲述过重积分定义与计算，以及重积分有变量替换定理，
+设$\Omega$和$\Omega'$是$\mathbb{R}^m$中的开集，且有微分同胚
+映射$\phi:\Omega'\to \Omega$．若标量函数$f$在其定义域是连续的，则有
+\begin{equation}\label{chdf:eqn_multiple-integral}
+    \int_{\Omega} f(x) {\rm d}x^1 \cdots {\rm d}x^m = \int_{\Omega} f\circ\phi(y)
+    \left|\frac{\partial (x^1, \cdots, x^m)}{\partial (y^1,\cdots, y^m)}
+     \right|{\rm d}y^1 \cdots {\rm d}y^m .
+\end{equation}
+变量替换后出现了坐标变换的Jacobi行列式的绝对值，这是多重积分中的基本定理．
+下面我们会把积分定义推广到流形上，关键问题是如何进行大范围的、与局部坐标选取无关的处理；
+积分是联系局部与整体的有力工具，在数学、物理上都有着重要应用．
+
+\index[physwords]{积分}
+\index[physwords]{积分!基本公式}
+
+设$M$是$m$维的、已定向的、$C^\infty$微分流形．设$\omega \in A^m(M)$，
+则$\omega$的{\heiti 支撑集}（support set）定义为
+\begin{equation}
+    {\rm supp}\omega = \overline{\{p\in M \ |\ \omega(p) \neq 0 \}}.
+    \qquad \text{注意是闭包}
+\end{equation}
+我们将积分学的讨论限制在有{\kaishu 紧致支撑集的外微分型式场}，要定义的积分是一个
+{\kaishu 线性映射}，即$\int : A^m(M)\to \mathbb{R}$．
+
+先从简单情形开始，假定用一个坐标域就能覆盖住流形$M$，并设其坐标为$(M,\varphi;x^i)$．
+这样$\omega$的紧致支撑集自然是$M$的子集；假设有局部坐标表达（在此例中局部即整体）
+\begin{equation}\label{chdf:eqn_tmp01}
+    \omega_{a_1 \cdots a_m} = f(x) ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m},
+    \qquad f(x)\in C^\infty(M).
+\end{equation}
+在数学分析中，标量函数$f(x)$的黎曼积分早有定义，并且是一个有限实数；
+在此处，我们可以直接将流形$M$上外微分型式场$\omega$的积分定义成黎曼积分，即
+\begin{equation}\label{chdf:eqn_def-integral-omega}
+    \int_{M} \omega \equiv \int_{M} f(x) ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} \overset{def}{=}
+    \int_{\varphi(M)} (f\circ\varphi^{-1}) {\rm d}x^1 \cdots {\rm d}x^m 
+\end{equation}
+下面需要验证，这个定义与局域坐标卡选取无关，设$(M,\psi;y^i)$是此流形的另一套坐标系，$\omega$表达式变为
+\setlength{\mathindent}{0em}
+\begin{equation*} %\label{chdf:eqn_tmp02}
+    \omega_{a_1 \cdots a_m} = g(y) ({\rm d}y^1)_{a_1} \wedge \cdots \wedge({\rm d}y^m)_{a_m}
+    =g(y)\frac{\partial (y^1,\cdots, y^m)} {\partial (x^1, \cdots, x^m)}
+    ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m}.
+\end{equation*} \setlength{\mathindent}{2em}
+由不同坐标系下的不同表达式\eqref{chdf:eqn_tmp01}和上式，可说明有下式成立
+\begin{equation}\label{chdf:eqn_tmpxy1}
+    f\circ\varphi^{-1} = (g\circ \psi^{-1} )\circ (\psi \circ \varphi^{-1})
+    \frac{\partial (y^1,\cdots, y^m)} {\partial (x^1, \cdots,x^m)} .
+\end{equation}
+因坐标卡$\psi$和$\varphi$是定向相符的，故坐标变换的Jacobi行列式处处为正，即
+\begin{equation}
+    \frac{\partial (y^1,\cdots, y^m)} {\partial (x^1,\cdots, x^m)} > 0  \quad \text{和} \quad
+    \frac{\partial (x^1,\cdots, x^m)}{\partial (y^1,\cdots, y^m)} > 0 .
+\end{equation}
+有了这些准备，容易验证积分定义与局部坐标卡无关．
+\begin{align*}
+    \int_{M} \omega & = \int_{\psi(M)} (g\circ\psi^{-1}) {\rm d}y^1 \cdots {\rm d}y^m \\
+    &=\int (g\circ\psi^{-1})\circ(\psi \circ \varphi^{-1})
+    \frac  {\partial (y^1,\cdots, y^m)} {\partial (x^1, \cdots, x^m)}
+    {\rm d}x^1 \cdots {\rm d}x^m  \\
+    &=   \int_{\varphi(M)} (f\circ\varphi^{-1}) {\rm d}x^1 \cdots {\rm d}x^m .
+\end{align*}
+从上式可以看出，如果两个坐标卡定向不同，Jacobi行列式会产生一个额外的负号．
+从上式还可以看出，$m$阶外微分型式场的积分定义与式\eqref{chdf:eqn_multiple-integral}相符合．
+如果不是，比如是一个二阶对称张量场，那么积分定义都成问题；当作变量替换时，二阶张量场无法由
+自身变换产上一个Jacobi行列式，也就无法与基本定理\eqref{chdf:eqn_multiple-integral}相符合．
+微分流形中的积分定义（以及其它任何定义、公理等）原则上应能退化到$\mathbb{R}^m$中的积分定义
+（以及相应定义、公理等），除了$m$阶外型式场（标量函数场与其同构），其它张量场都很难给出积分定义．
+
+\index[physwords]{积分!流形}
+
+下面考虑一般情形，设微分流形$M$有定向相符合的坐标卡开覆盖集合$(U_\alpha,\varphi_\alpha;x^i_\alpha)$；
+$m$阶外微分型式场$\omega \in A^m(M)$的局部坐标表达式为
+\begin{equation}
+    \omega_{a_1 \cdots a_m}|_{U_\alpha} = f_{\alpha} ({\rm d}x^1_{\alpha})_{a_1}
+       \wedge \cdots \wedge({\rm d}x^m_{\alpha})_{a_m},  \qquad f_{\alpha}\in C^\infty(U_\alpha).
+\end{equation}
+根据单位分解定理\ref{chdf:thm_partition-unity}，在$M$上有从属于$\{U_\alpha\}$的单位
+分解$\{h_\alpha\}$，其中${\rm supp}h_\alpha \subset U_\alpha$，$h_\alpha \in C^\infty(M)$，
+$\sum_{\alpha}h_\alpha =1$，$1 \geqslant h_\alpha \geqslant 0$，所以有
+\begin{equation}
+    \omega = \omega \cdot \sum_{\alpha} h_\alpha =  \sum_{\alpha}  h_\alpha \cdot \omega,
+\end{equation}
+需注意，上式中的“$\cdot$”就是普通的乘法，不是复合映射．
+因${\rm supp}\omega$是紧致的，所以上式右端只有有限项非零，即上式右端平凡收敛．
+\begin{equation}\label{chdf:eqn_def-integral-omega-partition}
+    \int_{M} \omega \overset{def}{=} \int_{M} \sum_{\alpha}  h_\alpha \cdot \omega =
+    \sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}
+    \bigl( (h_\alpha \cdot f_\alpha )\circ\varphi^{-1}_\alpha\bigr)
+    {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha .
+\end{equation}
+自然需要验证这个定义与局坐标系选取无关，以及与单位分解选取无关．
+设$(V_\lambda,\psi_\lambda;y^i_\lambda)$是$M$的另一个定向相符的坐标卡，同时
+它也是$M$的局部有限开覆盖，再设$\{g_\lambda\}$是从属于$\{V_\lambda\}$的单位分解；
+同时假定$\{U_\alpha\}$与$\{V_\lambda\}$的定向相符合．
+$m$阶外微分型式场$\omega \in A^m(M)$在$\{V_\lambda\}$中的局部坐标表达式为
+\begin{equation}
+    \omega_{a_1 \cdots a_m}|_{V_\lambda} = w_{\lambda} ({\rm d}y^1_{\lambda})_{a_1}
+    \wedge \cdots \wedge({\rm d}y^m_{\lambda})_{a_m},  \qquad w_{\lambda}\in C^\infty(V_\lambda).
+\end{equation}
+当$U_\alpha \cap V_\lambda \neq \varnothing$时，两个坐标系定向是相符合的，
+仿照式\eqref{chdf:eqn_tmpxy1}可得其坐标变换
+\begin{equation}\label{chdf:eqn_tmpxayl104}
+    f_\alpha\circ\varphi_\alpha^{-1} = (w_\lambda \circ \psi^{-1}_\lambda )
+      \circ (\psi_\lambda \circ \varphi^{-1}_\alpha)\cdot
+    \frac{\partial (y^1_\lambda,\cdots, y^m_\lambda)}
+    {\partial (x^1_\alpha, \cdots, x^m_\alpha)} .
+\end{equation}
+由于$\{h_\alpha\}$和$\{g_\lambda\}$是单位分解，所以有
+\begin{equation}
+    \left. \left(\sum_{\alpha}h_\alpha\right) \right|_{V_\lambda} = 1, \qquad
+    \left. \left(\sum_{\lambda}g_\lambda\right) \right|_{U_\alpha} = 1 .
+\end{equation}
+我们来计算积分定义\eqref{chdf:eqn_def-integral-omega-partition}右端的表达式：
+\begin{align*}
+    &\sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}   \bigl( (h_\alpha \cdot f_\alpha )
+    \circ\varphi^{-1}_\alpha\bigr)\cdot  {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+    =&\sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}  \left(\sum_{\lambda}g_\lambda \circ
+    \varphi^{-1}_\alpha \right) \cdot
+    \bigl( (h_\alpha \cdot f_\alpha )\circ \varphi^{-1}_\alpha\bigr)
+    \cdot {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha  \\
+    =&\sum_{\alpha\lambda} \int_{\varphi_\alpha(U_\alpha\cap V_\lambda)}  \left( (g_\lambda \cdot
+       h_\alpha \cdot f_\alpha ) \circ \varphi^{-1}_\alpha \right) \cdot
+    {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+    =&\sum_{\alpha\lambda} \int_{\varphi_\alpha(U_\alpha\cap V_\lambda)}  \left( (g_\lambda \cdot
+    h_\alpha \cdot  w_\lambda \circ \psi^{-1}_\lambda )
+    \circ (\psi_\lambda \circ \varphi^{-1}_\alpha)
+    \cdot\frac{\partial (y^1_\lambda,\cdots, y^m_\lambda)}
+    {\partial (x^1_\alpha, \cdots, x^m_\alpha)}  \right) \cdot
+    {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+    =&\sum_{\alpha\lambda} \int_{\psi_\lambda(U_\alpha\cap V_\lambda)}
+    \left( (g_\lambda \cdot
+    h_\alpha \cdot w_\lambda) \circ \psi^{-1}_\lambda
+     \right) \cdot  {\rm d}y^1_\lambda \cdots {\rm d}y^m_\lambda \\
+   =&\sum_{\lambda} \int_{\psi_\lambda(V_\lambda)}  \left( (g_\lambda
+     \cdot w_\lambda ) \circ \psi^{-1}_\lambda \right)
+     \cdot  {\rm d}y^1_\lambda \cdots {\rm d}y^m_\lambda
+\end{align*}
+证明过程请参考定义式\eqref{chdm:eqn_f-cdot-g-circo-gamma}．
+上面这个长式推导说明积分定义\ref{chdf:eqn_def-integral-omega-partition}与局部坐标选取
+以及从属单位分解选取无关；即此定义是大范围的（或整体的）．
+除此以外，还需验证本节开头提到的：积分是一个线性映射．
+\begin{align*}
+    \int_{M} (\omega + k\cdot \eta ) =&
+    \sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}  \bigl( (h_\alpha \cdot (\omega_\alpha+k\cdot \eta_\alpha ) )
+    \circ\varphi^{-1}_\alpha\bigr)\cdot  {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+    =&\sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}  \bigl( (h_\alpha \cdot \omega_\alpha )
+    \circ\varphi^{-1}_\alpha\bigr)\cdot  {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+     &+\sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}  \bigl( (h_\alpha \cdot k\cdot\eta_\alpha )
+    \circ\varphi^{-1}_\alpha\bigr)\cdot  {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
+    =&\int_{M} \omega  +k\cdot \int_{M} \eta .
+\end{align*} %\setlength{\mathindent}{2em}
+其中$k\in \mathbb{R}$，$\omega_\alpha$、$\eta_\alpha$分别是$\omega$、$\eta$的分量指标；
+这便验证了积分是线性的．
+
+\begin{example}
+    利用单位分解定理求积分一例$\int_{-\pi}^{\pi}x {\rm d}x$．
+\end{example}
+我们先给实数轴$\mathbb{R}$建立一个单位分解．
+令$f:\mathbb{R}\to \mathbb{R}$是由下式定义的函数
+\begin{equation}
+    f(x)=\begin{cases}
+        (1+\cos x)/2, & -\pi \leqslant x \leqslant \pi ; \\
+        0, & \text{其它} .
+    \end{cases}
+\end{equation}
+$f$是$C^1$类函数．对每个整数$n\geqslant 0$，令$\phi_{2n+1}(x)=f(x-n \pi)$；
+对每个整数$n\geqslant 1$，令$\phi_{2n}(x)=f(x+n \pi)$；
+那么，函数组$\{\phi_i\}$构成了$\mathbb{R}$上的一个单位分解．
+$\{\phi_i\}$的支撑集$S_i$是一个形如$[k\pi,(k+2)\pi]$的闭区间，
+这当然是紧致集，并且$\mathbb{R}$上任一点都有一个小邻域$U$，
+$U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$．
+下面计算积分．
+\begin{align*}
+    &\int_{-\pi}^{\pi}x {\rm d}x = \int_{-\pi}^{\pi}x\sum_i\phi_i {\rm d}x
+    =\int_{-\pi}^{\pi}x \phi_1 {\rm d}x 
+    +\int_{-\pi}^{\pi}x \phi_2 {\rm d}x
+    +\int_{-\pi}^{\pi}x \phi_3 {\rm d}x \\
+    &=\int_{-\pi}^{\pi} \frac{x}{2} (1+\cos x) {\rm d}x 
+    +\int_{-\pi}^{0}\frac{x}{2} \bigl(1+\cos (x+\pi)\bigr) {\rm d}x
+    +\int_{0}^{\pi}\frac{x}{2} \bigl(1+\cos (x-\pi)\bigr) {\rm d}x \\
+    &= 0+\left(-1-\pi^2/4\right) + \left(1+\pi^2/4\right) =0.
+\end{align*}
+就本例来说直接计算比单位分解更简单；
+上面只是展示一下如何用单位分解定理来计算积分，
+可以初步感性认知单位分解定理下的积分．\qed
+
+
+\index[physwords]{Stokes--Cartan定理}
+
+下面叙述Stokes--Cartan定理，这是流形论积分学中一个极为重要的定理，
+现在所用表述形式是由Cartan给出并证明的．
+\begin{theorem}\label{chdf:thm_stokes-cartan}
+    设$M$是$m$维、已定向、\uwave{带边}光滑流形，$\omega \in A^{m-1}(M)$，则
+    \begin{equation}\label{chdf:eqn_stokes-cartan}
+        \int_{M} {\rm d} \omega =  \int_{\partial M} \imath^{*} \omega .
+    \end{equation}
+    其中$\partial M$是带边流形$M$的边界，具有从$M$诱导的定向（见\S\ref{chsm:sec_induced-VE}末尾）．
+    映射$\imath:\partial M \to M$是包含映射，
+    使$(\imath,\partial M)$成为$M$的正则嵌入闭子流形．
+\end{theorem}
+\begin{proof}
+    证明过程可参考任一黎曼几何教材，
+    如文献\parencite[\S 3.4]{cc2001-zh}或\parencite[\S 8.6]{spivak-dif-1}．
+%    需注意$\omega \in A^{m-1}(M)$是$m$维光滑流形$M$上的$m-1$阶外微分型式场，无论是在
+%    流形$M$上，还是在$\partial M$上，积分定义都略显含混；
+%    需要用包含映射将其拉回到$\partial M$上，
+%    使其成为$\partial M$上的外微分型式场，然后才有良性积分定义．
+%    等号右端的正负号与流形的定向有关．
+\end{proof}
+
+
+\begin{example}
+    设$M$是$\mathbb{R}^2$上有界开子集的闭包，其边界是$C^r(r>0)$简单闭曲线．
+    $\omega_b = f ({\rm d}x)_b + g ({\rm d}y)_b$是$M$上的1型式场；
+    其外微分是${\rm d}_a\omega_b= (\frac{\partial g}{\partial x}
+    -\frac{\partial f}{\partial y})({\rm d}x)_a \wedge ({\rm d}y)_b$，
+    由Stokes--Cartan定理\eqref{chdf:eqn_stokes-cartan}可得
+    \begin{equation}
+        \int_{M} {\rm d}_a \omega_b = \iint_{M} \left(\frac{\partial g}{\partial x}
+        -\frac{\partial f}{\partial y}\right) ({\rm d}x)_a \wedge ({\rm d}y)_b
+        =  \int_{\partial M} \left(f {\rm d}x + g {\rm d}y \right).
+    \end{equation}
+    这是经典的Green公式． \qed
+\end{example}
+
+\begin{example}
+    设$M$是$\mathbb{R}^3$上有界开子集的闭包，其边界是$C^r(r>0)$简单闭曲面$S$．
+    $\omega_{ab}$是$M$上的2次型式场，其表达式
+    \begin{align}
+       \omega_{ab} =& P({\rm d}y)_a\wedge ({\rm d}z)_b +
+          Q({\rm d}z)_a\wedge ({\rm d}x)_b+ R({\rm d}x)_a\wedge ({\rm d}y)_b . \\
+       {\rm d}_c\omega_{ab} =& \left(\frac{\partial P}{\partial x}
+        + \frac{\partial Q}{\partial y} +\frac{\partial R}{\partial z} \right)
+       ({\rm d}x)_c\wedge ({\rm d}y)_a\wedge ({\rm d}z)_b  .
+    \end{align}
+    上面同时给出了$\omega_{ab}$的外微分表达式．
+    由Stokes--Cartan定理\eqref{chdf:eqn_stokes-cartan}可得
+    \begin{equation*}
+        \iiint_{M} \left(\frac{\partial P}{\partial x}
+        + \frac{\partial Q}{\partial y} +\frac{\partial R}{\partial z} \right)
+        ({\rm d}x)_c\wedge ({\rm d}y)_a\wedge ({\rm d}z)_b
+        =  \oiint_{S} \left(P {\rm d}y {\rm d}z +
+        Q {\rm d}z {\rm d}x + R {\rm d}x {\rm d}y \right).
+    \end{equation*}
+    这是经典的高斯散度公式． \qed
+\end{example}
+
+\begin{example}
+    设$M$是$\mathbb{R}^3$中一块有向曲面，其边界$\partial M$是光滑简单闭曲线，
+    具有从$M$诱导的定向（见\S\ref{chsm:sec_induced-VE}末尾）．
+    $P$、$Q$、$R$是包含$M$在内的一个区域上的光滑函数，命
+    $ \omega_b= P({\rm d}x)_b+  Q({\rm d}y)_b + R({\rm d}z)_b $．
+    对此式取外微分，有
+    \begin{align*}
+        {\rm d}_a\omega_{b} = &
+        \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right) ({\rm d}y)_a\wedge ({\rm d}z)_b +
+        \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right) ({\rm d}z)_a\wedge ({\rm d}x)_b \\
+        &+ \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) ({\rm d}x)_a\wedge ({\rm d}y)_b .
+    \end{align*}
+    从Stokes--Cartan定理可以得到
+    \begin{align*}
+        \int_{\partial M} P{\rm d}x+  Q{\rm d}y + R{\rm d}z =  &    \iint_{M} 
+        \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right) {\rm d}y {\rm d}z +
+        \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right) {\rm d}z {\rm d}x \\
+        &+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) {\rm d}x {\rm d}y .
+    \end{align*} %\setlength{\mathindent}{2em}
+    上式正好是经典的Stokes公式． \qed
+\end{example}
+
+
+\section*{小结}
+本章主要参考了\parencite{cc2001-zh}、\parencite{chenwh2001}相应章节．
+
+积分的定义\eqref{chdf:eqn_def-integral-omega-partition}是不涉及度规的，
+故它适用于正定以及不定度规场．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography[heading=subbibliography,title=第\ref{chdf}章参考文献]
+\endinput

@@ -1,0 +1,3640 @@
+% !TeX encoding = UTF-8
+%%% 开始于2024.08.20
+
+\chapter{李群李代数（续）}\label{chlar}
+
+%$SU(2)$、$SL(2,\mathbb{C})$、旋量
+
+本章是第\ref{chlg}章的续篇，内容仍是初级的．%各节的内容没有逻辑关系．
+
+我们先叙述李群、李代数表示论的一般性定理．
+再讲述$SU(2)$群与$SO(3)$群的关系；然后给出$SU(2)$群的表示，进而给出$SO(3)$的表示；之后讨论它们的李代数．
+接下来阐述了略微复杂一些的$SL(2,\mathbb{C})$群（Lorentz群的通用覆盖群）；进而叙述了$SL(2,\mathbb{C})$群决定的旋量代数．
+最后阐述量子场论中的Poincar\'{e}群．
+
+%我们假设读者初步了解了群表示的知识．
+
+\section{李群表示论概要}\label{chlar:sec_lr}
+
+\index[physwords]{Schur引理}  \index[physwords]{舒尔引理}
+
+\subsection{Schur引理}
+
+定理\ref{chlar:thm_schur-lemma-1}、\ref{chlar:thm_schur-lemma-2}分别称为Schur第一、第二引理，
+它们是群表示论中重要的定理．两个定理适用于有限群、拓扑群，表述方式没有显著差异．
+Schur引理可以推广至表示方阵为无穷维的情形，但证明超出了本书范畴，可参见\parencite[\S 6.9.10]{qiuws-2011}．
+
+
+\begin{theorem}\label{chlar:thm_schur-lemma-1}
+	设群$G$在有限维矢量空间$V_A$和$V_B$上有不可约表示$A$和$B$．
+	将$V_A$映入$V_B$的线性映射$M$如果满足
+	$B\left(g\right) M=M A\left(g\right)$，$\forall g \in G$；	则
+	{\bfseries (1)} 当表示 $A$ 和 $B$ 不等价时，必有 $M \equiv 0$ ；
+	{\bfseries (2)} 当 $M \neq 0$ 时，表示 $A$ 和 $B$ 必等价．
+\end{theorem}
+\begin{proof}
+	作 $V_A$ 的子空间
+	\begin{equation*}
+		N=\left\{x \in V_A \mid M x=0\right\} .
+	\end{equation*}
+	$N$是由$V_A$中满足$M x=0$的矢量$x$组成的集合，称为$V_A$的关于$M$的零空间．
+	容易验证$N$是$G$不变的，因对$\forall x \in N$，有
+	\begin{equation*}
+		M A\left(g\right) x=B\left(g\right) M x=0, \quad \forall g\in G .
+	\end{equation*}
+	故$A\left(g\right) x \in N$，也就是$N$是$G$不变的．
+	而 $A$ 又是 $G$ 的不可约表示，
+	故$V_A$的不变子空间$N$只可能是零矢量 $\{0\}$或$V_A$本身，即$N=\{0\}$或 $N=V_A$．
+	
+	当 $N=V_A$时，则只有$M$为零映射满足要求，即$M \equiv 0$．
+	
+	当 $M \neq 0$ 时，$N=\{0\}$，即不变子空间 $N$ 只有零矢量．
+	这时线性映射$M$是从$V_A$到$V_B$的单射． 我们用反证法验证之．
+	设$M$可能将$V_A$中两个不同矢量$x_1$ 和 $x_2$ 映为 $V_B$ 中同一个矢量 $y$．
+	\begin{equation*}
+		\text{由} \  M x_1=y= M x_2; \quad \text{易得}\ 
+		M\left(x_1-x_2\right)=0, \quad\left(x_1-x_2\right) \in N.
+	\end{equation*}
+	若 $x_1 \neq x_2$，则与 $N=\{0\}$矛盾，因此 $M$ 是从 $V_A$ 到 $V_B$ 的单射．
+	同时$M$也是从$V_A$到$V_B$的满映射．同样用反证法．
+	设$R$是$M$作用于 $V_A$ 而得到的空间，
+	\begin{equation*}
+		R=\left\{y \in V_B \mid y=M x,\  x \in V_A\right\} .
+	\end{equation*}
+	$R$是$V_B$的子空间，而且也是 $G$ 不变的．因对任意 $y \in R$ ，有
+	\begin{equation*}
+		B\left(g\right) y=B\left(g\right) M x=M A\left(g\right) x=M x^{\prime},
+	\end{equation*}
+	其中$x^{\prime} \in V_A$，故$B\left(g\right) y \in R $．
+	由于表示$B$是不可约的，故$R$只能是零矢量或 $V_B$ 本身．
+	但 $M \neq 0$，故 $R=V_B$．
+	因此$M$ 是从 $V_A$ 到 $V_B$ 的满映射．
+	故有：当$M$不是零映射时，$M$是双射．
+	
+	由 $M$ 是从 $V_A$ 到 $V_B$ 的双射，可知 $M$ 必有逆 $M^{-1}$ 存在．而且
+	\begin{equation*}
+		B\left(g\right)=M A\left(g\right) M^{-1},  \qquad \forall g\in G.
+	\end{equation*}
+	即不可约表示 $A$ 和 $B$ 等价．
+	
+	
+	若不可约表示 $A$ 和 $B$ 不等价，即不存在非奇异方阵$X$使得$B(g)=X A(g) X^{-1}$；
+	而定理前提中有$B(g) M=M A(g)$；那么必有 $M \equiv 0$．
+	这时 $V_A$ 和 $V_B$ 的维数 $S_A$ 和 $S_B$ 不一定相同，$M$是$S_A \times S_B$维矩阵．
+\end{proof}
+
+\begin{theorem}\label{chlar:thm_schur-lemma-2}
+	设 $A$ 是群 $G$ 在有限维复表示空间 $V$的不可约表示．
+	$\forall g \in G $，若$V$上线性变换$M$满足	
+	$A\left(g\right) M=M A\left(g\right)$；
+	则$M=\lambda I$，即$M$是$V$上恒等变换$I$乘上复常数$\lambda$．
+\end{theorem}
+\begin{proof}
+	因复空间线性变换$M$最少有一个本征矢，即存在非零复矢量$y$使得
+	\begin{equation*}
+		M y = \lambda y ,\qquad \lambda \in \mathbb{C}.
+	\end{equation*}
+	上式在实数域中未必成立，即可能不存在非零的实数矢量$y$使上式成立．
+	
+	考虑 $V$ 的子空间
+	$$
+	V_\lambda=\{y \in V \mid M y=\lambda y\},
+	$$
+	即由$M$的本征值为$\lambda$的全体本征矢量组成的空间．
+	容易看出$V_\lambda$是$G$不变的，因为$\forall y \in V_\lambda$、$\forall g\in G$，有
+	$$
+	M\bigl(A(g) y\bigr)=A(g) M y= \lambda\bigl(A(g) y\bigr)
+	\quad \Rightarrow \quad  A(g) y \in V_\lambda .
+	$$
+	而线性表示$A\left(g\right)$是不可约的，并且$V_\lambda\neq \{0\}$；故 $V_\lambda=V$．
+	因此对任意 $x \in V$，有 $M x=\lambda x$，故$M=\lambda I $．
+\end{proof}
+
+这里将Schur引理分成两个的原因是：定理\ref{chlar:thm_schur-lemma-1}对实数域、复数域均成立．
+定理\ref{chlar:thm_schur-lemma-2}只对复数域成立（可弱化至特征为零的代数闭域），对实数域不成立．
+
+将两个Schur引理中的“群”换成“李代数”，即可得到李代数表示论中的Schur引理；
+内容没有本质区别，就不单独列出了．
+
+
+\subsection{紧致李群表示正交定理与特征函数}
+
+\begin{theorem}\label{chlar:thm_GRO}
+	设有紧致李群$G$，它有两个有限维不等价不可约幺正表示$\phi:G\to GL(V)$、$\psi:G\to GL(W)$．
+	将表示矩阵记成：$\phi(g)=\bigl(\phi_{ij}(g)\bigr)$（$m$维）、$\psi(g)=\bigl(\psi_{kl}(g)\bigr)$（$n$维）．
+	那么，它们满足如下关系：
+	\begin{align}
+		\int_{G} \overline{\phi_{ji}(g)} \psi_{kl}(g) {\rm d} g =& 0 . \label{chlar:eqn_pp=0}\\
+		\int_{G} \overline{\phi_{ji}(g)} \phi_{kl}(g) {\rm d} g =& 
+		\frac{1}{m} \delta_{jk} \delta_{il} . \label{chlar:eqn_pp=d}
+	\end{align}
+\end{theorem}
+\begin{proof}
+	根据定理\ref{chlg:thm_U}，我们只讨论幺正表示，而不会失去一般性．
+	
+	任取一个$m\times n$维的复矩阵$(c_{jk})$，构造
+	\begin{equation}\label{chlar:eqn_tcc}
+		\tilde{c}_{il} \equiv \int_{G} \sum_{jk}\overline{\phi_{ji}(g)} c_{jk} \psi_{kl}(g) {\rm d} g .
+	\end{equation}
+	由幺正性可知：$\overline{\phi_{ji}(g)}=\phi^{-1}_{ij}(g)$．
+	$\forall x \in G$，有（下式中重复指标需要求和）
+	\begin{align}
+		&\overline{\phi_{ih}(x)} \tilde{c}_{il} \psi_{lo}(x)
+		=\int_{G}\overline{\phi_{jh}(gx)} c_{jk} \psi_{ko}(gx) {\rm d} g 
+		\xlongequal[\text{正属性}]{\text{利用幺}}
+		\int_{G} \phi^{-1}_{hj}\bigl(gx\bigr) c_{jk} \psi_{ko}(gx) {\rm d} g  \notag \\
+		&\xlongequal{\ref{chlg:eqn_Int-fLRI}}
+		\int_{G}  \phi^{-1}_{hj}(g) c_{jk} \psi_{ko}(g) {\rm d} g  
+		=\int_{G} \overline{\phi_{jh}(g)} c_{jk} \psi_{ko}(g) {\rm d} g  
+		= \tilde{c}_{ho} . \label{chlar:eqn_pcpc}
+	\end{align}
+	
+	利用式\eqref{chlar:eqn_pcpc}和Schur引理\ref{chlar:thm_schur-lemma-1}可知，
+	若$\phi$和$\psi$不等价，则必有$\tilde{c}_{ho}=0$．
+	此时，我们取$c_{jk}=\delta_{jk}$（$j$、$k$是固定不变的），
+	由\eqref{chlar:eqn_tcc}便可证明式\eqref{chlar:eqn_pp=0}．
+	
+	当$\psi=\phi$时，由Schur引理\ref{chlar:thm_schur-lemma-2}可知$\tilde{c}_{ho}$正比于单位矩阵，
+	即$\tilde{c} = \lambda I$，下面我们来确定常数$\lambda$．
+	对式\eqref{chlar:eqn_tcc}两边取迹，有
+	\begin{align*}
+		m \lambda =& \int_{G} \sum_{ijk} \overline{\phi_{ji}(g)} c_{jk} \phi_{ki}(g) {\rm d} g
+		\xlongequal[\text{正属性}]{\text{利用幺}}
+		\int_{G} \sum_{ijk}  c_{jk} \phi_{ki}(g) \phi^{-1}_{ij}(g) {\rm d} g \\
+		= & \int_{G} \sum_{jk}  c_{jk} \delta_{kj} {\rm d} g = \sum_{j}  c_{jj} =Tr(c).
+	\end{align*}
+	同样，我们取$c_{jk}=\delta_{jk}$（$j$、$k$是固定不变的），
+	那么有$Tr(c) =  \sum_{l}  c_{ll} = \delta_{jk}$．
+	带回式\eqref{chlar:eqn_tcc}便可证明结论．
+\end{proof}
+
+\begin{definition}
+	对于给定的有限维复（实）表示 $\phi: G \rightarrow {GL}(V)$，令
+	\begin{equation}
+		\chi_{\phi}(g)= Tr \bigl(\phi(g)\bigr), \quad g \in G.
+		\qquad \text{注意}\  \phi(g) \  \text{是方阵}
+	\end{equation}
+	我们称 $\chi_{\phi}$ 为线性表示 $\phi$ 的{\heiti 特征函数}．
+\end{definition}
+
+不难看出，如果表示$\phi$等价于$\psi$，则必有$\chi_{\phi}=\chi_\psi$．
+
+
+\begin{theorem}\label{chlar:thm_Xo}
+	若$\phi$、$\psi$ 是紧致李群$G$的两个有限维不等价不可约复表示，则
+	\begin{align}
+		& \int_G \overline{\chi_{\phi}(g)} \cdot \chi_\psi(g) \mathrm{d} g=0, \\
+		& \int_G \overline{\chi_{\phi}(g)} \cdot \chi_{\phi}(g) \mathrm{d} g=1 .
+	\end{align}
+\end{theorem}
+
+\begin{proof}
+	证明过程很简单，直接将特征函数的定义带入定理中的公式，并利用式\eqref{chlar:eqn_pp=0}、\eqref{chlar:eqn_pp=d}即可．
+	具体计算过程留给读者当练习．
+\end{proof}
+
+
+\begin{theorem}
+	紧致李群$G$的任意有限维幺正表示$(\phi,V)$或者是完全可约的，或者是不可约的．
+\end{theorem}
+
+\begin{proof}
+	如果$(\phi,V)$是不可约的，已满足定理要求．
+	
+	现假设$(\phi,V)$是可约的（定义在\pageref{chtop:def_irreducible-representation}页）．
+	也就是说存在$V$的非平凡子空间$V_1$是$\phi(g)$的不变子空间．
+	根据Weyl定理\ref{chlg:thm_Weyl}可知，$V$中存在不变内积\eqref{chlg:eqn_invariant-sp}；
+	再由线性代数中的基本知识可得：我们可以将$V$分解为$V_1$和它的正交补$V_1^{\perp}$的直和．
+	由内积\eqref{chlg:eqn_invariant-sp}容易验证正交补$V_1^{\perp}$也是$\phi(g)$的不变子空间．
+	从而可知$(\phi,V)$是完全可约的．
+	如$V_1$（或$V_1^{\perp}$）仍有非平凡不变子空间，则可继续分解下去．
+	由于$V$是有限维的，故此种分解一定可以穷尽．
+\end{proof}
+
+我们不加证明地引入两条定理：
+
+\begin{theorem}\label{chlar:thm_CG-FU}
+	紧致李群的幺正表示是有限维不可约子表示的直和．（证明见\parencite[p.346]{qiuws-2011}）
+\end{theorem}
+
+\begin{theorem}\label{chlar:thm_FU}
+	紧致李群的不可约幺正表示是有限维的．（证明见\parencite[p.349]{qiuws-2011}）
+\end{theorem}
+
+紧致李群也可以有无穷维幺正表示，但一定是可约的，它可以表示成有限维不可约幺正表示的直和．
+下面我们就讨论这种分解．设$\rho$是$G$的一个任意的幺正表示．
+因为紧致李群的任何表示或者是完全可约的，或者是不可约的，
+所以我们可以把$\rho$表示为不可约表示的直和：
+\begin{equation}\label{chlar:eqn_rphi}
+	\rho=\bigoplus_i m_i(\rho) \phi_i .
+\end{equation}
+其中 $\phi_i$ 遍历 $G$的所有相互不等价、不可约幺正表示．
+$m_i(\rho)$是$\rho$的完全分解中含有的与$\phi_i$等价的不可约表示的重数；
+在不引起误解的情况下，将$m_i(\rho)$简记为$m_i$．
+当然，对于有限维表示来说只有有限个 $m_i$ 不等于零．
+
+%显然有：$\rho_1 \cong \rho_2$ 的充要条件是对于 $G$ 的任何不可约幺正表示$\phi_i$，
+%都有$m_i(\rho_1)=m_i(\rho_2)$（对于任意$i$） 恒成立．
+
+\begin{theorem}\label{chlar:thm_GP-chi123}
+	设$\rho$、$\rho_1$、$\rho_2$是紧致李群$G$的有限维幺正表示．则
+	
+	{\bfseries (1)} $m_i(\rho)=\int_G \overline{\chi_\rho(g)} \cdot \chi_{\phi_i}(g) \mathrm{d} g$ ．
+	
+	{\bfseries (2)} $\rho_1 \cong \rho_2$ 的充要条件是：$\chi_{\rho_1}(g)=\chi_{\rho_2}(g),\ \forall g \in G$．
+	
+	{\bfseries (3)} $\rho$ 是不可约的充要条件是：$\int_G\left|\chi_\rho(g)\right|^2 \mathrm{d} g=1$．	
+\end{theorem}
+
+\begin{proof}
+	表示$\rho$、$\rho_1$、$\rho_2$有类似的分解式\eqref{chlar:eqn_rphi}．显然有
+	\begin{equation*}
+		\chi_\rho(g)=\sum_{i} m_i(\rho) \chi_{\phi_i}(g) .
+	\end{equation*}
+	设 $\phi_k$ 是 $G$ 的一个任意给定的不可约幺正表示（即$k$是确定的），则
+	\begin{equation*}
+		\int_G \overline{\chi_\rho(g)} \cdot \chi_{\phi_k}(g) \mathrm{d} g
+		=\sum_{i} m_i(\rho) \int_G \overline{\chi_{\phi_i}(g)} \cdot \chi_{\phi_k}(g) \mathrm{d} g.
+	\end{equation*}
+	由定理\ref{chlar:thm_Xo}可知，上述和式中的诸积分中，只有当 $\phi_i=\phi_k$ 时为$1$，其他各项均为零．所以有
+	\begin{equation*}
+		\int_G \overline{\chi_\rho(g)} \cdot \chi_{\phi_k}(g) \mathrm{d} g=m_k(\rho).
+	\end{equation*}
+	第(1)条证明完毕．
+	
+	第(2)条必要性是显然的；下面证明充分性．
+	如果$\chi_{\rho_1}(g)=\chi_{\rho_2}(g)$，那么由第(1)条可知$m_i(\rho_1)=m_i(\rho_2)$，
+	再加上$\phi_i$为$G$的任给定的不可约幺正表示，便说明$\rho_1$、$\rho_2$对不可约不等价
+	表示$\phi_i$的分解完全相同；故可断言第(2)条正确．
+	
+	不难由定理\ref{chlar:thm_Xo}算出
+	\begin{equation}
+		\int_G \overline{\chi_\rho(g)} \cdot \chi_\rho(g) \mathrm{d} g	=\sum_{i}[m_i(\rho)]^2.
+	\end{equation}
+	若$\rho$是不可约的，则上式中只有一个$m_i(\rho)$非零，并且它的数值等于$1$；
+	因此 $\rho$ 是不可约幺正表示的充分必要条件是：
+	\begin{equation*}
+		\int_G \overline{\chi_\rho(g)} \cdot \chi_\rho(g) \mathrm{d} g
+		=\int_G\left|\chi_\rho(g)\right|^2 \mathrm{d} g=1.
+	\end{equation*}
+	至此，定理三条内容全部证完．
+\end{proof}
+
+
+
+\subsection{非紧致李群表示}
+非紧致李群的相关理论不像紧致李群那样完备，比如能否定义不变积分都是问题．
+关于非紧致李群，我们只引用如下定理\cite[p.163]{huangjs-2000}：
+\begin{theorem}\label{chlar:thm_IFU}
+	非紧致、半单、线性李群的非平凡不可约幺正表示是无穷维的．
+\end{theorem}
+
+
+
+
+\subsection{例：可对易李群}\label{chlar:sec_Abel-Lie}
+
+设$G$为一个可对易李群（可以非紧致），$\phi$是$G$的一个有限维不可约复表示．
+我们要证明如下定理：{\kaishu 可对易李群所有不可约复表示都是复$1$维的．}
+
+
+任意给定$G$中元素$g$，有
+\begin{align*}
+	\phi(g) \cdot \phi(h)=\phi(g \cdot h)
+	\xlongequal[\text{可对易}]{\text{因群}G}
+	\phi(h \cdot g)=\phi(h) \cdot \phi(g) , \quad \forall h\in G.
+\end{align*}
+取Schur引理\ref{chlar:thm_schur-lemma-2}中的$M=\phi\left(g\right)$；
+则可知，存在一个复常数$\lambda\left(g\right)$，
+使得$\phi\left(g\right)=\lambda\left(g\right) \cdot I$，其中$I$是表示空间上的恒等变换．换句话说，
+\begin{equation*}
+	\phi(G)=\left\{\phi\left(g\right) ; g \in G\right\} \subset\{\lambda I ; \lambda \in \mathbb{C}\} .
+\end{equation*}
+
+
+另一方面，显然有：表示空间 $V$ 的任何子空间都是 $\{\lambda I ; \lambda \in \mathbb{C}\}$ 的不变子空间，
+当然也是它的一部分—— $\phi(G)=\left\{\phi\left(g\right) ; g \in G\right\}$——的不变子空间．
+但已假设$\phi$为复不可约的，所以$V$除了$\{0\}$和本身之外，不能再有其他的不变子空间了．
+这种情形只有一种可能，那就是${\rm dim} \phi={\rm dim}_{\mathbb{C}} V=1$．
+
+下面给出几个关于可对易群的例题．
+
+\index[physwords]{SO(2)群表示} \index[physwords]{U(1)群表示}
+\begin{example}\label{chlar:exam_U1}
+	紧致李群$U(1)\equiv SO(2)=\left\{\mathrm{e}^{\mathbbm{i} \theta} ; 
+	0 \leqslant \theta \leqslant 2 \pi\right\}$的不可约幺正表示．
+\end{example}
+$U(1)$的一维复表示$\phi$是$U(1)$到乘法群$(\mathbb{C}^*,\times)$（见例\ref{chlg:exam_complex}）的一个映射．
+由于$U(1)$以$2\pi$为周期，故表示矩阵也必须以$2\pi$为周期．
+令$\phi_n\left(U(1)\right)=\mathrm{e}^{\mathbbm{i} n \theta}$，其中$n$是一个取定的整数．
+容易看出，$\phi_n$是一个满足复表示要求的同态映射．
+另一方面，设 $\psi: U(1) \rightarrow (\mathbb{C}^*,\times)$是任意的以$2\pi$为周期的同态映射，
+则不难证明：$\psi$必然与上述 $\phi_n$之一等价．
+由于是一维表示，没有办法再次约化，故是不可约表示．
+故$U(1)$群的不可约幺正表示为：$\mathrm{e}^{\mathbbm{i} n \theta},\  n\in \mathbb{Z}$（幺正性是显然的）．
+\qed
+
+\index[physwords]{(R,+)群表示} \index[physwords]{实数加法群表示}
+\begin{example}
+	非紧致实数加法群$(\mathbb{R},+)$的一维实表示．
+\end{example}
+$(\mathbb{R},+)$的一维实表示$\phi$是$(\mathbb{R},+)$到乘法群$(\mathbb{R}^*,\times)$
+（见例题\ref{chlg:exam_Ftimes}）的一个映射，并且满足
+$\phi(t+u) = \phi(t)\phi(u),\ \forall t,u \in \mathbb{R}$．
+容易想到指数映射具有这些属性．对于任意给定的实数$a\in \mathbb{R}$，令
+\begin{equation*}
+	\phi_a(x) = e^{a x},\qquad \forall x\in \mathbb{R}.
+\end{equation*}
+那么$\phi_a$是从$\mathbb{R}$到$\mathbb{R}^*$的映射，并且满足同态关系
+\begin{equation*}
+	\phi_a(x+y) = e^{a (x+y)}= e^{a x} e^{a y}=\phi_a(x)\phi_a(y),\quad \forall x,y\in \mathbb{R}.
+\end{equation*}
+因此$\phi_a$是$(\mathbb{R},+)$的一维实表示．
+由此得到实数加法群$(\mathbb{R},+)$有无穷多个一维实表示
+（每个实数$a$都是一个表示，$a$有无穷多种取法）．
+\qed
+
+\begin{example}\label{chlar:exam_R+C}
+	非紧致实数加法群$(\mathbb{R},+)$的不可约复表示．
+\end{example}
+根据本小节开始论述，$(\mathbb{R},+)$的不可约复表示必是（复）一维的．
+$(\mathbb{R},+)$的一维复表示$\psi$是$(\mathbb{R},+)$到乘法群$(\mathbb{C}^*,\times)$
+（见例\ref{chlg:exam_complex}）的一个映射．参见上例，
+对于任意给定的复数$c\in \mathbb{C}$，令
+\begin{equation*}
+	\psi_c(x) = e^{c x}=e^{x {\rm Re}(c)+ \mathbbm{i} x {\rm Im}(c) },
+	\quad \forall x\in \mathbb{R}.
+\end{equation*}
+那么$\psi_c$是从$\mathbb{R}$到$\mathbb{C}^*$的映射，并且是同态映射，验证过程同上例（略）．
+%\begin{equation*}
+%	\psi_c(x+y) = e^{c (x+y)}= e^{c x} e^{c y}=\psi_c(x)\psi_c(y),\quad \forall x,y\in \mathbb{R}.
+%\end{equation*}
+因此$\psi_c$是$(\mathbb{R},+)$的一维复表示．
+由此得到$(\mathbb{R},+)$有无穷多个一维复表示．
+\qed
+
+
+
+\begin{exercise}
+	试证明定理\ref{chlar:thm_Xo}．
+\end{exercise}
+
+
+\index[physwords]{SU(2)群}
+
+\section{$SU(2)$群}\label{chlar:sec_SU2SO3}
+
+
+$SO(3)$群是紧致、道路连通的；但不是单连通的，它是两度连通的．
+它的通用覆盖群是$SU(2)$，此群是紧致、单连通的．
+我们再次给出$SU(2)$的定义：行列式为$1$的$2\times 2$复幺正矩阵群，其一般形式为
+\begin{equation}
+    u = \begin{pmatrix}a & b \\ c & d \end{pmatrix}, \qquad
+    u^\dagger = \begin{pmatrix}a^* & c^* \\ b^* & d^* \end{pmatrix} .
+\end{equation}
+行列式等于$1$，以及幺正条件（$u^\dagger u =I = u u^\dagger$）导致
+\begin{equation}
+    ad - bc =1 ; \qquad
+    a^* a + b^* b =1=  c^* c+ d^* d , \quad c^* a + d^* b=0 .
+\end{equation}
+在上述条件约束下，$SU(2)$群元只由三个实参数决定；其一般形式为
+\begin{equation}\label{chlar:eqn_SU2}
+    u = \begin{pmatrix}a & b \\ -b^* & a^* \end{pmatrix}, \qquad
+      a a^* + b b^* =1, \quad  a,b\in \mathbb{C} .
+\end{equation}
+
+
+\subsection{$SU(2)$与$SO(3)$的同态关系}\label{chlar:sec_SU2-SO3}
+下面，我们来寻找两个群的同态关系．先给出二维单位矩阵和Pauli矩阵：
+\begin{equation}\label{chlar:eqn_Pauli-Matrix}
+    \sigma_0 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}; \
+    \sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \
+    \sigma_y = \begin{pmatrix} 0 & -\mathbbm{i} \\ \mathbbm{i} & 0 \end{pmatrix}, \
+    \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+\end{equation}
+其中$\sigma_0$（偶尔也被记为$\sigma_4$）是二维单位矩阵；三个Pauli矩阵是无迹、厄米的；
+很多时候把$\sigma_x$记成$\sigma_1$，$\sigma_y$记成$\sigma_2$，$\sigma_z$记成$\sigma_3$．
+它们有如下关系：
+\begin{align}
+    &\sigma_1 \sigma_2 = \mathbbm{i} \sigma_3,\quad
+    \sigma_2 \sigma_3 = \mathbbm{i} \sigma_1,\quad
+    \sigma_3 \sigma_1 = \mathbbm{i} \sigma_2;\quad
+    (\sigma_i)^2 = \sigma_0, \quad i=1,2,3. \\
+    &\sigma_1 \sigma_2-\sigma_2 \sigma_1=2\mathbbm{i} \sigma_3,\quad
+    \sigma_2 \sigma_3-\sigma_3 \sigma_2=2\mathbbm{i} \sigma_1,\quad
+    \sigma_3 \sigma_1-\sigma_1 \sigma_3=2\mathbbm{i} \sigma_2.
+\end{align}%\setlength{\mathindent}{2em}
+
+任意一个二维复数矩阵都可以由式\eqref{chlar:eqn_Pauli-Matrix}组合得到．
+任意一个无迹、厄米矩阵都能由三个Pauli矩阵组合得到．
+我们定义一个无迹厄米矩阵$h$
+\begin{equation}
+    h = \boldsymbol{r}\cdot \boldsymbol{\sigma}
+    =\begin{pmatrix}
+        z & x- \mathbbm{i} y \\ x+ \mathbbm{i} y & -z
+    \end{pmatrix}; 
+    \qquad \boldsymbol{r}= (x,y,z), \quad x, y, z \in \mathbb{R} .
+\end{equation}
+我们将借助$h$来找到$SU(2)$与$SO(3)$的同态关系．
+
+当$SU(2)$中的群元$u$（式\eqref{chlar:eqn_SU2}）对$h$作幺正变换时，有
+\begin{equation}\label{chlar:eqn_tmp10}
+    h'= u h u^{-1} .
+\end{equation}
+新得到的$h'$与位型空间的一个新点$\boldsymbol{r}'=(x',y',z')$相对应，并且
+\begin{equation}\label{chlar:eqn_tmp12}
+    h'=\boldsymbol{r}'\cdot \boldsymbol{\sigma}
+    =\begin{pmatrix}
+        z' & x'- \mathbbm{i} y' \\ x'+ \mathbbm{i} y' & -z'
+    \end{pmatrix} .
+\end{equation}
+容易得到
+\begin{equation}\label{chlar:eqn_tmp14}
+    x^2+y^2+z^2 = -\det h = -\det(u h u^{-1}) = -\det h' = x'^2+y'^2+z'^2 .
+\end{equation}
+由上式可以看到任一个$SU(2)$的群元$u$，作用在$h$上的效果是把$\boldsymbol{r}$变为$\boldsymbol{r}'$，
+并且保持$|\boldsymbol{r}|=|\boldsymbol{r}'|$．这个结果说明$u$与$SO(3)$中的某一个元素等价，
+我们把它记为$R_u$．也就是式\eqref{chlar:eqn_tmp10}--\eqref{chlar:eqn_tmp14}的变换过程，可以转化为
+\begin{equation}\label{chlar:eqn_tmp16}
+    \boldsymbol{r}'= R_u \boldsymbol{r} \quad \Leftrightarrow \quad
+    (x', y', z')^T = R_u (x,y,z)^T .
+\end{equation}
+由式\eqref{chlar:eqn_tmp10}--\eqref{chlar:eqn_tmp16}以及式\eqref{chlar:eqn_SU2}可
+以导出$R_u$的表达式
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chlar:eqn_Ru}
+    R_u=\begin{pmatrix}
+    \frac{1}{2}(a^2-b^2+a^{*2}-b^{*2}) & 
+    \frac{\mathbbm{i}}{2} \left(a^{*2}+b^{*2}-a^2-b^2\right) &     -a b-a^* b^* \\
+    \frac{\mathbbm{i}}{2} \left(a^2-b^2-a^{*2}+b^{*2}\right) &
+    \frac{1}{2} \left(a^2+b^2+a^{*2}+b^{*2}\right) & 
+    \mathbbm{i} \left(a^* b^* -a b\right) \\
+    b a^*+a b^* & \mathbbm{i} \left(b a^*-a b^*\right) &    a a^*-b b^* 
+\end{pmatrix} 
+\end{equation}\setlength{\mathindent}{2em}
+请读者验证$R_u$是实正交矩阵（即$R_u^T R_u=I$）．
+取$u$为单位矩阵（即$a=1,b=0$），此时$R_u$也是单位矩阵，
+可见$R_u$是$SO(3)$中的元素．
+
+借助$h$，我们找到了映射关系$h:SU(2)\to SO(3)$；有关$h$的运算只有
+加法和乘法，故它是光滑的．下面验证此变换保持群乘法不变，
+$\forall u,v \in SU(2)$
+\begin{equation}
+    (uv) h (uv)^{-1}= u v (\boldsymbol{\sigma}\cdot \boldsymbol{r})v^{-1} u ^{-1}
+    = u (\boldsymbol{\sigma}\cdot R_v \boldsymbol{r}) u ^{-1}
+    = \boldsymbol{\sigma}\cdot R_u R_v \boldsymbol{r}
+\end{equation}
+显然还有$(uv) h (uv)^{-1} = \boldsymbol{\sigma}\cdot R_{uv}\boldsymbol{r}$，
+故可以得到映射$h$保群乘法不变，即$R_{uv}=R_{u}R_{v}$．
+所以$h:SU(2)\to SO(3)$是同态映射．
+
+同态映射$h$将$SU(2)$中单位矩阵映射为$SO(3)$中的单位矩阵．
+除此以外，$h$还将负的单位矩阵映射为$SO(3)$中的单位矩阵；
+即取$a=-1,b=0$（式\eqref{chlar:eqn_SU2}），
+带入式\eqref{chlar:eqn_Ru}中立即可知．
+$\{I_2,-I_2\}$是同态核（令$R_u = I_3$即可证明），
+由二维单位矩阵和负单位矩阵组成；
+由定理\ref{chtop:thm_ghk}可知商群$SU(2)/\{\pm I_2\}\cong SO(3)$．
+
+我们省略了$SU(2)$单连通性的证明，请查阅李群的专门书籍．
+
+取式\eqref{chlar:eqn_SU2}中$a=\cos \frac{\alpha}{2},\ b=-\mathbbm{i}\sin \frac{\alpha}{2}$，
+记为$J_1({\alpha})$；带入式\eqref{chlar:eqn_Ru}，有
+\begin{equation}\label{chlar:eqn_su2-x}
+    J_1(\alpha)=\begin{pmatrix}
+        \cos \frac{\alpha}{2} & -\mathbbm{i}\sin \frac{\alpha}{2} \\
+        -\mathbbm{i}\sin \frac{\alpha}{2} & \cos \frac{\alpha}{2}
+    \end{pmatrix}
+    \ \leftrightarrow \
+    R_{J_1(\alpha)}=\begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & \cos \alpha &  -\sin \alpha \\
+        0 & \sin \alpha &  \cos \alpha
+    \end{pmatrix} .
+\end{equation}
+这是绕$x$轴转动．
+再取 $a=\cos \frac{\beta}{2},\ b=-\sin \frac{\beta}{2}$，有
+\begin{equation}\label{chlar:eqn_su2-y}
+    J_2(\beta)=\begin{pmatrix}
+        \cos \frac{\beta}{2} & -\sin \frac{\beta}{2} \\
+        \sin \frac{\beta}{2} & \cos \frac{\beta}{2}
+    \end{pmatrix}
+    \quad \leftrightarrow \quad
+    R_{J_2(\beta)}=\begin{pmatrix}
+        \cos \beta & 0 & \sin \beta \\
+        0 & 1 & 0 \\
+        -\sin \beta & 0 & \cos \beta
+    \end{pmatrix} .
+\end{equation}
+这是绕$y$轴转动．
+再取$a=\exp(-\mathbbm{i}\frac{\gamma}{2}),\ b=0$，有
+\begin{equation}\label{chlar:eqn_su2-z}
+    J_3(\gamma)= \begin{pmatrix}
+        \mathrm{e}^{-\mathbbm{i} \gamma / 2} & 0 \\
+        0 & \mathrm{e}^{\mathbbm{i} \gamma / 2}
+    \end{pmatrix}
+    \quad \leftrightarrow \quad
+    R_{J_3(\gamma)}=\begin{pmatrix}
+        \cos \gamma & -\sin \gamma & 0 \\
+        \sin \gamma & \cos \gamma & 0 \\
+        0 & 0 & 1
+    \end{pmatrix} .
+\end{equation}
+这是绕$z$轴转动．
+
+
+
+\subsection{$S^3(1)\cong SU(2)$}\label{chlar:sec_S3SU2}
+
+\index[physwords]{三维单位球面群}
+
+我们证明三维单位球面群$S^3(1)\equiv S^3$与$SU(2)$同构．
+三维单位球面$S^3\equiv \{(t,x,y,z)\in \mathbb{R}^4 \mid t^2+x^2+y^2+z^2=1 \}$可通过
+四元数乘法（见\pageref{chtop:eqn_quaternion}页的式\eqref{chtop:eqn_quaternion}）建立李群．
+我们将流形$S^3$上两点$(t_1,x_1,y_1,z_1)$、$(t_2,x_2,y_2,z_2)$间的{\kaishu 群乘法定义为四元数乘法}，
+这个群乘法是封闭的（略显繁琐的乘法验证过程，请读者补齐）、满足结合律、不对易．
+将$S^3$的单位元选成$(1,0,0,0)$；在四元数乘法下，$(t,x,y,z)$的逆元是$(+t,-x,-y,-z)$．
+上述所列条件满足群的定义，又因群乘法、求逆运算是$C^\infty$的，故$S^3$是李群．
+
+设想二维平面上有实心圆盘，将圆盘的外边界圆捏合成一点（类似于包饺子），
+那么便得到了嵌入到$E^3$中的二维球面$S^2$；这便是二维球面的拓扑．
+我们借助上述的拓扑描述来阐述$S^3$的拓扑；设想有$E^3$空间的三维实心球，
+将此实心球的外边界二维球面捏合成一点，便得到了嵌入到$E^4$中的三维球面$S^3$．
+
+$E^4$中的三维球面$S^3$不容易想像，我们借用如下坐标变换简单阐述它，
+\begin{equation}\label{chlar:eqn_S3-txyz}
+	t=\cos \psi, \, x=\sin\psi  \sin\theta \cos \phi,        \,
+	y=\sin \psi \sin\theta \sin \phi,\, z=\sin \psi \cos \theta .
+\end{equation}
+对于$S^3$群来说参数取值范围是：$0 \leqslant \psi \leqslant \pi$、$ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
+明显有$t^2+x^2+y^2+z^2=1$，故它是三维单位球面．
+当$0 \leqslant \psi \leqslant \pi$时，有$-1 \leqslant \cos \psi \leqslant 1$、$0 \leqslant \sin \psi \leqslant 1$，
+不难看出坐标域$\{(\psi,\theta,\phi)\}$能够覆盖流形$S^3$；
+此时\eqref{chlar:eqn_S3-txyz}式中的$x$、$y$、$z$描述单位半径的三维实心球．
+需注意当$\sin\psi=0$时，式\eqref{chlar:eqn_S3-txyz}的多个参数值对应$S^3$上同一点，
+这无非反映了一个坐标域在覆盖流形$S^3$的同时无法满足微分流形定义而已；
+全面的坐标域可参见例\ref{chdm:exm_sphere1}、\ref{chdm:exm_sphere2}．
+
+
+
+$S^3$和$SU(2)$间的群同构可表示成如下形式：
+\begin{align}
+	&S^3 \ni  t\mathbbm{1} + x\mathbbm{i} + y\mathbbm{j} + z\mathbbm{k} \ \cong \
+	\begin{pmatrix}
+		t+ z\sqrt{-1} & \sqrt{-1} x+ y \\ \sqrt{-1}x -  y & t- z\sqrt{-1}
+	\end{pmatrix} \in SU(2). \label{chlar:eqn_S3-SU2} \\
+	&\text{即}\ 
+	\mathbbm{1} \cong \left(\begin{smallmatrix} 1&0 \\ 0 &1    \end{smallmatrix} \right),  \
+	\mathbbm{i} \cong \left(\begin{smallmatrix} 0&\sqrt{-1} \\ \sqrt{-1} & 0  \end{smallmatrix}\right),  \
+	\mathbbm{j} \cong \left(\begin{smallmatrix} 0&1 \\ -1 & 0    \end{smallmatrix}\right) ,  \
+	\mathbbm{k} \cong \left(\begin{smallmatrix} \sqrt{-1}&0 \\ 0 & -\sqrt{-1}  \end{smallmatrix}\right).
+	\label{chlar:eqn_S3-bases}
+\end{align}
+基矢\eqref{chlar:eqn_S3-bases}与Pauli矩阵关系为：%$\mathbbm{1}\cong  \sigma_0$、
+$\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、$\mathbbm{k}\cong \sqrt{-1} \sigma_z$．
+
+我们把上述对应关系用到\eqref{chlar:eqn_S3-txyz}式上，为此，
+先定义三维空间的单位矢量$\boldsymbol{n}=(\sin\theta \cos \phi,\, \sin\theta \sin \phi,\, \cos \theta)$；有
+\begin{align}
+	&\mathbbm{1} \cos\psi + (n_x \mathbbm{i} + n_y \mathbbm{j}+ n_z \mathbbm{k}) \sin\psi \notag \\
+	=&\begin{pmatrix}
+		\cos\psi +\sqrt{-1}\cos \theta\sin\psi  & \sin\psi \sin\theta(\sqrt{-1}\cos \phi+ \sin \phi )  \\
+		\sin\psi \sin\theta (\sqrt{-1}\cos \phi-\sin \phi)  & \cos\psi -\sqrt{-1}\cos \theta\sin\psi
+	\end{pmatrix}. \label{chlar:eqn_S3-SU2-1}
+\end{align}
+再令$(x,y,z)\equiv \boldsymbol{r} = \boldsymbol{n}\sin\psi  $，那么可以看到$S^3$对应半径为$\boldsymbol{r}$的实心球；
+但需要把$|\boldsymbol{r}|=1$的所有点看成同一点，这样才是$S^3$的拓扑．
+
+\subsection{$SU(2)$群上的积分}
+
+我们借用$S^3$的拓扑引入$SU(2)$群上的积分．
+由式\eqref{chlg:eqn_rotation_euler_y}、\eqref{chlar:eqn_su2-y}、\eqref{chlar:eqn_su2-z}可得欧拉角形式的$SU(2)$群元表达式
+\begin{equation}\label{chclif:eqn_SU2-jiao}
+	u(\alpha\beta\gamma) = \begin{pmatrix}
+		e^{-\mathbbm{i}\frac{\alpha+\gamma}{2} } \cos \frac{\beta}{2} & -e^{-\mathbbm{i} \frac{\alpha-\gamma}{2}}\sin\frac{\beta}{2} \\
+		e^{\mathbbm{i} \frac{\alpha-\gamma}{2}}\sin\frac{\beta}{2} & e^{\mathbbm{i}\frac{\alpha+\gamma}{2} } \cos \frac{\beta}{2} 
+	\end{pmatrix}.
+\end{equation}
+对于$SU(2)$群来说参数取值范围是：$-2\pi\leqslant \alpha < 2\pi$、$0\leqslant \beta < \pi$、$0\leqslant \gamma < 2\pi$．
+对于$SO(3)$群来说参数取值范围是：$0 \leqslant \alpha < 2\pi$、$0\leqslant \beta < \pi$、$0\leqslant \gamma < 2\pi$．
+
+对比式\eqref{chlar:eqn_S3-SU2}，取式\eqref{chclif:eqn_SU2-jiao}中矩阵元的相应部分，有
+\begin{equation}
+	\begin{aligned}
+		t=&\cos \frac{\beta }{2} \cos \frac{\alpha +\gamma }{2}, \quad
+		y=-\sin \frac{\beta }{2} \cos \frac{\alpha -\gamma }{2}, \\
+		x=&\sin \frac{\beta }{2} \sin \frac{\alpha -\gamma }{2}, \quad 
+		z=-\cos \frac{\beta }{2} \sin \frac{\alpha +\gamma }{2}.
+	\end{aligned}
+\end{equation}
+
+我们已证明$S^3$微分同构于$SU(2)$，
+故可利用$S^3$上的线元表达式来计算$SU(2)$群（以及$SO(3)$群）的度规场．经过复杂的计算可得
+\begin{align}
+	{\rm d} s^2 =& \left.\left(({\rm d} t)^2 + ({\rm d} x)^2 + ({\rm d} y)^2 + ({\rm d} z)^2
+	\right)\right|_{t^2+x^2+y^2+z^2=1}  \notag \\
+	=& \frac{1}{4} ({\rm d} \alpha)^2 + \frac{1}{4} ( {\rm d} \beta)^2 + \frac{1}{4} ( {\rm d} \gamma)^2 
+	+ \frac{1}{4}\cos\beta \, {\rm d} \alpha {\rm d} \gamma + \frac{1}{4}\cos\beta \, 
+	{\rm d} \gamma {\rm d} \alpha  .  \label{chlar:eqn_S3-metric}
+\end{align}
+通过计算上式的度规行列式，可以得到$S^3$（也就是$SU(2)$）的Harr测度是
+\begin{equation}\label{chlar:eqn_Harr-S3-Euler}
+	\Omega_{S^3} =\Omega_{SU(2)} = \frac{1}{2}\Omega_{SO(3)}
+	= \frac{1}{16 \pi^2} \sin\beta \  {\rm d} \alpha \wedge {\rm d} \beta \wedge  {\rm d} \gamma .
+\end{equation}%\setlength{\mathindent}{2em}
+归一化因子$\frac{1}{16 \pi^2}$其实是指$S^3$的体积是$16 \pi^2$．
+$S^3$到$SO(3)$是2对1的同态关系，故$SO(3)$的体积是$8\pi^2$，
+所以$SO(3)$的归一化因子是$\frac{1}{8 \pi^2}$；
+此时$0 \leqslant \alpha < 2\pi$，其它积分元范围不变．
+由于积分边界的测度为零，故包含积分边界值与否（即包含$\alpha=2\pi$、
+$\beta=\pi$、$\gamma=2\pi$与否）是无关紧要的．
+
+
+\begin{example}
+	$S^3$上的积分的另一常用表述（非欧拉角）．
+\end{example}
+
+借用式\eqref{chlar:eqn_S3-txyz}，经过不那么复杂的计算可得$S^3$上的线元表达式
+\begin{align*}
+	{\rm d} s^2 =& \left.\left(({\rm d} t)^2 + ({\rm d} x)^2 + ({\rm d} y)^2 + ({\rm d} z)^2
+	\right)\right|_{t^2+x^2+y^2+z^2=1}   \\
+	=& ({\rm d} \psi)^2 + (\sin \psi {\rm d} \theta)^2  + (\sin\psi\sin\theta {\rm d} \phi)^2 .
+\end{align*}
+由上式容易看出$S^3$（也就是$SU(2)$）的Harr测度是
+\begin{equation}\label{chlar:eqn_Harr-S3-1}
+	\Omega_{S^3} =\Omega_{SU(2)} = \frac{1}{2}\Omega_{SO(3)}
+	= \frac{1}{2\pi^2} \sin^2\psi \sin\theta \  {\rm d} \psi\wedge {\rm d} \theta \wedge  {\rm d} \phi .
+\end{equation}
+在上述参数表述中$S^3$的体积是$2\pi^2$．
+这也说明，用不同参数体系表示紧致李群积分时需要归一化，否则可能会得到不同积分值．
+积分式\eqref{chlar:eqn_Harr-S3-1}参数取值范围：对于$S^3$、$SU(2)$群见\eqref{chlar:eqn_S3-txyz}式，
+对于$SO(3)$群是：$0 \leqslant \psi \leqslant \pi/2$、$ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
+同理，包含积分边界与否不影响最终积分值．
+\qed
+
+
+\subsection{$SU(2)$群表示}
+
+$SU(2)$群比$SL(2,\mathbb{C})$少一个幺正条件，故$SU(2)$是$SL(2,\mathbb{C})$的子群；
+两者的线性表示求解过程类似，所以我们直接借用$SL(2,\mathbb{C})$群表示\eqref{chlar:eqn_SLS}，
+并令其中的$c=-b^*$、$d=a^*$，有
+\begin{equation}\label{chlar:eqn_SU2-representation}
+    \begin{aligned}
+        D^{j}_{ts}(u) =&  \sum_{p=0}^{2j} 
+        \frac{\sqrt{(j-s)! (j+s)! (j-t)! (j+t)!}  }
+        { (j-p+t)! (s+p-t)! p!(j-s-p)! }\times \\
+        & \times a^{j-p+t} (-b)^{*s+p-t} b^{p} a^{*j-s-p} .
+    \end{aligned}
+\end{equation} %\setlength{\mathindent}{2em}
+
+
+从式\eqref{chlar:eqn_SU2-representation}可以看出，当$j$是整数时，$D^j(u)=D^j(-u)$；
+我们称此时的表示$D^j(u)$为$SU(2)$的{\heiti 偶表示}，例如$D^0, D^1$．
+当$j$是半奇数时，$D^j(u)=-D^j(-u)$；
+我们称此时的表示$D^j(u)$为$SU(2)$的{\heiti 奇表示}，例如$D^{\frac{1}{2}}, D^{\frac{3}{2}}$．
+
+先给出几个特例．令$j=0$，则$s=t=p=0$；表示为$D^{0}(u)=(1)$．
+
+令$j=1/2$，表示为$D^{\frac{1}{2}}=\begin{pmatrix}a & b \\ -b^* & a^* \end{pmatrix}$．
+
+令$j=1$，表示为
+\begin{equation*}
+	D^{1}=\begin{pmatrix}    a^2 & \sqrt{2} a b & b^2 \\
+		-\sqrt{2} a b^* & a a^*-b b^* & \sqrt{2} b a^* \\
+		b^{*2} & -\sqrt{2} a^* b^* & a^{*2}
+	\end{pmatrix} .
+\end{equation*}
+
+以上矩阵的指标都是从大排到小，比如$j=1$时，$s,t$的排列顺序是$1,0,-1$．
+
+%令$j=3/2$，表示为
+%\begin{equation*}
+%    D^{\frac{3}{2}}=\begin{pmatrix}
+	%        a^3 & \sqrt{3} a^2 b & \sqrt{3} a b^2 & b^3 \\
+	%        -\sqrt{3} a^2 b^* & a^2 a^*-2 a b b^* & 2 a b a^*-b^2 b^* & \sqrt{3} b^2 a^* \\
+	%        \sqrt{3} a b^{*2} & b b^{*2}-2 a a^* b^* & a a^{*2}-2 b a^* b^* & \sqrt{3} b a^{*2} \\
+	%        -b^{*3} & \sqrt{3} a^* b^{*2} & -\sqrt{3} a^{*2} b^* & a^{*3} 
+	%    \end{pmatrix} .
+%\end{equation*}
+
+
+
+
+
+
+一般说来，通过上述方式得到的子群表示未必是不可约的；但这次很幸运，
+利用\S\ref{chlar:sec_lr}中的定理可以证明此表示为$SU(2)$群的全部不等价、不可约、有限维幺正表示．
+由于证明它是全部复表示过程需要用到空间完备性以及Peter--Weyl定理等较多数学知识，
+我们将略去这部分证明，具体可参阅\parencite[\S 6.6.4]{qiuws-2011}．
+
+读者可先跳过下面的证明，在了解完$SL(2,\mathbb{C})$群表示\eqref{chlar:eqn_SLS}之后再看．
+%下面我们证明表示\eqref{chlar:eqn_SU2-representation}是幺正的、不可约的．
+
+\subsubsection{表示的幺正性}
+
+为了便于叙述，写出后面才出现的公式（见\eqref{chlar:eqn_SL2Base}），并重新编号：
+\begin{equation}\label{chlar:eqn_SU2Base}
+	\boldsymbol{B}^{j}_{s} = \frac{u^{j+s} v^{j-s}}{\sqrt{(j+s)!(j-s)!}},\quad
+	s = -j, -j +1, \cdots, j -1, j . 
+\end{equation}
+在$S=\left(\begin{smallmatrix}	a & b  \\ -b^* & a^*\end{smallmatrix}\right)\in SU(2)$变换下，有
+\begin{equation*}
+	\begin{pmatrix} u'& v' \end{pmatrix} =
+	\begin{pmatrix} u & v \end{pmatrix}
+	\begin{pmatrix} a & b  \\ -b^* & a^* \end{pmatrix}
+	=\begin{pmatrix} au - b^* v & bu+ a^* v \end{pmatrix}.
+\end{equation*}
+并且，有（利用矩阵$S\in SU(2)$的幺正性\eqref{chlar:eqn_SU2}，即$a a^* + b b^* =1$）
+\begin{equation*}
+	\left|u'\right|^2+\left|v'\right|^2 = \left|u\right|^2+\left|v\right|^2 .
+\end{equation*}
+我们将基矢\eqref{chlar:eqn_SU2Base}作如下运算：
+\begin{equation}\label{chlar:eqn_binom-unitary}
+	\sum_s \left|\boldsymbol{B}^{j}_{s}\right|^2 
+	= \sum_s \frac{\left|u^{j+s} v^{j-s}\right|^2}{(j+s)!(j-s)!}
+	\xlongequal[\text{第}\pageref{chlar:eqn_binom}\text{页}]{\ref{chlar:eqn_binom}} 
+	\frac{1}{(2j)!}\left(\left|u\right|^2+\left|v\right|^2\right)^{2j}.
+\end{equation}
+因此，在$S\in SU(2)$变换前后，有
+\begin{equation}\label{chlar:eqn_Bp2=B2}
+	\sum_s \left|\boldsymbol{B}^{\prime j}_{s}\right|^2 
+	=\frac{1}{(2j)!}\left(\left|u'\right|^2+\left|v'\right|^2\right)^{2j}
+	=\frac{\left(\left|u\right|^2+\left|v\right|^2\right)^{2j}}{(2j)!}
+	=\sum_s \left|\boldsymbol{B}^{j}_{s}\right|^2 .
+\end{equation}
+又因为（参见式\eqref{chlar:eqn_SU2-representation}）
+\begin{align*}
+	\sum_s \left|\boldsymbol{B}^{\prime j}_{s}\right|^2 & = \sum_{s} 
+	\boldsymbol{B}^{\prime j}_{s} \overline{\boldsymbol{B}^{\prime j}_{s}}
+	=\sum_s \left(\sum_{t} \boldsymbol{B}^{j}_{t} D^{j}_{ts} \right)
+	 \left(\sum_{q}\overline{\boldsymbol{B}^{j}_{q}}\	\overline{D^{j}_{qs}} \right)	 \\
+	& =\sum_{t,q} \left(\sum_s D^{j}_{ts} \overline{D^{j}_{qs}} \right) 
+	\boldsymbol{B}^{j}_{t} \overline{\boldsymbol{B}^{j}_{q}} .
+\end{align*}
+由式\eqref{chlar:eqn_Bp2=B2}，必然要求
+\begin{equation}
+	\sum_s D^{j}_{ts} \overline{D^{j}_{qs}} = \delta_{qt}
+	\quad \Leftrightarrow \quad	(D^{j})^{\dagger} = (D^{j})^{-1} .
+\end{equation}
+所以由式\eqref{chlar:eqn_SU2Base}定义的基$\boldsymbol{B}^{j}_{s}$负载的表示是幺正表示，
+在这里我们看到$\boldsymbol{B}^{j}_{s}$中因子$1/\sqrt{(j+s)!(j-s)!}$的引入
+主要为了保证表示的幺正性（见\eqref{chlar:eqn_binom-unitary}式中用到二项式公式那步的推导）．
+
+\subsubsection{表示的特征函数、不等价性、不可约性}
+
+我们先给出绕$z$轴转动的$SU(2)$群元的表示矩阵，在求特征函数时会用到．
+参见式\eqref{chlar:eqn_su2-z}，令$a=e^{\mathbbm{i}\alpha/2}$、$b=0$；
+由于$b = 0$，表示\eqref{chlar:eqn_SU2-representation}中只有$p=0$且$s+p-t=0$的项才有非零
+（因$0$的非$0$次幂一定恒为$0$，详细讨论见\S\ref{chlar:sec_J}），
+所以表示\eqref{chlar:eqn_SU2-representation}矩阵非零元为
+\begin{equation}\label{chlar:eqn_Ddiag}
+	D^{j}_{ts}\left( \left[\begin{smallmatrix}
+		e^{\mathbbm{i}\alpha/2} &0 \\ 0 & e^{-\mathbbm{i}\alpha/2}
+	\end{smallmatrix}\right]\right) =  e^{\mathbbm{i}\alpha s} \delta_{ts} .
+\end{equation} 
+
+
+
+下面先给出表示\eqref{chlar:eqn_SU2-representation}的特征函数．
+由定理\ref{chcx:thm_UD}可知$SU(2)$的矩阵一定相似于对角矩阵
+${\rm diag}\{e^{\mathbbm{i}\alpha_1},e^{\mathbbm{i}\alpha_2}\}$．
+对角化后的矩阵也必须是$SU(2)$矩阵，故有
+\begin{equation}\label{chlar:eqn_su2diag}
+	P^{-1} U P =P^{\dagger} U P= \begin{pmatrix}
+		e^{\mathbbm{i}\alpha/2} &0 \\ 0 & e^{-\mathbbm{i}\alpha/2}
+	\end{pmatrix} .
+\end{equation}
+
+
+
+由于表示同态于群乘法，故有（由定理\ref{chcx:thm_UD}知下式中$P$也是幺正的）
+\begin{align*}
+	& D^{j}(P^{-1} U P) =  D^{j}(P^{-1} ) D^{j}(U) D^{j}(P) =  \bigl(D^{j}(P )\bigr)^{-1} D^{j}(U) D^{j}(P) \\
+	\Rightarrow\ &   
+	Tr \bigl(D^{j}(P^{-1} U P)\bigr) = Tr\left( \bigl(D^{j}(P )\bigr)^{-1} D^{j}(U) D^{j}(P)\right)
+	 =Tr\bigl( D^{j}(U)\bigr) .
+\end{align*}
+上式最后一步用到了有限维矩阵求迹运算公式：$Tr(ABC)=Tr(BCA)$．
+由上式可知，$SU(2)$的任意群元$U$的表示\eqref{chlar:eqn_SU2-representation}的特征函数为
+\begin{align}
+	\chi^j(U)=& Tr\bigl( D^{j}(U)\bigr) = Tr \bigl(D^{j}(P^{-1} U P)\bigr)
+	\xlongequal{\ref{chlar:eqn_su2diag}}
+	Tr\left( D^j \left[\begin{smallmatrix}
+		e^{\mathbbm{i}\alpha/2} &0 \\ 0 & e^{-\mathbbm{i}\alpha/2}
+	\end{smallmatrix}\right]\right) \notag \\
+	\xlongequal{\ref{chlar:eqn_Ddiag}} &
+	\sum_{s=-j}^{+j} e^{\mathbbm{i}\alpha s}
+	= \frac{\sin(j+\frac{1}{2})\alpha}{\sin \alpha/2} .
+	\qquad \text{其中}\ 0\leqslant \alpha \leqslant 4\pi  \label{chlar:eqn_SU2-chi}
+\end{align}
+
+
+
+
+
+有了特征函数，便可用定理\ref{chlar:thm_GP-chi123}来证明表示的不可约性和不等价性．先证不可约性．
+我们采用式\eqref{chlar:eqn_S3-SU2-1}中的参数$(\psi,\theta,\phi)$来描述$SU(2)$，
+由\eqref{chlar:eqn_S3-SU2-1}式可知$SU(2)$任意群元$g$的特征方程为
+\begin{align*}
+	&\begin{vmatrix}
+		\cos\psi +\sqrt{-1}\cos \theta\sin\psi -\lambda  & \sin\psi \sin\theta(\sqrt{-1}\cos \phi+ \sin \phi )  \\
+		\sin\psi \sin\theta (\sqrt{-1}\cos \phi-\sin \phi)  & \cos\psi -\sqrt{-1}\cos \theta\sin\psi -\lambda
+	\end{vmatrix} = 0  \\
+	\Rightarrow \ & \lambda ^2-2 \lambda  \cos\psi+1 = 0 .
+\end{align*}
+上式的特征值为：$e^{\mathbbm{i}\psi}$、$e^{-\mathbbm{i}\psi}$.
+我们知道相似变换是不改变特征值的；故由定理\ref{chcx:thm_UD}可知$\forall g\in SU(2)$，
+一定存在一个幺正矩阵$P$使得$g$满足
+\begin{equation}
+	P^{-1} g P = \begin{pmatrix}
+		e^{\mathbbm{i}\psi} &0 \\ 0 & e^{-\mathbbm{i}\psi}
+	\end{pmatrix} \equiv H(\psi).
+\end{equation}
+所以由\eqref{chlar:eqn_SU2-chi}式可得
+\begin{equation}
+	\chi^j(g) = \chi^j\bigl( H(\psi) \bigr)
+	\xlongequal[\psi\, \text{的偶函数}]{\text{特征函数为}}
+	\chi^j\bigl( H(-\psi) \bigr) .
+\end{equation}
+由$SU(2)$的Harr测度\eqref{chlar:eqn_Harr-S3-1}可得（需令式\eqref{chlar:eqn_SU2-chi}中的$\alpha=2\psi$）
+\begin{align*}
+	\int_{g} \overline{\chi^j(g)}\chi^j(g) \Omega_{SU(2)} =&\frac{1}{2\pi^2}
+	\int_{g} \overline{\chi^j\bigl( H(\psi) \bigr)}\chi^j\bigl( H(\psi) \bigr) 
+	\sin^2\psi \sin\theta \  {\rm d} \psi\wedge {\rm d} \theta \wedge  {\rm d} \phi \\
+	=& \frac{1}{2\pi^2}
+	\int_{0}^{\pi} {\rm d} \psi \int_{0}^{\pi} {\rm d} \theta \int_{0}^{2\pi} {\rm d} \phi
+	\frac{\sin^2(2j+1)\psi}{\sin^2 \psi} \sin^2\psi \sin\theta\\
+	=& \frac{2}{\pi} \int_{0}^{\pi} {\rm d} \psi 	\sin^2(2j+1)\psi  
+	=1- \frac{2}{\pi }\frac{\sin (4 \pi  j)}{8 j+4}.
+\end{align*}
+在$SU(2)$群表示中$j$或是整数或是半奇数，故上式最终结果为：
+\begin{equation}
+	\int_{g} \overline{\chi^j(g)}\chi^j(g) \Omega_{SU(2)} = 1 .
+\end{equation}
+由定理\ref{chlar:thm_GP-chi123}可知表示\eqref{chlar:eqn_SU2-representation}为不可约的．
+
+下面阐述表示\eqref{chlar:eqn_SU2-representation}的不等价性．
+继续采用式\eqref{chlar:eqn_S3-SU2-1}中的参数$(\psi,\theta,\phi)$来描述$SU(2)$，
+同时令式\eqref{chlar:eqn_SU2-chi}中的$\alpha=2\psi$．
+$\forall g \in SU(2)$，当$j\neq j'$时，有
+\begin{align*}
+	\chi^j(g)= \frac{\sin(2j+1)\psi}{\sin \psi}
+	\neq \frac{\sin(2j'+1)\psi}{\sin \psi} = \chi^{j'}(g).
+\end{align*}
+由定理\ref{chlar:thm_GP-chi123}可知，当$j\neq j'$时，$D^j(g)$不等价于$D^{j'}(g)$；
+当$j= j'$时，$D^j(g)$一定等价于$D^{j'}(g)$．
+这说明$SU(2)$群的$2j+1$维复表示都等价于式\eqref{chlar:eqn_SU2-representation}．
+
+
+
+
+
+
+\subsection{$SO(3)$群表示}
+$SU(2)$群中的两个元素（$\pm u$）对应$SO(3)$群中的一个元素，
+见式\eqref{chlar:eqn_Ru}；这种同态关系使得$SO(3)$群的任意表示$A(R_u)$
+都是$SU(2)$群的表示$D(u)$，即$A(R_u)=D(u)$．
+\begin{equation}
+    D(u)D(v)=A(R_u) A(R_v) = A(R_{uv}) = D(uv) .
+\end{equation}
+可见此表示保群乘法不变．
+
+反之，则未必．$SU(2)$群的元素$\pm u$对应$SO(3)$群中的元素$R_u$．
+$SU(2)$群的偶表示有$D^j(u)=D^j(-u)$（$j$是整数）；
+此时可令$SO(3)$群的表示$A^j(R_u)= D^j(\pm u)$，则有
+\begin{equation*}
+    A^j(R_u) A^j(R_v) =D^j(\pm u)D^j(\pm v)=D^j(\pm uv) = A^j(R_{uv}) =A^j(R_{u}R_{v}) .
+\end{equation*}
+由上式可见：偶表示保持$SO(3)$的群乘法不变，是它的表示．
+可以证明\cite[\S 6.6.4]{qiuws-2011}这是$SO(3)$群的全部不等价、不可约、有限维幺正表示．
+
+当$j$是半奇数时，$SU(2)$群的奇表示$D^j(u)=-D^j(-u)$，很明显$D^j(u)\neq D^j(-u)$；
+而根据对应关系，$D^j(u)$和$ D^j(-u)$都与$SO(3)$群的$A^j(R_u)$对应，
+此时有$A^j(R_u)=\pm D^j(u)=D^j(\pm u)$；得到了{\kaishu 双值表示}，它不能保持乘法不变
+\begin{align*}
+    A^j(R_u) A^j(R_v) =D^j(\pm u)D^j(\pm v)=\pm D^j(\pm uv) = \pm  A^j(R_{uv})=\pm A^j(R_{u}R_{v}) .
+\end{align*}
+它与群乘法规律差一个负号，故从纯数学角度来说它不是$SO(3)$的群表示；
+然而物理上通常会说它是“双值表示”；
+采取双值表示概念是为了描述半奇数自旋（如电子自旋）．
+我们不打算引入双值表示这一概念（纯数学中没有此概念），而用另外一个变通的方式来处理此问题，
+见\S\ref{chlar:sec_C2Q}．
+
+
+\subsection{李代数$\mathfrak{su}(2)$和$\mathfrak{so}(3)$}\label{chlar:sec_LA-su2so3}
+我们将给出$SU(2)$和$SO(3)$群的李代数，并将看到它们是同构的．
+先找到$SU(2)$李代数的具体表达式，由式\eqref{chlg:eqn_LA-su}可知
+其李代数是全部二维无迹反厄米矩阵，它可由三个独立实参数描述；
+下式即可表示全部二维无迹反厄米矩阵
+\begin{equation}
+    A=\begin{pmatrix}  z\mathbbm{i} & y+x\mathbbm{i} \\ -y+x \mathbbm{i}  & -z\mathbbm{i} \end{pmatrix},
+    \qquad \forall x,y,z\in \mathbb{R} .
+\end{equation}
+可用Pauli矩阵\eqref{chlar:eqn_Pauli-Matrix}将其写成
+\begin{equation}
+    A= x \, \mathbbm{i} \sigma_x + y \, \mathbbm{i} \sigma_y + z \, \mathbbm{i} \sigma_z 
+     = -2 x s_x -2 y s_y -2 z s_z .
+\end{equation}
+最后一步已令$s_i=\sigma_i/2\mathbbm{i}$．$\{s_i\}$的李积关系（此处是矩阵相乘后再相减）是
+\begin{equation}\label{chlar:eqn_LA-su2}
+    [s_x, s_y]=s_z, \qquad
+    [s_y, s_z]=s_x, \qquad
+    [s_z, s_x]=s_y .
+\end{equation}
+这样，全部二维无迹反厄米矩阵可由基矢量$\{s_i\}$生成，即$A={\rm Span}\{s_i\}$；
+连同对易关系\eqref{chlar:eqn_LA-su2}，$A={\rm Span}\{s_i\}$就是李代数$\mathfrak{su}(2)$．
+
+再求$SO(3)$群的李代数，由式\eqref{chlg:eqn_LA-om}可知它是
+全体三维反对称矩阵组成的集合．为了让它的几何意义更明显一些，我们通过单参数子群方式来求取．
+我们通过绕$x,y,z$轴的转动来寻找单参数子群，
+三个转动为（见式\eqref{chlg:eqn_rotation-zy}、\eqref{chlg:eqn_rotation-x}）
+\begin{small}
+\setlength{\mathindent}{0em}
+\begin{equation*}
+    {C_x}( \beta  ) = \begin{pmatrix}
+        1&0&0 \\
+        0&{\cos \beta }&{ - \sin \beta } \\
+        0&{\sin \beta }&{\cos \beta } \\
+    \end{pmatrix}, 
+{C_y}( \beta ) = \begin{pmatrix}
+    {\cos \beta }&0&{  \sin \beta }  \\
+    0&1&0\\
+    { - \sin \beta } &0&{\cos \beta }
+\end{pmatrix} ,
+    {C_z}( \beta  ) =  \begin{pmatrix}
+    {\cos \beta }&{ - \sin \beta }&0 \\
+    {\sin \beta }&{\cos \beta }&0 \\
+    0&0&1
+\end{pmatrix} .
+\end{equation*} \setlength{\mathindent}{2em}
+\end{small}
+容易验证它们都是单参数子群，比如$C_x(\alpha)C_x(\beta)=C_x(\alpha+\beta)$．
+每个子群在单位元（即单位矩阵$I$）处的切矢量就给出了李代数$\mathfrak{so}(3)$的一个元素；
+绕$x$轴的李代数生成元是
+\begin{equation}
+    r_x=\left.\frac{{\rm d}C_x(\beta)}{{\rm d}\beta}\right|_{\beta=0}
+    =\begin{pmatrix}
+        0 & 0 & 0 \\
+        0& 0 & -1 \\
+        0 & 1 & 0
+    \end{pmatrix}.
+\end{equation}
+绕$y,z$轴的李代数生成元是
+\begin{equation*}
+    r_y=\left.\frac{{\rm d}C_y(\beta)}{{\rm d}\beta}\right|_{\beta=0}
+    =\begin{pmatrix}
+        0 & 0 & 1 \\
+        0 & 0 & 0 \\
+        -1 & 0 & 0
+    \end{pmatrix},\quad
+    r_z=\left.\frac{{\rm d}C_z(\beta)}{{\rm d}\beta}\right|_{\beta=0}
+    =\begin{pmatrix}
+        0 & - 1 & 0 \\
+        1& 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix} .
+\end{equation*}
+很明显这三个都是反对称矩阵，它们的对易关系是
+\begin{equation}\label{chlar:eqn_so3-comm}
+    [r_x, r_y]=r_z, \qquad
+    [r_y, r_z]=r_x, \qquad
+    [r_z, r_x]=r_y .
+\end{equation}
+%$\mathfrak{so}(3)$的全部元素
+%都可由它们来组合出来，即
+%\begin{equation}
+%    A=\begin{pmatrix}
+%        0 & - z & y \\
+%        z& 0 & -x \\
+%        -y & x & 0
+%    \end{pmatrix}
+%    =x r_x + y r_y + z r_z.
+%\end{equation}
+
+虽然$\mathfrak{su}(2)$和$\mathfrak{so}(3)$生成元的具体矩阵形式不同；
+但肉眼可见的，它们之间存在线性双射$\Psi(s_i)=r_i,\  i=x,y,z$；
+并且映射$\Psi$保李积不变，故它是线性同构映射．
+这便说明了$\mathfrak{su}(2)$和$\mathfrak{so}(3)$是同构的．
+但$SU(2)$和$SO(3)$不是同构的，它们是2对1的同态．
+
+
+物理学上较喜欢用厄米矩阵来表示生成元，即作如下变换$J_i = \mathbbm{i} r_i$：
+\begin{equation}\label{chlar:eqn_so3-J}
+    J_x=\begin{pmatrix}
+        0 & 0 & 0 \\
+        0& 0 & -\mathbbm{i} \\
+        0 & \mathbbm{i} & 0
+    \end{pmatrix},\quad
+    J_y=\begin{pmatrix}
+        0 & 0 & \mathbbm{i} \\
+        0 & 0 & 0 \\
+        -\mathbbm{i} & 0 & 0
+    \end{pmatrix},\quad
+    J_z=\begin{pmatrix}
+        0 & -\mathbbm{i} & 0 \\
+        \mathbbm{i} & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix} .
+\end{equation}
+那么对易关系\eqref{chlar:eqn_so3-comm}变成
+\begin{equation}\label{chlar:eqn_so3-comm-J}
+    [J_x, J_y] = \mathbbm{i} J_z,\quad
+    [J_y, J_z] = \mathbbm{i} J_x,\quad
+    [J_z, J_x] = \mathbbm{i} J_y.
+\end{equation}
+
+在李代数基矢同构前提下，李代数基矢是矩阵还是偏导数算符没有差别．
+式\eqref{chlar:eqn_so3-J}和式\eqref{chlar:eqn_so3-comm-J}是矩阵形式；
+下面给出$\mathfrak{so}(3)$李代数微分形式的基矢量．
+我们已知平移算符基矢量的微分形式是\eqref{chlg:eqn_Texp}，
+即$\hat{\boldsymbol{P}}= -\mathbbm{i}\nabla$．
+而无穷小的旋转为\eqref{chlg:eqn_rot-inf}，即
+$\boldsymbol{x}' = \hat{Q}(\boldsymbol{n}{\rm d}\theta) \boldsymbol{x} 
+= \boldsymbol{x} +  {\rm d}\theta\boldsymbol{n}\times \boldsymbol{x}$．
+我们要求三维空间是各向同性的，那么标量函数场$f(\boldsymbol{x})$在固有旋转作用下需
+遵循式\eqref{chlg:eqn_DQpsi}的规则，有
+\begin{align*}
+    f'(\boldsymbol{x})=&\hat{R}(\boldsymbol{n}{\rm d}\theta) f(\boldsymbol{x})
+    = f \bigl( \hat{Q}^{-1}(\boldsymbol{n}{\rm d}\theta) \boldsymbol{x} \bigr)
+    =f(\boldsymbol{x}-{\rm d}\theta\boldsymbol{n}\times \boldsymbol{x}) \\
+    =&f(\boldsymbol{x}) - {\rm d}\theta\boldsymbol{n}\times \boldsymbol{x} \cdot \nabla f(\boldsymbol{x})
+    +\frac{1}{2!}({\rm d}\theta\boldsymbol{n}\times \boldsymbol{x} ) 
+    ({\rm d}\theta\boldsymbol{n}\times \boldsymbol{x} ): \nabla \nabla f(\boldsymbol{x})
+    + o\bigl( ({\rm d}\theta)^3 \bigr) \\
+    =&\exp\left( -\mathbbm{i} {\rm d}\theta \boldsymbol{n}\cdot \hat{\boldsymbol{L}} \right) f (\boldsymbol{x});\qquad
+    \hat{\boldsymbol{L}}\equiv \boldsymbol{x} \times \hat{\boldsymbol{P}} = \boldsymbol{x} \times (-\mathbbm{i} \nabla) .
+\end{align*}
+上式最后一行利用了$\boldsymbol{n}\times \boldsymbol{x} \cdot \nabla= \boldsymbol{n}\cdot \boldsymbol{x} \times \nabla$；
+并定义了算符$\hat{\boldsymbol{L}}$，它具有轨道角动量的物理意义．
+这样便得到了转动算符的微分表达式
+\begin{equation}\label{chlar:eqn_rot-diff}
+    \hat{R}(\boldsymbol{n}\theta) = \exp\left( -\mathbbm{i} \theta \boldsymbol{n}\cdot \hat{\boldsymbol{L}} \right),
+    \qquad \hat{\boldsymbol{L}}\equiv \boldsymbol{x} \times \hat{\boldsymbol{P}} = \boldsymbol{x} \times (-\mathbbm{i} \nabla) .
+\end{equation}
+下面建立$\mathfrak{so}(3)$李代数微分形式和矩阵形式间的同构关系$\Psi$：
+\begin{equation}\label{chlar:eqn_so3-L}
+    \begin{aligned}
+    \Psi(J_x)=& \hat{L}_x = -\mathbbm{i} (y \partial_z - z \partial_y ), \\
+    \Psi(J_y)=& \hat{L}_y = -\mathbbm{i} (z \partial_x - x \partial_z ),\\
+    \Psi(J_z)=& \hat{L}_z = -\mathbbm{i} (x \partial_y - y \partial_x ).
+\end{aligned}
+\end{equation}
+通过偏微分计算可直接验证，$\hat{L}_x, \hat{L}_y, \hat{L}_z$满足如下对易关系：
+\begin{equation}\label{chlar:eqn_so3-comm-L}
+    [\hat{L}_x, \hat{L}_y] = \mathbbm{i} \hat{L}_z,\quad
+    [\hat{L}_y, \hat{L}_z] = \mathbbm{i} \hat{L}_x,\quad
+    [\hat{L}_z, \hat{L}_x] = \mathbbm{i} \hat{L}_y.
+\end{equation}
+可见$\Psi$是$\hat{L}_x, \hat{L}_y, \hat{L}_z$和$J_x, J_y, J_z$间同构映射，并且$\Psi$保$\mathfrak{so}(3)$李积不变；
+从而不必再严格区分$\mathfrak{so}(3)$李代数微分形式基矢量和矩阵形式的基矢量．
+
+$SO(3)$群是连通、紧致李群，根据命题\ref{chlg:thm_exp-compact}可知
+指数映射可将李代数$\mathfrak{so}(3)$满射到$SO(3)$上．
+根据式\eqref{chlg:eqn_rotation_euler_y}和式\eqref{chlar:eqn_rot-diff}可得
+\begin{equation}\label{chlar:eqn_expSO3}
+        R(\alpha\beta\gamma) %=C_z(\alpha) C_{y}(\beta) C_z(\gamma) 
+        =e^{-\mathbbm{i} \alpha \hat{L}_z} e^{-\mathbbm{i}\beta \hat{L}_y} e^{-\mathbbm{i}\gamma \hat{L}_z}
+        =e^{-\mathbbm{i} \alpha J_z} e^{-\mathbbm{i}\beta J_y} e^{-\mathbbm{i}\gamma J_z}
+        =e^{\alpha r_z} e^{\beta r_y} e^{\gamma r_z} .
+\end{equation}
+上式中的$J_i$是矩阵\eqref{chlar:eqn_so3-J}，可以把它们直接带入上式，
+经过计算可求矩阵的指数（可借助符号演算软件），
+从而便可验证：式\eqref{chlar:eqn_expSO3}就是式\eqref{chlg:eqn_rotation_euler_y}．
+
+
+\begin{example}\label{chlar:exm_so3-Killing-Casimir}
+    $\mathfrak{so}(3)$的Killing型、Casimir算子．
+\end{example}
+由式\eqref{chlar:eqn_so3-comm}可得$\mathfrak{so}(3)$的Killing型、Casimir算子（矩阵形式）为
+\begin{align*}
+    g_{\alpha\beta}=\begin{pmatrix}
+        -2 & 0 & 0 \\
+        0 & -2 & 0 \\
+        0 & 0 & -2 
+    \end{pmatrix};\qquad
+    C_{2}=-\frac{1}{2}\begin{pmatrix}
+        0 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 1 & 0 
+    \end{pmatrix}.
+\end{align*}
+经过计算，还能得到算符形式的Casimir算子：
+$\hat{C}_2 = \hat{L}^2= \hat{L}_x^2+\hat{L}_y^2+\hat{L}_z^2$． 
+\qed
+
+
+\subsection{角动量}\label{chlar:sec_J}
+$SU(2)$群的表示是幺正的，可以作用在粒子的希尔伯特空间上（即波函数）．
+下面我们寻找这些表示的基矢（式\eqref{chlar:eqn_SU2Base}）的物理意义，
+我们把$\boldsymbol{B}^j_m\bigl(\xi,\zeta\bigr)$记成$|jm\rangle$．
+我们采用式\eqref{chlar:eqn_so3-comm-J}的记号，但作替换$J\to \hat{J}$．
+
+
+
+
+我们取$a=\exp(-\mathbbm{i}\frac{\gamma}{2})$、$ b=0$（式\eqref{chlar:eqn_su2-z}），即绕$z$轴转动；
+我们来看看此时的群表示有什么特征．此时$SU(2)$群表示\eqref{chlar:eqn_SU2-representation}变为：
+\setlength{\mathindent}{0em}
+\begin{align*}
+    D^{j}_{m'm}(00\gamma) =  \sum_{p=0}^{2j}  
+    \frac{(-)^{p}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
+    {p!(j+m-p)! (j-m'-p)! (m'+p-m)!} 
+    {e}^{-\mathbbm{i}(m+m') \gamma / 2} 0^{m'-m+2p}.
+\end{align*}\setlength{\mathindent}{2em}
+由于$b=0$，故只有$m'-m+2p=0$的项才有贡献，否则为零．继续计算有
+\begin{align*}
+    D^{j}_{m'm}(00\gamma) = 
+    \frac{(-)^{(m-m')/2}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
+    {\frac{m-m'}{2}!(j+m-\frac{m-m'}{2})! (j-m'-\frac{m-m'}{2})! (m'-m+\frac{m-m'}{2})!}
+    {e}^{-\mathbbm{i}(m+m') \gamma / 2} .
+\end{align*}
+因已规定负数的阶乘是无穷大，故上式只有在$m=m'$时才不为零，所以有
+\begin{equation}\label{chlar:eqn_z-rep}
+    D^{j}_{m'm}(00\gamma) =\delta_{m'm} {e}^{-\mathbbm{i}m \gamma} .
+\end{equation}
+由式\eqref{chlar:eqn_expSO3}可知
+\begin{equation}
+    \hat{R}(00\gamma)|jm\rangle = e^{-\mathbbm{i}\gamma \hat{J}_z} |jm\rangle
+    = \sum_{m'} |jm'\rangle  D^{j}_{m'm}(00\gamma) 
+    = {e}^{-\mathbbm{i}m \gamma} |jm\rangle.
+\end{equation}
+对上式的$\gamma$求取导数，并令$\gamma=0$，得（即取李代数$\mathfrak{su}(2)$）
+\begin{equation}\label{chlar:eqn_Jzpsi}
+    \hat{J}_z|jm\rangle = m |jm\rangle.
+\end{equation}
+
+
+我们取$a=\cos \frac{\beta}{2}$、$b=-\sin \frac{\beta}{2}$（式\eqref{chlar:eqn_su2-y}），即绕$y$轴转动；
+此时$SU(2)$群表示\eqref{chlar:eqn_SU2-representation}为
+\begin{align*}
+    D^{j}_{m'm}(u) =&  \sum_{p=0}^{2j}  
+    \frac{(-)^{m'-m+3p}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
+    {p!(j+m-p)! (j-m'-p)! (m'+p-m)!} \\
+    & \times \left(\cos \frac{\beta}{2}\right)^{2j-2p+m-m'} 
+    \left(\sin \frac{\beta}{2}\right)^{m'-m+2p}.
+\end{align*}
+对上式取$\beta$的导数，有
+\begin{align*}
+    &\partial_\beta D^{j}_{m'm}(u) =  \sum_{p=0}^{2j}  
+    \frac{(-)^{m'-m+3p}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
+    {p!(j+m-p)! (j-m'-p)! (m'+p-m)!} \times \\
+    & \times \biggl(\frac{1}{2} \sin ^{m'-m+2 p-1}\left(\frac{\beta }{2}\right) 
+    \cos ^{2 j-m'+m-2 p-1}\left(\frac{\beta }{2}\right) \left(j \cos \beta -j+m'-m+2 p\right)\biggr).
+\end{align*}
+我们只关心$\beta\to 0$的情形，此时只有$2 p=m-m'+1$项有贡献，
+其余项都为零（因$\sin\frac{\beta}{2} \xrightarrow{\beta \to 0}0$）．继续计算有
+\begin{align*}
+    \partial_\beta D^{j}_{m'm}(u) =&  \frac{(-)^{\frac{m-m'+3}{2}} \frac{1}{2} 
+        \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
+    {\frac{m-m'+1}{2}!(j+\frac{m+m'-1}{2})! (j-\frac{m+m'+1}{2})! (\frac{m'-m+1}{2})!} .
+\end{align*}
+因已规定负数的阶乘是无穷大，故上式分母每项都不能是负的．
+由分母第一项和最后一项给出：$m-1\leqslant m' \leqslant m+1$．
+所以有：或者$m'=m+1$，或者$m'=m-1$，或者$m'=m$．
+当$m'=m$时，分子出现“$(-)^{\frac{3}{2}}$”，这是虚数；因此时的$a$、$b$都是实数，
+故矩阵元也都必须是实数，因此抛弃$m'=m$项．
+只剩下$m'=m+1$和$m'=m-1$项；继续计算有
+\begin{align*}
+    \partial_\beta D^{j}_{m'm}(u) =&  
+    \frac{-1}{2}\frac{ \sqrt{(j-m)! (j+m)! (j-m-1)! (j+m+1)!}   } 
+    {(0)!(j+m)! (j-m-1)! (1)!} \delta_{m',m+1}\\
+    &+\frac{1}{2}\frac{ \sqrt{(j-m)! (j+m)! (j-m+1)! (j+m-1)!}   } 
+    {(1)!(j+m-1)!(j-m)!(0)!} \delta_{m',m-1}\\
+    =&-\frac{1}{2}\sqrt{(j-m)(j+m+1)}\delta_{m',m+1}\\
+    &+\frac{1}{2}\sqrt{ (j+m) (j-m+1)}\delta_{m',m-1}.
+\end{align*}
+由式\eqref{chlar:eqn_expSO3}可知（$\partial_\beta \hat{R}(0\beta 0)\xrightarrow{\beta\to 0}-\mathbbm{i}\hat{J}_y$）
+\begin{align}
+    \mathbbm{i}\hat{J}_y|jm\rangle =&+ \frac{1}{2}\sqrt{(j-m)(j+m+1)}|j,m+1\rangle \notag \\
+    &-\frac{1}{2}\sqrt{ (j+m) (j-m+1)} |j,m-1\rangle.
+\end{align}
+与上式类似，可得
+\begin{align}
+    \hat{J}_x|jm\rangle =&+ \frac{1}{2}\sqrt{(j-m)(j+m+1)}|j,m+1\rangle \notag \\
+    &+\frac{1}{2}\sqrt{ (j+m) (j-m+1)} |j,m-1\rangle. \label{chlar:eqn_Jx}
+\end{align}
+我们定义
+\begin{equation}
+    \hat{J}_{\pm} \equiv \hat{J}_x \pm \mathbbm{i}\hat{J}_y.
+\end{equation}
+则有
+\begin{equation}\label{chlar:eqn_Jpmpsi}
+    \hat{J}_{\pm} |jm\rangle = \sqrt{(j\mp m)(j\pm m+1)} \  |j,m\pm 1\rangle .
+\end{equation}
+上式便是角动量磁量子数的升降算符．
+
+请与任一本量子力学教材（或群论教材，例如\parencite[\S 11.5]{taorb-2011-gt}）比对，
+可发现上述给出的$SU(2)$群表示空间基矢量为粒子的角动量，包括轨道角动量和自旋角动量．
+
+
+我们通过求取$SU(2)$群表示\eqref{chlar:eqn_SU2-representation}导数的方式给出了
+李代数$\mathfrak{su}(2)$作用在基矢上的表达式，
+它们为式\eqref{chlar:eqn_Jzpsi}和\eqref{chlar:eqn_Jpmpsi}．
+从例题\ref{chlar:exm_so3-Killing-Casimir}可知Casimir算子在基矢上的作用为：
+\begin{equation}\label{chlar:eqn_J2pmpsi}
+    \hat{J}^2 |jm\rangle = j(j+1) \  |jm\rangle .
+\end{equation}
+由式式\eqref{chlar:eqn_Jzpsi}、\eqref{chlar:eqn_Jpmpsi}和\eqref{chlar:eqn_J2pmpsi}出发，
+左作用对偶基矢$\langle jm'|$，便可得到李代数$\mathfrak{su}(2)$的线性表示矩阵$\mathfrak{D}^{(j)}$．
+
+
+\noindent  当$j=0$时，表示矩阵为：$J_z=J_{\pm}=(0)$．
+
+\noindent  当$j=\frac{1}{2}$时，表示矩阵为：
+\begin{align}
+    J_z=\begin{pmatrix}
+        \frac{1}{2} & 0 \\ 0 & -\frac{1}{2}
+    \end{pmatrix},\quad
+    J_{+}=\begin{pmatrix}
+        0 & 1 \\ 0 & 0
+    \end{pmatrix},\quad
+    J_{-}=\begin{pmatrix}
+        0 & 0 \\ 1 & 0
+    \end{pmatrix}.
+\end{align}
+由此易得
+\begin{align}
+    J_{x}=\frac{1}{2}\begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix},\quad
+    J_{y}=\frac{1}{2}\begin{pmatrix}
+        0 & -\mathbbm{i} \\ \mathbbm{i} & 0
+    \end{pmatrix},\quad
+    J_z=\frac{1}{2} \begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}.
+\end{align}
+
+\noindent  当$j=1$时，表示矩阵为：
+\begin{align}
+    J_z=\begin{pmatrix}
+            1 & 0 & 0 \\   0 & 0 & 0 \\    0 & 0 & -1 
+    \end{pmatrix},\
+    J_{+}=\begin{pmatrix}
+        0 & \sqrt{2} & 0 \\ 0 & 0 & \sqrt{2} \\ 0 & 0 & 0
+    \end{pmatrix},\
+    J_{-}=\begin{pmatrix}
+        0 & 0 & 0\\ \sqrt{2} & 0 &0 \\ 0 & \sqrt{2} & 0
+    \end{pmatrix}.
+\end{align}
+由此易得
+\setlength{\mathindent}{0em}
+\begin{align}
+    J_{x}=\frac{1}{\sqrt{2}} \begin{pmatrix}
+        0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0
+    \end{pmatrix},\ 
+    J_{y}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        0 & -\mathbbm{i} & 0\\ \mathbbm{i} & 0 &-\mathbbm{i} \\ 0 & \mathbbm{i} & 0
+    \end{pmatrix},\ 
+    J_z=\begin{pmatrix}
+        1 & 0 & 0 \\   0 & 0 & 0 \\    0 & 0 & -1 
+    \end{pmatrix}.
+\end{align}\setlength{\mathindent}{2em}
+
+
+
+\begin{exercise}
+	试证明\S\ref{chlar:sec_S3SU2}中$S^3$群乘法是封闭的．
+\end{exercise}
+
+\begin{exercise}
+	试证明$S^3$的群元$(t,x,y,z)$、$(+t,-x,-y,-z)$互逆．
+\end{exercise}
+
+\begin{exercise}
+	试证明式\eqref{chlar:eqn_S3-metric}．
+\end{exercise}
+
+\begin{exercise}
+	试证明式\eqref{chlar:eqn_Jx}．
+\end{exercise}
+
+
+
+\section{经典到量子的实用性约定}\label{chlar:sec_C2Q}
+
+\index[physwords]{旋量}
+
+%\section{旋量}\label{chlar:sec_spinors}
+
+李群$SO^{+}(p,q;\mathbb{R})$不是单连通的，它的双重通用覆盖群$Spin(p,q)$是单连通的．
+然而要完整描述$Spin(p,q)$群需要Clifford代数知识，这超出了本书范畴．
+%可参考文献\parencite{lawson-1990-spin}或类似文献．
+
+用不那么确切的语言来说：承载$Spin(p,q)$群有限维不可约复表示的线性空间$S$被
+称为{\heiti 旋量空间}，$S$中的元素被称为$Spin(p,q)$群的{\heiti 旋量}（Spinor）．
+
+
+
+一些低维的$Spin(p,q)$群有同构群，我们只需要两个：
+旋转群$SO(3)$的双重通用覆盖群是单连通的$Spin(3)  \cong SU(2)$（见\S\ref{chlar:sec_SU2-SO3}），
+Lorentz群$SO^{+}(1,3)$的双重通用覆盖群是单连通的$Spin(1,3)\cong SL(2,\mathbb{C})$．
+
+在经典宏观物理中，描述自然运动的数域是实数域$\mathbb{R}$；
+比如牛顿力学、电磁动力学、广义相对论等等．可能为了描述方便会引入虚数，但这些不是必要的，
+可以通过其它方式予以规避掉．
+
+在量子世界中，描述物理的是复数域$\mathbb{C}$；不论量子力学还是量子场论皆如此．
+量子物理中，描述粒子处于何种状态需用Hilbert空间的态矢量；而Hilbert空间本身
+是一种复数线性空间，所以量子物理从定义伊始就是复数，不是实数．描述物质
+运动的方程，比如薛定谔方程等，也无法避免地引入了虚数单位$\mathbbm{i}$．
+
+在经典物理中，描述转动的是$SO(3)$群；在宏观物理中此群的表示完全够用．
+当我们把$SO(3)$群推广到量子物理时；
+前面说了$SO(3)$在纯粹的数学上只有整数维表示，没有半奇数维表示，
+这导致$SO(3)$无法描述半奇数自旋粒子（比如电子）．
+必须引入数学上不存在“双值表示”才能描述．
+这多少有些不便！
+
+用不那么准确的数学语言来说复数域比实数域大两倍；
+$SU(2)$群是$SO(3)$群的双重通用覆盖群，两个$SU(2)$群元同态于一个$SO(3)$群元．
+根据\textcite[\S 2.7]{weinberg_vol1}文末的评述，
+我们引入一个人为约定：
+{\kaishu 在量子物理中描述转动的是$SU(2)$群，不再是$SO(3)$群．}
+有了这个约定就不用再引入数学上不存在“双值表示”了．
+
+与此类似还可约定：{\kaishu 在量子物理中描述Lorentz变换的
+    是$SL(2,\mathbb{C})$群，不再是$SO^{+}(1,3)$群．}
+这两个群的关系见\S\ref{chlar:sec_SL2C}．
+
+如果愿意，还可进一步约定：{\kaishu 在经典物理中用$SO^{+}(p,q)$群描述的现象，
+推广到量子物理时，采用$SO^{+}(p,q)$群的双重通用覆盖群$Spin(p,q)$．}
+
+
+
+\section{$SL(2,\mathbb{C})$群}\label{chlar:sec_SL2C}
+
+\index[physwords]{SL(2,C)群}
+
+
+\subsection{$SL(2,\mathbb{C})$与$SO^{+}(1,3)$的同态关系} \label{chlar:sec_slsoh}
+单连通的$SL(2,\mathbb{C})$群是行列式为$1$的全体二维复矩阵，可由六个实参数来描述．
+$SL(2,\mathbb{C})$群是固有正时Lorentz群$SO^{+}(1,3)$的双重通用覆盖群，我们来证明这个命题．
+借助式\eqref{chlar:eqn_Pauli-Matrix}，任意二维厄米矩阵$h$可表示成如下形式
+\begin{equation}\label{chlar:eqn_hslso}
+    h = x^\mu \sigma_\mu
+    =\begin{pmatrix}
+        t+z & x- \mathbbm{i} y \\ x+ \mathbbm{i} y & t-z
+    \end{pmatrix}; 
+    \qquad x^\mu= (t,x,y,z) \in \mathbb{R}^4 .
+\end{equation}
+%我们将$z$和$x$互换了位置，是为了导出$x$和$t$之间的Lorentz变换，而不是导出$z$、$t$间的．
+我们将通过$h$来找到$SL(2,\mathbb{C})$与$SO^{+}(1,3)$的同态关系．
+设$S\in SL(2,\mathbb{C})$，则
+\begin{equation}\label{chlar:eqn_sl2}
+    S=\begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix} \in SL(2,\mathbb{C}) ; 
+    \quad \alpha \delta - \beta \gamma =1; 
+    \quad \alpha , \beta ,\gamma , \delta \in \mathbb{C} .
+\end{equation}
+$h$本身是厄米矩阵；容易看到$h'=ShS^\dagger$也是厄米矩阵，我们将其记为
+\begin{equation}\label{chlar:eqn_hpslso}
+    h' =\begin{pmatrix}
+        t'+z' & x'- \mathbbm{i} y' \\ x'+ \mathbbm{i} y' &   t'-z'
+    \end{pmatrix} =ShS^\dagger; 
+    \qquad x^{\prime\mu}= (t',x',y',z') \in \mathbb{R}^4 .
+\end{equation}
+因为（因$S\in SL(2,\mathbb{C})$，故$\det S=1$，$\det S^\dagger=1$）
+\begin{equation}\label{chlar:eqn_hx}
+    -x^{\prime\mu} x^{\prime}_\mu=\det h' = \det S \cdot \det h \cdot \det S^\dagger = \det h = -x^{\mu}x_\mu .
+\end{equation}
+从上式可知，因变换$h'=ShS^\dagger$引起的$x^\mu \to x^{\prime\mu}$变换是保持$\mathbb{R}^4$中
+矢量的Lorentz间隔不变的；这也就说明此变换是Lorentz变换．
+经过繁琐的推演（可借助计算机符号运算软件），可以得到这个Lorentz变换如下：
+\begin{small}
+\setlength{\mathindent}{0em}
+\begin{align}
+&\qquad    x^{\prime\mu} = \Lambda x^\mu;  \label{chlar:eqn_LT}
+\qquad\text{其中Lorentz矩阵}\ \Lambda = \\
+&\frac{1}{2}\left( {\begin{array}{*{20}{c}}
+        {\left( \begin{array}{l}
+        \alpha {\alpha ^*} + \beta {\beta ^*}\\
+        + \gamma {\gamma ^*} + \delta {\delta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \beta {\alpha ^*} + \alpha {\beta ^*}\\
+        + \delta {\gamma ^*} + \gamma {\delta ^*}
+    \end{array} \right)}&{\mathbbm{i}\left( \begin{array}{l}
+        \beta {\alpha ^*} - \alpha {\beta ^*}\\
+        + \delta {\gamma ^*} - \gamma {\delta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \alpha {\alpha ^*} - \beta {\beta ^*}\\
+        + \gamma {\gamma ^*} - \delta {\delta ^*}
+    \end{array} \right)}\\
+{\left( \begin{array}{l}
+        \gamma {\alpha ^*} + \alpha {\gamma ^*}\\
+        + \delta {\beta ^*} + \beta {\delta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \delta {\alpha ^*} + \alpha {\delta ^*}\\
+        + \gamma {\beta ^*} + \beta {\gamma ^*}
+    \end{array} \right)}&{\mathbbm{i}\left( \begin{array}{l}
+        \delta {\alpha ^*} - \alpha {\delta ^*}\\
+        + \beta {\gamma ^*} - \gamma {\beta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \gamma {\alpha ^*} + \alpha {\gamma ^*}\\
+        - \delta {\beta ^*} - \beta {\delta ^*}
+    \end{array} \right)}\\
+{\mathbbm{i}\left( \begin{array}{l}
+        \alpha {\gamma ^*} - \gamma {\alpha ^*}\\
+        + \beta {\delta ^*} - \delta {\beta ^*}
+    \end{array} \right)}&{\mathbbm{i}\left( \begin{array}{l}
+        \alpha {\delta ^*} - \delta {\alpha ^*}\\
+        + \beta {\gamma ^*} - \gamma {\beta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \delta {\alpha ^*} + \alpha {\delta ^*}\\
+        - \gamma {\beta ^*} - \beta {\gamma ^*}
+    \end{array} \right)}&{\mathbbm{i}\left( \begin{array}{l}
+        \alpha {\gamma ^*} - \gamma {\alpha ^*}\\
+        + \delta {\beta ^*} - \beta {\delta ^*}
+    \end{array} \right)}\\
+{\left( \begin{array}{l}
+        \alpha {\alpha ^*} + \beta {\beta ^*}\\
+        - \gamma {\gamma ^*} - \delta {\delta ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \beta {\alpha ^*} + \alpha {\beta ^*}\\
+        - \delta {\gamma ^*} - \gamma {\delta ^*}
+    \end{array} \right)}&{\mathbbm{i}\left( \begin{array}{l}
+        \beta {\alpha ^*} - \alpha {\beta ^*}\\
+        + \gamma {\delta ^*} - \delta {\gamma ^*}
+    \end{array} \right)}&{\left( \begin{array}{l}
+        \alpha {\alpha ^*} - \beta {\beta ^*}\\
+        - \gamma {\gamma ^*} + \delta {\delta ^*}
+    \end{array} \right)}
+\end{array}} \right) \notag
+\end{align}\setlength{\mathindent}{2em}
+\end{small}
+可通过$\Lambda ^T \eta \Lambda = \eta$（见式\eqref{chlg:eqn_gLorentz}）来验证上式是Lorentz变换．
+此处Lorentz变换$\Lambda$的零零分量是$\Lambda^{0}_{\hphantom{0} 0}=\alpha {\alpha ^*} + \beta {\beta ^*}
++ \gamma {\gamma ^*} + \delta {\delta ^*} > 0$；
+再加上此处的$\Lambda$是一般的Lorentz变换，故有$\Lambda^{0}_{\hphantom{0} 0}\geqslant 1$；
+由此可知此处的$\Lambda\in L^{\uparrow}_{\pm}$（见表\ref{chlg:tab_lorentz}）．
+可以计算出$\Lambda$的行列式为$1$（可借助计算机符号运算软件），
+故最终确定此处的$\Lambda\in L^{\uparrow}_{+}$．
+
+这样，通过$h$（式\eqref{chlar:eqn_hslso}），我们找到了一个从$SL(2,\mathbb{C})$到
+Lorentz变换$SO^{+}(1,3)$（$L^{\uparrow}_{+}$分片就是$SO^{+}(1,3)$）的映射，记为$h$．
+我们还需验证此映射保持群乘法不变．
+每一个$x^\mu \in \mathbb{R}^4$与厄米矩阵$h$（式\eqref{chlar:eqn_hslso}）间
+存在双射关系．
+由式\eqref{chlar:eqn_LT}有如下变换，
+$x'=\Lambda_{A_1} x$，以及$x''=\Lambda_{A_2} x'=\Lambda_{A_2} \Lambda_{A_1}x$．
+令$h''=x''^\mu \sigma_\mu$，$h'=x'^\mu \sigma_\mu$．
+用$x^\mu $与$h$间的双射关系将“$x''=\Lambda_{A_2} x'=\Lambda_{A_2} \Lambda_{A_1}x$”翻译成
+\begin{equation*}
+    h''=x''^\mu \sigma_\mu=A_2 (x'^\mu \sigma_\mu) A_2^\dagger
+    =A_2 \bigl( A_1(x^\mu \sigma_\mu)A_1^\dagger \bigr) A_2^\dagger
+    = A_2 A_1 (x^\mu \sigma_\mu) (A_2A_1)^\dagger .
+\end{equation*}
+上式说明了$h:SL(2,\mathbb{C})\to SO^{+}(1,3)$保持群乘法不变
+\begin{equation}
+    \Lambda_{A_2}\Lambda_{A_1} \quad \xleftrightarrow{h} \quad  A_2 A_1
+     \quad \xleftrightarrow{h}\quad \Lambda_{A_2 A_1}.
+\end{equation}
+此式说明了$h:SL(2,\mathbb{C})\to SO^{+}(1,3)$是同态映射．
+
+下面寻找同态核．本质上就是寻找有哪些$S\in SL(2,\mathbb{C})$使得
+式\eqref{chlar:eqn_LT}中的$\Lambda$是单位矩阵$I$；%令$\Lambda=I$可得如下相互独立的方程式
+由$\Lambda^{0}_{\hphantom{0} 3}=0$和$\Lambda^{3}_{\hphantom{0} 0}=0$可得
+\begin{equation}\label{chlar:eqn_LI-tmp10}
+    \alpha \alpha^* = \delta \delta^*,\qquad
+    \beta \beta^* = \gamma\gamma^* .
+\end{equation}
+再由$\Lambda^{0}_{\hphantom{0} 0}=1$和$\Lambda^{3}_{\hphantom{0} 3}=1$可得
+\begin{equation}\label{chlar:eqn_LI-tmp20}
+    \alpha \alpha^* + \beta \beta^*=1,\quad
+    \alpha \alpha^* - \beta \beta^*=1 .
+\end{equation}
+结合上两式，可得
+\begin{equation}\label{chlar:eqn_LI-tmp30}
+    \alpha\alpha^*=1 = \delta \delta^*,\quad
+    \beta=0= \gamma .
+\end{equation}
+将式\eqref{chlar:eqn_LI-tmp30}带回式\eqref{chlar:eqn_LT}中的$\Lambda$可得
+\begin{equation}
+    \delta \alpha^* + \alpha\delta^* =2\quad \text{和}\quad \delta\alpha^*=\alpha \delta^*
+    \quad \xRightarrow[\ref{chlar:eqn_LI-tmp20}]{\ref{chlar:eqn_LI-tmp10}} \quad
+    \alpha =\delta.
+\end{equation}
+把以上结果带回式\eqref{chlar:eqn_LT}中的$\Lambda$自然得到单位矩阵$I$．
+结合以上诸式，由$1= \det S = \alpha\delta$，
+最终我们得到
+\begin{equation}
+    \alpha^2=1;\qquad \delta=\alpha,\quad  \beta=0=\gamma.
+\end{equation}
+与式\eqref{chlar:eqn_LT}中$\Lambda=I$相对应的$S\in SL(2,\mathbb{C})$是（即同态核）
+\begin{equation}
+    I_2=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \quad \text{和}\quad
+    \bar{I}_{2}=\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} .
+\end{equation}
+由定理\ref{chtop:thm_ghk}可知商群$SL(2,\mathbb{C})/\{I_2,-I_2\}$微分同胚于$SO^{+}(1,3)$；
+这说明$SL(2,\mathbb{C})$是双重同态于$SO^{+}(1,3)$，即两个$SL(2,\mathbb{C})$元素对应一个$SO^{+}(1,3)$元素．
+
+
+我们省略了$SL(2,\mathbb{C})$单连通性的证明，请查阅李群的专门书籍．
+
+
+其实$SL(2,\mathbb{C})$的正规子群只有$\{I_2,\bar{I}_2\}$、$\{I_2\}$和$SL(2,\mathbb{C})$，下面证明之．
+
+\begin{proposition}
+    $SL(2,\mathbb{C})$的非平凡正规子群只有$\{I_2,\bar{I}_2\}$．
+\end{proposition}
+\begin{proof}
+    设$N$是$SL(2,\mathbb{C})$的非平凡正规子群，且$N \neq  \{I_2,\bar{I}_2\}$．
+    取$S=\left(\begin{smallmatrix}   a & b \\ c & d \end{smallmatrix}\right) \in N$，
+    不失一般性设 $c \neq 0$．若$c=0$，则作如下变换
+    \begin{equation*}
+        \begin{pmatrix}  1 & 0 \\ -x & 1 \end{pmatrix} \begin{pmatrix} a & b \\ c & d  \end{pmatrix} 
+        \begin{pmatrix}  1 & 0 \\ x & 1 \end{pmatrix}=\begin{pmatrix} a+bx & b  \\ c-x(a-d+bx) & d-bx  \end{pmatrix} 
+        \equiv \begin{pmatrix} a' & b' \\ c' & d' \end{pmatrix}  .
+    \end{equation*}
+    其中$c'=c-x(a-d+bx)$，那么总存在$x\in\mathbb{C}$使得$c'\neq 0$．
+    
+    取$B=\left(\begin{smallmatrix} 1 & y \\ 0 & 1 \end{smallmatrix}\right)$， 则
+    \begin{equation*}
+        B^{-1} S B=\begin{pmatrix} 
+            a-c y & b-y (-a+d+c y) \\
+            c & d+c y \\
+        \end{pmatrix} \in N .
+    \end{equation*}
+    选取$y$使 $b-y (-a+d+c y)=0$，由于
+    ${\rm det}(B^{-1} S B)=({\rm det}B^{-1}) ({\rm det} S) {\rm det}B={\rm det}S=1$，
+    故对于这样选定的$y$而言，$a-c y$与$d+c y$互为倒数，从而得
+    \begin{equation*}
+        B^{-1} S B=\begin{pmatrix} 
+            \alpha & 0 \\
+            c & \alpha^{-1}
+        \end{pmatrix} \in N,\quad \text{其中}\  c \neq 0 .
+    \end{equation*}
+    
+    
+    若$\alpha=+1$，则得 $\left(\begin{smallmatrix} 1 & 0 \\ c & 1 \end{smallmatrix}\right) \in N$．
+    
+    若$\alpha=-1$，则得$\left(\begin{smallmatrix} -1 & 0 \\ c & -1\end{smallmatrix}\right) \in N$，
+    从而有$\left(\begin{smallmatrix} -1 & 0 \\ c & -1\end{smallmatrix}\right)
+    \left(\begin{smallmatrix} -1 & 0 \\ c & -1\end{smallmatrix}\right)
+    =\left(\begin{smallmatrix}  1 & 0 \\ -2c & 1 \end{smallmatrix}\right)\in N$．
+    
+    若 $\alpha \neq \pm 1$，则在
+    \begin{equation*}
+        \begin{pmatrix} 1 & 0 \\ -x & 1 \end{pmatrix}
+        \begin{pmatrix}  \alpha  & 0 \\  c & \alpha^{-1} \end{pmatrix}
+        \begin{pmatrix}  1 & 0 \\   x & 1 \end{pmatrix} =
+        \begin{pmatrix} 
+            \alpha  & 0 \\
+            c+x \left(\alpha^{-1}-\alpha \right) & \alpha^{-1}
+        \end{pmatrix} .
+    \end{equation*}
+    中取$x=\frac{c}{\alpha-\alpha^{-1}}$，
+    得$\left(\begin{smallmatrix} \alpha & 0 \\ 0 & \alpha^{-1}\end{smallmatrix}\right) \in N$，
+    从而又得
+    \begin{equation*}
+        \begin{pmatrix} \alpha^{-1} & 0 \\ 0 & \alpha \end{pmatrix}
+        \begin{pmatrix} \alpha & 0 \\ c & \alpha^{-1} \end{pmatrix}=
+        \begin{pmatrix} 1 & 0 \\ c \alpha  & 1 \end{pmatrix} 
+        \in N,\quad c \neq 0 .
+    \end{equation*}
+    这就证得：总有 $\left(\begin{smallmatrix} 1 & 0 \\ c_0  & 1 \end{smallmatrix}\right) \in N $，其中$c_0 \neq 0$．
+    \begin{equation*}
+        \text{由}\quad
+        \begin{pmatrix}  y^{-1} & 0 \\  0 & y \end{pmatrix} 
+        \begin{pmatrix}  1 & 0 \\   c_0 & 1   \end{pmatrix} 
+        \begin{pmatrix}  y & 0 \\ 0 & y^{-1}  \end{pmatrix}
+        = \begin{pmatrix}  1 & 0 \\ c_0 y^2 & 1 \end{pmatrix} \quad \text{可知}
+    \end{equation*}
+    $\forall x \neq 0$，只要令上式中的$y=\sqrt{c_0^{-1} x}$，
+    就可以得到：$\left(\begin{smallmatrix} 1 & 0 \\ x & 1\end{smallmatrix}\right) \in N$ ．
+    
+    同样可得：$\forall y \neq 0$，有$\left(\begin{smallmatrix} 1 & y \\ 0 & 1\end{smallmatrix}\right) \in N$ ．
+    
+    因为$SL(2,\mathbb{C})$的任一矩阵均可表为若干个形如$\left(\begin{smallmatrix} 1 & 0 \\ x & 1\end{smallmatrix}\right)$和
+    $\left(\begin{smallmatrix} 1 & y \\ 0 & 1\end{smallmatrix}\right)$的乘积，从而得$N=SL(2,\mathbb{C})$．
+    这就证得$SL(2,\mathbb{C})$的非平凡正规子群只有$\{I_2,\bar{I}_2\}$． 
+\end{proof}
+
+
+我们取式\eqref{chlar:eqn_sl2}中的$\alpha=\cosh \frac{\psi}{2}=\delta$、
+$\beta=-\sinh \frac{\psi}{2}=\gamma$，
+记为$K_1(\psi)$；带入式\eqref{chlar:eqn_LT}，有
+\begin{equation}\label{chlar:eqn_sL2-x}
+    K_1(\psi)=\begin{pmatrix}
+        \cosh \frac{\psi}{2} & -\sinh \frac{\psi}{2} \\
+        -\sinh \frac{\psi}{2} & \cosh \frac{\psi}{2}
+    \end{pmatrix}
+    \ \leftrightarrow \
+    \Lambda_{K_1}=\left(\begin{smallmatrix}
+            \cosh (\psi ) & -\sinh (\psi ) & 0 & 0 \\
+            -\sinh (\psi ) & \cosh (\psi ) & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 
+    \end{smallmatrix} \right)
+\end{equation}
+这是沿$x$轴的伪转动．
+再取$\alpha=\cosh \frac{\psi}{2}=\delta$、
+$ \beta=\mathbbm{i}\sinh \frac{\psi}{2}=-\gamma$，有
+\begin{equation}\label{chlar:eqn_sL2-y}
+    K_2(\psi)=\begin{pmatrix}
+        \cosh \frac{\psi}{2} & \mathbbm{i} \sinh \frac{\psi}{2} \\
+        -\mathbbm{i} \sinh \frac{\psi}{2} & \cosh \frac{\psi}{2}
+    \end{pmatrix}
+    \ \leftrightarrow \
+    \Lambda_{K_2}=\left(\begin{smallmatrix}
+            \cosh (\psi ) & 0 & -\sinh (\psi ) & 0 \\
+            0 & 1 & 0 & 0 \\
+            -\sinh (\psi ) & 0 & \cosh (\psi ) & 0 \\
+            0 & 0 & 0 & 1 \\
+    \end{smallmatrix} \right)
+\end{equation}
+这是沿$y$轴的伪转动．
+再取$\alpha=\exp(-\frac{\psi}{2})$、$ \delta=\exp(\frac{\psi}{2})$、
+$\beta=0=\gamma$，有
+\begin{equation}\label{chlar:eqn_sL2-z}
+    K_3(\psi)= \begin{pmatrix}
+        \mathrm{e}^{-\psi / 2} & 0 \\
+        0 & \mathrm{e}^{\psi / 2}
+    \end{pmatrix}
+    \quad \leftrightarrow \quad
+    \Lambda_{K_3}=\left(\begin{smallmatrix}
+            \cosh (\psi ) & 0 & 0 & -\sinh (\psi ) \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            -\sinh (\psi ) & 0 & 0 & \cosh (\psi ) \\
+   \end{smallmatrix} \right) .
+\end{equation}
+这是沿$z$轴的伪转动．
+
+
+
+
+
+
+
+
+\subsection{$SL(2,\mathbb{C})$群旋量表示}\label{chlar:sec_sl2rep}
+
+%李群表示论中有一般性结论：非紧致李群的非平庸幺正表示都是无穷维的；紧致李群的幺正表示是有限维的．
+%因$SL(2,\mathbb{C})$是非紧致的，故非平庸有限维表示不是幺正的（参见定理\ref{chlar:thm_IFU}）；
+%下面寻找$SL(2,\mathbb{C})$的不可约有限维复表示．
+
+不难验证$SU(2)$群元与其复共轭矩阵
+\begin{align*}
+    &\ U=\begin{pmatrix} a & b \\ -b^* & a^* \end{pmatrix} \in SU(2)
+    \quad \text{和}\quad  \bar{U}=
+    \begin{pmatrix} a^* & b^* \\ -b & a \end{pmatrix}  \\
+&\text{满足如下关系}\quad
+    \bar{U}=\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} U
+    \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+    =\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}^{-1} U    
+    \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} .
+\end{align*}
+所以$SU(2)$自身及其复共轭的表示是等价的．
+
+但$SL(2,\mathbb{C})$群比$SU(2)$少了一个幺正条件，这导致
+\begin{equation}
+    \text{矩阵}\ \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix} \in SL(2,\mathbb{C})
+    \quad \text{和其复矩阵}\  
+    \begin{pmatrix} \alpha^* & \beta^* \\ \gamma^* & \delta^* \end{pmatrix} 
+\end{equation}
+的表示是不等价的．因此对于$SL(2,\mathbb{C})$群，我们必须引入两套空间．
+\begin{equation}\label{chlar:eqn_SSL2C}
+    \text{设}\ SL(2,\mathbb{C})\ni S=\begin{pmatrix} a^0_{\hphantom{0} 0} & a^0_{\hphantom{0} 1} 
+        \\ a^1_{\hphantom{0} 0} & a^1_{\hphantom{0} 1}  \end{pmatrix}  
+    = \begin{pmatrix} a & b  \\ c & d \end{pmatrix}  .
+\end{equation}
+上式中，我们已经令$a^0_{\hphantom{0} 0}=a$、$a^0_{\hphantom{0} 1}=b$、
+$a^1_{\hphantom{0} 0}=c$、$a^1_{\hphantom{0} 1}=d$；这是一种通用的记法．
+我们构造一个具有两个分量的复元素$(\phi^0, \phi^1)^T$，$\phi^0, \phi^1 \in \mathbb{C}$；
+矩阵$S$作用在它上面，将其变为$(\phi'^0, \phi'^1)^T$，具体表示为
+\begin{equation}\label{chlar:eqn_phi-spin}
+    \begin{pmatrix} \phi'^0\\ \phi'^1 \end{pmatrix}=
+    \begin{pmatrix} a^0_{\hphantom{0} 0} & a^0_{\hphantom{0} 1} \\ a^1_{\hphantom{0} 0} & a^1_{\hphantom{0} 1}  \end{pmatrix} 
+    \begin{pmatrix} \phi^0\\ \phi^1 \end{pmatrix}
+%    =\begin{pmatrix} a^0_{\hphantom{0} 0} \phi^0+a^0_{\hphantom{0} 1}\phi^1 \\ 
+%        a^1_{\hphantom{0} 0} \phi^0+a^1_{\hphantom{0} 1}\phi^1 \end{pmatrix}
+    \quad \Leftrightarrow \quad
+    \phi'^A = \sum_{B=0}^{1} a^A_{\hphantom{0} B} \phi^B .
+\end{equation}
+称服从$SL(2,\mathbb{C})$变换规则的$(\phi^0, \phi^1)^T$是
+{\heiti 基本二分量旋量}或{\bfseries\heiti Weyl左手旋量}．
+
+\index[physwords]{Weyl旋量}
+
+\begin{example}
+    进一步理解旋量定义\eqref{chlar:eqn_phi-spin}．
+\end{example}
+
+设有建立在复数域$\mathbb{C}$上的二维复线性空间$V$；设$o^A$、$\iota^A$是$V$中
+两个线性无关的矢量，那么$\{o^A,\iota^A\}$可以看成$V$的基矢．
+很明显，任意一对复数不能称为旋量，它需要满足一定规则．
+设$SL(2,\mathbb{C}) \ni S = \left(\begin{smallmatrix} a & b\\ c & d \end{smallmatrix}\right)$；
+当旧基矢$\{o^A,\iota^A\}$经$S^{-1}$变成新基矢$\{o'^A,\iota'^A\}$时，
+即$\{o^A,\iota^A\}\overset{S^{-1}}{\rightarrow}\{o'^A,\iota'^A\}$；
+旧复数对$(\xi,\zeta)^T$经$S$变成新复数对$(\xi',\zeta')^T$，
+即$(\xi,\zeta)^T \overset{S}{\rightarrow} (\xi',\zeta')^T$；
+那么，我们称复数对$(\xi,\zeta)^T$是基本二分量旋量．
+也就是
+\begin{equation}
+    \left(o^A,\ \iota^A\right) \begin{pmatrix} \xi \\\zeta \end{pmatrix}
+    =\Bigl(\left(o^A,\ \iota^A\right) S^{-1}\Bigr) \cdot 
+    \left[S \begin{pmatrix} \xi \\\zeta \end{pmatrix}\right]
+    =\left(o'^A,\ \iota'^A\right) \begin{pmatrix} \xi' \\\zeta' \end{pmatrix} .
+\end{equation}
+这其实就是矢量的分量定义方式，见式\eqref{chmla:def_tensor-by-compoents}；
+故我们把二分量旋量称为遵循$SL(2,\mathbb{C})$变换的二维复矢量．
+而$SL(2,\mathbb{C})$变换可以看成复Lorentz变换（参见式\eqref{chlar:eqn_LT}），
+故二分量旋量也就是四维Lorentz实矢量；它俩就是一回事儿．
+遵循$SL(2,\mathbb{C})$变换的二维复线性空间$V$称为旋量空间，
+用下面即将介绍的记号就是$V\cong \mathfrak{S}^A$． \qed
+
+
+$SL(2,\mathbb{C})$的复共轭矩阵表示与其自身并不等价；
+为此，我们引入一套带点的记号来标记复共轭：
+$    \bar{\phi}^{\dot{0}} \equiv \bar{\phi}^0, \
+    \bar{\phi}^{\dot{1}} \equiv \bar{\phi}^1 $．
+则复共轭情形下的变换规律是
+\begin{equation}\label{chlar:eqn_phi-spin-dot}
+    \begin{pmatrix} \bar{\phi}'^{\dot{0}}\\ \bar{\phi}'^{\dot{1}} \end{pmatrix}=
+    \begin{pmatrix} \bar{a}^{\dot{0}}_{\hphantom{0} \dot{0}}  & \bar{a}^{\dot{0}}_{\hphantom{0} \dot{1}} 
+        \\  \bar{a}^{\dot{1}}_{\hphantom{0} \dot{0}} & \bar{a}^{\dot{1}}_{\hphantom{0} \dot{1}}  \end{pmatrix}
+    \begin{pmatrix} \bar{\phi}^{\dot{0}}\\ \bar{\phi}^{\dot{1}} \end{pmatrix}
+%    =\begin{pmatrix} \bar{a}^{\dot{0}}_{\hphantom{0} \dot{0}} \bar{\phi}^{\dot{0}} 
+%        + \bar{a}^{\dot{0}}_{\hphantom{0} \dot{1}}\bar{\phi}^{\dot{1}}
+%        \\ \bar{a}^{\dot{1}}_{\hphantom{0} \dot{0}} \bar{\phi}^{\dot{0}}
+%        +\bar{a}^{\dot{1}}_{\hphantom{0} \dot{1}}\bar{\phi}^{\dot{1}} \end{pmatrix}
+    \quad \Leftrightarrow \quad
+    \bar{\phi}'^{\dot{A}} = \sum_{\dot{B}=\dot{0}}^{\dot{1}} \bar{a}^{\dot{A}}_{\hphantom{A}\dot{B}} \bar{\phi}^{\dot{B}} .
+\end{equation}
+我们称$(\bar{\phi}^{\dot{0}}, \bar{\phi}^{\dot{1}})^T$是{\heiti 带点的基本二分量旋量}或{\bfseries\heiti Weyl右手旋量}．
+数字以及角标上的圆点只是为了区分式\eqref{chlar:eqn_phi-spin}而加的，没有其它含义；
+矩阵$\{\bar{a}^{\dot{A}}_{\hphantom{A} \dot{B}}\}$是矩阵$\{{a}^{{A}}_{\hphantom{A} {B}}\}$的复共轭．
+
+
+
+我们以左手二分量旋量为例给出{\heiti 旋量空间}明确定义，
+记为$\mathfrak{S}$，它包含所有的左手二分量旋量；
+在其中定义加法、数乘如下
+\begin{align}
+    (\phi^0,\phi^1)^T + (\psi^0,\psi^1)^T\overset{def}{=} & (\phi^0+\psi^0,\ \phi^1+\psi^1)^T,
+    \qquad \text{变元}\, \phi^0,\phi^1,\psi^0,\psi^1\in \mathbb{C} ; \notag \\
+    \lambda (\phi^0,\phi^1)^T \overset{def}{=} & (\lambda \phi^0, \lambda \phi^1)^T ,
+    \qquad \text{常数}\, \lambda \in \mathbb{C} . \label{chlar:eqn_tmpss}
+\end{align}
+由上式构建的加法和数乘满足线性空间的八条公理（验证过程留给读者），
+故$\mathfrak{S}$是数域$\mathbb{C}$上的线性空间，其中元素称为{\kaishu 旋量矢量}（spin-vector）．
+需要指出的是：$\mathfrak{S}$中只包含二分量旋量，不包含高阶旋量．
+为了表明旋量的阶数，将其记为$\mathfrak{S}^A$；它自然有对偶空间$\mathfrak{S}_{A}$．
+
+
+
+引入带点、不带点表示方式的学者是荷兰数学家B. L. Van der Waerden（1903-1996），
+他是最早将群论引入量子物理的知名学者之一．
+为使行文流畅一些，我们把高阶旋量的定义放到\S\ref{chlar:sec_hs}；
+但下面的表示要用到高阶旋量（就是旋量的张量积）
+\begin{equation}\label{chlar:pall-p1mn}
+    \Phi^{A_1 \cdots A_m \dot{B}_1 \cdots \dot{B}_n} = 
+    \phi^{A_1} \cdots \phi^{A_m} \bar{\phi}^{\dot{B}_1} \cdots \bar{\phi}^{\dot{B}_n} , \quad 
+    \{A\},\ \{\dot{B}\} \ \text{取值}\ 0, 1
+\end{equation}
+我们需要$\Phi^{A_1 \cdots A_m \dot{B}_1 \cdots \dot{B}_n}$对
+{\kaishu 角标$A_1,\cdots,A_m$全对称，以及对$\dot{B}_1 \cdots \dot{B}_n$全对称}．
+由于指标全对称，$A_1,\cdots,A_m$独立的取值为：
+$0,\cdots,0$、$0,\cdots,0,1$、$0,\cdots,0,1,1$、……、$0,1,\cdots,1$、$1,\cdots,1$；共有$m+1$个．
+$\dot{B}_1 \cdots \dot{B}_n$的独立指标有$n+1$个，故这个空间维数是$(m+1)(n+1)$．
+在全对称约定下，式\eqref{chlar:pall-p1mn}可以被写成
+\begin{equation}\label{chlar:pall-p1mn32}
+    \Phi^{\{A_i \dot{B}_j\}} = \left( \phi^{0}\right)^k \left( \phi^{1}\right)^{m-k}  
+    \left( \bar{\phi}^{\dot{0}}\right)^l \left( \bar{\phi}^{\dot{1}}\right)^{n-l} , 
+    \ 0 \leqslant k \leqslant m,\  0 \leqslant l \leqslant n.
+\end{equation}
+我们先用旋量的两个分量构造全对称的张量积，然后把它写成了齐次多项式形式（即\eqref{chlar:pall-p1mn32}）．
+全对称旋量$\Phi^{\{A_i \dot{B}_j\}}$在$SL(2,\mathbb{C})$群元作用下仍是同阶旋量，具有封闭性，可构成该群的表示空间．
+
+
+用左手旋量来构造$SL(2,\mathbb{C})$群表示空间，
+但为了表示简洁（省去角标），我们将左手二分量旋量记为$(u,v)$．
+对于矩阵\eqref{chlar:eqn_SSL2C}（矩阵$S$），
+矩阵$S$右作用在$(u,v)$（其中$u$、$v$是复数）上的结果是
+\begin{equation}
+    \begin{pmatrix} u'& v' \end{pmatrix} =
+    \begin{pmatrix} u & v \end{pmatrix}
+    \begin{pmatrix} a & b  \\ c & d \end{pmatrix}
+    =\begin{pmatrix} au+cv & bu+dv \end{pmatrix}.
+\end{equation}
+令式\eqref{chlar:pall-p1mn32}中$m=2j_1$、$n=0$，并改变指标范围后，选择被变换的基矢为：
+\begin{equation}\label{chlar:eqn_SL2Base}
+    \boldsymbol{B}^{j_1}_{s_1} = \frac{u^{j_1+s_1} v^{j_1-s_1}}{\sqrt{(j_1+s_1)!(j_1-s_1)!}},\quad
+    s_1 = -j_1, -j_1 +1, \cdots, j_1 -1, j_1 .
+\end{equation}
+将基矢写成上述形式的主要目的是：当$SL(2,\mathbb{C})$群表示约化到$SU(2)$群表示时，
+式\eqref{chlar:eqn_SL2Base}中的分母可保证$SU(2)$群表示\eqref{chlar:eqn_SU2-representation}为幺正的．
+
+下面需用二项式展开定理：
+\begin{equation}\label{chlar:eqn_binom}
+    (x+y)^r = \sum_{s=0}^{r}\frac{r!}{s!(r-s)!} x^s y^{r-s} .
+\end{equation}
+将映射$S \xlongrightarrow{\varphi} \hat{D}_S$直接作用在基矢$\boldsymbol{B}^{j_1}_{s_1}$上，并用上式，有
+\begin{align*}
+    \hat{D}_S \boldsymbol{B}^{j_1}_{s_1} =& \frac{u'^{j_1+s_1} v'^{j_1-s_1}}{\sqrt{(j_1+s_1)!(j_1-s_1)!}}
+    =\frac{(au+cv)^{j_1+s_1} (bu+dv)^{j_1-s_1}}{\sqrt{(j_1+s_1)!(j_1-s_1)!}} \\
+    =& \sum_{p=0}^{j_1-s_1} \sum_{q=0}^{j_1+s_1} 
+    \frac{\sqrt{(j_1-s_1)! (j_1+s_1)! } }{p!(j_1-s_1-p)! q! (j_1+s_1-q)!}
+    (au)^q (cv)^{j_1+s_1-q} (bu)^p (dv)^{j_1-s_1-p}  \\
+    =& \sum_{p=0}^{j_1-s_1} \sum_{q=0}^{j_1+s_1} 
+    \frac{\sqrt{(j_1-s_1)! (j_1+s_1)! } }{p!(j_1-s_1-p)! q! (j_1+s_1-q)!}
+    a^q c^{j_1+s_1-q} b^p d^{j_1-s_1-p} u^{q+p} v^{2j_1 -q-p} .
+\end{align*}
+对上式最后一行的求和指标作代换$-t=j_1-p-q$，继续计算有
+\begin{align*}
+    \hat{D}_S \boldsymbol{B}^{j_1}_{s_1} = \sum_{p=0}^{j_1-s_1} \sum_{t=j_1}^{-j_1} 
+    \frac{\sqrt{(j_1-s_1)! (j_1+s_1)!}\ a^{j_1-p+t} c^{s_1+p-t} b^p d^{j_1-s_1-p} }
+    {p!(j_1-s_1-p)! (j_1-p+t)! (s_1+p-t)!}  
+    u^{j_1 +t} v^{j_1 -t} .
+\end{align*}
+将上式的求和符号作调换，即
+\begin{equation*}
+    \sum_{p=0}^{j_1-s_1} \sum_{t=j_1}^{-j_1} = \sum_{t=j_1}^{-j_1} \sum_{p=0}^{2j_1} .
+\end{equation*}    
+{\kaishu 规定负整数阶乘是正无穷大}，则作调换之后$p$的求和范围是$0\leqslant p \leqslant 2j_1$．有
+\begin{align}
+    \hat{D}_S \boldsymbol{B}^{j_1}_{s_1} =& \sum_{t=j_1}^{-j_1}  \sum_{p=0}^{2j_1} 
+        \frac{\sqrt{(j_1-s_1)! (j_1+s_1)! (j_1-t)! (j_1+t)!}  }
+        {p!(j_1-s_1-p)! (j_1-p+t)! (s_1+p-t)!} \notag \\
+        & a^{j_1-p+t} c^{s_1+p-t} b^p d^{j_1-s_1-p}    \boldsymbol{B}^{j_1}_{t} . \label{chlar:eqn_BDs}
+\end{align}
+计算到这里，需要补充一个前面未曾提及的问题，即由基矢$\boldsymbol{B}^{j_1}_{t}$张成
+的空间${\rm Span}\{\boldsymbol{B}^{j_1}_{t}\}$能否成为$SL(2,\mathbb{C})$群的表示空间．
+式\eqref{chlar:eqn_BDs}表明，在映射$S \xlongrightarrow{\varphi}  \hat{D}_S$作用下，
+空间${\rm Span}\{\boldsymbol{B}^{j_1}_{t}\}$是封闭的，故可以作为群表示空间．
+式\eqref{chlar:eqn_BDs}可以写成：$\hat{D}_S \boldsymbol{B}^{j_1}_{s_1} = \sum_{t}
+\boldsymbol{B}^{j_1}_{t}D^{j_1}_{ts_1 }(S)$，其中$D^{j_1}_{ts_1 }(S)$是$SL(2,\mathbb{C})$群的表示矩阵
+\begin{equation}\label{chlar:eqn_SLS}
+    \begin{aligned}
+    D^{j_1}_{ts_1 }(S) =&  \sum_{p=0}^{2j_1} 
+        \frac{\sqrt{(j_1-s_1)! (j_1+s_1)! (j_1-t)! (j_1+t)!}  }
+{ (j_1-p+t)! (s_1+p-t)! p!(j_1-s_1-p)! } \\
+& \times a^{j_1-p+t} c^{s_1+p-t} b^p d^{j_1-s_1-p} .
+    \end{aligned}
+\end{equation} %\setlength{\mathindent}{2em}
+如果，我们还有另外一个群元$T$继续作用在上述映射上，则有
+\begin{align}
+	\hat{D}_{TS} \boldsymbol{B}^{j_1}_{s_1} = &
+	\hat{D}_T \circ \hat{D}_S \boldsymbol{B}^{j_1}_{s_1} = \hat{D}_T \left( 
+	\sum_{t}\boldsymbol{B}^{j_1}_{t}D^{j_1}_{ts_1 }(S) \right)
+	= \sum_{t} \left(  \hat{D}_T \boldsymbol{B}^{j_1}_{t} \right) D^{j_1}_{ts_1 }(S) \notag \\
+	= & \sum_{u,t}  \boldsymbol{B}^{j_1}_{u} D^{j_1}_{u t }(T) D^{j_1}_{ts_1 }(S)
+	= \sum_{u}  \boldsymbol{B}^{j_1}_{u} D^{j_1}_{u s_1 }(TS).
+\end{align}
+上式说明，我们所选的映射关系保持群乘法不变．
+
+仿照$S$的基矢，令式\eqref{chlar:pall-p1mn32}中$m=0$、$n=2j_2$，构造其复共轭基矢：
+\begin{equation}
+    \overline{\boldsymbol{B}}^{j_2}_{s_2} = 
+    \frac{\bar{u}^{j_2+s_2} \bar{v}^{j_2-s_2}}{\sqrt{(j_2+s_2)!(j_2-s_2)!}} ,\quad
+    s_2 = -j_2, -j_2 +1, \cdots, j_2 -1, j_2.
+\end{equation}
+那么，复共轭矩阵$\overline{S}$的表示为：
+$    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}$
+（即式\eqref{chlar:eqn_SLS}的复共轭）．
+
+最终，由线性空间${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \otimes\overline{\boldsymbol{B}}^{j_2}_{s_2}\}$
+（后面将省略张量积符号“$\otimes$”；此式与\eqref{chlar:pall-p1mn32}存在双射关系）
+负载的$SL(2,\mathbb{C})$群表示记为$\boxed{D^{(j_1 j_2)}}$：
+\begin{equation}\label{chlar:eqn_SL2-3rd}
+    D^{(j_1 j_2)} =  D^{j_1}_{t_1 s_1 }(S) \otimes \overline{D}^{j_2}_{t_2 s_2 }(\overline{S}) .
+    \qquad \text{“$\otimes $”是两矩阵张量积}
+\end{equation}
+式中$2j_1$、$2j_2$是从$0$算起的非负整数；
+表示\eqref{chlar:eqn_SL2-3rd}中行（$t$）、列（$s$）指标都从$j$递减到$-j$排列．
+很明显，${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \overline{\boldsymbol{B}}^{j_2}_{s_2}\}$的维数是：$(2j_1+1)(2j_2+1)$．
+前面介绍的带点、不带点基本二分量旋量是构成
+线性空间${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \overline{\boldsymbol{B}}^{j_2}_{s_2}\}$的基本元素．
+
+
+当$j_1+j_2$为整数时，式\eqref{chlar:eqn_SL2-3rd}是Lorentz群的（单值）表示．
+当$j_1+j_2$为半奇数时，式\eqref{chlar:eqn_SL2-3rd}对应Lorentz群{\kaishu 双值表示}；
+依照\S\ref{chlar:sec_C2Q}约定，我们不采用双值表示这一术语．
+
+关于$SL(2,\mathbb{C})$群表示，可以证明（参见\parencite{carmeli-rl1976}附录A3）：
+{\bfseries (1)} 所有旋量表示\eqref{chlar:eqn_SL2-3rd}都是不可约的．
+{\bfseries (2)} 所有有限维不可约复表示都等价于旋量表示．
+{\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（也可参见定理\ref{chlar:thm_IFU}）．
+
+
+当$j_1=0=j_2$时，表示是一维单位矩阵，即$D^{(00)}=(1)$．
+
+当$2j_1=1,\ 2j_2=0$及$2j_1=0,\ 2j_2=1$时，有
+\begin{equation}
+    D^{(\frac{1}{2}0)} = \begin{pmatrix} a & b   \\ c & d   \end{pmatrix},\qquad
+    D^{(0\frac{1}{2})} = \begin{pmatrix} \bar{a} & \bar{b}   \\ \bar{c} & \bar{d}   \end{pmatrix}.
+\end{equation}
+我们把以上两个表示的直和记为$D^{(\frac{1}{2}0)} \oplus D^{(0\frac{1}{2})}$，即
+\begin{equation}
+    D^{(\frac{1}{2}0)} \oplus D^{(0\frac{1}{2})}= 
+    \begin{pmatrix}
+        a & b & 0 & 0   \\ 
+        c & d & 0 & 0 \\
+        0 & 0 & \bar{a} & \bar{b}  \\ 
+        0 & 0 & \bar{c} & \bar{d}
+    \end{pmatrix}.
+\end{equation}
+
+当$2j_1=2,\ 2j_2=0$时，有
+\begin{equation}
+    D^{(10)} = \begin{pmatrix} 
+            a^2 & \sqrt{2} a b & b^2 \\
+            \sqrt{2} a c & b c+a d & \sqrt{2} b d \\
+            c^2 & \sqrt{2} c d & d^2 
+    \end{pmatrix}.
+\end{equation}
+
+
+当$2j_1=1= 2j_2$时，有
+\begin{equation}
+    D^{(\frac{1}{2}\frac{1}{2})} 
+    =D^{(\frac{1}{2}0)} \otimes D^{(0\frac{1}{2})}
+    =\begin{pmatrix} a \bar{a} & a \bar{b} & b \bar{a} & b \bar{b} \\
+        a \bar{c} & a \bar{d} & b \bar{c} & b \bar{d} \\
+        c \bar{a} & c \bar{b} & d \bar{a} & d \bar{b} \\
+        c \bar{c} & c \bar{d} & d \bar{c} & d \bar{d} 
+    \end{pmatrix}  .
+\end{equation}
+
+%$SL(2,\mathbb{C})$与Lorentz群的同态关系，以及本小节群表示是Weyl提出的．
+
+
+
+\subsection{$\mathfrak{sl}(2,\mathbb{C})$二维实形式李代数}\label{chlar:sec_sl-LA}
+
+Lorentz群有三个单参数子群分别是绕$x$、$y$、$z$轴转动；
+在式\eqref{chlar:eqn_su2-x}--\eqref{chlar:eqn_su2-z}中，
+我们已然找到它们在$SL(2,\mathbb{C})$群中的对应表达式为：
+\begin{small}
+\setlength{\mathindent}{0em}
+\begin{equation}
+    J_1=\begin{pmatrix}
+        \cos \frac{\psi}{2} & -\mathbbm{i} \sin \frac{\psi}{2} \\
+        -\mathbbm{i} \sin \frac{\psi}{2} & \cos \frac{\psi}{2}
+    \end{pmatrix}, \ 
+    J_2=\begin{pmatrix}
+        \cos \frac{\psi}{2} & -\sin \frac{\psi}{2} \\
+        \sin \frac{\psi}{2} & \cos \frac{\psi}{2}
+    \end{pmatrix}, \
+     J_3=\begin{pmatrix}
+        \mathrm{e}^{-\mathbbm{i} \psi / 2} & 0 \\
+        0 & \mathrm{e}^{\mathbbm{i} \psi / 2}
+   \end{pmatrix}.
+\end{equation}   \setlength{\mathindent}{2em}
+
+Lorentz群还有三个单参数子群分别是沿$x$、$y$、$z$轴的伪转动；
+在式\eqref{chlar:eqn_sL2-x}--\eqref{chlar:eqn_sL2-z}中，
+我们已然找到它们在$SL(2,\mathbb{C})$群中的对应表达式为：
+\setlength{\mathindent}{-1em}
+\begin{equation}
+    K_1=\begin{pmatrix}
+        \cosh \frac{\psi}{2} & -\sinh \frac{\psi}{2} \\
+        -\sinh \frac{\psi}{2} & \cosh \frac{\psi}{2}
+    \end{pmatrix}, 
+    K_2=\begin{pmatrix}
+        \cosh \frac{\psi}{2} & \mathbbm{i} \sinh \frac{\psi}{2} \\
+        -\mathbbm{i} \sinh \frac{\psi}{2} & \cosh \frac{\psi}{2}
+    \end{pmatrix},
+    K_3=\begin{pmatrix}
+        \mathrm{e}^{-\psi / 2} & 0 \\
+        0 & \mathrm{e}^{\psi / 2}
+\end{pmatrix} .
+\end{equation}\setlength{\mathindent}{2em}
+\end{small}
+符号$J$、$K$是借用了Lorentz代数中的生成元的符号．
+
+对上两式求$\psi$的导数并令$\psi=0$，即可得到$\mathfrak{sl}(2,\mathbb{C})$代数及对易关系：
+\begin{align}
+    &r_1=-\frac{\mathbbm{i}}{2} \begin{pmatrix}  0 & 1  \\ 1 & 0  \end{pmatrix}, \quad 
+     r_2=-\frac{\mathbbm{i}}{2} \begin{pmatrix}  0 & -\mathbbm{i} \\ \mathbbm{i} & 0 \end{pmatrix}, \quad
+     r_3=-\frac{\mathbbm{i}}{2} \begin{pmatrix}  1 & 0 \\     0 & -1
+      \end{pmatrix}; \label{chlg:eqn_LA-sl2-r} \\
+    &b_1=-\frac{1}{2}\begin{pmatrix}    0 & 1 \\ 1 & 0  \end{pmatrix}, \quad
+     b_2=-\frac{1}{2}\begin{pmatrix}    0 & -\mathbbm{i}  \\ \mathbbm{i}  & 0  \end{pmatrix},\quad
+     b_3=-\frac{1}{2}\begin{pmatrix}    1 & 0 \\   0 & -1 
+      \end{pmatrix} . \label{chlg:eqn_LA-sl2-b} \\
+    &[r_i, r_j] = \sum_k \epsilon_{ijk} r_k,\quad
+    [b_i, r_j] = \sum_k \epsilon_{ijk} b_k,\quad
+    [b_i, b_j] = -\sum_k \epsilon_{ijk} r_k. \label{chlg:eqn_LA-sl2-comm}
+\end{align}
+其中$i,j,k=1,2,3$；$\epsilon_{ijk}=\delta^{123}_{ijk}$，定义见式\eqref{chmla:eqn_gkd}．
+式\eqref{chlg:eqn_LA-sl2-r}、\eqref{chlg:eqn_LA-sl2-b}连同
+对易关系\eqref{chlg:eqn_LA-sl2-comm}构成了$\mathfrak{sl}(2,\mathbb{C})$代数；
+不难看出它与Lorentz代数是同构的，即$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}^{+}(1,3)$．
+$r$代表转动（rotation），$b$代表伪转动（boost）．
+
+通过矩阵的指数映射计算可得：
+$J_k(\psi)=\mathrm{e}^{\psi r_k}$，$ K_k(\psi)=\mathrm{e}^{\psi b_k}$．
+
+常数矩阵$r_k$ 和$b_k$ 还可以用Pauli矩阵来表示：$r_k= -\mathbbm{i} \sigma_k / 2$、 $b_k=-\sigma_k / 2$．
+
+
+$\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag}(-2,-2,-2,2,2,2)$；故半单．
+%
+%Casimir算子：$C_2=\frac{1}{4}\left(
+%\begin{smallmatrix}    1 & 0 \\    0 & 1\end{smallmatrix}\right)$．\qed
+
+
+
+\subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
+
+\S\ref{chlar:sec_sl-LA}只给出了二维表示，本节给出全部有限维复表示．
+
+{\kaishu 非紧致}李群$SL(2,\mathbb{C})$不可能同胚于{\kaishu 紧致}的$SU(2)\times SU(2)$群；
+但是它们的李代数却是同构的，即$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$；下面论证此点．
+由于$SL(2,\mathbb{C})/\{I_2,-I_2\}$微分同胚于$SO^{+}(1,3)$，从定理\ref{chlg:thm_LA2LG-all}可知：
+$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}^{+}(1,3)$．
+已知Lorentz代数$\mathfrak{so}^{+}(1,3)$，即\eqref{chlg:eqn_LA-so13-comm-JK}．
+\begin{equation}
+    [J_i, J_j] = \mathbbm{i} \epsilon_{ijk} J_k,\quad
+    [J_i, K_j] = \mathbbm{i} \epsilon_{ijk} K_k,\quad
+    [K_i, K_j] = -\mathbbm{i}\epsilon_{ijk} J_k.
+    \tag{\ref{chlg:eqn_LA-so13-comm-JK}}
+\end{equation}
+由Lorentz生成元$J_l,K_l$构造两个新的生成元如下
+\begin{equation}\label{chlar:eqn_new-so13}
+    M_l \equiv (J_l + \mathbbm{i} K_l )/2, \qquad
+    N_l \equiv (J_l - \mathbbm{i} K_l )/2; \qquad l=1,2,3
+\end{equation}
+用上式重新表述式\eqref{chlg:eqn_LA-so13-comm-JK}中对易关系，
+有（其中$k,l = 1,2,3$）
+\begin{equation}\label{chlar:eqn_new-LA-so13}
+    [M_k, M_l] = \mathbbm{i} \epsilon_{kln} M_n, \quad
+    [N_k, N_l] = \mathbbm{i} \epsilon_{kln} N_n, \quad
+    [M_k, N_l] = 0.
+\end{equation}
+很明显式\eqref{chlar:eqn_new-LA-so13}中李代数对易关系同构于
+李代数张量积$\mathfrak{su}(2)_M \otimes\mathfrak{su}(2)_N$，
+这也就证明了：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$．
+%由定理\ref{chlg:thm_LA2LG-all}可知在同构意义下李代数$\mathfrak{sl}(2,\mathbb{C})$和$SL(2,\mathbb{C})$相互唯一确定；
+%这个同构表明$SL(2,\mathbb{C})$群表示可由两套相互独立的$SU(2)$表示指标来标记．
+
+
+
+\begin{example}\label{chlar:exm_sl2c-Casimir}
+    参考例\ref{chlar:exm_so3-Killing-Casimir}可知$\mathfrak{su}(2)_M \otimes\mathfrak{su}(2)_N$（
+    $\cong\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}(1,3)$）有两个独立的Casimir算子：
+    ${C}_1 = M^2= M_x^2+M_y^2+M_z^2$和${C}_2 = N^2= N_x^2+N_y^2+N_z^2$． \qed
+\end{example}
+
+
+我们已得到$\mathfrak{su}(2)$的不可约表示（见\S\ref{chlar:sec_J}）；
+由同构关系$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$可知
+$\mathfrak{su}(2)_M $、$\mathfrak{su}(2)_N$表示的张量积可给出李代数$\mathfrak{sl}(2,\mathbb{C})$的有限维表示．
+需要说明的是，李代数$\mathfrak{su}(2)$的复共轭表示等价于自身，这与$SL(2,\mathbb{C})$群不同；
+为了与式\eqref{chlar:eqn_SL2-3rd}表观对应，可以将上述同构关系记为
+$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes \overline{\mathfrak{su}(2)}$．
+我们设$\mathfrak{su}(2)_M\otimes{\mathfrak{su}(2)_N}$的表示空间基矢
+为$|j_M m_M\rangle \otimes {|j_N m_N\rangle}$，
+为了简洁，将其简记为$|m_M {m_N} \rangle$．
+利用式\eqref{chlar:eqn_new-so13}的逆变换容易求得
+\begin{subequations}\label{chlar:eqn_JKMN}
+\begin{align}
+    J_{\pm} &|m_M {m_N} \rangle = (M_{\pm}+N_{\pm})|m_M {m_N} \rangle \notag \\
+    =&+\sqrt{(j_M\mp m_M)(j_M\pm m_M+1)} |m_M\pm 1, {m_N} \rangle \notag \\
+    &+\sqrt{(j_N\mp m_N)(j_N\pm m_N+1)} |m_M, {m_N\pm 1}\rangle . \label{chlar:eqn_JpmMNpm} \\
+    K_{\pm} &|m_M {m_N} \rangle = \mathbbm{i}(N_{\pm}-M_{\pm})|m_M {m_N} \rangle \notag \\
+    =& +\mathbbm{i}\sqrt{(j_N\mp m_N)(j_N\pm m_N+1)} |m_M, {m_N\pm 1}\rangle\notag \\
+    &-\mathbbm{i}\sqrt{(j_M\mp m_M)(j_M\pm m_M+1)} | m_M\pm 1, {m_N}\rangle  . \\
+    J_3 &|m_M {m_N} \rangle = (M_3+N_3) |m_M {m_N}\rangle = (m_M + m_N)|m_M {m_N}\rangle . \\
+    K_3 &|m_M {m_N}\rangle  = \mathbbm{i}(N_3-M_3) | m_M {m_N}\rangle
+    = \mathbbm{i} (+m_N-m_M)|m_M {m_N}\rangle  . \label{chlar:eqn_K3MN3}
+\end{align}\end{subequations}
+由上式可得李代数$\mathfrak{su}(2)_M\otimes{\mathfrak{su}(2)}_N$（即$\mathfrak{sl}(2,\mathbb{C})$）的
+表示矩阵元，记为$\mathfrak{D}^{(j_M j_N)}$．
+有了$\mathfrak{sl}(2,\mathbb{C})$的6个生成元，再结合6个实变数$\theta_i$、$\phi_i$，
+通过指数映射$\exp\bigl(-\mathbbm{i}\sum_{i=1}^{3}(\theta_i J_i + \phi_i K_i)\bigr)$便可得到$SL(2,\mathbb{C})$群的表示；
+由此得到群表示与式\eqref{chlar:eqn_SL2-3rd}相对应．
+
+式\eqref{chlar:eqn_JKMN}给出的一维表示$\mathfrak{D}^{(00)}$为：$J_i=(0)=K_i$．
+
+$\mathfrak{D}^{(\frac{1}{2}0)}$为：$J_i = \sigma_i/2$、$K_i =-\mathbbm{i} \sigma_i/2$；$\sigma_i$是Pauli矩阵．
+
+$\mathfrak{D}^{(0\frac{1}{2})}$为：$J_i = \sigma_i/2$、$K_i =+\mathbbm{i} \sigma_i/2$．
+
+$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$为：
+$J_i = (I_2\otimes\sigma_i + \sigma_i\otimes I_2)/2$、
+$K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2$．
+
+式\eqref{chlar:eqn_JKMN}较为清晰地展示了$M$与$N$的地位并不相同．
+下面的表述中，我们略微含混一下$M$与$N$的地位．我们可以利用Clebsch--Gordan系数
+将$\mathfrak{su}(2)\otimes\mathfrak{su}(2)$的表示空间
+基矢$|j_M m_M\rangle \otimes|j_N m_N\rangle$转换为$|jm \rangle$（即两个角动量之和）．
+这样，就可以将$\mathfrak{su}(2)\otimes\mathfrak{su}(2)$（即$\mathfrak{sl}(2,\mathbb{C})$）
+的可约表示$\mathfrak{D}^{(j_M j_N)}$化为$\mathfrak{su}(2)$不可约
+表示$\mathfrak{D}^{(j)}$的直和\cite[\S 11.6]{taorb-2011-gt}
+\begin{equation}\label{chlar:eqn_DLDU}
+    \mathfrak{D}^{(j_M j_N)} \cong \mathfrak{D}^{(j_M)}\otimes\mathfrak{D}^{(j_N)} \cong
+    \mathfrak{D}^{(|j_M- j_N|)}\oplus \mathfrak{D}^{(|j_M- j_N|+1)}
+    \oplus \cdots \oplus \mathfrak{D}^{(j_M+ j_N)}.
+\end{equation}
+虽然李群$SL(2,\mathbb{C})$的表示与复共轭表示并不等价，但$SU(2)$群的表示与复共轭表示等价；
+这便导致了在{\kaishu 李代数}$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$的
+表示中有：$\mathfrak{D}^{(j_M j_N)}$表示{\fangsong 等价于}（不是{\kaishu 等于}）$ \mathfrak{D}^{(j_N j_M)}$表示．
+$\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
+\begin{align}
+    \mathfrak{D}^{(00)} {\cong} &\mathfrak{D}^{(0)}= (0) . \label{chlar:eqn_D-scalar} \\
+    \mathfrak{D}^{(\frac{1}{2}0)} \cong \mathfrak{D}^{(0\frac{1}{2})} {\cong}& \mathfrak{D}^{(\frac{1}{2})} . 
+    \label{chlar:eqn_D-Weyl-Spinor} \\
+    \mathfrak{D}^{(10)} \cong \mathfrak{D}^{(01)} {\cong}& \mathfrak{D}^{(1)} . \label{chlar:eqn_D0110}\\
+    \mathfrak{D}^{(\frac{1}{2}\frac{1}{2})} {\cong} & \mathfrak{D}^{(0)}\oplus \mathfrak{D}^{(1)} . 
+    \label{chlar:eqn_D-Vector} \\
+    \mathfrak{D}^{(\frac{1}{2}1)} \cong \mathfrak{D}^{(1\frac{1}{2})} {\cong}&
+       \mathfrak{D}^{(\frac{1}{2})}\oplus \mathfrak{D}^{(\frac{3}{2})} . 
+\end{align}
+%李代数$\mathfrak{su}(2)$只有三个生成元，
+%此时我们可用3个复变数$\theta_j+\mathbbm{i}\phi_j$（$j=1,2,3$）出发，利用指数映射，
+%将\eqref{chlar:eqn_DLDU}中$\mathfrak{D}^{(j)}$的三个生成元映射成$SL(2,\mathbb{C})$群的表示．
+%\S\ref{chlar:sec_sl-LA}就是二维表示的例子，此时的生成元是三个Pauli矩阵．
+
+
+\begin{exercise}
+	由式\eqref{chlar:eqn_JKMN}计算出$\mathfrak{D}^{(\frac{1}{2}0)}$、
+	$\mathfrak{D}^{(0\frac{1}{2})}$和$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$．
+\end{exercise}
+
+
+
+
+\section{旋量代数}
+在\S\ref{chlar:sec_sl2rep}中，我们引入了$SL(2,\mathbb{C})$群的左右手二分量旋量，
+它们是构建高维表示的基，现在具体研究一下．
+本节主要参考了\parencite{penrose-Rindler1984}的相应章节．
+
+用斜体大写拉丁字母$ABC$等表示旋量的抽象指标记号，抽象指标用法与张量的情形类似．
+用拉丁字母$\mathcal{A}\mathcal{B}\mathcal{C}$等表示旋量分量，角标取值范围是：$0$、$1$．
+
+
+
+\subsection{旋量度规}
+
+在不带点旋量空间$\mathfrak{S}^A$中定义{\heiti 旋量内积}如下：
+\begin{equation} \label{chlar:eqn_S-inner}
+\left\{(\phi^0,\phi^1) ,\ (\psi^0,\psi^1)\right\}\overset{def}{=}   \phi^0 \psi^1 - \phi^1 \psi^0
+=\begin{vmatrix} \phi^0 & \phi^1 \\ \psi^0 & \psi^1 \end{vmatrix};
+\quad \forall\boldsymbol{\psi} , \boldsymbol{\phi} \in \mathfrak{S}^A.
+\end{equation}
+
+设$\boldsymbol{\psi} , \boldsymbol{\phi}$是左手旋量，则它们的内积对$S\in SL(2,\mathbb{C})$变换不变：
+\begin{equation}\label{chlar:eqn_scalep}
+    \begin{vmatrix} \phi'^0 & \phi'^1 \\ \psi'^0 & \psi'^1 \end{vmatrix}
+    \xlongequal[\ref{chlar:eqn_phi-spin}]{S\text{表达式见}}
+     \left|\begin{pmatrix} a^0_{\hphantom{0} 0} & a^0_{\hphantom{0} 1} \\ 
+      a^1_{\hphantom{0} 0} & a^1_{\hphantom{0} 1} \end{pmatrix}   
+    \begin{pmatrix} \phi^0 & \phi^1 \\ \psi^0 & \psi^1 \end{pmatrix} \right|
+    \xlongequal[\det S =1]{S\in SL(2,\mathbb{C})}
+    \begin{vmatrix} \phi^0 & \phi^1 \\ \psi^0 & \psi^1 \end{vmatrix} .     
+\end{equation}
+由上两式可以定义旋量空间上的{\heiti 旋量度规}$\epsilon_{AB}$，
+它使得$\epsilon_{AB} \phi^A \psi^B$在幺模矩阵$S$变换下保持不变，
+并且与旋量的缩并等于旋量的内积，定义式为
+\begin{equation}\label{chlar:eqn_spinor-metric}    
+    \epsilon_{AB} \phi^A \psi^B \overset{def}{=}  
+    \left\{\boldsymbol{\phi} ,\ \boldsymbol{\psi}\right\}, \qquad
+    \forall \boldsymbol{\psi} , \boldsymbol{\phi} \in \mathfrak{S}^A .
+\end{equation}
+由上式能得到$\epsilon_{AB}$是{\kaishu 反对称的}，即
+\begin{equation}
+    \epsilon_{AB} = -\epsilon_{BA}.
+\end{equation}
+然而一般意义下的度规是对称的，$\epsilon_{AB}$与之不同．
+现在可以将上指标降下来
+\begin{equation}
+    \phi_A = \phi^B \epsilon_{BA} \quad \Leftrightarrow \quad
+    \phi_0 = - \phi^1,\ \phi_1 = \phi^0 .
+\end{equation}
+需要注意：$\phi^B \epsilon_{BA} \neq \epsilon_{AB} \phi^B $，两者差一负号，
+即$\phi^B \epsilon_{BA} =- \epsilon_{AB} \phi^B =- \phi^B \epsilon_{AB}  $．
+
+标量积\eqref{chlar:eqn_S-inner}还可以表示为
+\begin{equation}
+    \phi^0 \psi^1 - \phi^1 \psi^0=\epsilon_{AB} \phi^A \psi^B 
+    = \phi_B \psi^B = \psi^B\phi_B = - \phi^A \psi_A = - \psi_A \phi^A .
+\end{equation}
+由上式或式\eqref{chlar:eqn_S-inner}容易得到：$\phi^A \phi_A=0$．
+
+既然$\epsilon_{AB}$是度规，那么它自然有逆：
+\begin{equation}\label{chlar:eqn_smetric-inv}  
+     \delta_A^C 
+    =\epsilon_{AB} \epsilon^{CB} = \epsilon^{CB} \epsilon_{AB} 
+    =\epsilon_A ^{\hphantom{A} C } =-\epsilon^C_{\hphantom{C}A}.
+\end{equation}
+注意上式中指标位置．
+同样也可以将下指标升上去
+\begin{equation}
+    \phi^A = \epsilon^{AB} \phi_B \quad \Leftrightarrow \quad
+    \phi^1 = -\phi_0 ,\ \phi^0 =\phi_1.
+\end{equation}
+
+
+
+
+\begin{example}
+    由于旋量空间$\mathfrak{S}^A$是二维的，那么任意三个旋量一定线性相关．
+\end{example}
+设有$\kappa^A,\omega^A,\tau^A \in \mathfrak{S}^A$；那么必然有
+\begin{equation}\label{chlar:eqn_kotabc}
+    a \kappa^A + b\omega^A+c\tau^A =0,\qquad
+    \text{其中}\ a,b,c\ \text{是复系数}
+\end{equation}
+下面求出这些复系数．
+用$\kappa_A$、$\omega_A$、$\tau_A$缩并式\eqref{chlar:eqn_kotabc}，有
+\begin{align*}
+    0=& a \kappa_A\kappa^A + b \kappa_A \omega^A+c \kappa_A\tau^A = b \kappa_A \omega^A+c \kappa_A\tau^A ,\\
+    0=& a \omega_A\kappa^A + c \omega_A\tau^A=-a \kappa_A\omega^A + c \omega_A\tau^A, \\
+    0=& a \tau_A\kappa^A + b \tau_A\omega^A =-a \kappa_A \tau^A - b \omega_A \tau^A. 
+\end{align*}
+不失一般性，假设$\kappa_A \tau^A\neq 0$、$b\neq 0$；由上面三式可以得到
+$a=-\frac{\omega_B \tau^B }{\kappa_A \tau^A}b$、
+$c=-\frac{\kappa_B \omega^B }{\kappa_A \tau^A}b$．
+将此式带回式\eqref{chlar:eqn_kotabc}，并整理，有
+\begin{equation}\label{chlar:eqn_Laplace}
+    (\omega_B \tau^B ) \kappa^A + (\tau_B \kappa^B ) \omega^A +(\kappa_B \omega^B ) \tau^A =0 .
+\end{equation}
+换一种方式来表达式\eqref{chlar:eqn_Laplace}，有
+%\begin{align*} % 推导过程
+%    &(\omega^C \epsilon_{BC} \tau^B ) \kappa^A + 
+%    (\tau^C \epsilon_{BC} \kappa^B ) \omega^A +
+%    (\kappa^C \epsilon_{BC} \omega^B ) \tau^A =0 \quad \Leftrightarrow \\
+%    &\epsilon_{BC} \omega^C  \tau^B \kappa^A + 
+%     \epsilon_{BC} \omega^A  \tau^C \kappa^B  +
+%     \epsilon_{BC} \omega^B  \tau^A \kappa^C =0 \quad \Leftrightarrow \\
+%    &\epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} \omega^C  \tau^B \kappa^D + 
+%     \epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} \omega^D  \tau^C \kappa^B  +
+%     \epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} \omega^B  \tau^D \kappa^C =0 \quad \Leftrightarrow \\
+%    &(\epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} + 
+%     \epsilon_{DB} \epsilon_{C}^{\hphantom{A}A} +
+%     \epsilon_{CD} \epsilon_{B}^{\hphantom{A}A} )
+%     \omega^C  \tau^B \kappa^D =0  
+%\end{align*}
+\begin{equation}
+    (\epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} + 
+    \epsilon_{CD} \epsilon_{B}^{\hphantom{A}A}+
+    \epsilon_{DB} \epsilon_{C}^{\hphantom{A}A}   )
+    \tau^B \omega^C \kappa^D =0 .
+\end{equation}
+因$\tau^B$、$ \omega^C $、$\kappa^D$的任意性，有
+\begin{equation}\label{chlar:eqn_3p2e}
+    \epsilon_{BC} \epsilon_{D}^{\hphantom{A}A} + 
+    \epsilon_{CD} \epsilon_{B}^{\hphantom{A}A}+
+    \epsilon_{DB} \epsilon_{C}^{\hphantom{A}A}   =0 
+%    \quad \Leftrightarrow \quad
+%    \epsilon_{BC} \epsilon_{DA}+ \epsilon_{CD} \epsilon_{BA}+
+%    \epsilon_{DB} \epsilon_{CA}   =0 .
+\end{equation}
+式\eqref{chlar:eqn_3p2e}是关于$SL(2,\mathbb{C})$群旋量度规的一个重要恒等式． \qed
+
+
+与上面公式类似，带点的旋量也有相应公式，只需用$\epsilon_{\dot{A}\dot{B}}$即可．
+
+\subsection{高阶旋量}\label{chlar:sec_hs}
+
+
+右手旋量空间记号是$\mathfrak{S}^{\dot{A}}$，它是左手旋量空间$\mathfrak{S}^{A}$的复共轭．
+根据$\mathfrak{S}^{A}$空间的加法、数乘，我们定义$\mathfrak{S}^{\dot{A}}$空间
+的加法、数乘如下（其中$\kappa^A ,\omega^A , \tau^A \in \mathfrak{S}^{A}$、
+$\bar{\kappa}^{\dot{A}} , \bar{\omega}^{\dot{A}} , \bar{\tau}^{\dot{A}} \in \mathfrak{S}^{\dot{A}} $）：
+\begin{equation}\label{chlar:eqn_akobc}
+    a \kappa^A + b \omega^A = \tau^A \quad \Leftrightarrow \quad
+    \bar{a} \bar{\kappa}^{\dot{A}} + \bar{b}\bar{\omega}^{\dot{A}} = \bar{\tau}^{\dot{A}},
+    \qquad a,b \in \mathbb{C}. 
+\end{equation}
+取复共轭运算意味着带点指标和不带点指标互换．
+\begin{equation}\label{chlar:eqn_cjt}
+\begin{aligned}
+    &\overline{\tau^A}= \bar{\tau}^{\dot{A}},\quad \overline{\tau_A}= \bar{\tau}_{\dot{A}};\quad
+    \overline{\tau^A \kappa_A}= \bar{\tau}^{\dot{A}} \bar{\kappa}_{\dot{A}};\quad
+    \overline{\overline{\tau^A}} = \tau^A, \quad \overline{\overline{\tau_A}} = \tau_A; \\ 
+    &\overline{a \kappa^A + b \omega^A} = \bar{a} \bar{\kappa}^{\dot{A}} + \bar{b}\bar{\omega}^{\dot{A}}, \quad
+    \overline{a \kappa_A + b \omega_A} = \bar{a} \bar{\kappa}_{\dot{A}} + \bar{b}\bar{\omega}_{\dot{A}},
+    \quad a,b \in \mathbb{C}.
+\end{aligned}
+\end{equation}
+
+有了式\eqref{chlar:eqn_akobc}中的加法、数乘定义，不难验证$\mathfrak{S}^{\dot{A}}$也是线性空间，
+并且它{\kaishu 反同构}于$\mathfrak{S}^{A}$；
+反同构是指式\eqref{chlar:eqn_akobc}中的复共轭．
+带点的空间$\mathfrak{S}^{\dot{A}}$也有其对偶空间$\mathfrak{S}_{\dot{A}}$．
+
+有了这些准备，我们开始构建$SL(2,\mathbb{C})$群的{\heiti 旋量系统}，将其
+记为$\chi^{A\cdots D \dot{P}\cdots \dot{R}}_{L\cdots N \dot{U}\cdots \dot{W}}$，
+指标的型数（valence或rank）是$\left[\begin{smallmatrix} p & q \\ r & s \end{smallmatrix}\right]$，
+它被定义为一个多重线性映射：  %%定义见\parencite[p.108]{penrose-Rindler1984}
+\begin{equation*}
+\mathfrak{S}_A\times \cdots \times \mathfrak{S}_D\times
+\mathfrak{S}_{\dot{P}} \times \cdots \times\mathfrak{S}_{\dot{R}} \times 
+\mathfrak{S}^L\times \cdots \times \mathfrak{S}^N\times
+\mathfrak{S}^{\dot{U}} \times \cdots \times\mathfrak{S}^{\dot{W}} 
+\xrightarrow{\chi}
+\mathfrak{S}^{A\cdots D \dot{P}\cdots \dot{R}}_{L\cdots N \dot{U}\cdots \dot{W}} 
+\end{equation*}
+特别地，$\mathfrak{S}^{A}$、$\mathfrak{S}_{A}$分别
+是$\left[\begin{smallmatrix} 1 & 0 \\ 0&0 \end{smallmatrix}\right]$、
+$\left[\begin{smallmatrix} 0 &0\\ 1&0 \end{smallmatrix}\right]$型（无点）旋量；
+$\mathfrak{S}^{\dot{A}}$、$\mathfrak{S}_{\dot{A}}$分别是
+$\left[\begin{smallmatrix} 0&1 \\ 0&0 \end{smallmatrix}\right]$、
+$\left[\begin{smallmatrix} 0&0 \\ 0&1 \end{smallmatrix}\right]$型带点旋量；简称为一阶旋量．
+为了更好地理解旋量定义，我们用分量语言再叙述一遍，
+其实就是重复式\eqref{chmla:def_tensor-by-compoents}的表述．
+\setlength{\mathindent}{-1em}
+\begin{equation}\label{chlar:eqn_spin-comp}
+    \tilde{\chi}^{A'\cdots D' \dot{P}'\cdots \dot{R}'}_{L'\cdots N' \dot{U}'\cdots \dot{W}'}
+    =\chi^{A\cdots D \dot{P}\cdots \dot{R}}_{L\cdots N \dot{U}\cdots \dot{W}}
+    \alpha_{\hphantom{A} A}^{A'} \cdots \alpha_{\hphantom{A} D}^{D'}
+    \alpha_{\hphantom{A} \dot{P}}^{\dot{P}'} \cdots \alpha_{\hphantom{A} \dot{R}}^{\dot{R}'}
+    \beta^{\hphantom{A} L}_{L'} \cdots \beta^{\hphantom{A} N}_{N'}
+    \beta^{\hphantom{A} \dot{U}}_{\dot{U}'} \cdots \beta^{\hphantom{A} \dot{W}}_{\dot{W}'} .
+\end{equation}\setlength{\mathindent}{2em}
+其中$\alpha_{\hphantom{A} A}^{A'}\in SL(2,\mathbb{C})$，$\beta$是$\alpha$的转置逆，
+$\alpha_{\hphantom{A} \dot{P}}^{\dot{P}'}$是$\alpha_{\hphantom{A} {P}}^{{P}'}$的复共轭．
+
+高阶旋量$\mathfrak{S}^{A\cdots D \dot{P}\cdots \dot{R}}_{L\cdots N \dot{U}\cdots \dot{W}}$中
+的加法、数乘定义与式\eqref{chlar:eqn_akobc}十分类似，不再赘述．
+在式\eqref{chlar:eqn_tmpss}前后的文字中，我们已经指出旋量空间是一种线性空间，
+既然如此可以通过张量积来得到更高阶的旋量；但为了与之有所区别，
+我们称这种张量积为{\heiti 旋量积}
+（文献\parencite[p.83,108,109]{penrose-Rindler1984}称为outer multiplication）；如
+\begin{equation}\label{chlar:eqn_sm-liu}
+    \Phi^{A_1 \hphantom{A_2} \dot{B}_1 }_{\hphantom{A_1} A_2 \hphantom{B_1} \dot{B}_2} = 
+    \phi^{A_1}\cdot \phi_{A_2} \cdot \bar{\phi}^{\dot{B}_1}\cdot \bar{\phi}_{\dot{B}_2},\quad
+    \text{所有角标取值范围是}0,1
+\end{equation}
+这样的旋量积还需要满足结合律、加法交换律以及分配律，不再单独列出公式．
+
+
+
+还需指几点：带点指标和不带点指标之间没有先后顺序，可随意混排．
+为使理论具有不变性，每个旋量方程等号两边必须包含相同数目的带点、不带点指标；
+否则在参考系变换时，等式将会被破坏．
+旋量指标间的缩并只能在同类指标内部进行，
+{\kaishu 绝不能}令带点指标和不带点指标缩并．
+
+
+
+
+
+\subsection{旋量基}\label{chlar:sec_spin-base}
+由于基本二分量旋量是二维的，因此它可用任意两个线性无关的旋量$\iota^A$、$o^A$来生成全部基本二分量旋量．
+$\iota^A$、$o^A$线性相关是指存在非零常复数$c$使得$\iota^A = c o^A$成立，
+很明显此时$\epsilon_{AB}\iota^A o^B = c\epsilon_{AB}o^A o^B =0$．
+由此可判断$\iota^A$、$o^A$线性独立的充要条件是$\epsilon_{AB}\iota^A o^B\neq 0$．
+
+我们选定两个线性独立的二分量基本旋量$\iota^A$、$o^A$，它们满足正交条件，即
+\begin{equation}\label{chlar:eqn_sb-oth}
+    1=\epsilon_{AB} o^A \iota^B =o_B \iota^B = o^0 \iota^1 - o^1 \iota^0 ;
+    \qquad \text{很明显}\  o_B o^B=0=\iota_B \iota^B .
+\end{equation}
+
+一般的四维矢量可以用四个基矢的线性组合来表示．与此类似，一般的旋量可以用两个
+基旋量的线性组合来表示；对于任意旋量$\omega^A$，它可以表示成
+\begin{equation}\label{chlar:eqn_woi}
+    \omega^A = a o^A + b \iota^A,\qquad a,b \in \mathbb{C} .
+\end{equation}
+利用基旋量的正交性可以导出式\eqref{chlar:eqn_woi}中的系数
+为$a=-\omega^A \iota_A ,\ b=o_A \omega^A $．把它们带回式\eqref{chlar:eqn_woi}，有
+\begin{equation}\label{chlar:eqn_woitmp}
+    \omega^A = -\omega^B \iota_B o^A + o_B \omega^B \iota^A
+    = (- \iota_B o^A + o_B \iota^A )\omega^B 
+    = ( o^A \iota^B  - \iota^A o^B  )\omega_B.
+\end{equation}
+对比$\omega^A = \epsilon^{AB}\omega_B$可知
+\begin{equation}\label{chlar:eqn_eoi}
+    \epsilon^{AB} = o^A \iota^B  - \iota^A o^B 
+    \ \Leftrightarrow \
+    \epsilon_{B}^{\hphantom{A}A} =- o^A \iota_B  + \iota^A o_B 
+    \ \Leftrightarrow \
+    \epsilon_{AB} = o_A \iota_B  - \iota_A o_B  .
+\end{equation}
+
+
+$\{o^A, \iota^B\}$称为{\heiti 旋量标架}（Spin-frame）．
+旋量标架在局部上总是存在的，在整个四维时空中未必存在．
+在旋量标架上，$o^A$分量是$(1,0)^T$，$\iota^A$分量是$(0,1)^T$．
+
+下面来寻找式\eqref{chlar:eqn_spinor-metric}在正交旋量标架$\{o^A, \iota^B\}$下的分量数值．
+与四维闵氏时空完全类似，在正交归一基矢下，度规是对角的；
+在正交基矢\eqref{chlar:eqn_sb-oth}下，旋量度规是反对称的．
+\begin{align*}
+    \epsilon_{00}= \epsilon_{AB} o^A o^B =0, \epsilon_{11}= \epsilon_{AB} \iota^A \iota^B =0,
+    \epsilon_{01}= \epsilon_{AB} o^A \iota^B =1, \epsilon_{10}= \epsilon_{AB} \iota^A o^B =-1 .
+\end{align*}
+也就是说，在正交旋量标架$\{o^A, \iota^B\}$下，旋量度规分量是：
+\begin{equation}\label{chlar:eqn_smetric}
+    \epsilon_{\mathcal{A}\mathcal{B}} = 
+    \begin{pmatrix}  0 & 1 \\ -1 & 0  \end{pmatrix}
+    =\epsilon^{\mathcal{A}\mathcal{B}} 
+    \quad\text{和}\quad
+    \delta_{\mathcal{A}}^{\mathcal{B}}=\begin{pmatrix}  1 & 0 \\ 0 & 1  \end{pmatrix}
+    =\epsilon_{\mathcal{A}} ^{\hphantom{A} \mathcal{B} } =-\epsilon^{\mathcal{B}}_{\hphantom{A}\mathcal{A}}.
+\end{equation}
+上式与二维Levi-Civita记号相同，是{\kaishu 反对称的}．
+旋量度规用基矢展开的抽象指标形式就是\eqref{chlar:eqn_eoi}．
+
+取式\eqref{chlar:eqn_eoi}的复共轭，可得带点旋量度规的抽象指标展开式：
+\begin{equation}\label{chlar:eqn_eoi-dot}
+    \epsilon^{\dot{A}\dot{B}} = o^{\dot{A}} \iota^{\dot{B}}  - \iota^{\dot{A}} o^{\dot{B}}
+    \ \Leftrightarrow \
+    \epsilon_{\dot{B}}^{\hphantom{A}\dot{A}} =- o^{\dot{A}} \iota_{\dot{B}}  + \iota^{\dot{A}} o_{\dot{B}}
+    \ \Leftrightarrow \
+    \epsilon_{\dot{A}\dot{B}} = o_{\dot{A}} \iota_{\dot{B}}  - \iota_{\dot{A}} o_{\dot{B}}  .
+\end{equation}
+其中$o^{\dot{A}}=\bar{o}^{\dot{A}}=\overline{o^A}$、$\iota^{\dot{A}}=\bar{\iota}^{\dot{A}}=\overline{\iota^A}$和
+$\epsilon^{\dot{A}\dot{B}}=\bar{\epsilon}^{\dot{A}\dot{B}}=\overline{\epsilon^{AB}}$．
+
+{\heiti 约定：}
+{\kaishu 在没有歧义情形下，我们省略带点旋量上的复共轭记号，
+即把$\bar{o}^{\dot{A}}$、$\bar{\epsilon}^{\dot{A}\dot{B}}$记为
+$o^{\dot{A}}$、$\epsilon^{\dot{A}\dot{B}}$；只用“点”来标记复共轭．}
+
+很明显有$o_{\dot{A}} \iota^{\dot{A}} =1=-o^{\dot{A}} \iota_{\dot{A}}$；
+在标架$\{o^{\dot{A}}, \iota^{\dot{B}}\}$下，带点旋量度规分量是：
+\begin{equation}\label{chlar:eqn_smetric-dot}
+    \epsilon_{\dot{\mathcal{A}}\dot{\mathcal{B}}}= 
+    \begin{pmatrix}  0 & 1 \\ -1 & 0  \end{pmatrix}
+    =\epsilon^{\dot{\mathcal{A}}\dot{\mathcal{B}}} 
+    \quad\text{和}\quad
+    \delta_{\dot{\mathcal{A}}}^{\dot{\mathcal{B}}}=\begin{pmatrix}  1 & 0 \\ 0 & 1  \end{pmatrix}
+    =\epsilon_{\dot{\mathcal{A}}} ^{\hphantom{A} \dot{\mathcal{B}} }
+    =-\epsilon^{\dot{\mathcal{B}}}_{\hphantom{A}\dot{\mathcal{A}}}.
+\end{equation}
+
+通过分量形式计算可得：
+$\epsilon_{A}^{\hphantom{A}A}=2=-\epsilon_{\hphantom{A}A}^{A}$和
+$\epsilon_{\dot{A}}^{\hphantom{A}\dot{A}}=2=-\epsilon_{\hphantom{A}\dot{A}}^{\dot{A}}$．
+
+
+我们还会将正交基矢记为：
+\begin{equation}\label{chlar:eqn_ioe}
+    \epsilon_A^{\hphantom{A}\rm 0} = -\iota_A =\epsilon_{A 1}, 
+    \epsilon_A^{\hphantom{A}\rm 1} = o_A = \epsilon_{0A}, 
+    \epsilon_0^{\hphantom{0}A} = o^A =\epsilon^{A 1}, 
+    \epsilon_1^{\hphantom{0}A} = \iota^A =\epsilon^{0 A} .
+\end{equation}
+
+不难验证$SL(2,\mathbb{C}) \ni S=\left(\begin{smallmatrix} a^0_{\hphantom{0} 0} & a^0_{\hphantom{0} 1} 
+    \\ a^1_{\hphantom{0} 0} & a^1_{\hphantom{0} 1}  \end{smallmatrix}\right) $满足
+\begin{equation}
+    \begin{aligned}
+        &S\epsilon S^T = \epsilon \ \Leftrightarrow \
+        a^A_{\hphantom{A} C} \epsilon^{CD} a^B_{\hphantom{A} D} = \epsilon^{AB}  \ \Leftrightarrow \
+        \epsilon^T S^{-1} \epsilon = S^T = \epsilon S^{-1} \epsilon^T   \\
+        &  \Leftrightarrow \quad \epsilon^T S^{\dagger} \epsilon = \overline{S}^{-1}
+        = \epsilon S^{\dagger} \epsilon^T \quad \Leftrightarrow \quad 
+        \epsilon^T \overline{S} \epsilon = (S^\dagger)^{-1} = \epsilon \overline{S} \epsilon^T . 
+    \end{aligned}
+\end{equation}
+
+
+对于旋量标架$\{o^A,\iota^A\}$，我们讨论如下变换
+\begin{equation}\label{chlar:eqn_oitrans}
+    o^A_{new} = o^A,\ \iota^A_{new} = \iota^A + c o^A;
+    \ \text{或}\  
+    o^A_{new} = o^A+c\iota^A ,\ \iota^A_{new} = \iota^A ;
+    \ c\in \mathbb{C}
+\end{equation}
+并不改变正交性，即$(o_A\iota^A)_{new}= o_A(\iota^A + c o^A ) = o_A\iota^A=1$．
+因此，对于旋量标架而言，$\{o^A_{new}, \iota^A_{new}\}$仍可以当成基矢．
+换句话说，归一化条件（$o_A\iota^A=1$）只把基矢确定到可以相差
+一个变换\eqref{chlar:eqn_oitrans}的程度，并未完全确定基矢．
+
+
+
+\section{$SL(2,\mathbb{C})$旋量与Lorentz张量}\label{chlar:sec_sv}
+
+
+下面来寻找四维闵氏时空上Lorentz实数四矢量与二分量旋量之间的联系．
+
+出发点为式\eqref{chlar:eqn_hpslso}；我们把式\eqref{chlar:eqn_hpslso}略作改写，
+其中$x^\mu= (t,x,y,z)^T \in \mathbb{R}^4 $、$x^{\prime\mu}= (t',x',y',z')^T \in \mathbb{R}^4 $都是
+四维Lorentz实数矢量．
+\begin{equation}\label{chlar:eqn_Xpxs}
+    \begin{pmatrix}
+        t'+z' & x'- \mathbbm{i} y' \\ x'+ \mathbbm{i} y' &   t'-z'
+    \end{pmatrix} 
+    =S\begin{pmatrix}
+        t+z & x- \mathbbm{i} y \\ x+ \mathbbm{i} y &   t-z
+    \end{pmatrix}S^\dagger; 
+    \qquad S\in SL(2,\mathbb{C}) .
+\end{equation}
+上式满足式\eqref{chlar:eqn_spin-comp}的变换；
+因式\eqref{chlar:eqn_Xpxs}中既有$S$又有$S^\dagger$，故二维厄米矩阵
+对应一个$\left[\begin{smallmatrix} 1 &0\\ 1 &0\end{smallmatrix}\right]$型旋量．
+我们将上式中任意二维厄米矩阵表示成
+\begin{equation}\label{chlar:eqn_X2xz}
+    X^{\mathcal{A}\dot{\mathcal{A}}} \overset{def}{=} 
+    \frac{1}{\sqrt{2}} \begin{pmatrix}
+        t+z & x- \mathbbm{i} y \\ x+ \mathbbm{i} y & t-z
+    \end{pmatrix} 
+    =x^\mu \ \left(\frac{1}{\sqrt{2}} \sigma_\mu\right) ^{\mathcal{A}\dot{\mathcal{A}}} .
+\end{equation}
+引入$\frac{1}{\sqrt{2}}$因子是为了把后面很多公式前的系数调整为$\pm 1$．
+写成分量形式为
+\begin{equation}\label{chlar:eqn_X2xz-comp}
+    \begin{aligned}
+        t=&\frac{1}{\sqrt{2}} \left(X^{0\dot{0}} + X^{1\dot{1}}\right), &
+        z=\frac{1}{\sqrt{2}} \left(X^{0\dot{0}} - X^{1\dot{1}}\right), \\
+        x=&\frac{1}{\sqrt{2}} \left(X^{1\dot{0}} + X^{0\dot{1}}\right), &
+        y=\frac{1}{\mathbbm{i}\sqrt{2}} \left(X^{1\dot{0}} - X^{0\dot{1}}\right) .
+    \end{aligned}
+\end{equation}
+式\eqref{chlar:eqn_X2xz}、\eqref{chlar:eqn_X2xz-comp}已经指明如何从Lorentz矢量
+导出相对应的$\left[\begin{smallmatrix} 1 &0\\ 1&0 \end{smallmatrix}\right]$型旋量．
+
+
+参考式\eqref{chlar:eqn_X2xz}，定义在正交归一（$o_A \iota^A =1$）旋量标架$\{o^A,\iota^A\}$下
+的{\heiti \bfseries Infeld--van der Waerden记号}如下：
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chlar:eqn_Infeld-Waerden}
+    \begin{aligned}
+        &(\sigma^0)_{{\mathcal{A}} \dot{\mathcal{B}}} = \frac{-1}{\sqrt{2}} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+        = - (\sigma_0)^{{\mathcal{A}} \dot{\mathcal{B}}}, \
+        (\sigma^1)_{{\mathcal{A}} \dot{\mathcal{B}}} = \frac{-1}{\sqrt{2}} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+        =-(\sigma_1)^{{\mathcal{A}} \dot{\mathcal{B}}}, \\
+        &(\sigma^2)_{{\mathcal{A}} \dot{\mathcal{B}}} = \frac{+1}{\sqrt{2}} \begin{pmatrix} 0 & 
+            -\mathbbm{i} \\ \mathbbm{i} & 0 \end{pmatrix} =(\sigma_2)^{{\mathcal{A}} \dot{\mathcal{B}}}, \
+        (\sigma^3)_{{\mathcal{A}} \dot{\mathcal{B}}} = \frac{-1}{\sqrt{2}} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+        =-(\sigma_3)^{{\mathcal{A}} \dot{\mathcal{B}}}. 
+    \end{aligned}
+\end{equation}\setlength{\mathindent}{2em}
+式\eqref{chlar:eqn_Infeld-Waerden}中指标在上、在下的矩阵有如下关系式：
+\begin{equation}\label{chlar:eqn_sud}
+    (\sigma^\mu)_{{\mathcal{A}} \dot{\mathcal{B}}} = \eta^{\mu \nu} (\sigma_\nu)^{{\mathcal{C}} \dot{\mathcal{C}}}
+    \epsilon_{\mathcal{A}\mathcal{C}} \epsilon_{\dot{\mathcal{B}}\dot{\mathcal{C}}}, \qquad \eta_{\mu \nu}={\rm diag}\{-+++\}.
+\end{equation}
+通过矩阵计算可知Infeld--van der Waerden符号满足:
+\begin{align}
+    \epsilon_{\mathcal{A}\mathcal{C}} \epsilon_{\dot{\mathcal{A}}\dot{\mathcal{C}}}
+    (\sigma_\mu)^{{\mathcal{A}} \dot{\mathcal{A}}} (\sigma_\nu)^{ {\mathcal{C}} \dot{\mathcal{C}}}
+    =&- \eta_{\mu\nu} ,  \label{chlar:eqn_eemetric-1} \\
+    \eta_{\mu\nu} (\sigma^\mu)_{{\mathcal{A}} \dot{\mathcal{A}}}(\sigma^\nu)_{{\mathcal{C}} \dot{\mathcal{C}}}=&
+    -\epsilon_{\mathcal{A}\mathcal{C}} \epsilon_{\dot{\mathcal{A}}\dot{\mathcal{C}}}, \label{chlar:eqn_eemetric-2} \\
+    (\sigma_\mu)^{{\mathcal{A}} \dot{\mathcal{A}}} (\sigma^\nu)_{{\mathcal{A}} \dot{\mathcal{A}}} =&  -\delta_\mu^\nu,
+    \label{chlar:eqn_ssd} \\
+    (\sigma^\mu)_{{\mathcal{A}} \dot{\mathcal{A}}}  (\sigma_\mu)^{{\mathcal{B}} \dot{\mathcal{B}}} = &-
+    \epsilon_{\mathcal{A}}^{\hphantom{A}\mathcal{B}} \epsilon_{\dot{{\mathcal{A}}}}^{\hphantom{A} \dot{\mathcal{B}}}.
+    \label{chlar:eqn_ssdd}
+\end{align}
+
+
+有了这样的记号后，联系Lorentz矢量和旋量的关系式\eqref{chlar:eqn_X2xz}可以写为：
+\begin{align}
+    X^{{\mathcal{A}}\dot{\mathcal{A}}}=
+    x^{\alpha} (\sigma_\alpha)^{{\mathcal{A}}\dot{\mathcal{A}}}.
+\end{align}
+\uwave{进而可以推广至Lorentz张量和旋量记号间的关系}（注意等号右端的正负号）：
+\setlength{\mathindent}{0em}
+\begin{subequations}\label{chlar:eqn_spin-tensor} 
+    \begin{align}
+        &T_{{\mathcal{A}}\dot{\mathcal{A}} \cdots {\mathcal{B}}\dot{\mathcal{B}}}^{\hphantom{B\dot{B} 
+                \cdots B\dot{B}} {\mathcal{C}}\dot{\mathcal{C}}\cdots {\mathcal{D}}\dot{\mathcal{D}}}={\color{red}+}
+        T_{\alpha \cdots \beta}^{\hphantom{\alpha \cdots \beta} \gamma\cdots \delta}
+        (\sigma^\alpha)_{{\mathcal{A}}\dot{\mathcal{A}}} \cdots (\sigma^\beta)_{{\mathcal{B}}\dot{\mathcal{B}}} \ 
+        (\sigma_\gamma)^{{\mathcal{C}}\dot{\mathcal{C}}} \cdots (\sigma_\delta)^{{\mathcal{D}}\dot{\mathcal{D}}} .
+        \label{chlar:eqn_T2s} \\
+        &T_{\alpha \cdots \beta}^{\hphantom{\alpha \cdots \beta} \gamma\cdots \delta} = ({\color{red}-})^{\pi}\, 
+        T_{{\mathcal{A}}\dot{\mathcal{A}} \cdots {\mathcal{B}}\dot{\mathcal{B}}}^{\hphantom{B\dot{B} 
+                \cdots B\dot{B}} {\mathcal{C}}\dot{\mathcal{C}}\cdots {\mathcal{D}}\dot{\mathcal{D}}}
+        (\sigma_\alpha)^{{\mathcal{A}}\dot{\mathcal{A}}}\cdots(\sigma_\beta)^{{\mathcal{B}}\dot{\mathcal{B}}}\ 
+        (\sigma^\gamma)_{{\mathcal{C}}\dot{\mathcal{C}}}\cdots(\sigma^\delta)_{{\mathcal{D}}\dot{\mathcal{D}}}.
+        \label{chlar:eqn_s2T} 
+    \end{align}
+\end{subequations}\setlength{\mathindent}{2em}
+其中分量指标间的对应关系是：$\alpha \,\leftrightarrow\, {\mathcal{A}}\dot{\mathcal{A}}$、
+$\beta \,\leftrightarrow\, {\mathcal{B}}\dot{\mathcal{B}}$、
+$\gamma \,\leftrightarrow\, {\mathcal{C}}\dot{\mathcal{C}}$、
+$\delta \,\leftrightarrow\, {\mathcal{D}}\dot{\mathcal{D}}$．
+式\eqref{chlar:eqn_s2T}中的系数$(-)^\pi$中的因子$\pi$是张量
+$T_{\alpha \cdots \beta}^{\hphantom{\alpha \cdots \beta} \gamma\cdots \delta}$
+上下指标个数之和；比如
+$T_{\alpha \beta}^{\hphantom{\alpha \beta} \gamma \delta \sigma}$共有5个
+指标，故$\pi=5$．这个负号的来源是\eqref{chlar:eqn_ssd}中的负号．
+
+
+
+
+\subsection{号差？}
+由于我们选择的Lorentz度规的号差是$+2$，
+这导致$SL(2,\mathbb{C})$旋量与Lorentz张量之间的很多关系式多出一个{\kaishu 负号}，
+参见式\eqref{chlar:eqn_spin-tensor} ．
+此负号会使旋量计算出错的概率大大增加，故笔者觉得这些运算（旋量与张量关系，旋量导数，旋量曲率等）
+使用号差为$-2$的Lorentz度规更合适（此时，相应公式全是正号\cite{penrose-Rindler1984}）．
+
+
+
+
+
+
+\index[physwords]{Poincar\'{e}群}
+\section{量子场论中的Poincar\'{e}群}\label{chlar:sec_poincare}
+
+绝大部分量子场论书籍采用的Lorentz度规是$(+---)$．
+而本节又是为量子场论所写，故采用号差为“$-2$”的Lorentz度规．
+这是全书中唯一采用号差为“$-2$”的章节，其它章节对度规要么没要求，要么正定，要么号差为“$+2$”．
+
+\subsection{Poincar\'{e}代数II}\label{chlar:sec_PA-2}
+\S\ref{chlg:sec_PA-1}是通过直接计算生成元的对易关系来得到Poincar\'{e}代数的．
+本节采用另一种方法\cite[\S 10.2]{tung-1985}\cite[\S 2.4]{weinberg_vol1}再次得到这组对易关系．
+
+
+
+非紧致半单Lorentz群没有有限维非平庸不可约幺正表示（见定理\ref{chlar:thm_IFU}）；
+因Poincar\'e群是平移群和Lorentz群的半直积，故其非平凡不可约幺正表示都是无穷维的．
+粒子的Hilbert空间是无穷维的，正好可以当成Poincar\'e群的表示空间．
+我们需要把Poincar\'e群同态到Hilbert空间的算符．
+设$\hat{U}(\Lambda,a)$是作用在Hilbert空间上的与Poincar\'e群同态的无穷维幺正矩阵，
+那么$\hat{U}(\Lambda,a)$便是Poincar\'e群的表示；其中$\Lambda$表示Lorentz变换，$a$表示平移．
+根据Wigner定理\cite[\S 2.2]{weinberg_vol1}可知Hilbert空间态矢量的对称变换或者是幺正且线性的，
+或者是反幺正且反线性的．我们只考虑单位元（即恒等变换）附近的变换，故下式中的$\hat{U}(\Lambda,a)$是幺正且线性的．
+我们将$\hat{U}(\Lambda,a)$在单位元附近展开（只保留到线性项）：
+\begin{equation}\label{chlar:eqn_L-expMP}
+	\hat{U}(1+\omega,\epsilon)=1-\frac{1}{2}\mathbbm{i} \omega^{\rho}_{\hphantom{\rho}\sigma} 
+	\hat{M}^{\hphantom{\rho}\sigma}_{\rho}+\mathbbm{i}\epsilon^{\rho}\hat{P}_{\rho}+\cdots.
+\end{equation}
+$\omega^{\rho}_{\hphantom{\rho}\sigma}$是用来描述Lorentz变换的六个无穷小反对称实变数（见\eqref{chlg:eqn_L-infty}），
+$\hat{M}^{\hphantom{\rho}\sigma}_{\rho}$是其六个生成元；
+$\epsilon^\rho$是描述平移的四个无穷小实变数，$\hat{P}_{\rho}$是其生成元．
+后面，我们将看到$\hat{M}^{\hphantom{\rho}\sigma}_{\rho}$包含角动量，$\hat{P}_{\rho}$是四动量．
+为配合$\omega^{\rho}_{\hphantom{\rho}\sigma}$的反对称性，我们令
+\begin{equation}
+	\hat{M}^{\rho\sigma}=-\hat{M}^{\sigma\rho};\qquad
+	\text{其中}\    \hat{M}^{\rho\sigma}=\eta^{\rho\pi} \hat{M}^{\hphantom{\rho}\sigma}_{\pi}.
+\end{equation}
+为了保证$\hat{U}(\Lambda,a)$的幺正性，我们要求$\hat{M}_{\rho\sigma}$、$\hat{P}_{\rho}$是厄米的，即
+\begin{equation}
+	\hat{M}_{\rho\sigma} = \hat{M}^\dagger_{\rho\sigma},\qquad
+	\hat{P}_{\rho}=\hat{P}^\dagger_{\rho}.
+\end{equation}
+式\eqref{chlar:eqn_L-expMP}中展开系数的{\kaishu 符号}选择原因：
+{\bfseries (1)}$\hat{P}_{\rho}$前的正号可以保证$\hat{P}^0=\hat{H}$是正定的．
+{\bfseries (2)}$\hat{M}^{\hphantom{\rho}\sigma}_{\rho}$的负号可以保证Lorentz变换中的纯空间转动
+是符合右手螺旋定则的（或称为主动模式；见式\eqref{chlg:eqn_rot-inf}、\eqref{chlg:eqn_rotation-zy}）．
+
+Poincar\'e群元素乘积关系\eqref{chlg:eqn_ptp}可以同态到$\hat{U}(\Lambda,a)$上，有
+\begin{equation}\label{chlar:eqn_UUU=U}
+	\hat{U}(\Lambda,a)\hat{U}(1+\omega,\epsilon)\hat{U}^{-1}(\Lambda,a)
+	=\hat{U}\bigl(1+\Lambda\omega\Lambda^{-1},\  \Lambda\epsilon -\Lambda\omega\Lambda^{-1}a \bigr).
+\end{equation}
+式\eqref{chlar:eqn_UUU=U}左端为（只保留到线性项）
+\begin{align*}
+	LHS=&\hat{U}(\Lambda,a)\left(1-\frac{1}{2}\mathbbm{i} \omega^{\rho}_{\hphantom{\rho}\sigma} 
+	\hat{M}^{\hphantom{\rho}\sigma}_{\rho}
+	+\mathbbm{i}\epsilon^{\rho}\hat{P}_{\rho} \right)\hat{U}^{-1}(\Lambda,a) \\
+	=&1-\frac{1}{2}\mathbbm{i}  \omega^{\rho}_{\hphantom{\rho}\sigma}  \hat{U}(\Lambda,a)
+	\hat{M}^{\hphantom{\rho}\sigma}_{\rho} \hat{U}^{-1}(\Lambda,a) 
+	+\mathbbm{i}\epsilon^{\rho}\hat{U}(\Lambda,a)\hat{P}_{\rho}\hat{U}^{-1}(\Lambda,a) .
+\end{align*}
+式\eqref{chlar:eqn_UUU=U}右端为（只保留到线性项）
+\begin{align*}
+	RHS=&1 -\frac{1}{2}\mathbbm{i}  \Lambda^{\mu}_{\hphantom{\mu}\pi} 
+	\omega^\pi_{\hphantom{\pi} \kappa} (\Lambda^{-1})^\kappa_{\hphantom{\pi}\nu} 
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}
+	+\mathbbm{i}\bigl(\Lambda^{\mu}_{\hphantom{\mu}\pi} \epsilon^\pi
+	- \Lambda^{\mu}_{\hphantom{\mu}\pi} \omega^\pi_{\hphantom{\pi} \kappa} 
+	(\Lambda^{-1})^\kappa_{\hphantom{\pi}\tau} a^\tau \bigr) \hat{P}_{\mu} .
+\end{align*}
+式\eqref{chlar:eqn_UUU=U}左右两端与$\omega$、$\epsilon$相关项各自相等，得
+%\begin{align*}
+%    \frac{1}{2}\omega^{\rho}_{\hphantom{\rho}\sigma}  \hat{U}(\Lambda,a)
+%    \hat{M}^{\hphantom{\rho}\sigma}_{\rho} \hat{U}^{-1}(\Lambda,a) =&
+%    \frac{1}{2}\Lambda^{\mu}_{\hphantom{\mu}\pi} \omega^\pi_{\hphantom{\pi} \kappa} 
+%    (\Lambda^{-1})^\kappa_{\hphantom{\pi}\nu} \hat{M}^{\hphantom{\mu}\nu}_{\mu}
+%    +\Lambda^{\mu}_{\hphantom{\mu}\pi} \omega^\pi_{\hphantom{\pi} \kappa} 
+%    (\Lambda^{-1})^\kappa_{\hphantom{\pi}\tau} a^\tau  \hat{P}_{\mu} , \\
+%    \epsilon^{\rho}\hat{U}(\Lambda,a)\hat{P}_{\rho}\hat{U}^{-1}(\Lambda,a) =&
+%    \Lambda^{\mu}_{\hphantom{\mu}\pi} \epsilon^\pi \hat{P}_{\mu} .
+%\end{align*}
+%整理上式得
+\begin{align*}
+	\omega^{\rho}_{\hphantom{\rho}\sigma}  \hat{U}(\Lambda,a)
+	\hat{M}^{\hphantom{\rho}\sigma}_{\rho} \hat{U}^{-1}(\Lambda,a) =&
+	\omega^\rho_{\hphantom{\rho} \sigma} \eta^\pi_\rho \eta_\kappa^\sigma \left(
+	\Lambda^{\mu}_{\hphantom{\mu}\pi}  (\Lambda^{-1})^\kappa_{\hphantom{\pi}\nu} 
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}+ 2 \Lambda^{\mu}_{\hphantom{\mu}\pi}  
+	(\Lambda^{-1})^\kappa_{\hphantom{\pi}\nu} a^\nu  \hat{P}_{\mu}     \right), \\
+	\epsilon^{\rho}\hat{U}(\Lambda,a)\hat{P}_{\rho}\hat{U}^{-1}(\Lambda,a) =&
+	\epsilon^\rho \Lambda^{\mu}_{\hphantom{\mu}\rho}  \hat{P}_{\mu} .
+\end{align*}
+无限小量$\omega$、$\epsilon$前的系数相等，参考式\eqref{chlg:eqn_Linv-ud}，通过求和指标代换，有
+\begin{align}
+	\hat{U}(\Lambda,a)\hat{M}^{\rho\sigma} \hat{U}^{-1}(\Lambda,a) =&
+	\Lambda_{\mu}^{\hphantom{\nu}\rho} \Lambda_{\nu}^{\hphantom{\nu}\sigma}\left( \hat{M}^{\mu\nu}
+	+ a^\nu  \hat{P}^{\mu}  - a^\mu  \hat{P}^{\nu}\right), \label{chlar:eqn_UMU=AAMPP}\\
+	\hat{U}(\Lambda,a)\hat{P}^{\rho}\hat{U}^{-1}(\Lambda,a) =&
+	\Lambda_{\mu}^{\hphantom{\nu}\rho}  \hat{P}^{\mu} . \label{chlar:eqn_UPU=AP}
+\end{align}
+虽然我们假设$\hat{U}(\Lambda,a)$是无穷维的，但推导式\eqref{chlar:eqn_UMU=AAMPP}、
+\eqref{chlar:eqn_UPU=AP}过程中并未实际使用无穷维这个要素，
+故这两式对有限维的表示矩阵$\hat{U}(\Lambda,a)$同样正确；
+此时$\hat{M}^{\rho\sigma}$、$\hat{P}^{\mu}$是与$\hat{U}(\Lambda,a)$维数相同的表示矩阵．
+我们令上两式中的$\Lambda^\mu_{\hphantom{\nu}\nu}=\delta^\mu_{\nu}
++\bar{\omega}^\mu_{\hphantom{\nu}\nu}$、
+$\Lambda_\mu^{\hphantom{\mu}\rho}=(\Lambda^{-1})^\rho_{\hphantom{\rho}\mu}
+=\delta^\rho_{\mu}-\bar{\omega}^\rho_{\hphantom{\rho}\mu}$；
+以及令$a^\mu\xrightarrow{\text{变为}}\bar{\epsilon}^\mu\to 0$．
+\begin{align*}
+	&\left(1-\frac{1}{2}\mathbbm{i} \bar{\omega}^\mu_{\hphantom{\nu}\nu}
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}+\mathbbm{i}\bar{\epsilon}^{\pi}\hat{P}_{\pi}\right)
+	\hat{M}^{\rho\sigma} \left(1+\frac{1}{2}\mathbbm{i} \bar{\omega}^\alpha_{\hphantom{\alpha}\beta}
+	\hat{M}^{\hphantom{\alpha}\beta}_{\alpha}-\mathbbm{i}\bar{\epsilon}^{\gamma}\hat{P}_{\gamma}\right) \\
+	&\qquad =\left(\delta^\rho_{\hphantom{\rho}\mu} -\bar{\omega}^\rho_{\hphantom{\rho}\mu}\right)
+	\left(\delta^\sigma_{\hphantom{\sigma}\nu} -\bar{\omega}^\sigma_{\hphantom{\sigma}\nu}\right)
+	\left( \hat{M}^{\mu\nu}+ \bar{\epsilon}^\nu  \hat{P}^{\mu}  - \bar{\epsilon}^\mu  \hat{P}^{\nu}\right), \\
+	&\left(1-\frac{1}{2}\mathbbm{i} \bar{\omega}^\mu_{\hphantom{\nu}\nu}
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}+\mathbbm{i}\bar{\epsilon}^{\pi}\hat{P}_{\pi}\right)
+	\hat{P}^{\rho} \left(1+\frac{1}{2}\mathbbm{i} \bar{\omega}^\alpha_{\hphantom{\alpha}\beta}
+	\hat{M}^{\hphantom{\alpha}\beta}_{\alpha}-\mathbbm{i}\bar{\epsilon}^{\gamma}\hat{P}_{\gamma}\right) 
+	= \left(\delta^\rho_{\hphantom{\rho}\mu} -\bar{\omega}^\rho_{\hphantom{\rho}\mu}\right)\hat{P}^{\mu} . 
+\end{align*}
+展开，并只保留线性项，得
+\begin{align*}
+	&\hat{M}^{\rho\sigma}-\frac{1}{2}\mathbbm{i} \bar{\omega}^\mu_{\hphantom{\nu}\nu}
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}\hat{M}^{\rho\sigma}
+	+\mathbbm{i}\bar{\epsilon}^{\pi}\hat{P}_{\pi}\hat{M}^{\rho\sigma}
+	+\frac{1}{2}\mathbbm{i} \bar{\omega}^\alpha_{\hphantom{\alpha}\beta}
+	\hat{M}^{\rho\sigma}\hat{M}^{\hphantom{\alpha}\beta}_{\alpha}
+	-\mathbbm{i}\bar{\epsilon}^{\gamma}\hat{M}^{\rho\sigma}\hat{P}_{\gamma}  \\
+	&\qquad = \hat{M}^{\rho\sigma} + \bar{\epsilon}^\sigma  \hat{P}^{\rho} - \bar{\epsilon}^\rho  \hat{P}^{\sigma}
+	-\bar{\omega}^\rho_{\hphantom{\rho}\mu}\hat{M}^{\mu\sigma}
+	-\bar{\omega}^\sigma_{\hphantom{\sigma}\nu} \hat{M}^{\rho\nu}, \\
+	&\hat{P}^{\rho}-\frac{1}{2}\mathbbm{i} \bar{\omega}^\mu_{\hphantom{\nu}\nu}
+	\hat{M}^{\hphantom{\mu}\nu}_{\mu}\hat{P}^{\rho}+\mathbbm{i}\bar{\epsilon}^{\pi}\hat{P}_{\pi}\hat{P}^{\rho}
+	+\frac{1}{2}\mathbbm{i} \bar{\omega}^\alpha_{\hphantom{\alpha}\beta}\hat{P}^{\rho}
+	\hat{M}^{\hphantom{\alpha}\beta}_{\alpha}-\mathbbm{i}\bar{\epsilon}^{\gamma}\hat{P}^{\rho}\hat{P}_{\gamma} 
+	= \hat{P}^{\rho} -\bar{\omega}^\rho_{\hphantom{\rho}\mu}\hat{P}^{\mu} . 
+\end{align*}
+整理，有
+\begin{align*}
+	&\frac{1}{2}\mathbbm{i} \bar{\omega}_{\mu\nu} 
+	\left(\hat{M}^{\rho\sigma}\hat{M}^{\mu\nu}- \hat{M}^{\mu\nu}\hat{M}^{\rho\sigma}\right)
+	+\mathbbm{i}\bar{\epsilon}_{\mu} \left(\hat{P}^{\mu}\hat{M}^{\rho\sigma}
+	-\hat{M}^{\rho\sigma}\hat{P}^{\mu}\right) \\
+	&\qquad = \bar{\epsilon}_\mu \left(\eta^{\sigma\mu} \hat{P}^{\rho}-\eta^{\rho\mu} \hat{P}^{\sigma}\right)
+	-\bar{\omega}_{\mu\nu}\left(\eta^{\mu\rho}\hat{M}^{\nu\sigma}
+	+\eta^{\mu\sigma} \hat{M}^{\rho\nu}\right), \\
+	&\frac{1}{2}\mathbbm{i} \bar{\omega}_{\mu\nu}
+	\left(\hat{P}^{\rho}\hat{M}^{\mu\nu} - \hat{M}^{\mu\nu}\hat{P}^{\rho}\right)
+	-\mathbbm{i}\bar{\epsilon}_{\mu}\left(\hat{P}^{\rho}\hat{P}^{\mu} -\hat{P}^{\mu}\hat{P}^{\rho}\right)
+	= -\bar{\omega}_{\mu\nu}\eta^{\mu\rho} \hat{P}^{\nu} . 
+\end{align*}
+令$\bar{\omega}_{\mu\nu}$、$\bar{\epsilon}_\mu$前系数相等，
+通过指标的变量代换，可得它们的对易关系：
+\begin{subequations}\label{chlar:eqn_PLA-M}
+	\begin{align}
+		[\hat{P}^\mu,\ \hat{P}^\rho] = & 0 .\\
+		\mathbbm{i} [\hat{P}^\mu,\ \hat{M}^{\rho\sigma}] = & 
+		\eta^{\mu \sigma} \hat{P}^\rho-\eta^{\mu \rho} \hat{P}^\sigma .\\
+		\mathbbm{i} [\hat{M}^{\rho\sigma},\ \hat{M}^{\mu\nu}] = & 
+		\eta^{\nu \rho} \hat{M}^{\mu\sigma}-\eta^{\mu \rho} \hat{M}^{\nu\sigma}
+		+\eta^{\mu\sigma} \hat{M}^{\nu\rho}-\eta^{\nu\sigma} \hat{M}^{\mu\rho}.
+	\end{align}
+\end{subequations}
+上式中角标取值范围是$0,1,2,3$．$\eta^{\mu \nu}$是Lorentz度规$(+---)$．令
+\begin{equation}\label{chlar:eqn_JK-M}
+	\begin{aligned}
+		&\{\hat{M}^{23},\hat{M}^{31},\hat{M}^{12}\}= \{\hat{J}^1, \hat{J}^2, \hat{J}^3\}=\{\hat{\boldsymbol{J}}\};
+		\quad \{\hat{M}^{i0}\}= \{\hat{K}^i\}=\{\hat{\boldsymbol{K}}\}. \\
+		& \hat{H}\equiv \hat{P}^0 = \hat{P}_0;\quad 
+		\{\hat{\boldsymbol{P}}\}=\{\hat{P}^1,\hat{P}^2,\hat{P}^3\} =\{-\hat{P}_1,-\hat{P}_2,-\hat{P}_3\}.
+	\end{aligned}
+\end{equation}
+根据这里的符号约定，有$\hat{J}_i=-\hat{J}^i$、$\hat{K}_i=-\hat{K}^i$（$i=1,2,3$）．
+经过不那么繁琐的演算，由式\eqref{chlar:eqn_PLA-M}、\eqref{chlar:eqn_JK-M}可
+得到对易关系（$i,j,k=1,2,3$，$\epsilon^{123}=1$）：
+\begin{subequations}\label{chlar:eqn_PA-iso13-comm-PJK}
+	\begin{align}
+		\left[\hat{J}^i, \hat{J}^j \right] =& \mathbbm{i} \sum\nolimits_{k=1}^{3} \epsilon^{ijk} \hat{J}^k . \\
+		\left[\hat{J}^i, \hat{K}^j\right] =& \mathbbm{i} \sum\nolimits_{k=1}^{3} \epsilon^{ijk} \hat{K}^k . \\
+		\left[\hat{K}^i, \hat{K}^j\right] =& -\mathbbm{i}\sum\nolimits_{k=1}^{3} \epsilon^{ijk} \hat{J}^k . \\
+		\left[\hat{H}, \hat{P}^i \right] =& \left[\hat{H}, \hat{J}^i \right]
+		=\left[\hat{H}, \hat{H} \right] =\left[\hat{P}^i, \hat{P}^j \right] =0 . \\
+		\left[\hat{H}, \hat{K}^i \right] = & -\mathbbm{i} \hat{P}^i .\\
+		\left[\hat{P}^i, \hat{K}^j \right] =& -\mathbbm{i} \delta^{ij} \hat{H} . \\
+		\left[\hat{P}^i, \hat{J}^j \right] =& \mathbbm{i} \sum\nolimits_{k=1}^{3} \epsilon^{ijk} \hat{P}^k .
+	\end{align}
+\end{subequations}
+
+需要指出的是\eqref{chlg:eqn_PA-gen}式是从轨道角动量得到的算符，不可能包含自旋．
+但是，在式\eqref{chlar:eqn_JK-M}中，我们可以认为它包含自旋角动量$\hat{S}_{\mu\nu}$：
+\begin{equation}
+	\hat{M}_{\mu\nu}\equiv  \mathbbm{i} \left(
+	x_\mu \frac{\partial}{\partial x^\nu}
+	-x_\nu \frac{\partial}{\partial x^\mu}\right) + \hat{S}_{\mu\nu};
+	\qquad  0\leqslant \mu,\nu \leqslant 3 .
+\end{equation}
+其中$ \mathbbm{i} (x_\mu \frac{\partial}{\partial x^\nu}
+-x_\nu \frac{\partial}{\partial x^\mu})$是轨道角动量，
+纯空间部分与式\eqref{chlar:eqn_so3-L}相同．
+
+
+
+\index[physwords]{Poincar\'{e}代数!Casimir算子}
+
+\subsection{Poincar\'{e}代数的Casimir算子}\label{chlar:sec_PC}
+Poincar\'{e}代数不是半单的，故不能仿照式\eqref{chlg:eqn_Casimir}定义Casimir算子．
+我们将非半单李代数的Casimir算子定义为：{\kaishu 与该李代数任意元素都对易的算子．}
+
+%文章\parencite{Chaichian-1983}公式(5.7)指出Poincar\'{e}代数有两个相互独立的Casimir算子．
+经过前人研究，发现Poincar\'{e}代数有两个相互独立的Casimir算子，
+并已找到这两个算子；\uwave{第一个是四动量的平方}
+\begin{equation}\label{chlar:eqn_PA-Casimir-P2}
+	\hat{C}_1 \equiv \hat{P}_\mu \hat{P}^\mu = \hat{H}^2 - \boldsymbol{\hat{P}}^2
+	= \hat{H}^2 - \boldsymbol{\hat{P}}\cdot \boldsymbol{\hat{P}}.
+\end{equation}
+利用\eqref{chlar:eqn_PLA-M}可得
+\begin{align*}
+	&\mathbbm{i} [\hat{P}_\mu\hat{P}^\mu,\ \hat{M}^{\rho\sigma}] = 
+	\mathbbm{i} \hat{P}_\mu [\hat{P}^\mu,\ \hat{M}^{\rho\sigma}] +\mathbbm{i} [\hat{P}^\mu,\ \hat{M}^{\rho\sigma}] \hat{P}_\mu \\
+	=& \hat{P}_\mu(\eta^{\mu \sigma} \hat{P}^\rho-\eta^{\mu \rho} \hat{P}^\sigma)
+	+(\eta^{\mu \sigma} \hat{P}^\rho-\eta^{\mu \rho} \hat{P}^\sigma)\hat{P}_\mu=0.
+\end{align*}
+再结合$[\hat{C}_1, \hat{P}^\sigma]=0$，便验证了$\hat{C}_1$与Poincar\'{e}代数的所有基矢对易．
+
+\index[physwords]{Pauli--Lubanski算子}
+
+为描述第二个Casimir算子，我们先定义{\bfseries\heiti Pauli--Lubanski算子}为
+\begin{equation}\label{chlar:eqn_Pauli-Lubanski}
+	\hat{W}^\alpha \equiv \frac{1}{2}\epsilon^{\alpha\beta\mu\nu}\hat{P}_\beta \hat{M}_{\mu\nu}
+	\xlongequal{\ref{chlar:eqn_PLA-M}} \frac{1}{2}\epsilon^{\alpha\mu\nu\beta} \hat{M}_{\mu\nu} \hat{P}_\beta  .
+\end{equation}
+其中$\epsilon_{\alpha\beta\mu\nu}$是体积元\eqref{chrg:eqn_volume-element}在四维平直闵氏时空中的正交坐标系中的分量，
+故$\epsilon_{0123}=1=-\epsilon^{0123}$；记$\epsilon^{ijk}=\epsilon_{ijk}=\epsilon_{0ijk}$．
+由式\eqref{chlar:eqn_JK-M}可得
+\begin{equation}\label{chlar:eqn_Pauli-Lubanski-comp}
+	\hat{W}^0 = \boldsymbol{\hat{P}}\cdot \boldsymbol{\hat{J}},\quad
+	\boldsymbol{\hat{W}} =  \hat{H} \boldsymbol{\hat{J}} + \boldsymbol{\hat{P}}\times \boldsymbol{\hat{K}}.
+\end{equation}
+容易得到下式
+\begin{equation}\label{chlar:eqn_PW=0}
+	\hat{P}_\alpha \hat{W}^\alpha = \frac{1}{2}\epsilon^{\alpha\beta\mu\nu}\hat{P}_\alpha \hat{P}_\beta \hat{M}_{\mu\nu}=0 .
+\end{equation}
+利用式\eqref{chlar:eqn_PLA-M}可以证明Pauli--Lubanski算子与四动量是对易的：
+\begin{equation}\label{chlar:eqn_PWWP=0}
+	[\hat{P}_\alpha,\, \hat{W}^\rho] = 
+	\frac{1}{2}\epsilon^{\rho\beta\mu\nu} \hat{P}_\beta [ \hat{M}_{\mu\nu},\, \hat{P}_\alpha]
+	=\frac{1}{2\mathbbm{i}}\epsilon^{\rho\beta\mu\nu} \hat{P}_\beta 
+	(\eta_{\alpha \mu} \hat{P}_\nu-\eta_{\alpha \nu} \hat{P}_\mu ) =0.    
+\end{equation}
+利用式\eqref{chlar:eqn_PW=0}，有
+\begin{align*}
+	&0=[\hat{P}_\alpha \hat{W}^\alpha,\, \hat{M}_{\rho \sigma} ]
+	=\hat{P}_\alpha [ \hat{W}^\alpha,\, \hat{M}_{\rho \sigma} ]
+	+[\hat{P}_\alpha ,\, \hat{M}_{\rho \sigma} ]\hat{W}^\alpha 
+	\quad \xRightarrow{\ref{chlar:eqn_PLA-M}} \\
+	&\hat{P}_\alpha [ \hat{W}^\alpha,\, \hat{M}_{\rho \sigma} ]= \mathbbm{i}
+	(\eta_{\alpha \sigma} \hat{P}_\rho-\eta_{\alpha \rho} \hat{P}_\sigma)\hat{W}^\alpha
+	= \mathbbm{i} (\hat{P}_\rho \hat{W}_\sigma-\hat{P}_\sigma \hat{W}_\rho)
+	=\mathbbm{i} \hat{P}_\alpha (\delta_\rho^\alpha \hat{W}_\sigma -\delta_\sigma^\alpha \hat{W}_\rho) .
+\end{align*}
+由上式，再利用$\hat{P}_\alpha$在四个方向相互独立，有
+\begin{equation}\label{chlar:eqn_WM=W}
+	[\hat{W}^\alpha,\, \hat{M}_{\rho \sigma} ] =  \mathbbm{i} 
+	\left(\delta^\alpha_\rho \hat{W}_\sigma-\delta^\alpha_\sigma \hat{W}_\rho  \right).
+\end{equation}
+利用式\eqref{chlar:eqn_WM=W}可得：
+\begin{equation}\label{chlar:eqn_WW=PW}
+	[\hat{W}^\alpha, \hat{W}^\rho] 
+	\xlongequal[\ref{chlar:eqn_PWWP=0}]{\ref{chlar:eqn_WM=W}}
+	\frac{1}{2}\mathbbm{i} \epsilon^{\rho \beta\mu\nu} \hat{P}_\beta 
+	\left(\delta^\alpha_\mu \hat{W}_\nu - \delta^\alpha_\nu \hat{W}_\mu\right)
+	=\mathbbm{i} \epsilon^{\alpha \rho \beta \mu }  \hat{P}_\beta \hat{W}_\mu   .
+\end{equation}
+
+
+\uwave{第二个Casimir算子定义为}
+\begin{equation}\label{chlar:eqn_PA-Casimir-W2}
+	\hat{C}_2 \equiv \hat{W}_\mu \hat{W}^\mu 
+	= -\frac{1}{2} \hat{C}_1 \hat{M}_{\mu\nu}  \hat{M}^{\mu\nu}
+	- \hat{P}_\beta \hat{P}^\mu \hat{M}_{\mu\nu}  \hat{M}^{\nu\beta} .
+\end{equation}
+将下式最后一步展开即得式\eqref{chlar:eqn_PA-Casimir-W2}最后一步．
+\begin{align*}
+	\hat{C}_2 &= \frac{1}{4}
+	\epsilon^{\alpha\beta\mu\nu} \epsilon_{\alpha\pi\rho\sigma}
+	\hat{P}_\beta \hat{M}_{\mu\nu}  \hat{P}^\pi \hat{M}^{\rho\sigma}
+	\xlongequal{\ref{chrg:eqn_VE-contract-VE}}
+	-\frac{3!}{4}\delta^{\beta} _{[\pi}\delta^{\mu} _{\rho}\delta^{\nu} _{\sigma]}
+	\hat{P}_\beta \hat{M}_{\mu\nu}  \hat{P}^\pi \hat{M}^{\rho\sigma}. 
+	%	    &= -\frac{1}{4}
+	%	    \hat{P}_\beta \hat{M}_{\mu\nu}  \hat{P}^\pi \hat{M}^{\rho\sigma} 
+	%	    (\delta^\beta_\pi \delta^\mu_\rho \delta^\nu_\sigma
+	%	    +\delta^\beta_\sigma \delta^\mu_\pi \delta^\nu_\rho 
+	%	    +\delta^\beta_\rho \delta^\mu_\sigma \delta^\nu_\pi 
+	%	    -\delta^\beta_\sigma \delta^\mu_\rho \delta^\nu_\pi
+	%	    -\delta^\beta_\pi \delta^\mu_\sigma \delta^\nu_\rho 
+	%	    -\delta^\beta_\rho \delta^\mu_\pi  \delta^\nu_\sigma) \\
+	%	    &=-\frac{1}{2} \hat{P}_\beta \hat{P}^\beta \hat{M}_{\mu\nu}  \hat{M}^{\mu\nu}
+	%	    - \hat{P}_\beta \hat{P}^\mu \hat{M}_{\mu\nu}  \hat{M}^{\nu\beta} .
+\end{align*}
+
+
+由式\eqref{chlar:eqn_PWWP=0}，可验证$[\hat{C}_2,\, \hat{P}^\alpha]=0$．
+由式\eqref{chlar:eqn_WM=W}，可验证$[\hat{C}_2,\, \hat{M}_{\rho\sigma}]=0$．
+这样便证明了$\hat{C}_2$与Poincar\'e代数所有基矢都对易，故是Casimir算子．
+
+
+\subsection{单粒子态的Wigner分类}\label{chlar:sec_wigner-class}
+
+单粒子态的Wigner分类的大体思路是\cite[\S 2.5]{weinberg_vol1}\cite[\S 10.4]{tung-1985}：
+{\bfseries (1)}所有粒子的单粒子态均由Hilbert空间矢量描述．
+{\bfseries (2)}这些态矢量是四动量算符$\hat{P}^\mu$的本征态．
+{\bfseries (3)}不同惯性系观者之间有一个变换（Poincar\'e变换），
+相应他们观测到的同一个单粒子态之间也会有一个变换（式\eqref{chlar:eqn_L-expMP}中的$\hat{U}(\Lambda,a)$）；
+这自然构成了一个Hilbert态矢空间上Poincar\'e群的表示．
+{\bfseries (4)}通过诱导表示法将Poincar\'e群表示化为{\kaishu 小群}（little group）的表示．
+{\bfseries (5)}通过小群对单粒子态进行分类．
+
+下面具体讨论Wigner分类．
+目前，物理学认为粒子状态由Hilbert空间（见\ref{chcx:def_Hilbert-Space}）中的矢量来描述．
+我们只需要单粒子态就够了，单粒子态是指无相互作用的自由粒子状态，比如单个电子、质子、光子的状态；
+质子和束缚电子（即氢原子）的整体也是自由的，故也是单粒子态；氢原子核外的束缚电子则不是单粒子态．
+单粒子态$|p\sigma\rangle$（其中$p$代表四动量量子数；$\sigma$代表其它量子数，后面会具体指出）
+一定是其自身的哈密顿（Poincar\'e代数生成元$\hat{H}$）的本征态，
+同时也是其它动量算符（$\hat{P}^i$，$i=1,2,3$）的本征态
+（请参考式\eqref{chlar:eqn_PA-iso13-comm-PJK}，四动量算符相互对易）．
+由于Casimir算子（见\S\ref{chlar:sec_PC}）与Poincar\'e代数中所有算符对易，
+故$|p\sigma\rangle$也是$\hat{C}_1$、$\hat{C}_2$的本征态．因此，有
+\begin{align}
+	\hat{P}^\mu |p\sigma\rangle =& p^\mu |p\sigma\rangle;\qquad \text{令}\ p^0 \equiv E . \label{chlar:eqn_Pps}\\
+	\hat{C}_1 |p\sigma\rangle = & (\hat{H}^2 - \boldsymbol{\hat{P}}\cdot \boldsymbol{\hat{P}}) |p\sigma\rangle
+	= (E^2 -\boldsymbol{p}\cdot \boldsymbol{p}) |p\sigma\rangle . \label{chlar:eqn_C1ps} \\
+	\hat{C}_2 |p\sigma\rangle = & \left(\left(\hat{W^0}\right)^2 - \boldsymbol{\hat{W}}
+	\cdot \boldsymbol{\hat{W}}\right) |p\sigma\rangle
+	= c_2 |p\sigma\rangle . \quad c_2\text{的数值待定}  \label{chlar:eqn_C2ps}
+\end{align}
+
+
+
+
+首先，我们考虑平移．单粒子态$|p\sigma\rangle$在平移算符作用下，有
+\begin{align}
+	\hat{U}(1,a) |p\sigma\rangle = e^{\mathbbm{i}a_\rho \hat{P}^\rho} |p\sigma\rangle
+	\xlongequal{\ref{chlar:eqn_Pps}} e^{\mathbbm{i}a_\rho p^\rho} |p\sigma\rangle .
+\end{align}
+可以看到单粒子态在平移算符作用下结果很简单．
+
+下面考察单粒子态在正时固有Lorentz变换下作如何改变．
+我们知道正时固有Lorentz变换$\Lambda$不改变四动量$p^\mu$（式\eqref{chlar:eqn_Pps}中的本征值）
+的类空、类时、类光属性，也不改变$E\equiv p^0$的正负属性．
+那么第一Casimir算子$\hat{C}_1$在正时固有Lorentz变换下是不变的，
+即式\eqref{chlar:eqn_C1ps}中的本征值的时空属性不变．
+我们根据四动量$p^\mu$（式\eqref{chlar:eqn_Pps}中的本征值）的不同状态将单粒子态分为如下四种：
+{\heiti \bfseries (1) 真空态}，此时$E=0$且$\boldsymbol{p}=0$；
+{\heiti \bfseries (2) 类时态}，此时$E^2>|\boldsymbol{p}|^2$；
+{\heiti \bfseries (3) 类光态}，此时$E^2=|\boldsymbol{p}|^2$且$E \neq 0$；
+{\heiti \bfseries (4) 类空态}，此时$E^2<|\boldsymbol{p}|^2$．
+由于物理学上认为粒子不能处于负能态，故我们要求上述四种情形下的$E\geqslant 0$．
+至此，第一Casimir算子对单粒子态的分类作用完结．
+
+狭义相对论认为自然界中粒子的四动量不能处于类空态，故上述第(4)种情形是非物理的，我们不讨论这种情形．
+%需要指出的是也有不少学者讨论此种量子态是否真实存在于自然界中，目前没有确定性的结论．
+
+第(1)分类是{\kaishu 真空态}，它是平庸的，Lorentz群（实际是它的覆盖群$SL(2,\mathbb{C})$）的
+所有无穷维幺正表示都是此种情形下单粒子态的对称群．
+真空态的四动量恒零，此种状态下单粒子态的自旋、电荷等等物理量均无实际意义．
+
+{\kaishu 类时态}和{\kaishu 类光态}是讨论的重点．为此，我们先作如下叙述．
+
+\subsubsection{正时固有Lorentz变换下的单粒子态}
+
+记$\Lambda$为任意正时固有Lorentz变换，相应算符为$\hat{U}(\Lambda,0)\equiv \hat{U}(\Lambda)$．我们有
+\begin{align}
+	\hat{P}^\mu \hat{U}(\Lambda) |p\sigma\rangle =&
+	\hat{U}(\Lambda)\hat{U}^{-1}(\Lambda)\hat{P}^\mu \hat{U}(\Lambda) |p\sigma\rangle 
+	\xlongequal{\ref{chlar:eqn_UPU=AP}}
+	\hat{U}(\Lambda) \Lambda_{\hphantom{\nu}\rho}^{\mu}  \hat{P}^{\rho} |p\sigma\rangle \notag \\
+	=& \hat{U}(\Lambda) \Lambda_{\hphantom{\nu}\rho}^{\mu}  p^{\rho} |p\sigma\rangle 
+	= (\Lambda_{\hphantom{\nu}\rho}^{\mu}  p^{\rho}) \hat{U}(\Lambda) |p\sigma\rangle .	\label{chlar:eqn_ULps}
+\end{align}
+根据Wigner定理（可参见\parencite{weinberg_vol1}第二章附录A），
+在态矢量上的变换$\hat{U}(\Lambda)$必须是幺正且线性的（我们暂不考虑反幺正且反线性情形）．
+由式\eqref{chlar:eqn_ULps}不难看出$\hat{U}(\Lambda) |p\sigma\rangle$的本征值为$\Lambda_{\hphantom{\nu}\rho}^{\mu}  p^{\rho}$，
+那么它一定可以由此本征子空间的态矢量线性表出，即有
+\begin{equation}\label{chlar:eqn_UpC}
+	\hat{U}(\Lambda) |p\sigma\rangle = \sum_{\tau} |\Lambda p,\tau \rangle C_{\tau\sigma}(\Lambda,p).
+\end{equation}
+需要注意到Hilbert空间是无穷维的，上式可以看成Lorentz变换$\Lambda$在Hilbert空间的线性表示；
+因$\hat{U}(\Lambda)$是幺正的，故$C_{\tau\sigma}(\Lambda,p)$必是无穷维幺正矩阵；
+这符合定理\ref{chlar:thm_IFU}要求．容易验证它是表示：
+\begin{align*}
+	\hat{U}(\bar{\Lambda}) \hat{U}(\Lambda) |p\sigma\rangle = &
+	\hat{U}(\bar{\Lambda})\left(\sum_{\tau} |\Lambda p,\tau \rangle C_{\tau\sigma}(\Lambda,p) \right)
+	=\sum_{\tau} \left( \hat{U}(\bar{\Lambda})|\Lambda p,\tau \rangle \right) C_{\tau\sigma}(\Lambda,p) \\
+	=&\sum_{\tau\kappa}  |\bar{\Lambda}\Lambda p,\kappa \rangle 
+	\left(C_{\kappa\tau}(\bar{\Lambda},\Lambda p)  C_{\tau\sigma}(\Lambda,p) \right).
+\end{align*}
+可见满足同态关系，故$C_{\tau\sigma}(\Lambda,p)$是无穷维幺正表示．
+
+
+而表示矩阵$C_{\tau\sigma}(\Lambda,p)$有可能是可约的，我们需要将其约化成不可约的分块情形；
+我们要求它只把此种粒子（比如电子）变成它不同的状态（比如电子的其它动量态、自旋态）．
+因此，可以用不可约的$C_{\tau\sigma}(\Lambda,p)$代表单粒子态．
+下面进一步分解$C_{\tau\sigma}(\Lambda,p)$的结构．
+
+
+
+%在进一步讨论之前，还需对\eqref{chlar:eqn_UpC}式作细致分解．
+式\eqref{chlar:eqn_Pps}中的本征值$p^\mu$（粒子四动量）是任意大小的，
+我们希望从一些简单的四动量状态$k^\nu$（称为{\heiti 标准四动量}）出发，
+通过正时固有Lorentz变换$L^\mu_{\hphantom{\mu}\nu}(p)$将$k^\nu$变为$p^\mu$，即
+\begin{equation}\label{chlar:eqn_pLk}
+	p^\mu = L^\mu_{\hphantom{\mu}\nu}(p) k^\nu .
+\end{equation}
+上式中的$L$一定存在．
+比如我们将标准四动量选为
+\begin{equation}\label{chlar:eqn_ks}
+	k^\nu_{s}=(E,0,0,p).
+\end{equation}
+即把它的第一、第二分量选为零．下标“$s$”代表“standard”．
+根据爱氏能动关系可知：$E^2=p^2+m^2$，其中$m$代表粒子质量，
+$E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的第三分量．
+当粒子质量$m\to 0(p\to \pm E)$时，$k^\nu_s$趋于无质量粒子的四动量$(E,0,0,\pm E)$
+（为简单起见，我们不考虑$p=-E$的情形）．
+当$|p| <E$时，标准动量$k^\mu_s$描述的是有质量粒子；
+尤其$p=0$时，有质量粒子标准四动量$k^\nu_{s}$趋于它的最简形式$(E,0,0,0)$．
+
+当粒子处于标准四动量$k^\nu_s$（式\eqref{chlar:eqn_ks}）时，它所对应的单粒子态为$|k\sigma\rangle$．
+当$k^\nu_s$经$L^\mu_{\hphantom{\mu}\nu}(p)$变为$p^\mu$时，$|k\sigma\rangle$也变为$|p\sigma\rangle$，即
+\begin{equation}\label{chlar:eqn_pULk}
+	|p\sigma\rangle = N_p \hat{U}\bigl(L_p\bigr) |k\sigma\rangle.
+\end{equation}
+其中$N_p$是归一化因子，对于这里的讨论来说并不重要．
+
+我们将一般的洛伦兹变换$\hat{U}(\Lambda)$作用到式\eqref{chlar:eqn_pULk}上，有
+\begin{equation}\label{chlar:eqn_ULpPsks}
+	\hat{U}(\Lambda) |p\sigma\rangle = N_p \hat{U}(\Lambda) \hat{U}\bigl(L_p\bigr) |k\sigma\rangle
+	= N_p \hat{U}(L_{\Lambda p}) \hat{U}\bigl(L^{-1}_{\Lambda p}\Lambda L_p\bigr) |k\sigma\rangle .
+\end{equation}
+上式最后一步，我们技巧性地乘以变换$\hat{U}(L^{-1}_{\Lambda p})$，
+然后再乘以$\hat{U}(L_{\Lambda p})$，这两步相当于啥都没干．
+但这使得式\eqref{chlar:eqn_ULpPsks}中出现一个变换$\hat{U}\bigl(L^{-1}_{\Lambda p}\Lambda L_p\bigr)$，
+现在我们来分析它．其中$L^{-1}_{\Lambda p}\Lambda L_p$是作用到标准动量$k^\nu_s$上的，
+它先令$k^\nu_s$变到$p^\mu$，之后再变到$\Lambda p$，最后由Lorentz变换$L^{-1}_{\Lambda p}$将$\Lambda p$变回$k_s$，
+换句话说$L^{-1}_{\Lambda p}\Lambda L_p$保$k^\nu_s$不变，具体公式为
+\begin{equation}
+	(L^{-1}_{\Lambda p})^\sigma_{\hphantom{\sigma}\rho} \Lambda^\rho_{\hphantom{\rho}\mu}
+	(L_p)^\mu_{\hphantom{\mu}\nu} k^\nu_s 
+	= (L^{-1}_{\Lambda p})^\sigma_{\hphantom{\sigma}\rho} \Lambda^\rho_{\hphantom{\rho}\mu} p^\mu
+	= (L^{-1}_{\Lambda p})^\sigma_{\hphantom{\sigma}\rho} (\Lambda p)^\rho	= k^\sigma_s .
+\end{equation}
+可见（下式中的$W$称为{\heiti \bfseries Wigner转动}）
+\begin{equation}\label{chlar:eqn_Wigner-rotation}
+	W^\sigma_{\hphantom{\sigma}\nu}(\Lambda,p) = (L^{-1}_{\Lambda p})^\sigma_{\hphantom{\sigma}\rho} 
+	\Lambda^\rho_{\hphantom{\rho}\mu}(L_p)^\mu_{\hphantom{\mu}\nu} .
+\end{equation}
+保持$k^\sigma_s$不变，并且$W$构成齐次Lorentz群的子群，称之为{\heiti 小群}．
+验证$W$满足群的定义是直接的，我们只需验证群乘法的封闭性，设有$W$和$\overline{W}$，则
+\begin{align*}
+	\overline{W}^\pi_{\hphantom{\pi}\sigma} W^\sigma_{\hphantom{\sigma}\nu} k^\nu_s
+	=(\bar{L}^{-1}_{\bar{\Lambda} \bar{p}})^\pi_{\hphantom{\sigma}\rho} \bar{\Lambda}^\rho_{\hphantom{\rho}\mu}
+	(\bar{L}_{\bar{p}})^\mu_{\hphantom{\mu}\sigma} k^\sigma_s = k^\pi_s .
+\end{align*}
+满足封闭性，故是群．设$W$对应的Hilbert空间的幺正算符是$\hat{U}(W)$，则
+\begin{equation}\label{chlar:eqn_UWk}
+	\hat{U}(W) |k\sigma\rangle = \sum_{\kappa} |k\kappa\rangle D_{\kappa \sigma}(W) .
+\end{equation}
+仿照验证$C_{\tau \sigma}(\Lambda,p)$是表示的方式，容易验证$D_{\kappa \sigma}(W)$是小群的幺正表示．
+
+利用式\eqref{chlar:eqn_Wigner-rotation}、\eqref{chlar:eqn_UWk}，式\eqref{chlar:eqn_ULpPsks}可表示为
+\begin{align*}
+	&\hat{U}(\Lambda) |p\sigma\rangle =
+	N_p \hat{U}(L_{\Lambda p}) \hat{U}\bigl(L^{-1}_{\Lambda p}\Lambda L_p\bigr) |k\sigma\rangle 
+	=N_p \hat{U}(L_{\Lambda p}) \hat{U}\bigl(W(\Lambda,p)\bigr) |k\sigma\rangle  \\
+	=& N_p \sum_{\tau} \hat{U}(L_{\Lambda p}) |k\tau \rangle D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr)  
+	=	\frac{N_p}{N_{\Lambda p}} \sum_{\tau} N_{\Lambda p}\hat{U}(L_{\Lambda p}) 
+	|k\tau \rangle D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr) .
+\end{align*}
+再由式\eqref{chlar:eqn_pULk}可得
+\begin{equation}\label{chlar:eqn_UpWkD}
+	\hat{U}(\Lambda) |p\sigma\rangle = \frac{N_p}{N_{\Lambda p}} \sum_{\tau} 
+	|\Lambda p, \tau \rangle D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr) .
+\end{equation}
+对比式\eqref{chlar:eqn_UpC}（$\hat{U}(\Lambda) |p\sigma\rangle = 
+\sum_{\tau} |\Lambda p,\tau \rangle C_{\tau\sigma}(\Lambda,p)$），
+除了归一化系数，我们已将寻找齐次Lorentz群表示$C_{\tau\sigma}(\Lambda,p)$转化为
+寻找小群$W$的表示$D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr)$．
+这种通过较小子群表示（此处指$W$）而得到较大群（此处指Lorentz群）表示的方法叫做{\kaishu 诱导表示法}．
+1930年代，Wigner正是通过诱导表示法给出了齐次Lorentz群的无穷维幺正表示．
+
+
+前面，我们通过第一Casimir算子将单粒子态进行了分类，
+去掉几个非物理分类后，只剩下正能的{\kaishu 类时态}和{\kaishu 类光态}．
+我们将单粒子态看成齐次Lorentz群的不可约幺正表示$C_{\tau\sigma}(\Lambda,p)$，
+在我们将其转化为其小群$W$的表示$D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr)$后，
+便可用第二Casimir算子继续讨论单粒子态的分类问题了．
+
+\paragraph{有质量粒子正能态}
+类时态对应的是有质量粒子，我们只关心正能态．
+对于有质量粒子正能态来说，我们将标准动量选为最简形式$k_s=(M,0,0,0)$，
+由于它的三动量全部是零，故描述它的小群$W$是$SO(3)$（更确切地说是它的覆盖群$SU(2)$）．
+由于标准动量中只有静质量非零，故有
+\begin{equation}
+	\hat{P}^\mu |k\sigma\rangle_s = (M,0,0,0)^T |k\sigma\rangle_s.    \qquad
+	\hat{C}_1 |k\sigma\rangle_s = M^2 |k\sigma\rangle_s.
+\end{equation}
+此时可以把三动量$\hat{\boldsymbol{P}}$看成零算符．由此可计算出$\hat{W}^\mu$如下
+\begin{equation}
+	\hat{W}^0=0;\qquad  \hat{W}^i =  M {\hat{J}}^i ;\qquad  
+	\hat{C}_2=- M^2 \boldsymbol{\hat{J}}\cdot\boldsymbol{\hat{J}}.
+\end{equation}
+上式中$\boldsymbol{\hat{J}}$是角动量算符；由于单粒子态是描述自由粒子的，
+此时轨道角动量为零，所以$\boldsymbol{\hat{J}}$只包含粒子的自旋$\boldsymbol{\hat{S}}$．故有
+\begin{equation}
+	\hat{C}_2 |k\sigma\rangle_s =-M^2 \boldsymbol{\hat{S}}\cdot\boldsymbol{\hat{S}}
+	|k\sigma\rangle_s =- M^2 s(s+1)|k\sigma\rangle_s.
+\end{equation}
+也就是说，\uwave{有质量粒子正能态可依据粒子{\kaishu 质量}和{\kaishu 自旋}进行分类．}
+
+$SU(2)$群及其李代数的具体表示见\S\ref{chlar:sec_SU2SO3}．
+
+此处，我们不关心单粒子态的变换方式，具体可见\parencite[\S 2.5]{weinberg_vol1}．
+
+%\paragraph{无质量粒子正能态}
+\begin{example}
+	无质量粒子正能态．
+\end{example}
+类光态自然是指以光速飞行的无质量粒子，我们只关注正能态．
+对于无质量粒子正能态来说，我们先将标准动量选为最简形式$k_s=(E,0,0,E)$，
+并给出相关信息以备后用．无质量粒子的四动量和第一Casimir算子本征值是：
+\begin{equation}
+	\hat{P}^\mu |k\sigma\rangle_s = (E,0,0,E)^T |k\sigma\rangle_s.    \quad
+	\hat{C}_1 |k\sigma\rangle_s =(E^2-E^2) |k\sigma\rangle_s=0.
+\end{equation}
+它的$\hat{W}^\mu$如下
+\begin{equation}\label{chlar:eqn_0W}
+	\hat{W}^0 = E \hat{J}^3 = \hat{W}^3;\
+	\hat{W}^1 = E \left( {\hat{J}}^1 -{\hat{K}}^2 \right), \ 
+	\hat{W}^2 = E \left( {\hat{J}}^2 +{\hat{K}}^1 \right).
+\end{equation}
+由此可得第二Casimir算子为
+\begin{equation}\label{chlar:eqn_C2-massless}
+	\hat{C}_2 = -(\hat{W}_1)^2-(\hat{W}_2)^2
+	=-E^2\left( \left( {\hat{J}}^1- {\hat{K}}^2  \right)^2 + 
+	\left( {\hat{J}}^2 +{\hat{K}}^1 \right)^2\right) .
+\end{equation}
+在此，第二Casimir算子本征值要么恒负，要么为零．
+\qed
+
+
+
+
+我们先叙述一个李代数收缩，这是\S\ref{chlg:sec_inonu-wigner}的续篇．
+
+
+
+
+\subsubsection{李代数收缩二：矩阵形式的$\mathfrak{so}(3)\to \mathfrak{iso}(2)$}\label{chlar:sec_so2iso}
+
+我们\cite{liu_ge-2014}仿照Weinberg的作法给出
+一种矩阵形式的In\"on\"u--Wigner李代数收缩．为此，我们先重复温大师的论述．
+
+\begin{example}\label{chlar:exam_weinberg-zero}
+	\textcite[\S 2.5]{weinberg_vol1}零质量小节开头的论述．
+\end{example}
+考虑一任意小群群元$W^\mu_{\hphantom{\mu}\nu}$（注意它是Lorentz群的子群，故有$W^T \eta W = \eta$），
+它满足$W^\mu_{\hphantom{\mu}\nu} k^\nu=k^\mu$，其中$k^\mu=(1,0,0,1)$是类光情况下的标准四矢量．
+这类Lorentz变换作用在类时四矢量$t^\mu=(1,0,0,0)$上给出的四矢量$Wt$，
+它的长度以及它与$W k=k$的标量积必须与$t$的长度以及$t$与$k$的标量积相同：
+\begin{equation}\label{chlar:eqn_wtk}
+	(W t)^\mu(W t)_\mu=t^\mu t_\mu=+1; \qquad
+	(W t)^\mu k_\mu=t^\mu k_\mu=+1 .
+\end{equation}
+式\eqref{chlar:eqn_wtk}具体计算如下：
+\begin{align*}
+	(W t)^\mu(W t)_\mu=& \eta_{\mu\alpha} (W t)^\mu (W t)^\alpha
+	= t^\nu( W^\mu_{\hphantom{\mu}\nu}  \eta_{\mu\alpha} W^\alpha_{\hphantom{\mu}\beta}) t^\beta
+	= t^\nu \eta_{\nu\beta} t^\beta = t^\mu t_\mu=1. \\
+	(W t)^\mu k_\mu=& k_\mu W^\mu_{\hphantom{\mu}\nu} t^\nu
+	=(k_\mu W^\mu_{\hphantom{\mu}\nu}) t^\nu = k_\nu t^\nu = 1.
+\end{align*}
+任何满足式\eqref{chlar:eqn_wtk}第二个条件的四矢量可以写成
+\begin{equation*}
+	(W t)^\mu=(1+\zeta_w, \alpha, \beta, \zeta_w ) .
+\end{equation*}
+那么式\eqref{chlar:eqn_wtk}第一个条件给出如下关系：
+$	\zeta_w=\left(\alpha^2+\beta^2\right) / 2 $．
+由此可知，$W^\mu_{\hphantom{\mu}\nu}$作用在$t^\nu$上的效果与如下Lorentz变换相同
+\begin{align*}
+	S^\mu_{\hphantom{\mu}\nu}(\alpha, \beta)=
+	\begin{pmatrix}
+		{1 + \zeta_w } &\alpha&\beta&{ - \zeta_w } \\
+		{\alpha }&1&0&{ - \alpha } \\
+		{\beta }& 0&1&{ - \beta } \\
+		{\zeta_w }& \alpha&\beta&{1 - \zeta_w }
+	\end{pmatrix} .
+\end{align*}
+可验证$S^T \eta S = \eta $和$\det(S)=1$．
+这并不意味着$W$等于$S(\alpha, \beta)$，但是它确实意味着$S^{-1}(\alpha, \beta)W$是一个保类时
+四矢量$(1,0,0,0)$不变的Lorentz变换，所以它是一个纯旋转．
+另外，和$W^\mu_{\hphantom{\mu}\nu}$一样，$S^\mu_{\hphantom{\mu}\nu}$保类光四矢量$(1,0,0,1)$不变，
+所以$S^{-1}(\alpha, \beta)W$必然是绕$z$轴转动某个$\theta$角的旋转，即有
+\begin{equation}\label{chlar:eqn_SWR}
+	S^{-1}(\alpha, \beta) W=R(\theta).
+\end{equation}
+至此，Weinberg书中的叙述完毕．下面开始我们的阐述．\qed
+
+
+
+
+Weinberg将无质量粒子的标准动量选为$k_{photon}^\mu=(E,0,0,E)$．
+在下面的叙述中我们把标准动量选为${k^\mu_s } = ({E,0,0,p} )$（即式\eqref{chlar:eqn_ks}），
+将爱因斯坦能动关系（$E^2=m^2+p^2$，自然单位制）考虑在内；
+当粒子质量$m\to 0(p\to E)$时，$k^\mu_s \to k_{photon}^\mu$；
+当$0 \leqslant p <E$时，标准动量$k^\mu_s$描述的是有质量粒子．
+我们来求保持$k^\mu_s$不变($W_{\hphantom{\mu}\nu} ^\mu {k^\nu_s } = {k^\mu_s }$)的小群$W$，依照Weinberg的叙述$W$是一个矩阵，
+它可以分解成两个矩阵的乘积$W(\alpha,\beta,\theta) = S(\alpha,\beta)R(\theta)$（即式\eqref{chlar:eqn_SWR}），
+$\alpha,\beta,\theta$是描述小群$W$的三个连续实参量，其中$R(\theta)$是绕$z$轴的转动
+（式\eqref{chlg:eqn_rotation-zy}）．矩阵$S$是一个一般的Lorentz变换，可以表示成如下形式
+\begin{small}
+	\begin{equation}\label{chlar:eqn_Sab}
+		S^\mu_{\hphantom{\mu}\nu}(\alpha,\beta) = \begin{pmatrix}
+			{1 + {q^2}\zeta } &z&r&{ - q\zeta } \\
+			{q\alpha }&u&v&{ - \alpha } \\
+			{q\beta }& w&s&{ - \beta } \\
+			{q\zeta }& x&y&{1 - \zeta }
+		\end{pmatrix} 
+		\xlongrightarrow[m\to 0]{q\to 1} \begin{pmatrix}
+			{1 + \zeta_w } &\alpha&\beta&{ - \zeta_w } \\
+			{\alpha }&1&0&{ - \alpha } \\
+			{\beta }& 0&1&{ - \beta } \\
+			{\zeta_w }& \alpha&\beta&{1 - \zeta_w }
+		\end{pmatrix} .
+	\end{equation}
+\end{small}
+其中$q\equiv p/E=\sqrt{1-m^2/E^2}$是一无量纲实参数；
+$q=1(m=0)$表示无质量态，$q\neq 1 (m>0)$表示有质量态．
+并且有（参考例\ref{chlar:exam_weinberg-zero}不难得到下式）
+\begin{equation}\label{chlar:eqn_gc-13}
+	{\alpha ^2} + {\beta ^2} + \left( {1 - {q^2}} \right){\zeta ^2} - 2\zeta  = 0 .
+\end{equation}
+满足方程\eqref{chlar:eqn_gc-13}的$\zeta$有两个，只取一个
+\begin{equation}\label{chlar:eqn_gc-15}
+	\zeta  = \frac{1}{{1 - {q^2}}}\left[ {1-\sqrt{1-({1-{q^2}})(2\zeta_w)} } \right],
+	\qquad \zeta_w \equiv (\alpha ^2 + \beta ^2)/2 .
+\end{equation}
+当$q=1$时，满足方程\eqref{chlar:eqn_gc-13}的$\zeta=\zeta_w=(\alpha ^2 + \beta ^2)/2$．
+矩阵$S$的第二、三列是未知数，需要用Lorentz变换的条件
+（$S^T \eta S = \eta $）来求出；经过略微复杂的计算可以得到
+\begin{align}
+	&s = \sqrt {1 - \left( {1 - {q^2}} \right){\beta ^2}}, \quad
+	v = \frac{{ - 1}}{s}\left( {1 - {q^2}} \right)\alpha \beta , \quad
+	u = \sqrt {1 - \left( {1 - {q^2}} \right)\frac{{{\alpha ^2}}}{{{s^2}}}},   \notag \\
+	&w = 0,\quad x = \frac{\alpha }{s}, \quad y = u\beta,  \quad z = xq,\quad r = yq . 
+	\label{chlar:eqn_gc-18}
+\end{align}
+%需要注意，求出的解是不唯一的，在这里我们只选了其中一组；可以验证，不同解对应李代数是相互等价的．
+
+把小群$W(\alpha,\beta,\theta) = S(\alpha,\beta)R(\theta)$进行无穷小变换求其李代数，
+即令$\alpha  \to 0,\beta  \to 0,\theta  \to 0$，同时忽略二阶及以上项，有
+\begin{equation}\label{chlar:eqn_gc-20}
+	W^{\mu}_{\hphantom{\mu}\nu}= I + \begin{pmatrix}
+		0&{q\alpha }&{q\beta }&0 \\
+		{q\alpha }& 0&-\theta &{ - \alpha } \\
+		{q\beta }&  {  \theta }&0&{ - \beta } \\
+		0&  \alpha &\beta &0
+	\end{pmatrix}
+	= I + \alpha A + \beta B + \theta {J^3},
+\end{equation}
+其中
+\begin{equation*} %\label{chlar:eqn_gc-23}
+	A = \begin{pmatrix}
+		0&q&0&0\\
+		q&0&0&{ - 1} \\
+		0&0&0&0 \\
+		0&1&0&0
+	\end{pmatrix},\quad B = \begin{pmatrix}
+		0&0&q&0 \\
+		0&0&0&0 \\
+		q&0&0&{ - 1} \\
+		0&0&1&0
+	\end{pmatrix},\quad {J^3} = \begin{pmatrix}
+		0&0&0&0 \\
+		0&0&-1&0 \\
+		0&{1}&0&0 \\
+		0&0&0&0
+	\end{pmatrix}.
+\end{equation*}
+对比第\pageref{chlg:eqn_PA-iso13-JK}页的式\eqref{chlg:eqn_PA-iso13-JK}可知
+\begin{equation}
+	A= -J^2-q K^1 ,\qquad B = +J^1-q K^2 .
+\end{equation}
+直接计算可以得到上述矩阵生成元的对易关系是
+\begin{equation}\label{chlar:eqn_gc-25}
+	\left[ {{J^3},A} \right] =   B,\quad
+	\left[ {B,{J^3}} \right] =   A,\quad
+	\left[ {A,B} \right] =   \left( {1 - {q^2}} \right){J^3}.
+\end{equation}
+对易关系\eqref{chlar:eqn_gc-25}表明：
+当$q\to 0$时小群$W$是$\mathfrak{so}(3)$李代数\eqref{chlar:eqn_so3-comm}；
+当$q\to 1$时小群$W$是$\mathfrak{iso}(2)$李代数\eqref{chlg:eqn_E2-LA}；
+当$q$从$0$变到$1$时，$W$的李代数从$\mathfrak{so}(3)$收缩到$\mathfrak{iso}(2)$．
+这里给出的矩阵形式的李代数收缩与最原始的In\"on\"u--Wigner收缩本质相同，
+只是表述形式不同罢了．
+
+\subsubsection{有质量粒子、无质量粒子正能态的统一表述}\label{chlar:sec_MMPEU}
+我们需要把\S\ref{chlar:sec_so2iso}的内容用到Hilbert态空间．通过式\eqref{chlar:eqn_L-expMP}，
+我们把关系\eqref{chlar:eqn_gc-25}同态成Hilbert空间的无穷小算符：
+\begin{align}
+	&\hat{U}(W) = 1 - \mathbbm{i}\alpha \hat{A} - \mathbbm{i}\beta \hat{B} 
+	- \mathbbm{i}\theta {\hat{J}^3}. \label{chlar:eqn_gc-30} \\
+	&\text{其中}\ \hat{A} =- {\hat{J}^2} - q{\hat{K}^1},\qquad \hat{B} 
+	=  + {\hat{J}^1} - q{\hat{K}^2}. \label{chlar:eqn_gc-32}
+\end{align}
+$\hat{J}^i$是角动量算符，对于无相互作用的自由粒子来说就是{\kaishu 自旋}；
+$\hat{K}^i$（此时是无穷维幺正的）是伪转动（boost）算符．当$q=1$时，
+算符$\hat{A}$、$\hat{B}$与式\eqref{chlar:eqn_0W}中的$\hat{W}^1$、$\hat{W}^2$相同（忽略正负号）．
+生成元的对易关系是
+\begin{equation}\label{chlar:eqn_gc-35}
+	\left[ {{\hat{J}^3},\hat{A}} \right] = \mathbbm{i}\hat{B},\quad
+	\left[ {\hat{B},{\hat{J}^3}} \right] = \mathbbm{i}\hat{A},\quad
+	\left[ {\hat{A},\hat{B}} \right] = \left( {1 - {q^2}} \right)\mathbbm{i}{\hat{J}^3} .
+\end{equation}
+从幺正变换$\hat{U}(W)$的生成元$\hat{A},\hat{B},\hat{J}^3$及其对易关系\eqref{chlar:eqn_gc-35}可以看出，
+如果$q=1$，那么这个李代数就是无质量态的李代数$\mathfrak{iso}(2)$．如果$q=0$就是有质量态李代数$\mathfrak{o}(3)$，
+也就是角动量．换句话说如果随着质量趋于0，即$q\to 1$，小群的李代数从$\mathfrak{o}(3)$变成了$\mathfrak{iso}(2)$．
+
+当$q\neq 1$时，也就是粒子质量不为零，如果令
+\begin{equation}\label{chlar:eqn_gc-40}
+	{\hat{J}'^1} = \frac{\hat{A}}{{\sqrt {1 - {q^2}} }} = \frac{E}{m}\hat{A},\quad
+	{\hat{J}'^2} = \frac{\hat{B}}{{\sqrt {1 - {q^2}} }} = \frac{E}{m}\hat{B},\quad
+	{\hat{J}'^3} = \hat{J}^3.
+\end{equation}
+则上述对易关系\eqref{chlar:eqn_gc-35}变为
+\begin{equation}\label{chlar:eqn_gc-45}
+	\left[ \hat{J}'^3,\hat{J}'^1 \right] = \mathbbm{i}{\hat{J}'^2},\quad
+	\left[ \hat{J}'^2,\hat{J}'^3 \right] = \mathbbm{i}{\hat{J}'^1},\quad
+	\left[ \hat{J}'^1,\hat{J}'^2 \right] = \mathbbm{i}{\hat{J}'^3}.
+\end{equation}
+这就是角动量的对易关系，因此李代数\eqref{chlar:eqn_gc-35}就是$\mathfrak{o}(3)$．
+这显然是正确的，因为当$q\neq 1$时，标准动量$k^\mu_s$就是有质量粒子情形，其小群自然是SO(3)．
+
+
+
+量子物理中，与实验可观测物理量对应的是算符矩阵元，
+即$\langle \alpha | \hat{O}|\beta\rangle$，
+其中$|\alpha\rangle,|\beta\rangle$是粒子所处的态矢量，
+$\hat{O}$是某可观测算符；算符本身以及态矢量本身都没有可观测效应；
+那么决定可观测物理量就有两个因素：{\kaishu 算符和态矢量}．
+
+
+式\eqref{chlar:eqn_gc-40}和\eqref{chlar:eqn_gc-45}是有质量粒子的自旋算符及对易关系，
+如果粒子的自旋量子数是$s$，那么由升降算符，$\hat{J}' _{\pm}=\hat{J}'^1 \pm \mathbbm{i}\hat{J}'^2$，
+可以取遍$\hat{J}'^3$所有自旋态：$s,s-1,\cdots,-s+1,-s$，共$2s+1$个态．
+比如粒子处于$\hat{J}'^3$的本征态$|j,m\rangle$时，
+那就有$\hat{J}'_+|j,m\rangle \propto |j,m+1\rangle$．
+
+自然界中的电磁波的量子是无质量粒子——光子——只有两个偏振状态，从未观测到第三个偏振态；
+物理理论自然要与实验相符合；物理理论上认为：宏观的可观测效应——偏振——与光子自旋算符相对应．
+
+
+
+需要注意的是随着$q\to 1$，也就是粒子质量($m$)趋于0，
+式\eqref{chlar:eqn_gc-40}定义的自旋算符$\hat{J}'^{1,2}$是奇异的；
+无穷大一般说来是非物理的，我们得想些办法来处理此事．
+从式\eqref{chlar:eqn_gc-32}可以看到算符$\hat{A},\hat{B}$是由自旋和伪转动构成，
+算符本身没有可操作空间，我们只能从态矢量上面来寻找原因．
+假设粒子处于态$|p,\sigma\rangle$，其中$\sigma$代表自旋量子数，$p$代表其它量子数；
+如果粒子的态矢量处在算符$\hat{A}$、$\hat{B}$的非零本征值态，那么不论本征值多小，
+随着粒子质量$m\to 0$，自旋\eqref{chlar:eqn_gc-40}中的$\hat{J}'^{1}$、$\hat{J}'^{2}$是奇异的．
+为避免此种情形，我们假设：
+
+{{\heiti 约定：}\kaishu 只有使式\eqref{chlar:eqn_gc-32}中算符$\hat{A},\hat{B}$的
+	本征值为$0$的Hilbert空间态矢量才能描述自然界中无质量粒子的单粒子态．}
+
+故从式\eqref{chlar:eqn_gc-40}可知$\hat{J}'^{1,2}|p,\sigma\rangle
+= E/m \times (\hat{A},\hat{B})|p,\sigma\rangle =E/m \times 0=0$．
+即便粒子质量$m\to 0$，自旋$\hat{J}'^{1,2}|p,\sigma\rangle$也不是无穷大，
+没有矛盾．同时这也使得无质量粒子的升降算符$\hat{J}' _{\pm}=\hat{J}'^1 \pm\mathbbm{i}\hat{J}'^2$恒为零，
+所以无质量粒子的自旋量子数是无法升降的，只能处于一个确定的状态$|\sigma\rangle$；
+如果无质量粒子是空间反射不变的（光子就是如此），可以通过宇称变换得到另一个态$|-\sigma\rangle$．
+这就是光子只有两个自旋态的物理解释，这里的解释无法确定$\sigma$的具体数值，需要从其它角度来确定此量子数的数值．
+上面解释概括起来就是，随着粒子质量$m\to 0$，光子自旋态被锁定在$\pm 1$，不能处于0自旋态．
+由于我们把无质量粒子单粒子态看成有质量粒子单粒子态的质量为零的极限态，故无质量粒子的自旋只能取
+$0$、$\pm\frac{1}{2}$、$\pm 1$、……．
+一般来说，物理学家喜欢把恒为零的量称为没有物理意义量，或没有实验可观测意义量；自旋为零的光子态就属于此类．
+
+因为无质量粒子自旋量子数不能升降，
+所以物理上习惯用{\heiti 螺旋度}（helicity）来称呼这个量子数，
+而不用自旋（spin）这个名词．
+\index[physwords]{螺旋度}  
+
+
+当我们选择的无质量粒子单粒子正能态使算符$\hat{A}$、$\hat{B}$本征值为$0$时，
+依式\eqref{chlar:eqn_C2-massless}可知无质量粒子的第二Casimir算子$\hat{C}_2$本征值必然为零．
+
+
+
+至此，我们得到结论：{\kaishu 可以依据$\hat{J}^3$的本征值$\sigma$
+	（螺旋度，即自旋在动量方向上的投影）对无质量粒子正能态进行分类．}
+
+$SO(2)$群表示见例\ref{chlar:exam_U1}，不过需要注意该表示中的$n$（即上面的$\sigma$）取值范围是：
+$0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看成$SO(3)$的子群，
+而描述量子物理的是$SO(3)$的双重通用覆盖群$SU(2)$；
+而$SU(2)$绕$z$轴的转动周期是$4\pi$（见式\eqref{chlar:eqn_su2-z}）．
+此时，我们不能用$SO(2)$群的无穷度通用覆盖群$(\mathbb{R},+)$的不可约复表示（见例\ref{chlar:exam_R+C}）；
+因为有质量粒子单粒子态在质量趋于零时，无法退化到这个表示状态．
+
+
+对比文献\parencite[p.72]{weinberg_vol1}、\parencite[p.198]{tung-1985}上的直接假定：
+（他们的本意）自然界中从未发现令第二Casimir算子$\hat{C}_2$本征值不等于零的粒子，
+故需取令$\hat{C}_2$（\eqref{chlar:eqn_C2-massless}）本征值等于零的单粒子态．
+虽然上面的“约定”与其本质相同，
+但我们\cite{liu_ge-2014}把有质量态和无质量态统一到一起表述，
+表观上来看略微合理一些．
+
+
+此处，我们不关心单粒子态的变换方式，具体可见\parencite[\S 2.5]{weinberg_vol1}．
+
+\subsection{量子场}
+
+本节将$\mathfrak{sl}(2,\mathbb{C})$的表示用到量子场上；
+主要参考了\parencite[\S 4.3]{Greiner-FQ-1996}．
+
+
+设在平直的闵氏时空$(\mathbb{R}^4_1,\eta)$上有经典场$\Phi(x)$，它有$N(\geqslant 1)$个分量．
+设坐标$x\in \mathbb{R}^4_1$变换依赖于参数$\omega$，其变换规则是
+\begin{equation}
+	x\to x'=L(x,\omega).
+\end{equation}
+在上述变换下，经典场$\Phi(x)$的变换是
+\begin{equation}\label{chlar:eqn_cPhi}
+	\Phi(x)\to \Phi'(x')= \mathcal{T}(\omega) \Phi(x).
+\end{equation}
+其中$\mathcal{T}(\omega)$是一个$N\times N$的矩阵．
+
+下面讨论量子场．本节我们将参数$\omega$限定在时空平移和Lorentz变换．
+根据Wigner定理\cite[\S 2.2]{weinberg_vol1}可知Hilbert空间态矢量$|\alpha \rangle$的变换
+是幺正且线性的，或者是反幺正且反线性的．我们只考虑单位元（即恒等变换）附近的变换，
+故下式中的$\hat{U}(\omega)$是幺正且线性的：
+\begin{equation}\label{chlar:eqn_apua}
+	|\alpha'\rangle = \hat{U}(\omega) |\alpha \rangle ; 
+	\qquad \text{且} \quad
+	\hat{U}^{-1}(\omega) = \hat{U}^{\dagger}(\omega).
+\end{equation}
+当我们把经典场$\Phi(x)$推广到量子场$\hat{\Phi}(x)$时，式\eqref{chlar:eqn_cPhi}变成：
+\begin{equation}\label{chlar:eqn_qPhi}
+	\langle\beta'| \hat{\Phi}(x') |\alpha' \rangle = \mathcal{T}(\omega) 
+	\langle\beta| \hat{\Phi}(x) |\alpha \rangle.
+\end{equation}
+需要注意：式\eqref{chlar:eqn_qPhi}等号左端中的场算符是$\hat{\Phi}(x')$，不是$\hat{\Phi}'(x')$．
+这是因为态矢量$|\alpha'\rangle$已经带撇号，如果场算符再加上撇号，那么将产生{\kaishu 双重}变换；
+这属于重复变换，是不允许的，故场算符不带撇号．
+将式\eqref{chlar:eqn_apua}带入式\eqref{chlar:eqn_qPhi}，有
+\begin{equation}
+	\hat{U}^{-1}(\omega) \hat{\Phi}(x') \hat{U}(\omega)  = \mathcal{T}(\omega) \hat{\Phi}(x) .
+\end{equation}
+上式等价于
+\begin{equation}\label{chlar:eqn_Phi-qTransform}
+	\hat{U}^{-1}(\omega) \hat{\Phi}(x) \hat{U}(\omega)  = \mathcal{T}(\omega) 
+	\hat{\Phi}\bigl(L^{-1}(x,\omega)\bigr) .
+\end{equation}
+根据式\eqref{chlg:eqn_DQpsi}，并参考式\eqref{chlar:eqn_L-expMP}，
+当实参数$\omega$趋于无穷小时，可将$\hat{U}(\omega)$在单位元附近展开为（只保留线性项）：
+\begin{equation}\label{chlar:eqn_UG}
+	\hat{U}(\updelta\omega) = 1 - \mathbbm{i} \hat{G}(\updelta\omega) ;\qquad  
+	\text{其中}\hat{G}(\updelta\omega)\text{是厄米算符}.
+\end{equation}
+将上式带入式\eqref{chlar:eqn_Phi-qTransform}，有（忽略高于一阶的小量）
+\begin{align*}
+	\left(1 + \mathbbm{i} \hat{G}(\updelta\omega)\right) \hat{\Phi}(x) 
+	\left(1 - \mathbbm{i} \hat{G}(\updelta\omega)\right)
+	=& \mathcal{T}(\updelta\omega)  \hat{\Phi}\bigl(x-\updelta x(\omega)\bigr) \\ \Rightarrow\ 
+	\hat{\Phi}(x) - \mathbbm{i} \hat{\Phi}(x) \hat{G}(\updelta\omega)
+	+ \mathbbm{i} \hat{G}(\updelta\omega) \hat{\Phi}(x) 
+	=& \mathcal{T}(\updelta\omega)\hat{\Phi}(x)
+	-\mathcal{T}(\updelta\omega)  \updelta x^\mu \partial_{\mu}\hat{\Phi}(x).
+\end{align*}
+继续化简上式，有
+\begin{equation}\label{chlar:eqn_qPhiG}
+	\mathbbm{i}\left[ \hat{G}(\updelta\omega),\ \hat{\Phi}(x)\right] = 
+	\bigl(\mathcal{T}(\updelta\omega)-1\bigr) \hat{\Phi}(x)
+	-\mathcal{T}(\updelta\omega)  \updelta x^\mu \partial_{\mu}\hat{\Phi}(x) .
+\end{equation}
+上式为量子场算符基本变换公式．
+
+我们只考虑时空平移和Lorentz变换；根据式\eqref{chlar:eqn_L-expMP}，可令
+\begin{equation}\label{chlar:eqn_GMP}
+	\hat{G}(\updelta \omega,\epsilon)=\frac{1}{2}\updelta\omega_{\rho\sigma}
+	\hat{M}^{\rho\sigma}- \epsilon_{\rho}\hat{P}^{\rho};
+	\quad \text{和}\quad
+	\updelta x^\mu = \epsilon^\mu + \updelta\omega^\mu_{\hphantom{\mu}\nu} x^\nu. 
+\end{equation}
+
+
+\paragraph{平移}
+本小节只考虑平移，即$\updelta x^\mu=\epsilon^\mu$且$\updelta \omega =0$．
+时空平移不会改变场$\hat{\Phi}(x)$的分布，故$\mathcal{T}(\updelta\omega)=1$．
+把式\eqref{chlar:eqn_GMP}带入\eqref{chlar:eqn_qPhiG}：
+\begin{equation}\label{chlar:eqn_Phi-P}
+	\mathbbm{i}\left[ \hat{P}^{\rho},\ \hat{\Phi}(x)\right] =  \partial^{\rho}\hat{\Phi}(x) .
+\end{equation}
+
+下面我们验证一下式\eqref{chlar:eqn_Phi-P}与有限平移算符是兼容的．
+为此需要用到如下算符求和表达式，许多文献都有下述式子的证明，
+比如可参考\parencite[p.27]{Greiner-FQ-1996}．
+\begin{subequations}\label{chlar:eqn_eBe}
+	\begin{align}
+		e^{\hat{A}} \hat{B} e^{-\hat{A}} = & \hat{B} + \left[\hat{A},\hat{B}\right]
+		+\frac{1}{2!} \left[\hat{A},\ \left[\hat{A},\hat{B}\right] \right]+\cdots \\
+		e^{-\hat{A}} \hat{B} e^{\hat{A}} = & \hat{B} + \left[\hat{B},\hat{A}\right]
+		+\frac{1}{2!} \left[\left[\hat{B},\hat{A}\right],\ \hat{A} \right]+\cdots 
+	\end{align}
+\end{subequations}
+
+根据式\eqref{chlg:eqn_Texp}，这里的平移算符为：
+$\hat{U}(a) = \exp\left(+\mathbbm{i} a^\mu \hat{P}_\mu  \right) $．
+Lorentz度规号差为$+2$时，请参考例\ref{chlg:exam_pm2}．
+将平移算符带入式\eqref{chlar:eqn_Phi-qTransform}左端，有
+\begin{align*}
+	e^{-\mathbbm{i} a^\nu \hat{P}_\nu} \hat{\Phi}(x)& e^{\mathbbm{i} a^\mu \hat{P}_\mu}   
+	\xlongequal{\ref{chlar:eqn_eBe}} \hat{\Phi}(x) - 
+	\left[\mathbbm{i} a^\mu \hat{P}_\mu,\, \hat{\Phi} \right] + 
+	\frac{1}{2!} \left[\mathbbm{i} a^\nu \hat{P}_\nu,\ 
+	\left[\mathbbm{i} a^\mu \hat{P}_\mu,\hat{\Phi}\right] \right]+\cdots \\
+	& \xlongequal{\ref{chlar:eqn_Phi-P}}
+	\hat{\Phi}(x) + (- a^\mu) \partial_{\mu} \hat{\Phi}(x) + 
+	\frac{1}{2!} (-a^\nu) (-a^\mu) \partial_{\nu} \partial_{\mu}\hat{\Phi}(x) +\cdots \\
+	&= \hat{\Phi}(x-a) \ = \text{式}\eqref{chlar:eqn_Phi-qTransform}\text{右端}.
+\end{align*}
+
+
+
+\paragraph{Lorentz变换}
+此处只考虑Lorentz变换，即$\updelta x^\mu= \updelta\omega^\mu_{\hphantom{\mu}\nu}x^\nu$且$\epsilon^\mu=0$．有
+\begin{equation}\label{chlar:eqn_TL}
+	\mathcal{T}(\updelta\omega)=1-\frac{\mathbbm{i}}{2} \updelta\omega_{\mu\nu} \mathcal{S}^{\mu\nu}.
+\end{equation}
+在Lorentz变换下，场$\hat{\Phi}$分布必然会发生改变；Lorentz变换是四维的，而场有$N$个分量，
+故我们需要用Lorentz群的$N$维线性表示作用到$\hat{\Phi}$上；这样在$\hat{\Phi}$上便体现了Lorentz变换．
+式\eqref{chlar:eqn_TL}为Lorentz群的通用覆盖群$SL(2,\mathbb{C})$的无穷小表示．
+$\updelta\omega_{\mu\nu}$是六个实参数，用来描述三个纯转动和三个伪转动．
+$\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三个转动算符生成元和三个伪转动算符生成元．
+每个$\mathcal{S}^{\mu\nu}$算符都是$N\times N$的矩阵表示\eqref{chlar:eqn_JKMN}．
+
+把式\eqref{chlar:eqn_TL}、\eqref{chlar:eqn_GMP}带入\eqref{chlar:eqn_qPhiG}，有
+\begin{align*}
+	\mathbbm{i}\left[ \frac{1}{2}\updelta\omega_{\rho\sigma} \hat{M}^{\rho\sigma},\ \hat{\Phi}(x)\right] = 
+	-\frac{\mathbbm{i}}{2} \updelta\omega_{\mu\nu} \mathcal{S}^{\mu\nu} \hat{\Phi}(x)
+	-\left(1-\frac{\mathbbm{i}}{2} \updelta\omega_{\rho\sigma} \mathcal{S}^{\rho\sigma}\right)  
+	\updelta\omega_{\mu\nu}x^\nu  \partial^{\mu}\hat{\Phi}(x) .
+\end{align*}
+忽略高于一阶的小量，我们得到量子场在Lorentz变换下的基本公式
+\begin{equation}\label{chlar:eqn_Phi-Lorentz}
+	\left[\hat{\Phi}(x),\ \hat{M}^{\mu\nu}\right] = 
+	+\mathbbm{i}(x^\mu  \partial^{\nu}-x^\nu  \partial^{\mu})\hat{\Phi}(x)
+	+\mathcal{S}^{\mu\nu} \hat{\Phi}(x) .
+\end{equation}
+其中“$\mathbbm{i}(x^\mu  \partial^{\nu}-x^\nu  \partial^{\mu})$”是轨道角动量，
+“$\mathcal{S}^{\mu\nu}$”是场的自旋．
+很明显，当$\hat{\Phi}(x)$是标量场时（$N=1$），
+表示\eqref{chlar:eqn_JKMN}为$\mathfrak{D}^{(00)} = (0)$，这说明标量场自旋为零．
+当$N>1$时，具体表示矩阵可参考式\eqref{chlar:eqn_JKMN}．
+
+更多内容请参考\parencite[\S 5.6,5.7]{weinberg_vol1}．
+
+
+
+
+\begin{exercise}
+	试计算公式\eqref{chlar:eqn_gc-13}．
+\end{exercise}
+
+\begin{exercise}
+	试计算公式\eqref{chlar:eqn_gc-18}．验证$S^\mu_{\hphantom{\mu}\nu} (E,0,0,p)^T=(E,0,0,p)^T$．
+\end{exercise}
+
+%\begin{exercise}
+%	试证明公式\eqref{chlar:eqn_eBe}．
+%\end{exercise}
+
+
+
+
+
+
+\section*{小结}
+
+%本章内容（除\S\ref{chlar:sec_sv}、\S\ref{chlar:sec_poincare}）并未涉及Lorentz度规，故适用于正定、不定度规．
+
+本章只是描述了$SU(2)$、$SL(2,\mathbb{C})$群及其李代数的初级内容；
+更多内容可参考\parencite{carmeli-rl1976,taorb-2011-gt}相应章节或类似书籍．  
+更多旋量知识可参考\parencite{penrose-Rindler1984}．
+
+%、\parencite{tung-1985} %\parencite{stephani-exe-2003} \parencite{carmeli-rl1976}
+%\parencite{chandrasekhar-1983}、
+
+\printbibliography[heading=subbibliography,title=第\ref{chlar}章参考文献]
+
+\endinput
+
+
+
+
+
+
+
+
+
+
+
+
+

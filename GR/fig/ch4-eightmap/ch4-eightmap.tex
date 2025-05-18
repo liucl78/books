@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\usetikzlibrary{patterns, positioning, arrows}
+
+
+\begin{document}
+
+    \begin{tikzpicture} %[>=Stealth] %修改箭头样式
+%        \draw[lightgray, very thin] (-3,-1) grid (4,6); %作网格
+        \draw[->] (-3,0) -- (3,0) node[below left] {$x$}; %作x轴并标上字母
+        \draw[->] (0,-3) -- (0,3) node[below left] {$y$}; %作y轴并标上字母
+%        \node[below left] at (0,0) {$O$}; %标上原点字母
+        \draw[domain = -1.2 : 1.2] plot (\x , {-sin(2(asin(\x/2)) r)});
+    \end{tikzpicture}
+
+\end{document}

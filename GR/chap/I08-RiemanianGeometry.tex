@@ -1,0 +1,3773 @@
+% !TeX encoding = UTF-8
+% 此文件从2021.8开始
+
+\chapter{黎曼几何}\label{chrg}
+
+
+
+截止到目前，在微分流形中还没有引入度规这个结构；即便如此也定义了联络、黎曼曲率、
+测地线等等重要几何量．从本章开始引入度规结构，这使得微分几何内容更加丰富；
+一件很重要的事：可以定义曲线长度了．
+
+\index[physwords]{黎曼几何}
+\index[physwords]{黎曼流形}
+\index[physwords]{黎曼结构}
+
+\section{黎曼流形}\label{chrg:sec_riemann}
+\subsection{黎曼流形定义}
+\begin{definition}
+    给$m$维$C^\infty$微分流形$M$指定一个处处非退化、光滑、对称$\Tpq{0}{2}$型张量场$g$后，
+    称$(M,g)$为广义{\heiti 黎曼流形}，$g$称为其{\heiti 度规}或{\heiti 基本度量}或{\heiti 黎曼结构}．
+\end{definition}
+
+\index[physwords]{度规!黎曼度规}
+
+\begin{remark}
+    文献\parencite[\S 5.1]{cc2001-zh}中的定理1.1表明光滑流形必存在正定的黎曼度规；
+    需注意此定理不是平庸的，没有这个定理，正定的黎曼度规有点像空中楼阁．
+    并不是任何光滑流形都能定义广义Lorentz型度规，需满足一些条件；
+    文献\parencite[\S 4.1]{kriele-1999}给出了广义Lorentz型度规的存在性定理．
+\end{remark}
+
+\begin{remark}
+    黎曼度规$g$的抽象指标记号与\S\ref{chdm:sec_metric-abi}相同．
+    指定度规后，点$p\in M$切空间的切矢量与余切空间的对偶矢量存在自然同构，
+    即认为$u^a\in T_pM$和$T^*_pM \ni u_a = g_{ab}u^b$是同一矢量的不同表现形式．
+    定理\ref{chmla:thm_vvss_zrtg}证明了$V^{**}$自然同构于$V$，继而将两者认为等同，即$V^{**}\equiv V$；
+    然而，由于黎曼流形上的这种自然同构是基于附加结构$g_{ab}$的（逐点不同），与前者的自然同构略有区别，
+    故不能记$T_pM=T^*_pM$，只能记作$T_pM\cong T^*_pM$．
+\end{remark}
+
+黎曼流形专指正定度规情形．
+广义黎曼流形（Generalized Riemannian）是指度规特征值可能全是正的，可能全是负，也可能有正有负．
+广义黎曼流形还被称为半黎曼流形（Semi-Riemannian）或伪黎曼流形（Pesudo-Riemannian，也被翻译成“赝”或“准”）．
+需要指出的是有的文献中广义黎曼流形专指非正定度规流形，即不包含正定度规情形；各个文献中此称谓内涵不完全一致．
+之后的行文中，我们将尽量严格区分“黎曼流形”和“广义黎曼流形”；
+度规场$g_{ab}$在正交归一基矢下的非对角元全是零，对角元是$\pm 1$；
+所有对角元素的和（即这些$\pm 1$的和）称为度规场$g_{ab}$的{\heiti 号差}；
+比如我们采用的闵氏时空度规号差是$+2$（$g={\rm diag}(-1,1,1,1)$）．
+
+\begin{definition}
+    给定$m$维广义黎曼流形$(M,g)$，$\nabla_a$是$M$上的仿射联络，如果有$\nabla_a g_{bc}=0$，
+    则称仿射联络$\nabla_a$为黎曼流形的{\heiti 容许联络}．
+\end{definition}
+下面我们导出容许联络的一个常用表达式，$\forall X^a,Y^a,Z^a\in \mathfrak{X}(M)$，
+\begin{align}
+    &\nabla_{X}(g_{ab}Y^a Z^b)= (\nabla_{X}g_{ab})Y^a Z^b  +g_{ab}( \nabla_{X}Y^a) Z^b
+      +g_{ab}Y^a\nabla_{X}( Z^b)  \notag \\
+    &\xLongrightarrow{\nabla_a g_{bc}=0}
+    {X}(g_{ab}Y^a Z^b)= g_{ab}( \nabla_{X}Y^a) Z^b
+    +g_{ab}Y^a\nabla_{X}( Z^b).  \label{chgd:eqn_connection-compatibility}
+\end{align}
+
+
+\index[physwords]{联络!Levi-Civita}
+\begin{theorem}\label{chrg:thm_Levi-Civita-Connetion}
+    给定$m$维广义黎曼流形$(M,g)$，则在$M$上存在唯一的无挠容许联络，
+    称为黎曼流形的{\bfseries \heiti Levi-Civita联络}．
+\end{theorem}
+\begin{proof}
+    设$\nabla_a$是$M$上的无挠、容许、仿射联络，在局部坐标$(U;x^i)$下，有
+    \begin{equation} \label{chrg:eqn_Dg=0}
+        \nabla_a g_{bc} =0  {\quad \color{red}\Rightarrow \quad }
+        \partial_a g_{bc} = \Gamma_{ba}^e g_{ec} + \Gamma_{ca}^e g_{be} .
+    \end{equation}
+    将上式进行指标轮换
+    \begin{equation*}
+        \partial_b g_{ca} = \Gamma_{cb}^e g_{ea} + \Gamma_{ab}^e g_{ce}, \qquad
+        -\partial_c g_{ab} = -\Gamma_{ac}^e g_{eb} - \Gamma_{bc}^e g_{ae}  .
+    \end{equation*}
+    上面三式相加，得
+    \begin{small}     \setlength{\mathindent}{0em}
+    \begin{subequations}\label{chrg:eqn_Christoffel-naturalbases}
+        \begin{align}
+            \Gamma_{ab}^c &= \frac{1}{2}g^{ce}\left(
+                  \frac{\partial g_{ae}}{\partial x^b}
+                + \frac{\partial g_{eb}}{\partial x^a}
+                - \frac{\partial g_{ab}}{\partial x^e} \right)
+                {\quad \color{red}\Leftrightarrow \quad}
+            \Gamma_{ij}^k = \frac{1}{2}{g^{kl}}\left(
+                  \frac{\partial g_{il}}{\partial x^j}
+                + \frac{\partial g_{lj}}{\partial x^i}
+                - \frac{\partial g_{ij}}{\partial x^l} \right),
+            \label{chrg:eqn_Christoffel-2-naturalbases} \\
+            \Gamma _{dab} &= {g_{dc}}\Gamma _{ab}^c = \frac{1}{2}\left(
+                  \frac{\partial g_{ad}}{\partial x^b}
+                + \frac{\partial g_{db}}{\partial x^a}
+                - \frac{\partial g_{ab}}{\partial x^d} \right)
+               {\color{red}\Leftrightarrow}
+            \Gamma _{kij} = \frac{1}{2}\left(
+                  \frac{\partial g_{ik}}{\partial x^j}
+                + \frac{\partial g_{kj}}{\partial x^i}
+                - \frac{\partial g_{ij}}{\partial x^k} \right) .
+            \label{chrg:eqn_Christoffel-1-naturalbases}
+        \end{align}
+    \end{subequations}    \setlength{\mathindent}{2em}
+    \end{small}
+    式\eqref{chrg:eqn_Christoffel-1-naturalbases}为局部坐标系下的第一类Christoffel记号（给出了抽象指标及分量表示方式）；
+    第一类Christoffel记号用的较少．
+    式\eqref{chrg:eqn_Christoffel-2-naturalbases}为局部坐标系下的第二类Christoffel记号（给出了抽象指标及分量表示方式），
+    简称（第二类）克氏符，\uwave{第二类克氏符与度规号差无关}．由此可见无挠容许联络系数由度规唯一确定．
+    需注意，两个克氏符都不是张量，所以上指标降下位置是人为约定的．
+
+%\begin{equation}
+%    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}\left(
+%    \frac{\partial g_{\rho\nu}}{\partial x^\lambda}
+%    +\frac{\partial g_{\lambda\rho}}{\partial x^\nu}
+%    -\frac{\partial g_{\lambda\nu}}{\partial x^\rho} \right) .
+%\end{equation}
+
+\index[physwords]{Christoffel记号}  \index[physwords]{克氏符}
+
+    反过来，给定联络系数\eqref{chrg:eqn_Christoffel-2-naturalbases}，
+    经计算不难确定它满足式\eqref{chccr:eqn_Exchange-Christoffel}的变换关系；
+    由注解\ref{chccr:remark_con-Nabla}可知，
+    这相当于在流行$M$上定义一个联络$\nabla_a$．通过计算不难确定
+    由式\eqref{chrg:eqn_Christoffel-2-naturalbases}定义的联络是无挠、容许、仿射联络．
+\end{proof}
+
+%\subsubsection
+\paragraph{一般仿射联络}\label{chrg:sec_clc}
+在例\ref{chccr:exm_c-c=t}中，我们指出两个仿射联络系数差是张量场；
+现在有了一个特殊的联络——Levi-Civita联络，我们再次讨论此问题．
+设$\nabla_a$是流形$M$的Levi-Civita联络，它与度规场$g_{bc}$相容，即$\nabla_a g_{bc}=0$；
+再设一无挠、仿射联络$\oversetmy{\circ}{\nabla}_a$，它与度规$g_{ab}$不相容．
+设两者关系是：
+\begin{equation}
+    \nabla_{a} v^c = \oversetmy{\circ}{\nabla}_{a} v^c + C^c_{ea} v^e .
+\end{equation}
+由例\ref{chccr:exm_c-c=t}的分析可知$C^c_{ea}$是张量场；与第一类克氏符相似，我们
+约定它的上指标降在第一个位置．
+由两个联络的关系可以得到
+\begin{equation}
+    \oversetmy{\circ}{\nabla}_{a} g_{bc} - C^e_{ba} g_{ec} -C^e_{ca} g_{be}
+    = \nabla_{a} g_{bc} =0 .
+\end{equation}
+仿照定理\ref{chrg:thm_Levi-Civita-Connetion}中导出克氏符的操作，进行指标轮换后相加减，可得
+\begin{equation}
+    {C}^c_{ab}=\frac{1}{2}g^{cf}\left(\oversetmy{\circ}{\nabla}_a g_{fb} + \oversetmy{\circ}{\nabla}_b g_{fa} 
+    - \oversetmy{\circ}{\nabla}_f g_{ab}\right) .    
+\end{equation}
+
+%\begin{align*}
+%    & \oversetmy{\circ}{\nabla}_{a} g_{bc}+\oversetmy{\circ}{\nabla}_{b} g_{ca}-\oversetmy{\circ}{\nabla}_{c} g_{ab} 
+%    =  C^e_{ba} g_{ec} +C^e_{ca} g_{be}
+%    + C^e_{cb} g_{ea} +C^e_{ab} g_{ce}
+%    - C^e_{ac} g_{eb} -C^e_{bc} g_{ae}\\
+%    \Rightarrow \  &\oversetmy{\circ}{\nabla}_{a} g_{bc}+\oversetmy{\circ}{\nabla}_{b} g_{ca}
+%    -\oversetmy{\circ}{\nabla}_{c} g_{ab}  =   2 C^e_{ab} g_{ec} \\
+%    \Rightarrow \  & 
+%    {C}^c_{ab}=\frac{1}{2}g^{cf}\left(\oversetmy{\circ}{\nabla}_a g_{fb} + \oversetmy{\circ}{\nabla}_b g_{fa} 
+%    - \oversetmy{\circ}{\nabla}_f g_{ab}\right) %\\
+%    % \Rightarrow \   &    \oversetmy{\circ}{\nabla}_a g_{bc} = g_{ec} {C}^e_{ab} + g_{be} {C}^e_{ac} .
+%\end{align*}
+
+%    = &  \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
+%    + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
+%    - v^e \left(\nabla_{a}  C^c_{eb} - C^c_{fa} C^f_{eb} + C^f_{ea} C^c_{fb} + C^f_{ba} C^c_{ef} \right) \\
+%    = &  \nabla_{a} \nabla_{b} v^c - C^c_{ea}\nabla_{b} v^e  -  C^c_{eb}\nabla_{a} v^e
+%    + C^f_{ba} \nabla_{f}v^c   
+%    - v^e \nabla_{a}  C^c_{eb} + v^e C^c_{fa} C^f_{eb} - v^e C^f_{ba} C^c_{ef} 
+
+切矢量场$v^c$的两次导数是
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chrg:eqn_DDva}
+    \begin{aligned}
+        &\oversetmy{\circ}{\nabla}_{a} \oversetmy{\circ}{\nabla}_{b}v^c = 
+        \oversetmy{\circ}{\nabla}_{a} \left(\nabla_{b} v^c - C^c_{eb} v^e \right) 
+        =  \oversetmy{\circ}{\nabla}_{a} \nabla_{b} v^c 
+        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} 
+        -  C^c_{eb} \oversetmy{\circ}{\nabla}_{a} v^e \\
+        %        = &  \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f + C^f_{ba} \nabla_{f}v^c
+        %        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} 
+        %        -  C^c_{eb} (\nabla_{a} v^e - C^e_{fa} v^f)  \\
+        &=   \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
+        + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
+        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb}  \\
+        \Rightarrow &
+        \oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
+        =   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
+        +  C^c_{e[b} C^e_{a]f} v^f - v^e \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e}    .
+    \end{aligned}
+\end{equation}\setlength{\mathindent}{2em}
+上式中“$\Rightarrow$”这一步是
+对下标$ab$取反对称操作，
+并利用了$\oversetmy{\circ}{\nabla}_{a}$的无挠属性（即$C^c_{[ab]}=0$）．
+由上式最后一步，
+参考式\eqref{chccr:eqn_Riemannian13-Vec-commutator}
+（ $\nabla_{[a} \nabla_{b]} Z^d = \frac{1}{2}R_{cab}^d Z^c $，
+${R}_{eab}^c$是${\nabla}_{a}$的黎曼曲率）；
+并注意到$v^c$的任意性，经计算可得两个黎曼曲率间的关系：
+\begin{equation}\label{chrg:eqn_DDR}
+    \oversetmy{\circ}{R}_{eab}^c  
+    ={R}_{eab}^c - 2 \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e} - 2 C^c_{f[a} C^f_{b]e}
+    ={R}_{eab}^c - 2 \nabla_{[a}  C^c_{b]e} + 2 C^c_{f[a} C^f_{b]e} .
+\end{equation}
+其中$\oversetmy{\circ}{R}_{eab}^c$是$\oversetmy{\circ}{\nabla}_{a}$的黎曼曲率，
+即$\oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]} Z^d 
+= \frac{1}{2}\oversetmy{\circ}{\nabla}{R}_{cab}^d Z^c $．
+
+%
+%\begin{align*}
+%%    & \oversetmy{\circ}{\nabla}_{a} \oversetmy{\circ}{\nabla}_{b}v^c 
+%%    =   \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
+%%    + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
+%%    - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} \\
+%\Rightarrow &
+%    \oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
+%=   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
+%     +  C^c_{e[b} C^e_{a]f} v^f - v^e \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e}    \\ 
+%     \Rightarrow &
+%     \oversetmy{\circ}{R}_{eab}^c  = {R}_{eab}^c
+%     - 2 \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e} - 2 C^c_{f[a} C^f_{b]e}
+%\end{align*}
+
+%式\eqref{chrg:eqn_DDR}中关于$\oversetmy{\circ}{\nabla}_{a}$部分的推导如下
+%\begin{align*}
+%    &\oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
+%    =   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
+%    + C^f_{[ba]} \nabla_{f}v^c
+%    - v^e {\nabla}_{[a}  C^c_{b]e} 
+%    + v^e C^c_{f[a} C^f_{b]e} - v^e C^f_{[ba]} C^c_{ef} \\
+%    \Rightarrow&  \oversetmy{\circ}{R}_{eab}^c v^e = {R}_{eab}^c v^e
+%    - 2v^e {\nabla}_{[a}  C^c_{b]e} 
+%    +  2 v^e C^c_{f[a} C^f_{b]e} .
+%\end{align*}
+
+\begin{remark}
+    约定：如无特殊声明，在此以后所用联络皆是Levi-Civita联络．
+\end{remark}
+
+\index[physwords]{Koszul公式}
+\begin{example}\label{chrg:exam_Koszul}
+    证明Koszul公式：
+    \begin{equation*}
+        2 X_a \nabla_Y Z^a = Y(Z_a X^a) + Z(X_a Y^a) - X(Y_a Z^a)
+        - Y_a [Z,X]^a + Z_a [X,Y]^a + X_a [Y,Z]^a .
+    \end{equation*}
+\end{example}
+\begin{proof}
+    从相容性条件\eqref{chgd:eqn_connection-compatibility}出发，将它们写出并轮换
+\begin{align*}
+    X(Y^a Z_a)=& Z_a \nabla_{X}Y^a +Y_a\nabla_{X} Z^a.  \\
+    Y(X^a Z_a)=& Z_a \nabla_{Y}X^a +X_a\nabla_{Y} Z^a.  \\
+    Z(X^a Y_a)=& X_a \nabla_{Z}Y^a +Y_a\nabla_{Z} X^a.  
+\end{align*}
+    后两式相加再减掉第一式，得
+    \begin{align*}
+        &Y(X^a Z_a)+Z(X^a Y_a)-X(Y^a Z_a)= Z_a \nabla_{Y}X^a +X_a\nabla_{Y} Z^a
+          +X_a \nabla_{Z}Y^a  \\
+        &  \hphantom{Y(X^a Z_a)+Z(X^a Y_a)-X(Y^a Z_a)= }
+          +Y_a\nabla_{Z} X^a-Z_a \nabla_{X}Y^a -Y_a\nabla_{X} Z^a \\
+        &\xlongequal{\ref{chccr:eqn_XYcommutator}}  
+         X_a\nabla_{Y} Z^a  +X_a \nabla_{Z}Y^a  +Z_a [Y,X]^a + Y_a [Z, X]^a \\
+        &= 2X_a\nabla_{Y} Z^a  +X_a [Z,Y]^a  +Z_a [Y,X]^a + Y_a [Z, X]^a .
+    \end{align*}
+    将上式简单整理一下便可得到Koszul公式．
+\end{proof}
+
+
+\begin{example}\label{chrg:exm_S3}
+    三维欧几里得空间球坐标系．
+\end{example}
+球坐标系$r,\theta,\phi$与平面直角坐标系$x,y,z$变换关系是
+\begin{equation}\label{chrg:eqn_rtpxyz}
+    x  = r\sin\theta \cos\phi ,\quad
+    y  = r\sin\theta \sin\phi ,\quad
+    z  = r\cos\theta .
+\end{equation}
+球坐标系$r,\theta,\phi$下的度规是
+\begin{equation}\label{chgd:eqn_S3gab}
+    g=\begin{pmatrix}  
+        1 &0 &0 \\ 0& r^2 & 0 \\ 0& 0 & r^2 \sin^2\theta  
+    \end{pmatrix} , \qquad
+    g^{-1}=\begin{pmatrix}  
+        1 &0&0 \\ 0& r^{-2} & 0 \\ 0& 0 & r^{-2} \sin^{-2}\theta  
+    \end{pmatrix} .
+\end{equation}
+由\eqref{chrg:eqn_Christoffel-naturalbases}可得非零克氏符
+\begin{equation}\label{chrg:eqn_S3Gamma}
+    \begin{aligned}
+        &\Gamma^r_{\theta\theta}=-r,\quad \Gamma^r_{\phi\phi}=-r \sin^2\theta,\quad
+        \Gamma^\theta_{r\theta}=\Gamma^\theta_{\theta r}=\frac{1}{r}, \\
+        & \Gamma^\theta_{\phi\phi}= - \sin \theta \cos\theta ,\quad
+        \Gamma^\phi _{r \phi} = \Gamma^\phi _{\phi r}= \frac{1}{r},\quad
+        \Gamma^\phi_{\theta\phi}= \Gamma^\phi_{\phi\theta} = \cot \theta .
+    \end{aligned}
+\end{equation}
+利用上式，由式\eqref{chccr:eqn_Riemannian13-component}可得黎曼曲率所有分量都是零．
+\qed
+
+
+\index[physwords]{曲线长度}
+\subsection{曲线长度}\label{chrg:sec_curve-length}
+
+给定$m$维广义黎曼流形流形$(M,g)$，其任一点的切空间便是
+通常的线性空间，依照推论\ref{chmla:thm_pm1num}，其度规
+有式\eqref{chmla:eqn_gmetric}的形式且没有非零分量（因非退化）．
+
+\begin{definition}\label{chrg:def_Minkowski-space}
+    给定光滑广义黎曼流形$(M,g)$，如果其每点切空间的度规特征值（即式\eqref{chmla:eqn_gmetric}）只有一个负号，
+    其余皆为正号（本书使用度规符号是$(-+\cdots+)$，其它文献可能与此整体差一负号），
+    则称$M$为{\heiti 广义Minkowski流形}．此度规称为{\heiti 广义Lorentz度规}或者广义闵氏度规．
+    当没有“广义”两个字时，专指\uwave{四维}Minkowski流形（或其子流形），
+    Lorentz度规的符号是$(-+++)$．
+\end{definition}
+
+{\kaishu 需注意，上述定义与定义\ref{chdm:def_MinkowskiSpace}有重复部分．
+定义\ref{chdm:def_MinkowskiSpace}专指平直空间；
+而定义\ref{chrg:def_Minkowski-space}可以是平直的，也可以是弯曲的．
+平直与弯曲的定义见\ref{chrg:def_flat-curved}．
+从此以后，定义\ref{chrg:def_Minkowski-space}包含定义\ref{chdm:def_MinkowskiSpace}．}
+
+当度规场是非退化时，那么流形$M$度规场特征值的正负号逐点相同．
+如果度规场特征值会改变，比如$M$上有点$p$和$q$，
+其中$p$点度规是正定的，而$q$点度规是$(-+\cdots+)$；
+那么根据度规是连续函数可以肯定存在一点的度规特征值为零（分量$g_{11}$），因而退化，矛盾！
+
+\begin{definition}\label{chrg:def_vector-property}
+    给定$m$维广义黎曼流形$(M,g)$，$\forall X^a \in \mathfrak{X}(M)$；
+    如果$X^a$在任意坐标下的每个分量都为零，则称为{\heiti 零矢量}（Zero Vector）；
+    如果$g_{ab}X^a X^b<0$，则称为{\heiti 类时矢量}（time-like）；
+    如果$g_{ab}X^a X^b>0$，则称为{\heiti 类空矢量}（sapce-like）；
+    如果$g_{ab}X^a X^b=0$且$X^a$不是零矢量，则称为{\heiti 零模矢量}（Null Vector）．
+\end{definition}
+
+\begin{definition}
+    给定{\heiti 四维}Minkowski流形$(M,g)$，$\forall X^a \in \mathfrak{X}(M)$，
+    若$X^a$是零模矢量，也可称之为{\heiti 类光矢量}（light-like）．
+    我们不在$m(>4)$维广义闵氏流形上使用类光矢量这一词语，
+    我们只在四维流形及其子流形上使用类光矢量一词儿．
+\end{definition}
+
+
+在古典微分几何$\mathbb{R}^3$中，分段光滑曲线$\boldsymbol{r}(t)$弧长被定义为
+\begin{equation*}
+    s=\sum_{i} \int_{t_i}^{t_{i+1}} \left|\frac{{\rm d}\boldsymbol{r}}{{\rm d}t}\right| {\rm d} t
+    =\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\frac{{\rm d}\boldsymbol{r}}{{\rm d}t}\cdot
+        \frac{{\rm d}\boldsymbol{r}}{{\rm d}t} } {\rm d} t
+    =\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{{\rm d}\boldsymbol{r}\cdot{\rm d}\boldsymbol{r} }.
+\end{equation*}
+其中点${t_i}$是分段点；由于曲线的导数可正可负，所以加了绝对值；
+弧长参数$s$被称为{\heiti 自然参数}．这个定义可以推广到广义黎曼流形中．
+
+
+设广义黎曼流形$(M,g)$中有分段光滑曲线$\gamma:\mathbb{R}\to M$，曲线$\gamma(t)$的
+切线切矢量是$\left(\frac{{\rm d}  }{{\rm d} t}\right)^a$（见式\eqref{chdm:eqn_DiffCurve-2}），
+微分流形中的内积需要用度规来描述．曲线$\gamma(t)${\heiti 弧长}的定义为
+\begin{equation}\label{chrg:eqn_arc-length}
+    L(\gamma)\overset{def}{=}\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\left| g_{ab} \left(\frac{{\rm d}  }
+        {{\rm d} t}\right)^a_{\gamma}\left(\frac{{\rm d}  }{{\rm d} t}\right)^b_{\gamma}\right|} {\rm d}t .
+\end{equation}
+因度规可能是不定的，故上式中加了绝对值．
+如果度规是正定的，即式\eqref{chmla:eqn_gmetric}中特征值全部是$+1$，
+则没有必要加这个绝对值．
+
+对于正定度规而言，式\eqref{chrg:eqn_arc-length}是个良定义，对于不定度规而言要复杂一些．
+比如对于广义闵氏时空中曲线可能一段类时，与其毗邻的一段变成类空曲线；
+虽然这种不伦不类曲线的线长（从数学角度）可以采取分段方式用式\eqref{chrg:eqn_arc-length}来定义，
+但是这种不伦不类的曲线长度在物理上貌似没有什么意义．
+%所以，我们\uwave{约定}式\eqref{chrg:eqn_arc-length}仅限于正定度规或者广义闵氏度规；
+%当是后者时，整条曲线必须是类时或类空或零模的，不能是不伦不类的．
+%当讨论物理问题时，我们不去涉及其它类型度规的曲线线长了，这样可以避免不必要的麻烦．
+
+很明显，如果曲线是零模的，那么线长恒为零．
+
+设流形$M$有局域坐标系$(U;x^i)$，分段光滑曲线$\gamma(t)$的分段$[t_i,t_{i+1}]$完全落
+在一个坐标域内（若不是，增加分段）；
+则式\eqref{chrg:eqn_arc-length}在局部坐标系的表示为
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chrg:eqn_arc-length-local}
+    L(\gamma)=\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\left| g_{jk}
+        \frac{{\rm d} x^j\circ\gamma }{{\rm d} t}\frac{{\rm d} x^k\circ\gamma }{{\rm d} t}
+        \right|} {\rm d}t
+    =\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\left| g_{jk} {\rm d} x^j {\rm d} x^k  \right|}  .
+\end{equation}\setlength{\mathindent}{2em}
+其中包括度规分量$g_{jk}= \left.\left[g_{ab}\left(\frac{\partial}{\partial x^j}\right)^a
+\left(\frac{\partial}{\partial x^k}\right)^b \right] \right|_{\gamma(t)}$在内的所有
+量必须在曲线$\gamma(t)$上取值．
+曲线线长公式中被积分部分
+\begin{equation}
+    {\rm d}s^2 \equiv g_{jk} {\rm d} x^j {\rm d} x^k ,
+\end{equation}
+一般称为{\heiti 线元}．虽然是平方形式，但线元可正可负．可见给出线元就
+相当于给出了局部坐标系$(U;x^i)$下的度规场，线元无非是度规场的一种记号而已．
+
+\begin{example}
+    在流形$\mathbb{R}^2$中，给定线元
+    \begin{equation}
+        {\rm d}s^2 = -x^2 {\rm d} t^2 + t {\rm d} x^2 + 4 {\rm d} t{\rm d} x.
+    \end{equation}
+    我们来读取度规场信息，
+    在坐标系$\{t,x\}$下的度规分量是$g_{tt}=-x^2,\ g_{xx}=t,\ g_{tx}=g_{xt}=2 $．
+    度规可用抽象指标记号表示为
+    \begin{equation}
+        g_{ab}= -x^2 ({\rm d} t)_a ({\rm d} t)_b +t ({\rm d} x)_a ({\rm d} x)_b
+         + 2 ({\rm d} t)_a ({\rm d} x)_b + 2({\rm d} x)_a ({\rm d} t)_b .
+    \end{equation}
+    请读者熟悉从线元读取度规信息的方式、方法． \qed
+\end{example}
+
+为简单起见，下面只讨论曲线属性不变的一段$[r_1,r_2]$，然后拼接所有分段即可．
+若曲线$\gamma(t)$重参数化为$\tilde{\gamma}(u)$，其中$u=u(t)$，
+变换$u(t)$是单调的（见定义\ref{chdm:def_fmapCurve}后的讨论），
+即$\frac{{\rm d} t }{{\rm d} u}>0$或$\frac{{\rm d} t }{{\rm d} u}<0$；
+则曲线线长公式\eqref{chrg:eqn_arc-length}是不变的
+\setlength{\mathindent}{0em}
+\begin{align*}
+    L(\tilde{\gamma}){=}\int_{u(r_1)}^{u(r_2)} \sqrt{\left| g_{ab} \left(\frac{{\rm d}  }
+        {{\rm d} u}\right)^a\left(\frac{{\rm d}  }{{\rm d} u}\right)^b \right|} {\rm d}u
+    =\int_{u(r_1)}^{u(r_2)} \sqrt{\left| g_{ab} \left(\frac{{\rm d}  }
+        {{\rm d} t}\right)^a\left(\frac{{\rm d}  }{{\rm d} t}\right)^b\right|}
+    \left|\frac{{\rm d} t }{{\rm d} u}\right| \cdot {\rm d}u .
+\end{align*}\setlength{\mathindent}{2em}
+不论$\frac{{\rm d} t }{{\rm d} u}>0$还是$\frac{{\rm d} t }{{\rm d} u}<0$，
+带入上式后都会得到弧长公式在形式上是不变的，即与重参数化无关，
+或者说在重参数化后曲线线长不变．
+
+如果我们将曲线$\gamma(t)$参数$t$选为线长$s$，那么从上式可以看到必有
+\begin{equation}\label{chrg:eqn_arc-unit}
+    \sqrt{\left| g_{ab} \left(\frac{{\rm d}  } {{\rm d} s}\right)^a
+        \left(\frac{{\rm d}  }{{\rm d} s}\right)^b \right|_{\gamma(s)}} = 1.
+\end{equation}
+也就是当光滑曲线$\gamma$的参数是弧长$s$时，其切线切矢
+量$(\frac{{\rm d}  }{{\rm d} s})^a$的长度是$1$．
+
+\index[physwords]{笛卡尔积!广义黎曼流形}
+\subsection{广义黎曼流形之积}
+设$(M,g)$和$(N,h)$是两个广义黎曼流形，维数分别是$m$和$n$；
+两者笛卡尔积是$M\times N$，$\forall(p,q)\in M\times N$，其中$p\in M$，$q\in N$．
+有自然投影$\pi_M: M\times N\to M$，$\pi_N: M\times N\to N$，
+定义如下映射$\alpha:M\to M\times N$，$\beta:N\to M\times N$
+（下式中$p\in M$，$q\in N$是任取的，取定后固定不变）：
+\begin{equation}
+    \alpha(x)=(x,q),\ \forall x \in M; \qquad  \beta(y)=(p,y),\ \forall y \in N .
+\end{equation}
+显然有$\pi_M \circ \alpha = {\rm id}: M\to M$和$\pi_N \circ \beta = {\rm id}: N\to N$．
+$\alpha$和$\beta$相当于包含映射，自然是正则嵌入的．
+
+假设$T_p M$的局部坐标系是$\{x^i\}$，对应的自然坐标基矢场是$\{(\frac{\partial }{\partial x^i})^a\}$；
+$T_p N$的局部坐标系是$\{y^\alpha\}$，对应的自然坐标基矢场是$\{(\frac{\partial }{\partial y^\alpha})^a\}$；
+那么，$T_p (M\times N)$的局部坐标系是$\{x^i,y^\alpha\}$，
+对应的自然坐标基矢场是$\{(\frac{\partial }{\partial x^i})^a,(\frac{\partial }{\partial y^\alpha})^a\}$；
+很明显坐标$x$与$y$相互独立．
+切映射$\alpha_{p*} : T_p M \to T_{(p,q)}(M\times N)$产生的基矢映射关系为：
+\begin{equation}
+    \alpha_{p*} \left. \left(\frac{\partial }{\partial x^i}\right)^a \right|_{p}=
+    \frac{\partial x^k}{\partial x^i}\left(\frac{\partial }{\partial x^k}\right)^a
+    +\frac{\partial y^\beta}{\partial x^i}\left(\frac{\partial }{\partial y^\beta}\right)^a
+    =\left. \left(\frac{\partial }{\partial x^i}\right)^a \right|_{{(p,q)}}
+\end{equation}
+上式最左端的基矢是在流形$M$中取值；最右端基矢是在积流形$M\times N$中取值．
+与上式类似，切映射$\beta_{q*} : T_q N \to T_{(p,q)}(M\times N)$产生的基矢映射关系为：
+\begin{equation}
+    \beta_{q*} \left. \left(\frac{\partial }{\partial y^\alpha}\right)^a \right|_{q}=
+    \frac{\partial x^k}{\partial y^\alpha}\left(\frac{\partial }{\partial x^k}\right)^a
+    +\frac{\partial y^\beta}{\partial y^j}\left(\frac{\partial }{\partial y^\beta}\right)^a
+    =\left. \left(\frac{\partial }{\partial y^\alpha}\right)^a \right|_{{(p,q)}}
+\end{equation}
+上式最左端的基矢是在流形$N$中取值；最右端基矢是在积流形$M\times N$中取值．
+
+上两式可以说明$(\alpha_{p*} T_p M) \cap (\beta_{q*}  T_q N) =\boldsymbol{0}$，即
+两个切空间交集只有零矢量．而积流形$M\times N$的维数是$m+n$，自然它的切空间$T_{(p,q)} (M\times N)$维数也如此；
+$T_p M$的维数是$m$，$T_p N$的维数是$n$；由此不难得到
+\begin{equation}
+    T_{(p,q)} (M\times N) = \alpha_{p*} T_p M \ \oplus\ \beta_{q*}  T_q N ,
+\end{equation}
+即积$M\times N$的切空间可以表示成$M$和$N$的切空间（用映射推前后）的\uwave{直和}．
+
+
+$\forall X_M^a, Y_M^b \in T_p M$和$\forall X_N^a, Y_N^b \in T_q N$；记
+\begin{equation}
+    X^a=\alpha_{p*} X_M^a \ \oplus\ \beta_{q*}  X_N^a, \qquad Y^b=\alpha_{p*} Y_M^b \ \oplus\ \beta_{q*}  Y_N^b .
+\end{equation}
+定义积流形$M\times N$的度规为
+\begin{equation}\label{chrg:eqn_metric-product}
+    G_{ab}X^a Y^b \overset{def}{=} g_{ab}X^a_M Y^b_M + h_{ab}X^a_N Y^b_N .
+\end{equation}
+由$g_{ab},h_{ab}$的对称性可以得到$G_{ab}$是对称张量；光滑性也可类似得到．
+下面验证它的非退化性，只需验证$G_{ab}$在基矢下的矩阵是非退化的即可；
+设在给定基矢下$g$和$h$的矩阵分别是$g_{ij}$和$h_{\alpha\beta}$，
+不难看出$G_{ab}$的$m+n$维方矩阵是
+%（或相差一个非退化合同变换，即有非退化矩阵$X$，使得$G'=X^{-1}GX$）
+\begin{equation}
+    G_{(i\alpha)(j\beta)}=\begin{pmatrix}
+        g_{ij} & 0 \\ 0 & h_{\alpha\beta}
+    \end{pmatrix},
+\end{equation}
+因$\det(G_{(i\alpha)(j\beta)})=\det(g_{ij}) \cdot \det(h_{\alpha\beta})$，
+故$G_{(i\alpha)(j\beta)}$非退化性是显然的．
+这样便证明了$G_{ab}$符合广义黎曼度规要求．
+
+
+显然本节所有结论都可以推广到有限个广义黎曼流形间的笛卡尔积．
+
+\begin{exercise}
+	证明式\eqref{chrg:eqn_Christoffel-2-naturalbases}定义的联络是无挠、容许、仿射联络．
+\end{exercise}
+
+\begin{exercise}
+	证明式\eqref{chrg:eqn_DDR}．
+\end{exercise}
+
+\begin{exercise}
+	详尽给出例题\ref{chrg:exam_Koszul}中略掉的步骤．
+\end{exercise}
+
+
+\section{曲率张量}
+在\S \ref{chccr:sec_Curvatures}中给出了黎曼曲率张量定义，同时也描述了它的数条性质．
+在引入度规后，再次研究这个重要的几何量；同时给出几个其它几个曲率的定义与性质．
+
+\index[physwords]{黎曼曲率}
+\subsection{$\Tpq{0}{4}$型黎曼曲率张量}\label{chrg:sec_R04}
+
+广义黎曼流形$(M,g)$中已指定度规，约定$R_{\cdot cab}^d$上标降在第一个位置：
+\begin{equation}\label{chrg:eqn_RiemannianCurvature-d4}
+    R_{dcab} \overset{def}{=} g_{de}R_{\cdot cab}^e.
+\end{equation}
+由克氏符可求$\Tpq{0}{4}$型黎曼张量的分量表达式，
+由式\eqref{chccr:eqn_Riemannian13-component}和\eqref{chrg:eqn_Christoffel-naturalbases}得
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chrg:eqn_Riemannian04-component}
+    R_{ijkn} =\frac{1}{2}\left(
+           \frac{\partial^2 g_{in}} {\partial x^j\partial x^k}
+         - \frac{\partial^2 g_{jn}} {\partial x^i\partial x^k}
+         - \frac{\partial^2 g_{ik}} {\partial x^j\partial x^n}
+         + \frac{\partial^2 g_{jk}} {\partial x^i\partial x^n} \right)
+         + \Gamma_{jk}^l\Gamma _{lin} - \Gamma _{jn}^l\Gamma _{lik} .
+\end{equation}\setlength{\mathindent}{2em}
+计算过程并不困难，请读者补齐．
+由式\eqref{chrg:eqn_Riemannian04-component}可见$\Tpq{0}{4}$型黎曼张量
+对度规$g_{ij}$而言是半线性的，非线性部分只体现在一阶导数上
+{\footnote{我们只以$\Tpq{0}{4}$型黎曼张量这个二阶偏导数式子来说明
+线性、半线性、拟线性、非线性的描述性概念．如果此张量的一阶偏导数和
+二阶偏导数本身是线性的（没有
+$\frac{\partial^2 g_{jn}} {\partial  x^h\partial  x^q}\frac{\partial^2 g_{ik}} {\partial  x^l\partial  x^p}$，
+$\frac{\partial^2 g_{jn}} {\partial  x^h\partial  x^q}\frac{\partial g_{ik}} {\partial  x^l}$，
+$\frac{\partial^2 g_{jn}} {\partial  x^h\partial  x^i}g_{kl}$，
+$\frac{\partial g_{jn}} {\partial  x^h}\frac{\partial g_{ik}} {\partial  x^l}$，
+$\frac{\partial g_{kn}} {\partial  x^h}g_{ij}$，$g_{ij}g_{kn}$等项），
+并且这些偏导数前的系数是常数或$x^i$的函数，那么称为线性．
+所有不是线性的皆称为非线性，但是非线性内部又可以略作区分．
+如果最高阶偏导数（此处指二阶偏导数，例如$\frac{\partial^2 g_{ik}}{\partial x^j\partial x^n} $）前的
+系数是常数或者只是$x^i$的函数，那么称为半线性（semi-linear）．
+如果最高阶偏导数前的
+系数除了包含$x^i$，还包含$g_{ij}$或$\frac{\partial g_{ij}} {\partial  x^k}$，
+那么称为拟线性（quasi-linear）．}}．
+但此张量还包含度规的逆（$g^{ij}$）．
+
+
+\index[physwords]{黎曼曲率!对称性}
+
+\begin{theorem}\label{chrg:thm_Riemann-Sym-Properties}
+广义黎曼流形$M$的黎曼曲率有如下对称性或反对称性：
+\begin{align}
+    R_{abcd} &= R_{cdab}, \label{chrg:eqn_Riemann-sym-abcd=cdab} \\
+    R_{abcd} &= -R_{bacd} = -R_{abdc}, \label{chrg:eqn_Riemann-anti-sym}\\
+    R_{a[bcd]} &= 0 \ \Leftrightarrow \ R_{[b|a|cd]} = 0
+       \ \Leftrightarrow \ R_{[bc|a|d]} = 0 \ \Leftrightarrow \ R_{[bcd]a} = 0, \\
+    R_{ab[cd;e]} &= 0, \\
+    R_{[abcd]} &= 0 \label{chrg:eqn_Riemann-cycle-4}.
+\end{align}
+\end{theorem}
+\begin{proof}
+    由于已经证明过黎曼曲率的分量表达式是坐标卡变换协变的（见\S \ref{chccr:sec_rit}），所以
+    可以由式\eqref{chrg:eqn_Riemannian04-component}的对称性直接得到式\eqref{chrg:eqn_Riemann-sym-abcd=cdab}．
+
+    借用式\eqref{chrg:eqn_Riemann-sym-abcd=cdab}，
+    由式\eqref{chccr:eqn_Rab=-Rba}可证明式\eqref{chrg:eqn_Riemann-anti-sym}的全部．
+
+    接下来是第一、第二Bianchi恒等式（已由式\eqref{chccr:eqn_Bianchi-I-global}和\eqref{chccr:eqn_Bianchi-II-global}证明）．
+
+    下面证明式\eqref{chrg:eqn_Riemann-cycle-4}；
+    由式\eqref{chmla:eqn_gkd-25}和式\eqref{chmla:eqn_gkd-95}可得
+    \begin{align*}
+        24 \cdot R_{[abcd]}  =& \delta_{abcd}^{ijkl} R_{ijkl}
+        =\Bigl(-\delta_{a}^{l} \cdot \delta_{bcd}^{ijk} +\delta_{b}^{l} \cdot \delta_{acd}^{ijk}
+         -\delta_{c}^{l} \cdot \delta_{abd}^{ijk}  +\delta_{d}^{l} \cdot \delta_{abc}^{ijk} \Bigr)R_{ijkl} \\
+        =& -R_{[bcd]a} + R_{[acd]b} - R_{[abd]c} + R_{[abc]d} =0 .
+    \end{align*}
+    上式最后一步用到了第一Bianchi恒等式．
+\end{proof}
+
+\index[physwords]{黎曼曲率!数目}
+\begin{example}
+    $m$维黎曼流形$(M,g)$中黎曼曲率张量$R_{abcd}$的独立取值数目．
+\end{example}
+\noindent{\heiti 解}：由式\eqref{chrg:eqn_Riemann-sym-abcd=cdab}知可把
+黎曼曲率$R_{abcd}$当成“指标”为$(ab)$和$(cd)$的矩阵$R_{(ab)(cd)}$，
+由式\eqref{chrg:eqn_Riemann-anti-sym}的反对称性可以看出，每一个“指标”
+取独立值的数目是：$\frac{1}{2}m(m-1)$．而“指标”为$(ab)$和$(cd)$是对称
+的，所以单由式\eqref{chrg:eqn_Riemann-sym-abcd=cdab}和\eqref{chrg:eqn_Riemann-anti-sym}使
+张量$R_{abcd}$留下的独立分量数目等于$\frac{1}{2}m(m-1)$维对称矩阵的独立矩阵元数目，即
+$\frac{1}{2}\bigl[\frac{1}{2}m(m-1)\bigr] \bigl[\frac{1}{2}m(m-1)+1\bigr]$．
+而全反对称\eqref{chrg:eqn_Riemann-cycle-4}又给附加上
+$m(m-1)(m-2)(m-3)/4!$个限制，最终黎曼曲率张量$R_{abcd}$留下的独立分量数目等于
+\begin{align}
+    C_m &= \frac{1}{2}\left[\frac{1}{2}m(m-1)\right] \left[\frac{1}{2}m(m-1)+1\right]
+             - \frac{1}{4!}m(m-1)(m-2)(m-3)  \notag\\
+      &= \frac{1}{12} m^2(m^2-1) . \label{chrg:eqn_Number-Of-Riemannd4}
+\end{align}
+需要强调的是，上述独立分量个数只是代数意义上的，由于还有第二Bianchi微分恒等式，
+独立分量数目还会减少． \qed
+
+当维数$m=1$时$C_1=0$，这说明曲线的内秉曲率$R_{1111}$恒为零．当曲线嵌入到
+高维空间中，可以有非零的外曲率，但这不是内蕴性质． %可参考\S．
+
+当维数$m=2$时$C_2=1$，只有一个独立的分量，本质上是高斯曲率． %可参考\S．
+
+当维数$m=3$时$C_3=6$；$m=4$时$C_4=20$．
+
+
+\index[physwords]{Ricci曲率}
+\index[physwords]{标量曲率}
+\subsection{Ricci曲率、标量曲率}
+定义Ricci曲率张量$R_{cb}$和标量曲率$R$：
+\begin{align}
+    R_{cb} \overset{def}{=}& R_{\cdot cab}^a \equiv g^{ad}R_{dcab}=-g^{ad}R_{dcba} . \label{chrg:eqn_RicciCurvatured2}\\
+    R \overset{def}{=}& g^{ab} R_{ab}. \label{chrg:eqn_ScalarCurvature}
+\end{align}
+从Ricci曲率张量定义可以看到：它是一个\uwave{\kaishu 对称张量}．
+由式\eqref{chrg:eqn_Riemann-anti-sym}和\eqref{chrg:eqn_Riemann-sym-abcd=cdab}可知：
+\begin{align*}
+    g^{ab}R_{abcd} &=0= g^{cd}R_{abcd}, \\
+    R_{bd} & = g^{ac}R_{abcd} = -g^{ac}R_{abdc} = -g^{ac}R_{bacd} = + g^{ac}R_{badc} .
+\end{align*}
+所以Ricci曲率$R_{bd}$本质上是唯一能从$R_{abcd}$构造出来的二阶张量．
+同样，标量曲率本质上也是唯一的．
+\begin{equation*}
+    0 = g^{ab} g^{bd}R_{abcd}, \qquad     R  = g^{bd} g^{ac}R_{abcd} .
+\end{equation*}
+从式\eqref{chrg:eqn_Riemann-cycle-4}可得$\epsilon^{abcd}R_{abcd} =0$；
+故，由反对称性构造标量的途径被否定了．
+
+
+
+
+\index[physwords]{爱因斯坦张量}
+\subsection{爱因斯坦张量}
+定义爱因斯坦张量$G_{ab}$为
+\begin{equation}\label{chrg:eqn_Einstein-tensor}
+    G_{ab} \overset{def}{=} R_{ab} -\frac{1}{2}g_{ab} R .
+\end{equation}
+其中$R_{ab},R$分别是Ricci曲率和标量曲率．
+
+由第二Bianchi恒等式\eqref{chccr:eqn_Bianchi-II-global}可以证明爱因斯坦张量的一个重要特征．
+首先，利用度规$g_{ab}$与联络$\nabla_c$相容，先将式\eqref{chccr:eqn_Bianchi-II-global}中的上指标“$d$”降下来，
+再对式\eqref{chccr:eqn_Bianchi-II-global}两端进行缩并运算，得
+\begin{align}
+   0=&  g^{ec}g^{ad}(\nabla_a R_{debc} + \nabla_b R_{deca} + \nabla_c R_{deab} )
+   = g^{ec}(\nabla^a R_{aebc} - \nabla_b R_{ec} + \nabla_c R_{eb} ) \notag \\
+   =& \nabla^a R_{ab} - \nabla_b R + \nabla^e R_{eb}
+   = 2\nabla^a R_{ab} - \nabla_b R . \label{chrg:eqn_Bianchi-contract}
+\end{align}
+由此式可得如下重要公式（\uwave{缩并Bianchi微分恒等式}）：
+\begin{equation}\label{chrg:eqn_Div-Einstein-tensor=0}
+    \nabla^a G_{ab} \equiv \nabla^a R_{ab} -\frac{1}{2}g_{ab} \nabla^a R \equiv 0 .
+\end{equation}
+需注意，微分恒等式\eqref{chrg:eqn_Div-Einstein-tensor=0}对任意$m$维广义黎曼流形都成立；
+并且只要$G_{ab}$满足可微条件即可，不论$G_{ab}$是否满足爱氏方程组
+（$G_{ab}=8\pi T_{ab}$）．
+
+%\begin{definition}\label{chrg:def_Einstein-manifold}
+%    设有$m$维广义黎曼流形$(M,g)$，如果存在实常数$\lambda \in \mathbb{R}$使得
+%    \begin{equation}\label{chrg:eqn_Einstein-manifold}
+%        R_{ab} = \lambda \cdot g_{ab},
+%    \end{equation}
+%    在流形$M$上每一点都成立，则称$(M,g)$是{\heiti 爱因斯坦流形}．
+%\end{definition}
+
+\index[physwords]{Weyl张量}
+\subsection{Weyl张量}
+设有$m$维广义黎曼流形$(M,g)$，定义Weyl张量，也称为共形张量．
+\begin{equation}\label{chrg:eqn_WeylConform-d4}
+    \begin{aligned}
+        C_{abcd}\overset{def}{=}& R_{abcd} - \frac{1}{m-2}\left( g_{ac}R_{bd} - g_{ad}R_{bc}
+        + g_{bd}R_{ac} - g_{bc}R_{ad}\right)  \\
+        &  + \frac{1}{(m-1)(m-2)}\left(g_{ac}g_{bd}-g_{ad}g_{bc}\right) R .
+    \end{aligned}
+\end{equation}
+要求$m\geqslant3$；一维、二维流形中无法定义Weyl张量．
+
+$C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Properties}）．
+此外，Weyl张量的迹恒零．
+\begin{equation}
+        g^{ac}C_{abcd}{=} 0.
+\end{equation}
+直接计算即可证明上式．当只考虑Weyl张量与黎曼张量有相同的对称性，
+可以得到独立个数相同于黎曼张量独立个数；但
+考虑到“指标”$(ab)$和$(cd)$对称性，上式对独立Weyl张量分量个数给出的限制是
+$\frac{1}{2}m(m+1)$，最终Weyl张量独立分量个数是
+\begin{equation}\label{chrg:eqn_Number-Of-Weyld4}
+    C_m = \frac{1}{12} m^2(m^2-1) - \frac{1}{2}m(m+1)
+      =\frac{1}{12} m(m+1)(m+2)(m-3) .
+\end{equation}
+当$m=3$时，独立Weyl张量是零；当$m=4$时，独立Weyl张量是$C_4=10$个．
+
+三维空间中，黎曼曲率和Ricci曲率都有6个独立分量，上面的公式
+也说明此时独立Weyl张量的分量个数是零，所以Ricci曲率代表了全部
+黎曼曲率，Weyl张量恒为零．
+
+
+\subsection{四维流形的曲率}
+%由于相对论是四维时空，我们单独讨论一下．
+\paragraph{黎曼曲率}
+由式\eqref{chrg:eqn_Number-Of-Riemannd4}可知四维黎曼曲率
+独立分量个数是20个．从定理\ref{chrg:thm_Riemann-Sym-Properties}经过
+对称性分析，可将$R_{abcd}$指标取为$(ab)$和$(cd)$的矩阵，
+写成表格\ref{chrg:tab-riemann}．
+因为此矩阵是对称的，所以只需写出一半；同时这个表格忽略了恒为零的分量．
+由式\eqref{chccr:eqn_Bianchi-I-global}，
+有$R_{1234}+R_{1342}+R_{1423}=0$，可令$R_{1234}$不独立，已在表中消掉．
+\begin{table}[htb]
+    \centering
+    \caption{独立黎曼曲率分量} \label{chrg:tab-riemann}
+    \begin{tabular}{|*{7}{c|}}
+        \hline
+        \diagbox{行}{分量}{列} & \makecell{N=2\\(12)} &
+        \multicolumn{2}{c|}{\makecell{N=3\\(13) \quad (23)}} &
+        \multicolumn{3}{c|}{\makecell{N=4\\ (14) \quad (24) \quad (34) }}   {}\\        \hline
+        (12) & 1212 & 1213  & 1223 & 1214 & 1224 & \xcancel{1234}  \\ \hline
+        \multirowcell{2}{(13)\\(23)}
+        & {} & 1313  & 1323 & 1314 & 1324 & 1334  \\ \cline{2-7}
+        & {} &  {}  & 2323 & 2314 & 2324 & 2334  \\ \hline
+        \multirowcell{3}{(14)\\(24)\\(34)}
+        & {} & {}  & {} & 1414 & 1424 & 1434  \\ \cline{2-7}
+        & {} & {}  & {} & {} & 2424 & 2434  \\ \cline{2-7}
+        & {} & {}  & {} & {} & {} & 3434  \\ \hline
+    \end{tabular}
+\end{table}
+
+%\subsubsection{Weyl、Ricci张量}
+%Ricci曲率和Weyl张量独立分量个数都是10个；结合起来正号是20个，
+%与独立黎曼曲率分量相等．
+%\begin{equation}
+%    C_{abcd}{=} R_{abcd} - \frac{1}{2}\left( g_{ac}R_{bd} - g_{ad}R_{bc}
+%    + g_{bd}R_{ac} - g_{bc}R_{ad}\right)
+%    + \frac{1}{6}\left(g_{ac}g_{bd}-g_{ad}g_{bc}\right) R .
+%\end{equation}
+
+
+\paragraph{Bianchi恒等式}\label{chrg:sec_NumOfBianchi}
+此处，我们只讨论四维流形上的Bianchi恒等式\eqref{chccr:eqn_Bianchi-II-global}$R_{ij[kl;s]} = 0$ ．
+前两个指标$(ij)$是对称的，所以有6个可区分；后三个指标
+要求$k\neq l \neq s$且反对称循环相加，所以只有$C_4^3=4$个可区分，
+综上，共有24个可区分的Bianchi恒等式．但是由于各种对称性，下列
+四个式子是恒为零的（请读者自行验证），不能算作方程等式．
+\begin{equation*}
+    \begin{aligned}
+        R_{12[34;1]} - R_{13[41;2]} + R_{14[12;3]} &=0,  \quad
+        R_{23[41;2]} - R_{24[12;3]} + R_{21[23;4]} =0,  \\
+        R_{34[12;3]} - R_{31[23;4]} + R_{32[34;1]} &=0,  \quad
+        R_{41[23;4]} - R_{42[34;1]} + R_{43[41;2]} =0.
+    \end{aligned}
+\end{equation*}
+这导致Bianchi恒等式只有20个线性独立．
+
+
+\begin{exercise}
+	证明式\eqref{chrg:eqn_Riemannian04-component}．
+\end{exercise}
+
+\begin{exercise}
+	证明二维爱因斯坦张量恒为零（见式\eqref{chrg:eqn_Einstein-tensor}）．
+\end{exercise}
+
+\begin{exercise}
+	证明三维Weyl张量恒为零（见式\eqref{chrg:eqn_WeylConform-d4}）．
+\end{exercise}
+
+
+
+
+\index[physwords]{等距}
+\section{等距映射}\label{chrg:sec_isometry}
+
+%本节初步涉及对称性知识，在第\ref{chhss}章将进一步讲述对称性．
+
+\subsection{线性空间等距}
+%我们先从线性空间讲起，然后再叙述一般流形上的情形．
+
+\begin{definition}\label{chrg:def_isometry-VW}
+设在实数域上有两个线性空间$V$和$W$，$V$上定义了度规$g$，$W$上定义了度规$h$；
+两个空间存在同构映射$T:V\to W$；若$T$还保度规不变，即
+\begin{equation}\label{chrg:eqn_isometry-VW}
+    g_{ab}v^a u^b = h_{ab} T(v^a) T(u^b)    \ \Leftrightarrow \ 
+    \left<v,u\right>_g = \left<T(v),T(u)\right>_h,
+    \quad    \forall v^a, u^b \in V.
+\end{equation}
+则称$T$是线性空间上的{\heiti 等距映射}．线性空间度规定义见\S\ref{chdm:sec_Euclidean-space}．
+\end{definition}
+
+\begin{proposition}\label{chrg:thm_isometry-VW}
+设有两个线性空间$V$和$W$，$V$上定义了度规$g$，$W$上定义了度规$h$．
+存在等距映射$T:V\to W$的充分必要条件是：
+$V$、$W$有相同的维数，$g$的正（负）特征值个数等于$h$的正（负）特征值个数．    
+\end{proposition}
+\begin{proof}
+        度规定义要求它是非退化的．
+    在$V$中选定正交归一基矢$\{(e_i)^a\}$，在$W$中选定正交归一基矢$\{(\epsilon_j)^a\}$．
+    在正交归一基矢下，度规特征值参见式\eqref{chmla:eqn_gmetric}．
+    
+    “$\Rightarrow$”．$T$等距，则它首先是线性同构，故$V$、$W$的维数相等．
+    将$V$中基矢$\{(e_i)^a\}$带入式\eqref{chrg:eqn_isometry-VW}可
+    得（其中$\eta={\rm diag}(-\cdots -+\cdots +)$）
+    \begin{equation}
+         h_{ab} T\bigl((e_i)^a\bigr) T\bigl((e_j)^b\bigr) = g_{ab} (e_i)^a(e_j)^b = \eta_{ij} .
+    \end{equation}
+    $\{(e_i)^a\}$在等距、线性同构下的像是$T\bigl((e_i)^a\bigr)$，显然它是$W$中的基底；
+    故在$W$中存在基底使得$h$的正（负）特征值个数等于$g$的正（负）特征值个数．  
+    
+    “$\Leftarrow$”．因$V$、$W$有相同的维数，故必然存在线性同构映射$\sigma:V\to W$，
+    我们将具体表达式选为$\sigma\bigl((e_i)^a\bigr) = (\epsilon_i)^a$
+    （这个线性映射是人为选定的，如果选为其它形式，
+    比如$\sigma\bigl((e_i)^a\bigr) =-9.4 (\epsilon_i)^a$，那么会给证明造成困难）．
+    由于$g$的正（负）特征值个数等于$h$的正（负）特征值个数，故
+    可以令$g_{ab}(e_i)^a(e_j)^b = h_{ab}(\epsilon_i)^a(\epsilon_j)^b$
+    （因$(e_i)^a$和$(\epsilon_i)^a$都是正交归一的，故可作此种选择）．
+    在上述线性同构映射约定下，以及度规$g$、$h$关系约定下，$\sigma$是等距的，
+    即$h_{ab} \sigma(v^a) \sigma(u^b)=h_{ab} \sigma\bigl(v^i(e_i)^a\bigr) \sigma(u^j(e_j)^b)
+    =v^i u^j h_{ab} \sigma\bigl((e_i)^a\bigr) \sigma((e_j)^b) 
+    =v^i u^j h_{ab} (\epsilon_i)^a (\epsilon_j)^b 
+    =v^i u^j g_{ab} (e_i)^a (e_j)^b  = g_{ab}v^a u^b$．
+    令$T=\sigma$，证毕．
+\end{proof}
+
+
+
+\begin{theorem}\label{chmla:thm_Witt-isometry}
+    设在实数域上有两个线性空间$V$和$W$，$V$上定义了度规$g$，$W$上定义了度规$h$；$V$和$W$是等距的．
+    $U$是$V$的非零、非退化子空间，且映射$\sigma:U\to \sigma(U)\subset W$是等距映射；
+    那么$\sigma$能够延拓成$V$到$W$的等距映射．    
+\end{theorem}
+
+\begin{proof}
+    由定理\ref{chmla:thm_bifunmatrix}可知，线性空间上度规与非退化、对称实矩阵有双射关系．
+    设$g$在$U$上的限制所对应的矩阵是$A_1$，$h$在$\sigma(U)$上的限制所对应的矩阵是$A_2$，
+    很明显$A_1,A_2$的维数是相同的．因$\sigma$是$U$到$\sigma(U)$的等距，不难证明
+    矩阵$A_1\overset{c}{\sim} A_2$，即两个矩阵是合同关系．
+    
+    因$g$在$U$上限制非退化，故$\sigma(U)$也非退化；
+    $V$和$W$可作正交直和分解：
+    \begin{equation}\label{chrg:eqn_tmp-wioc}
+        V = U \oplus U^\perp, \qquad
+        W = \sigma(U) \oplus \bigl(\sigma(U)\bigr)^\perp .
+    \end{equation}   
+    因$V$和$W$是等距的，那么$g$、$h$所对应的矩阵自然也是合同的：
+    \begin{equation}
+        (g)=\begin{pmatrix}  A_1 &0 \\ 0 & B_1  \end{pmatrix} \overset{c}{\sim}
+        \begin{pmatrix}  A_2 &0 \\ 0 & B_2  \end{pmatrix} =(h) .
+    \end{equation}
+    其中$B_1$是$g$在$U^\perp$上对应的非退化、对称矩阵；
+    $B_2$是$h$在$\bigl(\sigma(U)\bigr)^\perp$上对应的非退化、对称矩阵；
+    $B_1,B_2$维数相同．
+    由Witt定理\ref{chmla:thm_Witt-cancel}可知必有$B_1 \overset{c}{\sim} B_2$，
+    既然是合同关系，我们可以认为存在等距映射$\mu:U^\perp \to \bigl(\sigma(U)\bigr)^\perp$．
+    因有正交补关系\eqref{chrg:eqn_tmp-wioc}，故$\forall v^a\in V$都可以唯一分解
+    成：$v^a = u^a + u_p^a$，其中$u^a\in U, u_p^a \in U^\perp$．
+    现在定义新的等距映射$\nu:V\to W$：
+    \begin{equation}
+        \nu (v^a)= \nu(u^a + u_p^a) \overset{def}{=}  \sigma(u^a) + \mu(u_p^a) .
+    \end{equation}
+    当$v^a\in U$时，即$u_p^a=0$时，$\nu=\sigma$；故$\nu$是$\sigma$的延拓．
+    
+    本定理一般称作{\bfseries \heiti Witt等距延拓定理}．
+    \index[physwords]{Witt等距延拓定理}
+\end{proof}
+
+\subsection{微分流形等距}
+给定两个广义黎曼流形$(M,g)$和$(N,h)$，它们的维数分别是$m$和$n$，且$m \leqslant n$；
+两个流形间存在光滑浸入（或嵌入）映射$\phi:M\to N$．
+\begin{definition}\label{chrg:def_isometry-immersion}
+    如果$g_{ab}=\phi^{*}h_{ab}$，即$\forall p \in M$，以及$\forall u^a,v^b \in T_{p}M$都有
+    \begin{equation}
+        g_{ab} u^a v^b = h_{ab} (\phi_{*} u^a) (\phi_{*} v^b) 
+        \quad \Leftrightarrow \quad
+        \left<u,v\right>_g = \left<\phi_{*}u,\  \phi_{*}v\right>_h,
+    \end{equation}
+    则称$\phi$是从$(M,g)$到$(N,h)$的一个{\heiti 等距浸入}（或嵌入）映射．
+\end{definition}
+等距浸入在局部上必是等距嵌入．等距浸入不要求两个流形维数相等．
+浸入映射$\phi$会将$(N,h)$中的度规拉回到$M$中，这时$M$中有两个
+度规，但$g_{ab}$未必等于$\phi^{*}h_{ab}$；只有两者相等才是等距的．
+
+\begin{example}
+    在等距浸入\ref{chrg:def_isometry-immersion}中，两个流形维数未必相同．
+    比如给定流形$M$是实直线，和流形$N$是二维实平面，两者都是正定欧氏度规；
+    自然存在将实直线等距浸入（其实是正则嵌入）到二维平面的包含映射$\imath$．
+\end{example}
+\begin{example}
+    把二维球面正则嵌入到$\mathbb{R}^3$中也是等距嵌入，详见例\ref{chsm:exm_S2}．
+\end{example}
+
+\index[physwords]{等距!整体同胚}
+\index[physwords]{等距!局部同构}
+\index[physwords]{等距!局部同胚}
+\index[physwords]{等距!浸入、嵌入}
+
+\begin{definition}\label{chrg:def_isometry-diffeomorphism}
+    若$\phi$是等距浸入映射，再要求$\phi$是微分同胚，那么称$\phi$是
+    从$(M,g)$到$(N,h)$的一个{\heiti 整体等距同胚}映射，简称{\heiti 等距}．
+\end{definition}
+
+
+\begin{definition}\label{chrg:def_isometry-local-isomorphism}
+    若$\phi$是等距浸入映射，再要求$\forall p\in M$，$\phi_{*}:T_{p}M \to T_{\phi(p)}N$是
+    线性同构，则称$\phi$是从$(M,g)$到$(N,h)$的{\heiti 局部等距同构}映射，
+    简称{\heiti 局部等距}．
+\end{definition}
+整体等距{\kaishu 同胚}自然可以得到流形$M$和$N$的维数相等．
+局部等距{\kaishu 同构}要求$M$和$N$的切空间是同构，
+自然得到$M$和$N$的切空间维数相等，从而流形$M$和$N$的维数也相等．
+局部等距同构映射并不要求整体上是微分同胚，只要求每点切空间线性等距同构即可；
+由于局部等距时两个流形的维数相等，此时的浸入是局部微分同胚，
+即$p\in M$点某开邻域到$\phi(p)\in N$点某开邻域间的等距同胚；
+故局部等距同构也可以称为{\heiti 局部等距同胚}．
+
+\begin{example}
+    设$S^1$是$\mathbb{R}^2$中的单位圆，指数映射$\exp\equiv(\cos t, \sin t): \mathbb{R}^1 \to S^1$，
+    将$\mathbb{R}^1$中的非紧致开集映射到$\mathbb{R}^2$中的紧致闭子集$S^1$．
+    指数映射$\exp$只是切空间的局部等距同构映射，不是流形上的整体等距同胚映射．
+    流形$\mathbb{R}$和$S^1$之间不存在微分同胚映射．
+    这个例子清楚地显示了局部等距概念和整体等距概念都是需要的．
+\end{example}
+
+\begin{example}\label{chrg:exam_isometry-MNcoord}
+    设两个黎曼流形$(M,g)$和$(N,h)$间存在整体等距同胚映射$\phi:M\to N$，
+    再设$(U;x^i)$和$(V;y^\alpha)$分别是$M$和$N$的局部坐标．
+    依照等距同胚的定义，参考式\eqref{chdm:eqn_push-bases}，有
+    \begin{small}
+    \setlength{\mathindent}{1em}
+    \begin{equation}\label{chrg:eqn_isometry-MNcoord}
+        g_{ab} \left(\frac{\partial }{\partial x^i}\right)^a
+         \left(\frac{\partial }{\partial x^j}\right)^b = h_{ab}
+        \left(\phi_{*} \left(\frac{\partial }{\partial x^i} \right)^a \right)
+        \left(\phi_{*} \left(\frac{\partial }{\partial x^j} \right)^b \right)
+        {\color{red} \Leftrightarrow }  g_{ij}=\frac{\partial y^\alpha}{\partial x^i}
+        \frac{\partial y^\beta}{\partial x^j} h_{\alpha\beta} .
+    \end{equation}\setlength{\mathindent}{2em}
+    \end{small}
+    这便是等距同胚（或局部等距同构）在局部坐标系下的具体表示．
+\end{example}
+
+
+%有时候，这种维数的不同可能会造成一种误解：认为我们在研究两个维数不同的流形；实际上并不是．
+%上面那个例子中，我们只研究$M$与$\imath(M)$间的等距，而不会关心$\imath(M)$之外的部分；
+%也就是不关心二维平面中不属于$\imath(M)$（一维实直线）的部分．
+%因此即便是等距浸入（非局部同构）：我们也{\kaishu 只研究维数相同流形间的等距}；
+%因此可以认为所有等距映射都是{\kaishu 局部等距同构}的．
+
+%g_{ab} \left(\frac{\partial }{\partial x^i}\right)^a
+%\left(\frac{\partial }{\partial x^j}\right)^b = g_{ab}
+%\left(\phi_{*} \left(\frac{\partial }{\partial x^i} \right)^a \right)
+%\left(\phi_{*} \left(\frac{\partial }{\partial x^j} \right)^b \right)
+%{\color{red} \Leftrightarrow }
+
+
+
+
+\index[physwords]{等距!保Levi-Civita联络}
+\subsection{等距同胚保联络不变}\label{chrg:sec_isometry-connection}
+\begin{theorem}\label{chrg:thm_isometry-connection-vector}
+    给定两个广义黎曼流形及Levi-Civita联络$(M,\nabla_a,g)$和$(N,{\rm D}_a,h)$，
+    它们之间存在局部等距映射$\phi:M\to N$；那么，$\forall p\in M$，
+    和$\forall X^a \in T_{p}M$，$ \forall Y^a \in \mathfrak{X}(M)$，都有
+    \begin{equation}\label{chrg:eqn_isometry-connection-vec}
+    \phi_{*} \left(\nabla _X Y^a \right) = {\rm D}_ {\phi_* X} \left({\phi_*}Y^a \right) .
+    \end{equation}
+    即，作用在切矢场上的Levi-Civita联络$\nabla_a$和${\rm D}_a$在局部等距下形式不变．
+\end{theorem}
+\begin{proof}
+    设$(U;x^i)$和$(V;y^\alpha)$分别是$M$和$N$的局部坐标．
+    式\eqref{chrg:eqn_isometry-connection-vec}左端为
+    \begin{align*}
+    \phi_{*} (\nabla _X Y^a) %& = \phi_{*} \left[\nabla_{(X^i \frac{\partial}{\partial x^i})}
+%     \left(Y^j \Bigl(\frac{\partial} {\partial x^j}\Bigr)^a \right) \right]  \\
+%     &= \phi_{*} \left[\Bigl( X^i \frac{\partial Y^j}{\partial x^i} \Bigr)
+%        \left(\frac{\partial} {\partial x^j}\right)^a
+%        + ( X^i Y^j ) \nabla _{\frac{\partial}{\partial x^i}}
+%        \left(\frac{\partial} {\partial x^j}\right)^a\right] \\
+     &=  \Bigl( X^i \frac{\partial Y^j}{\partial x^i} \Bigr)
+\phi_{*}\left(\frac{\partial} {\partial x^j}\right)^a
++ ( X^i Y^j ) \phi_{*}\left[ \nabla _{\frac{\partial}{\partial x^i}}
+\left(\frac{\partial} {\partial x^j}\right)^a\right] .
+    \end{align*}
+    式\eqref{chrg:eqn_isometry-connection-vec}右端为（参考式\eqref{chdm:eqn_push-bases}）
+    \begin{align*}
+    {\rm D}_ {\phi_* X} ({\phi_*}Y^a) = %& X^i \left( {\rm D}_ {\phi_* \frac{\partial}{\partial x^i}}
+%     Y^j(x) \right) {\phi_*}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a
+%    +X^i  Y^j(x)  {\rm D}_ {\phi_* \frac{\partial}{\partial x^i}}
+%    \left({\phi_*}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a \right) \\
+%    \xlongequal{\ref{chdm:eqn_push-bases}}&
+     X^i \left( \frac{\partial y^\alpha}{\partial x^i}
+     \frac{\partial Y^j(x)}{\partial y^\alpha} \right)
+    {\phi_*}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a
+    +X^i  Y^j(x)  {\rm D}_ {\phi_* \frac{\partial}{\partial x^i}}
+    \left({\phi_*}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a \right) .
+    \end{align*}
+    综合上面两式，可知要证明式\eqref{chrg:eqn_isometry-connection-vec}，等价于证明
+    \begin{equation}\label{chrg:eqn_isometry-connection-vec2}
+      \phi_{*}\left( \nabla _{\frac{\partial}{\partial x^i}}
+      \Bigl(\frac{\partial} {\partial x^j}\Bigr)^a\right)
+      ={\rm D}_ {\phi_* \frac{\partial}{\partial x^i}}
+      \left({\phi_*}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a \right) .
+    \end{equation}
+    式\eqref{chrg:eqn_isometry-connection-vec2}左端为
+    \begin{equation*}
+       \phi_{*}\left( \nabla _{\frac{\partial}{\partial x^i}}\Bigl(\frac{\partial} {\partial x^j}\Bigr)^a\right)
+        =\phi_{*}\left( \Gamma^{k}_{ji}(x) \Bigl(\frac{\partial} {\partial x^k}\Bigr)^a\right)
+        =\Gamma^{k}_{ji}(x) \frac{\partial y^\alpha}{\partial x^k}
+         \left( \frac{\partial }{\partial y^\alpha}\right)^a .
+    \end{equation*}
+    其中$\Gamma(x)$是$\nabla_a$的联络系数．
+    式\eqref{chrg:eqn_isometry-connection-vec2}右端为
+    \begin{align*}
+        {\rm D}_ {\phi_* \frac{\partial}{\partial x^i}} \left({\phi_*}\Bigl(\frac{\partial}
+        {\partial x^j}\Bigr)^a \right) &= \frac{\partial y^\alpha}{\partial x^i}
+         {\rm D}_{\frac{\partial}{\partial y^\alpha}}
+         \left( \frac{\partial y^\beta}{\partial x^j}
+          \Bigl(\frac{\partial}{\partial y^\beta}\Bigr)^a\right)\\
+%        &=\Bigl(\frac{\partial}{\partial y^\beta}\Bigr)^a
+%        \frac{\partial y^\alpha}{\partial x^i}
+%        {\rm D}_{\frac{\partial}{\partial y^\alpha}}
+%        \left( \frac{\partial y^\beta}{\partial x^j} \right) +
+%        \frac{\partial y^\alpha}{\partial x^i} \frac{\partial y^\beta}{\partial x^j}
+%        {\rm D}_{\frac{\partial}{\partial y^\alpha}}
+%        \left( \Bigl(\frac{\partial}{\partial y^\beta}\Bigr)^a\right)\\
+        &=\Bigl(\frac{\partial}{\partial y^\beta}\Bigr)^a
+        \frac{\partial y^\alpha}{\partial x^i} {\frac{\partial}{\partial y^\alpha}}
+        \left( \frac{\partial y^\beta}{\partial x^j} \right) +
+        \frac{\partial y^\alpha}{\partial x^i} \frac{\partial y^\beta}{\partial x^j}
+        \gamma^{\rho}_{\beta\alpha} \Bigl(\frac{\partial}{\partial y^\rho}\Bigr)^a .
+    \end{align*}
+    其中$\gamma$是${\rm D}_a$联络系数．
+    综合上述两式，要证明式\eqref{chrg:eqn_isometry-connection-vec2}等价于证明
+    \begin{equation}\label{chrg:eqn_isometry-connection-tmp}
+       \Gamma^{k}_{ji}(x) \frac{\partial y^\rho}{\partial x^k} =
+         \frac{\partial^2 y^\rho}{\partial x^j \partial x^i}+
+         \frac{\partial y^\alpha}{\partial x^i}
+         \frac{\partial y^\beta}{\partial x^j}
+         \gamma^{\rho}_{\beta\alpha}(y) .
+    \end{equation}
+    要证明上式，需要用到局部等距的定义，以及式\eqref{chrg:eqn_isometry-MNcoord}和它的逆变换（即下式）：
+    \begin{equation}
+       h_{\alpha\beta}(y) =\frac{\partial x^i}{\partial y^\alpha}
+        \frac{\partial x^j}{\partial y^\beta} g_{ij}(x), \qquad
+       h^{\alpha\beta}(y)=\frac{\partial y^\alpha}{\partial x^i}
+        \frac{\partial y^\beta}{\partial x^j} g^{ij}(x) .
+    \end{equation}
+    式\eqref{chrg:eqn_isometry-connection-tmp}右端第二项为（注意将上式带入）
+    \setlength{\mathindent}{0em}
+    \begin{align*}
+      &\frac{\partial y^\alpha}{\partial x^i}
+      \frac{\partial y^\beta}{\partial x^j}
+      \Gamma^{\rho}_{\beta\alpha}(y)
+      = \frac{1}{2}\frac{{\partial {y^\alpha }}}{{\partial {x^i}}}\frac{{\partial {y^\beta }}}{{\partial {x^j}}}
+      {{h}^{\pi \rho }}\left( \frac{\partial h_{\alpha \pi   }} {\partial y^\beta}
+           +\frac{\partial h_{\pi \beta   }} {\partial y^\alpha }
+           -\frac{\partial h_{\alpha \beta}} {\partial y^\pi } \right)\\
+      =& \frac{1}{2}\frac{{\partial {y^\alpha }}}{{\partial {x^i}}}\frac{{\partial {y^\beta }}}{{\partial {x^j}}}
+      \frac{{\partial {y^\rho }}}{{\partial {x^k}}}\frac{{\partial {y^\pi }}}{{\partial {x^l}}}
+      {g^{kl}} \biggl[ \frac{\partial }{{\partial {y^\beta }}}
+      \left( {\frac{{\partial {x^o}}}{{\partial {y^\alpha }}}\frac{{\partial {x^n}}}{{\partial {y^\pi }}}{g_{on}}} \right)
+       +\frac{\partial }{{\partial {y^\alpha }}}\left( {\frac{{\partial {x^o}}}{{\partial {y^\pi }}}
+           \frac{{\partial {x^n}}}{{\partial {y^\beta }}}{g_{on}}} \right)
+       - \frac{\partial }{{\partial {y^\pi }}}\left( {\frac{{\partial {x^o}}}{{\partial {y^\alpha }}}
+           \frac{{\partial {x^n}}}{{\partial {y^\beta }}}{g_{on}}} \right)  \biggr] \\
+      =& \cdots =
+      \frac{{\partial {y^\alpha }}}{{\partial {x^i}}}\frac{{\partial {y^\beta }}}{{\partial {x^j}}}
+      \frac{{\partial {y^\rho }}}{{\partial {x^o}}}\frac{{{\partial ^2}{x^o}}}{{\partial {y^\beta }\partial {y^\alpha }}}
+       + \frac{{\partial {y^\rho }}}{{\partial {x^k}}}\Gamma _{ij}^k\left( x \right) .
+    \end{align*}\setlength{\mathindent}{2em}
+    上式计算冗长，中间省略了一些步骤，请读者补齐．
+    将上式带入式\eqref{chrg:eqn_isometry-connection-tmp}，得
+    \begin{equation}
+        \Gamma^{k}_{ji}(x) \frac{\partial y^\rho}{\partial x^k} =
+        \frac{\partial^2 y^\rho}{\partial x^j \partial x^i}+
+        \frac{{\partial {y^\alpha }}}{{\partial {x^i}}}\frac{{\partial {y^\beta }}}{{\partial {x^j}}}
+        \frac{{\partial {y^\rho }}}{{\partial {x^l}}}\frac{{{\partial ^2}{x^l}}}{{\partial {y^\beta }\partial {y^\alpha }}}
+         + \frac{{\partial {y^\rho }}}{{\partial {x^k}}}\Gamma _{ij}^k\left( x \right) .
+    \end{equation}
+    利用式\eqref{chccr:eqn_tmp21}发现上式是个恒等式，
+    这样便证明了式\eqref{chrg:eqn_isometry-connection-tmp}，
+    那么自然可以得到式\eqref{chrg:eqn_isometry-connection-vec2}，
+    最终证明了式\eqref{chrg:eqn_isometry-connection-vec}．
+\end{proof}
+
+\begin{remark}
+    其实还可以更简单地证明．因$\phi$局部等距，则可认为两个坐标卡是恒等的，
+    即$y^i\equiv x^i$；进而度规完全相同，见式\eqref{chrg:eqn_isometry-MNcoord}；
+    故式\eqref{chrg:eqn_isometry-connection-tmp}为恒等式．
+\end{remark}
+
+\begin{remark}
+    把定理\ref{chrg:thm_isometry-connection-vector}中的\uwave{局部等距}换成等距浸入，
+    定理未必成立（见例\ref{chsm:exm_Dni}）．
+\end{remark}
+
+\begin{example}
+	定理\ref{chrg:sec_isometry-connection}的另一种证明途径．
+\end{example}
+所有符号与定理\ref{chrg:sec_isometry-connection}相同．
+在$N$中已有Levi-Civita联络${\rm D}_a$，利用它，
+可在$M$中定义一个算符$\bar{\nabla}_a$如下（$\bar{\nabla}_X \equiv X^a\bar{\nabla}_a $）：
+\begin{equation}\label{chrg:eqn_bND}
+	\bar{\nabla}_X Y^a \overset{def}{=} \phi^{-1}_* \left( {\rm D}_{\phi_* X} (\phi_*Y^a) \right).
+\end{equation}
+如果$\phi$仅是浸入映射，则没有逆，无法进行上述定义．
+我们先验证它是$M$上的一个仿射联络，先验证$\mathbb{R}$-线性
+（设$Z^a \in \mathfrak{X}(M)$，$\lambda \in \mathbb{R}$）：
+\begin{align*}
+	\bar{\nabla}_X (Y^a + \lambda Z^a) =& \phi^{-1}_* \left( {\rm D}_{\phi_* X} (\phi_*Y^a +\lambda \phi_*Z^a)\right)
+	= \phi^{-1}_* \left( {\rm D}_{\phi_* X}\phi_*Y^a +\lambda  {\rm D}_{\phi_* X} \phi_*Z^a\right)\\
+	=& \phi^{-1}_* \left( {\rm D}_{\phi_* X}\phi_*Y^a\right) +\lambda  \phi^{-1}_* \left({\rm D}_{\phi_* X} \phi_*Z^a\right)
+	=  \bar{\nabla}_X Y^a  + \lambda  \bar{\nabla}_X Z^a .
+\end{align*}
+再验证加法（$f\in C^\infty(M)$）：
+\begin{align*}
+	\bar{\nabla}_{f\cdot Y + Z} X^a =& \phi^{-1}_* \left( {\rm D}_{\phi_* (f\cdot Y+Z)} \phi_*X^a\right)
+	=\phi^{-1}_* \left( {\rm D}_{\phi_* (f Y)} \phi_*X^a+ {\rm D}_{\phi_*Z} \phi_*X^a\right)\\
+	=&\phi^{-1}_* \left( {\rm D}_{\phi_* (f Y)} \phi_*X^a\right)+\phi^{-1}_* \left( {\rm D}_{\phi_*Z} \phi_*X^a\right)
+	=   \bar{\nabla}_{f\cdot Y } X^a  +\bar{\nabla}_{ Z} X^a .
+\end{align*}
+接着验证Leibniz法则：
+\begin{align*}
+	\bar{\nabla}_X (f\cdot Y^a ) =& \phi^{-1}_* \left( {\rm D}_{\phi_* X} \phi_* (fY^a) \right)
+	= \phi^{-1}_* \left( {\rm D}_{\phi_* X} ((f\circ \phi^{-1})(\phi_* Y^a) )\right) \\
+	=& \phi^{-1}_* \left(({\phi_* X} (f\circ \phi^{-1})) (\phi_* Y^a)\right) + 
+	\phi^{-1}_* \left((f\circ \phi^{-1}) {\rm D}_{\phi_* X} (\phi_* Y^a )\right)  \\
+	=& X(f) Y^a  +   f\cdot \phi^{-1}_* \left({\rm D}_{\phi_* X} (\phi_* Y^a )\right)  
+	= X(f) Y^a  +   f\cdot \bar{\nabla}_X Y^a  . 
+\end{align*}
+这样便证明了式\eqref{chrg:eqn_bND}中定义的算符$\bar{\nabla}_a$是$M$上的一个仿射联络．
+
+下面验证仿射联络\eqref{chrg:eqn_bND}是无挠的，自然要利用${\rm D}_a$的无挠性．
+\begin{small}
+\begin{align*}
+	T^a_{bc} X^b Y^c = & \bar{\nabla}_X Y^a - \bar{\nabla}_Y X^a -[X,Y]^a 
+	=  \phi^{-1}_* \left( {\rm D}_{\phi_* X} \phi_*Y^a \right) 
+	-\phi^{-1}_* \left( {\rm D}_{\phi_* Y} \phi_*X^a \right) -[X,Y]^a \\
+	=&\phi^{-1}_* \left( {\rm D}_{\phi_* X} \phi_*Y^a 
+	-  {\rm D}_{\phi_* Y} \phi_*X^a -[\phi_*X,\phi_*Y]^a \right) 
+	=\phi^{-1}_*(0) = 0.
+\end{align*} %\setlength{\mathindent}{2em}
+\end{small}
+最后验证仿射联络\eqref{chrg:eqn_bND}与度规相容条件\eqref{chgd:eqn_connection-compatibility}，
+这步需用局部等距条件．
+\begin{align*}
+	X(g_{ab} Y^a Z^b) = & \phi^{-1}_*\circ \phi_* \left(X(g_{ab} Y^a Z^b) \right)
+	=\phi^{-1}_*  \left(\phi_* X( (\phi^{-1*}g_{ab}) \phi_*Y^a \phi_*Z^b) \right) \\
+	=& \phi^{-1}_*  \left(\phi_* X(h_{ab} \phi_*Y^a \phi_*Z^b) \right)\\
+	=& \phi^{-1}_*  \left(h_{ab} ({\rm D}_{\phi_* X} \phi_*Y^a) \phi_*Z^b
+	 + h_{ab} \phi_*Y^a {\rm D}_{\phi_* X}\phi_*Z^b\right) \\
+	=&g_{ab} (\bar{\nabla}_{X} Y^a) Z^b + g_{ab} Y^a \bar{\nabla}_{X} Z^b .
+\end{align*}
+上式说明了仿射联络\eqref{chrg:eqn_bND}与度规$g_{ab}$相容．
+根据定理\ref{chrg:thm_Levi-Civita-Connetion}可知由\eqref{chrg:eqn_bND}式定义
+的仿射联络$\bar{\nabla}_a$就是$M$上的Levi-Civita联络${\nabla}_a$．证毕．\qed
+
+
+\begin{proposition}\label{chrg:thm_isometry-connection-scalar}
+    给定两个广义黎曼流形及Levi-Civita联络$(M,\nabla_a,g)$和$(N,{\rm D}_a,h)$，
+    它们之间存在局部等距映射$\phi:M\to N$；那么，$\forall p\in M$，
+    和$\forall X^a \in T_{p}M$，$ \forall f \in C^\infty(M)$，都有
+    \begin{equation}\label{chrg:eqn_isometry-connection-scalar}
+      \Phi_{*} (\nabla _X f) = {\rm D}_ {\phi_* X} ({\phi^{-1*}}f) .
+    \end{equation}
+    也就是说，作用在标量场上的Levi-Civita联络在局部等距映射下不变．
+    $\Phi_{*}$定义与定理\ref{chdm:def_push-pull-tensor}中的$\Phi^{*}$定义类似，
+    矢量$X^a \in T_{p}M$需要用$\phi_{*}$推前，而$f \in C^\infty(M)$需要
+    用$\phi^{-1*}$拉回到$ C^\infty(N)$．
+\end{proposition}
+\begin{proof}
+    式\eqref{chrg:eqn_isometry-connection-scalar}左端为
+    \begin{equation*}
+      \Phi_{*} (\nabla _X f) = \phi^{-1*} \bigl(X (f)\bigr)
+      =( X^i \circ \phi^{-1}) \cdot \frac{\partial f\circ \phi^{-1}\bigl(y(x)\bigr)}{\partial x^i}
+      = (X^i \circ \phi^{-1})  \frac{\partial y^\alpha}{\partial x^i}
+      \frac{\partial f\circ \phi^{-1}}{\partial y^\alpha}.
+    \end{equation*}
+    式\eqref{chrg:eqn_isometry-connection-scalar}右端为
+    \begin{equation*}
+      {\rm D}_ {\phi_* X} ({\phi^{-1*}}f) = {\phi_* X} \bigl(\phi^{-1*} (f)\bigr)
+      = (X^i \circ \phi^{-1})  \frac{\partial y^\alpha}{\partial x^i}
+       \frac{\partial f\circ \phi^{-1}}{\partial y^\alpha}.
+    \end{equation*}
+    综合以上两式，可见命题正确．
+\end{proof}
+
+\begin{proposition}\label{chrg:thm_isometry-connection-cov}
+    给定两个广义黎曼流形及Levi-Civita联络$(M,\nabla_a,g)$和$(N,{\rm D}_a,h)$，
+    它们之间存在局部等距映射$\phi:M\to N$；那么，$\forall p\in M$，
+    和$\forall X^a \in T_{p}M$，$ \forall \omega_a \in \mathfrak{X}^{*}(M)$，都有
+    \begin{equation}\label{chrg:eqn_isometry-connection-cov}
+    \Phi_{*} (\nabla _X \omega_a) = {\rm D}_ {\phi_* X} ({\phi^{-1*}}\omega_a) .
+    \end{equation}
+    也就是说，作用在协变矢量场上的Levi-Civita联络在局部等距映射下不变．
+\end{proposition}
+\begin{proof}
+    利用命题\ref{chrg:thm_isometry-connection-scalar}和
+    定理\ref{chrg:thm_isometry-connection-vector}容易证明本命题．
+    $\forall Y^a \in \mathfrak{X}(M)$有
+    \begin{align*}
+        \Phi_{*} \bigl(\nabla _X (\omega_a Y^a) \bigr) =&
+        \Phi_{*} \bigl((\nabla _X \omega_a )Y^a + \omega_a \nabla _X  Y^a\bigr) \\
+        =&\bigl(\Phi_{*} (\nabla _X \omega_a ) \bigr)\phi_{*}Y^a
+        + \phi^{-1*}(\omega_a) {\rm D} _{\phi_* X}  (\phi_* Y^a) .
+    \end{align*}
+    而$\omega_a Y^a$本身还是标量场，还可用式\eqref{chrg:eqn_isometry-connection-scalar}操作
+    \begin{align*}
+       \Phi_{*} \bigl(\nabla _X (\omega_a Y^a) \bigr) =&  {\rm D}_ {\phi_* X} \bigl({\phi^{-1*}} (\omega_a Y^a)\bigr)
+       ={\rm D}_ {\phi_* X} \bigl((\phi^{-1*}\omega_a ) (\phi_{*}Y^a)\bigr) \\
+       =&\bigl( {\rm D}_ {\phi_* X} (\phi^{-1*}\omega_a ) \bigr) (\phi_{*}Y^a)
+       +(\phi^{-1*}\omega_a ) \bigl({\rm D}_ {\phi_* X}  (\phi_{*}Y^a)\bigr) .
+    \end{align*}
+    综合以上两式，可证式\eqref{chrg:eqn_isometry-connection-cov}．
+\end{proof}
+综上可见，局部等距映射保Levi-Civita联络（可作用在任何$\Tpq{r}{s}$型张量场上）不变；
+尤其作用在黎曼曲率、Ricci曲率、标量曲率、Weyl曲率和爱因斯坦张量上是保形式不变的．
+如果把{\kaishu 局部等距同构}变成整体{\kaishu 等距同胚}，上面所有定理仍旧正确．
+
+鉴于黎曼曲率的重要性，我们还是将其叙述成定理形式．
+\begin{theorem}\label{chrg:thm_isometry-Riemann}
+    设有局部等距映射$\phi:M\to N$．$\forall X^a,Y^a,Z^a,W^a\in \mathfrak{X}(M)$，有
+    \begin{equation}\label{chrg:eqn_isometry-Riemann}
+        \Phi_{*}\bigl(R_{dcab}^M X^a Y^b Z^c W^d\bigr) = \left(R^N_{dcab}
+        (\phi_{*} X^a) (\phi_{*} Y^b) (\phi_{*} Z^c) (\phi_{*} W^d)\right)\circ \phi .
+    \end{equation}
+    其中$R_{dcab}^M$、$R_{dcab}^N$分别是$M$、$N$上的黎曼曲率．
+    式\eqref{chrg:eqn_isometry-Riemann}简记为$R_{dcab}^M=\phi^* R_{dcab}^N$．
+\end{theorem}
+%由于$\phi$是局部等距同构，所以两个曲率有如下关系：$R_{dcab}^M=\phi^* R_{dcab}^N$．
+%定理\eqref{chrg:thm_isometry-Riemann}的叙述形式取自\parencite{wuhx2014cb}第二章习题7,33页．
+
+一般情形下，定理\ref{chrg:thm_isometry-Riemann}的逆命题是不成立的，见例题\ref{chhss:exam_NOiso}．
+
+\begin{theorem}\label{chrg:thm_geodesic-MN}
+    设$(M,g,\nabla_a)$和$(N,h,{\rm D}_a)$间存在局部等距$\phi:M\to N$．则
+
+    {\bfseries (1)} $M$上曲线$\gamma(t)$的切矢的等距切映射是$\gamma(t)$的等距像$\tilde{\gamma}\equiv\phi\circ \gamma$的切矢．
+
+    {\bfseries (2)} $\gamma(t)$是$M$上测地线的充要条件是$\tilde{\gamma}$是$N$上测地线．
+\end{theorem}
+\begin{proof}
+    流形$M$上有光滑曲线$\gamma(t)$，它在流形$N$中的像曲线是$\tilde{\gamma}(t)=\phi\circ\gamma(t)$．
+    通过式\eqref{chdm:eqn_phiD=Dphi}可知
+    两条曲线的切矢量关系是（因$\phi$是局部等距，下式不只在$t=0$点成立，
+    而在整条曲线上成立，即参数$t$可取定义域内所有值）
+    \begin{equation}\label{chrg:eqn_dgM-gdN}
+        \phi_{*}\left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma(t)}\right)^a
+        = \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\phi\circ\gamma(t)}\right)^a
+        = \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\tilde{\gamma}(t)}\right)^a.
+    \end{equation}
+    这便证明了(1)．那么由局部等距保联络不变性可知
+    \begin{equation}\label{chrg:eqn_geodesic-MN}
+       \phi_{*}\left( \nabla_{\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma}}
+         \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma}\right)^a \right)
+       ={\rm D}_{\phi_{*}\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma}}
+         \phi_{*}\left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma}\right)^a
+       ={\rm D}_{\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\tilde{\gamma}}}
+       \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\tilde{\gamma}}\right)^a .
+    \end{equation} %\setlength{\mathindent}{2em}
+    流形$M$上测地线是$\gamma(t)$（定义见\ref{chccr:def_geodesic}）自然是一条特殊的光滑曲线；
+    故式\eqref{chrg:eqn_geodesic-MN}适用于测地线，
+    由此可知(2)成立：$\gamma(t)$是测地线等价于$\tilde{\gamma}(t)$是测地线．
+\end{proof}
+
+
+\begin{exercise}
+	补全定理\ref{chrg:thm_isometry-connection-vector}证明过程中漏掉的步骤．
+\end{exercise}
+
+\begin{exercise}
+	证明定理\ref{chrg:thm_isometry-Riemann}，详尽写出每一步．
+\end{exercise}
+
+
+\index[physwords]{Killing切矢量场}
+
+\section{Killing切矢量场}\label{chrg:sec_killing}
+德国数学家Wilhelm Killing (1847 - 1923) 给出了广义黎曼流形中
+的局部等距同构变换无穷小生成元，即现今被称为{Killing切矢量场}的知识．
+%如果读者不想了解更多对称性知识，本节内容已足够．
+
+\begin{definition}\label{chrg:def_killing}
+    广义黎曼流形$(M,g)$上处处非零的光滑切矢量场$\xi^a$被称
+    为{\bfseries \heiti Killing切矢量场}是指：
+    如果$\xi^a$诱导出的局部单参数变换群是局部等距同构变换．
+\end{definition}
+设切矢量场是$\xi^a$诱导出的（局部）单参数微分同胚群
+是$\phi_{t}:M\to M$（见\S\ref{chdm:sec_One-Parameter-Transformations-Groups}），
+由定义\ref{chrg:def_isometry-local-isomorphism}可知，局部等距同构是
+指$g_{ab}=\phi_t^{*}g_{ab}$对任意$t$成立．
+
+\begin{theorem}\label{chrg:thm_killing}
+    $\xi^a$为Killing矢量场的充要条件是满足如下条件之一即可．
+    \begin{align}
+        { (1)}:&\quad \Lie_{\xi} g_{ab} =0. \label{chrg:eqn_killing-1} \\
+        { (2)}:&\quad \nabla_a \xi_b + \nabla_b \xi_a =0   {\quad \Leftrightarrow \quad}
+        \nabla_{(a}\xi_{b)} =0   {\quad \Leftrightarrow \quad}
+        \nabla_{a}\xi_{b} =\nabla_{[a}\xi_{b]}. \label{chrg:eqn_killing-2} %\\
+%        (3):&\quad \left<Y, \nabla_X \xi \right> = \left< X , \nabla_Y \xi \right>,
+%           \qquad \forall X, Y\in \mathfrak{X}(M) . \label{chrg:eqn_killing-2-bak}
+    \end{align}
+\end{theorem}
+\begin{proof}
+    参考李导数定义\eqref{chdm:def_LieD-tensor}可知局部等距同构等价于$\Lie_{\xi} g_{ab} =0$，
+    这说明条件(1)正确．由下式可直接得到条件(2)也正确，
+    式\eqref{chrg:eqn_killing-2}称为{\bfseries \heiti Killing方程}．
+    \begin{equation*}
+        0=\Lie_{\xi} g_{ab}\xlongequal{\ref{chccr:eqn_LieD-tensor-Nabla}} \xi^c \nabla_c g_{ab}+
+         g_{cb} \nabla_a \xi^c + g_{ac} \nabla_b \xi^c = \nabla_a \xi_b + \nabla_b \xi_a .
+    \end{equation*}
+    证明过程中注意广义黎曼流形$(M,g)$的Levi-Civita联络是无挠、容许联络．
+%        条件(3)只是条件(2)的\S\ref{chmla:sec_tensor}记号表示．
+\end{proof}
+
+将Killing方程\eqref{chrg:eqn_killing-2}的指标收缩，可得一个常用公式：
+\begin{equation}\label{chrg:eqn_nk=0}
+    {\nabla_a} \xi^a = 0 .
+\end{equation}
+
+%    如果$\xi^a$是局部开集$U$的Killing矢量场，那么存在局部坐标系$(U;x^i)$使得
+%度规场$g_{ab}$的全部分量满足$\frac{\partial g_{ij}}{\partial x^1}=0$．
+\subsection{基本性质}
+\begin{theorem}\label{chrg:thm_killing-partial-x1}
+    非零$\xi^a$是局部开集$U$的Killing矢量场的充分必要条件是：存在局部坐标系$(U;x^i)$使得
+    度规场$g_{ab}$的全部分量满足$\frac{\partial g_{ij}}{\partial x^1}=0$，
+    并且$\xi^a |_U = (\frac{\partial }{\partial x^1} )^a$．
+\end{theorem}
+\begin{proof}
+    先证“$\Rightarrow$”．
+    由定理\ref{chdm:thm_1PDG-ppy}可知，对于任意非零Killing矢量场$\xi^a$都存在
+    局部{\kaishu 适配坐标系}$(U;x^i)$使得$\xi^a |_U = (\frac{\partial }{\partial x^1} )^a$．
+    因$\xi^a$是Killing矢量场，故 %（参考式\eqref{chdm:eqn_LieD-adaptedX}）
+    \begin{equation}
+        \Lie_{\xi} g_{ij}  \xlongequal{\ref{chdm:eqn_LieD-adaptedX}}
+        \bigl(\Lie_{\xi} g_{ab}\bigr)
+        \left(\frac{\partial }{\partial x^i} \right)^a \left(\frac{\partial }{\partial x^j} \right)^b=0
+         \ \Rightarrow \ 
+        0=\Lie_{\xi} g_{ij}= \frac{\partial g_{ij}}{\partial x^1}.
+    \end{equation}
+    再证“$\Leftarrow$”．
+    %根据假设有：存在局部坐标系$(U;x^i)$使得
+%    $g_{ab}$的全部分量满足$\frac{\partial g_{ij}}{\partial x^1}=0$．
+    $\left(\frac{\partial }{\partial x^1}\right)^a$可以看作是$U$上的一个切矢量场，
+    并且$\{x^i\}$就是局部{\kaishu 适配坐标系}．
+    根据\S\ref{chdm:sec_One-Parameter-Transformations-Groups}中理论可知，它一定会诱导一个
+    局部单参数可微变换群$\phi_t:U\to U$．$\forall f\in C^\infty(U)$，$\phi_t$所诱导出的李导数就
+    是$\Lie_{\frac{\partial }{\partial x^1}} f= \frac{\partial f}{\partial x^1}$．
+    把它应用到度规场$g_{ab}$上，有
+    \begin{equation}
+        0= \frac{\partial g_{ij}}{\partial x^1} = \Lie_{\xi} g_{ij}
+        \xlongequal{\ref{chdm:eqn_LieD-adaptedX}}
+        \bigl(\Lie_{\frac{\partial }{\partial x^1}} g_{ab}\bigr)
+        \left(\frac{\partial }{\partial x^i} \right)^a
+        \left(\frac{\partial }{\partial x^j} \right)^b .
+    \end{equation}
+    因局部自然标架场$\{\left(\frac{\partial }{\partial x^i} \right)^a\}$恒不为零，
+    故必有$\Lie_{\frac{\partial }{\partial x^1}} g_{ab}=0$；
+    所以$\left(\frac{\partial }{\partial x^1}\right)^a$是局部开集$U$上的Killing矢量场．
+\end{proof}
+
+
+%\begin{theorem}\label{chrg:thm_killing-loc-2}
+%    如果存在局部坐标系$(U;x^i)$使得度规$g_{ab}$的全部分量满足$\frac{\partial g_{ij}}{\partial x^1}=0$，
+%    那么$(\frac{\partial }{\partial x^1} )^a$是坐标域$U$上Killing矢量场．
+%\end{theorem}
+
+\begin{example}\label{chrg:exam_killing-local}
+	流形$M$上局部等距\ref{chrg:def_isometry-local-isomorphism}的局部坐标系表述．
+\end{example}
+    与例\ref{chrg:exam_isometry-MNcoord}类似，设有广义黎曼流形$(M,g)$；
+    为简单起见，我们只研究单参数微分变换群$\phi_t:M\to M$．
+    再设$(U;x)$和$(V;y)$分别是$\forall p\in M$和$q=\phi_t(p)\in M$的局部坐标，即$y=\phi_t(x)$．    
+    为了更有区分度，我们混用拉丁、希腊字母．映射$\phi_t$将$q$点的度规拉回$p$点，
+    由于两点距离无穷小，可记$y^a=x^a+\epsilon^a(x)$；则
+    \begin{align*}
+    	\tilde{g}_{ab}(x)\overset{def}{=}&\phi_t^* g_{ab}(q)
+    	= \phi_t^* \left[g_{\alpha\beta}(y)({\rm d}y^\alpha)_a ({\rm d}y^\beta)_b\right]
+    	\xlongequal{\ref{chdm:eqn_pull-bases}}
+    	\frac{\partial y^\alpha}{\partial x^i}\frac{\partial y^\beta}{\partial x^j} 
+    	g_{\alpha\beta}(y) ({\rm d}x^i)_a ({\rm d}x^j)_b\\
+    	=&\left(\delta^\alpha_i + \partial_i \epsilon^\alpha\right)
+    	\left(\delta^\beta_j + \partial_j \epsilon^\beta\right)
+    	\left(g_{\alpha\beta}(x)+\epsilon^k\partial_k g_{\alpha\beta}(x) +\cdots \right)
+    	({\rm d}x^i)_a ({\rm d}x^j)_b \\
+    	\xlongequal[\text{阶小量}]{\text{忽略高}}&
+    	\left[g_{ij}(x) + g_{\alpha j}(x) \partial_i \epsilon^\alpha 
+    	+ g_{i \beta}(x) \partial_j \epsilon^\beta +\epsilon^c\partial_c g_{ij}(x)
+    	\right] ({\rm d}x^i)_a ({\rm d}x^j)_b \\
+    	\xlongequal{\ref{chccr:eqn_LieD-tensor-Partial}}& 
+    	g_{ab}(x) + \Lie_{\epsilon} g_{ab}(x) .
+    \end{align*} %\setlength{\mathindent}{2em}
+    现在点$p$（其局部用坐标$\{x\}$表示）处有两个度量，一个是$\tilde{g}_{ab}(x)$，
+    另一个是$g_{ab}(x)$；两个度量未必相等．
+    上式说明：当$\phi_t$不是局部等距同构变换时（即矢量场$\epsilon^a$不是Killing场，
+    $\Lie_{\epsilon} g_{ab} \neq 0$），那么我们无法得到$g_{ab}(x)= \tilde{g}_{ab}(x)$．
+    若$\phi_t$是局部等距同构变换，则可得其局部坐标系表达式为（去掉自然坐标基矢量）：
+    \begin{equation}\label{chdm:eqn_isometry-MMcoord}
+    	g_{ij}(x)=\frac{\partial y^\alpha}{\partial x^i}
+    	\frac{\partial y^\beta}{\partial x^j} g_{\alpha\beta}(y) .
+    \end{equation}
+    注意如下区别：由单点张量坐标变换式（见式\eqref{chdm:eqn_tensor-component-trans}）
+    可以得到$\tilde{g}_{ij}=\frac{\partial y^\alpha}{\partial x^i}
+    \frac{\partial y^\beta}{\partial x^j} g_{\alpha\beta}$，等号左端是$\tilde{g}$；
+    这个式子等号两端必须是同一点的张量．在变换式\eqref{chdm:eqn_isometry-MMcoord}中，
+    我们用坐标$\{x\}$、$\{y\}$来代表两个不同点（$p$、$q$两点距离非常近）．
+    两式的差异是一个是单点张量变换，另一个是两点张量变换；但公式形式完全相同．
+    而$\tilde{g}$上是否带有波浪号则是无关紧要的． \qed
+
+
+\begin{example}\label{chrg:exam_killing-poisson}
+    设$\xi^a$和$\eta^a$是广义黎曼流形$(M,g)$上的两个Killing矢量场．
+    \begin{equation}
+       \Lie_{[\xi,\eta]} g_{ab} \xlongequal{\ref{chccr:eqn_Lie-XYYX=Liexy}}
+         \Lie_{\xi} \circ \Lie_{\eta}g_{ab} -\Lie_{\eta}\circ \Lie_{\xi} g_{ab}
+       = \Lie_{\xi} (0) -\Lie_{\eta}(0) = 0.
+    \end{equation}
+    故$[\xi,\eta]^a$也是Killing矢量场．
+    本例也可直接把$[\xi,\eta]^a$带入Killing方程去证明，
+    但计算过程略繁琐．    \qed
+\end{example}
+
+\begin{theorem}\label{chrg:thm_killing-MN}
+    设两个广义黎曼流形$(M,g,\nabla_a)$和$(N,h,{\rm D}_a)$间存在局部等距同构
+    $\phi:M\to N$，$\xi^a\in \mathfrak{X}(M)$．
+    则$\phi_{*}\xi^a$是$N$上Killing矢量场的充要条件是$\xi^a$是$M$上Killing矢量场．
+\end{theorem}
+\begin{proof}
+    由定理\ref{chrg:thm_killing}出发，得
+    \begin{equation*}
+        \nabla_a \xi_b + \nabla_b \xi_a =0 {\ \color{red}\Leftrightarrow \ }
+        \phi^{-1*}\bigl( \nabla_a \xi_b + \nabla_b \xi_a \bigr) =0
+        \ \xLeftrightarrow[\ref{chrg:thm_isometry-connection-cov}]{\text{命题}}  \
+        {\rm D}_a (\phi^{-1*}\xi_b) + {\rm D}_b (\phi^{-1*}\xi_a)  =0 .
+    \end{equation*}
+    上式便证明了定理．
+\end{proof}
+
+
+
+\begin{theorem}\label{chrg:thm_killing-geodisic}
+    设有广义黎曼流形$(M,g)$，$\xi^a$是其上Killing矢量场，$T^a$是其
+    测地线$\gamma(t)$的切矢量．那么有$\nabla_T(T^a \xi_a)=0$，
+    即$T^a \xi_a$沿测地线$\gamma(t)$是常数．
+\end{theorem}
+\begin{proof}
+    测地线定义见\ref{chccr:def_geodesic}，即$ \nabla _T T^a=0$．
+    \begin{equation*}
+        \nabla_T(T^a \xi_a)= T^a \nabla_T \xi_a +\xi_a\nabla_T T^a = T^a T^b \nabla_b \xi_a
+        \xlongequal{\ref{chrg:thm_killing}(2)}T^{(a} T^{b)} \nabla_{[b} \xi_{a]}
+        \xlongequal{\ref{chmla:eqn_gkd-35}}0.
+    \end{equation*}
+    在广义相对论中，经常用到这个定理．
+\end{proof}
+
+
+\subsection{Killing矢量场与曲率关系}
+Killing矢量场$\xi_a$满足如下对易子式子（见式\eqref{chccr:eqn_Riemannian13-CoVec-commutator}）
+\begin{equation}\label{chrg:eqn_tmp-kr}
+    {\nabla_a}{\nabla_b}{\xi_c} - {\nabla_b}{\nabla_a}{\xi_c} = -R_{cab}^e{\xi_e}.
+\end{equation}
+由上式和Bianchi第一恒等式\eqref{chccr:eqn_Bianchi-I-global}可得
+\begin{align}
+    &0=-R_{[cab]}^{e}{\xi_e}= {\nabla_{[a}}{\nabla_b}{\xi_{c]}} - {\nabla_{[b}}{\nabla_a}{\xi_{c]}}
+    = {\nabla_{[c}}{\nabla_a}{\xi_{b]}} - {\nabla_{[c}}{\nabla_b}{\xi_{a]}}
+    \xlongequal{\ref{chrg:eqn_killing-2}} 2 {\nabla_{[c}}{\nabla_a}{\xi_{b]}} \notag \\
+    &\xRightarrow{\ref{chrg:eqn_killing-2}} \quad
+    0= {\nabla_{c}}{\nabla_a}{\xi_{b}} + {\nabla_{a}}{\nabla_b}{\xi_{c}} -
+    {\nabla_{b}}{\nabla_a}{\xi_{c}} . \label{chrg:eqn_killing-cycle}
+\end{align}
+将式\eqref{chrg:eqn_killing-cycle}带回\eqref{chrg:eqn_tmp-kr}可得
+\begin{equation}\label{chrg:eqn_killing-Riemann-1}
+    {\nabla_a}{\nabla_b}{\xi_c} -   {\nabla_{c}}{\nabla_a}{\xi_{b}}
+    - {\nabla_{a}}{\nabla_b}{\xi_{c}} = -R_{cab}^e{\xi_e} \quad \Rightarrow \quad
+    {\nabla_c}{\nabla_a}{\xi_b} = R_{cab}^e{\xi_e}.
+\end{equation}
+这是Killing矢量场与黎曼曲率的关系式之一．
+将上式中指标收缩可得第二式：
+\begin{equation}\label{chrg:eqn_killing-Riemann-2}
+    {\nabla_c}{\nabla^c}{\xi_b} = -R_{eb}{\xi^e}.
+\end{equation}
+用Killing场$\xi^b$缩并约化Bianchi恒等式\eqref{chrg:eqn_Bianchi-contract}两端，
+经计算可得
+\begin{equation}\label{chrg:eqn_killing-Riemann-3}
+    \xi^b\nabla_b R= 0 .
+\end{equation}
+这是第三个Killing场与曲率间的关系式．
+%\begin{align*}
+%    \xi^b\nabla_b R =& 2\xi^b \nabla^a R_{ab}= 2 \nabla^a (R_{ab}\xi^b)
+%      - 2R_{ab} \nabla^a \xi^b \xlongequal{\ref{chrg:eqn_killing-2}} 2 \nabla^a (R_{ab}\xi^b) \\
+%    \xlongequal{\ref{chrg:eqn_killing-Riemann-2}} &
+%     -2 \nabla_a ({\nabla_c}{\nabla^c}{\xi^a})
+%    \xlongequal{\ref{chccr:eqn_Riemannian13-Tensor-commutator}}
+%    -2 {\nabla_c} \nabla_a ({\nabla^c}{\xi^a})
+%    -2R_{\cdot eac}^c {\nabla^e}{\xi^a}-2R_{\cdot eac}^a {\nabla^c}{\xi^e} \\
+%    =& -2 {\nabla_c} \nabla_a ({\nabla^c}{\xi^a})
+%    +2R_{ea} {\nabla^e}{\xi^a}-2R_{ec} {\nabla^c}{\xi^e}
+%    \xlongequal{\ref{chrg:eqn_killing-2}} -2 {\nabla^c} (\nabla_a {\nabla_c}{\xi^a}) \\
+%    \xlongequal{\ref{chccr:eqn_Riemannian13-Vec-commutator}}  &
+%    -2 {\nabla^c} \left( \nabla_c {\nabla_a}{\xi^a} + R_{\cdot eac}^a \xi^e \right)
+%    \xlongequal{\ref{chrg:eqn_nk=0}}
+%    -2 {\nabla^c} \left(  R_{ec} \xi^e \right) .
+%\end{align*}
+
+设$\xi^a$是$M$上的Killing矢量场，则曲率的李导数为：
+\begin{equation}\label{chrg:eqn_LieR=0}
+    \Lie_{\xi} R_{abcd} = 0;\qquad   \Lie_{\xi} R_{ac} = 0;\qquad  \Lie_{\xi} R = 0 .
+\end{equation}
+上式的计算过程如下：
+\begin{align*}
+    \Lie_{\xi} R_{bcd}^a 
+    \xlongequal{\ref{chccr:eqn_LieD-tensor-Nabla}}& 
+    \nabla_\xi  R_{bcd}^a 
+    - R_{bcd}^e \nabla_e \xi^a + R_{ecd}^a \nabla_b \xi^e
+    + R_{bed}^a \nabla_c \xi^e + R_{bce}^a \nabla_d \xi^e \\
+    \xlongequal{\ref{chccr:eqn_Bianchi-II-global}}& 
+    - \nabla_c (\xi^e R_{bde}^a) - \nabla_d (\xi^e R_{bec}^a ) 
+    +R_{bde}^a \nabla_c \xi^e +R_{bec}^a \nabla_d \xi^e \\
+    &- R_{bcd}^e \nabla_e \xi^a + R_{ecd}^a \nabla_b \xi^e
+    + R_{bed}^a \nabla_c \xi^e + R_{bce}^a \nabla_d \xi^e \\
+    \xlongequal{\ref{chrg:eqn_killing-Riemann-1}}& 
+    - \nabla_c ({\nabla_d}{\nabla_b}{\xi^a}) 
+    + \nabla_d ({\nabla_c}{\nabla_b}{\xi^a}) 
+    +{\color{red} R_{bde}^a \nabla_c \xi^e }
+    +{\color{blue} R_{bec}^a \nabla_d \xi^e }\\
+    &- R_{bcd}^e \nabla_e \xi^a + R_{ecd}^a \nabla_b \xi^e
+    +{\color{red} R_{bed}^a \nabla_c \xi^e }
+    +{\color{blue} R_{bce}^a \nabla_d \xi^e }\\
+    \xlongequal{\ref{chccr:eqn_Riemannian13-Tensor-commutator}}&
+    - R_{bdc}^e \nabla_e \xi^a + R_{edc}^a \nabla_b \xi^e 
+    - R_{bcd}^e \nabla_e \xi^a + R_{ecd}^a \nabla_b \xi^e
+    \xlongequal[\text{反对称性}]{\text{利用曲率}}0 .
+\end{align*}
+其实，Killing切矢量场可诱导出单参数等距变换群，
+等距变换自然保黎曼曲率不变（定理\ref{chrg:thm_isometry-Riemann}），
+故黎曼曲率沿Killing场的李导数恒为零．
+
+%它保联络不变（定理\ref{chrg:thm_isometry-connection-vector}），
+%在适配坐标系有定理\ref{chrg:thm_killing-partial-x1}；
+%而黎曼曲率完全由度规决定，再利用偏导数可交换次序可得：
+%在适配系中黎曼曲率分量沿Killing场李导数为零，
+%又因黎曼曲率是张量，进而它在任意坐标系的Killing场李导数都为零．
+
+
+
+\begin{theorem}\label{chrg:thm_killing-MAX}
+    $m$维广义黎曼流形$M$上最多有$m(m+1)/2$个线性独立Killing场．
+\end{theorem}
+\begin{proof}
+    定理中线性独立是指$\mathbb{R}$-线性独立\ref{chmla:def_linear-dependence_base}，
+    也就是组合系数必须是常数；
+    不是$C^\infty(M)$-线性独立（见第\pageref{chdm:eqn_functimesv}页
+    及\pageref{chdm:thm_Tensor-Characterization-Lemma}页）．
+
+    在给出点$p$的$\xi_a$和$\nabla_b\xi_a$后，我们可以
+    从式\eqref{chrg:eqn_killing-Riemann-1}决定$\xi_a$在$p$点的二阶导数．
+    对式\eqref{chrg:eqn_killing-Riemann-1}继续求协变导数则可陆续得出
+    $\xi_a$在$p$点的高阶导数，所有高阶导数都可表示成$\xi_a(p)$和$\nabla_b\xi_a(p)$的
+    $C^\infty(M)$线性组合．于是，在点$p$的某个小邻域内，
+    任意度规$g_{ab}$的Killing矢量场$\xi_a(x)$都可以表示为
+    $x^\mu-x^\mu_p$的Taylor级数（如果它存在）．
+    \begin{align*}
+        \xi_a(x)=&\xi_\rho(x) \left({\rm d}x^\rho\right)_a
+        = \left({\rm d}x^\rho\right)_a \bigg( \xi_\rho(p)+
+         \xi_{\rho;\mu}(p) (x^\mu -x_p^\mu) \\
+        &\quad + \frac{1}{2!}\xi_{\rho;\mu;\nu}(p) (x^\mu -x_p^\mu)(x^\nu -x_p^\nu)
+        +\cdots         \bigg)
+    \end{align*}
+    依照前面分析，所有高于一阶的导数都能表示为$\xi_a(p)$和$\nabla_b\xi_a(p)$的
+    $C^\infty(M)$线性组合；故将上式重新组合为
+    \begin{equation}\label{chrg:eqn_tmpkillnum}
+        \xi_a(x)= \left({\rm d}x^\rho\right)_a
+        \left(A_\rho^\lambda(x^\mu;p) \xi_\lambda(p)+
+        B_\rho^{\lambda\nu}(x^\mu;p) \xi_{\lambda;\nu}(p) \right).
+    \end{equation}
+    对于$m$维流形，$\xi_\lambda(p)$有$m$个分量指标，$\xi_{\lambda;\nu}(p)$的
+    分量指标有$m(m-1)/2$个独立（因反对称关系\eqref{chrg:eqn_killing-2}）．
+
+    我们来看看$p$点邻域内共有多少个$\mathbb{R}$-线性独立的$\xi_a^n(x)$，这些$\xi_a^n(x)$
+    都可以表示成式\eqref{chrg:eqn_tmpkillnum}的样子，只需要在右上角增加角标$n$．
+    我们假设当有$N$个$\xi_a^n(x)$时，存在非零实常数$\{c_n\}$使得下式成立．
+    \setlength{\mathindent}{0em}
+    \begin{equation}\label{chrg:eqn_tmp-killN}
+        0=\sum_{n=1}^{N} c_n \xi_\rho^n(x) =  %\left({\rm d}x^\rho\right)_a
+        A_\rho^\lambda(x^\mu;p) \sum_{n=1}^{N} \bigl(c_n\xi_\lambda^n(p)\bigr)+
+        B_\rho^{\lambda\nu}(x^\mu;p) \sum_{n=1}^{N}
+         \bigl(c_n\xi_{\lambda;\nu}^n(p)\bigr)  .
+    \end{equation}  \setlength{\mathindent}{2em}
+    如果$N$是个极大的正整数，那么上式必然成立；我们是来求$N$的最小值．
+    由于$A_\rho^\lambda(x^\mu;p)$和$B_\rho^{\lambda\nu}(x^\mu;p)$是$C^\infty(M)$函数场，
+    它们不会为零；故要使式\eqref{chrg:eqn_tmp-killN}成立，必然等价于
+    \begin{equation}\label{chrg:eqn_tmp-killN2}
+        \sum_{n=1}^{N} \bigl(c_n\xi_\lambda^n(p)\bigr) =0
+        \quad \text{并且}\quad
+        \sum_{n=1}^{N} \bigl(c_n\xi_{\lambda;\nu}^n(p)\bigr) =0 .
+    \end{equation}
+    我们把上式改成一个线性代数方程组
+    \begin{equation}\label{chrg:eqn_kvm}
+        \begin{pmatrix}
+            \xi_1^1(p)& \xi_1^2(p)& \cdots & \xi_1^N(p) \\
+            \vdots & \vdots & \cdots & \vdots \\
+            \xi_m^1(p)& \xi_m^2(p)& \cdots & \xi_m^N(p) \\
+            \xi_{1;2}^1(p)& \xi_{1;2}^2(p)& \cdots & \xi_{1;2}^N(p) \\
+            \vdots & \vdots & \cdots & \vdots \\
+            \xi_{m-1;m}^1(p)& \xi_{m-1;m}^2(p)& \cdots & \xi_{m-1;m}^N(p)
+        \end{pmatrix}
+        \begin{pmatrix}
+            c_1 \\ c_2 \\ \vdots \\ c_N
+        \end{pmatrix} =0 .
+    \end{equation}
+    显然只有$N>m(m+1)/2$时（列数大于行数），上式才肯定有非零解；
+    故点$p\in M$邻域内$\mathbb{R}$-线性独立的Killing矢量场$\xi_a(x)$的
+    最大个数是$m(m+1)/2$．需要注意的是，并不是任何情形下流形的
+    独立Killing矢量场都能达到$m(m+1)/2$个；很多时候独立场个数都小于这个数．   
+\end{proof}
+
+%    从群论角度的证明可参见定理\ref{chlg:thm_killing-MAX}．
+
+\subsection{平直闵氏空间的Killing矢量场}\label{chrg:sec_killing-Minkowski}
+本节试着找到$m+1$维平直（黎曼曲率为零）Minkowski空间$\mathbb{R}^{m+1}_1$的全部Killing矢量场．
+根据定理\ref{chrg:thm_killing-MAX}可知$\mathbb{R}^{m+1}_1$最多有$(m+2)(m+1)/2$个
+$\mathbb{R}$-线性独立的Killing矢量场．
+求解Killing方程是寻找Killing矢量场的通用方式；一般说来在弯曲时空这种方式
+很难奏效（方程复杂，很难求出精确解），但在平直时空却很好用．
+$\mathbb{R}^{m+1}_1$的度规场是
+\begin{equation}
+    \eta_{ab} = -({\rm d}x^0)_a ({\rm d}x^0)_b+
+    \sum_{i=1}^{m} ({\rm d}x^i)_a({\rm d}x^i)_b .
+\end{equation}
+对于平直空间，黎曼曲率恒为零，协变导数变为偏导数；
+自然坐标基矢场$(\frac{\partial}{\partial x^\mu})^a$和
+其对偶基矢场$({\rm d}x^\mu)_a$都是常矢量场，不逐点变化．
+由式\eqref{chrg:eqn_killing-Riemann-1}可知
+\begin{equation}
+    {\partial_c}{\partial_a}{\xi_b} = 0 \quad \Rightarrow \quad
+    \frac{\partial^2 \xi_\sigma}{\partial x^\mu \partial x^\nu} = 0.
+\end{equation}
+这说明$\xi_b = \xi_\mu ({\rm d}x^\mu)_b$的系数$\xi_\mu$是坐标$x_\alpha$的线性函数，即
+\begin{equation}\label{chrg:eqn_killing-coef}
+    \xi_\mu = \sum_{\alpha}c_{\mu \alpha}x_\alpha + a_\mu,\qquad
+    c_{\mu \alpha}, a_\mu \text{是实常数}.
+\end{equation}
+
+
+平直闵氏空间的Killing方程\eqref{chrg:eqn_killing-2}是
+\begin{equation}\label{chrg:eqn_killing-Minkowski}
+    \frac{\partial \xi_\mu}{\partial x^\nu}+\frac{\partial \xi_\nu}{\partial x^\mu} =0 .
+\end{equation}
+
+式\eqref{chrg:eqn_killing-coef}最简单情形为$c_{\mu \alpha}=0,\, a_\mu \neq 0$，
+它自然满足式\eqref{chrg:eqn_killing-Minkowski}，故下式
+\begin{equation}\label{chrg:eqn_Killing-Minkowski-1}
+    \xi^a= \left(\frac{\partial}{\partial x^\mu }\right)^a ,
+    \qquad    0\leqslant \mu \leqslant m,\quad \text{共$m+1$个}
+\end{equation}
+是平直闵氏空间的Killing矢量场，我们将其标记为第一组．
+上式中取$a_\mu=1$；如果$a_\mu$取任何非零实常数都不会导致
+新的$\mathbb{R}$-线性独立Killing矢量场．
+下面只讨论$a_\mu=0$情形．
+
+
+将式\eqref{chrg:eqn_killing-coef}带入Killing方程\eqref{chrg:eqn_killing-Minkowski}得
+\begin{equation}\label{chrg:eqn_killing-coef-eta}
+    0=\sum_{\alpha}\frac{\partial c_{\mu \alpha}x_\alpha}{\partial x^\nu}
+    +\sum_{\alpha} \frac{\partial c_{\nu \alpha}x_\alpha}{\partial x^\mu}
+    =\sum_{\alpha} c_{\mu \alpha} \eta_{\alpha \nu}+\sum_{\alpha} c_{\nu \alpha} \eta_{\alpha \mu} .
+\end{equation}
+当$\mu=\nu$时，式\eqref{chrg:eqn_killing-coef-eta}变成了
+\begin{equation}
+    0=\sum_{\alpha} c_{\mu \alpha} \eta_{\alpha \mu} =c_{\mu \mu} \eta_{\mu \mu} ,
+    \qquad \text{重复指标}\mu\text{不求和}.
+\end{equation}
+$\eta_{\mu \mu}=\pm 1$，这说明$c_{\mu \mu}=0$，也就是Killing场分量$\xi_\mu$不含$x^\mu$（或$x_\mu$）．
+
+下面只考虑$\mu\neq\nu$的情形，式\eqref{chrg:eqn_killing-coef-eta}变成了
+\begin{equation}\label{chrg:eqn_killing-coef-eta-cc}
+    0=c_{\mu \nu} \eta_{\nu \nu}+c_{\nu \mu} \eta_{\mu \mu} , \qquad \text{重复指标不求和}.
+\end{equation}
+下面针对平直闵氏空间开始讨论式\eqref{chrg:eqn_killing-coef-eta-cc}；
+因度规$\eta={\rm diag}(-1,1,\cdots,1)$，其中“$-1$”只有一个，所以可以取$\mu=0,\,\nu=i(i>0)$，有
+\begin{equation}
+    0=c_{0i} \eta_{ii}+c_{i 0} \eta_{00} =c_{0i} -c_{i 0} .
+\end{equation}
+由上式可以得到平直闵氏空间的第二组Killing矢量场
+\begin{equation}\label{chrg:eqn_Killing-Minkowski-2}
+    \xi^a=x^0 \left(\frac{\partial}{\partial x^i}\right)^a
+    +x^i \left(\frac{\partial}{\partial x^0}\right)^a, \qquad
+    1\leqslant i \leqslant m,\quad \text{共$m$个}.
+\end{equation}
+因为系数$c_{\mu\nu}$是实常数，不妨取其值为$\pm 1$，
+这不影响Killing场的线性独立性．
+
+下面考虑$\eta$中“$+1$”部分；可取$\mu=j,\,\nu=i(i\neq j>0)$，
+式\eqref{chrg:eqn_killing-coef-eta-cc}变为
+\begin{equation}
+    0=c_{ji} \eta_{ii}+c_{ij} \eta_{jj} =c_{ji} + c_{ij},  \qquad i\neq j>0 .
+\end{equation}
+由上式可以得到平直闵氏空间的第三组Killing矢量场
+\begin{equation}\label{chrg:eqn_Killing-Minkowski-3}
+    \xi^a= -x^j \left(\frac{\partial}{\partial x^i}\right)^a
+    +x^i \left(\frac{\partial}{\partial x^j}\right)^a, \
+    1\leqslant i < j \leqslant m,\ \text{共$\frac{m(m-1)}{2}$个}.
+\end{equation}
+
+依据定理\ref{chrg:thm_killing-MAX}可知，
+上述三组Killing矢量场（共有${(m+2)(m+1)}/{2}$个）是
+$m+1$维平直闵氏空间的全部Killing矢量场．
+
+
+我们将在\S\ref{chlg:sec_killing-example}继续探讨这些Killing矢量场的物理意义．
+
+\section{广义黎曼流形上的微分算子}
+本节介绍几个广义黎曼流形上的几个常用微分算子，这在数学、物理中有着较为广泛的应用；
+这些算子都是适用于整体的，都有局部坐标表示，它们为构造流形不变量提供了有力的工具．
+本节中我们假设$(M,g)$是$m$维、已定向的广义黎曼流形，自然选用Levi-Civita联络；
+如无特殊声明，假设局部坐标系是$(U;x^i)$．
+%为此需先介绍黎曼流形上的体积元．
+
+\index[physwords]{体积元}
+\subsection{体积元}\label{chrg:sec_volume}
+定向无非是给定一个$m$阶处处非零的微分型式场
+（见定义\ref{chdf:def_orientation-dual}）．在积分的定义
+中（见式\eqref{chdf:eqn_multiple-integral}或\eqref{chdf:eqn_def-integral-omega-partition}），
+也是对一个$m$阶微分型式场进行的．
+在有了度规后，可以定义一个特殊的$m$阶微分型式场$\Omega_{a_1 \cdots a_m}$，
+称之为与度规$g_{ab}$适配的{\heiti 体积元}，简称{\heiti 体元}；即
+\begin{equation}\label{chrg:eqn_volume-g}
+    \Omega^{a_1 \cdots a_m}\Omega_{a_1 \cdots a_m}= (-)^s m! ,
+     \qquad \text{其中}\ \Omega^{a_1 \cdots a_m} = g^{a_1 b_1}\cdots g^{a_m b_m} \Omega_{b_1 \cdots b_m} .
+\end{equation}
+其中$s$是度规$g_{ab}$负本征值的个数（即式\eqref{chmla:eqn_gmetric}中“$-1$”的个数），对于
+Minkowski时空来说$s=1$．因为它是$m$阶的微分型式场，所以它的基矢量只有一个，
+它同构于标量函数场（见\S \ref{chmla:sec_def-exterior-product}）．
+设流形$M$有局部坐标系$(U;x^i)$，则体元$\Omega_{a_1 \cdots a_m}$可以表示为
+\begin{equation}
+    \Omega_{a_1 \cdots a_m}= \Omega\, ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} .
+\end{equation}
+将此式带入到式\eqref{chrg:eqn_volume-g}中，有
+\begin{align*}
+    (-)^s m! =& \Omega^2  \ g^{a_1 b_1}\cdots g^{a_m b_m}  ({\rm d}x^1)_{a_1} \wedge \cdots
+    \wedge({\rm d}x^m)_{a_m} ({\rm d}x^1)_{b_1} \wedge \cdots \wedge({\rm d}x^m)_{b_m} \\
+    \xlongequal{\ref{chmla:eqn_ep-base}}& \Omega^2 \delta_{i_1 \cdots i_m}^{1 \cdots m}
+     \delta_{j_1 \cdots j_m}^{1 \cdots m} g^{i_1 j_1}\cdots g^{i_m j_m},
+     {\qquad \text{将$\delta_{i_1 \cdots i_m}^{1 \cdots m}$按定义展开，得}} \\
+    =& \Omega^2 \delta_{j_1 \cdots j_m}^{1 \cdots m} \left(
+    (g^{1 j_1}\cdots g^{m j_m}) - (g^{2 j_1}g^{1 j_2} \cdots g^{m j_m})
+     + \cdots \right),  {\quad \text{共$m!$项}} \\
+    \xlongequal{\tiny \textcircled{4}}& m! \Omega^2 \delta_{j_1 \cdots j_m}^{1 \cdots m} g^{1 j_1}\cdots g^{m j_m}
+    \xlongequal{\ref{chmla:eqn_gkd-305}} m! \Omega^2 \det(g^{ij}).
+\end{align*}
+其中$\xlongequal{\tiny \textcircled{4}}$步是交换$\{j\}$中次序（以第二项为例：
+先进行变量代换，将哑标$j_1 \to k, j_2\to j_1$，即
+$-\delta_{k j_1 j_3 \cdots j_m}^{1 2 3\cdots m}g^{2 k}g^{1 j_1} \cdots g^{m j_m}$；
+然后交换$\delta_{k j_1 j_3\cdots j_m}^{12 3\cdots m}$中的$k j_1$次序，会产生一个“$-$”，
+即变为$+\delta_{j_1 kj_3\cdots j_m}^{12 3\cdots m}g^{2 k}g^{1 j_1} \cdots g^{m j_m}$，与前面的负号刚好负负得正；
+接着再作变量替换$k \to j_2$，这样第二项便与第一项完全相同；这样的项共有$m!$个．）．
+由此便可得到$\Omega^2=(-)^s g$，其中$g\equiv \det(g_{ij})$（注$\det(g_{ij})$与$\det(g^{ij})$刚好
+互为倒数）；便可得常用\uwave{体积元}
+\begin{equation}\label{chrg:eqn_volume-element}
+    \Omega_{a_1 \cdots a_m}= \pm \sqrt{(-)^s g}\, ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m},
+    \qquad g\equiv \det(g_{ij}).
+\end{equation}
+%其中正负号代表左右手定向，通常选为右手，即正号．
+虽然是在局部坐标系下得到的表达式，但上式在坐标变换下是形式不变的，
+换句话说此式是定义在整个流形$M$上的；验证过程留给读者（即另选一个
+局部坐标系$\{y\}$进行坐标变换，$\sqrt{(-)^s g}$会产生一个Jacobi行列式；
+$m$阶外积也会产生一个Jacobi行列式；两者刚好互逆，故形式不变）．
+其实从求解过程便可看出
+此点，我们是从式\eqref{chrg:eqn_volume-g}出发的，此式是缩并式，其结果是在$M$上不变的．
+虽然体积元$\Omega_{a_1 \cdots a_m}$是整个流形上的坐标变换形式不变量，
+但单独的$({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m}$以及标量函数场$g\equiv \det(g_{ij})$不是．
+
+
+
+有了体积元，再重复一下定向问题．  %（参见式\eqref{chdf:eqn_induced-orientation-nt}）
+给定可定向的广义黎曼流形$(M,g)$，其有
+坐标图册$(U_\alpha,\varphi_\alpha;x^j_\alpha)$，坐标图册自身是定向相符合的．
+若取式\eqref{chrg:eqn_volume-element}的“$+$”，则称体积元与坐标图册同向；
+若取“$-$”，则称体积元与坐标图册反向．体积元本身就是一个定向．
+
+
+\uwave{如无特殊声明，我们约定取同向，也就是取式\eqref{chrg:eqn_volume-element}的“$+$”．}
+
+
+
+
+以后，我们会经常遇到体积元间的缩并运算，下面给出\uwave{体积元缩并公式}:
+\begin{equation}\label{chrg:eqn_VE-contract-VE}
+    \boxed{
+    \Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m}\Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m}
+    = (-)^s \, (m-r)! \, r! \, \delta_{\lbrack a_1}^{b_1} \delta_{a_2}^{b_2}\cdots 
+    \delta_{a_r \rbrack}^{b_r}   .  }
+\end{equation}
+其中$\Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m}\equiv g^{b_{1}c_{1}} \cdots g^{b_{r}c_{r}}
+g^{a_{r+1}c_{r+1}} \cdots g^{a_{m}c_{m}}\Omega_{c_1 \cdots c_r c_{r+1} \cdots c_m}$，
+$0\leqslant r \leqslant m$．
+直接计算证明上式．
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &\Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m}
+    \Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m} \\
+    &= (-)^s g ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m}
+    \otimes ({\rm d}x^1)_{c_1} \wedge \cdots \wedge({\rm d}x^m)_{c_m}
+    g^{b_{1}c_{1}}\cdots g^{b_{r}c_{r}} g^{a_{r+1}c_{r+1}} \cdots g^{a_{m}c_{m}} \\
+    &\xlongequal{\ref{chmla:eqn_ep-base}} (-)^s g
+    \delta_{i_1 \cdots i_m}^{1 \cdots m} \delta_{j_1 \cdots j_m}^{1 \cdots m}
+    ({\rm d}x^{i_{1}})_{a_{1}} \otimes \cdots \otimes ({\rm d}x^{i_r})_{a_r}  \otimes
+    ({\rm d}x^{j_{1}})_{c_{1}} \otimes \cdots \otimes ({\rm d}x^{j_r})_{c_r}  \\
+    &\qquad g^{b_{1}c_{1}}\cdots g^{b_{r}c_{r}} \cdot g^{i_{r+1}j_{r+1}} \cdots g^{i_{m}j_{m}} \\
+    &= %\xlongequal{\ref{chmla:eqn_gkd-205}}
+    (-)^s \delta_{i_1 \cdots i_m}^{1 \cdots m}
+    ({\rm d}x^{i_{1}})_{a_{1}}  \cdots  ({\rm d}x^{i_r})_{a_r}
+    \left(\frac{\partial }{\partial x^{\mu_1}}\right) ^{b_1} \cdots
+    \left(\frac{\partial }{\partial x^{\mu_r}}\right) ^{b_r} \times g \times \\
+    & \qquad  \delta_{j_1 \cdots j_m}^{1 \cdots m}
+    g^{\mu_{1} j_{1}}\cdots g^{\mu_{r} j_{r}}  g^{i_{r+1}j_{r+1}} \cdots g^{i_{m}j_{m}} .
+\end{align*}\setlength{\mathindent}{2em}
+上面最后一个等号的第二行，即$\delta_{j_1 \cdots j_m}^{1 \cdots m}
+g^{\mu_{1} j_{1}}\cdots g^{\mu_{r} j_{r}}  g^{i_{r+1}j_{r+1}} \cdots g^{i_{m}j_{m}} $，
+无非是个行列式
+\begin{equation}
+    \begin{vmatrix}
+        g^{\mu_{1} 1} & \cdots & g^{\mu_{r} 1} & g^{i_{r+1} 1} & \cdots & g^{i_{m} 1} \\
+        g^{\mu_{1} 2} & \cdots & g^{\mu_{r} 2} & g^{i_{r+1} 2} & \cdots & g^{i_{m} 2} \\
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+        g^{\mu_{1} m} & \cdots & g^{\mu_{r} m} & g^{i_{r+1} m} & \cdots & g^{i_{m} m}
+    \end{vmatrix}
+=g^{-1}\delta^{\mu_1 \cdots\mu_r i_{r+1}\cdots i_m}_{1 \cdots m} .
+\end{equation}
+带入上上式后继续计算，得
+%\begin{equation}\label{chrg:eqn_VE-contract-VE-comp}
+%\begin{aligned}
+\begin{align*}
+    &\Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m}
+    \Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m} \\
+   &= (-)^s \delta_{i_1 \cdots i_m}^{1 \cdots m}
+    ({\rm d}x^{i_{1}})_{a_{1}}  \cdots  ({\rm d}x^{i_r})_{a_r}
+    \left(\frac{\partial }{\partial x^{\mu_1}}\right) ^{b_1} \cdots
+    \left(\frac{\partial }{\partial x^{\mu_r}}\right) ^{b_r}
+    g\cdot g^{-1}\delta^{\mu_1 \cdots\mu_r i_{r+1}\cdots i_m}_{1 \cdots m} \\
+   &\xlongequal{\ref{chmla:eqn_gkd-205}} (-)^s
+     \delta_{i_1 \cdots i_r i_{r+1}\cdots i_m}^{\mu_1 \cdots\mu_r i_{r+1}\cdots i_m}
+    ({\rm d}x^{i_{1}})_{a_{1}}  \cdots  ({\rm d}x^{i_r})_{a_r}
+    \left(\frac{\partial }{\partial x^{\mu_1}}\right) ^{b_1} \cdots
+    \left(\frac{\partial }{\partial x^{\mu_r}}\right) ^{b_r} \\
+   &\xlongequal{\ref{chmla:eqn_gkd-120}} (-)^s
+   (m-r)! \delta^{\mu_1 \cdots \mu_{r}}_{i_1 \cdots i_{r}}
+   ({\rm d}x^{i_{1}})_{a_{1}}  \cdots  ({\rm d}x^{i_r})_{a_r}
+   \left(\frac{\partial }{\partial x^{\mu_1}}\right) ^{b_1} \cdots
+   \left(\frac{\partial }{\partial x^{\mu_r}}\right) ^{b_r} \\
+   &\xlongequal{\ref{chmla:eqn_gkd-15} } (-)^s (m-r)! r!
+   \delta_{\lbrack i_1}^{\mu_1} \cdots \delta_{i_r \rbrack}^{\mu_r}
+      ({\rm d}x^{i_{1}})_{a_{1}}  \cdots  ({\rm d}x^{i_r})_{a_r}
+   \left(\frac{\partial }{\partial x^{\mu_1}}\right) ^{b_1} \cdots
+   \left(\frac{\partial }{\partial x^{\mu_r}}\right) ^{b_r} .
+\end{align*}
+%\end{aligned}
+%\end{equation}
+%式\eqref{chrg:eqn_VE-contract-VE-comp}
+上式最后一个等号是式\eqref{chrg:eqn_VE-contract-VE}的分量
+形式．证毕． \qed
+
+
+$\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次外微分型式场．
+由于体元已是$m$维流形$M$中的最高次（$m$次）外微分型式场，故此空间是一维空间，
+必然有$\nabla_X\Omega_{a_1 \cdots a_m} = h\cdot \Omega_{a_1 \cdots a_m}$，其中$h\in C^\infty(M)$．
+由式\eqref{chrg:eqn_volume-g}可知
+\begin{equation}
+    0= \Omega^{a_1 \cdots a_m} \nabla_X\Omega_{a_1 \cdots a_m}
+    = h \cdot \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m}
+    = h\cdot (-)^s m! {\ \color{red}\Rightarrow\  } h=0.
+\end{equation}
+再因$X^a$的任意性，可得到一个常用公式
+\begin{equation}\label{chrg:eqn_dVE=0}
+    \nabla_X\Omega_{a_1 \cdots a_m} = 0 \quad \Leftrightarrow \quad
+    \nabla_b\Omega_{a_1 \cdots a_m} = 0 .
+\end{equation}
+
+虽然体积元的协变导数恒为零，但是它的李导数不是零．
+\begin{equation}\label{chrg:eqn_LieDVE}
+    \Lie_{X} \Omega_{a_1 \cdots a_m}
+    \xlongequal[\ref{chrg:eqn_dVE=0}]{\ref{chccr:eqn_Lie-i(X)-d}}
+    {\rm d}_{a_1}\bigl(X^b \Omega_{ba_2 \cdots a_m} \bigr)
+    = (\nabla_{b}X^b) \Omega_{a_1 \cdots a_m}  .
+\end{equation}
+此式的证明过程与体积元协变导数证明过程类似；
+同样由于体元已是$m$维流形$M$中的最高次外微分型式场，所以
+有${\rm d}_{a_1}\bigl(X^b \Omega_{ba_2 \cdots a_m} \bigr) = h\cdot \Omega_{a_1 \cdots a_m}$，
+其中$h\in C^\infty(M)$；用$\Omega^{a_1 \cdots a_m}$缩并此式的等号两边，可得
+\setlength{\mathindent}{0em}
+\begin{align*}
+   & h\cdot \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m}
+   =\Omega^{a_1 \cdots a_m} {\rm d}_{a_1}\bigl(X^b \Omega_{ba_2 \cdots a_m} \bigr)
+    \xRightarrow[\ref{chrg:eqn_dVE=0}]{\ref{chrg:eqn_VE-contract-VE}}
+    (-)^s m! \cdot h \\
+    &=  m \Omega^{a_1 \cdots a_m} \nabla_{a_1}\bigl(X^b \Omega_{ba_2 \cdots a_m} \bigr)
+    =m \Omega^{a_1 \cdots a_m} \Omega_{ba_2 \cdots a_m} \nabla_{a_1}X^b
+    =(-)^s m (m-1)! \delta_{b}^{a_1} \nabla_{a_1}X^b \\
+    &{\color{red}\Rightarrow \quad} h = \nabla_{b}X^b .
+\end{align*}\setlength{\mathindent}{2em}
+将$h = \nabla_{b}X^b$带回即可得到体积元的李导数公式．
+
+
+\index[physwords]{Hodge星对偶}
+\subsection{Hodge星对偶算子}\label{chrg:sec_Hodge}
+设$m$维黎曼流形$(M,g)$有局部坐标系$(U;x^i)$，$\omega_{a_1 \cdots a_r}\in A^r(M)$的局部坐标表示为
+\begin{equation}
+    \omega_{a_1 \cdots a_r}= \frac{1}{r!}\omega_{i_1\cdots i_r} ({\rm d}x^{i_1})_{a_1} \wedge \cdots
+      \wedge({\rm d}x^{i_r})_{a_r}, \qquad \omega_{i_1\cdots i_r} \in C^\infty(U) .
+\end{equation}
+借助体积元（见式\eqref{chrg:eqn_volume-element}），可定义开邻域$U$上的Hodge星对偶算子：
+\begin{subequations}\label{chrg:eqn_Hodge-star}
+\begin{align}
+    &*\omega _{ a_{r+1}  \cdots a_m} \overset{def}{=} 
+    \frac{1}{r!} \omega^{a_1 \cdots a_r} \Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m},
+      \label{chrg:eqn_Hodge-star-1} \\
+    =& \frac{\sqrt{(-)^s g}}{r! (m-r)!} \delta_{i_{1} \cdots i_m}^{1 \cdots m}
+      \cdot \omega^{i_1\cdots i_r}\cdot   ({\rm d}x^{i_{r+1}})_{a_{r+1}} \wedge
+     \cdots \wedge({\rm d}x^{i_m})_{a_m} . \label{chrg:eqn_Hodge-star-2}
+\end{align}
+\end{subequations}
+上面两式都能当成定义．
+由式\eqref{chrg:eqn_Hodge-star-1}到\eqref{chrg:eqn_Hodge-star-2}的推导并不困难；
+直接计算，得
+\setlength{\mathindent}{0em}
+\begin{align*}
+    *\omega _{a_{r+1} \cdots a_m} {=}  &
+    \frac{\sqrt{(-)^s g}}{r! r!} \omega_{i_1\cdots i_r} g^{a_1 b_1}\cdots g^{a_r b_r}
+    ({\rm d}x^{i_1})_{b_1} \wedge \cdots \wedge({\rm d}x^{i_r})_{b_r}
+    ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} \\
+    \xlongequal{\ref{chmla:eqn_ep-base}}& \frac{\sqrt{(-)^s g}}{r! r!} \omega_{i_1\cdots i_r}
+    \delta^{i_1 \cdots i_r}_{k_1 \cdots k_r}  \delta_{j_1 \cdots j_m}^{1 \cdots m}
+     g^{k_1 j_1}\cdots g^{k_r j_r}
+     ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}  \\
+     \xlongequal{\ref{chmla:eqn_gkd-25}}& \frac{\sqrt{(-)^s g}}{r!} \omega^{j_1\cdots j_r}
+      \delta_{j_1 \cdots j_m}^{1 \cdots m}
+     ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}  \\
+     \xlongequal{\ref{chmla:eqn_gkd-210}}&
+     \frac{\sqrt{(-)^s g}}{r! (m-r)!} \omega^{j_1\cdots j_r}
+     \delta_{j_1 \cdots j_r k_{r+1}\cdots k_m}^{1 \cdots r {r+1}\cdots m}
+     \cdot \delta^{k_{r+1} \cdots k_m}_{j_{r+1} \cdots j_m}
+     ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}  \\
+     =&\frac{\sqrt{(-)^s g}}{r! (m-r)!} \omega^{j_1\cdots j_r}
+     \delta_{j_1 \cdots j_r k_{r+1}\cdots k_m}^{1 \cdots r {r+1}\cdots m}
+     ({\rm d}x^{k_{r+1}})_{a_{r+1}} \wedge \cdots \wedge ({\rm d}x^{k_m})_{a_m}  .
+\end{align*}\setlength{\mathindent}{2em}
+这便证明了\eqref{chrg:eqn_Hodge-star}．
+大致重复上面推导过程（令$\omega_{i_1\cdots i_r}=1$）可得：
+\setlength{\mathindent}{0em}
+\begin{align}
+    &*\bigl( ({\rm d}x^{i_{1}})_{a_{1}} \wedge \cdots \wedge ({\rm d}x^{i_r})_{a_r}\bigr) =\notag \\
+%    &=\frac{\sqrt{(-)^s g}}{r!}  g^{a_1 b_1}\cdots g^{a_r b_r}
+%    ({\rm d}x^{i_1})_{b_1} \wedge \cdots \wedge({\rm d}x^{i_r})_{b_r}
+%    ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} \\
+%    &= \frac{\sqrt{(-)^s g}}{r!} \delta^{i_1 \cdots i_r}_{k_1 \cdots k_r}  \delta_{j_1 \cdots j_m}^{1 \cdots m}
+%       g^{k_1 j_1}\cdots g^{k_r j_r} ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}  \\
+%    &= \frac{\sqrt{(-)^s g}}{r!} \delta_{j_1 \cdots j_m}^{1 \cdots m}
+%    \begin{vmatrix}
+%        g^{i_1 j_1} & \cdots & g^{i_1 j_r}  \\
+%        \vdots & \ddots & \vdots \\
+%        g^{i_r j_1} & \cdots & g^{i_r j_r}  \\
+%    \end{vmatrix}
+%    ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}  \\
+%    &=     \frac{\sqrt{(-)^s g}}{r! (m-r)!}
+%    \delta_{j_1 \cdots j_r k_{r+1}\cdots k_m}^{1 \cdots r {r+1}\cdots m}
+%    \cdot \delta^{k_{r+1} \cdots k_m}_{j_{r+1} \cdots j_m}
+%    ({\rm d}x^{j_{r+1}})_{a_{r+1}} \otimes \cdots \otimes ({\rm d}x^{j_m})_{a_m}
+%    \begin{vmatrix}
+%        g^{i_1 j_1} & \cdots & g^{i_1 j_r}  \\
+%        \vdots & \ddots & \vdots \\
+%        g^{i_r j_1} & \cdots & g^{i_r j_r}  \\
+%    \end{vmatrix} \notag \\
+%    &= \frac{\sqrt{(-)^s g}}{r! (m-r)!}
+%    \delta_{j_1 \cdots j_m}^{1 \cdots m}
+%    ({\rm d}x^{j_{r+1}})_{a_{r+1}} \wedge \cdots \wedge ({\rm d}x^{j_m})_{a_m}
+%    \begin{vmatrix}
+%        g^{i_1 j_1} & \cdots & g^{i_1 j_r}  \\
+%        \vdots & \ddots & \vdots \\
+%        g^{i_r j_1} & \cdots & g^{i_r j_r}  \\
+%    \end{vmatrix} \\
+    & \sqrt{(-)^s g} \sum_{\substack {j_1<\cdots<j_r \\ j_{r+1}<\cdots<j_m}}
+    \delta_{j_1 \cdots j_m}^{1 \cdots m}
+    ({\rm d}x^{j_{r+1}})_{a_{r+1}} \wedge \cdots \wedge ({\rm d}x^{j_m})_{a_m}
+    \begin{vmatrix}
+        g^{i_1 j_1} & \cdots & g^{i_1 j_r}  \\
+        \vdots & \ddots & \vdots \\
+        g^{i_r j_1} & \cdots & g^{i_r j_r}  \\
+    \end{vmatrix}    \label{chrg:eqn_dx1r-Hodge}
+\end{align}\setlength{\mathindent}{2em}
+式\eqref{chrg:eqn_dx1r-Hodge}中的指标$i_1,\cdots,i_r$是自由指标，不参与求和；
+在具体应用时最好按顺序排列．
+下面给出两次Hodge星算子的公式，直接对\eqref{chrg:eqn_Hodge-star-1}取星算子，得
+\begin{equation}\label{chrg:eqn_double-star-Hodge}
+\begin{aligned}
+    *(*\omega)_{b_1 \cdots b_r} =&  \frac{(-)^{r(m-r)}}{r! (m-r)!} \omega_{a_1 \cdots a_r}
+     \Omega^{a_1 \cdots a_r a_{r+1} \cdots a_m}
+     \Omega_{{b_1 \cdots b_r} a_{r+1} \cdots a_m} \\
+     \xlongequal{\ref{chrg:eqn_VE-contract-VE}} &
+     (-)^{s+r(m-r)} \delta^{\lbrack a_1}_{b_1} \cdots \delta^{a_r \rbrack}_{b_r}
+     \omega_{a_1 \cdots a_r}
+     =(-)^{s+r(m-r)} \omega_{b_1 \cdots b_r} .
+\end{aligned}
+\end{equation}
+
+\paragraph{闵氏空间对偶} %\label{chrg:sec_Minkowski-Hodge-1}
+闵氏时空$(\mathbb{R}^4,\eta)$的坐标系为$\{t,x,y,z\}$；
+因标架场正交归一，度规$\eta={\rm diag}(-1,1,1,1)$，
+式\eqref{chrg:eqn_dx1r-Hodge}的形式简单；
+表示如下（省略抽象指标）
+%\begin{equation}\label{chrg:eqn_Minkowski-Hodge-1}
+\begin{align*}
+    * {\rm d}t =& -{\rm d}x \wedge {\rm d}y \wedge {\rm d}z , \qquad
+    * {\rm d}x =  -{\rm d}t \wedge {\rm d}y \wedge {\rm d}z , \\
+    * {\rm d}y =& +{\rm d}t \wedge {\rm d}x \wedge {\rm d}z , \qquad
+    * {\rm d}z =  -{\rm d}t \wedge {\rm d}x \wedge {\rm d}y . \\
+    * ({\rm d}t \wedge {\rm d}x) =&- {\rm d}y \wedge {\rm d}z, \quad
+    * ({\rm d}t \wedge {\rm d}y) = + {\rm d}x \wedge {\rm d}z, \quad
+    * ({\rm d}t \wedge {\rm d}z) = - {\rm d}x \wedge {\rm d}y. \\
+    * ({\rm d}x \wedge {\rm d}y) =&+ {\rm d}t \wedge {\rm d}z, \quad
+    * ({\rm d}x \wedge {\rm d}z) = - {\rm d}t \wedge {\rm d}y, \quad
+    * ({\rm d}y \wedge {\rm d}z) = + {\rm d}t \wedge {\rm d}x.
+\end{align*}
+%\end{equation}
+
+
+\paragraph{三维空间的对偶}
+三维笛卡尔空间$(\mathbb{R}^3,\delta)$的坐标系为$\{x,y,z\}$；
+因标架场正交归一，$\delta={\rm diag}(1,1,1)$，
+我们给出式\eqref{chrg:eqn_dx1r-Hodge}的具体表示（省略抽象指标）
+\begin{equation}\label{chrg:eqn_Cartesian-Hodge}
+    * {\rm d}x = {\rm d}y \wedge {\rm d}z, \quad
+    * {\rm d}y = {\rm d}z \wedge {\rm d}x, \quad
+    * {\rm d}z = {\rm d}x \wedge {\rm d}z .
+\end{equation}
+
+叉乘、散度、旋度等公式都可用Hodge星对偶表示，请读者自行写出．
+
+
+
+
+
+\index[physwords]{散度算子}
+\subsection{散度及相关}
+先计算克氏符$\Gamma^k_{kj}$；
+为此，需用到一个行列式中的公式，设$g=\det(g_{ij})$．
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &\frac{\partial g}{\partial x^k}= \frac{\partial }{\partial x^k}
+    \left( \sum_{j_1 \cdots j_n} (-)^{\tau(j_1 \cdots j_n)}
+    g_{1 j_1} g_{2 j_2}\cdots g_{n j_n} \right) \\ %\qquad i\ \text{取固定值} \\
+    =&\left( \sum_{j_1 \cdots j_n} (-)^{\tau(j_1 \cdots j_n)}
+    \frac{\partial g_{1 j_1}}{\partial x^k} g_{2 j_2}\cdots g_{n j_n} \right)
+    +\cdots + \left( \sum_{j_1 \cdots j_n} (-)^{\tau(j_1 \cdots j_n)}
+    g_{1 j_1} \cdots g_{n-1, j_{n-1}} \frac{\partial g_{n j_n}}{\partial x^k}  \right) \\
+    =& \sum_{i=1}^{n}
+    \begin{vmatrix}
+        g_{1 1} & \cdots & g_{1 j} & \cdots & g_{1 n} \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        \frac{\partial g_{i 1}}{\partial x^k} & \cdots &
+           \frac{\partial g_{i j}}{\partial x^k} & \cdots &
+           \frac{\partial g_{i n}}{\partial x^k} \\
+        \vdots & \ddots & \vdots & \ddots & \vdots \\
+        g_{n 1} & \cdots & g_{n j} & \cdots & g_{nn}
+    \end{vmatrix} .
+\end{align*}\setlength{\mathindent}{2em}
+这是行列式的求导公式，将上式按有导数那一行展开，有
+\begin{equation}\label{chrg:eqn_detga}
+    \frac{\partial g}{\partial x^k}= \sum_{i=1}^{n} \sum_{j=1}^{n}
+    \frac{\partial g_{ij}}{\partial x^k} A^{ij}, \qquad
+    \text{其中}A^{ij}\text{是}\frac{\partial g_{ij}}{\partial x^k}\text{或}g_{ij}\text{的代数余子式}.
+\end{equation}
+在行列式理论中，元素$g_{il}$与代数余子式$A^{lj}$有正交关系，即
+\begin{equation}
+    \sum_{l=1}^{n}g_{il} A^{lj} = \delta_i^j \cdot g .
+\end{equation}
+又因度规$g_{il}$及其共轭量$g^{lj}$互逆，即$g_{il}g^{lj}=\delta_i^j$；由此不难得出
+\begin{equation}
+    A^{ij}=g\cdot g^{ij} .
+\end{equation}
+将上式带入式\eqref{chrg:eqn_detga}，并整理得（考虑到$g$可正可负，故加上绝对值）
+\begin{equation}\label{chrg:eqn_detgijij}
+    \frac{1}{g}\frac{\partial g}{\partial x^k}= g^{ij} \frac{\partial g_{ij}}{\partial x^k}
+    \quad \Rightarrow \quad
+    \frac{1}{\sqrt{|g|}}\frac{\partial \sqrt{|g|}}{\partial x^k}=
+     \frac{1}{2}g^{ij} \frac{\partial g_{ij}}{\partial x^k} .
+\end{equation}
+利用上式容易得到{\heiti 收缩第二类克氏符}为
+\begin{equation}\label{chrg:eqn_Gamma-KKJ}
+    \Gamma^k_{kj} = \frac{1}{2}{g^{kl}}\left( \frac{\partial g_{kl}}{\partial x^j}
+        + \frac{\partial g_{lj}}{\partial x^k}  - \frac{\partial g_{kj}} {\partial x^l} \right)
+    = \frac{1}{2}{g^{kl}}\frac{\partial g_{kl}}{\partial x^j}
+    =\frac{1}{\sqrt{|g|}}\frac{\partial \sqrt{|g|}}{\partial x^j} .
+\end{equation}
+
+
+
+我们已知切矢量场$v^a\in \mathfrak{X}(M)$的协变导数，将两者缩并可得{\heiti 散度算子}：
+\begin{equation}\label{chrg:eqn_divergence}
+    \nabla_a v^a = \frac{\partial v^j}{\partial x^j} +v^k \Gamma_{kj}^{j}(x)
+    = \frac{\partial v^j}{\partial x^j} +v^k \frac{1}{\sqrt{|g|}}\frac{\partial \sqrt{|g|}}{\partial x^k}
+    =\frac{1}{\sqrt{|g|}}\frac{ \partial \left(v^k\sqrt{|g|}\right)}{\partial x^k} 
+\end{equation}
+
+微积分中的Laplace算子，在微分流形中已被推广为{\bfseries Beltrami--Laplace 算子}，
+只需将式\eqref{chrg:eqn_divergence}中$v^k$换成$g^{kj} \frac{ \partial f}{\partial x^j}$即可
+\begin{equation}\label{chrg:eqn_Beltrami-Laplace}
+    \square f \equiv \nabla_a \nabla^a f = \frac{1}{\sqrt{|g|}}\frac{ \partial }{\partial x^k}
+    \left( \sqrt{|g|}g^{kj} \frac{ \partial f}{\partial x^j}  \right) ,
+    \qquad \forall f \in C^\infty(M) .
+\end{equation}
+纯数学上更习惯使用“$\Delta$”来替换上式中的“$\square$”；但在物理学的四维闵氏时空中
+都使用这个方块算符来代表d'Alembert算符，所以在此我们使用方块算符．
+
+
+
+\begin{exercise}
+	我们使用度规定义了矢量场的散度公式．
+	实际上，矢量场散度无需度规；现有公式$\nabla_a v^b$，
+	令其上下指标缩并即可；试给出无度规时的矢量场散度公式（用克氏符表示）．
+\end{exercise}
+
+\begin{exercise}
+	用Hodge星算子表示三维欧式空间的叉乘、散度、旋度公式．
+\end{exercise}
+
+
+
+
+\index[physwords]{黎曼曲率!型式}
+\section{黎曼曲率型式}\label{chrg:sec_form2}
+本节介绍广义黎曼流形中的曲率型式\cite[\S 1.7]{chandrasekhar-1983}，
+\S\ref{chccr:sec_form1}中的理论自然适用于本节，
+这里主要讨论度规场对型式理论的影响．
+设有$m$维广义黎曼流形$(M,g)$，以及无挠的Levi-Civita联络$\nabla_a$．
+
+
+\subsection{黎曼度规下的型式理论}
+在标架场$\{(e_\mu)^a\}$上，度规表示为
+\begin{equation}
+g_{ab}=g_{\mu\nu}(e^\mu)_a (e^\nu)_b, \qquad
+g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
+\end{equation}
+再引入两个记号
+\begin{align}
+(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
+= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
+= g_{\mu\rho}(e^\mu)_a, \\
+(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
+= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
+= g^{\mu\rho}(e_\mu)^a .
+\end{align}
+上面两式说明，基矢的内外指标均可用度规相应指标进行升降．
+需要说明，如果没有度规，无法定义$(e_\rho)_a$和$(e^\rho)^a$．
+由此可得：
+\begin{equation}
+  g_{ab}=(e_\mu)_a (e^\mu)_b, \  g^{ab}=(e^\mu)^a (e_\mu)^b ; \
+  g_{\mu\nu}=(e_\mu)_a (e_\nu)^a, \  g^{\mu\nu}=(e^\mu)^a (e^\nu)_a .
+\end{equation}
+可以再定义
+\begin{equation}
+    (\omega _{\mu\nu})_{a} \overset{def}{=}
+      g_{\mu\sigma} (\omega ^{\sigma}_{\cdot\nu})_{a}
+    = g_{\mu\sigma} (e^\sigma)_c \nabla _a (e_\nu)^c
+    = (e_\mu)_c \nabla _a (e_\nu)^c
+    = g_{\mu\sigma}\Gamma^{\sigma}_{\nu\tau} (e^\tau)_a .
+\end{equation}
+上式计算用到了式\eqref{chccr:def_1form}．同样，上式必须在引入度规之后才能定义．
+
+\index[physwords]{黎曼曲率!型式!相容性条件}
+\paragraph{相容性条件}
+自然坐标下的相容性条件\eqref{chrg:eqn_Dg=0}在一般标架场下变为
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &0=\nabla_a g_{bc} \quad {\color{red}\Rightarrow}\quad 0=
+    (\nabla_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
+    +g_{\mu\nu} \bigl(\nabla_a (e^\mu)_b\bigr) (e^\nu)_c
+    +g_{\mu\nu}(e^\mu)_b \bigl(\nabla_a (e^\nu)_c \bigr) \\
+    {\color{red}\Rightarrow} &0=
+    ({\rm d}_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
+    -g_{\mu\nu} \bigl( (e^j)_b (\omega_{\cdot j}^{\mu})_a \bigr) (e^\nu)_c
+    -g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\omega_{\cdot j}^{\nu})_a \bigr) .
+\end{align*}\setlength{\mathindent}{2em}
+上式应用了式\eqref{chccr:eqn_D-omega-form}（$\nabla _a (e^\mu)_b=- (e^j)_b (\omega_{\cdot j}^{\mu})_a$）．
+消去基矢，得到度规在一般标架场下的相容性条件，即$\nabla_a g_{bc}=0$的具体表达式
+\begin{equation}\label{chrg:eqn_Dg=0-onframes}
+    {\rm d}_a g_{\mu\nu} 
+     = (\omega_{\nu \mu})_a + (\omega_{\mu \nu})_a
+     = \left(g_{\mu\sigma}\Gamma^{\sigma}_{\nu\tau}
+      + g_{\nu\sigma}\Gamma^{\sigma}_{\mu\tau}\right) (e^\tau)_a .
+\end{equation}
+
+\index[physwords]{黎曼曲率!型式!Cartan结构方程}
+\paragraph{Cartan结构方程}
+这里采用Levi-Civita联络，挠率恒为零；
+原形式的Cartan结构方程见下节的式\eqref{chrg:eqn_CST-Rieman-Conn}；
+曲率型式\eqref{chccr:eqn_Cform}中的内指标降下来的公式为：
+\begin{equation}\label{chrg:eqn_Cform-down}
+    (\Omega_{\mu\nu} )_{ab} 
+    = g_{\mu\sigma}(\Omega_{\cdot \nu} ^{\sigma})_{ab}
+    = \frac{1}{2} R_{\mu \nu \rho\sigma}  (e^\rho)_a \wedge (e^\sigma)_b
+    = R_{\mu \nu \rho\sigma} (e^\rho)_a (e^\sigma)_b .
+\end{equation}
+应用式\eqref{chrg:eqn_Dg=0-onframes}容易得到内指标降下来后的结构方程具体形式
+\begin{subequations}\label{chrg:eqn_CST-down}
+    \begin{align}
+        {\rm d}_a (e_\mu)_b &=- (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b  , \label{chrg:eqn_CST-down-I} \\
+        {\rm d}_a (\omega _{\mu\nu})_b  &= (\omega_{\sigma \mu})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+          + (\Omega_{\mu \nu})_{ab}  . \label{chrg:eqn_CST-down-II}
+    \end{align}
+\end{subequations}
+
+%\begin{align*}
+%    {\rm d}_a (e_\mu)_b =& {\rm d}_a\bigl(g_{\mu\sigma}(e^\sigma)_b\bigr)
+%    ={\rm d}_a (g_{\mu\sigma}) \wedge (e^\sigma)_b +g_{\mu\sigma} {\rm d}_a\bigl((e^\sigma)_b\bigr) \\
+%    =& \bigl((\omega_{\sigma \mu})_a + (\omega_{\mu \sigma})_a \bigr) \wedge (e^\sigma)_b
+%     + g_{\mu\sigma}(e^\nu)_a \wedge (\omega _{\cdot \nu}^\sigma)_b
+%    = - (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b
+%\end{align*}
+%\begin{align*}
+%    {\rm d}_a (\omega _{\mu\nu})_b = &{\rm d}_a \bigl( g_{\mu\sigma}(\omega _{\cdot \nu} ^\sigma  )_b \bigr)
+%    = {\rm d}_a ( g_{\mu\sigma}) \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+%     +g_{\mu\sigma} {\rm d}_a \bigl( (\omega _{\cdot \nu} ^\sigma  )_b \bigr) \\
+%    =& \bigl( (\omega_{\sigma \mu})_a + (\omega_{\mu \sigma})_a \bigr) \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+%    +g_{\mu\sigma} ( \omega _{\cdot \nu}^\pi )_a
+%    \wedge ( \omega _{\cdot \pi}^\sigma )_b + g_{\mu\sigma}(\Omega_{\cdot \nu} ^{\sigma})_{ab} \\
+%    =& (\omega_{\sigma \mu})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+%     + (\omega_{\mu \sigma})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+%     + (\omega_{\cdot \nu}^\pi )_a  \wedge ( \omega _{\mu \pi})_b + (\Omega_{\mu \nu})_{ab} \\
+%    =& (\omega_{\sigma \mu})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b + (\Omega_{\mu \nu})_{ab}
+%\end{align*}
+
+\index[physwords]{黎曼曲率!型式!Bianchi恒等式}
+\paragraph{Bianchi恒等式}
+内指标降下来后的第一Bianchi恒等式\eqref{chccr:eqn_Bianchi-CI}变为
+\begin{equation}\label{chrg:eqn_Bianchi-CI-bak}
+    (e^\sigma)_c \wedge (\Omega_{\cdot \sigma} ^{\mu})_{ab} = 0 =
+    (e^\sigma)_c \wedge (\Omega_{\mu \sigma} )_{ab}  .
+\end{equation}
+应用式\eqref{chrg:eqn_Dg=0-onframes}容易得到内指标降下来后的第二Bianchi恒等式 %\eqref{chccr:eqn_Bianchi-CII}
+\begin{align}
+    {\rm d}_c (\Omega_{\mu\nu} )_{ab} = &
+       ( \omega _{\cdot \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
+      +(\Omega_{\cdot \nu} ^{\sigma})_{ca} \wedge (\omega_{\sigma \mu})_{b}
+       . \label{chrg:eqn_Bianchi-CII-down} \\
+    {\rm d}_c (\Omega_{\cdot \nu} ^{\mu})_{ab}  =&
+       ( \omega _{\cdot \nu}^\sigma )_c  \wedge  (\Omega_{\cdot \sigma} ^{\mu})_{ab}
+     - (\Omega_{\cdot \nu} ^{\sigma})_{ca}\wedge ( \omega _{\cdot \sigma}^\mu )_b
+       . \tag{\ref{chccr:eqn_Bianchi-CII}}
+\end{align}
+为了比对，保留了式\eqref{chccr:eqn_Bianchi-CII}．
+
+%推导过程
+%\begin{align*}
+%    {\rm d}_c (\Omega_{\mu\nu} )_{ab} =& {\rm d}_c \bigl( g_{\mu\sigma}(\Omega_{\cdot \nu} ^{\sigma})_{ab} \bigr)
+%    = {\rm d}_c ( g_{\mu\sigma} ) \wedge(\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%    + g_{\mu\sigma} {\rm d}_c \bigl( (\Omega_{\cdot \nu} ^{\sigma})_{ab} \bigr) \\
+%    \xlongequal[\ref{chccr:eqn_Bianchi-CII}]{\ref{chrg:eqn_Dg=0-onframes}}&
+%    \bigl((\omega_{\sigma \mu})_c + (\omega_{\mu \sigma})_c \bigr)\wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%    + g_{\mu\sigma} \Bigl ( ( \omega _{\cdot \nu}^\pi )_c
+%    \wedge (\Omega_{\cdot \pi} ^{\sigma})_{ab} - (\Omega_{\cdot \nu} ^{\pi})_{ca}\wedge
+%    ( \omega _{\cdot \pi}^\sigma )_b  \Bigr) \\
+%    =&(\omega_{\sigma \mu})_c\wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%     + (\omega_{\mu \sigma})_c \wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%     + ( \omega _{\cdot \nu}^\pi )_c \wedge (\Omega_{\mu \pi} )_{ab}
+%     - (\Omega_{\cdot \nu} ^{\pi})_{ca}\wedge  ( \omega _{\mu \pi} )_b \\
+%    =&(\omega_{\sigma \mu})_c\wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%    + ( \omega _{\cdot \nu}^\pi )_c \wedge (\Omega_{\mu \pi} )_{ab}
+%    + (\omega_{\mu \sigma})_c \wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%    - (\omega _{\mu \pi})_{c}\wedge  ( \Omega_{\cdot \nu} ^{\pi} )_{ab}  \\
+%    =&(\omega_{\sigma \mu})_c\wedge (\Omega_{\cdot \nu} ^{\sigma})_{ab}
+%    + ( \omega _{\cdot \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
+%    = ( \omega _{\cdot \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
+%    + (\Omega_{\cdot \nu} ^{\sigma})_{ca} \wedge (\omega_{\sigma \mu})_{b}
+%\end{align*}
+
+
+
+
+
+
+
+
+\index[physwords]{欧几里得空间!局部}
+\subsection{局部广义欧几里得空间}\label{chrg:sec_local-EuclideanSpace}
+
+\index[physwords]{平直}
+\index[physwords]{弯曲}
+
+\begin{definition}\label{chrg:def_flat-curved}
+    若广义黎曼流形$(M,g)$上由Levi-Civita联络决定的黎曼曲率恒为零，
+    则称$M$为{\heiti 平直的}（或平坦的，flat）；  否则称$M$为{\heiti 弯曲的}（curved）．
+\end{definition}
+
+\index[physwords]{局部欧氏空间}
+
+\begin{definition}\label{chrg:def_local-EuclideanSpace}
+    设有$m$维广义黎曼流形$(M,g)$，若$\forall p \in M$都存在局部坐标系使得
+    \begin{equation}\label{chrg:eqn_euclid-local}
+        g_{ab}|_U = \eta_{\alpha\beta} ({\rm d}x^\alpha)_a ({\rm d}x^\beta)_b ,
+        \quad     \text{在整个局部坐标系}\ (U;x^\alpha) \ \text{内成立}
+    \end{equation}
+    其中$\eta_{\alpha\beta}={\rm diag}(-1,\cdots,-1,+1,\cdots,+1)$，且$\pm 1$个数总和是$m$；
+    则广义黎曼流形$(M,g)$称为{\heiti 局部广义欧几里得空间}．
+\end{definition}
+本节目的就是要证明下述定理\cite[\S 4.2]{chen-li-2023-2ed-v1}．
+\begin{theorem}\label{chrg:thm_local-EuclideanSpace}
+    设有$m$维广义黎曼流形$(M,g)$，其黎曼曲率张量为零的充分必要条件是$(M,g)$为局部广义欧几里得空间．
+\end{theorem}
+
+充分性：若$M$是局部广义欧氏空间，经计算可得其黎曼曲率恒为零．
+
+下面证明必要性．因Levi-Civita联络无挠，故方程\eqref{chccr:eqn_CST}变为
+\begin{subequations}\label{chrg:eqn_CST-Rieman-Conn}
+    \begin{align}
+        {\rm d}_a (e^\mu)_b &=(e^\nu)_a \wedge (\omega _{\cdot \nu}^\mu)_b , \label{chrg:eqn_CST-Rieman-Conn-I} \\
+        {\rm d}_a ( \omega _{\cdot \nu} ^\mu  )_b  &=  ( \omega _{\cdot \nu}^\sigma )_a
+        \wedge ( \omega _{\cdot \sigma}^\mu )_b + (\Omega_{\cdot \nu} ^{\mu})_{ab}. \label{chrg:eqn_CST-Rieman-Conn-II}
+    \end{align}
+\end{subequations}
+上式的基矢量是$(e_\mu)^a$（称为旧的）．
+%其中式\eqref{chrg:eqn_CST-Rieman-Conn-III}已由式\eqref{chrg:eqn_omega-anti}证明；
+%        (\omega _{\cdot \nu} ^\mu)_a &=- (\omega _{\cdot \mu} ^\nu)_a . \label{chrg:eqn_CST-Rieman-Conn-III}
+
+现另选一套新基矢$(\tilde{e}_i)^a$，
+在标架变换\eqref{chccr:base_change}下（即$(\tilde{e} _i)^a = (e_\mu)^{a} A_{\cdot i}^{\mu},\
+(\tilde{e} ^j)_a = (e^\nu)_{a} B^{\cdot j}_{\nu}$，其中$A\cdot B^T=I$），
+新的联络系数及联络一次微分型式场为式\eqref{chccr:eqn_connection-form-tilde}：
+\begin{equation}
+    (\tilde{e}_i)^b \nabla _b (\tilde{e}_j)^a  =
+    \tilde{\Gamma}^{k}_{ji} (\tilde{e}_k)^a,   \qquad
+    (\tilde{\omega} _{\cdot j}^{k})_a  \equiv
+    \tilde{\Gamma}^{k}_{j i} (\tilde{e}^i)_a .
+    \tag{\ref{chccr:eqn_connection-form-tilde}}
+\end{equation}
+新旧一次微分型式场基本变换关系为式\eqref{chccr:eqn_1form-transformation}：
+\begin{equation}
+    {\rm d}_a A_{\cdot j}^{\sigma} + (\omega ^{\sigma}_{\cdot\nu})_a  A_{\cdot j}^{\nu}
+    =  A_{\cdot k}^{\sigma} (\tilde{\omega} _{\cdot j} ^{k})_a .
+    \tag{\ref{chccr:eqn_1form-transformation}}
+\end{equation}
+我们的目的是在$p$点附近寻找一组适当的光滑函数$A_{\cdot k}^{\sigma}\in C^\infty(U)$使
+得$\det(A_{\cdot k}^{\sigma})\neq 0$，并且在新标架场$(\tilde{e}_i)^a$下
+\uwave{新一次联络型式场}$(\tilde{\omega} _{\cdot j} ^{k})_a $恒为零，也就是新的联络
+系数$\tilde{\Gamma}^{k}_{j i}$恒为零；由上面的式子\eqref{chccr:eqn_connection-form-tilde}可
+知$(\tilde{e}_i)^b \nabla _b (\tilde{e}_j)^a=0$，也就是新标架场$(\tilde{e}_i)^a$式平行标架场．
+由上面的式\eqref{chccr:eqn_1form-transformation}可知，
+这个问题转化为如下Pfaff方程（未知量是$A_{\cdot j}^{\sigma}$）的求解．
+\begin{equation}\label{chrg:eqn_tmp109}
+    (\pi _{\cdot j} ^{\sigma})_a \overset{def}{=}
+    {\rm d}_a A_{\cdot j}^{\sigma} + (\omega ^{\sigma}_{\cdot\nu})_a  A_{\cdot j}^{\nu}=0,
+    \quad \det(A_{\cdot k}^{\sigma})\neq 0,\quad 1 \leqslant j,k,\sigma,\nu \leqslant m .
+\end{equation}
+此Pfaff方程是由$m^2$个一次微分式组成的，它的秩是$m^2$．
+我们对此式再次求外微分，并利用\uwave{黎曼曲率为零}的条件（即$(\Omega_{\cdot \nu} ^{\mu})_{ab}=0$）
+\begin{align*}
+    {\rm d}_b(\pi _{\cdot j} ^{\sigma})_a =&
+       \bigl({\rm d}_b (\omega ^{\sigma}_{\cdot\nu})_a\bigr)  A_{\cdot j}^{\nu}
+      + ({\rm d}_b  A_{\cdot j}^{\nu}) \wedge (\omega ^{\sigma}_{\cdot\nu})_a   \\
+    \xlongequal[\ref{chrg:eqn_tmp109}]{\ref{chrg:eqn_CST-Rieman-Conn-II}}&
+    ( \omega _{\cdot \nu}^\xi )_b \wedge ( \omega _{\cdot \xi}^{\sigma} )_a  A_{\cdot j}^{\nu}
+    + \bigl((\pi _{\cdot j} ^{\nu})_b-(\omega ^{\nu}_{\cdot\xi})_b  A_{\cdot j}^{\xi}\bigr)
+     \wedge (\omega ^{\sigma}_{\cdot\nu})_a
+     =(\pi _{\cdot j} ^{\nu})_b \wedge (\omega ^{\sigma}_{\cdot\nu})_a  .
+\end{align*}
+于是Pfaff方程组\eqref{chrg:eqn_tmp109}满足Frobenius条件\eqref{chdf:eqn_frobenius-Diff-Form}；
+由Frobenius定理\ref{chdf:thm_frobenius-Diff-Form}可知此方程组完全可积．
+Pfaff方程组\eqref{chrg:eqn_tmp109}没有给定初始条件，
+我们将$p$点初始条件设为（下式包括正定、不定度规情形）
+\begin{equation}\label{chrg:eqn_tmp109-init}
+    A_{\cdot \alpha}^{i}(p)\, A_{\cdot \beta}^{j}(p) \, g_{ij} (p) = \eta_{\alpha\beta} .
+    \quad \eta_{\alpha\beta}\text{表达式见定义\ref{chrg:def_local-EuclideanSpace}中描述}
+\end{equation}
+此时的$g_{ij}(x)$是一般的度规，非对角元可能非零．现在可假设满足Pfaff方程组\eqref{chrg:eqn_tmp109}和
+其初始条件\eqref{chrg:eqn_tmp109-init}的解为$a_{\cdot \alpha}^{i}(x)$，令
+\begin{equation}\label{chrg:eqn_tmp109-fij}
+    f_{\alpha\beta}(x) \equiv a_{\cdot \alpha}^{i}(x) a_{\cdot \beta}^{j}(x) g_{ij} (x)-\eta_{\alpha\beta} ,
+\end{equation}
+那么在$p$点有$f_{\alpha\beta}(p)=0$（初始条件）；对式\eqref{chrg:eqn_tmp109-fij}求外微分，
+得（需注意，当$a_{\cdot \alpha}^{i}(x)$是解时，由式\eqref{chrg:eqn_tmp109}可知
+${\rm d}_b a_{\cdot j}^{\sigma} =- (\omega ^{\sigma}_{\cdot\nu})_b  a_{\cdot j}^{\nu}$）
+\begin{align*}
+    {\rm d}_b f_{\alpha\beta}(x) =&  ({\rm d}_b a_{\cdot \alpha}^{i}) a_{\cdot \beta}^{j} g_{ij}
+    + a_{\cdot \alpha}^{i} ({\rm d}_b a_{\cdot \beta}^{j}) g_{ij}
+    + a_{\cdot \alpha}^{i} a_{\cdot \beta}^{j} {\rm d}_b g_{ij}  \\
+    =&  -(\omega ^{i}_{\cdot k })_b a_{\cdot \alpha}^{k} a_{\cdot \beta}^{j} g_{ij}
+    - a_{\cdot \alpha}^{i}(\omega ^{j}_{\cdot k})_b  a_{\cdot \beta}^{k} g_{ij}
+    + a_{\cdot \alpha}^{i} a_{\cdot \beta}^{j} {\rm d}_b g_{ij}  \\
+    =&  a_{\cdot \alpha}^{k} a_{\cdot \beta}^{j}  \left( -(\omega ^{i}_{\cdot k })_b g_{ij}
+     - (\omega ^{l}_{\cdot j})_b  g_{kl} + {\rm d}_b g_{kj}  \right)
+     \xlongequal{\ref{chrg:eqn_Dg=0-onframes}}  0 .
+\end{align*}
+既然在整个邻域$U$内都有${\rm d}_b f_{\alpha\beta}(x)=0$，那么必然可以
+得出$f_{\alpha\beta}(x)$在整个邻域$U$内为常数，所以有$f_{\alpha\beta}(x)=f_{\alpha\beta}(p)=0$．
+由此可见在邻域$U$内，有
+\begin{equation}\label{chrg:eqn_gij=deltaij}
+    a_{\cdot \alpha}^{i}(x) a_{\cdot \beta}^{j}(x) g_{ij} (x) 
+    \xlongequal{\ref{chrg:eqn_tmp109-fij}} \eta_{\alpha\beta} ,
+\end{equation}
+而度规$g_{ab}$在新标架场$(\tilde{e}_i)^a$的分量为（要用上式）
+\begin{equation}
+    \tilde{g}_{ij}(x)=g_{bc} (\tilde{e}_i)^b(\tilde{e}_j)^c
+    = g_{bc} (e_\mu)^{b} a_{\cdot i}^{\mu} (e_\nu)^{c} a_{\cdot j}^{\nu}
+    = g_{\mu\nu}(x) a_{\cdot i}^{\mu}(x)  a_{\cdot j}^{\nu}(x) = \eta_{ij}.
+\end{equation}
+此式在整个邻域$U$上成立．
+
+在上面论述过程中，已经指出新标架场$(\tilde{e}_i)^a$是平行的，即有$(\tilde{\omega} _{\cdot \nu}^\mu)_b$恒为零，
+将其带入Cartan第一结构方程\eqref{chrg:eqn_CST-Rieman-Conn-I}，可以得到，
+\begin{equation}
+    {\rm d}_a (\tilde{e}^\mu)_b =(\tilde{e}^\nu)_a \wedge (\tilde{\omega} _{\cdot \nu}^\mu)_b =0 .
+\end{equation}
+也就是每一个$(\tilde{e}^\mu)_b$都是闭的，由Poincar\'{e}引理\ref{chdf:thm_poincare-lemma}可知
+存在$p\in M$的局部坐标邻域$U$以及其上的光滑函数族$\{x^\mu\}$使得
+$ (\tilde{e}^\mu)_a = {\rm d}_a x^\mu = ({\rm d} x^\mu)_a, \ (1\leqslant \mu \leqslant m) $；
+这说明在$U$内存在自然标架场$\{(\frac{\partial }{\partial x^\mu})^a\}$等于$(\tilde{e}_\mu)^{a}$．
+故定理\ref{chrg:thm_local-EuclideanSpace}得证．\qed
+
+
+
+\index[physwords]{黎曼曲率!型式!刚性标架}
+\subsection{刚性标架}\label{chrg:sec_rigid-frame}
+标架场$\{(e^\mu)_{a}\}$下的度规分量$g_{\mu\nu}$是流形上的标量场，一般不是常数．
+\begin{definition}\label{chrg:def_rigid-frame}
+    若标架场$\{(e^\mu)_{a}\}$下度规分量$g_{\mu\nu}$是常数（$\nabla_a g_{\mu\nu}={\rm d}_a g_{\mu\nu}=0$），
+    则我们称标架场$\{(e^\mu)_{a}\}$为{\heiti 刚性标架}（rigid frame）．
+\end{definition}
+注意，对于一般标架场，虽然度规和联络
+相容，即$\nabla_a g_{bc}\equiv0$；但$\nabla_a g_{\mu\nu}$未必等于零．
+对于刚性标架可以得到联络型式场$(\omega _{\mu\nu})_{a}$对指标反对称性：
+\begin{equation}\label{chrg:eqn_omega-anti}
+    {\rm d}_a g_{\mu\nu}=0 \quad \xRightarrow{\ref{chrg:eqn_Dg=0-onframes}}\quad
+    (\omega _{\mu\nu})_{a} = -(\omega _{\nu\mu})_{a} .
+\end{equation}
+对于非刚性标架，因$\nabla_a g_{\mu\nu}\neq 0$，故$(\omega _{\mu\nu})_{a}$不具有上述的反对称性．
+%\begin{equation}
+%    \begin{aligned}
+%        (\omega _{\mu\nu})_{a} & = (e_\mu)_c \nabla _a (e_\nu)^c
+%        = \nabla _a \bigl((e_\mu)^c (e_\nu)_c\bigr)
+%        - (e_\nu)^c \nabla _a (e_\mu)_c  \\
+%        & =\nabla _a(g_{\mu\nu}) -(e_\nu)^c \nabla _a (e_\mu)_c
+%        =-(e_\nu)_c \nabla _a (e_\mu)^c =-(\omega _{\nu\mu})_{a}.
+%    \end{aligned}
+%\end{equation}
+
+
+定义{\heiti Ricci旋转系数}（Ricci rotation coefficient）为（类似第一类克氏符）
+\begin{equation}\label{chrg:eqn_ricci0}
+    \omega_{\mu\nu\rho} \overset{def}{=} (\omega_{\mu\nu})_a (e_\rho)^{a}
+    =g_{\mu\sigma}\Gamma^{\sigma}_{\nu\rho}
+    {\quad \color{red} \Leftrightarrow \quad}
+    (\omega_{\mu\nu})_a  = \omega_{\mu\nu\rho} (e^\rho)_{a} .
+\end{equation}
+将联络系数公式\eqref{chccr:eqn_concoef}中的联络系数换成Ricci旋转系数
+\begin{align}
+    (e_\rho)^b \nabla _b (e_\mu)^a & = \Gamma^{\sigma}_{\mu\rho} (e_\sigma)^a
+    = g^{\nu\sigma}\omega_{\nu\mu\rho} (e_\sigma)^a =-\omega_{\mu\nu\rho} (e^\nu)^a
+    {\quad \color{red} \Leftrightarrow }  \label{chrg:eqn_ricci1} \\
+    \nabla _b (e_\mu)^a & = -\omega_{\mu\nu\rho} (e^\rho)_b (e^\nu)^a
+    {\ \color{red} \Leftrightarrow \ }
+    \nabla _b (e_\mu)_a   = -\omega_{\mu\nu\rho}(e^\rho)_b (e^\nu)_a
+    {\ \color{red} \Leftrightarrow }  \label{chrg:eqn_ricci3}  \\
+    \nabla _b (e^\mu)_a & = -g^{\mu\sigma}\omega_{\sigma\nu\rho}(e^\rho)_b (e^\nu)_a
+    {\quad \color{red} \Leftrightarrow }  \label{chrg:eqn_ricci4}  \\
+    \omega_{\mu\nu\rho} & = -(e_\nu)_a (e_\rho)^b \nabla _b (e_\mu)^a
+    = (e_\mu)^a  (e_\rho)^b \nabla _b (e_\nu)_a . \label{chrg:eqn_ricci5}
+\end{align}
+只有在刚性标架下，Ricci旋转系数才能简便计算，内外指标才能方便升降．
+
+
+%虽然自然坐标基底的无挠联络系数$\oversetmy{x}{\Gamma}_{ij}^k$（$x$表示自然坐标基底）关于两个下标具有对称性，
+%但一般的基底场下的联络系数$\Gamma_{ij}^k$通常情况下没有这种对称性；
+由式\eqref{chccr:eqn_XYcommutator}及\eqref{chrg:eqn_ricci1}可得如下对易关系：
+\begin{align}
+    \left[ {X,Y} \right]^a =&\left(e_\nu (Y^\sigma)X^\nu  -  e_\nu (X^\sigma) Y^\nu
+    + X^\mu Y^\nu ( \Gamma^{\sigma}_{\nu\mu} - \Gamma^{\sigma}_{\mu\nu}) \right)(e_\sigma)^a .
+      \label{chrg:eqn_XYcommutator-Ebase} \\
+    \bigl[(e_\mu), (e_\nu)\bigr]^a
+    =& \bigl(\Gamma^{\sigma}_{\nu\mu} - \Gamma^{\sigma}_{\mu\nu}\bigr) (e_\sigma)^a
+    = \bigl(-\omega_{\nu\sigma\mu} + \omega_{\mu\sigma\nu}\bigr) (e^\sigma)^a .
+      \label{chrg:eqn_EmuEnucommutator}
+\end{align}
+式\eqref{chrg:eqn_EmuEnucommutator}第一个等号适用于一般标架，第二个等号只适用于刚性标架． %（定义见\ref{chrg:def_rigid-frame}）
+
+%\begin{align*}
+%    \left[ {X,Y} \right]^a =& X^b\nabla_b Y^a - Y^b\nabla_b X^a \\
+%    =& X^b \left[e_j (Y^i) + Y^l \Gamma^{i}_{lj} \right] (e^j)_b (e_i)^a
+%     - Y^b \left[e_j (X^i) + X^l \Gamma^{i}_{lj} \right] (e^j)_b (e_i)^a   \\
+%    =& X^j \left[e_j (Y^i) + Y^l \Gamma^{i}_{lj} \right] (e_i)^a
+%     - Y^j \left[e_j (X^i) + X^l \Gamma^{i}_{lj} \right] (e_i)^a  \\
+%    =&  e_j (Y^i)X^j(e_i)^a  -  e_j (X^i) Y^j(e_i)^a
+%     + X^l Y^j ( \Gamma^{i}_{jl} - \Gamma^{i}_{lj}) (e_i)^a      \\
+%    =&  \left(e_\nu (Y^\sigma)X^\nu  -  e_\nu (X^\sigma) Y^\nu
+%     + X^\mu Y^\nu ( \Gamma^{\sigma}_{\nu\mu} - \Gamma^{\sigma}_{\mu\nu}) \right)(e_\sigma)^a
+%\end{align*}
+
+%\begin{align}
+%    \nabla_a u^c &= \left[e_j (u^\alpha) + u^l \Gamma^{i}_{lj} \right] (e^j)_a (e_i)^c
+%    =  \left[{\rm d}_a (u^i) + u^l (\omega_{\cdot l}^{i})_a \right] (e_i)^c .   \\
+%    {e} _i (f)&= A_{\cdot i}^{j}(x) \frac{\partial f}{\partial x^j}, \\
+%    {\rm d}_a (f) &=   [{e} _\nu (f)] (e^\nu)_a .
+%\end{align}
+
+
+
+
+\subsection{曲率张量的计算}
+    广义黎曼流形中，挠率为零，
+    曲率张量计算可分三个步骤\cite[\S 1.7]{chandrasekhar-1983}：
+    \textcircled{1}选一{\kaishu 刚性}标架，
+    \textcircled{2}计算Ricci旋转系数，
+    \textcircled{3}利用Cartan第二结构方程计算曲率张量．
+
+\subsubsection{计算Ricci旋转系数}
+     需要先选定一局部坐标系$\{U;x^\mu\}$
+    {\footnote{读者需要认识到，微分流形局部上同胚于$\mathbb{R}^m$开子集，所以任何流形
+            自然存在局部坐标系．}}，
+刚性标架基矢场$(e_\mu)_{a}$、$(e_\mu)^{a}$在自然坐标
+基矢场$(\frac{\partial}{\partial x^k})^{a}$、$({\rm d}x^k)_{a}$下的分量是
+\begin{equation}\label{chrg:eqn_component-base}
+(e_\nu)_{k} \equiv (e_\nu)_{a} \left(\frac{\partial}{\partial x^k}\right)^{a} , \quad
+(e_\mu)^{k} \equiv (e_\mu)^{a} ({\rm d}x^k)_{a}.
+\end{equation}
+计算Ricci旋转系数并不需要基矢场$(e^\nu)_{a}$，所以上式中未给出其分量表达式．
+从Ricci旋转系数定义可得
+\begin{align*}
+  \omega_{\mu\nu\rho} &= (e_\mu)^a  (e_\rho)^b \nabla _b (e_\nu)_a
+  = (e_\mu)^{k} \left(\frac{\partial}{\partial x^k}\right)^{a}
+   (e_\rho)^{l} \left(\frac{\partial}{\partial x^l}\right)^{b}
+    \nabla _b \bigl[ (e_\nu)_{n}({\rm d}x^n)_{a} \bigr]  \\
+  &=(e_\mu)^{k}(e_\rho)^{l} (e_\nu)_{k,l}
+   -(e_\mu)^{k}(e_\rho)^{l}\Gamma^n _{kl}(e_\nu)_{n} .
+\end{align*}
+交换指标$\rho$和$\mu$，有
+$ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
+-(e_\rho)^{k}(e_\mu)^{l}\Gamma^n _{kl}(e_\nu)_{n}$；
+将这两式相减，并利用坐标基底克氏符$\Gamma^n _{kl}$关于下标的对称性，得
+\begin{align}
+  \omega_{\mu\nu\rho}  -  \omega_{\rho\nu\mu}=
+  \left[ (e_\mu)^{k}(e_\rho)^{l}
+     - (e_\rho)^{k}(e_\mu)^{l}  \right]
+     \frac{\partial (e_\nu)_{k}}{\partial x^l}
+  \ \overset{def}{=} \Lambda_{\mu\nu\rho}. \label{chrg:eqn_Coef-Lambda1}
+\end{align}
+上式最后一步定义了一个中间步符号$\Lambda_{\mu\nu\rho}$，它还可以表示为
+\begin{align}
+    \Lambda_{\mu\nu\rho} \equiv \sum_{k,l }
+    \left[ \frac{\partial (e_\nu)_{k}}{\partial x^l} -\frac{\partial (e_\nu)_{l}}{\partial x^k} \right]
+    (e_\mu)^{k} (e_\rho)^{l} .  \label{chrg:eqn_Coef-Lambda2}
+\end{align}
+易见$\Lambda$具有反对称性$\Lambda_{\mu\nu\rho}=-\Lambda_{\rho\nu\mu}$．
+由式\eqref{chrg:eqn_Coef-Lambda1}出发，进行指标轮换后相加减，
+不难证明Ricci旋转系数可由这个中间步符号$\Lambda_{\mu\nu\rho}$表示为
+\begin{equation}\label{chrg:eqn_Ricci-Coef}
+\omega_{\mu\nu\rho} = \frac{1}{2}\left(\Lambda_{\mu\nu\rho}
++ \Lambda_{\rho\mu\nu} - \Lambda_{\nu\rho\mu} \right) .
+\end{equation}
+这样，先选定局部自然坐标基底场$(\frac{\partial}{\partial x^k})^{a}$，
+再选择一个刚性标架场$(e_\mu)^a$，
+通过式\eqref{chrg:eqn_Coef-Lambda1}或者\eqref{chrg:eqn_Coef-Lambda2}算出
+中间步符号$\Lambda_{\mu\nu\rho}$，利用上式便可计算$\omega_{\mu\nu\rho}$了．
+
+\begin{remark}\label{chrg:remark_ricci-coef-num}
+    注解\ref{chccr:remark_connection-coef-num}指出
+    无挠联络系数$\Gamma^{i}_{jk}$有$\frac{1}{2}m^2(m+1)$个．
+    因Ricci旋转系数$\omega_{\mu\nu\rho}$关于前两个指标反对称，
+    故共有$\frac{1}{2}m^2(m-1)$个；比联络系数少$m^2$个．
+\end{remark}
+
+
+\subsubsection{黎曼张量的分量表示}\label{chrg:sec_Riemann_rr}
+现在可以导出Cartan第二结构方程的具体表达式．由于这里采用的是{\kaishu 刚性}标架，
+度规分量为常数，所以式\eqref{chccr:eqn_Cartan-Structure-II-comp}可重写为
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &R_{\rho\sigma\mu\nu} = g_{\rho\pi} \Gamma _{\sigma \nu}^\tau \Gamma _{\tau\mu}^\pi
+      - g_{\rho\pi}\Gamma _{\sigma \mu}^\tau \Gamma_{\tau\nu}^\pi +
+      \bigl[{\rm d}_a (\omega_{\rho \sigma} )_b \bigr] (e_\mu)^a (e_\nu)^b     \\
+     &\xlongequal{\ref{chrg:eqn_ricci0}} 
+      (e_\mu)^a (e_\nu)^b \nabla_a\bigl(\omega_{\rho\sigma\pi} (e^\pi)_{b}\bigr) -
+      (e_\mu)^a (e_\nu)^b \nabla_b \bigl(\omega_{\rho\sigma\pi} (e^\pi)_{a}  \bigr)
+      + g^{\xi\zeta} \omega _{\zeta\sigma\nu} \omega _{\rho\xi\mu}
+      -g^{\xi\zeta} \omega _{\zeta\sigma\mu} \omega _{\rho\xi\nu}  \\
+     &\xlongequal{\ref{chrg:eqn_ricci4}} 
+       g^{\xi\zeta}\omega_{\nu\xi\mu}\omega_{\rho\sigma\zeta}
+      +(e_\mu)^a \nabla_a\bigl(\omega_{\rho\sigma\nu} \bigr)
+      - g^{\xi\zeta}\omega_{\mu\xi\nu}\omega_{\rho\sigma\zeta}
+      -(e_\nu)^b \nabla_b \bigl(\omega_{\rho\sigma\mu} \bigr)   \\
+    &{\qquad} + g^{\xi\zeta} (\omega _{\zeta\sigma\nu} \omega _{\rho\xi\mu}
+      - \omega _{\zeta\sigma\mu} \omega _{\rho\xi\nu}) .
+\end{align*}\setlength{\mathindent}{2em}
+利用式\eqref{chccr:eqn_natural-base_change}可得\uwave{刚性标架}$(e_\mu)^a$下黎曼曲率分量表达式
+\begin{equation}\label{chrg:eqn_Riemann_rr}
+\begin{aligned}
+   R_{\rho\sigma\mu\nu} =&
+    C_{\hphantom{\pi} \mu}^{\pi}(x) \frac{\partial \omega_{\rho\sigma\nu}}{\partial x^\pi}
+   -C_{\hphantom{\pi} \nu}^{\pi}(x) \frac{\partial \omega_{\rho\sigma\mu}}{\partial x^\pi} \\
+   & + g^{\xi\zeta} \bigl[ \omega_{\rho\sigma\zeta} (\omega_{\nu\xi\mu}
+   -\omega_{\mu\xi\nu}  ) + \omega _{\zeta\sigma\nu} \omega _{\rho\xi\mu}
+   - \omega _{\zeta\sigma\mu} \omega _{\rho\xi\nu} \bigr] .
+\end{aligned}
+\end{equation}
+可以看出在{\kaishu 刚性}标架场$(e_\mu)^{a}$中计算黎曼张量，
+不需要计算自然坐标基矢场的克氏符$\Gamma^n _{kl}$．
+标架法中的Ricci旋转系数$\omega _{\mu\zeta\sigma}$与自然坐标基底法
+中的克氏符$\Gamma^n _{kl}$地位相当，但Ricci旋转系数计算量较小．
+
+
+表面上来看，式\eqref{chrg:eqn_Riemann_rr}不具有对称性$R_{\rho\sigma\mu\nu}=R_{\mu\nu\rho\sigma}$；
+然而，我们可以证明一般标架场下的黎曼曲率分量也具有这种对称性：
+\begin{align*}
+    R_{\rho\sigma\mu\nu}&= R_{abcd}(e_\rho)^a(e_\sigma)^b(e_\mu)^c(e_\nu)^d
+    \xlongequal[\text{指标记号}]{\text{交换抽象}}
+    R_{cdab}(e_\rho)^c(e_\sigma)^d(e_\mu)^a(e_\nu)^b \\
+    &\xlongequal{\ref{chrg:eqn_Riemann-sym-abcd=cdab}}
+    R_{abcd}(e_\rho)^c(e_\sigma)^d(e_\mu)^a(e_\nu)^b =
+    R_{\mu\nu\rho\sigma}.
+\end{align*}
+
+
+\subsubsection{例题}
+在这里给出几个例题，以便读者更好地理解标架理论．
+\begin{example}
+计算度规${\rm d}s^2= \Omega^{2}(t,x) \bigl(-{\rm d}t^2 + {\rm d}x^2\bigr) $的黎曼曲率．
+\end{example}
+
+\noindent \fbox{甲}
+由于$\Omega^{2}(t,x)$是自然坐标$\{t,x\}$的函数，所以
+自然坐标基矢不是刚性标架，需另选基矢．我们选成如下正交归一的切基矢及对偶基矢
+\begin{align}
+(e^0)_{a} & = \Omega ({\rm d}t)_{a},    & (e^1)_{a} & = \Omega ({\rm d}x)_{a}.    \\
+(e_0)^{a} & = \Omega^{-1} (\partial_t)^{a}, & (e_1)^{a} & = \Omega^{-1}(\partial_x)^{a}.
+\end{align}
+由此容易写出度规张量
+\begin{align}
+g_{ab}  =  - \Omega^2 ({\rm d}t)_{a} ({\rm d}t)_{b}
++ \Omega^{2} ({\rm d}x)_{a} ({\rm d}x)_{b}
+=    - (e^0)_{a}(e^0)_{b} + (e^1)_{a}(e^1)_{b}
+\end{align}
+显然，在新选的标架场$(e_\mu)^a$下，度规系数为常数，此标架是刚性的．
+用上式容易得到将指标升降后的基矢表达式
+\begin{align}
+(e_0)_{a} =  -\Omega ({\rm d}t)_{a}, \qquad
+(e_1)_{a} =  \Omega ({\rm d}x)_{a}.
+\end{align}
+由式\eqref{chrg:eqn_component-base}可得全部坐标分量
+\begin{align}
+(e_0)_{0} &= -\Omega, &(e_0)_{1} &= 0; & (e_1)_{0} &=0, & (e_1)_{1} &= \Omega.   \\
+(e_0)^{0} &= \Omega^{-1}, &(e_0)^{1} &= 0; &(e_1)^{0} &=0,  & (e_1)^{1} &= \Omega^{-1}.
+\end{align}
+协变基矢导数不为零的分量为，“点”代表对$t$求导，“撇”代表对$x$求导．
+\begin{align}
+(e_0)_{0,0} = -\dot{\Omega}, \quad (e_0)_{0,1} = -\Omega' , \quad
+(e_1)_{1,0} = \dot{\Omega}, \quad (e_1)_{1,1} = \Omega' .
+\end{align}
+
+
+\noindent \fbox{乙}
+由式\eqref{chrg:eqn_Coef-Lambda1}或\eqref{chrg:eqn_Coef-Lambda2}计算
+中间步符号$\Lambda$，全部不为零的式子为
+\begin{align}
+\Lambda_{001 } &= -\Lambda_{100}
+= \bigl( (e_0)_{0,1}-(e_0)_{1,0} \bigr) (e_0)^{0} (e_1)^{1}
+=  -\Omega^{-2} \Omega' , \\
+\Lambda_{011 } &= -\Lambda_{110}
+= \bigl( (e_1)_{0,1}-(e_1)_{1,0} \bigr) (e_0)^{0} (e_1)^{1}
+=  -\Omega^{-2} \dot{\Omega} .
+\end{align}
+由式\eqref{chrg:eqn_Ricci-Coef}可得两个
+独立的Ricci旋转系数$\omega_{\mu\nu\rho}$，分别是
+\begin{align}
+\omega_{010} &= \frac{1}{2}\left(\Lambda_{010} + \Lambda_{001} - \Lambda_{100} \right)
+= \Lambda_{001} = -\Omega^{-2} \Omega' = -\omega_{100} \\
+\omega_{011} &= \frac{1}{2}\left(\Lambda_{011} + \Lambda_{101} - \Lambda_{110} \right)
+= \Lambda_{011} = -\Omega^{-2} \dot{\Omega}  = -\omega_{101}
+\end{align}
+
+\noindent \fbox{丙}
+由\eqref{chrg:eqn_Riemann_rr}式可得唯一独立的黎曼分量
+\begin{align*}
+R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
+&{\quad} + g^{\xi\zeta} \left(
+ \omega_{01\zeta} ( \omega_{1\xi 0} - \omega_{0\xi 1} )
++ \omega _{\zeta 11} \omega _{0\xi 0} -\omega _{\zeta 10} \omega _{0\xi 1} \right)   \\
+&= \Omega^{-1}\partial_t \left(-\Omega^{-2} \dot{\Omega} \right)
+  -\Omega^{-1}\partial_x \left(-\Omega^{-2} \Omega' \right)  \\
+&{\quad} + g^{00} ( \omega_{010} (\omega_{100} - \omega_{001} )
++ \omega _{011} \omega _{000} -\omega _{010} \omega _{001} )   \\
+&{\quad} + g^{11} ( \omega_{011} ( \omega_{110} - \omega_{011} )
++ \omega _{111} \omega _{010} -\omega _{110} \omega _{011} )   \\
+&= -\Omega^{-3} \ddot{\Omega} +2 \Omega^{-4}  \bigl(\dot{\Omega}\bigr)^2
++\Omega^{-3} \Omega'' -2 \Omega^{-4}  (\Omega')^2
+ + \left( \Omega^{-2} \Omega' \right)^2
+- \left( \Omega^{-2} \dot{\Omega} \right)^2     \\
+&= \Omega^{-3} \bigl(\Omega'' -\ddot{\Omega} \bigr)
+   +\Omega^{-4} \bigl(\dot{\Omega}^2 - \Omega'^2 \bigr)
+\end{align*}
+这是在基矢$\{(e^\mu)_{a}\}$下的黎曼曲率分量．
+计算过程中注意$g^{00}=-1,g^{11}=+1$，其它度规分量为零；
+全部系数为常数是刚性标架的体现．
+\qed
+
+
+\begin{example}\label{chrg:exm_Kruskal}
+给定Kruskal度规
+\begin{equation}
+{\rm d}s^2= -4 e^{2A} {\rm d}u {\rm d}v + Z^{2}({\rm d}\theta^2 + (\sin\theta \, {\rm d}\phi)^2)
+\end{equation}
+局部坐标是$\{u,v,\theta,\phi \}$，系数$A,Z$只是$u,v$的函数．
+\end{example}
+\noindent \fbox{甲}
+局部坐标基矢不是刚性标架，另选如下正交归一协变基矢
+\begin{equation}
+\begin{aligned}
+  (e^1)_{a} & = \sqrt{2}e^A ({\rm d}u)_{a},
+& (e^2)_{a} & = \sqrt{2}e^A ({\rm d}v)_{a},    \\
+  (e^3)_{a} & = Z ({\rm d}\theta)_{a},
+& (e^4)_{a} & = Z \sin\theta ({\rm d}\phi)_{a}.
+\end{aligned}
+\end{equation}
+由此容易写出度规张量
+\begin{align}
+  g_{ab}  = - (e^1)_{a}(e^2)_{b} - (e^2)_{a}(e^1)_{b}
+    + (e^3)_{a}(e^3)_{b}  + (e^4)_{a}(e^4)_{b}
+\end{align}
+显然，在新选的标架场$(e^\mu)_a$下，度规系数为常数，
+即非零分量是$g_{12}=g_{21}=-1,\ g_{33}=g_{44}=1$；此标架是刚性的．
+用上式容易得到逆变基矢
+\begin{equation}
+\begin{aligned}
+(e_1)^{a} & = \frac{e^{-A}}{\sqrt{2}} (\partial_u)^{a},
+   & (e_2)^{a} & = \frac{e^{-A}}{\sqrt{2}} (\partial_v)^{a},    \\
+(e_3)^{a} & = Z^{-1} (\partial_\theta)^{a},
+& (e_4)^{a} & = (Z \sin\theta)^{-1} (\partial_\phi)^{a}.
+\end{aligned}
+\end{equation}
+将外指标降下来，有
+\begin{equation}
+\begin{aligned}
+  (e_1)_{a}&=g_{ab} (e_1)^{b}= -(e^2)_{a} =-\sqrt{2}e^A ({\rm d}v)_{a} \\
+  (e_2)_{a}&=g_{ab} (e_2)^{b}= -(e^1)_{a} =-\sqrt{2}e^A ({\rm d}u)_{a} \\
+  (e_3)_{a}&=g_{ab} (e_3)^{b}= +(e^3)_{a} =+Z ({\rm d}\theta)_{a} \\
+  (e_4)_{a}&=g_{ab} (e_4)^{b}= +(e^4)_{a} =+Z \sin\theta ({\rm d}\phi)_{a}
+\end{aligned}
+\end{equation}
+\noindent \fbox{乙}
+矢量$(e_\mu)_{a}$在自然坐标基矢$({\rm d}x^j)_{a}$上的非零分量为
+\begin{equation}
+  (e_1)_{v}=-\sqrt{2}e^A, \quad
+  (e_2)_{u}=-\sqrt{2}e^A, \quad
+  (e_3)_{\theta}=Z, \quad
+  (e_4)_{\phi}=Z \sin\theta
+\end{equation}
+刚性标架基矢$(e_\mu)^{a}$在自然坐标基矢$(\partial _j)^{a}$上的非零分量为
+\begin{equation}
+  (e_1)^{u}=\frac{e^{-A}}{\sqrt{2}}, \quad
+  (e_2)^{v}=\frac{e^{-A}}{\sqrt{2}}, \quad
+  (e_3)^{\theta}=Z^{-1}, \quad
+  (e_4)^{\phi}=(Z\sin\theta)^{-1}
+\end{equation}
+基矢非零分量$(e_\mu)_{k}$的非零导数是
+\begin{equation}
+\begin{aligned}
+  (e_1)_{v,u}&=-\sqrt{2}e^A \partial_u A,  & (e_1)_{v,v}&=-\sqrt{2}e^A \partial_v A  \\
+  (e_2)_{u,u}&=-\sqrt{2} e^A \partial_u A, & (e_2)_{u,v}&=-\sqrt{2} e^A \partial_v A  \\
+  (e_3)_{\theta,u}&= \partial_u Z, & (e_3)_{\theta,v}&= \partial_v Z \\
+  (e_4)_{\phi,u}&= \sin\theta \, \partial_u Z, &
+  (e_4)_{\phi,v}&= \sin\theta \, \partial_v Z, &
+  (e_4)_{\phi,\theta}=Z \cos\theta
+\end{aligned}
+\end{equation}
+利用式\eqref{chrg:eqn_Coef-Lambda1}或\eqref{chrg:eqn_Coef-Lambda2}，
+可得独立非零中间步符号
+\begin{equation}
+\begin{aligned}
+  \Lambda_{112}&= \frac{e^{-A}}{\sqrt{2}} \partial_u A, &
+  \Lambda_{221}&= \frac{e^{-A}}{\sqrt{2}} \partial_v A, \\
+  \Lambda_{331}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_u Z, &
+  \Lambda_{332}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_v Z, \\
+  \Lambda_{441}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_u Z, &
+  \Lambda_{442}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_v Z, &
+  \Lambda_{443} = \frac{\cot\theta}{Z}
+\end{aligned}
+\end{equation}
+进而利用式\eqref{chrg:eqn_Ricci-Coef}，可得独立非零Ricci旋转系数
+\begin{equation}
+\begin{aligned}
+  \omega_{121} &= \frac{e^{-A}}{\sqrt{2}}  \partial_u A, &
+  \omega_{212} &= \frac{e^{-A}}{\sqrt{2}}  \partial_v A, \\
+  \omega_{313} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_u Z, &
+  \omega_{323} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_v Z, \\
+  \omega_{414} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_u Z, &
+  \omega_{424} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_v Z, &
+  \omega_{434}  = \frac{\cot\theta}{Z}
+\end{aligned}
+\end{equation}
+
+\noindent \fbox{丙}
+由\eqref{chrg:eqn_Riemann_rr}式可得在基矢$(e^\mu)_a$下
+独立非零黎曼张量分量（注意求和过程中应用刚性标架的度规系数，见\fbox{甲}部分）
+\begin{equation}
+\begin{aligned}
+  R_{1221} =& -e^{-2 A} \partial_u\partial_v A, \qquad
+  R_{1332} = R_{1442} = \frac{e^{-2A} \partial_u \partial_v Z }{{2}\, Z}, \\
+  R_{1313} =& R_{1414}= \frac{e^{-2A}}{{2}\, Z} (2\, \partial_u A \,
+    \partial_u Z  - \partial_u \partial_u Z ),  \\
+  R_{2323} =& R_{2424} = \frac{e^{-2A}}{{2}\, Z}
+    (2\, \partial_v A \, \partial_v Z - \partial_v \partial_v Z ),  \\
+  R_{3434} =& Z^{-2} (1+ e^{-2A} \partial_u Z \,\partial_v Z )
+\end{aligned}
+\end{equation}
+进而易得在基矢$(e^\mu)_a$下独立非零Ricci张量分量
+\begin{equation}
+\begin{aligned}
+  R_{11} &= e^{-2A} Z^{-1} ( 2\,\partial_u A \,\partial_u Z - \partial_u \partial_u Z)  \\
+  R_{12} &=-e^{-2A} Z^{-1} ( Z\partial_u\partial_v A + \partial_u \partial_v Z )  \\
+  R_{22} &= e^{-2A} Z^{-1} ( 2\,\partial_v A \,\partial_v Z - \partial_v \partial_v Z)  \\
+  R_{33} &= R_{44}=e^{-2A}Z^{-2}(e^{2A}+\partial_u Z \,\partial_v Z + Z\partial_u \partial_v Z)
+\end{aligned}
+\end{equation}
+需要注意，以上给出的分量是在$(e^\mu)_a$下的分量，不是在$({\rm d}x^\mu)_a$下的分量．
+\qed
+
+\begin{example}\label{chrg:exm_SWPlane}
+	平面引力波（Sachs--Wu）．
+\end{example}
+
+设有局部坐标系$\{t, x, y, z\}$；
+令 $u \equiv t-z$，$f(u)$ 和 $g(u)$ 是 $u$ 的两个任意的光滑函数，并且 $f^2+g^2$ 不恒为零．
+设 $F$ 是坐标 $x, y$ 和 $u$ 的如下函数：
+\begin{equation}\label{chrg:eqn_SWP-F}
+	F(x, y, u)=\frac{1}{2} f(u)\left(x^2-y^2\right)+g(u) x y.
+\end{equation}
+度规为
+\begin{equation}\label{chrg:eqn_SWP-g}
+	{\rm d}s^2= {\rm d}x^2 + {\rm d}y^2
+	+(2F-1) {\rm d}t^2  + (2F+1){\rm d}z^2
+	- 2F {\rm d}t{\rm d}z - 2F {\rm d}z{\rm d}t.
+\end{equation}
+很明显，式\eqref{chrg:eqn_SWP-g}是对称的．
+我们先验证它是Lorentz型的．取
+\begin{equation}\label{chrg:eqn_SWP-g-frame}
+	\begin{aligned}
+	(e^1)_a =& ({\rm d}x)_a,\quad (e^2)_a = ({\rm d}y)_a,\quad 
+	(e^4)_a = ({\rm d}t)_a -({\rm d}z)_a, \\
+	(e^3)_a =& \left(\frac{1}{2}-F(x, y, u)\right)({\rm d}t)_a 
+	+\left(\frac{1}{2}+F(x, y, u)\right)({\rm d}z)_a .
+	\end{aligned}
+\end{equation}
+则在上述基矢$\{(e^1)_a,(e^2)_a,(e^3)_a,(e^4)_a\}$下，式\eqref{chrg:eqn_SWP-g}的分量为
+\begin{equation}
+	g_{\mu \nu}=\begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & -1 \\
+		0 & 0 & -1 & 0
+	\end{pmatrix} \quad  = g^{\mu \nu} .
+\end{equation}
+上式中$(g_{\mu \nu})$的逆矩阵等于自身．
+容易看出它是Lorentz型的，并且非退化．
+上式同时表明它是刚性标架．
+容易得到式\eqref{chrg:eqn_SWP-g-frame}的对偶基矢：
+\begin{equation}
+	\begin{aligned}
+		(e_1)^{a} =& (\partial_x)^{a},\quad
+		(e_2)^{a} = (\partial_y)^{a},    \quad
+		(e_3)^{a} = (\partial_t)^{a}+(\partial_z)^{a}, \\
+		(e_4)^{a} =& \left(\frac{1}{2}+F(x, y, u)\right) (\partial_t)^{a}
+		+\left(-\frac{1}{2}+F(x, y, u)\right)(\partial_z)^{a}.
+	\end{aligned}
+\end{equation}
+将外指标降下来，有
+\begin{equation}
+	\begin{aligned}
+		(e_1)_{a}=& ({\rm d}x)_{a}, \quad		(e_2)_{a}=({\rm d}y)_{a},\quad 
+		(e_3)_{a}=-({\rm d}t)_{a} +({\rm d}z)_{a}, \\
+		(e_4)_{a}=&\left(F(x, y, u)-\frac{1}{2}\right) ({\rm d}t)_{a}
+		- \left(F(x, y, u)+\frac{1}{2}\right) ({\rm d}z)_{a} .
+	\end{aligned}
+\end{equation}
+直接计算得非零量为（注意$\partial_t F(x,y,t-z)=-\partial_z F(x,y,t-z)$）：
+\begin{align*}
+&\Lambda_{144} = -\partial_x F,\quad
+\Lambda_{244} = -\partial_y F.\quad
+\omega_{144} = -\partial_x F,\quad
+\omega_{244} = -\partial_y F. \\
+&R_{1414} = -\partial^{2}_{xx} F,\quad
+R_{1424} = -\partial^2_{xy}F,\quad 
+R_{2424} = -\partial^2_{yy}F. \quad
+R_{44} = -\partial^2_{xx}F -\partial^2_{yy}F .
+\end{align*}
+将$F$的表达式\eqref{chrg:eqn_SWP-F}带入，便可给出基矢$\{(e^\mu)_a\}$下的黎曼曲率非零分量：
+\begin{align*}
+	R_{1441}= f(u) = R_{2424},\quad R_{1442} = g(u) .
+	\qquad R_{\mu\nu}\equiv 0 .
+\end{align*}
+由于我们要求$f^2+g^2 \neq 0$，故可知黎曼曲率分量不全为零；故此时空为弯曲的．
+进而，可得Ricci曲率所有分量都为零（符合真空爱氏场方程）！
+\qed
+
+\begin{example}\label{chrg:exm_BondiPlane}
+	平面引力波（Bondi--Ehlers--Kundt）．
+\end{example}
+
+设有局部坐标系$\{u,v, x, y\}$．
+$L(u)$、$\beta(u)$是$u$ 的两个任意的光滑函数．
+我们直接使用$\{u, v, x, y\}$的切标架场，不再另选．
+度规场为
+\begin{equation*}
+	{\rm d}s^2 = L^2\left( e^{2\beta}{\rm d}x^2 +e^{-2\beta}{\rm d}y^2 \right) 
+	- \frac{1}{2}{\rm d}u{\rm d}v - \frac{1}{2}{\rm d}v{\rm d}u.
+\end{equation*}
+由此可得非零克氏符：
+\begin{align*}
+	\Gamma^v_{xx} =& 2 L e^{2 \beta } \left(L'+L \beta'\right),\quad
+	\Gamma^v_{yy} = -2 L e^{-2\beta } \left(L\beta'-L'\right) ,\\
+	\Gamma^x_{ux} =& \Gamma^x_{xu} =  \frac{L'}{L}+\beta', \qquad
+	\Gamma^y_{uy} =  \Gamma^y_{yu} = \frac{L'}{L}-\beta' .
+\end{align*}
+非零黎曼曲率：
+\begin{align*}
+	R_{uxux} =& -e^{ 2 \beta} L \left(L''+ L\beta'^2 + L\beta'' +2 L' \beta'\right),\\
+	R_{uyuy} =& -e^{-2 \beta} L \left(L''+ L\beta'^2 - L \beta''-2 L' \beta'\right).
+\end{align*}
+非零Ricci曲率：
+\begin{align*}
+	R_{uu} = -\frac{2}{L} \left(L''+L \beta'^2\right) .
+\end{align*}
+由Ricci曲率可见只要$L(u)$、$\beta(u)$满足方程$L''+L\beta'^2=0$，
+那么上面给出的度规场便是真空爱氏场方程的解；并且黎曼曲率可以非零．
+\qed
+
+\begin{exercise}
+	证明式\eqref{chrg:eqn_CST-down-I}、\eqref{chrg:eqn_CST-down-II}、\eqref{chrg:eqn_Bianchi-CII-down}．
+\end{exercise}
+
+\begin{exercise}
+	请自己编写符号演算程序来计算式\eqref{chrg:eqn_Riemann_rr}．
+\end{exercise}
+
+\begin{exercise}
+	补全例题\ref{chrg:exm_SWPlane}、\ref{chrg:exm_BondiPlane}中遗漏步骤．
+\end{exercise}
+
+
+
+
+\section{$E^3$中的活动标架法}\label{chrg:sec_E3MF}
+\S \ref{chccr:sec_form1}和\S\ref{chrg:sec_form2}的工作
+起源于$E^3$中的活动标架法（参见\parencite[\S 6.3]{cc2001-zh}）；
+我们沿着历史发展的时间顺序，介绍一下$E^3$中的活动标架法．
+我们把\S\ref{chcdg:sec_E3}中的活动标架用抽象指标重新表述一遍．
+$E^3$中的坐标原点是$O$，再任意指定一点$P\in E^3$和其伴随矢量空间$\mathbb{R}^3$中的
+一组基底$\{(e_1)^a,(e_2)^a,(e_3)^a\}$．度规是正定的单位矩阵．
+
+在$E^3$中先选定固定的、正交归一的切标架场$\{O;(\delta_i)^a\},\, 1\leqslant i \leqslant 3$；
+对应坐标直线是$\{x^i\}$，即$(\delta_i)^a= (\frac{\partial}{\partial x^i})^a$；
+这套基矢在$E^3$中每点都相同．
+则任意活动标架场$\{P;(e_\alpha)^a\}$（标架可能非正交归一，可能逐点不同）可表示为：
+\begin{equation}
+    (OP)^a = x^i (\delta_i)^a,\qquad
+    (e_\beta)^a = (\delta_j)^a A^j_{\cdot \beta} .
+\end{equation}
+上式中为了让抽象指标匹配，已令$(OP)^a=\overrightarrow{OP}$．
+需要注意切矢量场的外微分运算是没有定义的；
+由正定欧几里得度规场$g_{ab}=\delta_{ij}(\delta^i)_a (\delta^j)_b
+=g_{\alpha\beta}(e^\alpha)_a(e^\beta)_b$可以
+很简单地把切矢量变成余切矢量：
+\begin{equation}
+    (OP)_a = x^i (\delta_i)_a,\qquad
+    (e_\alpha)_a = (\delta_j)_a A^j_{\cdot \alpha} .
+\end{equation}
+有了余切矢量场，便可以用外微分算符了（注意常矢量$(\delta_i)_a$的微分恒为零）．
+\begin{equation}
+    {\rm d}_b (OP)_a = ({\rm d}_b x^i) \wedge (\delta_i)_a,\quad
+    {\rm d}_b (e_\beta)_a = ({\rm d}_b A^j_{\cdot \beta}) \wedge  (\delta_j)_a .
+\end{equation}
+把上式中的固定基矢场$(\delta_i)_a$消去，换为活动基矢场$(e_\alpha)_a$，有
+\begin{equation}\label{chrg:eqn_tmpopeBA}
+    {\rm d}_b (OP)_a = B^{\alpha}_{\cdot i} {\rm d}_b x^i \wedge (e_\alpha)_a  ,\quad
+    {\rm d}_b (e_\beta)_a = B^{\alpha}_{\cdot j}{\rm d}_b A^j_{\cdot \beta} \wedge  (e_\alpha)_a .
+\end{equation}
+其中，变换矩阵$A$和$B$是互逆关系，即$B^{-1} = A$．令
+\begin{equation}\label{chrg:eqn_om324}
+    (\omega^\alpha)_b = B^{\alpha}_{\cdot i} {\rm d}_b x^i,\qquad
+    (\omega^{\alpha}_{\cdot \beta})_b=B^{\alpha}_{\cdot j}{\rm d}_b A^j_{\cdot \beta} .
+\end{equation}
+将上式带回\eqref{chrg:eqn_tmpopeBA}，
+并对该式再次求取外微分，利用${\rm d}\circ {\rm d}=0$可得结构方程：
+\setlength{\mathindent}{0em}
+\begin{align}
+    0=&\bigl({\rm d} (\omega^\alpha)\bigr)_{cb} \wedge (e_\alpha)_a - (\omega^\alpha)_c \wedge {\rm d}_b(e_\alpha)_a
+    {\color{red}\ \Rightarrow \ }
+    {\rm d}_c (\omega^\alpha)_b = (\omega^\sigma)_c\wedge (\omega_{\cdot \sigma}^\alpha)_b . \label{chrg:eqn_jgfc1} \\
+    0=&\bigl({\rm d} (\omega^\alpha_{\cdot \beta})\bigr)_{cb} \wedge  (e_\alpha)_a 
+    - (\omega^\alpha_{\cdot \beta})_c \wedge {\rm d}_b (e_\alpha)_a {\color{red}\ \Rightarrow \ }
+    {\rm d}_c (\omega^\alpha_{\cdot \beta})_b = (\omega^{\sigma}_{\cdot \beta})_c 
+    \wedge (\omega^{\alpha}_{\cdot \sigma})_b .    \label{chrg:eqn_jgfc2}
+\end{align}\setlength{\mathindent}{2em}
+
+
+
+我们取活动标架场为$P$点的自然切标架，令$(e_\alpha)^a= (\frac{\partial}{\partial u^\alpha})^a$，
+$\{u^\alpha\}$是活动标架（例如球坐标）所对应的坐标曲线．
+此时（下式的记号略有些乱，省略了位矢$\boldsymbol{r}$的抽象指标）
+\begin{equation}
+    \boldsymbol{r}=\overrightarrow{OP}= (OP)^a = x^i (\delta_i)^a 
+    = x^i(u^1,u^2,u^3) \left(\frac{\partial}{\partial x^i}\right)^a .
+\end{equation}
+点$P$的活动标架场是该点的自然标架$\{P;(e_\alpha)^a\}$：
+\begin{equation}
+    (e_\alpha)^a = \left.\left(\frac{\partial}{\partial u^\alpha}\right)^a\right|_{P}
+    =\frac{\partial x^j}{\partial u^\alpha}
+    \left.\left(\frac{\partial}{\partial x^j}\right)^a \right|_{P}
+    =A^j_{\cdot \alpha} \left.\left(\frac{\partial}{\partial x^j}\right)^a\right|_{P} .
+\end{equation}
+在$E^3$（$g_{ab}=\delta_{ij}({\rm d}x^i)_a ({\rm d}x^j)_b$）中，
+活动标架场$\{P;(e_\alpha)^a\}$下的度规分量是：
+\begin{equation}\label{chrg:eqn_gabEuclid}
+    g_{\alpha\beta}= g_{ab}(e_\alpha)^a (e_\beta)^b
+    =g_{ab} \frac{\partial x^i}{\partial u^\alpha} \left(\frac{\partial}{\partial x^i}\right)^a
+    \frac{\partial x^j}{\partial u^\beta} \left(\frac{\partial}{\partial x^j}\right)^b
+    = \sum_{i=1}^{3}\frac{\partial x^i}{\partial u^\alpha}\frac{\partial x^i}{\partial u^\beta} .
+\end{equation}
+在欧几里得空间中，任一点切空间仍是欧氏空间，与自身完全重合；
+这使得欧氏空间的基矢的导数可以在自身展开，即
+\begin{equation}\label{chrg:eqn_tmpr23}
+    \frac{\partial (e_\alpha)^a }{\partial u^\beta} = \Gamma^\sigma_{\alpha\beta} (e_\sigma)^a  
+    \quad \Leftrightarrow \quad
+    \frac{\partial }{\partial u^\beta} \left.\left(\frac{\partial}{\partial u^\alpha}\right)^a\right|_{P}
+    = \Gamma^\sigma_{\alpha\beta} \left.\left(\frac{\partial}{\partial u^\sigma}\right)^a \right|_{P}.
+\end{equation}
+欧氏联络（即$\partial$）自然与欧氏度规相互容许，
+故联络系数满足$\Gamma^\sigma_{\alpha\beta}=\Gamma^\sigma_{\beta\alpha}$；
+由偏导数求导次序无关也可得到这个对称性，即
+\begin{equation}\label{chrg:eqn_tmpra32}
+    \frac{\partial (e_\alpha)^a }{\partial u^\beta}
+    =\frac{\partial^2 \boldsymbol{r}}{\partial u^\alpha \partial u^\beta}
+    =\frac{\partial (e_\beta)^a }{\partial u^\alpha}
+    =\frac{\partial^2 x^j}{\partial u^\alpha\partial u^\beta}
+    \left. \left(\frac{\partial}{\partial x^j}\right)^a \right|_{P}.
+\end{equation}
+将式\eqref{chrg:eqn_tmpr23}与$(e_\nu)^a$作内积，得
+\begin{equation}
+    g_{ab} \left[\frac{\partial }{\partial u^\beta} \left(\frac{\partial}{\partial u^\alpha}\right)^a\right]_P
+    \left. \left(\frac{\partial}{\partial u^\nu}\right)^b\right|_{P}
+    = \sum_{j=1}^{3}\frac{\partial^2 x^j}{\partial u^\alpha\partial u^\beta}
+    \frac{\partial x^j}{\partial u^\nu}
+    = \Gamma^\sigma_{\alpha\beta} g_{\sigma\nu}  .
+\end{equation}
+对式\eqref{chrg:eqn_gabEuclid}求偏导数，有（结合上式）
+\begin{align}
+    \frac{\partial g_{\alpha\beta}}{\partial u^\mu} = 
+    \sum_{i=1}^{3}\left[\frac{\partial^2 x^i}{\partial u^\alpha\partial u^\mu}
+    \frac{\partial x^i}{\partial u^\beta}+ \frac{\partial x^i}{\partial u^\alpha}
+    \frac{\partial^2 x^i}{\partial u^\beta\partial u^\mu}   \right] 
+    = \Gamma^\sigma_{\alpha\mu} g_{\sigma\beta} + \Gamma^\sigma_{\beta\mu} g_{\sigma\alpha} .
+\end{align}
+由上式不难得到联络系数表达式：
+\begin{equation}\label{chrg:eqn_Gmf}
+    \Gamma^\mu_{\alpha\beta}= \frac{1}{2} g^{\mu\sigma}\left(
+    \frac{\partial g_{\alpha\sigma}}{\partial u^\beta}+
+    \frac{\partial g_{\beta\sigma}}{\partial u^\alpha}-
+    \frac{\partial g_{\alpha\beta}}{\partial u^\sigma}\right) .
+\end{equation}
+很明显，与式\eqref{chrg:eqn_Christoffel-naturalbases}相同；不相同才奇怪！
+虽然欧氏空间是平直的，当选用活动标架时，其克氏符\eqref{chrg:eqn_Gmf}未必都是零；
+但由这组克氏符计算得到的黎曼曲率一定恒为零．
+
+
+
+继续讨论结构方程\eqref{chrg:eqn_jgfc1}、\eqref{chrg:eqn_jgfc2}．
+在活动标架场$\{P;(\frac{\partial}{\partial u^\alpha})^a\}$下，
+我们计算式\eqref{chrg:eqn_om324}：
+\begin{align}
+    (\omega^\alpha)_a =& B^{\alpha}_{\cdot i} {\rm d}_a x^i=\frac{\partial u^\alpha}{\partial x^i}
+    \frac{\partial x^i}{\partial u^\sigma}({\rm d}u^\sigma)_a=({\rm d}u^\alpha)_a, \label{chrg:eqn_tmpe45} \\
+    (\omega^{\alpha}_{\cdot \beta})_a=&B^{\alpha}_{\cdot j}{\rm d}_a A^j_{\cdot \beta}
+    =\frac{\partial u^\alpha}{\partial x^j} \frac{\partial^2 x^j}
+    {\partial u^\sigma\partial u^\beta}({\rm d}u^\sigma)_a
+    \xlongequal[\ref{chrg:eqn_tmpra32}]{\ref{chrg:eqn_tmpr23}}
+    \Gamma^\alpha_{\beta \sigma}({\rm d}u^\sigma)_a. \label{chrg:eqn_tmpomg5}
+\end{align}
+由式\eqref{chrg:eqn_tmpe45}可知$(\omega^\alpha)_a$就是自然坐标
+基矢$(e_\alpha)^a=(\frac{\partial}{\partial u^\alpha})^a$的对偶基矢，
+可以把它记为$(\omega^\alpha)_a=(e^\alpha)_a$．
+由式\eqref{chrg:eqn_tmpomg5}可知它与式\eqref{chccr:def_1form}完全相同．
+故可得结论：结构方程\eqref{chrg:eqn_jgfc1}、\eqref{chrg:eqn_jgfc2}与
+结构方程\eqref{chccr:eqn_CST}（欧氏空间黎曼曲率恒为零）本质相同；不相同就奇怪了．
+历史上，Cartan先在欧氏空间发展了活动标架法，得到了结构方程\eqref{chrg:eqn_jgfc1}、\eqref{chrg:eqn_jgfc2}；
+之后把它们推广成为式\eqref{chccr:eqn_CST}的形式．
+
+
+{\kaishu 
+    陈省身（\parencite{cc2001-zh}附录二）说（大意）：
+    (1) 现在，活动标架法（\S \ref{chccr:sec_form1}、\S\ref{chrg:sec_form2}、
+    \S\ref{chnull:sec_NP1}和\S\ref{chnull:sec_NP2}内容）是微分几何中极为重要的方法．
+    (2) 张量分析法（利用局部坐标切矢量作为标架）弊多利少，但简单明了，在微分几何的初等问题中功不可没．
+}
+
+
+%\index[physwords]{Schmidt正交化}
+%
+%\begin{example}
+%    Schmidt正交化．
+%\end{example}
+%上面给出的自然标架场$(\frac{\partial}{\partial u^\alpha})^a$可能是非正交的，
+%我们可以通过Schmidt过程得到正交归一化标架场．度规$g_{\alpha\beta}$见式\eqref{chrg:eqn_gabEuclid}．
+%\begin{align*}
+%    (e_1)^a =& \frac{1}{\sqrt{g_{11}}}\left(\frac{\partial}{\partial u^1}\right)^a,\\
+%    (e_2)^a =& 
+%\end{align*}
+
+
+\subsection{正交归一标架场}\label{chrg:sec_E3-Orthogonal-Normalization}
+本小节重复抽象指标求和；重复分量指标不求和，求和分量指标将显示标识．
+
+我们总可以将一个标架场正交化（参见\pageref{chmla:thm_obm}页定理\ref{chmla:thm_obm}中论证）．
+故可以假设活动标架场$(\frac{\partial}{\partial u^\alpha})^a$是相互正交的，但未必归一；归一化关系为：
+\begin{equation}
+    ({E}_\alpha)^a = L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a ,
+    \quad \text{重复指标$\alpha$不求和，} L_{\alpha} \ \text{是Lam\'e系数}
+\end{equation}
+$({E}_\alpha)^a$是归一化后的矢量．带入度规，有
+\begin{align*}
+    \delta_{\alpha \beta} =& g_{ab} ({E}_\alpha)^a ({E}_\beta)^b = g_{ab}
+    L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a 
+    L_{\beta}^{-1}  \left(\frac{\partial}{\partial u^\beta}\right)^b 
+    =g_{\alpha\beta} L_{\alpha}^{-1} L_{\beta}^{-1} \\
+    \xlongequal{\ref{chrg:eqn_gabEuclid}} &    L_{\alpha}^{-1} L_{\beta}^{-1}
+    \sum_{l=1}^{3}\frac{\partial x^l}{\partial u^\alpha}\frac{\partial x^l}{\partial u^\beta},
+    \qquad \text{重复指标}\alpha,\beta \text{不求和} 
+\end{align*}
+因此可得Lam\'e系数为：
+\begin{equation}
+    L_{\alpha} = \sqrt{ \left(\frac{\partial x}{\partial u^\alpha}\right)^2 
+        + \left(\frac{\partial y}{\partial u^\alpha}\right)^2
+        + \left(\frac{\partial z}{\partial u^\alpha}\right)^2 } \  ;
+    \qquad \alpha = 1,2,3
+\end{equation}
+对于正交的活动标架场$(\frac{\partial}{\partial u^\alpha})^a$，其度规可以表示为
+\begin{equation}\label{chrg:eqn_E3gab}
+    \begin{aligned}
+        g_{ab}=& (L_1)^2({\rm d}u^1)_a ({\rm d}u^1)_b
+        +(L_2)^2({\rm d}u^2)_a ({\rm d}u^2)_b
+        +(L_3)^2({\rm d}u^3)_a ({\rm d}u^3)_b \\
+        =& (E^1)_a (E^1)_b + (E^2)_a (E^2)_b + (E^3)_a (E^3)_b .
+    \end{aligned}    
+\end{equation}
+由式\eqref{chrg:eqn_Gmf}可得坐标$\{u^\alpha\}$的联络系数$\oversetmy{u}{\Gamma}$（下式重复指标不求和）
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chrg:eqn_E3gamma}
+    \oversetmy{u}{\Gamma}^\mu_{\alpha\beta}= 0, \ (\alpha\neq \beta \neq \mu) ; \quad
+    \oversetmy{u}{\Gamma}^\mu_{\alpha \alpha}= - \frac{L_\alpha}{L_\mu^2} 
+    \frac{\partial L_\alpha}{\partial u^\mu} , \ (\alpha \neq \mu) ; \quad
+    \oversetmy{u}{\Gamma}^\mu_{\mu \beta}= \frac{1}{L_\mu} \frac{\partial L_\mu}{\partial u^\beta} .
+\end{equation}\setlength{\mathindent}{2em}
+式\eqref{chrg:eqn_E3gamma}中最后一式中的$\beta$可以等于$\mu$、也可以不等于$\mu$．
+
+%对于复杂的标架场，我们可以通过Cartan结构方程或者式\eqref{chccr:eqn_D-omega-form}来求解标架运动．
+对于上述正交归一标架场可通过如下直接计算方式求得基矢导数．
+\begin{align*}
+    \nabla_{\frac{\partial }{\partial u^j}} (E_k)^b = & \nabla_{\frac{\partial }{\partial u^j}}
+    \left[ L_{k}^{-1} \left(\frac{\partial}{\partial u^k}\right)^b \right]
+    =-L_{k}^{-2} \frac{\partial L_{k}}{\partial u^j}\left(\frac{\partial}{\partial u^k}\right)^b
+    +L_{k}^{-1} \nabla_{\frac{\partial }{\partial u^j}} \left(\frac{\partial}{\partial u^k}\right)^b \\
+    =&-L_{k}^{-1} \frac{\partial L_{k}}{\partial u^j} (E_k)^b
+    +L_{k}^{-1}  \sum_{l=1}^{3} \oversetmy{u}{\Gamma}^l_{kj} L_{l} (E_l)^b  .
+\end{align*}
+利用式\eqref{chrg:eqn_E3gamma}，可将上式分成如下两种形式（下式中重复指标不求和）：
+\begin{subequations}\label{chrg:eqn_E3-Triad}
+    \begin{align}    
+        \nabla_{\frac{\partial }{\partial u^j}} (E_k)^b  = &
+        \frac{1}{L_k} \frac{\partial L_j}{\partial u^k} (E_j)^b  ,
+        \qquad k\neq j ; \label{chrg:eqn_E3-Triad-1}\\
+        \nabla _{\frac{\partial }{\partial u^j}} (E_j)^b =& 
+        - (E_k)^b \frac{1}{L_k} \frac{\partial L_j}{\partial u^k} 
+        - (E_i)^b \frac{1}{L_i} \frac{\partial L_j}{\partial u^i},
+        \qquad j\neq k \neq i . \label{chrg:eqn_E3-Triad-2}
+    \end{align}    
+\end{subequations}
+式\eqref{chrg:eqn_E3-Triad-2}中$1\leqslant i,j,k \leqslant 3$，且互不相等．
+共有三组，分别是：$j=1$、$k=2$、$i=3$；$j=2$、$k=3$、$i=1$；$j=3$、$k=1$、$i=2$．
+
+
+式\eqref{chrg:eqn_E3-Triad}是力学张量分析中的常用公式，
+由该式可以得到球坐标等正交归一基矢量的偏导数关系，请读者试着推演．
+因$\{u^i\}$是活动标架，故不建议把这两式中的
+协变导数$\nabla _{\frac{\partial }{\partial u^i}} (E_j)^b$记
+成偏导数$\frac{\partial }{\partial u^i} (E_j)^b$．
+需要强调的是：$\{u^i\}$不是正交归一基矢$\{(E_i)^a\}$的坐标线，
+$\{u^i\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^j})^a$的坐标线．
+
+
+%\subsection{$E^3$中的二维曲面论}\label{chrg:sec_E3-2surface}
+
+
+\begin{exercise}
+	将式\eqref{chrg:eqn_E3-Triad-1}、\eqref{chrg:eqn_E3-Triad-2}写成分量形式．
+\end{exercise}
+
+
+\index[physwords]{截面曲率}
+
+\section{截面曲率}\label{chrg:sec_sectional-curvature}
+截面曲率是二维曲面论中高斯曲率在高维空间的推广，本节来讨论这个概念以及与之有关的一些定理．
+设有$m(\geqslant 2)$维广义黎曼流形$(M,g)$，在$p\in M$点切空间$T_pM$中
+有两个不共线的、非零模、非零切矢量$u^a$和$v^a$，
+将它们进行非退化线性变换
+\begin{equation}\label{chrg:eqn_tmp3221}
+    \tilde{u}^a = C_1^1 u^a +C_1^2 v^a, \ \tilde{v}^a = C_2^1 u^a +C_2^2 v^a;
+    \ \det(C) = C_1^1C_2^2 - C_1^2 C^1_2\neq 0 .
+\end{equation}
+得到的$\tilde{u}^a$和$\tilde{v}^a$同样是$T_pM$中两个不共线切矢量．令
+\begin{equation}\label{chrg:eqn_tmp3222}
+    Q(u,v)\equiv {u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 .
+\end{equation}
+通过直接计算可证明，在非退化变换\eqref{chrg:eqn_tmp3221}下，有
+\begin{equation}\label{chrg:eqn_tmp3223}
+    Q(\tilde{u},\tilde{v}) = \bigl(\det(C)\bigr)^2 Q(u,v) .
+\end{equation}
+计算过程只是繁琐但不困难，请读者补齐．
+因$u^a,v^a$不共线，它们共同确定了一个平面，
+这个二维子空间称为切空间$T_pM$的{\heiti 二维截面}，记作$[u\wedge v]$．
+当度规正定时，恒为正的$Q(u,v)$恰好是两个矢量所张成平行四边形的面积平方；
+当度规不定时，$Q(u,v)$可能为负，此时取绝对值以保证$Q(u,v)>0$．
+
+同样通过直接计算可证明下式（给出计算过程）
+\begin{align*}
+    R_{abcd}\tilde{u}^a\tilde{v}^b\tilde{u}^c\tilde{v}^d = & R_{abcd}
+    (C_1^1 u^a +C_1^2 v^a) (C_2^1 u^b +C_2^2 v^b)(C_1^1 u^c +C_1^2 v^c) (C_2^1 u^d +C_2^2 v^d) \\
+    =&R_{abcd}(C_1^1 C_2^1 u^a u^b -C_1^2 C_2^1 v^b u^a+ C_1^1 C_2^2 u^a v^b +C_1^2 C_2^2 v^a v^b) \\
+    &\phantom{R_{a}}\times (C_1^1 C_2^1 u^c u^d -C_1^2 C_2^1 v^d u^c+ C_1^1 C_2^2 u^c v^d +C_1^2 C_2^2 v^c v^d)
+\end{align*}
+考虑到黎曼曲率关于下标的反对称性（$R_{abcd}=-R_{bacd}=-R_{abdc}$），上式最终为
+\begin{equation}\label{chrg:eqn_tmp3224}
+    R_{abcd}\tilde{u}^a\tilde{v}^b\tilde{u}^c\tilde{v}^d = \bigl(\det(C)\bigr)^2 R_{abcd} u^a v^b u^c v^d .
+\end{equation}
+由此可以定义二维截面$[u\wedge v]$的{\heiti 截面曲率}为
+\begin{equation}\label{chrg:eqn_sectional-curvature}
+    K([u\wedge v]) \overset{def}{=}  \frac{R_{abcd} u^a v^b u^c v^d}{Q(u,v)} 
+    = \frac{R_{abcd} u^a v^b u^c v^d}{{u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 } .
+\end{equation}
+其中$K$的参数是由$u^a,v^a$所确定的截面，与$u^a,v^a$本身没有关系，这由
+式\eqref{chrg:eqn_tmp3223}以及\eqref{chrg:eqn_tmp3224}一望而知．
+由定义可以看出$K$是一个实数．
+
+\begin{example}\label{chrg:exam_sc-gauss}
+    当$m=2$时，来计算一下$K$值．设$u^a=(\frac{\partial}{\partial x})^a$及
+    $v^a=(\frac{\partial}{\partial y})^a$，有
+    \begin{equation}
+        K([u\wedge v]) = \frac{R_{abcd} (\frac{\partial}{\partial x})^a (\frac{\partial}{\partial y})^b
+            (\frac{\partial}{\partial x})^c (\frac{\partial}{\partial y})^d}
+          {Q((\frac{\partial}{\partial x}),(\frac{\partial}{\partial y}))}
+        =\frac{R_{1212}}{g_{11}g_{22}-g_{12}g_{21}} .
+    \end{equation}
+    这正是二维曲面$p$点高斯曲率，见式\eqref{chcdg:eqn_RK2}．
+\end{example}
+
+\index[physwords]{常曲率空间}
+
+\subsection{常曲率空间}\label{chrg:sec_const-curvature}
+\begin{definition}
+        若广义黎曼流形$(M,g)$上所有点的二维截面曲率都是同一常数，则$M$为{\heiti 常曲率空间}．
+\end{definition}
+
+\begin{theorem}\label{chrg:thm_const-curvature}
+    $M$是常曲率空间的充要条件是：
+    $\forall p\in M,\ \forall u^a,v^a,w^a,z^a\in T_pM$，有
+    \begin{equation}\label{chrg:eqn_const-curvature}
+        R_{abcd} u^a v^b w^c z^d = K_0 ( {u}_a {w}^a \cdot {v}_b{z}^b - {u}_a{z}^a \cdot {v}_b{w}^b ).
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    “$\Leftarrow$”部分是显然的．
+
+    下面证明“$\Rightarrow$”．
+    点$p$所有二维截面的截面曲率都是实常数$K_0$，即
+    \setlength{\mathindent}{0em}
+    \begin{align*}
+        0=& R_{abcd} u^a v^b u^c v^d -K_0 ({u}_a{u}^a \cdot {v}_b{v}^b - {u}_a{v}^a {u}^b{v}_b ) \\
+        \xLongrightarrow{v\to v+z}
+        0 = & R_{abcd} u^a v^b u^c v^d + R_{abcd} u^a v^b u^c z^d+R_{abcd} u^a z^b u^c v^d+R_{abcd} u^a z^b u^c z^d \\
+         -& K_0 \bigl(u_a u^a (v_b v^b+v_b z^b + z_b v^b + z_b z^b ) - u_a u^b (v^a v_b + v^a z_b + z^a v_b + z^a z_b )\bigr) \\
+        \xLongrightarrow[\text{恒零项}]{\text{约去}}
+        0 = &   R_{abcd} u^a z^b u^c v^d - K_0 \bigl( u_a u^a z_b v^b  - u_a u^b v^a z_b \bigr) \\
+        \xLongrightarrow{u\to u+w}
+        0 = &   R_{abcd} (u^au^c+w^au^c+u^aw^c+ w^aw^c) z^b v^d \\
+         -& K_0 \bigl( (u^a u_a+ w^au_a+u^aw_a+ w^aw_a) z_b v^b  - (u^b u_a+ w^bu_a+u^bw_a+ w^bw_a) v^a z_b \bigr) \\
+       \xLongrightarrow[\text{恒零项}]{\text{约去}}   0 = &  R_{abcd} (w^a u^c+u^aw^c ) z^b v^d
+         - K_0 \bigl( ( w^au_a+u^aw_a) z_b v^b  - ( w^bu_a+u^bw_a) v^a z_b \bigr) \\
+        \Rightarrow 0=&
+            R_{abcd}u^a v^b w^c z^d  - K_0 \bigl(  w^au_a z_b v^b  - u^bz_b w_a v^a \bigr) \\
+         +& R_{abcd}u^a z^b w^c v^d  - K_0 \bigl(  u^aw_a z_b v^b  - u_av^a z_b w^b \bigr)
+    \end{align*}  \setlength{\mathindent}{2em}
+    上式倒数第一行中的$T(u,z,w,v)\equiv -K_0 ( u^aw_a z_b v^b  - u_av^a z_b w^b ) $满足第一Bianchi恒等式（循环恒等式），
+    即在代换$v\to w, w\to z, z\to v$作用下有$T(u,v,w,z)+T(u,w,z,v)+T(u,z,v,w)=0$；直接计算便可验证这个恒等式．
+    同时不难验证它还满足$T(u,z,w,v)=-T(u,z,v,w)=-T(z,u,w,v)$和$T(u,z,w,v)=T(w,v,u,z)$；
+    黎曼曲率本身当然也满足上述这些对称性．
+    上式最后一步表明，当所有二维截面曲率为常数时，具有如下对称性：
+    \begin{equation}\label{chrg:eqn_tmpcc10}
+        R_{abcd}u^a v^b w^c z^d  + T(u,v,w,z) = R_{abcd}u^a z^b v^c w^d  + T(u,z,v,w).
+    \end{equation}
+    这相当于进行如下轮换时具有不变性，即$v\to z, w\to v, z\to w$；很显然，上式再次轮换后，还有下述等式
+    \begin{equation}\label{chrg:eqn_tmpcc20}
+        R_{abcd}u^a v^b w^c z^d  + T(u,v,w,z) = R_{abcd}u^a w^b z^c v^d  + T(u,w,z,v).
+    \end{equation}
+    将式\eqref{chrg:eqn_tmpcc10}和\eqref{chrg:eqn_tmpcc20}中三个不同项加在一起，有
+    \begin{equation}\label{chrg:eqn_tmpcc30}
+      \begin{aligned}
+         &\bigl(R_{abcd}u^a v^b w^c z^d  + T(u,v,w,z)\bigr)+  \bigl(R_{abcd}u^a z^b v^c w^d  + T(u,z,v,w)\bigr) \\
+         +& \bigl( R_{abcd}u^a w^b z^c v^d  + T(u,w,z,v)\bigr) .
+      \end{aligned}
+    \end{equation}
+    因$T$和曲率$R$都满足第一Bianchi恒等式，所以式\eqref{chrg:eqn_tmpcc30}恒为零．
+    而式\eqref{chrg:eqn_tmpcc30}本身等于$3\bigl(R_{abcd}u^a v^b w^c z^d  + T(u,v,w,z)\bigr)$，
+    最终有
+    \begin{equation}
+        3\cdot \bigl(R_{abcd} u^a v^b w^c z^d  - K_0 ( u_a w^a\cdot  z_b v^b   - u^bz_b \cdot w_a v^a  ) \bigr)= 0.
+    \end{equation}
+    这便是定理中的式\eqref{chrg:eqn_const-curvature}．
+\end{proof}
+
+%由定理\ref{chrg:thm_const-curvature}可以直接得到如下定理，
+\begin{corollary}\label{chrg:thm_const-curvature-component}
+    设$(M,g)$是常曲率空间（$K_0$是曲率），则在局部标架场$\{(e_i)^a\}$下有
+    \begin{equation}\label{chrg:eqn_const-curvature-component}
+        R_{ijkl}= R_{abcd} (e_i)^a (e_j)^b (e_k)^c (e_l)^d
+        = K_0 ( g_{ik}g_{jl}- g_{il}g_{jk}  ).
+    \end{equation}
+\end{corollary}
+
+在常曲率空间中，曲率型式有较为简洁的表达式，由表达式\eqref{chrg:eqn_Cform-down}得
+\begin{equation}\label{chrg:eqn_const-curvature-inFORM}
+    (\Omega_{ij})_{ab} = \frac{1}{2}R_{ijkl} (e^k)_a \wedge (e^l)_b
+    \xlongequal{\ref{chrg:eqn_const-curvature-component}}
+    K_0 (e_i)_a \wedge (e_j)_b .
+\end{equation}
+需注意，上式所有指标都在下面．
+利用上式，F. Schur证明了如下重要定理：
+\begin{theorem}\label{chrg:thm_Schur-lemma}
+    设有$m(\geqslant 3)$维连通广义黎曼流形$(M,g)$，
+    若$\forall p\in M$，此点的任意二维截面曲率是常数$K(p)$．
+    那么，$K(p)$必为常数，即$M$是常曲率空间．
+\end{theorem}
+\begin{proof}
+    定理中$K(p)$可能是逐点不同的，也就是$K(p)$是$M$上光滑函数场；
+    我们要证明的是：在整个流行$M$上，$K(p)$只能取常数值，不能逐点不同．
+
+    由式\eqref{chrg:eqn_const-curvature-inFORM}可知：
+    $(\Omega_{ij})_{ab}(p) = K(p) (e_i)_a \wedge (e_j)_b , \quad 1\leqslant i,j \leqslant m$．
+    对此式求外微分（注意$K(p)\in C^\infty(M)$），得
+    \begin{align*}
+        &{\rm d}_c(\Omega_{ij})_{ab} = {\rm d}_c (K)\wedge (e_i)_a \wedge (e_j)_b
+        + K \bigl({\rm d}_c(e_i)_a \bigr) \wedge (e_j)_b - K (e_i)_c \wedge \bigl({\rm d}_a (e_j)_b \bigr) \\
+        &\xlongequal{\ref{chrg:eqn_CST-down-I}} {\rm d}_c (K)\wedge (e_i)_a \wedge (e_j)_b
+        - K (e^k)_c \wedge (\omega_{k i})_a \wedge (e_j)_b
+        + K (e_i)_c \wedge (e^k)_a \wedge (\omega_{k j})_b .
+    \end{align*}
+    同时，由式\eqref{chrg:eqn_Bianchi-CII-down}可知联络型式还可以表示为
+    \begin{align*}
+      {\rm d}_c (\Omega_{ij})_{ab}  =&  ( \omega _{\cdot j}^k )_c
+      \wedge (\Omega_{i k} )_{ab} + ( \omega _{\cdot i}^{k} )_c \wedge (\Omega_{k j})_{ab}   \\
+      \xlongequal{\ref{chrg:eqn_const-curvature-inFORM}}&
+      K( \omega _{\cdot j}^k )_c \wedge (e_i)_a \wedge (e_k)_b
+      +K ( \omega _{\cdot i}^{k} )_c \wedge (e_k)_a \wedge (e_j)_b .
+    \end{align*}
+    对比以上两式可知，有
+    \begin{equation}
+        {\rm d}_c (K)\wedge (e_i)_a \wedge (e_j)_b = 0.
+    \end{equation}
+    在标架场$\{(e^i)_a\}$中，可令${\rm d}_c (K) = K_l (e^l)_c$；带入上式，有
+    \begin{equation}\label{chrg:eqn_tmpschur}
+       \sum_{l } K_l (e^l)_c \wedge (e_i)_a \wedge (e_j)_b = 0, \qquad \forall i,j .
+    \end{equation}
+    取$i=1,j=2$，由上式得$K_l=0(l \geqslant 3)$．再取$i=3,j=1$和$i=3,j=2$，由式\eqref{chrg:eqn_tmpschur}可
+    得$K_1=K_2=0$．因此有${\rm d}_c (K) = 0$，进而可知$K(p)$对于整个流形只能取常数，不能是逐点变化的．
+\end{proof}
+
+%很明显，上面给出的常曲率空间满足爱因斯坦流形的定义\ref{chrg:def_Einstein-manifold}，因此有
+%\begin{corollary}\label{chrg:thm_conformal-Einstein-manifold}
+%    常曲率广义黎曼流形是爱因斯坦流形．
+%\end{corollary}
+%有关爱因斯坦流形更多内容请参阅文献\parencite{besse-2008-EM}．
+
+\begin{exercise}
+	在不同文献中，式\eqref{chrg:eqn_sectional-curvature}的定义会有正负号差异，缘由大体如此：
+	二维曲面高斯曲率\eqref{chcdg:eqn_RK2}定义是固定不变的（指$K=\kappa_1 \kappa_2$不变），
+	不会有人在这个式子上加个负号（即不会定义成$K=-\kappa_1 \kappa_2$）．
+	而不同文献中$\binom{0}{4}$型黎曼曲率的定义\eqref{chrg:eqn_RiemannianCurvature-d4}有可能相差一个负号；
+	为了调整这个符号差异，不同文献在式\eqref{chrg:eqn_sectional-curvature}的定义会有正负号差异；
+	例题\ref{chrg:exam_sc-gauss}恰好可以验证这种差异．	如读者有意愿，请翻阅其它书籍，
+	查看其曲率正负号（指截面曲率、$\binom{0}{4}$型黎曼曲率和二维曲面高斯曲率）是否前后一致．
+\end{exercise}
+
+
+\index[physwords]{共形变换}
+\section{共形变换}\label{chrg:sec_comformal-transformation}
+有$m$维广义黎曼流形$(M,g)$，设$\Omega \in C^\infty(M)$是处处恒正函数场，于是
+\begin{equation}\label{chrg:eqn_comformal-transformation}
+    \tilde{g}_{ab} = \Omega^2 g_{ab} \quad \Leftrightarrow \quad
+    \tilde{g}^{ab} = \Omega^{-2} g^{ab},
+\end{equation}
+在流形$M$上定义了一个\uwave{新}度规场$\tilde{g}_{ab}$；
+式\eqref{chrg:eqn_comformal-transformation}称为流形$M$上的{\heiti 共形变换}；
+特别的，如果$\Omega$是正的实常数，则称为称为{\heiti 相似变换}．
+
+与$g_{ab}$相容的联络记为$\nabla_a$，克氏符记为$\Gamma_{ij}^k$．
+与$\tilde{g}_{ab}$相容的联络记为$\tilde{\nabla}_a$，克氏符记为$\tilde{\Gamma}_{ij}^k$．
+一般说来，带波纹的量与不带波纹的量不再相同，本节主要来计算它们间的差异．
+需要注意的是，带波纹张量需要用带波纹度规$\tilde{g}$升降指标；
+不带波纹张量需要用不带波纹度规$g$升降指标．为了避免不必要的误解，
+我们将显示写出这些度规．
+
+
+\paragraph{克氏符差异}
+设有局部坐标系$\{x^i\}$，
+仿照式\eqref{chrg:eqn_Christoffel-2-naturalbases}可知
+\begin{align}
+    \tilde{\Gamma}_{ij}^k =& \frac{1}{2} \tilde{g}^{kl} \left( \frac{\partial \tilde{g}_{il}  }{\partial x^j}
+        + \frac{\partial \tilde{g}_{lj} } {\partial x^i}  - \frac{\partial \tilde{g}_{ij}} {\partial x^l} \right)
+        =\frac{1}{2} \Omega^{-2}{g}^{kl} \left( \frac{\partial \Omega^{2}{g}_{il}  }{\partial x^j}
+        + \frac{\partial \Omega^{2}{g}_{lj} } {\partial x^i}  
+        - \frac{\partial \Omega^{2}{g}_{ij}} {\partial x^l} \right) \notag \\
+%      =&  \frac{1}{2}{g}^{kl}\left( \frac{\partial {g}_{il}  }{\partial x^j}
+%      + \frac{\partial {g}_{lj} } {\partial x^i}  - \frac{\partial {g}_{ij}} {\partial x^l} \right)
+%      +\frac{1}{2} \Omega^{-2}{g}^{kl} \left( {g}_{il}\frac{\partial \Omega^{2}  }{\partial x^j}
+%      +{g}_{lj} \frac{\partial \Omega^{2}} {\partial x^i}  
+%      - {g}_{ij}\frac{\partial \Omega^{2}} {\partial x^l} \right) \notag \\
+      =&\Gamma_{ij}^k+ \delta_i^k \frac{\partial \ln \Omega  }{\partial x^j}
+      + \delta_j^k \frac{\partial \ln\Omega} {\partial x^i}
+      - {g}_{ij} {g}^{kl}\frac{\partial \ln\Omega} {\partial x^l}
+      \equiv \Gamma_{ij}^k+ \Xi_{ij}^k. \label{chrg:eqn_comformal-Gamma}
+\end{align}
+上式最后一步定义了
+\begin{equation}\label{chrg:eqn_comformal-Xi}
+    \Xi_{ij}^k \equiv \delta_i^k \frac{\partial \ln \Omega  }{\partial x^j}
+    + \delta_j^k \frac{\partial \ln\Omega} {\partial x^i}
+    - {g}_{ij} {g}^{kl}\frac{\partial \ln\Omega} {\partial x^l} .
+\end{equation}
+虽然克氏符不是张量，但两者的差$\Xi_{ab}^c\equiv \Xi_{ij}^k ({\rm d}x^i)_a ({\rm d}x^j)_b
+(\frac{\partial}{\partial x^k} )^c$是张量；
+很明显有$\Xi_{ab}^c=\Xi_{ba}^c$．
+因$\ln \Omega$是标量函数场，在局部上可以将偏导数换成协变导数，
+即$\partial_a \ln \Omega = \nabla_a\ln \Omega$；所以上式还可以表示成
+\begin{equation}\label{chrg:eqn_comformal-Xi-nabla}
+    \Xi_{ab}^c = \delta_a^c \nabla_b\ln \Omega + \delta_b^c \nabla_a\ln \Omega
+    - {g}_{ab} {g}^{ce}\nabla_e\ln \Omega .
+\end{equation}
+
+有了克氏符的差异，那联络差异便容易求得了，$\forall X^a\in \mathfrak{X}(M),\ \omega_a \in \mathfrak{X}^*(M)$
+\begin{align}
+    (\tilde{\nabla}_a-\nabla_a) X^b & = \Xi_{ca}^b X^c,    \label{chrg:eqn_comformal-X-D} \\
+    (\tilde{\nabla}_a-\nabla_a) \omega_b & = -\Xi_{ba}^c \omega_c.    \label{chrg:eqn_comformal-w-D}
+\end{align}
+由上两式容易求得高阶张量场的协变导数差异．
+
+
+
+
+
+\paragraph{曲率差异}
+首先计算黎曼曲率．从式\eqref{chccr:eqn_Riemannian13-Vec-commutator}出发，
+先计算下式（$\forall Z^a\in \mathfrak{X}(M)$）
+\begin{align*}
+    \tilde{\nabla}_a \tilde{\nabla}_b Z^d %= \tilde{\nabla}_a (\nabla_b Z^d + \Xi_{fb}^d Z^f )
+    =&{\nabla}_a (\nabla_b Z^d + \Xi_{fb}^d Z^f ) + \Xi_{ea}^d (\nabla_b Z^e + \Xi_{fb}^e Z^f )
+    - \Xi_{ba}^e (\nabla_e Z^d + \Xi_{fe}^d Z^f ) \\
+    =&{\nabla}_a \nabla_b Z^d + Z^f {\nabla}_a \Xi_{fb}^d   +\Xi_{fb}^d {\nabla}_a  Z^f +
+       \Xi_{ea}^d (\nabla_b Z^e + \Xi_{fb}^e Z^f ) - \Xi_{ba}^e \tilde{\nabla}_e Z^d
+\end{align*}
+对上式中的下标$ab$取反对称（注意利用$\Xi_{ab}^c=\Xi_{ba}^c$），有
+%\setlength{\mathindent}{0em}
+\begin{align*}
+    \tilde{R}_{cab}^d Z^c =& 2 \tilde{\nabla}_{[a} \tilde{\nabla}_{b]} Z^d
+    =2 {\nabla}_{[a} \nabla_{b]} Z^d + 2Z^f {\nabla}_{[a} \Xi_{b]f}^d  
+    +2\Xi_{f[b}^d {\nabla}_{a]} Z^f \\
+    +&2\Xi_{e[a}^d \nabla_{b]} Z^e + 2\Xi_{e[a}^d\Xi_{b]f}^e Z^f  
+    \ =R_{cab}^d Z^c + 2Z^f {\nabla}_{[a} \Xi_{b]f}^d  + 2\Xi_{e[a}^d\Xi_{b]f}^e Z^f .
+\end{align*} %\setlength{\mathindent}{2em}
+因$\forall Z^a\in \mathfrak{X}(M)$，故有
+\begin{subequations}\label{chrg:eqn_comformal-Riemann}
+\begin{align}
+    \tilde{R}_{cab}^d=& R_{cab}^d + 2 {\nabla}_{[a} \Xi_{b]c}^d  + 2\Xi_{e[a}^d\Xi_{b]c}^e
+    \label{chrg:eqn_comformal-Riemann-a}\\
+%    \xlongequal{\ref{chrg:eqn_comformal-Xi}}&R_{cab}^d
+%    -2\delta_{[a}^d{\nabla}_{b]}  \partial_c \ln \Omega + 2{g}^{df} {g}_{c[a} {\nabla}_{b]} \partial_f \ln\Omega
+%    +2 (\partial_c \ln\Omega) \delta_{[a}^d\partial_{b]} \ln\Omega  \notag \\
+%    &- 2 {g}_{c[a} (\partial_{b]} \ln \Omega)  {g}^{df}\partial_f \ln\Omega
+%    - 2\delta_{[a}^d {g}_{b]c} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%    \label{chrg:eqn_comformal-Riemann-b} \\
+    \xlongequal{\ref{chrg:eqn_comformal-Xi-nabla}}& R_{cab}^d -2\delta_{[a}^d{\nabla}_{b]}  \nabla_c \ln \Omega
+    + 2{g}^{df} {g}_{c[a} {\nabla}_{b]} \nabla_f \ln\Omega
+    + 2(\nabla_c \ln\Omega) \delta_{[a}^d\nabla_{b]} \ln\Omega  \notag \\
+    &- 2 {g}_{c[a} (\nabla_{b]} \ln \Omega)  {g}^{df}\nabla_f \ln\Omega
+    - 2\delta_{[a}^d {g}_{b]c} {g}^{ef}(\nabla_e \ln\Omega)\nabla_f \ln\Omega .
+    \label{chrg:eqn_comformal-Riemann-c}
+\end{align}
+\end{subequations}
+上式计算过程并不复杂，请读者补齐计算．
+%式\eqref{chrg:eqn_comformal-Riemann-a}到\eqref{chrg:eqn_comformal-Riemann-b}的计算过程
+%\begin{align*}
+%    2 {\nabla}_{[a} \Xi_{b]c}^d  =&  2\delta_{[b}^d{\nabla}_{a]}  \partial_c \ln \Omega +
+%     2\delta_c^d {\nabla}_{[a} \partial_{b]} \ln\Omega - 2{g}^{df} {g}_{c[b} {\nabla}_{a]} \partial_f \ln\Omega
+%  \\=& -2\delta_{[a}^d{\nabla}_{b]}  \partial_c \ln \Omega + 2{g}^{df} {g}_{c[a} {\nabla}_{b]} \partial_f \ln\Omega
+%  \\  2\Xi_{e[a}^d\Xi_{b]c}^e = &
+%      \delta_b^d (\partial_a \ln \Omega)  \partial_c \ln \Omega
+%      + \delta_a^d (\partial_b \ln\Omega )\partial_c \ln \Omega
+%      - {g}_{ba} {g}^{df} (\partial_f \ln\Omega)  \partial_c \ln \Omega
+% \\& +\delta_c^d (\partial_a \ln \Omega ) \partial_b \ln\Omega
+% + \delta_a^d (\partial_c \ln\Omega) \partial_b \ln\Omega
+%  - {g}_{ca} {g}^{df}(\partial_f \ln\Omega ) \partial_b \ln\Omega
+% \\& - (\partial_a \ln \Omega) {g}_{bc} {g}^{dh}\partial_h \ln\Omega
+%  - \delta_a^d {g}_{bc} {g}^{eh}(\partial_e \ln\Omega)\partial_h \ln\Omega
+%  +  {g}^{df}(\partial_f \ln\Omega) {g}_{bc} \partial_a \ln\Omega
+%\\ \xlongequal{\text{加上[]}}&
+%   2 (\partial_c \ln\Omega) \delta_{[a}^d\partial_{b]} \ln\Omega
+%  + 2(\partial_{[a} \ln \Omega) {g}_{b]c} {g}^{dh}\partial_h \ln\Omega
+%  - 2\delta_{[a}^d {g}_{b]c} {g}^{eh}(\partial_e \ln\Omega)\partial_h \ln\Omega
+%\end{align*}
+%\begin{align*}
+%    & \Xi_{bc}^d \equiv \delta_b^d \partial_c \ln \Omega + \delta_c^d \partial_b \ln\Omega - {g}_{bc} {g}^{df}\partial_f \ln\Omega
+%  \\& \Xi_{bc}^e \equiv \delta_b^e \partial_c \ln \Omega + \delta_c^e \partial_b \ln\Omega - {g}_{bc} {g}^{eh}\partial_h \ln\Omega
+%  \\& \Xi_{ea}^d \equiv \delta_e^d \partial_a \ln \Omega + \delta_a^d \partial_e \ln\Omega - {g}_{ea} {g}^{df}\partial_f \ln\Omega
+%  \\& \Xi_{ab}^c \equiv \delta_a^c \partial_b \ln \Omega + \delta_b^c \partial_a \ln\Omega - {g}_{ab} {g}^{ce}\partial_e \ln\Omega
+%\end{align*}
+
+式\eqref{chrg:eqn_comformal-Riemann-c}收缩后得Ricci曲率间的差异是：
+\begin{equation}\label{chrg:eqn_comformal-Ricci}
+    \begin{aligned}
+        \tilde{R}_{bc}=& R_{bc} - {g}_{bc} {g}^{ef}{\nabla}_{e} {\nabla}_f \ln\Omega
+        -(m-2) {\nabla}_{b}  {\nabla}_c \ln \Omega \\
+        & + (m-2) ({\nabla}_b \ln\Omega) {\nabla}_{c} \ln\Omega
+        - (m-2) {g}_{bc} {g}^{ef}({\nabla}_e \ln\Omega){\nabla}_f \ln\Omega .
+    \end{aligned}
+\end{equation}
+%Ricci曲率的具体计算
+%\begin{align*}
+%    \tilde{R}_{cab}^d=& R_{cab}^d
+%    -\delta_{a}^d{\nabla}_{b}  \partial_c \ln \Omega + \delta_{b}^d{\nabla}_{a}  \partial_c \ln \Omega
+%    + {g}^{df} {g}_{ca} {\nabla}_{b} \partial_f \ln\Omega -{g}^{df} {g}_{cb} {\nabla}_{a} \partial_f \ln\Omega \\
+%    & + (\partial_c \ln\Omega) \delta_{a}^d\partial_{b} \ln\Omega -(\partial_c \ln\Omega) \delta_{b}^d\partial_{a} \ln\Omega   \\
+%    &- {g}_{ca} (\partial_{b} \ln \Omega)  {g}^{df}\partial_f \ln\Omega
+%      +{g}_{cb} (\partial_{a} \ln \Omega)  {g}^{df}\partial_f \ln\Omega \\
+%    &- \delta_{a}^d {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%    +\delta_{b}^d {g}_{ac} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega \\
+%    \xLongrightarrow{\text{收缩}}
+%        \tilde{R}_{cab}^a=& R_{cab}^a
+%    -m {\nabla}_{b}  \partial_c \ln \Omega + {\nabla}_{b}  \partial_c \ln \Omega
+%    + {\nabla}_{b} \partial_c \ln\Omega - {g}_{cb} {\nabla}^{f} \partial_f \ln\Omega \\
+%    & + m (\partial_c \ln\Omega) \partial_{b} \ln\Omega -(\partial_c \ln\Omega) \partial_{b} \ln\Omega   \\
+%    &-  (\partial_{b} \ln \Omega)  \partial_c \ln\Omega
+%    +{g}_{cb} (\partial_{a} \ln \Omega)  {g}^{af}\partial_f \ln\Omega \\
+%    &- m {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%    + {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega   \\
+%    =& R_{bc}-(m-2) {\nabla}_{b}  \partial_c \ln \Omega
+%     - {g}_{bc} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega \\
+%    & + (m-2) (\partial_c \ln\Omega) \partial_{b} \ln\Omega
+%    - (m-2) {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%\end{align*}
+再次收缩得标量曲率间的差异是（需用度规，所以有系数$\Omega^2$）
+\begin{equation}\label{chrg:eqn_comformal-R-scalar}
+   \Omega^2\tilde{R}= R -2(m-1) g^{bc} {\nabla}_{b}  {\nabla}_c \ln \Omega
+        -(m-1)(m-2)  {g}^{bc}({\nabla}_b \ln\Omega){\nabla}_c \ln\Omega .
+\end{equation}
+%标量曲率的具体计算
+%\begin{align*}
+%    \tilde{R}_{bc}=& R_{bc} - {g}_{bc} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega
+%    -(m-2) {\nabla}_{b}  \partial_c \ln \Omega \\
+%    & + (m-2) (\partial_b \ln\Omega) \partial_{c} \ln\Omega
+%    - (m-2) {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%    \\ \Rightarrow
+%    \Omega^2\tilde{R}=& R -2(m-1) g^{bc} {\nabla}_{b}  \partial_c \ln \Omega
+%    -(m-1)(m-2)  {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%\end{align*}
+$\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升上来得到）间的差异是
+\begin{equation}\label{chrg:eqn_comformal-Weyl}
+    \tilde{C}_{\hphantom{a} bcd}^a = C_{\hphantom{a} bcd}^a .
+\end{equation}
+上式计算较为繁琐，但无需任何技巧，直接把式\eqref{chrg:eqn_comformal-Riemann}、
+\eqref{chrg:eqn_comformal-Ricci}和\eqref{chrg:eqn_comformal-R-scalar}带入
+式\eqref{chrg:eqn_WeylConform-d4}硬算便是；
+注意利用：因联络无挠，故$\nabla_b \nabla_c \ln \Omega =\nabla_c \nabla_b \ln \Omega$．
+在共形映射下，$\Tpq{1}{3}$型Weyl张量是不变的，所它也被称为{\heiti 共形张量}．
+\index[physwords]{共形变换!共形张量|see{Weyl张量}}
+需要注意其它类型Weyl张量未必是共形不变的，比如$\Tpq{0}{4}$型的就不是，
+即$\tilde{C}_{abcd} =\Omega^2 C_{abcd}$．
+%具体计算过程是
+%\setlength{\mathindent}{0em}
+%\begin{align*}
+%    \tilde{C}_{bcd}^a-&C_{bcd}^a{=}
+%    \tilde{R}_{bcd}^a- \frac{1}{m-2}\left( \delta_c^a \tilde{R}_{bd} - \delta_d^a \tilde{R}_{bc}
+%    + \tilde{g}_{bd}\tilde{R}_{ce}\tilde{g}^{ea} - \tilde{g}_{bc}\tilde{R}_{de}\tilde{g}^{ea}\right)
+%    + \frac{1}{(m-1)(m-2)}\left(\delta_c^a \tilde{g}_{bd}-\delta_d^a \tilde{g}_{bc}\right) \tilde{R} \\
+%    & -R_{bcd}^a + \frac{1}{m-2}\left( \delta_c^a R_{bd} - \delta_d^a R_{bc}+ g_{bd}R_{ce}{g}^{ea}
+%        - g_{bc}R_{de}{g}^{ea}\right)  + \frac{1}{(m-1)(m-2)}\left(\delta_c^a g_{bd}-\delta_d^a g_{bc}\right) R \\
+%    =& -2\delta_{[c}^a{\nabla}_{d]}  \partial_b \ln \Omega + 2{g}^{af} {g}_{b[c} {\nabla}_{d]} \partial_f \ln\Omega
+%    +2 (\partial_b \ln\Omega) \delta_{[c}^a\partial_{d]} \ln\Omega   \\
+%     &\quad- 2 {g}_{b[c} (\partial_{d]} \ln \Omega)  {g}^{af}\partial_f \ln\Omega
+%    - 2\delta_{[c}^a {g}_{d]b} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega \\
+%    &- \frac{1}{m-2} \bigg[\delta_c^a \Bigl( - {g}_{bd} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega
+%    -(m-2) {\nabla}_{b}  \partial_d \ln \Omega \\
+%    & \quad + (m-2) (\partial_b \ln\Omega) \partial_{d} \ln\Omega
+%    - (m-2) {g}_{bd} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega \Bigr) \\
+%    &-\delta_d^a \Bigl(- {g}_{bc} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega
+%    -(m-2) {\nabla}_{b}  \partial_c \ln \Omega \\
+%    & \quad + (m-2) (\partial_b \ln\Omega) \partial_{c} \ln\Omega
+%    - (m-2) {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega\Bigr) \\
+%    &+ g_{bd}{g}^{ha} \Bigl(- {g}_{hc} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega
+%    -(m-2) {\nabla}_{h}  \partial_c \ln \Omega \\
+%    & \quad + (m-2) (\partial_h \ln\Omega) \partial_{c} \ln\Omega
+%    - (m-2) {g}_{hc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega\Bigr) \\
+%    &- g_{bc}{g}^{ha} \Bigl(- {g}_{dh} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega
+%    -(m-2) {\nabla}_{d}  \partial_h \ln \Omega \\
+%    & \quad + (m-2) (\partial_d \ln\Omega) \partial_{h} \ln\Omega
+%    - (m-2) {g}_{dh} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega\Bigr)     \bigg] \\
+%    &+ \frac{1}{(m-1)(m-2)} \bigg[(\delta_c^a g_{bd}-\delta_d^a g_{bc})
+%    \Bigl(-2(m-1) g^{ef} {\nabla}_{e}  \partial_f \ln \Omega
+%    -(m-1)(m-2)  {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega\Bigr)\bigg] \\
+%    =& -{\color{orange} \delta_{c}^a{\nabla}_{d}  \partial_b \ln \Omega }
+%       +{\color{yellow} \delta_{d}^a{\nabla}_{c}  \partial_b \ln \Omega }
+%       +{\color{pink} {g}^{af} {g}_{bc} {\nabla}_{d} \partial_f \ln\Omega }
+%       -{\color{magenta} {g}^{af} {g}_{bd} {\nabla}_{c} \partial_f \ln\Omega }\\
+%    &+ {\color{blue} (\partial_b \ln\Omega) \delta_{c}^a\partial_{d} \ln\Omega  }
+%     - {\color{green} (\partial_b \ln\Omega) \delta_{d}^a\partial_{c} \ln\Omega }  \\
+%    &- {\color{violet}{g}_{bc} (\partial_{d} \ln \Omega)  {g}^{af}\partial_f \ln\Omega }
+%     + {g}_{bd} (\partial_{c} \ln \Omega)  {g}^{af}\partial_f \ln\Omega \\
+%    &- {\color{cyan}\delta_{c}^a {g}_{db} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
+%     +  \delta_{d}^a {g}_{cb} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega } \\
+%    & + { \color{red} \frac{1}{m-2} \delta_c^a{g}_{bd} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega }
+%    + {\color{orange} \delta_c^a {\nabla}_{b}  \partial_d \ln \Omega }
+%    - {\color{blue} \delta_c^a (\partial_b \ln\Omega) \partial_{d} \ln\Omega }
+%    + { \color{cyan} \delta_c^a{g}_{bd} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega } \\
+%    & + {\color{red} \frac{1}{m-2}g_{bd}\delta_c^a {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega }
+%     + {\color{magenta} g_{bd}{g}^{ha} {\nabla}_{h}  \partial_c \ln \Omega }
+%     - g_{bd}{g}^{ha} (\partial_h \ln\Omega) \partial_{c} \ln\Omega
+%     +{\color{cyan} \delta_c^a g_{bd}{g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega} \\
+%    & -{ \color{red} \frac{1}{m-2}\delta_d^a{g}_{bc} {g}^{ef}{\nabla}_{e} \partial_f \ln\Omega }
+%    - {\color{yellow} \delta_d^a{\nabla}_{b}  \partial_c \ln \Omega }
+%    + {\color{green}\delta_d^a(\partial_b \ln\Omega) \partial_{c} \ln\Omega }
+%    -  {\color{cyan} \delta_d^a{g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega }\\
+%    & -{\color{red}  \frac{1}{m-2}\delta_d^a g_{bc}{g}^{ef}{\nabla}_{e} \partial_f \ln\Omega }
+%      -{\color{pink} g_{bc}{g}^{ha} {\nabla}_{d}  \partial_h \ln \Omega }
+%      +{\color{violet} g_{bc} {g}^{ha} (\partial_d \ln\Omega) \partial_{h} \ln\Omega }
+%    - { \color{cyan}\delta_d^a g_{bc}{g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega   } \\
+%    &- {\color{red} 2\frac{1}{m-2} (\delta_c^a g_{bd}-\delta_d^a g_{bc}) g^{ef} {\nabla}_{e}  \partial_f \ln \Omega }
+%     - {\color{cyan} (\delta_c^a g_{bd}-\delta_d^a g_{bc}) {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega } \\
+%    =&0
+%\end{align*}\setlength{\mathindent}{2em}
+%需要注意：因$\ln \Omega$是标量函数场，在局部$\partial_b \ln \Omega = \nabla_b\ln \Omega$．
+%但联络是无挠的，所以${\nabla}_{d}  \nabla_b \ln \Omega =\nabla_{b}  \nabla_d \ln \Omega $．
+
+\index[physwords]{共形变换!平坦}
+
+%\paragraph{共形平坦}
+\begin{definition}
+    如果$m$维广义黎曼流形$(M,g)$上对于每一点$p$，都存在包含$p$的开邻域$U$以及$U$上的平坦
+    度量$\tilde{g}$（即它的黎曼曲率$\tilde{R}^a_{bcd}$恒为零），使得在$U$上$g$和$\tilde{g}$是共形的，
+    则称$(M,g)$是局部{\heiti 共形平坦}的黎曼流形．
+\end{definition}
+
+\begin{theorem}\label{chrg:thm_conformal-flat}
+    $m(>3)$维广义黎曼流形局部共形平坦的充要条件是$C^a_{\hphantom{a} bcd}$恒为零．
+\end{theorem}
+\begin{proof}
+    参见文献\parencite[\S 3.3]{baizg-2004-irg}；$m= 3$的情形也可参见上述文献．
+\end{proof}
+
+二维流形则一定局部共形平坦，我们将其分为两个定理．
+
+\begin{proposition}\label{chrg:thm_exist-oth-coord}
+	对于度规正定的、可嵌入$E^3$中的二维流形来说，一定存在局部坐标系$\{x,y\}$使得
+	度规满足${\rm d}s^2= \Omega(x,y)({\rm d}x^2 + {\rm d}y^2)$，其中$\Omega(x,y)$恒正．
+\end{proposition}
+\begin{proof}
+	这是古典微分几何中的一个经典定理，在很多文献中都有证明．
+	这里给出一个物理类文献\parencite[\S 11]{chandrasekhar-1983}．
+	需注意：当流形维数大于$2$时，此定理未必成立．
+	此定理只在{\kaishu 局部}成立，未必在整个流形上正确．   
+\end{proof}
+
+\begin{proposition}\label{chrg:thm_exist-oth-coord-lorentz}
+	对于度规场是Lorentz型的二维广义黎曼流形来说，一定存在局部坐标系$\{t,x\}$使得
+	度规满足${\rm d}s^2= \Omega(t,x)(-{\rm d}t^2 + {\rm d}x^2)$，其中$\Omega(t,x)$恒正．
+\end{proposition}
+\begin{proof}
+	因流形是二维的，设其局部坐标为$\{u^1,u^2\}$，在此坐标系下度规场为
+	\begin{equation*}
+		{\rm d}s^2 = g_{11} ({\rm d}u^1)^2 + g_{12} {\rm d}u^1 {\rm d}u^2
+		+g_{21} {\rm d}u^2 {\rm d}u^1 + g_{22} ({\rm d}u^2)^2 .
+	\end{equation*}
+	又因度规是Lorentz型的，故流形上一定存在两组类光测地线，
+	我们设它们的仿射参数分别为$\lambda^1$、$\lambda^2$；则有
+	\begin{align*}
+		0=& g_{ab} \left(\frac{\partial }{\partial \lambda^1}\right)^a\left(\frac{\partial }{\partial \lambda^1}\right)^b
+		=g_{ab} \left(\frac{\partial }{\partial u^i}\right)^a \left(\frac{\partial }{\partial u^j}\right)^b
+		\frac{\partial u^i}{\partial \lambda^1} \frac{\partial u^j}{\partial \lambda^1}
+		=g_{ij} \frac{\partial u^i}{\partial \lambda^1} \frac{\partial u^j}{\partial \lambda^1} , \\
+		0=& g_{ab} \left(\frac{\partial }{\partial \lambda^2}\right)^a\left(\frac{\partial }{\partial \lambda^2}\right)^b
+		=g_{ab} \left(\frac{\partial }{\partial u^i}\right)^a \left(\frac{\partial }{\partial u^j}\right)^b
+		\frac{\partial u^i}{\partial \lambda^2} \frac{\partial u^j}{\partial \lambda^2}
+		=g_{ij} \frac{\partial u^i}{\partial \lambda^2} \frac{\partial u^j}{\partial \lambda^2} .
+	\end{align*}
+	由上式可知，在参数$\{\lambda^1,\lambda^2\}$下，新的度规系数$g'_{11}=0=g'_{22}$，$g'_{12}$非零，即
+	\begin{equation*}
+		g'_{11}=g_{ij}\frac{\partial u^i}{\partial \lambda^1}\frac{\partial u^j}{\partial \lambda^1}=0,\qquad
+		g'_{22}=g_{ij}\frac{\partial u^i}{\partial \lambda^2}\frac{\partial u^j}{\partial \lambda^2}=0.
+	\end{equation*}
+	在新参数$\{\lambda^1,\lambda^2\}$下的度规线元为
+	\begin{equation*}
+		{\rm d}s^2 = g'_{12} {\rm d}\lambda^1 {\rm d}\lambda^2	+g'_{21} {\rm d}\lambda^2 {\rm d}\lambda^1,
+		\qquad \text{且}\  g'_{12} = g'_{21} .
+	\end{equation*}
+	在任意一点$p$，我们可以认为$g'_{12}$是正的，否则我们取$\lambda'^1=-\lambda^1$即可变其为正．
+	由于度规是连续的，一定存在$p$点的一个小邻域$p\in U$使得$g'_{12}$恒正．
+	既然在邻域$U$中$g'_{12}$恒正，可令$\mu = \frac{1}{2}  \ln (2 g'_{12})$，
+	则有${\rm d}s^2 = e^{2\mu} {\rm d}\lambda^1 {\rm d}\lambda^2$．
+	再作变换
+	\begin{equation*}
+		t = \frac{1}{2}\left(\lambda^1 - \lambda^2 \right),\
+		x = \frac{1}{2}\left(\lambda^1 + \lambda^2 \right) ;
+		\quad \Leftrightarrow \quad
+		\lambda^1 = x+t,\ \lambda^2=x-t.
+	\end{equation*}
+	最终线元变为${\rm d}s^2 = e^{2\mu} (-{\rm d}t^2 +{\rm d}x^2)$．%这便证明了命题．
+\end{proof}
+
+
+
+
+
+设$m(>3)$维广义黎曼流形$(M,g)$是曲率为$K_0$的常曲率空间，
+那么，由式\eqref{chrg:eqn_const-curvature-component}可得
+其各种曲率分量表达式
+\begin{align}
+    R_{ijkl}=&  K_0 ( g_{ik}g_{jl}- g_{il}g_{jk}  ), \\
+    R_{jl}=&  K_0 ( m - 1  ) g_{jl}, \\
+    R=& K_0 ( m - 1  ) m , \\
+    C_{ijkl}=& 0 .
+\end{align}
+上面已算出常曲率空间的Weyl张量恒为零，由定理\ref{chrg:thm_conformal-flat}可得如下推论：
+\begin{corollary}\label{chrg:thm_conformal-flat-const-curvature}
+    常曲率广义黎曼流形（维数大于3）必是局部共形平坦的．
+\end{corollary}
+
+
+
+
+\begin{exercise}
+	证明式\eqref{chrg:eqn_comformal-Weyl}．
+\end{exercise}
+
+
+\section*{小结}
+本章主要参考了\parencite{cc2001-zh}、\parencite{chen-li-2023-2ed-v1}相应章节．
+
+本章内容（除\S\ref{chrg:sec_E3MF}外）适用于正定、不定度规．
+
+
+\printbibliography[heading=subbibliography,title=第\ref{chrg}章参考文献]
+
+\endinput

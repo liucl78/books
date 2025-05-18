@@ -1,0 +1,31 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\begin{document}
+
+    \tdplotsetmaincoords{60}{110}
+    %
+    \pgfmathsetmacro{\rvec}{.8}
+    \pgfmathsetmacro{\thetavec}{30}
+    \pgfmathsetmacro{\phivec}{60}
+    \centering
+
+    \begin{tikzpicture}[scale=3,tdplot_main_coords]
+        \coordinate (O) at (0,0,0);
+        \draw[thick,-latex] (0,0,0) -- (1,0,0) node[anchor=north east]{$\tilde x$};
+        \draw[thick,-latex] (0,0,0) -- (0,1,0) node[anchor=north west]{$\tilde y$};
+        \draw[thick,-latex] (0,0,0) -- (0,0,1) node[anchor=south]{$ \tilde z$};
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth,color=red] (O) -- (P) node[above right] {$\mathbf{v}$};
+        \draw[dashed, color=red] (O) -- (Pxy);
+        \draw[dashed, color=red] (P) -- (Pxy);
+        \tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
+        \tdplotsetthetaplanecoords{\phivec}
+        \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}%
+        {\thetavec}{anchor=south west}{$\theta$}
+    \end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,212 @@
+% !TeX encoding = UTF-8
+% 此文件从2024.5开始
+
+\chapter{Kerr空间}\label{chkerr}
+
+
+
+\section{轴对称时空}\label{chkerr:sec_axis-sym}
+
+许多天体都有自转；由于自转的存在，所以时空一定不是球对称的，而是轴对称的．
+
+
+%显然$\{t, \phi, x^2, x^3\}$的切标架不是正交归一的；我们选如下正交归一标架场
+%\begin{equation}\label{chkerr:eqn_terad-cov}
+%\begin{aligned}
+%    &(e^0)_a = e^{\nu} ({\rm d}t)_a,\quad 
+%     (e^1)_a = e^{\psi}({\rm d}\phi)_a - \omega e^{\psi} ({\rm d}t)_a,\\ 
+%    &(e^2)_a = e^{\mu} ({\rm d}x^2)_a,\quad 
+%     (e^3)_a = e^{\lambda} ({\rm d}x^3)_a.
+%\end{aligned}    
+%\end{equation}
+%其逆是
+%\begin{equation}\label{chkerr:eqn_terad}
+%    \begin{aligned}
+%        &(e_0)^a = -e^{-\nu} \left(\frac{\partial}{\partial t}\right)^a
+%        -e^{-\nu}\omega \left(\frac{\partial}{\partial \phi}\right)^a,\quad 
+%         (e_1)^a = e^{-\psi} \left(\frac{\partial}{\partial \phi}\right)^a,\\ 
+%        &(e_2)^a = e^{-\mu} \left(\frac{\partial}{\partial x^2}\right)^a,\quad 
+%         (e_3)^a = e^{-\lambda} \left(\frac{\partial}{\partial x^3}\right)^a.
+%    \end{aligned}    
+%\end{equation}
+
+%借助符号软件，计算得到在标架场$\{(e_\mu)^a\}$下的非零黎曼曲率为：
+%\begin{small}
+%\begin{align*}
+%    R_{0101} =& e^{-2 \mu}\nu_{,2} \psi_{,2} + e^{-2 \lambda} \nu_{,3} \psi_{,3}
+%     +\frac{1}{4} e^{2 \psi-2 \nu} \left(e^{-2 \mu}  (\omega_{,2})^2+e^{-2 \lambda}  (\omega_{,3})^2  \right), \\
+%    R_{0123} =& \frac{1}{2} e^{-\nu +\psi -\mu-\lambda}  \left(\omega _{,3} \left(\psi _{,2}-\nu _{,2}\right)
+%    +\left(\nu _{,3}-\psi _{,3}\right) \omega _{,2}\right) ,\\
+%    R_{0202} =& e^{-2 \lambda} \nu _{,3} \mu{}_{,3}
+%    +e^{-2\mu} \left((\nu _{,2})^2-\mu{}_{,2} \nu _{,2}+\nu _{,2,2}\right)
+%    -\frac{3}{4} e^{2 (\psi -\nu -\mu )}  (\omega _{,2})^2,\\
+%    R_{0203} =& \frac{1}{4} e^{-2 \nu -\mu-\lambda} \left(4 e^{2 \nu } \left(-\mu_{,3} \nu _{,2}
+%    +\nu _{,3} (\nu _{,2}-\lambda_{,2})+\nu _{,2,3}\right)
+%    -3 e^{2 \psi } \omega _{,3} \omega _{,2}\right),\\
+%    R_{0212} =& \frac{1}{2} e^{-\nu +\psi -2 (\mu+\lambda )} \left(e^{2 \lambda} \left(\omega _{,2} \left(\nu _{,2}
+%     -3 \psi _{,2}+\mu{}_{,2}\right)-\omega _{,2,2}\right)
+%     -e^{2 \mu} \omega _{,3} \mu_{,3}\right),\\
+%    R_{0213} =& \frac{1}{2} e^{-\nu +\psi -\mu-\lambda} \left( (\nu _{,3}-2 \psi _{,3}+\mu_{,3}) \omega _{,2}
+%     +\omega _{,3} \left(\lambda_{,2}-\psi _{,2}\right)-\omega _{,2,3}\right), \\
+%    R_{0303} =& e^{-2 \lambda} (\nu _{,3})^2-e^{-2 \lambda} \lambda_{,3} \nu _{,3}
+%    -\frac{3}{4} e^{-2 (\nu -\psi +\lambda)} (\omega _{,3}) ^2
+%    +e^{-2 \lambda} \nu _{,3,3}+e^{-2 \mu} \nu _{,2} \lambda_{,2}, \\
+%    R_{0312} =& \frac{1}{2} e^{-\nu +\psi -\mu-\lambda} \left( (\mu_{,3}-\psi _{,3}) \omega _{,2}
+%     +\omega _{,3} \left(\nu _{,2}-2 \psi _{,2}+\lambda_{,2}\right)-\omega _{,2,3}\right),\\
+%    R_{0313} =& \frac{1}{2} e^{-\nu +\psi -2(\mu+\lambda)} \left(e^{2 \mu} \left(\omega _{,3} \left(\nu _{,3}
+%    -3 \psi _{,3}+\lambda_{,3}\right)-\omega _{,3,3}\right)
+%    -e^{2 \lambda} \omega _{,2} \lambda_{,2}\right),\\
+%    R_{1212} =& \frac{1}{4} e^{-2 (\nu +\mu)} \left(-e^{2 \psi } (\omega _{,2})^2
+%    -4 e^{2 \nu } \left((\psi _{,2})^2-\mu_{,2} \psi _{,2}+\psi _{,2,2}\right)\right)
+%    -e^{-2 \lambda} \psi _{,3} \mu_{,3},\\
+%    R_{1213} =& \frac{1}{4} e^{-2 \nu -\mu-\lambda} \left(-e^{2 \psi } \omega _{,3} \omega _{,2}
+%    -4 e^{2 \nu } \left(-\mu_{,3} \psi _{,2}+\psi _{,3} \left(\psi _{,2}-\lambda_{,2}\right)+\psi _{,2,3}\right)\right), \\
+%    R_{1313} =& \frac{1}{4} e^{-2 (\nu +\mu+\lambda)} \left(e^{2 \mu} \left(-e^{2 \psi } (\omega _{,3})^2
+%    -4 e^{2 \nu } \left((\psi _{,3})^2-\lambda_{,3} \psi _{,3}
+%    +\psi _{,3,3}\right)\right)-4 e^{2 \left(\nu +\lambda\right)} \psi _{,2} \lambda_{,2}\right),\\
+%    R_{2323} =& e^{-2 \mu} \left(\left(\mu_{,2}-\lambda_{,2}\right) \lambda_{,2}
+%    -\lambda_{,2,2}\right)-e^{-2 \lambda} \left((\mu_{,3})^2-\lambda_{,3} \mu_{,3}+\mu_{,3,3}\right) .
+%\end{align*}
+%\end{small}
+%借助符号软件，可得到标架场$\{(e_\mu)^a\}$下的非零Ricci曲率、标量曲率为：
+%\begin{align*}
+%    R_{00} =& \frac{1}{2} e^{-2 (\nu +\mu+\lambda)} \bigl(e^{2 \mu} \left(2 e^{2 \nu } \left(\nu _{,3} \left(\nu _{,3}
+%    +\psi _{,3}+\mu_{,3}-\lambda_{,3}\right)+\nu _{,3,3}\right)-e^{2 \psi } (\omega _{,3})^2\right)\\
+%    &+e^{2 \lambda} \left(2 e^{2 \nu } \left(\nu _{,2} \left(\nu _{,2}+\psi _{,2}
+%    -\mu_{,2}+\lambda_{,2}\right)+\nu _{,2,2}\right)-e^{2 \psi } (\omega _{,2})^2\right)\bigr) ,\\
+%    R_{01} =& \frac{-1}{2} e^{ -2 \lambda -2 \mu -\nu +\psi } \bigl(
+%    e^{2 \mu } (\mu _{,3} \omega _{,3}  -\lambda _{,3} \omega _{,3}
+%    - \nu _{,3} \omega _{,3}+3 \psi _{,3}\omega _{,3}+ \omega _{,3,3})\\
+%    &+e^{2 \lambda } (\lambda _{,2} \omega _{,2}-\mu _{,2} \omega _{,2}
+%    - \nu _{,2} \omega _{,2}+3 \psi _{,2} \omega _{,2}+ \omega _{,2,2})\bigr),\\
+%    R_{11} = & e^{-2 \mu }\bigl( \mu _{,2} \psi _{,2} - (\psi _{,2})^2 
+%    - \lambda _{,2} \psi _{,2} - \nu _{,2} \psi _{,2} - \psi _{,2,2}\bigr) 
+%    -\frac{1}{2} e^{-2 (\mu +\nu -\psi )} (\omega _{,2})^2\\
+%    & +e^{-2 \lambda } \bigl(\lambda _{,3} \psi _{,3} - \psi _{,3,3} - (\psi _{,3})^2
+%    - \mu _{,3} \psi _{,3}  -\nu _{,3} \psi _{,3}\bigr)
+%    -\frac{1}{2}  e^{-2(\lambda +\nu -\psi )} (\omega _{,3})^2  ,\\ 
+%    R_{22} = &e^{-2 \mu } \bigl( \mu _{,2} \nu _{,2} - (\lambda _{,2})^2 - (\nu _{,2})^2-(\psi _{,2})^2
+%    + \lambda _{,2} \mu _{,2}  + \mu _{,2} \psi _{,2}- \lambda _{,2,2}- \nu _{,2,2} -\psi _{,2,2}\bigr) \\
+%    &+e^{-2 \lambda }\bigl( \lambda _{,3} \mu _{,3} -(\mu _{,3})^2- \mu _{,3} \left(\nu _{,3}+\psi _{,3}\right)
+%    -\mu _{,3,3}\bigr)  +\frac{1}{2} e^{-2 (\mu +\nu -\psi )} (\omega _{,2})^2 ,\\
+%    R_{23} =&  e^{-\lambda -\mu  } \bigl(\nu _{,3} (\lambda _{,2}-\nu _{,2})+ \mu_{,3} \nu _{,2}
+%    +\psi _{,3} (\lambda _{,2}-\psi _{,2})+ \mu _{,3} \psi _{,2}\\
+%    &- \nu _{,2,3}- \psi _{,2,3}  +\tfrac{1}{2} e^{2 (\psi- \nu) } \omega _{,2}\omega _{,3} \bigr),\\
+%    R_{33} =& e^{-2 \lambda } \bigl( \lambda _{,3} (\mu _{,3}+\nu _{,3}+\psi _{,3})- \mu _{,3,3}
+%    -\nu _{,3,3}- \psi _{,3,3}- (\mu _{,3})^2  - (\nu _{,3})^2- (\psi _{,3})^2 \bigr)\\
+%    &+e^{-2 \mu } \bigl( \lambda _{,2} \mu _{,2} - (\lambda _{,2})^2        
+%    - \lambda _{,2} \nu _{,2}- \lambda _{,2} \psi _{,2}-\lambda _{,2,2} \bigr)
+%    +\frac{1}{2} e^{-2 (\lambda+\nu -\psi )} (\omega _{,3})^2 . \\
+%    \tfrac{1}{2}R  =&  e^{-2\lambda}\bigl(\tfrac{1}{4} e^{ 2 (\psi-\nu )} (\omega _{,3})^2  
+%    - (\mu _{,3})^2- \left(\nu _{,3}+\psi _{,3}\right) \mu _{,3}
+%    - (\nu _{,3})^2-  (\psi _{,3})^2 \\
+%    &-  \nu _{,3} \psi _{,3}+  \lambda _{,3} (\mu _{,3} +\nu _{,3}+\psi _{,3})
+%    - \mu _{,3,3}-  \nu _{,3,3}-  \psi _{,3,3} \bigr) \\
+%    &+ e^{-2 \mu } \bigl(\lambda _{,2} \mu _{,2}- \lambda _{,2} \nu _{,2}+ \mu _{,2} \nu _{,2}
+%    - \lambda _{,2} \psi _{,2}+  \mu _{,2} \psi _{,2} - \nu _{,2} \psi _{,2} \\
+%    &- \lambda _{,2,2} - \nu _{,2,2}- \psi _{,2,2}  - (\lambda _{,2})^2- (\nu _{,2})^2 
+%    - (\psi _{,2})^2+\tfrac{1}{4} e^{2 (\psi-\nu )} (\omega _{,2})^2 \bigr) .
+%%    G_{22} =& e^{-2 \lambda } \bigl( (\nu _{,3})^2+ \psi _{,3} \nu _{,3}+ (\psi _{,3})^2
+%%    - \lambda _{,3} (\nu _{,3}+\psi _{,3})+ \nu _{,3,3} + \psi _{,3,3} \bigr) \\
+%%    &+e^{-2 \mu } \bigl(\lambda _{,2} \nu _{,2} + \lambda _{,2} \psi _{,2}+ \nu _{,2} \psi _{,2} \bigr)
+%%    +\frac{1}{4} e^{2 (\psi-\nu )} \bigl(e^{-2 \mu } (\omega _{,2})^2 - e^{-2 \lambda } (\omega _{,3})^2\bigr) ,\\
+%%    G_{33} =& e^{-2 \mu } \bigl((\nu _{,2})^2+ (\psi _{,2})^2 - \mu _{,2} \nu _{,2}- \mu _{,2} \psi _{,2}
+%%    + \nu _{,2} \psi _{,2} + \nu _{,2,2}+ \psi _{,2,2} \bigr) \\
+%%    &+e^{-2 \lambda } \bigl(\nu _{,3} \psi _{,3}+ \mu _{,3} (\nu _{,3}+\psi _{,3})\bigr)
+%%    +\frac{1}{4} e^{2 (\psi-\nu )} \bigl(e^{-2 \lambda } (\omega _{,3})^2 - e^{-2 \mu } (\omega _{,2})^2 \bigr).
+%\end{align*}
+%由上式容易得到轴对称真空爱氏场方程。
+从爱氏方程（$R_{\mu\nu}=0$）出发推演得到Kerr解是一繁琐、冗长的过程，
+\textcite{chandrasekhar-1983}第六章给出了详尽的推导；有兴趣的读者可研读之。
+%我们将省略推导，直接给出此解。
+
+
+\begin{definition}\label{chkerr:def_killing-horizon}
+    设四维闵氏流形$(M,g)$上有Killing矢量场$\xi^a$，以及一个类光超曲面$\mathcal{N}$。
+    如果$\xi^a$与$\mathcal{N}$正交，则称$\mathcal{N}$是$\xi^a$的{\heiti \bfseries Killing视界}。
+\end{definition}
+
+%平直闵氏时空中，类光面$x\pm t =0$是Killing视界，但不是事件视界（见\pageref{chsch:sec_event-horizon}页）。
+%
+%可以证明渐进平坦定态时空的黑洞视界是Killing视界。
+%
+%我们将坐标$x^2$、$x^3$分别选为$r$、$\theta$。
+%Killing视界$\mathcal{N}$的方程是
+%\begin{equation}\label{chkerr:eqn_gNr}
+%    g^{ab}\left(\nabla_a \mathcal{N}\right)\nabla_b \mathcal{N} = 0 
+%    \ \xRightarrow{\ref{chkerr:eqn_AS-metric}} \
+%    e^{2(\lambda-\mu)} (\mathcal{N}_{,r})^2 + (\mathcal{N}_{,\theta})^2 =0.
+%\end{equation}
+%我们将规范选为
+%\begin{equation}
+%    e^{2(\lambda-\mu)}= \Delta (r); \qquad    \Delta (r)\, \text{是待定函数}
+%\end{equation}
+%式\eqref{chkerr:eqn_gNr}中的两个平方项$(\mathcal{N}_{,r})^2 $、$ (\mathcal{N}_{,\theta})^2$必然都是非负的；
+%而我们通过规范将$e^{2(\lambda-\mu)}$限定为$r$的函数，故必有$ (\mathcal{N}_{,\theta})^2=0$，
+%和$\Delta (r)=0$；并且$(\mathcal{N}_{,r})^2\neq 0$，否则$\mathcal{N}$就是常数了（这不可能）。
+%
+%Killing视界是类光超曲面，故度规在此曲面上是退化的。
+%Killing视界由$(\frac{\partial}{\partial \phi})^a$、$(\frac{\partial}{\partial t})^a$张成，
+%故在超曲面$\mathcal{N}$上，有二维度规行列式为零：
+%\begin{equation}
+%    e^{2(\psi+\nu)}=0 .
+%\end{equation}
+%故，在类光超曲面$\mathcal{N}$上，我们可以假设
+%\begin{equation}
+%    e^{(\psi+\nu)}=\sqrt{\Delta(r)} f(\theta) .
+%\end{equation}
+%
+%我们通过真空爱氏场方程（$R_{\mu\nu}=0$）来确定；
+%这需要\S\ref{chkerr:sec_axis-sym}中的Ricci曲率。
+%由$R_{00}$和$R_{11}$相加减得
+
+
+
+
+\section{Kerr--Newman解}
+
+Boyer--Lindquist坐标为$\{t,r,\theta,\phi\}$，
+则Kerr--Newman度规\cite[\S 33.2]{mtw1973}$g_{\mu\nu}$是：
+\begin{equation}\label{chkerr:eqn_KN}
+ g=\begin{pmatrix}
+    \frac{-\Delta+a^2\sin^2\theta }{\rho^2} & 0 & 0 & (\Delta -r^2-a^2)\frac{ a \sin^2\theta}{\rho^2} \\
+    0 & \frac{\rho^2}{\Delta} & 0 & 0 \\
+    0 & 0 & \rho^2 & 0 \\
+    (\Delta -r^2-a^2)\frac{ a \sin^2\theta}{\rho^2} & 0 & 0 
+    & \frac{\sin^2\theta}{\rho^2}((r^2+a^2)^2-\Delta a^2 \sin^2\theta) 
+\end{pmatrix}.
+\end{equation}
+电磁规范势为：
+\begin{equation}\label{chkerr:eqn_KN-EMA}
+    A_a= -\frac{Q r}{4 \pi \rho^2 } \left(({\rm d}t)_a - a \sin ^2\theta ({\rm d}\phi)_a \right) .
+\end{equation}
+其中（$Q$是电荷，$M$是质量，$J$是角动量）
+\begin{equation}
+    \Delta =r^2-2M r +a^2+ \frac{Q^2 }{4\pi };\quad
+    \rho^2=\left(a \cos \theta \right)^2+r^2;\quad
+    a=\frac{J}{M}.
+\end{equation}
+
+通过符号演算程序，容易验证式\eqref{chkerr:eqn_KN}、\eqref{chkerr:eqn_KN-EMA}符合爱氏-麦氏场方程。
+
+当$Q=0$时，Kerr--Newman度规退化为纯粹的Kerr解。笔者认为，不论有无电荷，
+这个解的核心人物只有Roy Kerr（新西兰物理学家，1934-）。
+
+很明显，当$a=0=Q$时，Kerr解退化为Schwarzschild解。
+Boyer--Lindquist坐标与Schwarzschild坐标所用字母是相同的。
+
+\begin{equation}
+    \bar{\rho} =r+\mathbbm{i} a \cos\theta ;\quad 
+\bar{\rho}^* =r-\mathbbm{i} a \cos \theta ;\quad
+\Omega =\frac{2 a M r}{\Sigma^2}
+%        \Sigma^2=&(a^2+r^2)^2-\Delta\, a^2\sin ^2\theta;\quad
+\end{equation}
+
+
+\section*{小结}
+本章内容主要取自\parencite{chandrasekhar-1983}相应章节．
+
+
+\printbibliography[heading=subbibliography,title=第\ref{chkerr}章参考文献]
+
+\endinput

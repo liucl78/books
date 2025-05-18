@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+\usetikzlibrary{patterns, positioning, arrows}
+
+
+\begin{document}
+
+    \begin{tikzpicture} %[>=Stealth] %修改箭头样式
+        \draw[->] (-3,0) -- (3,0) node[below left]  {$x$}; %作x轴并标上字母
+        \draw[->] (0,-3) -- (0,3) node[below left]  {$t$}; %作y轴并标上字母
+%        \node[below left] at (0,0) {$O$}; %标上原点字母
+        \draw[domain = -1.2 : 1.2] plot ({sec(\x r)}, {tan (\x r)}) ;
+        \node[below] at (2,1.5) {\tiny $X \text{是常数}$};
+        \draw [-] (0,0)--(3,-1);
+        \node[below] at (2,-0.5) {\tiny $T \text{是常数}$};
+        \draw[dashed] (-2.8,-2.8) -- (2.8,2.8);
+        \draw[dashed] (-2.8,2.8) -- (2.8,-2.8);
+        \node[above] at (-2.3,0) { $L \text{区}$};
+        \node[above] at (+2.3,0) { $R \text{区}$};
+        \node[right] at (0,-2.3) { $P \text{区}$};
+        \node[right] at (0,+2.3) { $F \text{区}$};
+    \end{tikzpicture}
+
+\end{document}

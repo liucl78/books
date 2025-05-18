@@ -1,0 +1,707 @@
+% !TeX encoding = UTF-8
+
+\chapter{复几何初步}\label{chcx}
+
+%本章初步介绍复流形和复几何．
+我们先回顾一些复变函数的基本概念；
+然后补充一些复线性空间的知识；
+之后，引入复结构、线性空间的复化；
+最后介绍复流形和殆复流形．
+
+
+\section{复变函数极简概要}\label{chcx:sec_cxf}
+本节回顾一些复变函数基本内容．%这些知识可在任意一本复变函数教科书中查到．
+
+在复平面某子区域$D$中，如果单值、有限复变函数
+\begin{equation}\label{chcx:eqn_complex-function}
+    f(z)\equiv f(x,y) = u(x,y) + \mathbbm{i} v(x,y); \quad
+    z\equiv x+ \mathbbm{i} y, \ \forall x,y\in \mathbb{R}.
+\end{equation}
+其中$u$、$v$是实函数．
+每一点都是可微的（或可导），
+那么称$f(z)$是$D$内的{\heiti 解析函数}或{\heiti 全纯函数}（holomorphic）．
+实或复函数在$p$点解析是指存在$p$点小邻域使得在此邻域内该函数的幂级数是收敛的．
+
+\index[physwords]{全纯函数}
+
+函数$f(z)$可微的充分必要条件是：在区域$D$中，满足{\heiti 柯西-黎曼条件}：
+\begin{equation}\label{chcx:eqn_Cauchy-Riemann}
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\qquad
+    \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} .
+\end{equation}
+
+利用柯西-黎曼条件可将$f(z)$的导数表示成如下形式
+\begin{equation}
+    \frac{{\rm d} f(z)}{{\rm d}z}=\frac{\partial u}{\partial x}+\mathbbm{i}\frac{\partial v}{\partial x}
+    =\frac{\partial u}{\partial x} - \mathbbm{i}\frac{\partial u}{\partial y}
+    =\frac{\partial v}{\partial y} - \mathbbm{i}\frac{\partial u}{\partial y}
+    =\frac{\partial v}{\partial y} + \mathbbm{i}\frac{\partial v}{\partial x}.
+\end{equation}
+
+我们有如下变换关系
+\begin{equation}
+    z= x+ \mathbbm{i} y,\quad \bar{z}= x - \mathbbm{i} y
+    \quad \Leftrightarrow \quad
+    x = (z+\bar{z})/2, \quad y=(z-\bar{z})/2\mathbbm{i}  .
+\end{equation}
+由上式容易得到
+\begin{align}
+    \frac{\partial }{\partial z}= &
+       \frac{\partial }{\partial x} \frac{\partial x}{\partial z}
+      +\frac{\partial }{\partial y} \frac{\partial y}{\partial z}
+      =\frac{1}{2}\left( \frac{\partial }{\partial x} 
+        -\mathbbm{i}\frac{\partial }{\partial y} \right) . \\
+     \frac{\partial }{\partial \bar{z}}= &
+     \frac{\partial }{\partial x} \frac{\partial x}{\partial \bar{z}}
+     +\frac{\partial }{\partial y} \frac{\partial y}{\partial \bar{z}}
+     =\frac{1}{2}\left( \frac{\partial }{\partial x} 
+     +\mathbbm{i}\frac{\partial }{\partial y} \right) .   
+\end{align}
+利用上式，容易得到
+\begin{equation}\label{chcx:eqn_Cauchy-Riemann-2}
+    \frac{\partial f }{\partial \bar{z}}
+    =\frac{1}{2}\left( \frac{\partial f}{\partial x} 
+    +\mathbbm{i}\frac{\partial f}{\partial y} \right) 
+    =\frac{1}{2}\left( \frac{\partial u}{\partial x} -\frac{\partial v}{\partial y}\right) 
+    +\frac{\mathbbm{i}}{2}\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right) .
+\end{equation}
+由式\eqref{chcx:eqn_Cauchy-Riemann}可见：柯西-黎曼条件等价于$\frac{\partial f }{\partial \bar{z}}=0$；
+也就是说$f(z)$是$D$上的全纯函数等价于$\frac{\partial f }{\partial \bar{z}}=0$．
+这个纯粹形式化的结论大致说明：全纯函数$f(z)$与$\bar{z}$无关，{\kaishu 它仅是$z$的函数}．
+故全纯函数确实是{\kaishu 复变量}（$z$）的函数，而不是两个实变数（$x,y$）的函数．
+一般说来含两个实变量的复值函数有如下关系：
+\begin{equation}
+    f(x,y)=f\left(\frac{z+\bar{z}}{2},\ \frac{z-\bar{z}}{2\mathbbm{i}}\right),
+\end{equation}
+同时与$z,\bar{z}$有关．
+
+%复变函数在区域$D$中一阶可微，则无穷阶可微．
+
+\section{复线性空间}\label{chcx:sec_cls}
+\S\ref{chmla:sec_linear-space}至\S\ref{chmla:sec_double-linear-map}中的内容是建立在一般数域$\mathbb{F}$上的，
+那里的结论基本都适用于本节的复线性空间$V$（见定义\eqref{chmla:def_linear-space}）；
+此处，我们补充些内容．
+
+\index[physwords]{复线性空间}
+
+例\ref{chmla:exm_rc1}和例\ref{chmla:exm_rc2}指出了数域不同，空间维数可能不同；
+下面命题作了推广．
+
+\begin{proposition}\label{chcx:thm_rc}
+    设$V$是数域$\mathbb{C}$上$m$维线性空间．数域$\mathbb{R}$是数域$\mathbb{C}$的一个子集，
+    并且$\mathbb{C}$可以看成数域$\mathbb{R}$上的线性空间，其维数是$2$．
+    那么$V$可以看成数域$\mathbb{R}$上的$2m$维线性空间．
+\end{proposition}
+\begin{proof}
+由于数域$\mathbb{R}$是数域$\mathbb{C}$的一个子集，故$\mathbb{R}$中元素与$V$中矢量可以
+按照$\mathbb{C}$与$V$的数量乘法来作为$\mathbb{R}$与$V$的数量乘法．
+这种定义方式满足定义\ref{chmla:def_linear-space}中的8个条件（请读者自行验证）；
+最终，集合$V$可以看成数域$\mathbb{R}$上的线性空间．
+
+下面求证其维数是$2m$．
+作为$\mathbb{C}$上的线性空间$V$，我们取它的一组基底$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$．
+$\mathbb{C}$作为域$\mathbb{R}$上的二维空间，我们取定一组基矢$\{\epsilon_1=1,\ \epsilon_2=\mathbbm{i}\}$．
+$\forall \alpha \in V$，有
+\begin{equation}
+    \alpha = \sum_{j=1}^{m} c_j \boldsymbol{e}_j, \qquad
+    c_j\in \mathbb{C},\  j=1,2,\cdots,m .
+\end{equation}
+对于$\mathbb{C}$中的元素$c_j$可以表示为
+\begin{equation}
+    c_j= a_j \epsilon_1 + b_j \epsilon_2 = a_j \cdot 1 + b_j \cdot \mathbbm{i},
+    \qquad a_j,b_j \in \mathbb{R},\quad j=1,2,\cdots,m .
+\end{equation}
+因此
+\begin{equation}
+    \alpha= \sum_{j=1}^{m} c_j \boldsymbol{e}_j = \sum_{j=1}^{m} (a_j \epsilon_1 + b_j \epsilon_2) \boldsymbol{e}_j 
+    = \sum_{j=1}^{m} \bigl(a_j (\epsilon_1 \boldsymbol{e}_j )+ b_j (\epsilon_2 \boldsymbol{e}_j )\bigr) . 
+\end{equation}
+上式表明$\forall \alpha \in V$可以由
+\begin{equation*}
+B_m\equiv\{\epsilon_1 \boldsymbol{e}_1,\cdots, \epsilon_1 \boldsymbol{e}_m;\ 
+\epsilon_2 \boldsymbol{e}_1,\cdots, \epsilon_2 \boldsymbol{e}_m\}
+= \{\boldsymbol{e}_1,\cdots, \boldsymbol{e}_m;\ 
+\mathbbm{i} \boldsymbol{e}_1,\cdots, \mathbbm{i} \boldsymbol{e}_m\}
+\end{equation*}
+线性表出，且表出系数都是数域$\mathbb{R}$中的常数．
+$B_m$更确切的表述是两个基矢量的张量积，
+即$B_m\equiv\{\epsilon_1 \otimes \boldsymbol{e}_1,\cdots, \epsilon_1 \otimes \boldsymbol{e}_m;\ 
+\epsilon_2 \otimes\boldsymbol{e}_1,\cdots, \epsilon_2 \otimes\boldsymbol{e}_m\}$．
+
+下面用反证法证明集合$B_m$是线性无关的．
+假设存在非零实数$a_{j},b_j,\ j=1,\cdots,m$使得
+$\sum_{j=1}^{m}\bigl(a_j (\epsilon_1 \boldsymbol{e}_j )+ b_j (\epsilon_2 \boldsymbol{e}_j )\bigr)= 0$；
+将此式稍作变化
+\begin{equation}
+    0=\sum_{j=1}^{m}\bigl(a_j \epsilon_1 + b_j \epsilon_2 \bigr) \boldsymbol{e}_j
+     =\sum_{j=1}^{m}\bigl(a_j \cdot 1 + b_j \cdot \mathbbm{i}\bigr) \boldsymbol{e}_j .
+\end{equation}
+我们已知在数域$\mathbb{C}$上$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$是线性无关的；
+因此从上式可以得到
+\begin{equation}
+    a_j \cdot 1 + b_j \cdot \mathbbm{i}=0\quad \Leftrightarrow \quad
+    a_j=0,\ b_j =0; \quad j=1,2,\cdots,m.
+\end{equation}
+与假设矛盾，故集合$B_m$是线性无关的；
+因此它可以作为数域$\mathbb{R}$上线性空间$V$的基矢量，
+这也就说明了数域$\mathbb{R}$上线性空间$V$的维数是$2m$．
+\end{proof}
+
+
+\index[physwords]{厄米双线性函数}
+\index[physwords]{Hermite函数}
+
+\subsection{厄米双线性函数}
+实线性空间中有对称双线性函数及其内积，如果直接将其（见定义\ref{chmla:def_Euclidean-space}）推广到复线性空间中，
+尤其令复空间内积满足定义\ref{chmla:def_Euclidean-space}中的
+第一条：$\left<\alpha,\beta\right>=\left<\beta,\alpha\right>$；
+那么在正交归一基矢下，复矢量$\alpha$的内积是
+\begin{equation}
+    \left<\alpha,\alpha\right> = \sum_{i,j}\left<a^i \boldsymbol{e}_i, a^j\boldsymbol{e}_j\right>
+    =\sum_{i,j} a^i a^j \delta_{ij} = \sum_{i=1}^{m} (a^i)^2 .
+\end{equation}
+注意复矢量$\alpha$的系数$a^i$是复数，上式求和后一般不是实数；
+也就是说在复空间中矢量长度无法定义；可见这种内积定义方式必须修改． 
+
+Hermite{\footnote{Charles Hermite(1822-1901)法国数学家，译为厄尔米特，简称厄米．}}
+克服了此种困难；我们先叙述厄米双线性函数概念．
+\begin{definition}
+    $m$维复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 厄米双线性函数}，
+    是指它满足如下条件（下式中$\forall c\in \mathbb{C},\  \forall \alpha,\beta,\gamma\in V$，
+    $\bar{c}$是$c$的共轭复数）
+    \begin{equation*}
+        h(c\cdot \alpha+\beta,\gamma) = \bar{c}\cdot h(\alpha,\gamma)+ h(\beta,\gamma),\quad
+        h(\gamma,c\cdot \alpha+\beta) = c\cdot h(\gamma,\alpha)+ h(\gamma,\beta).
+    \end{equation*}
+\end{definition}
+可见厄米{\kaishu 双线性}函数对于第一个位置矢量不是线性的，
+此性质称为\uwave{反线性}或{\heiti 共轭线性}；第二个位置矢量是线性的．
+这种对称性可称为{\heiti 厄米对称}．
+
+\index[physwords]{厄米线性}
+\index[physwords]{厄米对称}
+
+在复线性空间$V$中取定一组基矢$\boldsymbol{e}_i,\cdots,\boldsymbol{e}_m$．
+对任意厄米双线性函数，有
+\begin{equation}
+    h(\alpha,\beta)=\bar{x}^i y^j h(\boldsymbol{e}_i,\boldsymbol{e}_j)
+     = \bar{x}^T A y;\qquad A \equiv  h(\boldsymbol{e}_i,\boldsymbol{e}_j). 
+\end{equation}
+其中$\alpha=\sum_i x^i \boldsymbol{e}_i$，$\beta=\sum_j y^j \boldsymbol{e}_j$，
+$x=(x^1,\cdots,x^m)^T$，$y=(y^1,\cdots,y^m)^T$；
+$A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\uwave{度量矩阵}（metric，也可译成{\kaishu 度规}），
+显然它是一个复矩阵．
+
+反之，任意给定一个复矩阵$A$，则
+\begin{equation}
+    h(\alpha,\beta)\equiv h\left(x^i \boldsymbol{e}_i,\ y^j \boldsymbol{e}_j \right)
+    \overset{def}{=} \bar{x}^T A y, \qquad \forall \alpha,\beta\in V
+\end{equation}
+定义了复空间$V$上的一个厄米双线性函数$h(\cdot,\cdot)$．
+因此厄米双线性函数与$m\times m$复数矩阵之间有\uwave{双射}关系．
+%需要注意的是：我们还未要求{\kaishu 度量矩阵}是非退化的．
+
+%\begin{definition}
+%    若$m$维复线性空间$V$上的厄米双线性函数$h(\cdot,\cdot)$满足
+%    $h(\alpha,\beta)= \overline{h(\beta,\alpha)},\ \forall \alpha,\beta\in V$，
+%    则称$h$是{\heiti  厄米函数}．
+%    若厄米双线性函数$h(\cdot,\cdot)$满足
+%    $h(\alpha,\beta)= -\overline{h(\beta,\alpha)},\ \forall \alpha,\beta\in V$，
+%    则称$h$是{\heiti  反厄米函数}．
+%\end{definition}
+
+
+\begin{definition}
+    满足$A  = \bar{A}^T$的复数矩阵称为{\heiti 厄米矩阵}；
+    满足$A = -\bar{A}^T$的复数矩阵称为{\heiti 反厄米矩阵}；
+    通常记$A^\dagger \equiv \bar{A}^T$，上标$T$表示矩阵转置，横线表示复共轭．
+\end{definition}
+
+%很明显在任意一组基底下，厄米函数对应的矩阵是厄米矩阵，
+%反厄米函数对应的矩阵是反厄米矩阵．
+
+\begin{example}
+    设$A$是任意$m$维复数矩阵，则它可唯一地分解成$A= H+K$，其中
+    \begin{equation}
+        H=\frac{1}{2}(A + \bar{A}^T),\quad \text{ 厄米矩阵};\quad
+        K=\frac{1}{2}(A - \bar{A}^T),\quad \text{ 反厄米矩阵}.
+    \end{equation}
+\end{example}
+
+\begin{example}
+    在$m$维复线性空间$V$中取定两组基矢$\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$和
+    $\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m$；
+    存在非奇异复数矩阵$C$使得$(\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m)
+    =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上厄米双线性函数，则有
+    \begin{align*}
+        A\equiv h(\boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j)
+        =h\left(\sum_k \boldsymbol{e}_k C_{ki},\ \sum_l \boldsymbol{e}_l C_{lj}\right)
+        =\sum_{kl} \bar{C}_{ki} C_{lj} h(\boldsymbol{e}_k, \boldsymbol{e}_l)
+        =C^\dagger B C. 
+    \end{align*}
+    其中$B\equiv h(\boldsymbol{e}_k, \boldsymbol{e}_l)$．    
+    
+    若两个不同复矩阵（$A$、$B$）变换关系是$A= C^\dagger B C$（$C$非奇异），则称
+    $A$、$B$是{\heiti 复相似的}．
+    
+    本例说明$V$上厄米双线性函数$h$
+    在不同基矢下对应的矩阵是\uwave{复相似的}．\qed
+\end{example}
+
+
+
+\subsection{酉空间}\label{chcx:sec_unitary}
+\begin{definition} \label{chcx:def_unitary-space}
+    设$V$是复数域$\mathbb{C}$上的矢量空间，在$V$上定义一个二元运算，有复数$c$与之对应，
+    称为{\heiti 酉（内）积}；或{\heiti 幺正内积}；
+    或{\heiti \bfseries Hermite内积}；
+    记成$c=\left<\alpha,\beta\right>$；它需满足如下性质：
+    
+    {\bfseries (1)} $\left<\alpha,\beta\right>=\overline{\left<\beta,\alpha\right>}$；
+    
+    {\bfseries (2)} $\left<\alpha,k\beta\right>=\left<\alpha,\beta\right>k$；
+    
+    {\bfseries (3)} $\left<\alpha,\beta+\gamma\right>=\left<\alpha,\beta\right>+\left<\alpha,\gamma\right>$； 
+    
+    {\bfseries (4)} $\left<\alpha,\alpha\right>$是非负实数，当且仅当$\alpha=0$时，$\left<\alpha,\alpha\right> = 0$．
+    
+    \noindent 其中$\forall\alpha,\beta,\gamma \in V$，$\forall k\in \mathbb{C}$．
+    这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}．
+\end{definition}
+
+\index[physwords]{酉空间} \index[physwords]{幺正空间|see{酉空间}}
+\index[physwords]{酉内积} \index[physwords]{Hermite内积}
+\index[physwords]{厄米内积}  
+
+
+这个定义适用于有限维和无限维线性空间；
+当把复数域$\mathbb{C}$换成实数域$\mathbb{R}$时，它就退化为欧氏内积．
+代数学上习惯称为酉内积，几何学上习惯称为Hermite内积，物理学上习惯称为幺正内积．
+由酉空间定义容易得到
+$\left<k\alpha,\beta\right>=\overline{\left<\beta,k\alpha\right>}
+=\overline{\left<\beta,\alpha\right>} \bar{k} = \left<\alpha,\beta\right>\bar{k}$；
+容易看出酉内积是正定、厄米双线性函数．
+可见酉内积\ref{chcx:def_unitary-space}不是对称的；是厄米对称的．
+
+给定任意$m$维复线性空间$V$，再给定一组基矢量$\{{e}_i\}$；
+$V$中任意两个矢量$\alpha,\beta$可表示
+为$\alpha=\sum_i x^i \boldsymbol{e}_i$，$\beta=\sum_j y^j \boldsymbol{e}_j$，
+$x=(x^1,\cdots,x^m)^T$，$y=(y^1,\cdots,y^m)^T$．
+我们已知系数$\{x^i,y^j\}$肯定是复数；但对基矢$\{{e}_i\}$知之甚少，
+一般说来只知道它是个符号，不了解具体表征什么内容．
+我们可以规定基矢$\{{e}_i\}$的酉内积是：
+$    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
+也就是规定基矢$\{{e}_i\}$是正交归一的；此种情况下，酉内积的表达式较为简单
+\begin{equation}\label{chcx:eqn_Hermite-Product}
+    \left<\alpha,\beta\right>=\bar{x}^i y^j \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right>
+     =\bar{x}^i y^j \delta_{ij} = \sum_{i=1}^{m}\bar{x}^i y^i.
+\end{equation}
+上式为最常用的酉内积形式．
+
+\begin{example}
+    在$m$维复线性空间$V$中取定两组基矢$\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$和
+   $\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m$；已知两组基矢都是正交归一的；
+   存在非奇异复数矩阵$U$使得$(\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m)
+   =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)U$．那么有
+   \begin{equation*}
+       \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij} 
+       =\left<\boldsymbol{\epsilon}_i,\boldsymbol{\epsilon}_j\right> 
+       =\sum_{kl}\bar{U}_{ki} U_{lj}\left<\boldsymbol{e}_k,\boldsymbol{e}_l\right>
+       =\sum_{kl}\bar{U}_{ki} U_{lj}\delta_{kl}
+       =\sum_{k}\bar{U}_{ki} U_{kj} .
+   \end{equation*}
+   上式说明两组正交归一基矢量间的变换系数满足
+   \begin{equation}
+       U^\dagger U = I \quad \Leftrightarrow\quad
+       U \text {可逆且} U^{-1} = U^\dagger \quad \Leftrightarrow\quad
+       U U^\dagger = I .
+   \end{equation}
+   满足上述关系的矩阵称为{\heiti 幺正矩阵}（也称为酉矩阵）；也就是说联系两组正交归一
+   基矢量的变换矩阵是幺正矩阵．
+   无穷维矩阵需满足$U^\dagger U = I=U U^\dagger$，不能只是其中一个．
+   \qed
+\end{example}
+
+
+\begin{definition}
+    设有$m$维酉空间$V$，$\forall \alpha \in V$，$\sqrt{\left<\alpha,\alpha\right>}$称
+    为矢量$\alpha$的{\heiti 长度}，记作$|\alpha|$．    
+\end{definition}
+
+\begin{definition}
+    若酉空间$V$上线性变换$\hat{U}$满足
+    $\left<\hat{U}\alpha,\hat{U}\beta\right>=\left<\alpha,\beta\right>$，$\forall \alpha,\beta \in V$；
+    则称$\hat{U}$为酉空间$V$上的{\heiti 幺正变换}．
+\end{definition}
+
+
+\begin{theorem}
+    设$V$是酉空间，幺正变换$\hat{U}$在正交归一基底下对应幺正矩阵$U$．
+\end{theorem}
+\begin{proof}
+    $\forall \alpha,\beta \in V$，
+    我们已知$\left<\hat{U}\alpha,\hat{U}\beta\right>=\left<\alpha,\beta\right>$，即
+    \begin{align*}
+        &\left<\alpha,\beta\right>=\sum_{kl}\left<\alpha^i \boldsymbol{e}_k U_{ki}, \beta^j \boldsymbol{e}_l U_{lj} \right>
+        =\sum_{kl}\bar{U}_{ki} U_{lj} \bar{\alpha}^i \beta^j \left< \boldsymbol{e}_k, \boldsymbol{e}_l\right>
+        =\sum_k \bar{U}_{ki} U_{kj} \bar{\alpha}^i \beta^j \\
+        \Rightarrow\ & \bar{\alpha}^i \beta^j \delta_{ij}=\sum_k \bar{U}_{ki} U_{kj} \bar{\alpha}^i \beta^j 
+        \quad \Rightarrow \quad U^\dagger U = I.
+    \end{align*}
+    可见在正交归一基底下幺正变换对应幺正矩阵．
+\end{proof}
+
+\begin{definition}
+    酉空间$V$上线性变换$\hat{A}$称为{\heiti 厄米变换}是
+    指$\left<\hat{A}\alpha,\beta\right>=\left<\alpha,\hat{A}\beta\right>$，
+    $\forall \alpha,\beta\in V$．
+\end{definition}
+厄米变换$\hat{A}$在正交归一基底下对应的矩阵是厄米矩阵（证明留给读者）．
+
+
+\begin{definition}\label{chcx:def_Hilbert-Space}
+    完备的酉空间称为希尔伯特空间．
+\end{definition}
+完备性是指第\pageref{chtop:def_complete-metric}页的定义\ref{chtop:def_complete-metric}（距离由酉积定义）．
+
+
+
+\begin{theorem}\label{chcx:thm_UD}
+	设$A$是任意$m$维幺正矩阵；则一定存在一个幺正矩阵$P$使得$P^{-1}A P=D$，
+	其中$D={\rm diag}\{e^{\mathbbm{i}\theta_1},\cdots,e^{\mathbbm{i}\theta_m}\}$，
+	$0\leqslant \theta_j <2\pi$，$j=1,2,\cdots,m$．
+\end{theorem}
+\begin{proof}
+	证明可参考\parencite[p.522]{qiuws-2019-v2}定理16；或类似文献．
+\end{proof}
+
+
+
+\section{复结构}\label{chcx:sec_cpstru}
+给定数域$\mathbb{C}$上复线性空间$V$，取定其中一组基矢$\{\boldsymbol{e}_i\}$；
+再令$V^*$表示其对偶空间，基矢是$\{\boldsymbol{e}^{*i}\}$．
+复空间的基底$\{\boldsymbol{e}_i\}$是抽象的，我们只知道它是一个符号，
+一般说来不能对它进行取复共轭、取复角等操作．
+参考命题\ref{chcx:thm_rc}，可知空间
+\begin{equation}\label{chcx:eqn_VR}
+    V_{\mathbb{R}} \equiv {\rm Span}_{\mathbb{R}}\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m;\  
+    \mathbbm{i}\boldsymbol{e}_1,\cdots,\mathbbm{i}\boldsymbol{e}_m\} .
+\end{equation}
+是复线性空间$V$限制在实数域$\mathbb{R}$上的具体表现形式；
+很明显实数域上线性空间$V_{\mathbb{R}}$是$2m$维的；
+%一般称实线性空间$V_{\mathbb{R}}$是复线性空间$V$的{\heiti 实形}，
+其实就是同一集合$V$在不同数域（$\mathbb{C}$和$\mathbb{R}$）上的具体表现．
+
+\subsection{复结构定义}
+
+\index[physwords]{复结构}  
+
+
+\begin{definition}
+    设$W$是一个实线性空间，若其上存在一个实线性变换$\mathbb{J}:W\to W$满
+    足$\mathbb{J}^2\equiv \mathbb{J}\circ \mathbb{J}=-{\rm id}$，
+    那么称$\mathbb{J}$是$W$上的一个{\heiti 复结构}．
+\end{definition}
+由例\ref{chmla:exm_T11TR}容易看出$\mathbb{J}$是实线性空间$W$上的一个$\binom{1}{1}$型张量．
+
+
+在$V_{\mathbb{R}}$定义\uwave{实线性变换}$\mathbb{J}:V_{\mathbb{R}}\to V_{\mathbb{R}}$，
+它作用在基矢上的具体表达式为
+\begin{equation}\label{chcx:eqn_cxstrut1}
+    \mathbb{J} (\boldsymbol{e}_i) = \mathbbm{i} \boldsymbol{e}_i, \quad
+    \mathbb{J} (\mathbbm{i}\boldsymbol{e}_i) = - \boldsymbol{e}_i; \qquad 1\leqslant i \leqslant m.
+\end{equation}
+容易算出
+\begin{equation}
+    \mathbb{J}\circ \mathbb{J} (\boldsymbol{e}_i) = \mathbb{J} (\mathbbm{i}\boldsymbol{e}_i) = - \boldsymbol{e}_i, \quad
+    \mathbb{J}\circ \mathbb{J} (\mathbbm{i}\boldsymbol{e}_i) = - \mathbb{J} \boldsymbol{e}_i = -\mathbbm{i}\boldsymbol{e}_i.
+\end{equation}
+需要注意$\mathbb{J}$是\uwave{实}线性变换，虚数单位$\mathbbm{i}$不能移进、移出括号，
+即$\mathbb{J} (\mathbbm{i}\boldsymbol{e}_i)\neq \mathbbm{i}\mathbb{J} (\boldsymbol{e}_i)$；
+实数是可以移进、移出的，即$\mathbb{J} (a\boldsymbol{e}_i)=a \mathbb{J} (\boldsymbol{e}_i)$，$\forall a\in \mathbb{R}$．
+变换矩阵如下：
+\begin{equation}\label{chcx:eqn_J-matrix}
+    \mathbb{J} \begin{pmatrix}
+        \boldsymbol{e}_1 \\  \vdots\\ \boldsymbol{e}_m \\   
+        \mathbbm{i}\boldsymbol{e}_1\\  \vdots\\ \mathbbm{i}\boldsymbol{e}_m
+    \end{pmatrix}^T
+    =\begin{pmatrix}
+        \boldsymbol{e}_1 \\  \vdots\\ \boldsymbol{e}_m \\   
+        \mathbbm{i}\boldsymbol{e}_1\\  \vdots\\ \mathbbm{i}\boldsymbol{e}_m
+    \end{pmatrix}^T
+    \begin{pmatrix}
+        0&\cdots&0 & -1 &  \cdots & 0\\
+        \vdots&\ddots&\vdots &\vdots&\ddots&\vdots\\
+        0&\cdots&0 & 0 &  \cdots & -1\\
+        1&\cdots&0 &0&\cdots&0 \\
+        \vdots&\ddots&\vdots &\vdots&\ddots&\vdots\\
+        0&\cdots&1 & 0 & \cdots & 0
+    \end{pmatrix} .
+\end{equation}
+上式中除标注$\pm 1$的矩阵元外，所有矩阵元都是零．
+当把复线性空间$V$看成$V_{\mathbb{R}}$时，
+由式\eqref{chcx:eqn_cxstrut1}定义的映射$\mathbb{J}$是$V_{\mathbb{R}}$上
+的{\kaishu 复结构}，称为$V_{\mathbb{R}}$的{\heiti 典型复结构}．
+
+
+下面计算$\mathbb{J}$作用在$V_{\mathbb{R}}$中任意矢量$v=a^j \boldsymbol{e}_j 
++ b^j \mathbbm{i}\boldsymbol{e}_j$（$\forall a^j,b^j \in \mathbb{R}$）的结果．
+\begin{align}
+   \mathbb{J} v &= \mathbb{J} \left( a^j \boldsymbol{e}_j + b^j \mathbbm{i}\boldsymbol{e}_j \right)
+     = a^j \mathbb{J}( \boldsymbol{e}_j) + b^j \mathbb{J} (\mathbbm{i}\boldsymbol{e}_j ) 
+     = a^j ( \mathbbm{i} \boldsymbol{e}_j) + b^j (-\boldsymbol{e}_j ) \notag\\
+     &\xlongequal[-1=\mathbbm{i}^2]{\text{令}}
+      a^j  \mathbbm{i} \boldsymbol{e}_j + b^j (\mathbbm{i}\mathbbm{i}\boldsymbol{e}_j ) 
+     = \mathbbm{i} \left( a^j \boldsymbol{e}_j + b^j \mathbbm{i}\boldsymbol{e}_j \right)
+     = \mathbbm{i} v. \label{chcx:eqn_Jv=iv} \\
+   \mathbb{J}^2 v &=  \mathbb{J}\circ \mathbb{J} v = \mathbb{J} \left(a^j ( \mathbbm{i} \boldsymbol{e}_j) + b^j (-\boldsymbol{e}_j ) \right)
+     = a^j ( - \boldsymbol{e}_j) - b^j (\mathbbm{i}\boldsymbol{e}_j ) 
+     = -v . \label{chcx:eqn_JJv=-v}
+\end{align}
+$\mathbb{J}$作用在$V_{\mathbb{R}}$中的元素$v$相当于把$v$看成复空间$V$中的元素乘以虚数单位$\mathbbm{i}$，
+然后再把它看作$V_{\mathbb{R}}$中的元素．
+由式\eqref{chcx:eqn_Jv=iv}可知实线性变换$\mathbb{J}$在$V_\mathbb{R}$中的定义是良好的，
+与$V$中基底$\{\boldsymbol{e}_j\}$选取无关．
+反之，我们有如下定理．
+\begin{theorem}\label{chcx:thm_2mm}
+    设$W$是有复结构$\mathbb{J}$的$n$维实线性空间，那么$n$必是偶数，即$n=2m$．
+    并且在$W$中存在一组基底$\{\boldsymbol{\epsilon}_\alpha,\ 1\leqslant \alpha \leqslant 2m\}$使得
+    \begin{equation}
+        \mathbb{J} \boldsymbol{\epsilon}_i = \boldsymbol{\epsilon}_{m+i}, \quad
+    \mathbb{J} \boldsymbol{\epsilon}_{m+i} = - \boldsymbol{\epsilon}_i; \qquad 1\leqslant i \leqslant m.
+    \end{equation}
+    因此，存在一个$m$维复线性空间$V$，把它限制在实数域$\mathbb{R}$上得到的空间$V_{\mathbb{R}}=W$，
+    并且$\mathbb{J}$是$V_{\mathbb{R}}$上的{\kaishu 典型复结构}．
+\end{theorem}
+\begin{proof}
+    首先定义复数和线性空间$W$中的元素的{\kaishu 数量乘法}如下，
+    $\forall a,b\in \mathbb{R}$有$a+\mathbbm{i}b\in \mathbb{C}$，
+    $\forall \alpha \in W$，令
+    \begin{equation}\label{chcx:eqn_tmptime}
+        (a+\mathbbm{i}b)\cdot \alpha \overset{def}{=} a \alpha +b \mathbb{J} \alpha .
+        \quad \text{数量乘法记号“}\cdot\text{”通常会被省略}
+    \end{equation}
+    可以验证，$\forall c, c_1, c_2\in \mathbb{C}$和$\forall \alpha,\beta\in W$有
+    \begin{equation}
+        c_1 (c_2 \alpha) = (c_1 c_2)\alpha, \quad
+        c (\alpha +\beta) = c \alpha + c \beta, \quad
+        (c_1+c_2)\alpha = c_1\alpha + c_2\alpha. 
+    \end{equation}
+    故线性空间$W$关于数量乘法\eqref{chcx:eqn_tmptime}构成一个复线性空间，
+    现将这个复线性空间记作$V$．很明显$V_{\mathbb{R}}=W$，
+    并且$\mathbb{J}$是$V_{\mathbb{R}}$的典型复结构．
+    
+    如果复数域上$V$的复维数是$m$，那么由命题\ref{chcx:thm_rc}容易看到$n=2m$．
+    在复线性空间$V$中任意取定一个基底$\{\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m\}$，
+    则$\mathbb{J}\boldsymbol{\epsilon}_i = \mathbbm{i}\boldsymbol{\epsilon}_i,\ 1\leqslant i \leqslant m$；
+    并且$\{\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m;\  
+    \mathbb{J} \boldsymbol{\epsilon}_1,\cdots,\mathbb{J}\boldsymbol{\epsilon}_m\}$是实线性空间$V_{\mathbb{R}}=W$的基底；
+    这个基底便可满足定理要求．
+\end{proof}
+
+综和命题\ref{chcx:thm_rc}和定理\ref{chcx:thm_2mm}可得如下定理：
+\begin{theorem}\label{chcx:thm_CRJ}
+$m$维复线性空间$V$等价于有确定复结构的$2m$维实线性空间$V_{\mathbb{R}}$．
+\end{theorem}
+
+\begin{proposition}\label{chcx:thm_ABC}
+    设$\mathbb{J}$是$2m$维实线性空间$V_{\mathbb{R}}$的复结构，$V$是其相应的$m$维复线性空间．
+    $V$上的复线性变换$\mathcal{A}$自然是$V_{\mathbb{R}}$上的线性变换．
+    如果$\mathcal{A}$关于$V$的基$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$的矩阵
+    是$B+\mathbbm{i}C$（其中$B$、$C$是实矩阵），那么$\mathcal{A}$作为$V_{\mathbb{R}}$上
+    的线性变换关于基$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m;
+    \mathbb{J}\boldsymbol{e}_1,\cdots,\mathbb{J}\boldsymbol{e}_m\}$的矩阵是：
+    $    \left(\begin{smallmatrix}
+        B& -C \\ C & B
+    \end{smallmatrix}\right)$．
+\end{proposition}
+\begin{proof}
+    我们设实矩阵$B=\{b_{ij}\}$、$C=\{c_{ij}\}$，则
+    \begin{align*}
+        \mathcal{A} \boldsymbol{e}_{j} =& \sum_i \boldsymbol{e}_{i} (b_{ij}+\mathbbm{i}c_{ij}) 
+        =\sum_i\boldsymbol{e}_{i} b_{ij} + \sum_i (\mathbb{J}\boldsymbol{e}_{i}) c_{ij} ,\\
+        \mathcal{A} (\mathbb{J}\boldsymbol{e}_{j}) =& \mathbbm{i}( \mathcal{A} \boldsymbol{e}_{j})
+        =\mathbbm{i} \sum_i \boldsymbol{e}_{i} (b_{ij}+\mathbbm{i}c_{ij}) 
+        =\sum_i (\mathbb{J}\boldsymbol{e}_{i}) b_{ij} - \sum_i \boldsymbol{e}_{i} c_{ij} .
+    \end{align*}
+    把上式写成矩阵形式，便证明了命题．
+\end{proof}
+
+%反之，$V_{\mathbb{R}}$上的实线性变换$\phi$未必是$V$上的变换．但有：
+
+\begin{proposition}\label{chcx:thm_pJJp}
+    设有两个复线性空间$U,V$，它们分别对应$(U_{\mathbb{R}},\mathbb{J})$和$(V_{\mathbb{R}},\tilde{\mathbb{J}})$；
+    有实线性映射$\phi:U_{\mathbb{R}}\to V_{\mathbb{R}}$．
+    那么$\phi$是复线性映射的充要条件是：$\phi\circ \mathbb{J}=\tilde{\mathbb{J}}\circ \phi$．
+\end{proposition}
+\begin{proof}
+    $\forall \alpha \in U_{\mathbb{R}}$，
+    已知$\mathbb{J},\tilde{\mathbb{J}}$是典型复结构；自然有$\mathbbm{i}\alpha = \mathbb{J}\alpha$
+    和$\mathbbm{i}\phi(\alpha)= \tilde{\mathbb{J}}\phi(\alpha)$．
+    
+    先证“$\Rightarrow$”．已知$\phi$是复线性映射；
+    $\phi(\mathbb{J}\alpha)=\phi(\mathbbm{i} \alpha)=\mathbbm{i}\phi(\alpha)=\tilde{\mathbb{J}}\phi(\alpha)$．
+    
+    再证“$\Leftarrow$”．$\forall a,b\in \mathbb{R}$，
+    $\phi\bigl((a+\mathbbm{i}b)\alpha \bigr)=a \phi(\alpha) + b \phi(\mathbb{J}\alpha)
+    =a \phi(\alpha) + b \tilde{\mathbb{J}}\phi(\alpha)
+    =a \phi(\alpha) + b \mathbbm{i}\phi(\alpha) 
+    =(a + b \mathbbm{i})\phi(\alpha)  $；
+    故$\phi$是复线性映射．
+    
+    如果$\phi$可逆，则$\phi\circ \mathbb{J}=\tilde{\mathbb{J}}\circ \phi$通常
+    写为$ \mathbb{J}= \phi^{-1}\circ\tilde{\mathbb{J}}\circ \phi$．
+    
+    如果$U_{\mathbb{R}}\equiv V_{\mathbb{R}}$，则线性映射$\phi$退化
+    为$V_{\mathbb{R}}$上的线性变换．
+\end{proof}
+
+设$\mathbb{J}$是$2m$维实线性空间$V_{\mathbb{R}}$的复结构，
+其上的线性变换$\phi$在基矢组$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m;
+\mathbb{J}\boldsymbol{e}_1,\cdots,\mathbb{J}\boldsymbol{e}_m\}$上的矩阵是：
+$    \left(\begin{smallmatrix}
+    A& B \\ C & D
+\end{smallmatrix}\right)$．
+那么可以得到：  %根据命题\ref{chcx:thm_pJJp}
+$\phi\circ \mathbb{J}=\mathbb{J}\circ \phi \ \Leftrightarrow \ 
+A=D, B=-C$．此时$\phi$作为$V_{\mathbb{R}}$所对应的复线性空间$V$上
+的基$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$的矩阵是：$A+\mathbbm{i}C$．
+本自然段计算不难，留给读者当练习．
+
+
+
+
+\subsection{复化与实形}\label{chcx:sec_cr}
+
+%取自 许以超《线性代数与矩阵论》169-170，定理5.2.6
+
+\index[physwords]{复化}
+  
+\begin{definition}\label{chcx:def_cxn}
+    设$V_r$是实数域$\mathbb{R}$上的$m$维实线性空间，
+    $\{\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m\}$是
+    它的一组基矢．形式地引入集合
+    \begin{equation}\label{chcx:eqn_cxn}
+        V^{\mathbb{C}}_r \equiv \left\{ \sum_{k=1}^{m} c_k \boldsymbol{\epsilon}_k \mid
+        c_k = a_k+\mathbbm{i} b_k,\quad a_k,b_k \in \mathbb{R},
+        \quad 1\leqslant k \leqslant m \right\} .
+    \end{equation}
+    则$V^{\mathbb{C}}_r$是复线性空间，称为实线性空间$V_r$的{\heiti 复化}．
+\end{definition}
+
+由定义\ref{chcx:def_cxn}可以看出$\{\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m\}$是
+$V^{\mathbb{C}}_r$的一组基矢，那么$V^{\mathbb{C}}_r$的{\kaishu 复维数}与$V_r$的{\kaishu 实维数}是
+相等的，都是$m$．为了说明定义\ref{chcx:def_cxn}是合理的，我们还需证明该
+取法与实线性空间$V_r$的基矢选取无关．
+在$V_r$中另取一组基$\{\boldsymbol{\eta}_1,\cdots,\boldsymbol{\eta}_m\}$，
+两组基矢间的变换关系是
+\begin{equation}
+    \boldsymbol{\eta}_j = \sum_{k=1}^{m} \boldsymbol{\epsilon}_k d^k_{\hphantom{k}j},\qquad
+    d^k_{\hphantom{k}j} \in \mathbb{R},\quad 1\leqslant j,k \leqslant m .
+\end{equation}
+故有
+\begin{equation}
+    \sum_{j=1}^{m} c_j \boldsymbol{\eta}_j = \sum_{k=1}^{m}
+    \left( \sum_{j=1}^{m} c_j d^k_{\hphantom{k}j} \right)\boldsymbol{\epsilon}_k .
+\end{equation}
+因$c_j= a_j+\mathbbm{i} b_j\in \mathbb{C}$，$d^k_{\hphantom{k}j} \in \mathbb{R}$，
+故$\sum_{j} c_j d^k_{\hphantom{k}j} \in \mathbb{C}$；
+所以由上式可知$\sum_{j} c_j \boldsymbol{\eta}_j \in V^{\mathbb{C}}_r$．
+上式说明了由$\{\boldsymbol{\eta}\}$定义的复化与$\{\boldsymbol{\epsilon}\}$定义的复化是相同的复线性空间．
+
+
+\begin{definition}\label{chcx:def_real}
+    设$L_c$是复数域$\mathbb{C}$上的$m$维复线性空间，
+    $\{\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m\}$是
+    它的一组基矢．形式地引入集合
+    \begin{equation}
+        L^{\mathbb{R}}_c \equiv \left\{ \sum_{k=1}^{m} a_k \boldsymbol{\alpha}_k \mid
+        a_k \in \mathbb{R},     \quad 1\leqslant  k \leqslant m \right\} .
+    \end{equation}
+    则$L^{\mathbb{R}}_c$是实线性空间，称为复线性空间$L_c$的{\heiti 实形式}．
+\end{definition}
+
+因复数包含实数，故矢量组$\{\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m\}$是实线性无关的；
+而且由实系数$a_k$组合得到的矢量$\sum_{k=1}^{m} a_k \boldsymbol{\alpha}_k$满足线性空间的八条公理；
+这便验证了定义\ref{chcx:def_real}是合理的．
+$L^{\mathbb{R}}_c$的{\kaishu 实维数}与$L_c$的{\kaishu 复维数}是相等的，都是$m$．
+$L_c$的实形式$L^{\mathbb{R}}_c$的定义和复线性空间$L_c$的基矢选取有关；
+不同的基很可能给出不同的实形式．这与实线性空间的复化不同．
+不难看出$L^{\mathbb{R}}_c$的复化$(L^{\mathbb{R}}_c)^{\mathbb{C}} \equiv L_c$．
+
+
+
+
+
+
+
+
+
+
+\section{复流形}\label{chcx:sec_cxmanifold}
+实流形是实空间$\mathbb{R}^m$的一些开子集以$C^r$方式拼接在一起的结果．
+与此类似，复流形是复空间$\mathbb{C}^m$的一些开子集以\uwave{全纯}方式拼接在一起的结果．
+在\S\ref{chcx:sec_cxf}中已经初步介绍了全纯的概念，下面把它推广到更一般的情形．
+
+
+\index[physwords]{复流形}  
+
+\begin{definition}
+    设$U,V$分别是$\mathbb{C}^m,\mathbb{C}^n$的开子集，映射$\phi:U\to V$可以
+    表示成$w^\alpha=\phi^\alpha(z^1,\cdots,z^m),\ 1\leqslant \alpha \leqslant n$．
+    若每一个$\phi^\alpha$都是$U$上的全纯函数，则称$\phi$是从$U$到$V$的{\heiti 全纯映射}．
+    
+    若$m=n$，$\phi$和$\phi^{-1}$是全纯，且$\phi$是$C^m$上同胚，
+    则称$\phi$是{\heiti 全纯变换}．  \qed
+\end{definition}
+
+有了这些准备，我们给出复流形的定义．
+\begin{definition}\label{chcx:def_cxmanifold}
+    设$M$是$2m$维实流形．若$M$有一个坐标卡集$\Sigma=\{(U_\alpha,\phi_\alpha);\ \alpha\in I\}$，
+    其中$\phi_\alpha: U_\alpha \to \mathbb{C}^m(=\mathbb{R}^{2m})$是从$M$开子集$U_\alpha$到$\mathbb{C}^m$的
+    同胚映射，使得$\{U_\alpha\}$是$M$的一个开覆盖，并且对于任意的$\alpha,\beta\in I$，
+    当$U_\alpha \cap U_\beta \neq \varnothing$时，复合映射$\phi_\alpha \circ \phi^{-1}_\beta$是
+    从$\mathbb{C}^m$开子集$\phi_\beta(U_\alpha \cap U_\beta)$到$\mathbb{C}^m$开
+    子集$\phi_\alpha(U_\alpha \cap U_\beta)$的\uwave{全纯变换}，则称坐标卡集$\Sigma$是流形$M$的
+    一个{\heiti 复坐标覆盖}．$M$的极大复坐标覆盖称为它的{\heiti 复流形结构}；
+    指定了复流形结构的$2m$维实流形$M$称为$m$维{\heiti 复流形}；
+    属于复流形结构的坐标卡$(U_\alpha,\phi_\alpha)$称为$M$的{\heiti 容许复坐标卡}． \qed
+\end{definition}
+
+我们知道任一$m$维复流形都有自然方式看成$2m$维实流形（参见命题\ref{chcx:thm_rc}）．
+
+
+\index[physwords]{殆复流形}  
+
+\begin{definition}\label{chcx:def_acm}
+    设$M$是$2m$维光滑实流形．若在$M$上存在一个光滑$\binom{1}{1}$型张量场$\mathbb{J}$，
+    使得$\forall p\in M$，$\mathbb{J}_p\equiv \mathbb{J}(p)$是切空间$T_p M$上的复结构；
+    则称$(M,\mathbb{J})$是一个{\heiti 殆复流形}（almost complex manifold），
+    $\mathbb{J}$称为$M$上的{\heiti 复结构}． \qed
+\end{definition}
+
+可以证明复流形肯定是殆复流形．
+
+殆复流形何时是复流形？这是艰深的课题，请参阅本章末文献．
+
+
+
+
+\section*{小结}
+本章内容主要参考了\parencite{cc2001-zh}第七章． %\parencite{chen-li-2004v2}第八章．
+基于复流形，还可以引入复矢量丛的概念，进而引入复联络以及复曲率等概念，有兴趣读者请参考上述文献．
+
+\printbibliography[heading=subbibliography,title=第\ref{chcx}章参考文献]
+
+\endinput
+
+
+
+
+
+
+
+
+
+
+

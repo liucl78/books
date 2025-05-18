@@ -1,0 +1,73 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\fill (-6,2.5) circle (1.1pt) node [label = above:{$a$}]{}; 
+\fill (-5,2.5)  circle (1.1pt) node [label = above:{$b$}]{}; 
+\fill (-4,2.5)  circle (1.1pt) node [label = above:{$c$}]{}; 
+\draw (-5,2.5) ellipse (2 and 1.0 );
+
+
+\fill (-1,2.5) circle (1.1pt) ; \draw (-1,2.5) circle (4 pt);
+\fill (0,2.5)  circle (1.1pt) ; 
+\fill (1,2.5)  circle (1.1pt) ; 
+\draw (-0.5,2.5) ellipse (1 and 0.5 );
+\draw (0,2.5) ellipse (2 and 1.0 );
+
+\fill (6,2.5) circle (1.1pt) ; 
+\fill (5,2.5)  circle (1.1pt) ; \draw (5,2.5) circle (4 pt);
+\fill (4,2.5)  circle (1.1pt) ; 
+\draw (5,2.5) ellipse (2 and 1.0 );
+\draw (4.5,2.5) ellipse (1 and 0.5 );
+\draw (+5.5,2.5) ellipse (1 and 0.5 );
+
+\fill (-6,0) circle (1.1pt) ; 
+\fill (-5,0)  circle (1.1pt); \draw (-5, 0) circle (4 pt);
+\fill (-4,0)  circle (1.1pt) ;
+\draw (-5,0) ellipse (2 and 1.0 );
+
+
+\fill (-1,0) circle (1.1pt) ; \draw (-1, 0) circle (4 pt);
+\fill (0,0)  circle (1.1pt) ;
+\fill (1,0)  circle (1.1pt) ;
+\draw (0,0) ellipse (2 and 1.0 );
+\draw (0.5,0) ellipse (1 and 0.5 );
+
+\fill (4,0) circle (1.1pt) ;
+\fill (5,0)  circle (1.1pt) ; \draw (5, 0) circle (4 pt);
+\fill (6,0)  circle (1.1pt) ; \draw (6, 0) circle (4 pt);
+\draw (5,0) ellipse (2 and 1.0 );
+\draw (4.5,0) ellipse (1 and 0.5 );
+\draw (5.5,0) ellipse (1 and 0.5 );
+
+\fill (-6,-2.5) circle (1.1pt) ;
+\fill (-5,-2.5)  circle (1.1pt) ;
+\fill (-4,-2.5)  circle (1.1pt) ;
+\draw (-5,-2.5) ellipse (2 and 1.0 );
+\draw (-5.5,-2.5) ellipse (1 and 0.5 );
+
+\fill (-1,-2.5) circle (1.1pt) ; \draw (-1,-2.5) circle (4 pt);
+\fill (0,-2.5)  circle (1.1pt) ; \draw (0,-2.5) circle (4 pt);
+\fill (1,-2.5)  circle (1.1pt) ;
+\draw (0,-2.5) ellipse (2 and 1.0 );
+\draw (-0.5,-2.5) ellipse (1 and 0.5 );
+
+\fill (4,-2.5) circle (1.1pt) ; \draw (4,-2.5) circle (4 pt);
+\fill (5,-2.5)  circle (1.1pt) ;\draw (5,-2.5) circle (4 pt); 
+\fill (6,-2.5)  circle (1.1pt) ; \draw (6,-2.5) circle (4 pt);
+\draw (5,-2.5) ellipse (2 and 1.0 );
+\draw (4.5,-2.5) ellipse (1 and 0.5 );
+\draw (5.5,-2.5) ellipse (1 and 0.5 );
+
+\draw[thick, red, --] (5,-2.5) [partial ellipse=10:170 : 1. and 0.8];
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,2599 @@
+% !TeX encoding = UTF-8
+% 2023.08.06
+
+\chapter{零模}\label{chnull}
+
+在微分几何部分，其它各章节几乎不涉及零模问题；
+我们单列一章来讨论这个问题．
+首先，讲述零模线性子空间，以及零模超曲面．
+其次，介绍了Newman--Penrose型式，这是处理零模问题的有效方法．
+接着，给出了Weyl张量的Petrov分类，以及类光曲线．
+最后，证明了Goldberg--Sachs定理．
+
+\index[physwords]{固有广义欧氏空间}
+\index[physwords]{线性函数!不定对称双线性函数}
+
+\section{广义欧氏子空间}\label{chnull:sec_indef-algebra}
+
+
+我们将继续\S\ref{chmla:sec_indefbif}和\S\ref{chdm:sec_Euclidean-space}的探讨．
+当广义欧几里得空间$V$的度规特征值至少含有一个$-1$，同时至少含有
+一个$+1$时，称之为{\heiti 固有广义欧几里得空间}．
+
+
+
+
+与非退化度规定义\ref{chmla:def_nondegenerate-metric}相反，
+$m$维实线性空间$V$上的退化（degenerate）、对称双线性函数$g$是指：
+存在非零矢量$\xi \in V$，使得$g(\xi,v)=0$，$\forall v \in V$．
+与之相随的是退化空间的定义，见\ref{chmla:def_degenerate}．
+
+零模流形主要研究退化对称双线性型式．当度规退化时，我们将尽量避免使用度规这个术语，
+而使用退化对称双线性型式（degenerate symmetric bilinear form），简称{\heiti 退型}．
+
+\index[physwords]{退型}
+
+值得注意的是，$\mathbb{R}^m$上的非退化对称度规可以在$\mathbb{R}^m$的子空间上诱导出
+非退化度规或者{\kaishu 退型}．
+我们将会处理这两类子空间，故当不知道度规是否退化时，使用$g$；当度规非退化时，则尽量用$\eta$．
+
+\begin{definition}
+    设有$m$维实线性空间$(W,g)$，$g$可能退化，也可能非退化；它有如下子空间：
+    \begin{equation}
+        {\rm Rad} W= \{\xi^a \in W \ |\  g_{ab} \xi^a v^b=0,\ \forall v^b\in W \} .
+    \end{equation}
+    我们称${\rm Rad} W$是$W$在$g$下的{\heiti 根空间}（Radical Space）；
+    空间${\rm Rad} W$的维数称为度规$g$的{\heiti 零度}（nullity degree）．
+\end{definition}
+
+\index[physwords]{根空间}
+
+当空间$W$的零度是〇时，空间$W$是非退化的；当零度大于〇时，空间$W$是退化的；反之亦然．
+$g$是否退化就是看式\eqref{chmla:eqn_gmetric}中是否有零特征值．
+
+
+设$(W,g)$是一个实$m$维线性空间，${\rm Rad} W$是它的根空间；
+那么，$W$的子空间可能不退化．为了支持这一论断，我们证明了下面的一般结果．
+
+\begin{proposition}\label{chnull:thm_screen-radical}
+    设有$m$维线性空间$(W,g)$，$W$的零度是$r$，并且$r<m$．
+    那么根空间${\rm Rad} W$的正交补空间是非退化的．
+\end{proposition}
+\begin{proof}
+    令$SW$是根空间${\rm Rad} W$在$W$中的正交补空间，即我们作了如下分解：
+    \begin{equation}\label{chnull:eqn_RWSW}
+        W = {\rm Rad} W \dotplus SW .
+    \end{equation}
+    其中$\dotplus$是正交直和，即有${\rm Rad} W \cap SW=\{0\}$，
+    并且${\rm Rad} W $和$SW$中元素相互正交．
+    用反证法证明$SW$是非退化的．
+    假设存在非零元素$\zeta \in SW$使得$g_{ab} \zeta^a v^b=0$，$\forall v^b\in SW$；
+    式\eqref{chnull:eqn_RWSW}意味着$g_{ab}\zeta^a \xi^b=0$，$\forall \xi^b \in {\rm Rad}W$；
+    因此，$\zeta^a \in {\rm Rad}W$．这违背了${\rm Rad} W $、$SW$互补关系；
+    最终，$SW$是非退化的．
+\end{proof}
+
+\begin{definition}
+    实线性空间$(W,g)$的根空间${\rm Rad} W$的正交补空间$SW$称为$W$的{\heiti 根补空间}（Screen Space）．
+\end{definition}
+
+\index[physwords]{根补空间}
+
+由于$SW$对于$g$来说是非退化的，故它是广义欧几里得空间；
+它的正交基是记为$\{(e_{r+1})^a,\cdots,(e_m)^a\}$．
+我们再设${\rm Rad}W$的基矢是$\{(e_1)^a,\cdots,(e_r)^a\}$，
+则空间$W$的基矢为：$\mathcal{B}=\{(e_1)^a,\cdots,(e_r)^a,(e_{r+1})^a,\cdots,(e_m)^a\}$．
+考虑到任意的${\rm Rad}W$矢量都正交于$W$，故可以得出$g$在基矢$\mathcal{B}$下的矩阵是：
+\begin{equation}
+    g=\begin{pmatrix}
+        0_{r,r} & 0_{r,m-r} \\ 0_{m-r,r} &  \eta_{ij}
+    \end{pmatrix},\quad
+    \eta_{ij}=\pm \delta_{ij},\quad  r< i,j \leqslant m .
+\end{equation}
+
+
+
+\begin{proposition}\label{chnull:thm_RadWWP}
+    设$(V,g)$是$m$维广义欧几里得空间，$W$是$V$的子空间；则有    
+    \begin{equation}
+        {\rm Rad}W={\rm Rad}W^\perp=W\cap W^\perp ,\quad
+        W^\perp \text{是垂直子空间\ref{chmla:def_oc}}.
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    令$v^a\in W \cap W^\perp\subset W^\perp$，则有$g_{ab}(v^a,w^b)=0,\, \forall w^b\in W$，
+    这就是说$v^a\in {\rm Rad}W$．反之，$\forall  v^a\in {\rm Rad}W\subset W$，
+    可以得到$g_{ab}(v^a,w^b)=0,\, \forall w^b\in W$，这意味着$v^a\in W\cap W^\perp$．
+    因此${\rm Rad}W=W\cap W^\perp $．应用命题\ref{chmla:thm_WcW}中的(2)可得
+    ${\rm Rad}W={\rm Rad}W^\perp=W\cap W^\perp $．
+\end{proof}
+
+写到这里，读者应能看出，只有在退型情形下，${\rm Rad}W$才能包含非零矢量．
+若$V$的度规是非退化、正定的，则$V$及其子空间不会有退化情形，根空间是平庸的（只含零矢量）．
+若空间$V$的度规$g$非退化但不定，则$V$本身的根空间也是平庸的；但$V$的子空间$W$可能
+是退化的，一般情形下$W$包含了$V$中的部分零模矢量，不是全部，可参见例\ref{chnull:exm_R41}．
+
+
+\begin{proposition}\label{chnull:thm_maxnull}
+    设$g$是$m$维实矢量空间$V$上的一个非退化、不定度规，它的负特征值个数是$q$．
+    则存在$V$的子空间$W$，其维数是$\min(q, m - q)$，使得$g|_W=0$；
+    并且没有维数更大的子空间$W'$使得$g|_{W'}=0$．
+\end{proposition}
+\begin{proof}
+    设$V$有正交归一基矢$\{(e_i)^a\}$，注意$g={\rm diag}(-\cdots -+\cdots +)$在$V$上是非退化的，
+    它的负特征值个数是$q$，正特征值个数是$m-q$．
+    
+    先设$q<m-q$．我们构建如下空间：
+    \begin{equation}
+        \overline{W}\equiv {\rm Span}\left\{(u_1)^a= (e_1)^a+(e_{q+1})^a,
+        \cdots,(u_q)^a= (e_q)^a+(e_{2q})^a\right\} .
+    \end{equation}
+    容易验证$g|_{\overline{W}}=0$；
+    很明显$\overline{W}$的维数是$q$．
+    
+    对$V$中满足$g_{ab}x^a (u_j)^b=0,\, j=1,\cdots,q$的零模矢量$x^a=x^i(e_i)^a$而言，
+    它的分量满足$x^1=x^{q+1},\cdots,x^q=x^{2q}$．因为$\{(e_1)^a,\cdots,(e_q)^a\}$和
+    $\{(e_{q+1})^a,\cdots,(e_m)^a\}$分别是类时、类空基矢量，再从$x^a$是零模矢量可以
+    得到$x^{2q+1}=\cdots=x^m=0$．
+    最终$x^a$可以表示成$\{(u_1)^a,\cdots,(u_q)^a\}$的常系数线性组合，故$x^a\in \overline{W}$．
+    由此可见不存在维数更大的子空间$W'\supset \overline{W}$使得$g|_{W'}=0$．
+    
+    仿照上述可证：当$q\geqslant m-q$时，命题也成立．
+\end{proof}
+    
+\begin{example}\label{chnull:exm_Em-bases}
+给固有欧氏空间$\mathbb{R}^m_q$构建包含零模矢量的基矢组．
+\end{example}
+
+设$\mathbb{R}^m_q$有正交归一基矢$\{(e_i)^a\}$，度规$g={\rm diag}(-\cdots -+\cdots +)$；
+我们借用这些矢量构建包含零模矢量的基矢组．
+
+\fbox{甲}$q< m-q$．构建如下矢量（其中$i=1,\cdots,q$）
+\begin{equation}\label{chnull:eqn_I-nulls}
+    (l_i)^a \overset{def}{=} \frac{1}{\sqrt{2}} \bigl[ (e_{i})^a + (e_{q+i})^a \bigr] ,\quad  
+    (n_i)^a \overset{def}{=} \frac{1}{\sqrt{2}} \bigl[ (e_{i})^a - (e_{q+i})^a \bigr] .
+\end{equation}
+容易验证$g_{ab}(l_i)^a (l_j)^b=0=g_{ab}(n_i)^a (n_j)^b$以
+及$g_{ab}(l_i)^a (n_j)^b=-\delta_{ij}$；其中$i,j=1,\cdots,q$．
+因此可以看出$\{(l_1)^a,\cdots,(l_q)^a,(n_1)^a,\cdots,(n_q)^a,(e_{2q+1})^a,\cdots,(e_m)^a\}$是
+空间$\mathbb{R}^m_q$的一组基矢量，它包含$2q$个零模矢量，以及$m-2q$个类空矢量．
+在这组基矢下，度规矩阵是：
+\begin{equation}
+    g=\begin{pmatrix}
+        0 & -I_q &0 \\
+        -I_q & 0 &0 \\
+        0& 0 & I_{m-2q}
+    \end{pmatrix}.
+\end{equation}
+
+\fbox{乙}$q> m-q$．构建如下矢量
+\begin{equation*}%\label{chnull:eqn_II-nulls}
+    (l_j)^a \overset{def}{=} \frac{1}{\sqrt{2}} \bigl[ (e_{j})^a + (e_{q+j})^a \bigr] ,\quad  
+    (n_j)^a \overset{def}{=} \frac{1}{\sqrt{2}} \bigl[ (e_{j})^a - (e_{q+j})^a \bigr] ;\quad j=1,\cdots,m-q.
+\end{equation*}
+可验证$g_{ab}(l_i)^a (l_j)^b=0=g_{ab}(n_i)^a (n_j)^b$以
+及$g_{ab}(l_i)^a (n_j)^b=-\delta_{ij}$；其中$i,j=1,\cdots,m-q$．
+因此可以看出类光矢量$(l_1)^a,\cdots,(l_{m-q})^a$、$ (n_1)^a,\cdots,(n_{m-q})^a$和
+类空矢量$(e_{2(m-q)+1})^a,\cdots,(e_m)^a$的组合是
+空间$\mathbb{R}^m_q$的一组基矢量，它包含$2(m-q)$个零模矢量，以及$2q-m$个类时矢量．
+
+\fbox{丙}$2q= m$．可为空间$V$构建
+$\{(l_1)^a,\cdots,(l_q)^a,(n_1)^a,\cdots,(n_q)^a\}$个零模矢量组成的基矢组，
+可参见式\eqref{chnull:eqn_I-nulls}．
+
+虽然上述三类基矢均包含零模矢量，但度规在这些基矢下是非退化的．
+\qed
+
+\begin{example}\label{chnull:exm_R41}
+    给定四维闵氏时空$(\mathbb{R}^4_1,\eta)$，$\eta=(-+++)$．
+    利用上面三种分类，分情况讨论它的包含类光矢量的子空间$W$．
+\end{example}
+
+根据\fbox{甲}可设闵氏时空基矢为$\{l^a,n^a, u^a, v^a\}$，其中$l^a,n^a$是类光基矢，
+$u^a, v^a$是类空基矢；它们都是实基矢．
+根据命题\ref{chnull:thm_maxnull}可知四维闵氏时空最大退化子空间维数是$1$．
+
+{\noindent\heiti \bfseries (1)} 设$W$是1维的．可将$W$的基矢选为$l^a$，
+此时$W$是退化的；$W^\perp ={\rm Span}\{l^a,u^a,v^a\}$；可将$l^a$换成$n^a$．
+此时${\rm Rad}W=W$，根补空间$SW={\rm Span}\{0\}$．
+
+{\noindent\heiti \bfseries (2)} 设$W$是2维的．那么$W$的基矢可能是$l^a$和$n^a$；
+也可能是$l^a$、$n^a$两者之一与$u^a$、$v^a$两者之一；分情况讨论．
+
+(i) $W={\rm Span}\{l^a,n^a\}$．$W^\perp ={\rm Span}\{u^a,v^a\}$．
+${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．
+
+(ii) $W={\rm Span}\{l^a,u^a\}$．$W^\perp ={\rm Span}\{l^a,v^a\}$．
+${\rm Rad}W={\rm Span}\{l^a\}$，$SW={\rm Span}\{u^a\}$．
+可将此种情下的$l^a$换成$n^a$；以及$u^a$换成$v^a$．
+
+{\noindent\heiti \bfseries (3)} 设$W$是3维的．
+那么$W$的基矢可能是$l^a$、$n^a$两者之一，再加上$u^a$、$v^a$；
+也可能是$l^a$和$n^a$，再加上$u^a$、$ v^a$两者之一；分情况讨论．
+
+(i) $W={\rm Span}\{l^a,u^a, v^a\}$．$W^\perp ={\rm Span}\{l^a\}$．
+${\rm Rad}W={\rm Span}\{l^a\}$，$SW={\rm Span}\{u^a,v^a\}$．
+可将$l^a$换成$n^a$．
+
+(ii) $W={\rm Span}\{l^a,n^a,u^a\}$．$W^\perp ={\rm Span}\{v^a\}$．
+${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．可将$u^a$换成$v^a$．
+
+{\noindent\heiti \bfseries (4)} 设$W$是4维的．$W^\perp ={\rm Span}\{0\}$．
+${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．
+\qed
+
+%我们会在\S\ref{chnull:sec_NP1}专门介绍一种特殊的类光基矢场：Newman--Penrose型式．
+
+
+
+
+
+\index[physwords]{超曲面!类光超曲面}
+
+\section{类光超曲面} \label{chnull:sec_hypersurface-null}
+
+设有四维广义黎曼流形$(M,g)$，其度规是Lorentz型度规（$(-+++)$）；它有类光超曲面$\Sigma$．
+本节大部分结论可以毫无困难地推广到广义Lorentz度规．
+
+首先，类光超曲面的$\Sigma$法矢量${n}^{a}$自然是法丛$T^\bot\Sigma$中的矢量；
+其次它还是零模的，即${n}^{a}{n}_{a}=0$，这说明$n^a$还属于切丛$T\Sigma$．
+这种双重身份，使得矢量场$n^a$即切于又法于超曲面$\Sigma$；这在非零模情形是不可能的！
+
+\subsection{法矢量}
+在\S\ref{chsm:sec_Phi-n}中我们用标量函数$\Phi=0$来描述超曲面，这种方式同样适用于类光超曲面．
+但此时$g^{ab}\nabla_a \Phi\nabla_b\Phi=0$，故我们没有类似于
+式\eqref{chsm:eqn_unit-normal-Phi}的描述法矢量的方式．
+类光超曲面的法矢量自然不能归一化到$\pm 1$，也就是说它没有单位法矢量的概念．
+我们令
+\begin{equation}\label{chnull:eqn_unit-normal-Phi-null}
+    n^a \equiv \nabla^a \Phi.
+\end{equation}
+把它当成类光超曲面的法矢量．
+
+
+\subsection{诱导退型}
+我们已经知道在$\mathbb{R}^m_1$中的零模子空间上度规是退化的；
+在一般流形上，零模子空间上的度规也是退化的，下面验证一下．
+设四维闵氏流形$(M,g)$上有类光超曲面$\Sigma$，其零模法矢量$n^a$具有双重身份，
+它既是$\Sigma$的法矢量又是$\Sigma$的切矢量．首先，我们把$n^a$看成法矢量，
+那么$\forall u^a \in \mathfrak{X}(\Sigma)$，有
+\begin{equation}\label{chnull:eqn_tmp-im01}
+    g_{ab} n^a u^b = 0.
+\end{equation}
+根据法矢量与切矢量正交，可得此式为零．然而，$n^a$的另一身份是：$n^a \in \mathfrak{X}(\Sigma)$．
+当用这个身份来看时，诱导度规是（注意$\imath_* u^a = u^a, \  \forall u^a \in \mathfrak{X}(\Sigma)$）
+\begin{equation}
+    h_{ab} n^a u^b = (\imath^*g_{ab}) n^a u^b = g_{ab} (\imath_* n^a) (\imath_*u^b)
+    =g_{ab} n^a u^b \xlongequal{\ref{chnull:eqn_tmp-im01}} 0.
+\end{equation}
+可见诱导退型$h_{ab}$是退化的，它不能称为真正的度规．
+
+%依据文献\parencite{Duggal-Bejancu-1996}\S 4.1-\S4.2内容可作如下分解：
+%\begin{equation}\label{chnull:eqn_decomp}
+%    TM = S\oplus (T^\perp\Sigma + E)=T\Sigma + E,\quad
+%    T\Sigma=S\oplus T^\perp\Sigma .
+%\end{equation}
+%
+%\begin{equation}
+%    T\Sigma= \bigcup_{p\in \Sigma} T_p \Sigma,\quad
+%    T^\perp \Sigma= \bigcup_{p\in \Sigma} T_p^\perp \Sigma
+%    = \bigcup_{p\in \Sigma}\{n^a \}_p .
+%\end{equation}
+%上式说明零模空间$T_p^\perp \Sigma$是$T_p\Sigma$的退化子空间，
+%也就是说${\rm Rad}(T_p\Sigma) = T_p^\perp \Sigma$．
+%由命题\ref{chnull:thm_screen-radical}可令$S$是$T^\perp \Sigma$在$T\Sigma$中
+%的类空补空间，称为{\heiti 根补分布}（screen distribution）．
+%由于$S$是非退化的，故有
+%\begin{equation}\label{chnull:eqn_TMSS}
+%    TM = S\oplus S^\perp, \quad S\cap S^\perp = \{0\},\quad
+%    S^\perp \, \text{是$S$的正交补空间}.
+%\end{equation}
+%不难看出，$S$、$S^\perp$都是$2$维空间．
+%采用上面的记号，有如下定理：
+%\begin{theorem}\label{chnull:thm_lnX}
+%    在四维闵氏流形$(M,g)$上有类光超曲面$(\Sigma,h,S)$．
+%    则在$\Sigma$的任意局部开邻域$U\subset \Sigma$上，
+%    存在唯一类光分布$E\equiv \cup_{p\in \Sigma}E_p$，
+%    且$E$是由类光矢量场$l^a$张成；同时有
+%    \begin{equation}\label{chnull:eqn_lnX}
+%        g_{ab}n^a l^b =-1, \quad  g_{ab}l^a l^b  =0=g_{ab}X^a l^b ,
+%        \quad \forall X^a \in \mathfrak{X}(S|_U).
+%    \end{equation}
+%\end{theorem}
+%\begin{proof}
+%    由于$T^\perp \Sigma\subset S^\perp$，令$E$是$T^\perp \Sigma$在$S^\perp$中的补空间，它是一维的．
+%    因$S^\perp$的维数是2，故在$E$中存在一个非零矢量场$W^a$使得$g_{ab}W^a n^b\neq 0$；
+%    否则，从式\eqref{chnull:eqn_TMSS}可知度规$g$在$TU$上是退化的．将$l^a$定义为：
+%    \begin{equation}\label{chnull:eqn_l}
+%        l^a \equiv \frac{1}{ W_b n^b} \left( n^a \frac{W_b W^b}{2 W_c n^c}-W^a\right) .
+%    \end{equation}
+%    经过直接计算可以验证$l^a$是零模的，即
+%    \begin{align*}
+%        l^a l_a =& \frac{1}{ W_b n^b} \left( n^a \frac{W_b W^b}{2 W_c n^c}-W^a\right) 
+%        \frac{1}{ W_d n^d} \left( n_a \frac{W_d W^d}{2 W_e n^e}-W_a\right) \\
+%        =&\frac{1}{(W_b n^b)^2 }\left(W^aW_a - n^a W_a\frac{W_b W^b}{2 W_c n^c}
+%        -W^a n_a \frac{W_d W^d}{2 W_e n^e} + n^a n_a \left(\frac{W_d W^d}{2 W_e n^e}\right)^2\right) \\
+%        \xlongequal{n^a n_a=0}&\frac{1}{(W_b n^b)^2 }\left(W^aW_a - W_b W^b\right) =0 .
+%    \end{align*}
+%    继续验证式\eqref{chnull:eqn_lnX}中剩下的两式．
+%    \begin{align*}
+%        n_a l^a = \frac{1}{ W_b n^b} \left( n_a n^a \frac{W_b W^b}{2 W_c n^c}-n_aW^a\right) 
+%        = -\frac{1}{ W_b n^b} \left(n_a W^a\right) = -1 . 
+%    \end{align*}
+%    $W^a$、$n^a$都是$\mathfrak{X}(S^\perp)$中的切矢量，它们必然
+%    与$\mathfrak{X}(S|_U)$中的切矢量正交．
+%    
+%    下面证明唯一性．
+%    我们考虑另一个局部坐标邻域$U^*\subset M$使得$U\cap U^* \neq \varnothing$；
+%    不难得到在$U\cap U^*$中有$W^{*a}=\alpha W^a$．
+%    令$l^{*a}$表示在$U^*$上由$W^{*a}$诱导
+%    出来的矢量场，它的具体表达式仍由式\eqref{chnull:eqn_l}给出．
+%    容易得到$\alpha l^a= l^{*a}$；此式表明
+%    两个不同邻域诱导出的切矢量场是$C^\infty(U\cap U^*)$-相关的；
+%    作为分布而言，$l^a$是唯一的，与邻域的选取无关．
+%\end{proof}
+%
+%由定理\ref{chnull:thm_lnX}和式\eqref{chnull:eqn_TMSS}、\eqref{chnull:eqn_l}可以有如下分解
+
+下面叙述一下关于退型的一些内容；
+我们着手在四维闵氏流形$(M,g)$的类光超曲面$(\Sigma,h)$上建立活动标架场．
+根据文献\parencite[p.90-92]{Duggal-Bejancu-1996}论述可知，
+在的$M$的局部开邻域$U$上一定存在基矢：
+\begin{equation}\label{chnull:eqn_bases}
+    \mathcal{B} \equiv \left\{ l^a, \  n^a,
+    \   (E_1)^a,\  (E_2)^a \right\} , \qquad
+    l^a, n^a \, \text{类光，} (E_1)^a, (E_2)^a\, \text{类空}
+\end{equation}
+使得类光超曲面$\Sigma$切丛由
+\begin{equation}\label{chnull:eqn_SigmaAll}
+    T\Sigma={\rm Span}_{\infty}\left\{ n^a, \   (E_1)^a,\   (E_2)^a \right\}
+\end{equation}
+张成；其中$n^a$是$\Sigma$的类光法矢量．
+四维闵氏流形$M$的切丛由
+\begin{equation}
+    TM={\rm Span}_{\infty}\left\{ l^a,  \   n^a, \   (E_1)^a,\   (E_2)^a \right\}
+\end{equation}
+张成．除此以外，这四个基矢还可以张成如下子空间    %\setlength{\mathindent}{0em}
+\begin{equation*}
+    T^\perp\Sigma={\rm Span}_{\infty} \left\{ n^a \right\},\
+    S={\rm Span}_{\infty}\left\{  (E_1)^a,  (E_2)^a \right\},\
+    S^\perp={\rm Span}_{\infty}\left\{ n^a,  l^a \right\} . 
+\end{equation*} %\setlength{\mathindent}{2em}
+$\forall p\in \Sigma \subset M$，每个$T_p\Sigma$都是$T_pM$的类光子空间．不难得到
+\begin{equation}
+    T_p\Sigma \cap T_p^\perp \Sigma = T_p^\perp\Sigma,\quad 
+    {\rm dim}\bigl(T^\perp \Sigma\bigr)_p =1,
+    \quad {\rm dim}\bigl(T \Sigma\bigr)_p =3.
+\end{equation}
+
+
+
+在标架场\eqref{chnull:eqn_bases}下，流形$M$的度规$g$矩阵为
+\begin{equation}\label{chnull:eqn_gab}
+    g_{\mu\nu}=\begin{pmatrix}
+        0& -1&0 &0 \\ -1& 0&0 &0 \\ 
+        0&0& 1&0 \\0&0& 0 & 1
+    \end{pmatrix}.
+\end{equation}
+
+式\eqref{chnull:eqn_bases}与Newman--Penrose型式\eqref{chnull:eqn_np-metric}非常相近；
+这里的基矢全部是实的，NP型式中有两个是复基矢．
+
+
+%存在局部坐标系$\{x^0,x^1,x^2\}$使得$(\frac{\partial}{\partial x^0})^a \in T^\perp\Sigma|_U$．
+%我们可以取$\{(\frac{\partial}{\partial x^0})^a,(\frac{\partial}{\partial x^1})^a,
+%(\frac{\partial}{\partial x^2})^a\}$为$\Sigma$的自然标架场，
+
+在标架场下\eqref{chnull:eqn_SigmaAll}退型$h_{ab}$的表示矩阵为
+\begin{equation}\label{chnull:eqn_hij}
+    h=\begin{pmatrix}
+        0&0&0 \\ 0& 1 &0 \\0& 0 & 1
+    \end{pmatrix}.
+\end{equation}
+
+
+
+
+%\begin{example}
+%    考虑$\mathbb{R}^4_1$中的单位伪球面$S^3_1$．
+%\end{example}
+%伪球面定义见\S\ref{chsm:sec_pseudo-sphere}，它满足的方程是
+%\begin{equation}
+%    -(x^0)^2+(x^1)^2+(x^2)^2+(x^3)^2 = 1.
+%\end{equation}
+%我们用超平面$x^0-x^1=0$将这个伪球面分开，从而得到$S^3_1$的超曲面$\Sigma$：
+%\begin{equation}
+%    T^\perp\Sigma = {\rm Span}\{ n^a\},\quad
+%    n^a=\left(\frac{\partial}{\partial x^0}\right)^a+\left(\frac{\partial}{\partial x^1}\right)^a .
+%\end{equation}
+%根补分布是
+%\begin{equation}
+%    S=\left\{x^3\left(\frac{\partial}{\partial x^2}\right)^a
+%    -x^2\left(\frac{\partial}{\partial x^3}\right)^a \right\} .
+%\end{equation}
+%%由定理\ref{chnull:thm_lnX}可得
+%$l^a$最一般的表达式为
+%\setlength{\mathindent}{0em}
+%\begin{equation*}
+%    l^a=\frac{1}{2}\left[\bigl(1+(x^0)^2\bigr)\left(\frac{\partial}{\partial x^0}\right)^a
+%    +\bigl((x^0)^2-1\bigr)\left(\frac{\partial}{\partial x^1}\right)^a 
+%    +2x^0 x^2 \left(\frac{\partial}{\partial x^2}\right)^a 
+%    +2x^0 x^3 \left(\frac{\partial}{\partial x^3}\right)^a \right] .
+%\end{equation*}\setlength{\mathindent}{2em}
+
+\subsection{基本方程}
+$(\Sigma,h)$是$(M,g)$的类光超曲面，$\nabla_a$是$g_{ab}$的Levi-Civita联络，
+$\Sigma$上的联络用${\rm D}_a$表示．%根据分解\eqref{chnull:eqn_decomp}，
+非零模曲面的Gauss方程\eqref{chsm:eqn_Gauss}和Weingarten方程\eqref{chsm:eqn_Weingarten}在
+零模曲面上变为：
+\begin{align}
+    {\nabla}_{X} Y^a =& {\rm D}_{X} Y^a + l^a (K_{bc}  X^b Y^c), 
+    \qquad \text{Gauss方程}  \label{chnull:eqn_Gauss} \\
+    {\nabla}_{X} l^a =& - S^a_{l b} X^b + (\tau_b X^b)  l^a .
+    \qquad \text{Weingarten方程}  \label{chnull:eqn_Weingarten} 
+\end{align}
+其中$X^a,Y^a, {\rm D}_{X} Y^a, S^a_{l b} X^b \in \mathfrak{X}(\Sigma)$；
+$l^a \in E$；$\tau_a$是$\Sigma$上的余切场；
+$K_{bc}$是超曲面$\Sigma$的{\heiti 第二基本型式}，
+$S^a_{l b}$是超曲面$\Sigma$的{\heiti 形状因子}．
+得到Gauss方程\eqref{chnull:eqn_Gauss}的方式与得到式\eqref{chsm:eqn_IIbc}过程大体相仿；
+此时不属于$T\Sigma$的切矢量必然是$l^a$，不是$n^a$．
+Weingarten方程\eqref{chnull:eqn_Weingarten}自然也就对$l^a$求导了；
+所得结果中形状因子部分属于$\mathfrak{X}(\Sigma)$；
+还有一部分属于$l^a$，其系数是与超曲面$\Sigma$相关的标量函数场，
+此处转化成了余切矢量场$\tau_b$．
+
+由Gauss方程\eqref{chnull:eqn_Gauss}可得（参见式\eqref{chnull:eqn_SigmaAll}）
+\begin{equation}
+    g_{ab} ({\nabla}_{X} Y^a) n^b = - K_{bc}  X^b Y^c .
+\end{equation}
+由上式容易验证第二基本型式是退化的：
+\begin{equation}\label{chnull:eqn_K-deg}
+    K_{bc}  X^b n^c = -g_{ab} ({\nabla}_{X} n^a) n^b
+    =-n_a \nabla_X n^a =- \frac{1}{2}\nabla_X(n_a n^a)=0.
+\end{equation}
+
+非退化超曲面上诱导联络是Levi-Civita联络，见定理\ref{chsm:thm_Dg}．
+然而在退化（即类光）超曲面上，联络变得略显复杂；
+$\forall X^a,Y^a,Z^a \in \mathfrak{X}(\Sigma)$有
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chnull:eqn_DK}
+\begin{aligned}
+    0=& ({\nabla}_{X}g_{ab}) Y^a Z^b \xlongequal{\ref{chgd:eqn_connection-compatibility}}
+    \nabla_{X}(g_{ab}Y^a Z^b)-g_{ab}( \nabla_{X}Y^a) Z^b- g_{ab}Y^a\nabla_{X} Z^b \\
+%    =& X(h_{ab}Y^a Z^b)-g_{ab}\bigl( {\rm D}_{X} Y^a + l^a K_{ec}  X^e Y^c \bigr) Z^b
+%    - g_{ab}Y^a \bigl( {\rm D}_{X} Z^b + l^b K_{ec}  X^e Z^c \bigr) \\
+%    =&X(h_{ab}Y^a Z^b)-h_{ab}( {\rm D}_{X} Y^a ) Z^b - h_{ab}Y^a  {\rm D}_{X} Z^b 
+%    -g_{ab} l^a K_{ec}  X^e Y^c Z^b  - g_{ab}Y^a l^b K_{ec}  X^e Z^c \\
+    =&({\rm D}_{X}h_{ab}) Y^a Z^b
+    -(g_{ab} l^a Z^b) K_{ec}  X^e Y^c   - (g_{ab}Y^a l^b) K_{ec}  X^e Z^c .
+\end{aligned}
+\end{equation}\setlength{\mathindent}{2em}
+从上式可见类光超曲面上的诱导联络${\rm D}_a$一般不与退型$h_{ab}$相互容许．易得
+
+\begin{proposition}
+    设$(\Sigma,h)$是四维闵氏流形$(M,g)$的类光超曲面．
+    则$\Sigma$上诱导联络${\rm D}_a$与退型$h_{ab}$相互容许
+    充要条件是：$\Sigma$是$M$的全测地类光超曲面（定义见\ref{chsm:def_total-geodesic}）．
+\end{proposition}
+
+
+\begin{proposition}
+    设$(\Sigma,h)$是四维闵氏流形$(M,g)$的类光超曲面．则下述陈述相互等价：    
+    {\bfseries (1)} $\Sigma$是全测地超曲面．    
+    {\bfseries (2)} $\Sigma$的第二基本型式恒为零．    
+    {\bfseries (3)} $\Sigma$上存在唯一的由度规$h_{ab}$诱导的无挠联络．    
+    {\bfseries (4)} $T^\perp(\Sigma)$是$\Sigma$上的Killing分布．    
+    {\bfseries (5)} $T^\perp(\Sigma)$是${\rm D}_a$上平行移动不变的分布．
+\end{proposition}
+
+\begin{proof}
+    证明可参考\parencite{Duggal-Bejancu-1996}第88页定理2.2．
+
+仅对于第(4)条略作说明．$\forall X^a,Y^a,Z^a \in \mathfrak{X}(\Sigma)$，
+由式\eqref{chnull:eqn_DK}可得
+\begin{align}
+    &0=({\rm D}_{X}h_{ab}) n^a Z^b
+    -(g_{ab} l^a Z^b) K_{ec}  X^e n^c   - (g_{ab}n^a l^b) K_{ec}  X^e Z^c 
+     \notag \\
+    &\xLongrightarrow{\ref{chnull:eqn_K-deg}} 
+    0= - h_{ab} ({\rm D}_X n^a) Z^b + K_{ec}  X^e Z^c .
+\end{align}
+由上式及\eqref{chrg:eqn_killing-2}可得
+\begin{align}
+    %(\Lie_{n} h_{ab} ) (X^a,Y^b)  =
+    ({\rm D}_a n_b + {\rm D}_b n_a ) X^a Y^b
+    =Y^b {\rm D}_X n_b + X^a {\rm D}_Y n_a 
+    =2 K_{ab} X^a Y^b.
+\end{align}
+由上式即可证明第(4)条．
+\end{proof}
+
+
+%本书中，在涉及类光超曲面时，将只在全测地类光超曲面上研究问题，以便让退型和联络相互容许；否则问题会变得很复杂．
+
+%依据文献\parencite{Duggal-Bejancu-1996}\S 4.3内容可知：
+%与式\eqref{chsm:eqn_curvature-Gauss-Frame-HS}和\eqref{chsm:eqn_Codazzi-Frame-HS}相同．
+
+类光超曲面的Gauss方程和Codazzi方程请参见\parencite[\S 4.3]{Duggal-Bejancu-1996}．
+需要指出的是：在一般情形下，类光超曲面上的Ricci张量不再是对称的；满足一些条件后，
+Ricci张量再次对称，详见\parencite[\S 4.3]{Duggal-Bejancu-1996}定理3.2．
+
+
+\subsection{几条属性}
+\begin{proposition}\label{chnull:thm_tl-sl}
+    在广义Lorentz度规下，与类时矢量正交的矢量必定是类空矢量．
+\end{proposition}
+\begin{proof}
+    设在流形$M$上有类时矢量$t^a$，将其选为第零基矢量，即$(e_0)^a=t^a$；然后将这个基矢扩充为
+    整个流形的基矢组$(e_\mu)^a(0\leqslant \mu \leqslant m)$；假设这个基矢组是正交归一的，
+    这一点总是可以做到的．在此正交归一基矢组$(e_\mu)^a$下，度规是对角矩阵$g={\rm diag}(-1,1,\cdots,1)$．
+    
+    假设非零矢量$v^a$与$t^a$正交，即$g_{ab}t^a v^b=0$．在基矢组$(e_\mu)^a$下，
+    矢量$v^a$可以展开为$v^a=v^\mu (e_\mu)^a$，则有
+    \begin{equation}
+        0=g_{ab}t^a v^b=g_{ab}(e_0)^a  v^\mu (e_\mu)^b= g_{0\mu}v^\mu =-1\cdot v^0
+        {\quad \Rightarrow \quad  } v^0 = 0.
+    \end{equation}
+    再计算
+    \begin{equation}
+        g_{ab}v^a v^b = -(v^0)^2 + \sum_{i=1}^{m} (v^i)^2 =\sum_{i=1}^{m} (v^i)^2 >0.
+    \end{equation}
+    上式说明矢量$v^a$是类空矢量．
+    这个命题只在广义Lorentz度规下成立；比如在度规$g={\rm diag}(-1,-1,+1,+1)$下便可举出反例．
+\end{proof}
+
+
+
+因广义闵氏空间的矢量只分为类时、类空和零模，故由命题\ref{chnull:thm_tl-sl}必有推论：
+\begin{corollary}\label{chnull:thm_n-s}
+    在广义Lorentz度规下，类时矢量与零模矢量不正交！
+\end{corollary}
+
+\begin{corollary}\label{chnull:thm_n-t}
+    切于类光超曲面$\Sigma$的矢量不能是类时的，只能是类空的或零模的．
+\end{corollary}
+
+令广义Minkowski流形$M$的基底是正交归一的；那么必有一基底是类时的（否则$M$的度规就变成正定的了）．
+设流形$M$中有类时超曲面$\Sigma$，它的法矢量是类空的；
+那么这个类时基底必然切于类时超曲面$\Sigma$．
+因此可以得到结论：类时超曲面$\Sigma$每一点都有类时矢量切于它．
+
+
+\begin{proposition}\label{chnull:thm_null-tn}
+    在广义Lorentz度规下，超曲面$\Sigma$每点都有零模切矢量并且没有类时切矢量，
+    那么$\Sigma$必定是类光超曲面．
+\end{proposition}
+\begin{proof}
+    用反证法．假设$\Sigma$是类时的，与上面结论矛盾！
+    
+    再假设$\Sigma$是类空的，那么它的法矢量$t^a$是类时的；而切于$\Sigma$的矢量必定正交于$t^a$．
+    命题\ref{chnull:thm_tl-sl}告诉我们切于$\Sigma$的矢量都是类空的，
+    不可能是零模的！
+    这与命题中的条件（每点都有零模切矢量）矛盾！
+\end{proof}
+
+
+\begin{proposition}\label{chnull:thm_null-self}
+    在广义Lorentz度规下，设有零模矢量$\xi^a, \eta^a \in \mathfrak{X}(M)$；
+    如果$g_{ab}\xi^a \eta^b=0$，那么必有$\xi^a\propto \eta^a$．
+\end{proposition}
+\begin{proof}
+    选正交归一基矢组$(e_\mu)^a$，度规是对角矩阵$g={\rm diag}(-1,1,\cdots,1)$．
+    不失一般性，假设在上述基底下，两个零模矢量的分量表达是为
+    \begin{align}
+        \xi=&(\kappa,\kappa,0 \cdots, 0),\qquad \text{通过旋转基矢，总可以做到此点}; \\
+        \eta=&(\eta^0,\eta^1, \cdots, \eta^m),\qquad\text{其中}\  -(\eta^0)^2 + \sum_{i=1}^{m}(\eta^i)^2 =0.
+    \end{align}
+    将$g_{ab}\xi^a \eta^b=0$用上述分量展开，有 %（即使$\xi,\eta$第零分量不是$1$，也不影响下式证明）
+    \begin{equation}
+        g_{ab}\xi^a \eta^b= -\kappa \eta^0 + \kappa \eta^1 \overset{?}{=} 0.
+    \end{equation}
+    上式只有在$\xi^a\propto \eta^a$情形下才可能等于零．
+\end{proof}
+类时矢量与零模矢量不正交；与零模矢量$\xi^a$正交的零模矢量只能是$f\cdot \xi^a(f \in C^\infty(M))$；
+类空矢量可以与零模矢量正交，且没有太多限制．由此可得如下命题：
+
+\begin{proposition}\label{chnull:thm_null-sxi}
+    在广义Lorentz度规下，有一类光超曲面$\Sigma$，它的法矢量是$n^a$；
+    那么切于$\Sigma$的矢量场只能是类空矢量场，或者是$f\cdot n^a(f \in C^\infty(M))$．
+\end{proposition}
+
+
+%\begin{proposition}\label{chnull:thm_null-etana}
+%    在广义Lorentz度规下，设有一零模矢量$\xi^a \in \mathfrak{X}(M)$，
+%    它切于类光超曲面$\Sigma$；那么它必定正比于法矢量，即$\xi^a \propto n^a$；
+%    从而$\xi^a$也法于超曲面$\Sigma$．
+%\end{proposition}
+%\begin{proof}
+%    由于类光超曲面$\Sigma$的法矢量$n^a$是切于$\Sigma$的，所以可以假设
+%    \begin{equation}
+    %        \xi^a = f\cdot n^a + s^a, \qquad f \in C^\infty(\Sigma), \ s^a \in \mathfrak{X}(\Sigma).
+    %    \end{equation}
+%    因$\xi^a$切于$\Sigma$，而零模法矢量$n^a$法于$\Sigma$，故有
+%    \begin{equation}\label{chnull:eqn_tmp-sn01}
+    %        0=g_{ab} \xi ^a n^b = (f\cdot n^a + s^a)n_a = s^a n_a.
+    %    \end{equation}
+%    由推论\ref{chsm:thm_n-s}可知，$s^a$不是类时矢量；如果是零模的，那必然正比于$n^a$，这已包含在$f$中，
+%    应排除；所以$s^a$必是类空矢量．而$\xi^a$自身还是零模的，即
+%    \begin{equation}
+    %        0=\xi^a \xi_a = (f\cdot n^a + s^a)(f\cdot n_a + s_a)
+    %        =f^2 \cdot n^a n_a + s^a n_a + f\cdot n^a s_a + s^a s_a = s^a s_a.
+    %    \end{equation}
+%    最后一个等号用了式\eqref{chsm:eqn_tmp-sn01}．由此可知类空矢量$s^a=0$，故有$\xi^a = f\cdot n^a$，证毕．
+%\end{proof}
+
+%\begin{example}\label{chnull:exam_time-null}
+%    在广义闵氏流形$(\mathbb{R}^{m+1},\eta)$中至少包含两个线性无关的零模切矢量．
+%\end{example}
+%设此流形有正交归一基矢组$\{(e_\alpha)^a\}$，其中有（且仅有一个）类时基矢$(e_0)^a$，
+%其余基矢$(e_i)^a\,(1\leqslant i \leqslant m)$是类空的．
+%不难验证$(e_0)^a\pm (e_1)^a$是两个线性无关的零模矢量．
+%
+%其实$(e_0)^a\pm (e_i)^a$都是零模矢量，且当$i$不同时线性无关．
+%我们仅验证$(e_0)^a+ (e_1)^a$和$(e_0)^a+ (e_2)^a$线性无关性；
+%假设两者线性相关，即存在非零实常数$\lambda$使得
+%\begin{align*}
+%    &(e_0)^a+ (e_1)^a= \lambda \bigl((e_0)^a+ (e_2)^a\bigr) {\quad \color{red}\Rightarrow} \\
+%    &\eta_{ab}\bigl((e_0)^a+ (e_1)^a\bigr)\bigl((e_0)^b+ (e_1)^b\bigr)
+%    = \eta_{ab}\lambda \bigl((e_0)^a+ (e_2)^a\bigr) \bigl((e_0)^b+ (e_1)^b\bigr)
+%    {\color{red}\Rightarrow}
+%    0=\lambda (-1).
+%\end{align*}
+%与$\lambda\neq 0$的假设矛盾，故两者线性无关．
+%
+%读者需注意零模矢量是可以作为基矢的．比如对于流形$(\mathbb{R}^{2},\eta)$而言，
+%我们可以选取$\{(e_0)^a,\, (e_1)^a\}$当基矢，
+%也可以选取线性无关的零模矢量组$\{(e_0)^a\pm (e_1)^a\}$当基矢．
+%\qed
+
+
+
+
+
+
+
+%\subsection{零模测地线}
+%我们先计算下式
+%\begin{equation}
+%    n^b \nabla_b n_a = (\nabla^b \Phi) \nabla_b \nabla_a \Phi
+%    = (\nabla^b \Phi) \nabla_a \nabla_b \Phi
+%    =  \frac{1}{2}\nabla_a (\nabla^b \Phi \nabla_b \Phi).
+%\end{equation}
+%因超曲面是零模的，故$\nabla^b \Phi \nabla_b \Phi=0$；它的梯度也是零模的，有（将指标升上来）
+%\begin{equation}
+%    n^b \nabla_b n^a =\kappa n^a.
+%\end{equation}
+%这正是测地线方程的一般形式（见测地线一章开头论述），称为非仿射参数化测地线．
+%因$n^a$也是切于超曲面$\Sigma$的，故可以把超曲面$\Sigma$看成由零测地线生成的，
+%也就是$\Sigma$是由$n^a$的积分曲线构成．
+
+
+\index[physwords]{Newman--Penrose型式}
+\index[physwords]{NP型式}
+
+\section{Newman--Penrose基本结构}\label{chnull:sec_NP1}
+在\S\ref{chnull:sec_indef-algebra}末尾引入了包含零模基矢在内的基矢组，
+本节给出一种全部是零模的基矢组：
+Newman--Penrose Formalism\cite{newman-Penrose-1962}，简称NP型式．
+NP型式是一种特定的四维“型式理论”，\S\ref{chccr:sec_form1}和\S\ref{chrg:sec_form2}中的
+结果适用于NP型式．NP型式基底是由四个零模矢量来构造的，并非一般的实正交归一基底场．
+Penrose引入零模基矢最重要的目的是讨论{\kaishu 旋量}在广义相对论中的
+表示\cite{penrose-Rindler1984,penrose-Rindler1986}．
+对于经典（非量子）广义相对论而言，NP理论更像一种数学技巧
+来计算黎曼曲率张量，进而求解爱因斯坦方程；
+这种技巧对于讨论（黑洞）类光测地线十分方便，因为其基矢是类光的；另一个
+可见的方便之处是列出的方程个数减少近一半，见命题\ref{chnull:thm_NP-conj-34}．
+
+
+NP理论只针对四维流形（及其子流形）而言，我们将使用类光矢量这一名词，而不用零模矢量这一术语，
+以显得更物理一点儿．需要强调的是，需先
+了解\S\ref{chccr:sec_form1}和\S\ref{chrg:sec_form2}中的内容，才能更好理解NP理论．
+
+
+\subsection{基矢构造}
+设已有Lorentz型的正交归一实标架场$\{(E_\mu)^a\}$及其对偶实标架场$\{(E^\mu)_a\}$，
+度规在这个标架场可以表示为
+\setlength{\mathindent}{0em}
+\begin{subequations}
+    \begin{align}
+        g_{ab} = & -(E^0)_a (E^0)_b + \sum\limits_{i=1}^3 {(E^i)_a (E^i)_b }
+        = -l_a n_b - n_a l_b + m_a \overline{m}_b + \overline{m}_a {m}_b , \\
+        g^{ab} = & -(E_0)^a (E_0)^b + \sum\limits_{i=1}^3 {(E_i)^a (E_i)^b }
+        = -l^a n^b - n^a l^b + m^a \overline{m}^b + \overline{m}^a {m}^b .
+    \end{align}
+\end{subequations}\setlength{\mathindent}{2em}
+其中$\{l^a, n^a, m^a, \overline{m}^a\}$定义如下\parencite[Ch. 3]{penrose-Rindler1984}：
+\begin{subequations}\label{chnull:eqn_Newman-Penrose-bases}
+    \begin{align}
+        {l^a} & \equiv (e_1)^a \overset{def}{=} \frac{1}{\sqrt{2}}
+        \bigl[ (E_0)^a + (E_3)^a \bigr] ,   \label{chnull:eqn_Newman-Penrose-base-l} \\
+        {n^a} & \equiv (e_2)^a \overset{def}{=} \frac{1}{\sqrt{2}}
+        \bigl[ (E_0)^a - (E_3)^a \bigr] ,  \label{chnull:eqn_Newman-Penrose-base-n}\\
+        {m^a} & \equiv (e_3)^a \overset{def}{=} \frac{1}{\sqrt{2}}
+        \bigl[ (E_1)^a - \mathbbm{i} (E_2)^a \bigr]  , \label{chnull:eqn_Newman-Penrose-base-m}\\
+        {\overline{m}^a} & \equiv (e_4)^a \overset{def}{=} \frac{1}{\sqrt{2}}
+        \bigl[ (E_1)^a + \mathbbm{i} (E_2)^a \bigr] . \label{chnull:eqn_Newman-Penrose-base-mb}
+    \end{align}
+\end{subequations}
+有了逆变矢量场，自然可以定义其对偶矢量场
+\begin{subequations}\label{chnull:eqn_Newman-Penrose-cov-bases}
+    \begin{align}
+        {l_a}  &\equiv (e_1)_a  = g_{ab} (e_1)^b
+        =  -\frac{1}{\sqrt{2}}\left( (E^0)_a - (E^3)_a  \right) , \\
+        {n_a}  &\equiv (e_2)_a  = g_{ab} (e_2)^b
+        =  -\frac{1}{\sqrt{2}}\left( (E^0)_a + (E^3)_a  \right) , \\
+        {m}_a  &\equiv (e_3)_a  = g_{ab} (e_3)^b
+        =  \frac{1}{\sqrt{2}}\left( (E^1)_a - \mathbbm{i} (E^2)_a  \right) , \\
+        \overline{m}_a  &\equiv (e_4)_a  = g_{ab} (e_4)^b
+        =  \frac{1}{\sqrt{2}}\left( (E^1)_a + \mathbbm{i} (E^2)_a  \right) .
+    \end{align}
+\end{subequations}
+容易验证，这些基矢有如下关系
+\begin{subequations}\label{chnull:eqn_NP-lnmmb}
+    \begin{align}
+        l_a l^a =& n_a n^a = m_a m^a = \overline{m}_a \overline{m}^a = 0 , \\
+        l_a m^a =& l_a \overline{m}^a = n_a m^a = n_a \overline{m}^a = 0 , \\
+        l_a n^a =& -1 = - m_a  \overline{m}^a  .\label{chnull:eqn_lm1}
+    \end{align}
+\end{subequations}
+显然，四个基矢是{\kaishu 类光}的．
+可看出在类光标架场$\{l^a, n^a, m^a, \overline{m}^a\}$（即$(e_\mu)^a$）下
+度规分量是
+\begin{equation}\label{chnull:eqn_np-metric}
+    g_{\mu \nu } = \left( {\begin{array}{*{20}{c}}
+            0&-1&0&0\\
+            -1&0&0&0\\
+            0&0&0&1\\
+            0&0&1&0
+    \end{array}} \right)
+    \quad = g^{\mu \nu } .
+\end{equation}
+这个矩阵的逆是其自身，已标注在上面公式中；显然此标架是{\heiti 刚性标架}；
+这样便可用\S\ref{chrg:sec_form2}中的理论来计算黎曼曲率张量．
+有了度规分量表达式，便可以将前面基矢的内指标进行升降，
+\begin{align*}
+        (e^1)_a =& g^{1\rho}(e_\rho)_a=-(e_2)_a=-n_a, &
+        (e^2)_a =& g^{2\rho}(e_\rho)_a=-(e_1)_a=-l_a;  \\
+        (e^3)_a =& g^{3\rho}(e_\rho)_a=+(e_4)_a=+\overline{m}_a, &
+        (e^4)_a =& g^{4\rho}(e_\rho)_a=+(e_3)_a=+{m}_a .
+\end{align*}
+下述对偶关系自然成立
+\begin{equation}
+    (e^\mu)_a (e_\nu)^a = \delta_\nu^\mu, \qquad
+    (e^\mu)_a (e_\mu)^b = \delta_a^b .
+\end{equation}
+
+需要注意，标架场$\{(E_\mu)^a\}$是{\kaishu 实}正交归一的；
+标架场$\{l^a, n^a\}$是{\kaishu 实}类光的；
+标架场$\{m^a, \overline{m}^a\}$是{\kaishu 复}类光的，且互为复共轭．
+\begin{remark}
+    式\eqref{chnull:eqn_Newman-Penrose-bases}给出了类光基矢量的一种取法，
+    但不一定都按照此种方法选取．NP基矢只要类光，
+    即满足式\eqref{chnull:eqn_NP-lnmmb}皆可．
+\end{remark}
+
+依照式\eqref{chrg:eqn_ricci0}，可以得到NP型式的Ricci旋转系数
+\begin{equation}\label{chnull:eqn_NP-spin-coef}
+    \omega_{\mu\nu\rho}= (\omega_{\mu\nu})_a(e_\rho)^a
+    = (e_\mu)^a (e_\rho)^b \nabla_b (e_\nu)_a .
+\end{equation}
+
+\begin{proposition}\label{chnull:thm_NP-conj-34}
+    如果把Ricci旋转系数$\omega_{\mu\nu\rho}$下标中的指标3和4互换（保持1和2不变），
+    那么得到其共轭复数，例如$\omega_{123}=\bar{\omega}_{124}$，
+    $\omega_{343}=\bar{\omega}_{434}$，$\omega_{122}=\bar{\omega}_{122}$，等等．
+    其它量，比如黎曼张量，在NP标架下的分量也有相同变化规律，例如
+    $R_{1212}=\bar{R}_{1212}$，$R_{1224}=\bar{R}_{1223}$，$R_{3412}=\bar{R}_{4312}$，等等．
+\end{proposition}
+\begin{proof}
+    只需把类光标架的四个基矢量\eqref{chnull:eqn_Newman-Penrose-bases}带入
+    就可证明，因为其第三、四基矢是互为共轭复数．
+    例如$R_{1234}=R_{abcd}l^a n^b m^c \overline{m}^d $，
+    那么$\bar{R}_{1234}=\overline{R_{abcd}l^a n^b m^c \overline{m}^d}
+    =R_{abcd}\overline{l^a n^b m^c \overline{m}^d}
+    =R_{abcd}l^a n^b \overline{m}^c {m}^d=R_{1243}$．
+    需注意，抽象指标下的曲率$R_{abcd}$是实流形上的张量，
+    其本身是实的，只有其NP分量才是复的．
+\end{proof}
+\begin{remark}
+    Newman--Penrose型式的底流形仍是{\kaishu 实流形}，不是{\kaishu 复流形}．
+    在目前的框架下，复数共轭属于额外定义的运算，不是{\kaishu 代数学}上的运算，
+    所以$z$和其复共轭$\bar{z}$在代数学上是线性独立的；
+    见例题\ref{chmla:exm_rc1}和\ref{chmla:exm_rc2}．
+    因复共轭运算的引入，由命题\ref{chnull:thm_NP-conj-34}可知
+    约一半的方程可省略不写出；但需注意，这些方程仍是线性独立的．
+    复流形的初步知识可参考第\ref{chcx}章．    %\textcite{cc2001-zh}教材．
+\end{remark}
+
+
+\subsection{参量定义}
+本节定义NP型式理论中用到的各种参数．
+黎曼曲率等量会带着较为繁杂的角标，在实际求解方程时略显麻烦；
+用不带上下标（或较少上下标）的记号来标记这些量，可使方程显得简洁一些．
+因符号数量有限，而NP理论占用了大量符号，
+在后面章节中同一符号可能代表不同量的事情，需要谨慎区分．
+
+\index[physwords]{NP型式!自旋系数}
+
+\paragraph{自旋系数}
+注解\ref{chrg:remark_ricci-coef-num}指出
+Ricci旋转系数$\omega_{\mu\nu\rho}$有$\frac{1}{2}m^2(m-1)$个；
+对于四维空间，便是24个；由命题\ref{chnull:thm_NP-conj-34}知
+只需12个记号便可标记所有Ricci旋转系数．
+Newman和Penrose称之为自旋系数（Spin Coefficients），定义如下
+\begin{subequations}\label{chnull:eqn_spincoef-all}
+    \begin{align}
+        -\kappa &\equiv \omega_{311}=m^a l^b \nabla_b l_a,  \\
+        -\tau   &\equiv \omega_{312}=m^a n^b \nabla_b l_a, \\
+        -\sigma &\equiv \omega_{313}=m^a m^b \nabla_b l_a, \\
+        -\rho   &\equiv \omega_{314}=m^a \overline{m}^b \nabla_b l_a, \\
+        \pi    &\equiv \omega_{421}=\overline{m}^a l^b \nabla_b n_a,  \\
+        \nu    &\equiv \omega_{422}=\overline{m}^a n^b \nabla_b n_a,   \\
+        \mu    &\equiv \omega_{423}=\overline{m}^a m^b \nabla_b n_a,   \\
+        \lambda&\equiv \omega_{424}=\overline{m}^a \overline{m}^b \nabla_b n_a,   \\
+        \epsilon&\equiv \frac{1}{2}(\omega_{431} - \omega_{211})
+        =\frac{1}{2}(\overline{m}^a l^b\nabla_b m_a - n^a l^b\nabla_b l_a ), \\
+        \gamma &\equiv \frac{1}{2}(\omega_{432} - \omega_{212})
+        =\frac{1}{2}(\overline{m}^a n^b\nabla_b m_a - n^a n^b\nabla_b l_a ), \\
+        \beta &\equiv \frac{1}{2}(\omega_{433} - \omega_{213})
+        =\frac{1}{2}(\overline{m}^a m^b\nabla_b m_a - n^a m^b\nabla_b l_a ),  \\
+        \alpha &\equiv \frac{1}{2}(\omega_{434} - \omega_{214})
+        =\frac{1}{2}(\overline{m}^a \overline{m}^b\nabla_b m_a- n^a \overline{m}^b\nabla_b l_a ) .
+    \end{align}
+\end{subequations}
+还可用自旋系数表示Ricci旋转系数
+\begin{equation}\label{chnull:eqn_omegas-by-spin-coefs}
+    \begin{aligned}
+        \omega_{121} &= \epsilon + \bar{\epsilon}, & \omega_{431} &= \epsilon - \bar{\epsilon}, &
+        \omega_{122} &= \gamma + \bar{\gamma},  \\
+        \omega_{124} &= \alpha + \bar{\beta},  & \omega_{434} &= \alpha - \bar{\beta}, &
+        \omega_{432} &= \gamma - \bar{\gamma} .
+    \end{aligned}
+\end{equation}
+其它Ricci旋转系数直接一望而知，或通过命题\ref{chnull:thm_NP-conj-34}一望而知．
+
+\paragraph{Ricci曲率}
+Ricci曲率独立分量个数是10个；
+定义9个Ricci张量分量，结合标量曲率$R$后，便可描述10个Ricci曲率
+\begin{equation}\label{chnull:eqn_ricci-all}
+    \begin{aligned}
+        \Phi_{00}&\equiv \frac{1}{2} R_{11}, &
+        \Phi_{01}&\equiv \frac{1}{2} R_{13}, &
+        \Phi_{02}&\equiv \frac{1}{2} R_{33}, \\
+        \Phi_{10}&\equiv \frac{1}{2} R_{14}, &
+        \Phi_{11}&\equiv \frac{1}{4} (R_{12} + R_{34}), &
+        \Phi_{12}&\equiv \frac{1}{2} R_{23}, \\
+        \Phi_{20}&\equiv \frac{1}{2} R_{44} , &
+        \Phi_{21}&\equiv \frac{1}{2} R_{24}, &
+        \Phi_{22}&\equiv \frac{1}{2} R_{22}.
+        %        \Phi_{00}&\equiv \frac{1}{2} R_{ab}l^a l^b, &
+        %        \Phi_{01}&\equiv \frac{1}{2} R_{ab}l^a m^b, &
+        %        \Phi_{02}&\equiv \frac{1}{2} R_{ab}m^a m^b, \\
+        %        \Phi_{10}&\equiv \frac{1}{2} R_{ab}l^a \overline{m}^b, &
+        %        \Phi_{11}&\equiv \frac{1}{4} (R_{ab}l^a n^b + R_{ab}m^a \overline{m}^b), &
+        %        \Phi_{12}&\equiv \frac{1}{2} R_{ab}n^a m^b, \\
+        %        \Phi_{20}&\equiv \frac{1}{2} R_{ab}\overline{m}^a \overline{m}^b , &
+        %        \Phi_{21}&\equiv \frac{1}{2} R_{ab}n^a \overline{m}^b, &
+        %        \Phi_{22}&\equiv \frac{1}{2} R_{ab}n^a n^b.
+    \end{aligned}
+\end{equation}
+其中标量曲率可表示为
+\begin{equation}
+    R= g^{ab}R_{ab}=-R_{12} -R_{21} +R_{34}+R_{43} = 2(R_{34}-R_{12}) .
+\end{equation}
+
+\paragraph{Weyl张量}
+由式\eqref{chrg:eqn_WeylConform-d4}，可得黎曼曲率与Weyl张量、Ricci曲率关系
+\begin{equation}\label{chnull:eqn_weyl4dim}
+    \begin{aligned}
+    R_{abcd}{=}& C_{abcd} + \frac{1}{2} ( g_{ac}R_{bd} + g_{bd}R_{ac}
+     - g_{ad}R_{bc} - g_{bc}R_{ad} ) \\
+     &- \frac{1}{6} (g_{ac}g_{bd}-g_{ad}g_{bc}) R .
+    \end{aligned}
+\end{equation}
+Weyl张量是无迹的，且遵循循环恒等式
+\begin{align}
+    0 &= g^{ad}C_{abcd} =- C_{1bc2}- C_{2bc1}+C_{3bc4}+C_{4bc3}, \label{chnull:eqn_weyl0tr} \\
+    0 &= C_{1234}+C_{1342}+C_{1423}. \label{chnull:eqn_weyl-cycle}
+\end{align}
+当$b=c$时，式\eqref{chnull:eqn_weyl0tr}给出
+\begin{equation}
+    C_{1314} = C_{2324} = C_{1332} = C_{1442} = 0.
+\end{equation}
+当$b\neq c$时，式\eqref{chnull:eqn_weyl0tr}和式\eqref{chnull:eqn_weyl-cycle}一起给出
+\begin{align}
+    C_{1343}&=C_{1213}, \quad  C_{1434}=C_{1214}, \quad  C_{2343}=C_{1232}, \quad
+    C_{2434}=C_{1242}, \\
+    C_{3434}&= C_{1212} = C_{1342} + C_{1432}, \quad
+    C_{1234}=C_{1432}- C_{1342}.
+\end{align}
+参考表\ref{chrg:tab-riemann}，再综合上两式，可取独立10个分量为
+\begin{equation}\label{chnull:eqn_ind-C}
+    \begin{aligned}
+        &C_{1313}, \quad C_{1213}, \quad C_{1224}, \quad C_{1324}, \quad C_{2424};  \\
+        &{\color{red} C_{1414},\quad C_{1214},\quad C_{1223},\quad C_{1423},
+            \quad  C_{2323}. }
+    \end{aligned}
+\end{equation}
+第二行是第一行的复共轭．
+通常，用如下5个复标量来表示Weyl张量分量
+\begin{subequations}\label{chnull:eqn_weylscalars-all}
+    \begin{align}
+        \Psi_0 &\equiv C_{abcd}l^a m^b l^c m^d = C_{1313} , \label{chnull:eqn_weylscalars0} \\
+        \Psi_1 &\equiv C_{abcd}l^a n^b l^c m^d = C_{1213}, \label{chnull:eqn_weylscalars1} \\
+        \Psi_2 &\equiv C_{abcd}l^a m^b \overline{m}^c n^d = C_{1342}, \label{chnull:eqn_weylscalars2} \\
+        \Psi_3 &\equiv C_{abcd}l^a n^b \overline{m}^c n^d = C_{1242}, \label{chnull:eqn_weylscalars3} \\
+        \Psi_4 &\equiv C_{abcd}n^a \overline{m}^b n^c \overline{m}^d = C_{2424}. \label{chnull:eqn_weylscalars4}
+    \end{align}
+\end{subequations}
+利用上面结果及式\eqref{chnull:eqn_weyl4dim}，
+可将黎曼曲率分量表示成Ricci曲率和Weyl张量，
+计算过程略显繁琐，但并不困难，主要是符号代换．以$R_{1212}$为例来说明．
+\setlength{\mathindent}{0em}
+    \begin{align}
+        &R_{1212} = C_{1212} + \frac{1}{2}(g_{11}R_{22} - g_{12}R_{21} + g_{22}R_{11} - g_{21}R_{12})
+        - \frac{1}{6}(g_{11}g_{22}-g_{12}g_{21}) R    \notag\\
+        &=C_{1342} + \bar{C}_{1342}  + \frac{1}{2}(R_{21}  +R_{12})      + \frac{1}{6} R
+        = \Psi_{2} + \bar{\Psi}_2 + 2\Phi_{11} -\frac{1}{12}R .
+        \label{chnull:eqn_Riemann-by-Weyl-Ricc-R1212}
+    \end{align}
+其它黎曼曲率分量是
+\begin{equation}\label{chnull:eqn_Riemann-by-Weyl-Ricc-all}
+    \begin{aligned}
+        R_{1213} %=& C_{1213} + \frac{1}{2}( g_{11}R_{23} - g_{13}R_{21}  + g_{23}R_{11} - g_{21}R_{13})
+        %- \frac{1}{6}(g_{11}g_{23}-g_{13}g_{21}) R    \\
+        &= \Psi_{1} + \Phi_{01},      \quad
+        R_{1224} %=& C_{1224} + \frac{1}{2}( g_{12}R_{24} - g_{14}R_{22} + g_{24}R_{12} - g_{22}R_{14})
+        %- \frac{1}{6}(g_{12}g_{24}-g_{14}g_{22}) R    \\
+        = -\Psi_{3} -\Phi_{21} ,  \quad
+        R_{1313} %=& C_{1313} + \frac{1}{2}( g_{11}R_{33} - g_{13}R_{31} + g_{33}R_{11} - g_{31}R_{13})
+        % - \frac{1}{6}(g_{11}g_{33}-g_{13}g_{32}) R    \\
+        = \Psi_{0} ,  \quad
+        R_{1314} %=& C_{1314} + \frac{1}{2}( g_{11}R_{34} - g_{14}R_{31} + g_{34}R_{11} - g_{31}R_{14})
+        % - \frac{1}{6}(g_{11}g_{34}-g_{14}g_{31}) R    \\
+        =  \Phi_{00}, \\
+        R_{1323} %=& C_{1323} + \frac{1}{2}( g_{12}R_{33} - g_{13}R_{32} + g_{33}R_{12} - g_{32}R_{13})
+        %  - \frac{1}{6}(g_{12}g_{33}-g_{13}g_{32}) R    \\
+        &= -\Phi_{02}  , \
+        R_{1324} %=& C_{1324} + \frac{1}{2}( g_{12}R_{34} - g_{14}R_{32} + g_{34}R_{12} - g_{32}R_{14})
+        %- \frac{1}{6}(g_{12}g_{34}-g_{14}g_{32}) R    \\
+        = -\Psi_{2} - \frac{1}{12} R  ,   \
+        R_{1334} %=& C_{1334} + \frac{1}{2}( g_{13}R_{34} - g_{14}R_{33} + g_{34}R_{13} - g_{33}R_{14})
+        %- \frac{1}{6}(g_{13}g_{34}-g_{14}g_{33}) R    \\
+        = \Phi_{01}-\Psi_{1}  , \
+        R_{2324} %=& C_{2324} + \frac{1}{2}( g_{22}R_{34} - g_{24}R_{32} + g_{34}R_{22} - g_{32}R_{24})
+        %- \frac{1}{6}(g_{22}g_{34}-g_{24}g_{32}) R    \\
+        =  \Phi_{22},   \\
+        R_{2334} %=& C_{2334} + \frac{1}{2}( g_{23}R_{34} - g_{24}R_{33} + g_{34}R_{23} - g_{33}R_{24})
+        %- \frac{1}{6}(g_{23}g_{34}-g_{24}g_{33}) R    \\
+        &= -\bar{\Psi}_{2} + \Phi_{12},  \quad
+        R_{2424} %=& C_{2424} + \frac{1}{2}( g_{22}R_{44} - g_{24}R_{42} + g_{44}R_{22} - g_{42}R_{24})
+        %- \frac{1}{6}(g_{22}g_{44}-g_{24}g_{42}) R \\
+        = \Psi_{4} ,  \quad
+        R_{3434} %=& C_{3434} + \frac{1}{2}( g_{33}R_{44} - g_{34}R_{43} + g_{44}R_{33} - g_{43}R_{34})
+        %- \frac{1}{6}(g_{33}g_{44}-g_{34}g_{43}) R    \\
+        = \Psi_{2} + \bar{\Psi}_2  -2\Phi_{11}- \frac{1}{12} R   .
+    \end{aligned}
+\end{equation} \setlength{\mathindent}{2em}
+
+
+
+需要注意，这里的度规与原始论文的度规\cite{newman-Penrose-1962}整体差一负号，
+为了保证NP方程组\eqref{chnull:eqn_NP-all}、Bianchi恒等式\eqref{chnull:eqn_Bianchi-4Q}、
+麦克斯韦方程组\eqref{chnull:eqn_maxwell-4Q}、爱因斯坦引力场方程组\eqref{chnull:eqn_einstein-4Q}等
+形式不变；我们将式\eqref{chnull:eqn_lm1}、式\eqref{chnull:eqn_np-metric}、
+自旋系数\eqref{chnull:eqn_spincoef-all}、Weyl标量\eqref{chnull:eqn_weylscalars-all}和
+Ricci标量\eqref{chnull:eqn_ricci-all}的定义取得与原论文\cite{newman-Penrose-1962}差一负号．
+
+\subsection{四基矢协变导数}
+有了自旋系数定义，直接计算便可得到基矢协变导数．
+两个实类光矢量的协变导数是
+\begin{equation}\label{chnull:eqn_covD-l}
+    \begin{aligned}
+        \nabla_{b} l_a =& \nabla_{b} (e_1)_a =
+        \omega_{\nu 1 \tau}(e^\tau)_b (e^\nu)_a  \\
+        %        =&-\omega_{211}(e^1)_b l_a - \omega_{212}(e^2)_b l_a
+        %        -\omega_{213}(e^3)_b l_a - \omega_{214}(e^4)_b l_a  \\
+        %        & +\omega_{311}(e^1)_b \overline{m}_a  +\omega_{312}(e^2)_b \overline{m}_a
+        %        +\omega_{313}(e^3)_b \overline{m}_a  +\omega_{314}(e^4)_b \overline{m}_a  \\
+        %        & +\omega_{411}(e^1)_b m_a +\omega_{412}(e^2)_b m_a
+        %        +\omega_{413}(e^3)_b m_a+\omega_{414}(e^4)_b m_a  \\
+        =& -(\epsilon+\bar{\epsilon}) n_b l_a -(\gamma+\bar{\gamma}) l_b l_a
+        +(\bar{\alpha}+\beta) \overline{m}_b l_a + (\alpha+\bar{\beta}) m_b l_a  \\
+        & +\kappa n_b \overline{m}_a  +\tau l_b \overline{m}_a
+        -\sigma \overline{m}_b \overline{m}_a  -\rho m_b \overline{m}_a  \\
+        & +\bar{\kappa} n_b m_a + \bar{\tau} l_b m_a
+        -\bar{\rho} \overline{m}_b m_a -\bar{\sigma} m_b m_a  .
+    \end{aligned}
+\end{equation}
+和
+\begin{equation}\label{chnull:eqn_covD-n}
+    \begin{aligned}
+        \nabla_{b} n_a =& \nabla_{b} (e_2)_a =
+        \omega_{\nu 2 \tau}(e^\tau)_b (e^\nu)_a  \\
+        %        =&-\omega_{121}(e^1)_b n_a - \omega_{122}(e^2)_b n_a
+        %        -\omega_{123}(e^3)_b n_a - \omega_{124}(e^4)_b n_a  \\
+        %        & +\omega_{321}(e^1)_b \overline{m}_a  +\omega_{322}(e^2)_b \overline{m}_a
+        %        +\omega_{323}(e^3)_b \overline{m}_a  +\omega_{324}(e^4)_b \overline{m}_a  \\
+        %        & +\omega_{421}(e^1)_b m_a +\omega_{422}(e^2)_b m_a
+        %        +\omega_{423}(e^3)_b m_a+\omega_{424}(e^4)_b m_a  \\
+        =& (\epsilon+\bar{\epsilon}) n_b n_a + (\gamma+\bar{\gamma}) l_b n_a
+        -(\bar{\alpha}+\beta)\overline{m}_b n_a - (\alpha+\bar{\beta})m_b n_a  \\
+        & -\bar{\pi} n_b \overline{m}_a  -\bar{\nu} l_b \overline{m}_a
+        +\bar{\lambda}\overline{m}_b \overline{m}_a  +\bar{\mu}m_b \overline{m}_a  \\
+        & -\pi n_b m_a -\nu l_b m_a
+        +\mu \overline{m}_b m_a+\lambda m_b m_a .
+    \end{aligned}
+\end{equation}
+只需给出一个复类光矢量的协变导数，另一个可以通过取复共轭得到．
+\begin{equation}\label{chnull:eqn_covD-m}
+    \begin{aligned}
+        \nabla_{b} m_a =& \nabla_{b} (e_3)_a =
+        \omega_{\nu 3 \tau}(e^\tau)_b (e^\nu)_a  \\
+        %        =&-\omega_{131}(e^1)_b n_a - \omega_{132}(e^2)_b n_a
+        %        -\omega_{133}(e^3)_b n_a - \omega_{134}(e^4)_b n_a  \\
+        %        & -\omega_{231}(e^1)_b l_a  -\omega_{232}(e^2)_b l_a
+        %        -\omega_{233}(e^3)_b l_a  -\omega_{234}(e^4)_b l_a  \\
+        %        & +\omega_{431}(e^1)_b m_a +\omega_{432}(e^2)_b m_a
+        %        +\omega_{433}(e^3)_b m_a+\omega_{434}(e^4)_b m_a  \\
+        =&\kappa n_b n_a + \tau l_b n_a
+        -\sigma \overline{m}_b n_a - \rho m_b n_a  \\
+        & -\bar{\pi} n_b l_a  -\bar{\nu}l_b l_a
+        +\bar{\lambda}\overline{m}_b l_a  + \bar{\mu}m_b l_a
+        -(\epsilon-\bar{\epsilon})n_b m_a \\
+        &  -(\gamma-\bar{\gamma})l_b m_a
+        + (\beta-\bar{\alpha})\overline{m}_b m_a+(\alpha-\bar{\beta})m_b m_a .
+    \end{aligned}
+\end{equation}
+
+%请读者补齐式\eqref{chnull:eqn_covD-l}、\eqref{chnull:eqn_covD-n}和\eqref{chnull:eqn_covD-m}的计算．
+
+
+
+\section{Newman--Penrose基本方程}\label{chnull:sec_NP2}
+基本方程包括如下三组关系式：对易关系、NP方程和Bianchi恒等式．
+\subsection{对易关系}
+定义如下方向导数：
+\begin{equation}\label{chnull:eqn_direct-D}
+    {\rm D}\equiv l^a\nabla_a , \quad
+        {\Delta}\equiv n^a\nabla_a , \quad
+        {\updelta}\equiv m^a\nabla_a , \quad
+        {\bar{\updelta}}\equiv \overline{m}^a\nabla_a .
+\end{equation}
+由式\eqref{chrg:eqn_EmuEnucommutator}可得基矢间对易关系，以$n^a$和$l^a$为例，
+\begin{align*}
+    [n, l]^a = &\bigl[(e_2), (e_1)\bigr]^a
+    = \bigl(\omega_{\sigma 12} - \omega_{\sigma 21}\bigr) (e^\sigma)^a
+    =\bigl(\omega_{112} - \omega_{121}\bigr) (e^1)^a  \\
+    &+\bigl(\omega_{212} - \omega_{221}\bigr) (e^2)^a
+    +\bigl(\omega_{312} - \omega_{321}\bigr) (e^3)^a
+    +\bigl(\omega_{412} - \omega_{421}\bigr) (e^4)^a  \\
+    =&  (\epsilon + \bar{\epsilon}) n^a
+    +(\gamma + \bar{\gamma}) l^a
+    +(-\tau - \bar{\pi}) \overline{m}^a
+    +(-\bar{\tau} - \pi) m^a
+\end{align*}
+将上式与联络$\nabla_a$缩并，便可得到下列第一式，
+\begin{subequations}\label{chnull:eqn_DDcomunicator}
+    \begin{align}
+        \Delta {\rm D}-{\rm D}\Delta =&(\gamma +\bar{\gamma}){\rm D}+(\epsilon +\bar{\epsilon})\Delta
+        -(\bar{\tau}+\pi )\updelta -(\tau +\bar{\pi})\bar{\updelta},
+        \label{chnull:eqn_DDcomunicator-a}\\
+        \updelta {\rm D}-{\rm D}\updelta =&(\bar{\alpha}+\beta -\bar{\pi}){\rm D}+\kappa\Delta
+        -(\bar{\rho}+\epsilon -\bar{\epsilon})\updelta -\sigma\bar{\updelta},
+        \label{chnull:eqn_DDcomunicator-b}\\
+        \updelta \Delta-\Delta \updelta =&-\bar{\nu}{\rm D}+(\tau -\bar{\alpha} -\beta )\Delta
+        +(\mu -\gamma +\bar{\gamma})\updelta +\bar{\lambda}\bar{\updelta },
+        \label{chnull:eqn_DDcomunicator-c}\\
+        \bar{\updelta}\updelta-\updelta \bar{\updelta} =&(\bar{\mu}-\mu ){\rm D}+(\bar{\rho} -\rho )\Delta
+        +(\alpha -\bar{\beta})\updelta -(\bar{\alpha}-\beta )\bar{\updelta} .
+        \label{chnull:eqn_DDcomunicator-d}
+    \end{align}
+\end{subequations}
+通过类似方法，可以得到剩余三式．
+
+\index[physwords]{NP方程}
+
+\subsection{NP方程}
+把第二嘉当结构方程在类光标架上展开得到36个方程，称之为NP方程，是NP型式理论的核心．
+因命题\ref{chnull:thm_NP-conj-34}，只需写出如下18个（与NP原论文相同），具体推导见后．
+\begin{small}
+\setlength{\mathindent}{0em}
+\begin{subequations}\label{chnull:eqn_NP-all}
+    \begin{align}
+        &{\rm D}\tau -\Delta \kappa =  \rho(\tau +\bar{\pi }) +\sigma(\bar{\tau }+\pi )
+        +\tau(\epsilon -\bar{\epsilon }) - \kappa(3\gamma +\bar{\gamma } )
+        +\Psi _{1} +\Phi_{01},   & [R_{1312}] \label{chnull:eqn_NP-all-R1312} \\
+        &{\rm D}\sigma -\updelta \kappa = \sigma(\rho +\bar{\rho } + 3\epsilon - \bar{\epsilon })
+        -\kappa(\tau -\bar{\pi }+\bar{\alpha } +3\beta ) +\Psi_{0},
+        &[R_{1313}] \label{chnull:eqn_NP-all-R1313} \\
+        &{\rm D}\rho -\bar{\updelta }\kappa =  \rho ^{2}+\sigma \bar{\sigma }
+        + \rho(\epsilon+\bar{\epsilon }) -\bar{\kappa }\tau
+        -\kappa (3\alpha +\bar{\beta }-\pi ) +\Phi_{00},
+        &[R_{1314}] \label{chnull:eqn_NP-all-R1314}  \\
+        &\Delta \rho -\bar{\updelta }\tau = \tau (\bar{\beta }
+        -\alpha -\bar{\tau })+\rho(\gamma +\bar{\gamma })-(\rho \bar{\mu }+\sigma \lambda )
+        +\kappa \nu  -\Psi_{2} - \tfrac{1}{12}R,
+        & [R_{1324}] \label{chnull:eqn_NP-all-R1324} \\
+        &\updelta \tau -\Delta \sigma =\mu \sigma +\rho \bar{\lambda }+\tau (\tau +\beta -\bar{\alpha })
+        -\sigma (3\gamma -\bar{\gamma } )-\kappa \bar{\nu } + \Phi_{02},
+        & [R_{1332}] \label{chnull:eqn_NP-all-R1332} \\
+        &{\rm D}\nu -\Delta \pi = \mu(\bar{\tau }+\pi ) + \lambda(\tau +\bar{\pi } )
+        + \pi(\gamma -\bar{\gamma }) - \nu(3\epsilon +\bar{\epsilon } )
+         + \Psi _{3} +\Phi_{21},   & [R_{2421}] \label{chnull:eqn_NP-all-R2421} \\
+        &\updelta \nu -\Delta \mu =\mu ^{2}+\lambda \bar{\lambda }+\mu (\gamma + \bar{\gamma })
+        -\bar{\nu }\pi +\nu (\tau -3\beta -\bar{\alpha }) + \Phi_{22},
+        & [R_{2423}] \label{chnull:eqn_NP-all-R2423} \\
+        &{\rm D}\mu -\updelta \pi =\bar{\rho }\mu +\sigma \lambda +\pi \bar{\pi }
+        - \mu(\epsilon +\bar{\epsilon }) -\pi (\bar{\alpha }-\beta )
+        - \nu \kappa +\Psi_{2}+ \tfrac{1}{12}R,
+        & [R_{2431}] \label{chnull:eqn_NP-all-R2431} \\
+        &{\rm D}\lambda -\bar{\updelta }\pi =\rho \lambda +\bar{\sigma }\mu +\pi ^{2}
+        +\pi (\alpha -\bar{\beta }) -\nu \bar{\kappa }
+        -\lambda (3\epsilon -\bar{\epsilon }) +\Phi_{20}  ,
+        & [R_{2441}] \label{chnull:eqn_NP-all-R2441} \\
+        &\Delta \lambda -\bar{\updelta }\nu =-\lambda (\mu +\bar{\mu } + 3\gamma -\bar{\gamma })
+        + \nu (3\alpha +\bar{\beta }+\pi -\bar{\tau }) -\Psi _{4} ,
+        & [R_{2442}] \label{chnull:eqn_NP-all-R2442} \\
+        &\updelta \lambda -\bar{\updelta }\mu = \nu(\rho -\bar{\rho }) + \pi(\mu - \bar{\mu })
+        +\mu (\alpha +\bar{\beta })+\lambda (\bar{\alpha }-3\beta )
+        -\Psi _{3} + \Phi_{21}, & [R_{2443}] \label{chnull:eqn_NP-all-R2443} \\
+        &\updelta \rho -\bar{\updelta }\sigma =\rho (\bar{\alpha }+\beta)-\sigma (3\alpha -\bar{\beta })
+        +\tau(\rho -\bar{\rho }) +\kappa (\mu -\bar{\mu })
+         -\Psi _{1} + \Phi_{01}, & [R_{3143}] \label{chnull:eqn_NP-all-R3143}
+    \end{align}
+    \begin{align}
+        {\rm D}\alpha -\bar{\updelta }\epsilon = &   \alpha(\rho +\bar{\epsilon }-2\epsilon )
+        +\beta \bar{\sigma }-\bar{\beta }\epsilon -\kappa \lambda \notag \\
+        &-\bar{\kappa }\gamma +\pi (\epsilon +\rho ) +\Phi_{10},
+        &[\tfrac{1}{2}(R_{3414}-R_{1214})] \label{chnull:eqn_NP-all-R3414-1214} \\
+        {\rm D}\beta -\updelta \epsilon =& \sigma(\alpha +\pi ) + \beta(\bar{\rho }
+        -\bar{\epsilon }) -\kappa(\mu +\gamma ) \notag \\
+        &- \epsilon(\bar{\alpha }-\bar{\pi } ) +\Psi _{1},
+        &[\tfrac{1}{2}(R_{1213}-R_{3413})] \label{chnull:eqn_NP-all-R1213-3413} \\
+        {\rm D}\gamma -\Delta \epsilon =& \alpha(\tau +\bar{\pi }) + \beta(\bar{\tau }+\pi )
+        - \gamma(\epsilon +\bar{\epsilon }) - \epsilon(\gamma +\bar{\gamma }) & \notag \\
+        &+ \tau \pi -\nu \kappa +\Psi _{2}+\Phi_{11}-\frac{1}{24}R,
+        & [\tfrac{1}{2}(R_{1212}-R_{3412})] \label{chnull:eqn_NP-all-R1212-3412} \\
+        \updelta \alpha -\bar{\updelta }\beta =&\mu \rho -\lambda \sigma +\alpha\bar{\alpha }
+        +\beta \bar{\beta }-2\alpha \beta +\gamma (\rho -\bar{\rho }) & \notag \\
+        & +\epsilon (\mu -\bar{\mu })-\Psi _{2} + \Phi_{11} +\frac{1}{24}R,
+        &[\tfrac{1}{2}(R_{1234}-R_{3434})] \label{chnull:eqn_NP-all-R1234-3434} \\
+        \updelta \gamma -\Delta \beta =& \gamma (\tau -\bar{\alpha }-\beta )+\mu \tau -\sigma \nu
+        -\epsilon \bar{\nu } \notag \\
+        &-\beta (\gamma -\bar{\gamma } -\mu )  +\alpha \bar{\lambda } + \Phi_{12},
+        & [\tfrac{1}{2}(R_{1232}-R_{3432})]  \label{chnull:eqn_NP-all-R1232-3432} \\
+        \Delta \alpha -\bar{\updelta }\gamma =&\nu (\rho +\epsilon )-\lambda (\tau +\beta )
+        +\alpha (\bar{\gamma }-\bar{\mu }) \notag \\
+        &+\gamma (\bar{ \beta }-\bar{\tau })-\Psi _{3}.
+        & [\tfrac{1}{2}(R_{1242}-R_{3442})] \label{chnull:eqn_NP-all-R1242-3442}
+    \end{align}
+\end{subequations} \setlength{\mathindent}{2em} 
+\end{small}
+每个公式后面的方括号内已指明此NP方程是由哪个黎曼分量所产生的．
+
+\subsubsection{黎曼曲率分量}
+NP方程的推导过程是：首先，由\S\ref{chrg:sec_Riemann_rr}节中的
+第二嘉当结构方程\eqref{chrg:eqn_Riemann_rr}得到
+黎曼曲率$R_{\rho\sigma\mu\nu}$的Ricci旋转系数表示方式，通过代换
+变成NP自旋系数形式；
+其次，通过式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到第二种表示方式，
+由Weyl标量、Ricci标量等表出．
+两者必然相等，合并同类项后得到18个NP方程．
+
+下面以两个分量为例，给出计算过程．
+\paragraph{黎曼曲率分量$R_{1212}$：}
+由式\eqref{chrg:eqn_Riemann_rr}计算
+\begin{align*}
+    R_{1212} =& \nabla_{1}\omega_{122}
+    -\nabla_{2} \omega_{121}
+    + g^{\xi\zeta} \bigl[ \omega_{12\zeta} (\omega_{2\xi 1}
+    -\omega_{1\xi 2}  ) + \omega _{\zeta 22} \omega _{1\xi 1}
+    - \omega _{\zeta 21} \omega _{1\xi 2} \bigr] \\
+    =& {\rm D}(\gamma + \bar{\gamma}) -{\Delta} (\epsilon+\bar{\epsilon})
+    + g^{12} \bigl[ \omega_{122} (\omega_{211}
+    -\omega_{112}  ) + \omega _{222} \omega _{111}
+    - \omega _{221} \omega _{112} \bigr] \\
+    &+ g^{21} \bigl[ \omega_{121} (\omega_{221}
+    -\omega_{122}  ) + \omega _{122} \omega _{121}
+    - \omega _{121} \omega _{122} \bigr] \\
+    &+ g^{34} \bigl[ \omega_{124} (\omega_{231}
+    -\omega_{132}  ) + \omega _{422} \omega _{131}
+    - \omega _{421} \omega _{132} \bigr] \\
+    &+ g^{43} \bigl[ \omega_{123} (\omega_{241}
+    -\omega_{142}  ) + \omega _{322} \omega _{141}
+    - \omega _{321} \omega _{142} \bigr] \\
+    =& {\rm D}(\gamma + \bar{\gamma}) -{\Delta} (\epsilon+\bar{\epsilon})
+    + 2\omega_{121}  \omega_{122} \\
+    &+ \omega_{124} (\omega_{231} -\omega_{132}  )
+    + \omega _{422} \omega _{131}
+    - \omega _{421} \omega _{132}  \\
+    &+ \omega_{123} (\omega_{241} -\omega_{142}  )
+    + \omega _{322} \omega _{141}
+    - \omega _{321} \omega _{142}  \\
+    =& {\rm D}(\gamma + \bar{\gamma}) -{\Delta} (\epsilon+\bar{\epsilon})
+    + 2(\epsilon+\bar{\epsilon}) (\gamma + \bar{\gamma}) \\
+    &+ (\alpha+\bar{\beta}) (-\bar{\pi} -\tau  )   + \nu \kappa  - \pi \tau
+    + (\bar{\alpha}+\beta) (-\pi -\bar{\tau}  )
+    + \bar{\nu} \bar{\kappa} - \bar{\pi} \bar{\tau}
+\end{align*}
+其次，还可以表示为式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-R1212}的形式，
+两者必然相等，所以有
+\begin{equation}\label{chnull:eqn_npR1212}
+    \begin{aligned}
+        \Psi_{2} &+ \bar{\Psi}_2 + 2\Phi_{11} -\frac{1}{12}R =
+        {\rm D}(\gamma + \bar{\gamma}) -{\Delta} (\epsilon+\bar{\epsilon})
+        + 2(\epsilon+\bar{\epsilon}) (\gamma + \bar{\gamma}) \\
+        &- (\alpha+\bar{\beta}) (\bar{\pi} +\tau  )   + \nu \kappa  - \pi \tau
+        - (\bar{\alpha}+\beta) (\pi +\bar{\tau}  )
+        + \bar{\nu} \bar{\kappa} - \bar{\pi} \bar{\tau}
+    \end{aligned}
+\end{equation}
+
+%\paragraph{黎曼曲率分量$R_{1213}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1213} =& \nabla_{1}\omega_{123} -\nabla_{3} \omega_{121}
+%             + g^{12} \bigl[ \omega_{122} (\omega_{311} -\omega_{113}  )
+%              + \omega _{223} \omega _{111} - \omega _{221} \omega _{113} \bigr] \\
+%             &+ g^{21} \bigl[ \omega_{121} (\omega_{321}-\omega_{123}  )
+%              + \omega _{123} \omega _{121}- \omega _{121} \omega _{123} \bigr] \\
+%             &+ g^{34} \bigl[ \omega_{124} (\omega_{331}-\omega_{133}  )
+%              + \omega _{423} \omega _{131}- \omega _{421} \omega _{133} \bigr] \\
+%             &+ g^{43} \bigl[ \omega_{123} (\omega_{ 341}-\omega_{143}  )
+%              + \omega _{323} \omega _{141} - \omega _{321} \omega _{143} \bigr] \\
+%         =& {\rm D}(\bar{\alpha}+\beta) - \updelta (\epsilon+\bar{\epsilon})
+%              +\kappa (\gamma+\bar{\gamma})
+%             - (\epsilon+\bar{\epsilon}) (\bar{\pi}-\bar{\alpha}-\beta ) \\
+%             &- ({\alpha}+\bar{\beta}) \sigma
+%             + \mu \kappa - \pi \sigma
+%             + (\bar{\alpha}+\beta) (\bar{\epsilon}-\epsilon-\bar{\rho}  )
+%             + \bar{\lambda} \bar{\kappa} - \bar{\pi} \bar{\rho}
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1213} = \Psi_{1} + \Phi_{01}$，综合两式得
+%\begin{equation}\label{chnull:eqn_npR1213}
+%\begin{aligned}
+%    \Psi_{1} + \Phi_{01}    =& {\rm D}(\bar{\alpha}+\beta) - \updelta (\epsilon+\bar{\epsilon})
+%    +\kappa (\gamma+\bar{\gamma})
+%    - (\epsilon+\bar{\epsilon}) (\bar{\pi}-\bar{\alpha}-\beta ) \\
+%    &- ({\alpha}+\bar{\beta}) \sigma
+%    + \mu \kappa - \pi \sigma
+%    + (\bar{\alpha}+\beta) (\bar{\epsilon}-\epsilon-\bar{\rho}  )
+%    + \bar{\lambda} \bar{\kappa} - \bar{\pi} \bar{\rho}
+%\end{aligned}
+%\end{equation}
+%
+%\paragraph{黎曼曲率分量$R_{1223}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%   R_{1223} = & \nabla_{2}\omega_{123} -\nabla_{3} \omega_{122}
+%      + g^{12} \bigl[ \omega_{122} (\omega_{312}-\omega_{213}  )
+%        + \omega_{223} \omega_{112}- \omega_{222} \omega_{113} \bigr] \\
+%      &+ g^{21} \bigl[ \omega_{121} (\omega_{322}-\omega_{223}  )
+%        + \omega_{123} \omega_{122}- \omega_{122} \omega_{123} \bigr] \\
+%      &+ g^{34} \bigl[ \omega_{124} (\omega_{332}-\omega_{233}  )
+%        + \omega_{423} \omega_{132}- \omega_{422} \omega_{133} \bigr] \\
+%      &+ g^{43} \bigl[ \omega_{123} (\omega_{342}-\omega_{243}  )
+%        + \omega_{323} \omega_{142}- \omega_{322} \omega_{143} \bigr] \\
+%    = & \Delta(\bar{\alpha}+{\beta}) -\updelta (\gamma+\bar{\gamma})
+%        +(\gamma+\bar{\gamma})  (\tau - \bar{\alpha}- {\beta}  )
+%       -(\epsilon+\bar{\epsilon}) \bar{\nu}  \\
+%      &+ (\bar{\beta}+\alpha) \bar{\lambda}
+%      + \mu \tau- \nu \sigma
+%       + (\bar{\alpha}+{\beta}) (\bar{\gamma}-\gamma+\mu  )
+%      + \bar{\lambda} \tau - \bar{\nu} \bar{\rho}
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1223} = -\bar{\Psi}_{3} -\Phi_{12} $，综合两式得
+%\begin{equation}\label{chnull:eqn_npR1223}
+%    \begin{aligned}
+    %        -\bar{\Psi}_{3} -\Phi_{12} =& \Delta(\bar{\alpha}+{\beta}) -\updelta (\gamma+\bar{\gamma})
+    %        +(\gamma+\bar{\gamma})  (\tau - \bar{\alpha}- {\beta}  )
+    %        -(\epsilon+\bar{\epsilon}) \bar{\nu}  \\
+    %        &+ (\bar{\beta}+\alpha) \bar{\lambda}
+    %        + \mu \tau- \nu \sigma
+    %        + (\bar{\alpha}+{\beta}) (\bar{\gamma}-\gamma+\mu  )
+    %        + \bar{\lambda} \tau - \bar{\nu} \bar{\rho}
+    %    \end{aligned}
+%\end{equation}
+%
+%
+%\paragraph{黎曼曲率分量$R_{1234}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%%    R_{1234} =& \nabla_{3}\omega_{124} -\nabla_{4} \omega_{123}
+%%     + g^{12} \bigl[ \omega_{122} (\omega_{413}-\omega_{314}  )
+%%    + \omega_{224} \omega_{113}- \omega_{223} \omega_{114} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{121} (\omega_{423}-\omega_{324}  )
+%%    + \omega_{124} \omega_{123}- \omega_{123} \omega_{124} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{124} (\omega_{433}-\omega_{334}  )
+%%    + \omega_{424} \omega_{133}- \omega_{423} \omega_{134} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{123} (\omega_{443}-\omega_{344}  )
+%%    + \omega_{324} \omega_{143}- \omega_{323} \omega_{144} \bigr] \\
+%    R_{1234}=& \updelta(\bar{\beta}+\alpha) -\bar{\updelta} (\bar{\alpha}+{\beta})
+%      - (\gamma+\bar{\gamma}) (\rho -\bar{\rho} )
+%      - (\epsilon+\bar{\epsilon}) (\mu-\bar{\mu}  )  \\
+%    & + (\bar{\beta}+\alpha) ({\beta}-\bar{\alpha})
+%    + \lambda \sigma - \mu\rho
+%    - (\bar{\alpha}+{\beta}) (\bar{\beta}-\alpha)
+%    + \bar{\mu} \bar{\rho}- \bar{\lambda} \bar{\sigma}
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1234} = \bar{\Psi}_2-\Psi_2 $，综合两式得
+%\begin{equation}\label{chnull:eqn_npR1234}
+%    \begin{aligned}
+    %       \bar{\Psi}_2-\Psi_2 =& \updelta(\bar{\beta}+\alpha) -\bar{\updelta} (\bar{\alpha}+{\beta})
+    %       - (\gamma+\bar{\gamma}) (\rho -\bar{\rho} )
+    %       - (\epsilon+\bar{\epsilon}) (\mu-\bar{\mu}  )  \\
+    %       & + (\bar{\beta}+\alpha) ({\beta}-\bar{\alpha})
+    %       + \lambda \sigma - \mu\rho
+    %       - (\bar{\alpha}+{\beta}) (\bar{\beta}-\alpha)
+    %       + \bar{\mu} \bar{\rho}- \bar{\lambda} \bar{\sigma}
+    %    \end{aligned}
+%\end{equation}
+
+%
+%\paragraph{黎曼曲率分量$R_{1312}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1312} %= & \nabla_{1}\omega_{132} -\nabla_{2} \omega_{131}
+%%    + g^{12} \bigl[ \omega_{132} (\omega_{211}-\omega_{112}  )
+%%    + \omega_{232} \omega_{111}- \omega_{231} \omega_{112} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{131} (\omega_{221}-\omega_{122}  )
+%%    + \omega_{132} \omega_{121}- \omega_{131} \omega_{122} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{134} (\omega_{231}-\omega_{132}  )
+%%    + \omega_{432} \omega_{131}- \omega_{431} \omega_{132} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{133} (\omega_{241}-\omega_{142}  )
+%%    + \omega_{332} \omega_{141}- \omega_{331} \omega_{142} \bigr] \\
+%    = {\rm D}\tau -\Delta \kappa
+%      -\tau (\epsilon-\bar{\epsilon})  +  \rho (-\bar{\pi}-\tau )
+%    + \kappa(\gamma-\bar{\gamma} + 2\gamma+2\bar{\gamma})
+%    + \sigma (-\pi-\bar{\tau}  )
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1312} = \Psi_{1} + \Phi_{01}  $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R1312}．
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{1313}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1313} %=& \nabla_{1}\omega_{133} -\nabla_{3} \omega_{131} \\
+%%    &+ g^{12} \bigl[ \omega_{132} (\omega_{311}-\omega_{113}  )
+%%    + \omega_{233} \omega_{111}- \omega_{231} \omega_{113} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{131} (\omega_{321}-\omega_{123}  )
+%%    + \omega_{133} \omega_{121}- \omega_{131} \omega_{123} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{134} (\omega_{331}-\omega_{133}  )
+%%    + \omega_{433} \omega_{131}- \omega_{431} \omega_{133} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{133} (\omega_{341}-\omega_{143}  )
+%%    + \omega_{333} \omega_{141}- \omega_{331} \omega_{143} \bigr] \\
+%    = {\rm D}\sigma -\updelta \kappa -\kappa(\bar{\pi}-\tau-\bar{\alpha}-3\beta)
+%      -\sigma (3\epsilon-\bar{\epsilon}+\bar{\rho}+\rho)
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1313} = \Psi_{0}$，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R1313}．
+%
+%
+%\paragraph{黎曼曲率分量$R_{1314}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1314}
+%%    =&   \nabla_{1} \omega_{134} - \nabla_{4} \omega_{131} \\
+%%     & + g^{12} \bigl[ \omega_{132} (\omega_{411}-\omega_{114}  )
+%%       + \omega _{234} \omega _{111}- \omega _{231} \omega _{114} \bigr] \\
+%%     & + g^{21} \bigl[ \omega_{131} (\omega_{421}-\omega_{124}  )
+%%       + \omega _{134} \omega _{121}- \omega _{131} \omega _{124} \bigr] \\
+%%     & + g^{34} \bigl[ \omega_{134} (\omega_{431}-\omega_{134}  )
+%%       + \omega _{434} \omega _{131}- \omega _{431} \omega _{134} \bigr] \\
+%%     & + g^{43} \bigl[ \omega_{133} (\omega_{441}-\omega_{144}  )
+%%       + \omega _{334} \omega _{141}- \omega _{331} \omega _{144} \bigr] \\
+%    =  {\rm D} \rho - \bar{\updelta} \kappa
+%     - \kappa (\pi-\bar{\beta}-3\alpha)
+%     - \rho (\epsilon+\bar{\epsilon} + \rho)
+%     + \tau \bar{\kappa} - \sigma \bar{\sigma}
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1314} = \Phi_{00}$，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R1314}．
+%
+%
+%\paragraph{黎曼曲率分量$R_{1324}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1324} %=&
+%%    \nabla_{2} \omega_{134} - \nabla_{4} \omega_{132} \\
+%%    & + g^{12} \bigl[ \omega_{132} (\omega_{412}-\omega_{214}  )
+%%    + \omega _{234} \omega _{112}- \omega _{232} \omega _{114} \bigr] \\
+%%    & + g^{21} \bigl[ \omega_{131} (\omega_{422}-\omega_{224}  )
+%%    + \omega _{134} \omega _{122}- \omega _{132} \omega _{124} \bigr] \\
+%%    & + g^{34} \bigl[ \omega_{134} (\omega_{432}-\omega_{234}  )
+%%    + \omega _{434} \omega _{132}- \omega _{432} \omega _{134} \bigr] \\
+%%    & + g^{43} \bigl[ \omega_{133} (\omega_{442}-\omega_{244}  )
+%%    + \omega _{334} \omega _{142}- \omega _{332} \omega _{144} \bigr] \\
+%    = \Delta \rho - \bar{\updelta} \tau
+%     + \tau(\alpha-\bar{\beta} + \bar{\tau})
+%     - \kappa \nu
+%     - \rho(-\bar{\mu} + \gamma + \bar{\gamma})
+%     + \sigma \lambda
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1324} = -\Psi_{2} - \frac{1}{12} R$，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R1324}．
+%
+%
+%\paragraph{黎曼曲率分量$R_{1332}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    -R_{1332}
+%%    =& \nabla_{2}\omega_{133} -\nabla_{3} \omega_{132} \\
+%%    &+ g^{12} \bigl[ \omega_{132} (\omega_{312}-\omega_{213}  )
+%%    + \omega_{233} \omega_{112}- \omega_{232} \omega_{113} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{131} (\omega_{322}-\omega_{223}  )
+%%    + \omega_{133} \omega_{122}- \omega_{132} \omega_{123} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{134} (\omega_{332}-\omega_{233}  )
+%%    + \omega_{433} \omega_{132}- \omega_{432} \omega_{133} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{133} (\omega_{342}-\omega_{243}  )
+%%    + \omega_{333} \omega_{142}- \omega_{332} \omega_{143} \bigr] \\
+%    =& \Delta \sigma -\updelta \tau
+%     + \tau ( \beta-\bar{\alpha} + \tau)
+%     - \kappa \bar{\nu} + \rho \bar{\lambda}
+%     + \sigma (\bar{\gamma}-3\gamma +\mu)
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1332} = \Phi_{02}  $，综合两式得
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R1332}．
+%
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{1334}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{1334}
+%%    =& \nabla_{3}\omega_{134} -\nabla_{4} \omega_{133} \\
+%%    &+ g^{12} \bigl[ \omega_{132} (\omega_{413}-\omega_{314}  )
+%%    + \omega_{234} \omega_{113}- \omega_{233} \omega_{114} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{131} (\omega_{423}-\omega_{324}  )
+%%    + \omega_{134} \omega_{123}- \omega_{133} \omega_{124} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{134} (\omega_{433}-\omega_{334}  )
+%%    + \omega_{434} \omega_{133}- \omega_{433} \omega_{134} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{133} (\omega_{443}-\omega_{344}  )
+%%    + \omega_{334} \omega_{143}- \omega_{333} \omega_{144} \bigr] \\
+%     = \updelta \rho -\bar{\updelta} \sigma   + \tau \bar{\rho}
+%     - \kappa (\mu-\bar{\mu} ) - \rho (\tau + \bar{\alpha}+\beta )
+%     + \sigma (3\alpha -\bar{\beta} )
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{1334} = -\Psi_{1} + \Phi_{01} $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R3143}．
+%
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2421}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    -R_{2421}
+%%    =& \nabla_{1}\omega_{242} -\nabla_{2} \omega_{241} \\
+%%    &+ g^{12} \bigl[ \omega_{242} (\omega_{211}-\omega_{112}  )
+%%    + \omega_{242} \omega_{211}- \omega_{241} \omega_{212} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{241} (\omega_{221}-\omega_{122}  )
+%%    + \omega_{142} \omega_{221}- \omega_{141} \omega_{222} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{244} (\omega_{231}-\omega_{132}  )
+%%    + \omega_{442} \omega_{231}- \omega_{441} \omega_{232} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{243} (\omega_{241}-\omega_{142}  )
+%%    + \omega_{342} \omega_{241}- \omega_{341} \omega_{242} \bigr] \\
+%    = -{\rm D}\nu + \Delta \pi
+%    +\pi (\gamma -\bar{\gamma}) -\nu(3\epsilon +\bar{\epsilon})
+%    +\mu(\pi+\bar{\tau}) +\lambda (\bar{\pi}+\tau  )
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2421} = \Psi_{3} +\Phi_{21} $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2421}．
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2431}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    -R_{2431}
+%%    =& \nabla_{1}\omega_{243} -\nabla_{3} \omega_{241} \\
+%%    &+ g^{12} \bigl[ \omega_{242} (\omega_{311}-\omega_{113}  )
+%%    + \omega_{243} \omega_{211}- \omega_{241} \omega_{213} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{241} (\omega_{321}-\omega_{123}  )
+%%    + \omega_{143} \omega_{221}- \omega_{141} \omega_{223} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{244} (\omega_{331}-\omega_{133}  )
+%%    + \omega_{443} \omega_{231}- \omega_{441} \omega_{233} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{243} (\omega_{341}-\omega_{143}  )
+%%    + \omega_{343} \omega_{241}- \omega_{341} \omega_{243} \bigr] \\
+%     =-{\rm D} \mu +\updelta \pi -\nu\kappa
+%     +\pi(\beta-\bar{\alpha} + \bar{\pi}) +\lambda \sigma
+%     +\mu (\bar{\rho} - \epsilon-\bar{\epsilon} )
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2431} = \Psi_{2} + \frac{1}{12} R  $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2431}．
+%
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2423}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    R_{2423}
+%%    =& \nabla_{2}\omega_{243} -\nabla_{3} \omega_{242} \\
+%%    &+ g^{12} \bigl[ \omega_{242} (\omega_{312}-\omega_{213}  )
+%%    + \omega_{243} \omega_{212}- \omega_{242} \omega_{213} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{241} (\omega_{322}-\omega_{223}  )
+%%    + \omega_{143} \omega_{222}- \omega_{142} \omega_{223} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{244} (\omega_{332}-\omega_{233}  )
+%%    + \omega_{443} \omega_{232}- \omega_{442} \omega_{233} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{243} (\omega_{342}-\omega_{243}  )
+%%    + \omega_{343} \omega_{242}- \omega_{342} \omega_{243} \bigr] \\
+%    = -\Delta \mu + \updelta \nu - \nu ( \tau - \bar{\alpha}-3\beta  )
+%    + \pi \bar{\nu} - \lambda \bar{\lambda}- \mu (\mu + \gamma + \bar{\gamma} )
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2423} = \Phi_{22} $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2423}．
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2441}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%%    -R_{2441} =& \nabla_{1}\omega_{244} -\nabla_{4} \omega_{241} \\
+%%    &+ g^{12} \bigl[ \omega_{242} (\omega_{411}-\omega_{114}  )
+%%    + \omega_{244} \omega_{211}- \omega_{241} \omega_{214} \bigr] \\
+%%    &+ g^{21} \bigl[ \omega_{241} (\omega_{421}-\omega_{124}  )
+%%    + \omega_{144} \omega_{221}- \omega_{141} \omega_{224} \bigr] \\
+%%    &+ g^{34} \bigl[ \omega_{244} (\omega_{431}-\omega_{134}  )
+%%    + \omega_{444} \omega_{231}- \omega_{441} \omega_{234} \bigr] \\
+%%    &+ g^{43} \bigl[ \omega_{243} (\omega_{441}-\omega_{144}  )
+%%    + \omega_{344} \omega_{241}- \omega_{341} \omega_{244} \bigr] \\
+%    -R_{2441} = \nabla_{1}\omega_{244} -\nabla_{4} \omega_{241} \\
+%&+ g^{12} \bigl[ \omega_{242} (\omega_{411}-\omega_{114}  )
+%+ \omega_{244} \omega_{211}- \omega_{241} \omega_{214} \bigr] \\
+%&+ g^{21} \bigl[ \omega_{241} (\omega_{421}-\omega_{124}  )
+%+ \omega_{144} \omega_{221}- \omega_{141} \omega_{224} \bigr] \\
+%&+ g^{34} \bigl[ \omega_{244} (\omega_{431}-\omega_{134}  )
+%+ \omega_{444} \omega_{231}- \omega_{441} \omega_{234} \bigr] \\
+%&+ g^{43} \bigl[ \omega_{243} (\omega_{441}-\omega_{144}  )
+%+ \omega_{344} \omega_{241}- \omega_{341} \omega_{244} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2441} = \Phi_{20}$，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2441}．
+%
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2442}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    -R_{2442} =& \nabla_{2}\omega_{244} -\nabla_{4} \omega_{242} \\
+%    &+ g^{12} \bigl[ \omega_{242} (\omega_{412}-\omega_{214}  )
+%    + \omega_{244} \omega_{212}- \omega_{242} \omega_{214} \bigr] \\
+%    &+ g^{21} \bigl[ \omega_{241} (\omega_{422}-\omega_{224}  )
+%    + \omega_{144} \omega_{222}- \omega_{142} \omega_{224} \bigr] \\
+%    &+ g^{34} \bigl[ \omega_{244} (\omega_{432}-\omega_{234}  )
+%    + \omega_{444} \omega_{232}- \omega_{442} \omega_{234} \bigr] \\
+%    &+ g^{43} \bigl[ \omega_{243} (\omega_{442}-\omega_{244}  )
+%    + \omega_{344} \omega_{242}- \omega_{342} \omega_{244} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2442} = - \Psi_{4}$，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2442}．
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{2443}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算
+%\begin{align*}
+%    -R_{2443} =& \nabla_{3}\omega_{244} -\nabla_{4} \omega_{243} \\
+%    &+ g^{12} \bigl[ \omega_{242} (\omega_{413}-\omega_{314}  )
+%    + \omega_{244} \omega_{213}- \omega_{243} \omega_{214} \bigr] \\
+%    &+ g^{21} \bigl[ \omega_{241} (\omega_{423}-\omega_{324}  )
+%    + \omega_{144} \omega_{223}- \omega_{143} \omega_{224} \bigr] \\
+%    &+ g^{34} \bigl[ \omega_{244} (\omega_{433}-\omega_{334}  )
+%    + \omega_{444} \omega_{233}- \omega_{443} \omega_{234} \bigr] \\
+%    &+ g^{43} \bigl[ \omega_{243} (\omega_{443}-\omega_{344}  )
+%    + \omega_{344} \omega_{243}- \omega_{343} \omega_{244} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{2443} = -{\Psi}_{2} + {\Phi}_{21} $，
+%综合两式立即可得式\eqref{chnull:eqn_NP-all-R2443}．
+
+
+
+\paragraph{黎曼曲率分量$R_{3412}$：}
+由式\eqref{chrg:eqn_Riemann_rr}计算
+\begin{align*}
+    R_{3412}
+    %    =& \nabla_{1}\omega_{342}
+    %    -\nabla_{2} \omega_{341}
+    %    + g^{\xi\zeta} \bigl[ \omega_{34\zeta} (\omega_{2\xi 1}
+    %    -\omega_{1\xi 2}  ) + \omega _{\zeta 42} \omega _{3\xi 1}
+    %    - \omega _{\zeta 41} \omega _{3\xi 2} \bigr] \\
+    %    =& {\rm D} (\bar{\gamma}-\gamma) +\Delta (\epsilon-\bar{\epsilon})
+    %    + g^{12} \bigl[ \omega_{342} (\omega_{211} -\omega_{112}  )
+    %    + \omega _{242} \omega _{311}
+    %    - \omega _{241} \omega _{312} \bigr] \\
+    %    &+ g^{21} \bigl[ \omega_{341} (\omega_{221}-\omega_{122}  )
+    %    + \omega _{142} \omega _{321}
+    %    - \omega _{141} \omega _{322} \bigr] \\
+    %    &+ g^{34} \bigl[ \omega_{344} (\omega_{231} -\omega_{132}  )
+    %    + \omega _{442} \omega _{331}
+    %    - \omega _{441} \omega _{332} \bigr] \\
+    %    &+ g^{43} \bigl[ \omega_{343} (\omega_{241} -\omega_{142}  )
+    %    + \omega _{342} \omega _{341}
+    %    - \omega _{341} \omega _{342} \bigr] \\
+    =& {\rm D} (\bar{\gamma}-\gamma) -\Delta (\bar{\epsilon}-\epsilon)
+    + (\bar{\gamma}-\gamma) (\bar{\epsilon}+\epsilon)
+    - \nu \kappa  + \tau\pi
+    +  (\bar{\epsilon}-\epsilon) (\bar{\gamma}+\gamma)\\
+    &- \bar{\tau} \bar{\pi} + \bar{\kappa} \bar{\nu}
+    +  (\bar{\beta}-\alpha) (-\bar{\pi} -\tau  )
+    +  (\bar{\alpha}-\beta) (-\pi -\bar{\tau}  )
+\end{align*}
+由\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到
+另一种表示$R_{3412}=R_{1432}-R_{1342}=\bar{\Psi}_{2} - \Psi_2 $，
+两式必相等．
+\begin{align}
+        \bar{\Psi}_{2} &- \Psi_2  =
+        {\rm D} (\bar{\gamma}-\gamma) -\Delta (\bar{\epsilon}-\epsilon)
+        + (\bar{\gamma}-\gamma) (\bar{\epsilon}+\epsilon)
+        - \nu \kappa  + \tau\pi
+        +  (\bar{\epsilon}-\epsilon) (\bar{\gamma}+\gamma) \notag \\
+        &- \bar{\tau} \bar{\pi} + \bar{\kappa} \bar{\nu}
+        +  (\bar{\beta}-\alpha) (-\bar{\pi} -\tau  )
+        +  (\bar{\alpha}-\beta) (-\pi -\bar{\tau}  ) \label{chnull:eqn_npR3412}
+    \end{align}
+现在可以计算$(R_{1212}-R_{3412})/2$，
+即式\eqref{chnull:eqn_npR1212}减去\eqref{chnull:eqn_npR3412}，
+经过计算得\eqref{chnull:eqn_NP-all-R1212-3412}．
+
+%
+%\paragraph{黎曼曲率分量$R_{3413}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算，
+%\begin{align*}
+%    R_{3413} =& \nabla_{1}\omega_{343} -\nabla_{3} \omega_{341} \\
+%    &+ g^{12} \bigl[ \omega_{342} (\omega_{311}-\omega_{113}  )
+%    + \omega_{243} \omega_{311}- \omega_{241} \omega_{313} \bigr] \\
+%    &+ g^{21} \bigl[ \omega_{341} (\omega_{321}-\omega_{123}  )
+%    + \omega_{143} \omega_{321}- \omega_{141} \omega_{323} \bigr] \\
+%    &+ g^{34} \bigl[ \omega_{344} (\omega_{331}-\omega_{133}  )
+%    + \omega_{443} \omega_{331}- \omega_{441} \omega_{333} \bigr] \\
+%    &+ g^{43} \bigl[ \omega_{343} (\omega_{341}-\omega_{143}  )
+%    + \omega_{343} \omega_{341}- \omega_{341} \omega_{343} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{3413} = -\Psi_{1} + \Phi_{01} $，综合两式得
+%\begin{equation}\label{chnull:eqn_npR3413}
+%    \begin{aligned}
+    %        -\Psi_{1} + \Phi_{01} =& {\rm D}
+    %    \end{aligned}
+%\end{equation}
+%
+%
+%
+%
+%\paragraph{黎曼曲率分量$R_{3432}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算，
+%\begin{align*}
+%    -R_{3432} =& \nabla_{2}\omega_{343} -\nabla_{3} \omega_{342} \\
+%    &+ g^{12} \bigl[ \omega_{342} (\omega_{312}-\omega_{213}  )
+%    + \omega_{243} \omega_{312}- \omega_{242} \omega_{313} \bigr] \\
+%    &+ g^{21} \bigl[ \omega_{341} (\omega_{322}-\omega_{223}  )
+%    + \omega_{143} \omega_{322}- \omega_{142} \omega_{323} \bigr] \\
+%    &+ g^{34} \bigl[ \omega_{344} (\omega_{332}-\omega_{233}  )
+%    + \omega_{443} \omega_{332}- \omega_{442} \omega_{333} \bigr] \\
+%    &+ g^{43} \bigl[ \omega_{343} (\omega_{342}-\omega_{243}  )
+%    + \omega_{343} \omega_{342}- \omega_{342} \omega_{343} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{3432} = \bar{\Psi}_{2} - \Phi_{12} $，综合两式得
+%\begin{equation}\label{chnull:eqn_npR3423}
+%    \begin{aligned}
+    %        \bar{\Psi}_{2} - \Phi_{12} =& {\rm D}
+    %    \end{aligned}
+%\end{equation}
+
+
+
+
+%\paragraph{黎曼曲率分量$R_{3434}$：}
+%由式\eqref{chrg:eqn_Riemann_rr}计算，
+%\begin{align*}
+%    R_{3434} =& \nabla_{3}\omega_{344} -\nabla_{4} \omega_{343} \\
+%    &+ g^{12} \bigl[ \omega_{342} (\omega_{413}-\omega_{314}  )
+%    + \omega_{244} \omega_{313}- \omega_{243} \omega_{314} \bigr] \\
+%    &+ g^{21} \bigl[ \omega_{341} (\omega_{423}-\omega_{324}  )
+%    + \omega_{144} \omega_{323}- \omega_{143} \omega_{324} \bigr] \\
+%    &+ g^{34} \bigl[ \omega_{344} (\omega_{433}-\omega_{334}  )
+%    + \omega_{444} \omega_{333}- \omega_{443} \omega_{334} \bigr] \\
+%    &+ g^{43} \bigl[ \omega_{343} (\omega_{443}-\omega_{344}  )
+%    + \omega_{344} \omega_{343}- \omega_{343} \omega_{344} \bigr] \\
+%\end{align*}
+%由式\eqref{chnull:eqn_Riemann-by-Weyl-Ricc-all}得到另外
+%一种表示$R_{3434} =\Psi_{2} + \bar{\Psi}_2  -2\Phi_{11}- \frac{1}{12} R $，综合两式得
+%\begin{equation}\label{chnull:eqn_npR3434}
+%    \begin{aligned}
+    %        \Psi_{2} + \bar{\Psi}_2  -2\Phi_{11}- \frac{1}{12} R =& {\rm D}
+    %    \end{aligned}
+%\end{equation}
+
+
+
+
+\subsection{Bianchi恒等式}
+第\ref{chrg:sec_NumOfBianchi}节指出Bianchi恒等式只有20个代数上独立的恒等式，它们是
+\begin{subequations}
+    \begin{align}
+        R_{12[12;3]}=&0, & R_{12[12;4]}=&0, & R_{12[13;4]}=&0, & R_{12[23;4]}=&0;  \\
+        R_{13[12;3]}=&0, & R_{13[12;4]}=&0, & R_{13[13;4]}=&0, & R_{13[23;4]}=&0;  \\
+        R_{34[12;3]}=&0, & R_{34[12;4]}=&0, & R_{34[13;4]}=&0, & R_{34[23;4]}=&0;  \\
+        R_{24[12;3]}=&0, & R_{24[12;4]}=&0, & R_{24[13;4]}=&0, & R_{24[23;4]}=&0.  \\
+        R_{14[12;3]}=&0, & R_{14[12;4]}=&0, & R_{14[13;4]}=&0, & R_{14[23;4]}=&0; \label{chnull:eqn_tp1} \\
+        R_{23[12;3]}=&0, & R_{23[12;4]}=&0, & R_{23[13;4]}=&0, & R_{23[23;4]}=&0. \label{chnull:eqn_tp2}
+    \end{align}
+\end{subequations}
+根据命题\ref{chnull:thm_NP-conj-34}可不写出\eqref{chnull:eqn_tp1}和\eqref{chnull:eqn_tp2}，
+而用其它式子的复共轭表示；
+$R_{12[12;4]}= 0$也可表示为$\bar{R}_{12[12;3]}=0$．
+考虑到\S\ref{chrg:sec_NumOfBianchi}节中的那4个代数恒等式，在类光标架下上述方程最终
+独立的方程是
+\begin{subequations}
+    \begin{align}
+        R_{13[12;3]}=&0, & R_{13[12;4]}=&0, & R_{13[13;4]}=&0, & R_{13[23;4]}=&0;  \\
+        R_{24[12;3]}=&0, & R_{24[12;4]}=&0, & R_{24[13;4]}=&0, & R_{24[23;4]}=&0; \\
+        R_{34[13;4]}=&0, & R_{34[23;4]}=&0, & R_{12[12;3]}=&0. & {} &
+    \end{align}
+\end{subequations}
+将它们写成分量方程\cite[\S 8e]{chandrasekhar-1983}\cite[\S 7.3]{stephani-exe-2003}，为
+\setlength{\mathindent}{0em} 
+\begin{subequations}\label{chnull:eqn_Bianchi-4Q}
+    \begin{align}
+        \bar{\updelta }\Psi _{0}&-{\rm D}\Psi _{1} +{\rm D} \Phi_{01} -\updelta \Phi_{00}
+        =(4\alpha -\pi )\Psi _{0}-2(2\rho +\epsilon )\Psi _{1} +3\kappa \Psi _{2} \notag \\
+        &+(\bar{\pi}-2\bar{\alpha}-2\beta)\Phi_{00} + 2(\epsilon+\bar{\rho})\Phi_{01}
+        +2\sigma\Phi_{10} - 2\kappa \Phi_{11} -\bar{\kappa}\Phi_{02}, \\
+        \Delta \Psi_{0}&-\updelta \Psi_{1} + {\rm D} \Phi_{02} -\updelta \Phi_{01}
+        =(4\gamma -\mu )\Psi_{0}-2(2\tau +\beta )\Psi _{1} +3\sigma \Psi _{2} \notag\\
+        &+(2\epsilon -2\bar{\epsilon}+\bar{\rho}) \Phi_{02} + 2(\bar{\pi}-\beta)\Phi_{01}
+        +2\sigma \Phi_{11} -2 \kappa \Phi_{12} -\bar{\lambda}\Phi_{00}, \\
+        \Delta \Psi_{1}&-\updelta \Psi_{2} - {\Delta} \Phi_{01} + \bar{\updelta} \Phi_{02}
+        -\frac{1}{12}{\updelta}R = \nu \Psi_{0} + 2(\gamma -\mu )\Psi_{1}
+        -3\tau \Psi_{2} + 2\sigma \Psi _{3} \notag\\
+        & + (\bar{\tau}-2\bar{\beta}+2\alpha)\Phi_{02} + 2(\bar{\mu}-\gamma)\Phi_{01}
+        +2\tau\Phi_{11} - 2\rho\Phi_{12} -\bar{\nu}\Phi_{00}, \\
+        {\rm D}\Psi _{2} &-\bar{\updelta }\Psi _{1}  +{\Delta} \Phi_{00} -\bar{\updelta} \Phi_{01}
+        +\frac{1}{12}{\rm D}R = -\lambda \Psi _{0} - 2(\alpha -\pi )\Psi _{1}
+        +3\rho \Psi _{2}-2\kappa \Psi _{3} \notag\\
+        &+(2\gamma+2\bar{\gamma}-\bar{\mu})\Phi_{00} - 2(\bar{\tau}+\alpha)\Phi_{01}
+        -2\tau \Phi_{10} + 2\rho\Phi_{11} +\bar{\sigma}\Phi_{02}, \\
+        \bar{\updelta }\Psi_{3}&-{\rm D}\Psi_{4}  +\bar{\updelta} \Phi_{21} -\Delta \Phi_{20}
+        =3\lambda \Psi _{2}-2(\alpha +2\pi)\Psi _{3}+(4\epsilon -\rho )\Psi _{4} \notag\\
+        &+(2\gamma-2\bar{\gamma}+\bar{\mu})\Phi_{20} +2(\bar{\tau}-\alpha)\Phi_{21}
+        +2\lambda\Phi_{11}-2\nu\Phi_{10}-\bar{\sigma}\Phi_{22}, \\
+        \Delta \Psi_{3}&-\updelta \Psi _{4}  +\bar{\updelta} \Phi_{22} - {\Delta} \Phi_{21}
+        =3\nu \Psi _{2}-2(\gamma +2\mu )\Psi_{3}+(4\beta -\tau )\Psi _{4} \notag\\
+        &+(\bar{\tau}-2\bar{\beta}-2\alpha)\Phi_{22}+2(\gamma+\bar{\mu})\Phi_{21}
+        +2\lambda \Phi_{12}-2\nu\Phi_{11}-\bar{\nu}\Phi_{20}, \\
+        \Delta \Psi_{2}&-\updelta \Psi_{3}  +{\rm D} \Phi_{22} -\updelta \Phi_{21}
+        +\frac{1}{12}{\Delta}R =2\nu \Psi_{1}-3\mu \Psi_{2}+2(\beta -\tau )
+        \Psi_{3}+\sigma \Psi_{4} \notag\\
+        &+(\bar{\rho}-2\epsilon-2\bar{\epsilon})\Phi_{22}+2(\bar{\pi}+\beta)\Phi_{21}
+        +2\pi\Phi_{12} -2\mu \Phi_{11} -\bar{\lambda}\Phi_{20},  \\
+        {\rm D}\Psi_{3}&-\bar{\updelta }\Psi_{2} - {\rm D} \Phi_{21} + \updelta \Phi_{20}
+        -\frac{1}{12}\bar{\updelta}R =-2\lambda \Psi_{1} + 3\pi \Psi_{2}
+        -2(\epsilon -\rho )\Psi_{3} -\kappa \Psi_{4} \notag\\
+        &+(2\bar{\alpha}-2\beta-\bar{\pi})\Phi_{20} - 2(\bar{\rho}-\epsilon)\Phi_{21}
+        -2\pi\Phi_{11}+2\mu\Phi_{10} + \bar{\kappa}\Phi_{22}, \\
+        {\rm D} \Phi_{11}&-\updelta \Phi_{10} - \bar{\updelta} \Phi_{01} + {\Delta} \Phi_{00}
+        +\frac{1}{8}{\rm D}R = \bar{\sigma}\Phi_{02} +\sigma\Phi_{20}
+        -\bar{\kappa}\Phi_{12} - \kappa \Phi_{21} \notag \\
+        & +(2\gamma+2\bar{\gamma} -\mu-\bar{\mu})\Phi_{00} +(\pi-2\alpha -2\bar{\tau})\Phi_{01}
+        + (\bar{\pi}-2\bar{\alpha}-2\tau)\Phi_{10},  \\
+        {\rm D} \Phi_{12}&-\updelta \Phi_{11} - \bar{\updelta} \Phi_{02} + {\Delta} \Phi_{01}
+        +\frac{1}{8}{\updelta}R = \bar{\nu}\Phi_{00} - \bar{\lambda}\Phi_{10}
+        +{\sigma}\Phi_{21} - \kappa \Phi_{22} +2(\bar{\pi}-\tau)\Phi_{11} \notag \\
+        & +(-2\alpha+2\bar{\beta} +\pi-\bar{\tau})\Phi_{02}
+        +(\bar{\rho}+2\rho -2\bar{\epsilon})\Phi_{12}
+        +(2\gamma-2\bar{\mu}-\mu)\Phi_{01},  \\
+        {\rm D} \Phi_{22}&-\updelta \Phi_{21} - \bar{\updelta} \Phi_{12} + {\Delta} \Phi_{11}
+        +\frac{1}{8}{\Delta}R = {\nu}\Phi_{01} +\bar{\nu}\Phi_{10} -\bar{\lambda}\Phi_{20}
+        -{\lambda}\Phi_{02} -2(\mu +\bar{\mu})\Phi_{11} \notag \\
+        & +(\rho+\bar{\rho} - 2\epsilon-2\bar{\epsilon})\Phi_{22}
+        +(2\bar{\beta}+2\pi -\bar{\tau})\Phi_{12}
+        +(2{\beta}+2\bar{\pi} -{\tau})\Phi_{21} .
+    \end{align}
+\end{subequations} \setlength{\mathindent}{2em} 
+当只考虑真空爱因斯坦引力场方程时，上式最后三个恒为零，
+前八个式子及其复共轭可描述全部Bianchi恒等式．
+
+
+
+
+
+
+
+
+
+
+\index[physwords]{NP型式!爱氏、麦氏方程}
+
+\subsection{麦克斯韦方程组和爱因斯坦方程组}
+我们还没有系统介绍麦氏、爱氏理论；在这里，先给出两个方程的NP形式以备后用；
+详细推导过程可参考\parencite[\S 1.8(f)]{chandrasekhar-1983}或\parencite{newman-Penrose-1962}．
+实反对称电磁场张量$F_{ab}$有六个独立分量，现在用复数来表示，
+则只需三个复变量即可，它们是
+\begin{subequations}
+    \begin{align}
+        \Phi_{0}=&F_{13}=F_{ab}l^{a}m^{b},\\
+        \Phi_{1}=&\frac{1}{2}(F_{12}+F_{43})=\frac{1}{2}F_{ab}(l^{a}n^{b}+\overline{m}^{a}m^{b}),\\
+        \Phi_{2}=&F_{42}=F_{ab}\overline{m}^{a}n^{b}.
+    \end{align}
+\end{subequations}
+无源麦克斯韦方程组
+（$\nabla_b F^{ab}= 0 , \ \nabla_{[a} F_{ bc ] } =0 $）
+在NP形式中具体表示为
+\begin{subequations}\label{chnull:eqn_maxwell-4Q}
+    \begin{align}
+        {\rm D}\Phi_1 -\bar{\updelta}\Phi_0 &=(\pi-2\alpha)\Phi_0+2\rho\Phi_1-\kappa\Phi_2 , \\
+        {\rm D}\Phi_2 -\bar{\updelta}\Phi_1 &=-\lambda\Phi_0+2\pi\Phi_1+(\rho-2\epsilon)\Phi_2 ,   \\
+        \Delta\Phi_0-\updelta\Phi_1 &=(2\gamma-\mu)\Phi_0-2\tau\Phi_1+\sigma\Phi_2,  \\
+        \Delta\Phi_1-\updelta\Phi_2 &=\nu\Phi_0-2\mu\Phi_1+(2\beta-\tau)\Phi_2 .\label{chnull:eqn_maxwell-4Q-d}
+    \end{align}
+\end{subequations}
+%我们仅以\eqref{chnull:eqn_maxwell-4Q-d}为例来说明
+
+
+
+
+我们只考虑电磁能动张量 %\eqref{chlh:eqn_EM-tensor}
+（$T_{ab}= F_{ac} F_{b}^{\cdot c} - \frac{1}{4} g_{ab} F_{cd} F^{cd} $），
+此时，爱因斯坦引力场方程组 %\eqref{chfd:eqn_Einstein}
+（$R_{ab} = 8\pi (T_{ab} - \frac{1}{2}g_{ab}T )$）
+在NP形式中表示为
+\begin{equation}\label{chnull:eqn_einstein-4Q}
+    \Phi_{\mu\nu} = \Phi_{\mu}\bar{\Phi}_{\nu}, \qquad
+    \mu, \nu =0, 1, 2.
+\end{equation}
+其中$\Phi_{\mu\nu}$定义见\eqref{chnull:eqn_ricci-all}．
+
+
+
+
+
+
+\index[physwords]{Petrov分类}
+
+\section{Petrov分类}
+对Weyl张量进行代数分类会令黑洞研究变得简单，
+Petrov最早研究了这个问题；
+此处采用文献\parencite[\S 1.9]{chandrasekhar-1983}中的叙述．
+
+\subsection{四类光基矢变换}
+给定四维闵氏时空$(M,g)$，其切空间是
+平直的，即Minkowski时空；若对其实基矢$(E_\mu)^a$实施
+Lorentz变换，可对NP四个类光基矢\eqref{chnull:eqn_Newman-Penrose-bases}产生
+如下三种类型变换：
+\fbox{甲}、\fbox{乙}和\fbox{丙}．
+我们分别叙述它们．
+
+\noindent\fbox{\heiti 甲}：保持实类光基矢$l^a$不变，四个基矢变换是：
+\begin{equation*}
+    l^a\to l^a,\quad m^a \to m^a + z l^a, \quad \overline{m}^a \to \overline{m}^a + \bar{z} l^a,
+    \ \text{和}\ n^a \to n^a + \bar{z} m^a + z \overline{m}^a + z\bar{z} l^a .
+\end{equation*}
+其中$z$是流形$M$上的复数函数．
+
+%（此式度规号差是“$-2$”）相似，我们将号改为“$+2$”的相应公式，即下式
+
+\fbox{甲}类旋转对应的Lorentz变换为式\eqref{chlar:eqn_Sab}，即下式
+\begin{equation} \label{chnull:eqn_Sab1}
+    S_1( {\alpha ,\beta } ) =
+    \begin{bmatrix}
+        1 + \zeta & \alpha&\beta&{ - \zeta }  \\
+        \alpha &   1&0&{ - \alpha }\\
+        \beta  &   0&1&{ - \beta  } \\
+        \zeta  &   \alpha&\beta&{1 - \zeta }
+    \end{bmatrix},
+    \qquad \text{其中}\ \zeta = \frac{1}{2}(\alpha^2+\beta^2).
+\end{equation}
+可以验证$S_1$是Lorentz变换（$S_1^T \eta S_1 = \eta$）．将它作用在四个实基矢上
+\begin{equation*}
+    \begin{bmatrix}
+        (E'_0)^a \\ (E'_1)^a \\ (E'_2)^a \\ (E'_3)^a
+    \end{bmatrix}^T =
+    \begin{bmatrix}
+        (E_0)^a \\ (E_1)^a \\ (E_2)^a \\ (E_3)^a
+    \end{bmatrix} ^T
+    \begin{bmatrix}
+        1 + \zeta & \alpha&\beta&{ - \zeta }  \\
+        \alpha &   1&0&{ - \alpha }\\
+        \beta  &   0&1&{ - \beta  } \\
+        \zeta  &   \alpha&\beta&{1 - \zeta }
+    \end{bmatrix},
+\end{equation*}
+用上式得到的新基矢$(E'_\mu)^a$构造NP类光基矢符合\fbox{甲}中的变换，
+对应的$z=\alpha -\mathbbm{i} \beta$．
+
+\fbox{甲}类变换会给NP中各量带来改变，比如考虑Weyl标量$\Psi_{0}$，有
+\begin{align*}
+    \Psi_0 =C_{1313}\to C_{abcd}l^a (m^b + z l^b) l^c (m^d + z l^d)
+    %    =C_{abcd}\bigl(l^a  l^c (m^b m^d + z l^b m^d+  z m^b l^d + z^2 l^b l^d )   \bigr)
+    %    =C_{1313} + z C_{1113} + zC_{1311} + z^2C_{1111}
+    =C_{1313} .
+\end{align*}
+经过简单计算，$\Psi_{0}$是不变的．再计算一个略微复杂一点的
+\begin{align*}
+    \Psi_1 =& C_{1213} \to C_{abcd}l^a (n^b + \bar{z} m^b + z \overline{m}^b + z\bar{z} l^b)
+    l^c (m^d + z l^d)     \\
+%    =& C_{abcd} l^a l^c (n^bm^d + \bar{z} m^bm^d + z \overline{m}^b m^d+ z\bar{z} l^bm^d
+%    +z l^d n^b + \bar{z} z l^d m^b + z^2 l^d \overline{m}^b + z^2 l^d\bar{z} l^b) \\
+    =& C_{1213} + \bar{z} C_{1313} + z C_{1413} + z\bar{z} C_{1113}
+    + zC_{1112} + z\bar{z} C_{1113} + z^2 C_{1411} +z^2 C_{1111} \\
+    =& \Psi_1 + \bar{z} \Psi_0 .
+\end{align*}
+其它各量变化如下
+\begin{equation}\label{chnull:eqn_Weyl-I}
+    \begin{cases}
+        \Psi_{0} \to \Psi_{0}, \quad \Psi_{1} \to \Psi_{1} + \bar{z} \Psi_{0}, \quad
+        \Psi_{2} \to \Psi_{2} + 2 \bar{z} \Psi_{1} + \bar{z}^2 \Psi_{0}, \\
+        \Psi_{3} \to \Psi_{3} + 3 \bar{z} \Psi_{2} + 3 \bar{z}^2 \Psi_{1} + \bar{z}^3 \Psi_{0}, \\
+        \Psi_{4} \to \Psi_{4} + 4 \bar{z} \Psi_{3} + 6 \bar{z}^2 \Psi_{2}
+        + 4 \bar{z}^3 \Psi_{1} + \bar{z}^4 \Psi_{0} .
+    \end{cases}
+\end{equation}
+用类似方法可以得出自旋系数变换如下
+\begin{equation}\label{chnull:eqn_Spin-I}
+    \begin{cases}
+        \kappa\to \kappa, \quad \sigma\to \sigma + z \kappa, \quad
+        \rho \to \rho + \bar{z} \kappa, \quad \epsilon\to \epsilon +\bar{z}\kappa,\\
+        \tau\to \tau + z \rho + \bar{z}\sigma + z\bar{z} \kappa,\quad
+        \pi \to \pi + 2 \bar{z}\epsilon +\bar{z}^2 \kappa + {\rm D} \bar{z}, \\
+        \alpha\to \alpha + \bar{z}(\rho +\epsilon) + \bar{z}^2\kappa,\quad
+        \beta \to \beta + z \epsilon +\bar{z}\sigma + z\bar{z} \kappa, \\
+        \gamma\to \gamma + z\alpha + \bar{z}(\beta + \tau ) + z\bar{z}(\rho+\epsilon)
+        + \bar{z}^2\sigma + z\bar{z}^2\kappa,\\
+        \lambda\to \lambda + \bar{z}(2\alpha + \pi)+ \bar{z}^2 (\rho+2\epsilon)
+        + \bar{z}^3 \kappa + \bar{\updelta}\bar{z} \bar{z}{\rm D} \bar{z}, \\
+        \mu\to \mu + z \pi +2 \bar{z}\beta +2z\bar{z}\epsilon +\bar{z}^2\sigma
+        +z\bar{z}^2\kappa + \updelta \bar{z} + z{\rm D}\bar{z}, \\
+        \nu \to \nu + z\lambda + \bar{z}(\mu+2\lambda) + \bar{z}^2 (\tau+2\beta)
+        +\bar{z}^3\sigma + z\bar{z}(\pi+2\alpha) \\
+        \quad +z\bar{z}^2 (\rho+2\epsilon) + z\bar{z}^3 \kappa
+        +(\Delta + \bar{z}\updelta + z \bar{\updelta}+ z\bar{z}{\rm D})\bar{z} .
+    \end{cases}
+\end{equation}
+表示麦克斯韦场的标量变成
+\begin{equation}\label{chnull:eqn_Maxwell-I}
+    \Phi_0\to \Phi_0,\quad \Phi_1\to \Phi_1 + \bar{z}\Phi_0, \quad
+    \Phi_2 \to \Phi_2 + 2 \bar{z}\Phi_1 + \bar{z}^2 \Phi_0 .
+\end{equation}
+用于爱因斯坦场方程的Ricci曲率\eqref{chnull:eqn_ricci-all}变化是
+\begin{align*}
+    \Phi_{00}=& \frac{1}{2} R_{11} \to \frac{1}{2}R_{11}= \Phi_{00} \\
+    \Phi_{01}=& \frac{1}{2} R_{13} \to \frac{1}{2}R_{ab}l^a (m^b + z l^b)
+    =\frac{1}{2}R_{13} + z\frac{1}{2}R_{11} = \Phi_{01} + z \Phi_{00} \\
+    \Phi_{02}=& \frac{1}{2} R_{33} \to %\frac{1}{2}R_{ab}(m^a + z l^a)(m^b + z l^b)=
+    \frac{1}{2}R_{ab}(m^am^b + z l^am^b+ zm^al^b + z^2 l^al^b) 
+    =\Phi_{02}+ 2z\Phi_{01} + z^2 \Phi_{00} \\
+    \Phi_{10}=& \frac{1}{2} R_{14} \to \frac{1}{2}R_{ab}l^a(\overline{m}^b + \bar{z} l^b)
+    = \Phi_{01} + \bar{z} \Phi_{00} \\
+    \Phi_{12}=& \frac{1}{2} R_{23} \to %\frac{1}{2}R_{ab}(n^a + \bar{z} m^a +
+    %z \overline{m}^a + z\bar{z} l^a)(m^b + z l^b)\\
+    %=&\frac{1}{2}R_{ab}(n^am^b + \bar{z} m^am^b + z \overline{m}^am^b + z\bar{z} l^am^b
+    %+z n^a l^b+ z\bar{z} m^a l^b+ z^2 \overline{m}^a l^b+ z^2\bar{z} l^al^b) \\
+    %=& \frac{1}{2} (R_{23}+\bar{z}R_{33}+zR_{43}+z\bar{z}R_{13}
+    %+zR_{21}+z\bar{z} R_{31}+z^2 R_{41}+ z^2\bar{z} R_{11})\\
+    %=& 
+    \Phi_{12}+\bar{z}\Phi_{02}+2z\Phi_{11} +2z\bar{z}\Phi_{01}
+    +z^2 \Phi_{10} + z^2\bar{z} \Phi_{00} \\
+    \Phi_{20}=& \frac{1}{2} R_{44} \to \frac{1}{2}R_{ab}
+    (\overline{m}^a\overline{m}^b + \bar{z} l^a\overline{m}^b
+    +\bar{z}\overline{m}^al^b + \bar{z}^2 l^al^b)
+    =\Phi_{20}+ 2\bar{z}\Phi_{10} + \bar{z}^2 \Phi_{00} \\
+    \Phi_{21}=& \frac{1}{2} R_{24} \to  %\frac{1}{2}R_{ab}(n^a + \bar{z} m^a +
+    %    z \overline{m}^a + z\bar{z} l^a)(\overline{m}^b + \bar{z} l^b)\\
+    %    =&\frac{1}{2}R_{ab}(n^a\overline{m}^b + \bar{z} m^a\overline{m}^b
+    %      + z \overline{m}^a\overline{m}^b + z\bar{z} l^a\overline{m}^b
+    %    +\bar{z} n^a l^b+ \bar{z}^2 m^a l^b+ z\bar{z} \overline{m}^a l^b+ z\bar{z}^2 l^al^b) \\
+    %    =& \frac{1}{2} (R_{24}+\bar{z}R_{34}+zR_{44}+z\bar{z}R_{14}
+    %    +\bar{z} R_{21}+\bar{z}^2 R_{31}+z\bar{z} R_{41}+ z\bar{z}^2 R_{11})\\
+    %    =&
+    \Phi_{21}+ {z}\Phi_{20}+2\bar{z}\Phi_{11}
+    +2z\bar{z}\Phi_{10} +\bar{z}^2 \Phi_{01} + z\bar{z}^2 \Phi_{00}\\
+    \Phi_{22}=& \frac{1}{2} R_{22} \to %\frac{1}{2}R_{ab}
+%    (+n^a + \bar{z} m^a + z \overline{m}^a + z\bar{z} l^a)
+%    (n^b + \bar{z} m^b + z \overline{m}^b + z\bar{z} l^b)\\
+%    =&\frac{1}{2}R_{ab} \bigl(
+%    (n^an^b + \bar{z} m^an^b + z \overline{m}^an^b + z\bar{z} l^an^b)
+%    +(\bar{z}n^am^b + \bar{z}^2 m^am^b + z \bar{z}\overline{m}^am^b + z\bar{z}^2 l^am^b)\\
+%    &+(zn^a\overline{m}^b + z\bar{z} m^a\overline{m}^b
+%    + z^2 \overline{m}^a\overline{m}^b + z^2\bar{z} l^a\overline{m}^b )
+%    +(z\bar{z} n^al^b + z\bar{z}^2 m^a l^b+ z^2\bar{z}\overline{m}^a l^b
+%    + z^2\bar{z}^2 l^al^b) \bigr) \\
+%    =&\frac{1}{2}\bigl(
+%    R_{22} + \bar{z} R_{32} + z R_{42} + z\bar{z} R_{12}
+%    +\bar{z}R_{23} + \bar{z}^2 R_{33} + z \bar{z}R_{43} + z\bar{z}^2 R_{13} \\
+%    &+ z R_{24} + z\bar{z} R_{34} + z^2 R_{44} + z^2\bar{z} R_{14}
+%    + z\bar{z} R_{21} + z\bar{z}^2 R_{31}+ z^2\bar{z}R_{41}+ z^2\bar{z}^2 R_{11}  \bigr) \\
+%    =& 
+    \Phi_{22} + 2z\bar{z}^2\Phi_{01}  + \bar{z}^2 \Phi_{02}
+    + 2\bar{z} \Phi_{12} + 4z\bar{z} \Phi_{11} + 2z \Phi_{21} \\
+    &+ z^2 \Phi_{20} + 2z^2\bar{z} \Phi_{10}  + z^2\bar{z}^2 \Phi_{00}   \\
+    \Phi_{11}=& \frac{1}{4} (R_{12} + R_{34})  \to %\frac{1}{4}
+%    R_{ab}l^a(n^b + \bar{z} m^b + z \overline{m}^b + z\bar{z} l^b)
+%    +\frac{1}{4} R_{ab} (m^a + z l^a)(\overline{m}^b + \bar{z} l^b ) \\
+%    =& \frac{1}{4} ( R_{12}+\bar{z} R_{13} +z R_{14} +z\bar{z} R_{11}
+%    + R_{34} + \bar{z}R_{31}+ zR_{14}+ z\bar{z}R_{11}) \\
+%    =& 
+    \Phi_{11} + \bar{z} \Phi_{01} +z \Phi_{10} +z\bar{z} \Phi_{00}  \\
+    R= & 2(R_{34}-R_{12})\to R
+    %    2(R_{34} + \bar{z}R_{31}+ zR_{14}+ z\bar{z}R_{11} -  R_{12}-\bar{z} R_{13} -z R_{14} -z\bar{z} R_{11} )
+\end{align*}
+
+
+\noindent\fbox{\heiti 乙}：保持实类光基矢$n^a$不变，四个基矢变换是
+\begin{equation*}
+    n^a\to n^a,\quad m^a \to m^a + w n^a, \quad \overline{m}^a \to \overline{m}^a + \bar{w} n^a,
+    \ \text{和}\ l^a \to l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a .
+\end{equation*}
+其中$w$是流形$M$上的复数函数．
+\fbox{乙}类旋转对应的Lorentz变换为式\eqref{chnull:eqn_Sab1}的\uwave{转置}，
+即$S_2( {\alpha ,\beta } ) = S_1^T( {\alpha ,\beta } )$．
+将它作用在四个实基矢上，
+得到新实基矢$(E'_\mu)^a$，用此构造NP类光基矢符合\fbox{乙}中的变换，
+对应的$w=\alpha -\mathbbm{i} \beta$．
+这类变换只需将\fbox{甲}中的$l^a$和$n^a$互换即可，其效果是
+\begin{equation}\label{chnull:eqn_Weyl-Spin-II}
+    \begin{cases}
+        \Psi_0 \leftrightarrows \overline{\Psi}_4 ,\quad
+        \Psi_1 \leftrightarrows \overline{\Psi}_3 ,\quad
+        \Psi_2 \leftrightarrows \overline{\Psi}_2 ;\quad
+        \Phi_0 \leftrightarrows -\overline{\Phi}_2 ,\quad
+        \Phi_1 \leftrightarrows -\overline{\Phi}_1 ;\\
+        \kappa \leftrightarrows -\bar{\nu}, \
+        \rho   \leftrightarrows -\bar{\mu}, \
+        \sigma \leftrightarrows -\bar{\lambda}, \
+        \alpha \leftrightarrows -\bar{\beta},\
+        \epsilon\leftrightarrows-\bar{\gamma},\
+        \pi    \leftrightarrows -\bar{\tau}
+    \end{cases}
+\end{equation}
+特别的，\fbox{乙}类旋转对Weyl标量的影响是
+\begin{equation}\label{chnull:eqn_Weyl-II}
+    \begin{cases}
+        \Psi_{0} \to \Psi_{0} + 4 w \Psi_{1} + 6 w^2 \Psi_{2}
+        + 4 w^3 \Psi_{3} + w^4 \Psi_{4}, \\
+        \Psi_{1} \to \Psi_{1} + 3 w \Psi_{2} + 3 w^2 \Psi_{3} + w^3 \Psi_{4}, \\
+        \Psi_{2} \to \Psi_{2} + 2 w \Psi_{3} + w^2 \Psi_{4}, \quad
+        \Psi_{3} \to \Psi_{3} + w \Psi_{4}, \quad \Psi_{4} \to \Psi_{4} .
+    \end{cases}
+\end{equation}
+用于爱因斯坦场方程的Ricci曲率\eqref{chnull:eqn_ricci-all}变化是
+\begin{align*}
+    \Phi_{00}=& \frac{1}{2} R_{11} \to 
+%    \frac{1}{2}R_{ab}
+%    (l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a)
+%    (l^b + \bar{w} m^b + w \overline{m}^b + w\bar{w} n^b)\\
+%    =&\frac{1}{2}\bigl(
+%    R_{22} + 2 w\bar{w}^2 R_{13} + \bar{w}^2 R_{33}
+%    + 2\bar{w} R_{32} + 2w\bar{w} R_{12} + 2w \bar{w}R_{43}  + 2w R_{42}  \\
+%    & + w^2 R_{44} + 2w^2\bar{w} R_{14}
+%    +  w^2\bar{w}^2 R_{11}  \bigr) \\    =& 
+    \Phi_{22} + 2w\bar{w}^2\Phi_{01}  + \bar{w}^2 \Phi_{02}
+    + 2\bar{w} \Phi_{12} + 4w\bar{w} \Phi_{11} + 2w \Phi_{21} \\
+    & + w^2 \Phi_{20} + 2w^2\bar{w} \Phi_{10}  + w^2\bar{w}^2 \Phi_{00}   \\
+    \Phi_{01}=& \frac{1}{2} R_{13} \to 
+%    \frac{1}{2}R_{ab}
+%    (l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a) (m^b + w n^b) \\
+%    =& \frac{1}{2} (R_{13}+\bar{w}R_{33}+wR_{43}+w\bar{w}R_{23}
+%    +wR_{12}+w\bar{w} R_{32}+w^2 R_{42}+ w^2\bar{w} R_{22})\\   =& 
+    \Phi_{01}+\bar{w}\Phi_{02}+2w\Phi_{11} +2w\bar{w}\Phi_{12}
+    +w^2 \Phi_{21} + w^2\bar{w} \Phi_{22} \\
+    \Phi_{02}=& \frac{1}{2} R_{33} \to
+    \frac{1}{2}R_{ab}(m^am^b + w n^am^b+ wm^an^b + w^2 n^an^b)
+    =\Phi_{02}+ 2w\Phi_{12} + w^2 \Phi_{22} \\
+    \Phi_{10}=& \frac{1}{2} R_{14} \to 
+%    \frac{1}{2}R_{ab}(l^a + \bar{w} m^a +
+%    w \overline{m}^a + w\bar{w} n^a)(\overline{m}^b + \bar{w} n^b)\\
+%    =& \frac{1}{2} (R_{14}+\bar{w}R_{34}+wR_{44}+w\bar{w}R_{24}
+%    +\bar{w}R_{12}+\bar{w}^2 R_{32}+w\bar{w} R_{42}+ w\bar{w}^2 R_{22})\\    =& 
+    \Phi_{10}+{w}\Phi_{20}+2\bar{w}\Phi_{11} +2w\bar{w}\Phi_{21}
+    +\bar{w}^2 \Phi_{12} + w\bar{w}^2 \Phi_{22} \\
+    \Phi_{12}=& \frac{1}{2} R_{23} \to  \frac{1}{2}R_{ab} n^a (m^b+w n^b)
+    = \Phi_{12} + w \Phi_{22}\\
+    \Phi_{20}=& \frac{1}{2} R_{44} \to \frac{1}{2}R_{ab}
+    (\overline{m}^a\overline{m}^b + \bar{w} n^a\overline{m}^b
+    +\bar{w}\overline{m}^an^b + \bar{w}^2 n^an^b)
+    =\Phi_{20}+ 2\bar{w}\Phi_{21} + \bar{w}^2 \Phi_{22} \\
+    \Phi_{21}=& \frac{1}{2} R_{24} \to  \frac{1}{2}R_{ab} n^a (\overline{m}^b+\bar{w} n^b)
+    = \Phi_{21} + \bar{w} \Phi_{22}\\
+    \Phi_{22}=& \frac{1}{2} R_{22} \to \frac{1}{2}R_{ab} n^a n^b = \Phi_{22}   \\
+    \Phi_{11}=& \frac{1}{4} (R_{12} + R_{34})  \to 
+%    \frac{1}{4}
+%    R_{ab}(l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a) n^b
+%    +\frac{1}{4} R_{ab} (m^a + w n^a)(\overline{m}^b + \bar{w} n^b ) \\
+%    =& \frac{1}{4} ( R_{12}+\bar{w} R_{23} +w R_{24} +w\bar{w} R_{22}
+%    + R_{34} + \bar{w}R_{32}+ wR_{24}+ w\bar{w}R_{22}) \\    =& 
+    \Phi_{11} + \bar{w} \Phi_{12} +w \Phi_{21} +w\bar{w} \Phi_{22}  \\
+    R= & 2(R_{34}-R_{12})\to R
+\end{align*}
+
+
+\noindent\fbox{\heiti 丙}：保持实类光基矢$l^a$和$n^a$方向不变，
+并在$(m^a,\overline{m}^a)$平面上将基矢$m^a$和$\overline{m}^a$旋转$\theta$角；
+四个基矢变换是
+\begin{equation*}
+    l^a\to A^{-1}l^a,\quad n^a\to A n^a,\quad m^a \to e^{\mathbbm{i}\theta} m^a,
+    \ \text{和}\ \overline{m}^a \to e^{-\mathbbm{i}\theta} \overline{m}^a .
+\end{equation*}
+其中$A$和$\theta$是两个实数函数．
+\fbox{丙}类旋转对应的Lorentz变换是
+\begin{equation} \label{chnull:eqn_Sab3}
+    S_3( {A ,\theta } ) =
+    \begin{bmatrix}
+        \frac{1}{2} (A^{-1}+A) & 0 & 0 & \frac{1}{2} (A^{-1}-A) \\
+        0 &  \cos \theta & \sin \theta  & 0 \\
+        0 & -\sin \theta & \cos \theta  & 0 \\
+        \frac{1}{2} (A^{-1}-A) & 0 & 0 & \frac{1}{2} (A^{-1}+A) \\
+    \end{bmatrix}
+\end{equation}
+可验证$S_3$是Lorentz变换，将它作用在四个实基矢上，
+得到新实基矢$(E'_\mu)^a$，用此构造NP类光基矢符合\fbox{丙}中变换．
+此变换对Weyl标量和麦氏标量的影响是
+\begin{equation}\label{chnull:eqn_Weyl-III}
+    \begin{cases}
+        \Psi_0 \to A^{-2} e^{2\mathbbm{i}\theta} \Psi_0, \
+        \Psi_1 \to A^{-1} e^{\mathbbm{i}\theta} \Psi_1, \
+        \Psi_2 \to \Psi_2, \
+        \Psi_3 \to A e^{-\mathbbm{i}\theta} \Psi_3, \\
+        \Psi_4 \to A^{2} e^{-2\mathbbm{i}\theta} \Psi_4 ;\
+        \Phi_0 \to A^{-1} e^{\mathbbm{i}\theta} \Phi_0, \
+        \Phi_1 \to \Phi_1, \
+        \Phi_2 \to A e^{-\mathbbm{i}\theta} \Phi_2;\\
+    \end{cases}
+\end{equation}
+对自旋系数的影响是
+\setlength{\mathindent}{0em} 
+\begin{equation}\label{chnull:eqn_Spin-III}
+    \begin{cases}
+        \kappa\to A^{-2} e^{\mathbbm{i}\theta}\kappa,\
+        \sigma\to A^{-1} e^{2\mathbbm{i}\theta}\sigma,\
+        \rho \to A^{-1}\rho \
+        \tau \to e^{\mathbbm{i}\theta} \tau, \
+        \pi \to e^{-\mathbbm{i}\theta} \pi,\\
+        \lambda \to A e^{\mathbbm{i}\theta} \lambda,\quad
+        \nu \to A^2 e^{-\mathbbm{i}\theta} \nu, \quad
+        \epsilon\to A^{-1} \epsilon -\frac{1}{2}A^{-2}{\rm D}A
+        + \frac{\mathbbm{i}}{2} A^{-1} {\rm D}\theta,       \\
+        \gamma\to A \gamma -\frac{1}{2}\Delta A+ \frac{\mathbbm{i}}{2} A \Delta \theta,\quad
+        \alpha\to e^{-\mathbbm{i}\theta}\alpha + \frac{\mathbbm{i}}{2} e^{-\mathbbm{i}\theta}
+        \bar{\updelta}\theta -\frac{1}{2} A^{-1} e^{-\mathbbm{i}\theta}\bar{\updelta}A, \\
+        \mu\to A\mu, \quad
+        \beta\to e^{\mathbbm{i}\theta}\beta + \frac{\mathbbm{i}}{2} e^{\mathbbm{i}\theta}
+        \bar{\updelta}\theta -\frac{1}{2} A^{-1} e^{\mathbbm{i}\theta}\bar{\updelta}A.
+    \end{cases}
+\end{equation}\setlength{\mathindent}{2em} 
+用于爱因斯坦场方程的Ricci曲率\eqref{chnull:eqn_ricci-all}变化是
+\begin{equation}\label{chnull:eqn_Einstein-III}
+    \begin{cases}
+        \Phi_{00}\to A^{-2} \Phi_{00} , \quad
+        \Phi_{01}\to A^{-1} e^{\mathbbm{i}\theta} \Phi_{01}  , \quad
+        \Phi_{02}\to e^{2\mathbbm{i}\theta} \Phi_{02}  , \\
+        \Phi_{10}\to A^{-1} e^{-\mathbbm{i}\theta} \Phi_{10} , \quad
+        \Phi_{11}\to \Phi_{11}, \quad
+        \Phi_{12}\to A e^{\mathbbm{i}\theta} \Phi_{12}  , \\
+        \Phi_{20}\to e^{-2\mathbbm{i}\theta} \Phi_{20}  , \
+        \Phi_{21}\to A e^{-\mathbbm{i}\theta} \Phi_{12}  , \
+        \Phi_{22}\to A^2 \Phi_{22}    , \
+        R\to R.
+    \end{cases}
+\end{equation}
+
+
+
+其中$z$和$w$是流形$M$上的两个复数函数，$A$和$\theta$是两个实数函数；
+Lorentz群包含六个实参量，上面三种变化同样包含六个实参量，两者相互对应．
+
+
+\subsection{主类光矢量方法}
+有两种等价的方法来将Weyl张量分类，分别是本征值方法和主类光矢量方法；
+我们只叙述主类光矢量方法．
+在NP类光四标架中Weyl张量化为五个标量：$\Psi_0,\ \Psi_1,\ \Psi_2,\ \Psi_3,\ \Psi_4$；
+这些标量取值依赖于标架方向的选取，也依赖于所经受的Lorentz变换的六个参数．
+如果标架选取适当，则Weyl标量中会有多个为零；对这个问题的
+回答导致了Petrov分类．
+
+%当四维闵氏时空$M$是共性平直时，根据定理\ref{chrg:thm_conformal-flat}可知
+%Weyl张量恒为零，此时没有必要对其分类；故我们假设时空并非共性平直．
+假设$\Psi_4\neq 0$，若$\Psi_4 = 0$，对标架实施\fbox{甲}类变换，则它就不再为零了．
+
+现在考虑有参数$w$的\fbox{乙}类变换，Weyl标量变换
+方程是\eqref{chnull:eqn_Weyl-II}，即下式
+\begin{equation}\label{chnull:eqn_Weyl-Petrov}
+    \begin{cases}
+        \Psi_{0}^{(n)}=  \Psi_{0} + 4 w \Psi_{1} + 6 w^2 \Psi_{2}
+        + 4 w^3 \Psi_{3} + w^4 \Psi_{4}, \\
+        \Psi_{1}^{(n)}=  \Psi_{1} + 3 w \Psi_{2} + 3 w^2 \Psi_{3} + w^3 \Psi_{4}, \\
+        \Psi_{2}^{(n)}= \Psi_{2} + 2 w \Psi_{3} + w^2 \Psi_{4}, \
+        \Psi_{3}^{(n)}= \Psi_{3} + w \Psi_{4}, \
+        \Psi_{4}^{(n)}= \Psi_{4} .
+    \end{cases}
+\end{equation}
+其中标记上标“$(n)$”的$\Psi$是新值，它由旧值变换而来．
+设有代数方程
+\begin{equation}\label{chnull:eqn_Weyl-II-w4}
+    \Psi_{4}w^4 +  4 \Psi_{3}  w^3 + 6  \Psi_{2} w^2
+    + 4  \Psi_{1} w + \Psi_{0}= 0.
+\end{equation}
+这个方程有四个根：$w_1, w_2, w_3 ,w_4$；
+当$w$取这四个中的任一个时，由式\eqref{chnull:eqn_Weyl-Petrov}第一个
+方程可知$\Psi_0^{(n)}=0$．
+此时，基矢$l^a$对应新的方向，即$l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a $．
+\begin{definition}
+    $l^a$的新方向（$l^a + \bar{w} m^a + w \overline{m}^a + w\bar{w} n^a $）
+    被称为Weyl张量的{\heiti 主类光方向}．如果上述四个根互不相等，
+    那么Weyl张量称为{\heiti 代数普通}的，否则称为{\heiti 代数特殊}的．
+\end{definition}
+
+方程\eqref{chnull:eqn_Weyl-II-w4}四个根（$w_1, w_2, w_3 ,w_4$）不同重合方式导致了Petrov分类．
+
+\paragraph{Petrov O型}
+这种类型是指四个根全部为零，是平庸情形．
+此时所有Weyl标量都是零，进而可得Weyl张量也是零；
+根据定理\ref{chrg:thm_conformal-flat}可知时空是共形平坦的．
+
+
+\paragraph{Petrov N型}
+这种类型是指有非零四重根．
+容易看出由参数$w$的\fbox{乙}类旋转能使$\Psi_0$、$\Psi_1$、$\Psi_2$和$\Psi_3$同时为零，
+只留下$\Psi_4$一个非零量．
+
+
+
+\paragraph{Petrov I 型}
+这种类型是指四个根互不相同．
+我们通过第一个根$w_1$（比如说）的\fbox{乙}类变换将$\Psi_0^{(1)}$变为恒零量．
+再通过\fbox{甲}类旋转（不影响$\Psi_0$）能将$\Psi_4$为零（取
+方程\eqref{chnull:eqn_Weyl-II-w4}根的倒数即可，见式\eqref{chnull:eqn_Weyl-I}）．
+这样使$\Psi_0$和$\Psi_4$为零后，保留$\Psi_1$、$\Psi_2$和$\Psi_3$非零．
+我们注意到在\fbox{丙}类变换下$\Psi_1$、$\Psi_2$和$\Psi_3$保持不变，
+但\fbox{丙}类旋转会改变$\Psi_0$和$\Psi_4$的值．
+
+
+\paragraph{Petrov II 型}
+这种类型是指有两个重根，比如$w_1=w_2(\neq w_3 \neq w_4)$且$w_3\neq w_4$．
+在这种情形下，$w_1(=w_2)$为方程\eqref{chnull:eqn_Weyl-II-w4}的解，
+并且是其导数（对$w$求导）的解，即是下式
+\begin{equation}\label{chnull:eqn_Weyl-II-w4-d1}
+    \Psi_{4} w^3 +  3 \Psi_{3}  w^2 + 3  \Psi_{2} w +  \Psi_{1} = 0
+\end{equation}
+的解．
+此时，参数为$w=w_1=w_2$的\fbox{乙}类旋转能将$\Psi_0$和$\Psi_1$变成零；
+再由\fbox{甲}类旋转（不改变$\Psi_0$和$\Psi_1$的值）能使$\Psi_4$为零；
+只留下$\Psi_2$和$\Psi_3$不为零．
+对于\fbox{丙}类旋转，$\Psi_2$保持不变，但$\Psi_3$会变．
+
+\paragraph{Petrov D 型}
+这种类型是指有两组相互可区分的重根，比如$w_1=w_3, w_2 = w_4$但$w_1\neq w_2$．
+对于引力论来说这是最重要的一种类型；通过旋转，能令$\Psi_0$、$\Psi_1$、$\Psi_3$和$\Psi_4$同时
+为零，只留下$\Psi_2$一个非零标量．
+
+
+依照假定，在参数为$w$的\fbox{乙}类旋转后，$\Psi_0$可以化为如下形式
+\begin{equation}
+    \Psi_0^{(1)} = \Psi_4 (w-w_1)^2 (w-w_2)^2.
+\end{equation}
+我们对上式中的$w$求导数，求导后乘以适当系数使得$w$最高次幂前的系数是$\Psi_4$；
+经过连续四次求导便可以得到$\Psi_1^{(1)},\Psi_2^{(1)},\Psi_3^{(1)},\Psi_4^{(1)}$．
+\begin{subequations}\label{chnull:eqn_w4d}
+    \begin{align}
+        \Psi_1^{(1)} =& \frac{1}{2}\Psi_4 (w-w_1)(w-w_2)(2w-w_1-w_2)\\
+        \Psi_2^{(1)} =& \frac{1}{3}\Psi_4 \bigl((w-w_1)(w-w_2)+\frac{1}{2}(2w-w_1-w_2)^2\bigr)\\
+        \Psi_3^{(1)} =& \frac{1}{2}\Psi_4 (2w-w_1-w_2) \\
+        \Psi_4^{(1)} =& \Psi_4
+    \end{align}
+\end{subequations}
+选择$w=w_1$，由式\eqref{chnull:eqn_w4d}可知
+\begin{equation*}
+    \Psi_0^{(1)}=0=\Psi_1^{(1)},\
+    \Psi_2^{(1)}=\frac{1}{6}\Psi_4 (w_1-w_2)^2, \
+    \Psi_3^{(1)}=\frac{1}{2}\Psi_4 (w_1-w_2),\
+    \Psi_4^{(1)} = \Psi_4 .
+\end{equation*}
+
+现在给标架一个参数为$\bar{z}$的\fbox{甲}类旋转；
+新的Weyl标量值（上角标记为“$(2)$”）是
+\begin{equation}
+    \Psi_0^{(2)}= 0=\Psi_1^{(2)},\qquad
+    \Psi_2^{(2)}=\Psi_2^{(1)}=\frac{1}{6}\Psi_4 (w_1-w_2)^2 .
+\end{equation}
+上述三个值较为简单，剩下两个值略显复杂，见下式
+\begin{align*}
+        \Psi_3^{(2)}=&\Psi_3^{(1)}  +  3 \bar{z} \Psi_2^{(1)}
+        =\frac{1}{2}\Psi_4 (w_1 - w_2)\bigl(1+\bar{z}(w_1 - w_2)\bigr) \\
+        \Psi_4^{(2)}=& \Psi_4 + 4\bar{z}\cdot
+        \frac{1}{2}\Psi_4 (w_1 - w_2) + 6\bar{z}^2 \cdot
+        \frac{1}{6}\Psi_4 (w_1 - w_2)^2
+        =\Psi_4 \bigl(1+ \bar{z}(w_1 - w_2)\bigr)^2
+\end{align*} %\setlength{\mathindent}{2em}
+$\bar{z}$是自由参数，我们选取其为$\bar{z}= (w_2-w_1)^{-1}$ ；
+这样的选择能使$\Psi_3^{(2)}$和$\Psi_4^{(2)}$为零．
+因此，由一个参数为$w-1$的\fbox{乙}类旋转，
+再接一个参数为$\bar{z}= (w_2-w_1)^{-1}$的\fbox{甲}类旋转，
+$\Psi_0^{(2)}$、$\Psi_1^{(2)}$、$\Psi_3^{(2)}$和$\Psi_4^{(2)}$都
+被简化为零，唯独$\Psi_2^{(2)}$不为零．
+现在可以把上角标“$(2)$”丢掉，直接说：经过变换只有$\Psi_2$不为零；
+并且$\Psi_2$对\fbox{丙}类旋转保持不变．
+
+
+
+\paragraph{Petrov III型}
+这种类型是指有三个重根，比如$w_1=w_2=w_3(\neq w_4)$．
+不难看出由参数$w=w_1$的\fbox{乙}类旋转能令
+$\Psi_0$、$\Psi_1$和$\Psi_2$同时为零；
+再接一个\fbox{甲}类旋转能使$\Psi_4$为零
+（不影响$\Psi_0$、$\Psi_1$和$\Psi_2$为零）．
+只留下$\Psi_3$一个非零量，它的值在\fbox{丙}类旋转下可变．
+
+
+
+
+
+
+
+
+至此，主类光矢量式的Petrov分类讲述完毕．
+
+
+
+
+
+\paragraph{本征值方法分类}
+请参阅\parencite[\S 4.1-4.2]{stephani-exe-2003}，
+或中文书籍\parencite[附录\S 15.2]{chenbin2018}．
+
+
+
+%\section{类光曲线}
+%设有四维广义黎曼流形$(M,g)$，其度规是Lorentz型度规（$(-+++)$）．
+%本节大部分结论可以毫无困难地推广到广义Lorentz度规，即$(-+\cdots +)$．
+%
+%现在，假设曲线$C(t)$是类光曲线，即
+%\begin{equation}
+%    0=g_{ab}T^a T^b = g_{ab}\left.\left(\frac{\partial }{\partial t}\right)^a\right|_{C(t)}
+%    \left.\left(\frac{\partial }{\partial t}\right)^b\right|_{C(t)}
+%    =g_{\alpha\beta}\frac{{\rm d} x^\alpha\bigl(C(t)\bigr)}{{\rm d} t}
+%    \frac{{\rm d} x^\beta\bigl(C(t)\bigr)}{{\rm d} t} .
+%\end{equation}
+%在$TM$上选定{\heiti \bfseries Frenet 标架}：$F\equiv \{T^a, N^a, U^a, V^a\}$．
+%$T^a$为式\eqref{chnull:eqn_T}；$N^a$为式\eqref{chnull:eqn_N}；
+%$U^a,V^a$是两个相互正交归一的类空矢量场，它们是$S$的基，
+%故$N^a$和$T^a$与$U^a,V^a$是正交的．Frenet导数关系是
+%\begin{align}
+%    \nabla_T T^a = & +h T^a + \sigma U^a, \label{chnull:eqn_Frenet-T} \\
+%    \nabla_T N^a = & -h N^a +\tau U^a +\beta V^a, \label{chnull:eqn_Frenet-N} \\
+%    \nabla_T U^a = & -\tau T^a -\sigma N^a + \gamma U^a, \label{chnull:eqn_Frenet-U} \\
+%    \nabla_T V^a = & -\beta T^a -\gamma U^a . \label{chnull:eqn_Frenet-V}
+%\end{align}
+%其中$\nabla$是$(M,g)$上的Levi-Civita联络，它自然
+%满足相容性条件\eqref{chgd:eqn_connection-compatibility}．
+%
+%由$g_{ab}T^a N^b =1$可得$0=N_a \nabla_T T^a + T_a \nabla_T N^a$
+%
+%不难验证Frenet标架是刚性标架（见\ref{chrg:def_rigid-frame}），
+%由式\eqref{chrg:eqn_ricci3}
+%\begin{equation}
+%    \nabla_b (e_\mu)^a  = -\omega_{\mu\nu\rho} (e^\rho)_b (e^\nu)^a,\qquad
+%    \omega_{\mu\nu\rho}=-\omega_{\nu\mu\rho} . \tag{\ref{chrg:eqn_ricci3}}
+%\end{equation}
+%由上式可以看到在刚性标架上对$(e_\mu)^a$求导后，等号右端抽象指标为“$a$”的基矢$(e^\nu)^a$
+%不可能包含内指标为“$\mu$”的基矢了，因为反对称关系$\omega_{\mu\nu\rho}=-\omega_{\nu\mu\rho}$．
+
+
+
+\section{类光曲线}\label{chnull:sec_llc}
+%\S\ref{chfd:sec_tlc}讲述了类时线汇基本知识，本小节继续那里的讨论，给出类光线汇的基本内容．
+
+令$C(t)$是$M$中光滑曲线，它在局部坐标系$(U;x^\alpha)$中的分量表达式为：
+\begin{equation}
+    x^\alpha\equiv x^\alpha(t),\qquad \alpha =0,1,2,3,
+    \quad t\in (-\delta,\delta)\subset \mathbb{R} .
+\end{equation}
+曲线$C(t)$的切线切矢量记为
+\begin{equation}\label{chnull:eqn_T}
+    l^a \equiv \left.\left(\frac{\partial }{\partial t}\right)^a\right|_{C(t)}
+    =\frac{{\rm d} x^\alpha\bigl(C(t)\bigr)}{{\rm d} t}
+    \left(\frac{\partial }{\partial x^\alpha}\right)^a .
+\end{equation}
+现设$C(t)$是类光曲线，
+在$\{l^a, n^a, m^a, \overline{m}^a\}$下，利用\eqref{chnull:eqn_covD-l}
+%\begin{equation}
+%    \begin{aligned}
+%        \nabla_{b} l_a
+%        =& -(\epsilon+\bar{\epsilon}) n_b l_a -(\gamma+\bar{\gamma}) l_b l_a
+%        +(\bar{\alpha}+\beta) \overline{m}_b l_a + (\alpha+\bar{\beta}) m_b l_a  \\
+%        & +\kappa n_b \overline{m}_a  +\tau l_b \overline{m}_a
+%        -\sigma \overline{m}_b \overline{m}_a  -\rho m_b \overline{m}_a  \\
+%        & +\bar{\kappa} n_b m_a + \bar{\tau} l_b m_a
+%        -\bar{\rho} \overline{m}_b m_a -\bar{\sigma} m_b m_a  .
+%    \end{aligned}        \tag{\ref{chnull:eqn_covD-l}}
+%\end{equation}
+和\eqref{chnull:eqn_NP-lnmmb}可得
+\begin{equation}
+    l^b\nabla_{b} l_a  = (\epsilon+\bar{\epsilon})  l_a
+    -\kappa  \overline{m}_a  -\bar{\kappa}  m_a  .
+\end{equation}
+由上式可知：$C(t)$是类光测地线充要条件是$\kappa=0$；
+若再要求$Re(\epsilon)=0$，则$t$是仿射参数．
+%有些时候为简单起见直接要求$\epsilon=0$．
+
+下面我们只关心仿射参数化的类光矢量$l^a$，即$\kappa=0=\epsilon+\bar{\epsilon}$．
+此时，由式\eqref{chnull:eqn_covD-l}易得
+\begin{align}
+    \nabla_{[b} l_{a]}
+    =&  (\bar{\alpha}+\beta-\tau) \overline{m}_{[b} l_{a]}
+    + (\alpha+\bar{\beta}-\bar{\tau}) m_{[b} l_{a]}
+    +(\rho-\bar{\rho}) \overline{m}_{[b} m_{a]} . \label{chnull:eqn_adl}\\
+    l_{[c}\nabla_{b} l_{a]}  =& (\rho-\bar{\rho})
+    l_{[c}\overline{m}_{b} m_{a]}. \label{chnull:eqn_aldl}
+\end{align}
+参考\S\ref{chsm:sec_hypersurface-orthogonal}知识，
+由式\eqref{chnull:eqn_aldl}可知
+类光测地线切矢量$l^a$是超曲面正交的充要条件是$\rho$为实数．
+进一步，若在要求$\bar{\alpha}+\beta=\tau$，则
+从式\eqref{chnull:eqn_adl}可知切矢量$l^a$就等于一个标量场梯度．
+
+%当$\kappa=0=\epsilon+\bar{\epsilon}$，$\bar{\alpha}+\beta=\tau$且$\rho$为实数时，
+由式\eqref{chnull:eqn_covD-l}易得仿射参数化类光测地线$C(t)$的切线切矢量$l^a$满足
+\begin{equation}\label{chnull:eqn_ltheta}
+    \frac{1}{2}\nabla^{a} l_a =-\frac{1}{2} (\rho +\bar{\rho})
+    \overset{def}{=} \theta .
+\end{equation}
+最后一步，我们定义了$\theta$．
+我们继续给出另一定义，并给出了计算结果
+\begin{equation}\label{chnull:eqn_lomega}
+    \omega^2 \overset{def}{=} \frac{1}{2} (\nabla_{[b} l_{a]}) \nabla^{b} l^{a}
+    = -\frac{1}{4}  (\rho - \bar{\rho})^2 .
+\end{equation}
+经过一些计算可以得到
+\begin{equation}\label{chnull:eqn_lsigma}
+    \frac{1}{2} (\nabla_{(b} l_{a)}) \nabla^{b} l^{a}
+    =|\sigma|^2 + \theta^2 .
+\end{equation}
+式\eqref{chnull:eqn_ltheta}、\eqref{chnull:eqn_lomega}和\eqref{chnull:eqn_lsigma}只
+要求$l^a$是类光测地线（仿射参数化）切矢量即可，无需额外要求；
+因对称、反对称性，上面三式计算过程中很多项直接相消．
+$\theta$、$\omega$和$\sigma$被称为{\heiti 光学标量}，其中$\sigma$就是
+NP型式中的自旋系数．它们分别表示膨胀、旋转和剪切．
+
+
+
+\index[physwords]{Goldberg--Sachs定理}
+
+\section{Goldberg--Sachs定理}
+%我们讨论没有物质场的真空情形，此时爱氏引力场方程\eqref{chfd:eqn_Einstein}简化为$R_{ab}=0$；
+当Ricci曲率恒为零（$R_{ab}=0$）时，那么黎曼曲率张量和Weyl张量重合．
+
+\begin{theorem}\label{chnull:thm_Goldenberg-Sachs}
+    如果Weyl张量是Petrov II型的，并且选择类光基矢是使得$l^a$为主类光方向，
+    且$\Psi_0=0=\Psi_1$；那么$\kappa=0=\sigma$．
+    反之，如果$\kappa=0=\sigma$，那么有$\Psi_0=0=\Psi_1$，并且Weyl张量是II型的．
+\end{theorem}
+
+这个定理将场的II型特征与无剪切、类光测地线的存在相互联系．
+
+当$\Psi_0=0=\Psi_1$时，Bianchi恒等式\eqref{chnull:eqn_Bianchi-4Q}中
+的$a,b,c,d,g,h$得
+    \begin{align*}
+        &  \sigma \Psi _{2} =0, \
+        \updelta \Psi_{2}  =   3\tau \Psi_{2} - 2\sigma \Psi _{3}, \
+        \Delta \Psi_{2}-\updelta \Psi_{3}
+        =2(\beta -\tau )  \Psi_{3}+\sigma \Psi_{4} -3\mu \Psi_{2}.  \\
+        &  \kappa \Psi _{2} =0,       \
+        {\rm D}\Psi _{2} = 3\rho \Psi _{2}-2\kappa \Psi _{3},\
+        {\rm D}\Psi_{3}-\bar{\updelta }\Psi_{2}
+        = 3\pi \Psi_{2} -2(\epsilon -\rho )\Psi_{3} -\kappa \Psi_{4} .
+    \end{align*}
+若空间不是共形平坦的，即Weyl标量不都为零，则由上式
+第一行可得$\sigma=0$，第二行可得$\kappa=0$．
+也就是，类光矢量$l^a$是测地线（$\kappa=0$）切矢量，以及它是无剪切的（$\sigma=0$）．
+
+逆定理的证明则要费一番周折．我们已知$\kappa=0=\sigma$．
+首先，通过\fbox{丙}类旋转（不改变$\kappa,\sigma$的零值），使得$\epsilon=0$．
+从NP方程\eqref{chnull:eqn_NP-all}中的$a,b,c,l,n$可得（利用$\kappa=\sigma=\epsilon=0$）
+\begin{equation}\label{chnull:eqn_abcln}
+    \begin{aligned}
+        &{\rm D}\tau  =  \rho(\tau +\bar{\pi }) + \Psi _{1} ,   \ (a); \quad
+        0 = \Psi_{0},        \ (b); \quad
+        {\rm D}\rho  =  \rho ^{2},  \ (c);        \\
+        &\updelta \rho  =\rho (\bar{\alpha }+\beta)
+        +\tau(\rho -\bar{\rho })       -\Psi _{1} , \ (l); \quad
+        {\rm D}\beta  =   \beta\bar{\rho } +\Psi _{1} , \ (n) .
+    \end{aligned}
+\end{equation}
+由上式已得到$\Psi_{0}=0$．
+如果$\rho=0$，则由\eqref{chnull:eqn_abcln}的$(l)$式可得$\Psi_1=0$，
+这正是我们想要的结果；但$\rho$可能不是零，故我们假设$\rho\neq 0$．
+
+\fbox{甲}类旋转（见式\eqref{chnull:eqn_Weyl-I}和\eqref{chnull:eqn_Spin-I}）并
+不改变$\Psi_0$的值，也不影响$\kappa,\sigma,\epsilon$的零值；
+但此类旋转能令$\tau=0$．
+
+由Bianchi恒等式\eqref{chnull:eqn_Bianchi-4Q}中的$a,b$得
+（利用$\kappa=\sigma=\epsilon=\tau=\Psi_0=0$）
+\begin{equation}\label{chnull:eqn_tmpbi}
+    {\rm D}\Psi _{1}  =4\rho \Psi _{1} ,\qquad
+    \updelta \Psi_{1} =2\beta\Psi _{1} .
+\end{equation}
+由上式可得
+\begin{equation}
+    ({\rm D}\updelta - \updelta{\rm D}) \ln \Psi _{1}
+    =2{\rm D}\beta -4 \updelta \rho .
+\end{equation}
+利用式\eqref{chnull:eqn_abcln}中的$(l),(n)$，以及$\tau=0$可得
+\begin{equation}\label{chnull:eqn_tmpdps}
+    ({\rm D}\updelta - \updelta{\rm D}) \ln \Psi _{1}
+    =2 \bar{\rho} \beta -4 (\bar{\alpha}+\beta)\rho + 6\Psi_1 .
+\end{equation}
+此时，需要利用式\eqref{chnull:eqn_DDcomunicator-b}（去掉各种为零的量后）
+\begin{equation}
+    \updelta {\rm D}-{\rm D}\updelta =(\bar{\alpha}+\beta -\bar{\pi}){\rm D}
+    -\bar{\rho}\updelta .
+\end{equation}
+将上式计算
+\begin{equation}
+    ({\rm D}\updelta-\updelta {\rm D}) \ln\Psi_1 =
+    \bar{\rho}\updelta \ln\Psi_1 -
+    (\bar{\alpha}+\beta -\bar{\pi}){\rm D}\ln\Psi_1
+    =2\beta\bar{\rho} - 4 (\bar{\alpha}+\beta -\bar{\pi})\rho.
+\end{equation}
+计算过程中要用到式\eqref{chnull:eqn_tmpbi}．
+将上式计算结果代入式\eqref{chnull:eqn_tmpdps}得
+\begin{equation}\label{chnull:eqn_tmpallldps}
+    \Psi_1=  \frac{2}{3} \bar{\pi} \rho .
+\end{equation}
+然而，式\eqref{chnull:eqn_abcln}中的$(a)$式（令$\tau=0$）给出
+\begin{equation}
+    \Psi _{1}  = - \rho \bar{\pi } .
+\end{equation}
+上两式是矛盾的，这说明前面假设$\rho\neq 0$是不成立的；
+$\rho$必须是零，进而$\Psi_1=0$．
+这便证明了Goldberg-Sachs定理．
+\qed
+
+这个定理有一个重要的推论：
+\begin{corollary}\label{chnull:thm_BHD}
+    如果场是代数特殊的，并且是Petrov D型，那么两个主类光方向$l^a$和$n^a$既是
+    测地线切矢量又是无剪切的；即若有$\Psi_0=\Psi_1=\Psi_3=\Psi_4=0$，则
+    必有$\kappa=\sigma=\nu=\lambda=0$．反之亦然．
+\end{corollary}
+
+目前，在广义相对论中得到黑洞解，比如史瓦西黑洞或克尔黑洞，都是Petrov D型的，
+这种情形使得NP型式在分析黑洞类光测地线时有着较为方便之处．
+
+
+
+
+\section*{小结}
+
+更多零模问题请参考Duggal教授及其合作者写的几部专著，比如\parencite{Duggal-Bejancu-1996}．
+
+Newman--Penrose型式是广义相对论中一种常用的方法，它将在黑洞物理的求解、分析中起到重要作用．
+
+%\vspace{1cm}
+
+
+
+\printbibliography[heading=subbibliography,title=第\ref{chnull}章参考文献]
+
+\endinput

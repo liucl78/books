@@ -1,0 +1,1946 @@
+% !Mode:: "TeX:UTF-8"
+% 此文件从2022.12.01开始写作
+
+\chapter{拉格朗日理论}\label{chlh} % chlh 是 chapter lagrange hamilton
+本章主要介绍满足相对论的作用量原理，假设读者已学习过分析力学理论．
+基于作用量$I$的分析力学变分方法是描述物理系统的有效途径之一，
+此方法非常简单、优美；它已经用到物理学的所有领域，尤其是基础物理领域．
+
+本章只考虑有完整约束情形或者无约束情形．
+
+
+
+\section{分析力学概要}\label{chlh:sec_analysical-mechanics}
+\subsection{Legendre变换}
+设有连通的、$m$维光滑流形$M$，其切丛是$TM$；设$M$有局部坐标系$(U;q^i)$．
+我们将{\heiti 拉格朗日函数}\cite[\S 19]{arnold-2006-mmcm}定义成切丛$TM$上的光滑
+函数场，$\mathcal{L}:TM \to \mathbb{R}$．
+我们知道$TM$是$2m$维的，可用点$q\in M$与切矢量场$v^a \in \mathfrak{X}(M)$来
+描述$TM$，即$(q,v^a)\in TM$．
+那么拉氏函数可表示为$\mathcal{L}(q,v^a)$，它有$2m$个独立自变量，$q$和$v^a$相互独立．
+$(q,v^a)$的分量坐标是$(q^i,v^i)$；$\forall (q,v^a)\in TM$定义
+\begin{equation}\label{chlh:eqn_momentum-particle}
+    p_i \overset{def}{=} \frac{\partial \mathcal{L}(q,v^a)}{\partial v^i} .
+\end{equation}
+当$M$中进行局部坐标变换时（$\{q^i\}\to \{q'^i\}$），
+有$v'^i = \frac{\partial q'^i}{\partial q^j} v^j$．
+此时，$p_i$按如下规则变换：$p'_i = \frac{\partial q^j}{\partial q'^i} p_j$．
+这说明$p_i$是协变矢量场的分量，配上基矢后（$p_a = p_i ({\rm d}q^i)_a$）是余切矢量场．
+借助它，由Legendre变换定义一个新的标量场
+\begin{equation}\label{chlh:eqn_Hamilton-particle}
+    \mathcal{H}(q,p_a)\overset{def}{=} p_a v^a - \mathcal{L}(q,v^a) .
+\end{equation}
+这是{\heiti 哈密顿函数}的定义，它是定义在$2m$维余切丛$T^*M$上的；
+由$\mathcal{H}$的定义方式不难看出其自变量$q$和$p_a$也是相互独立的．
+
+
+
+
+\subsection{拉格朗日方程}\label{chlh:sec_spl}
+先回顾粒子的分析力学理论，设区域$\Omega$是实数轴上一个区间$[t_1,t_2]$．
+任意给定一个粒子系统，它的广义坐标和广义速度分别为$q^i(t)$和$\dot{q}^i(t)$，
+它的力学体系由拉格朗日函数$\mathcal{L}$来描述，此时作用量为
+\begin{equation}\label{chlh:eqn_action_nonreltivity}
+I\bigl(q(t)\bigr) {=} \int_{t_1}^{t_2} {\rm d}{t}\ \mathcal{L}\bigl(q^i(t),\dot{q}^i(t)\bigr).
+\end{equation}
+注意，上式中，我们将定义在切丛上的拉氏函数第二个变量$v^i$取为了变分曲线$q^i(t)$的
+导数$\dot{q}^i(t)$；此时$v^i\equiv \dot{q}^i(t)$\uwave{显示}地依赖$q^i(t)$，
+因此它不再独立于$q^i(t)$了．作用量的变分是
+\begin{equation}\label{chlh:eqn_actiontotalvariation_nonreltivity}
+\updelta I\bigl(q(t)\bigr) =    \int_{t_1}^{t_2} {\rm d}{t} \sum_{i}\left[ \updelta q^i
+\left( \frac{\partial \mathcal{L}}{\partial q^i }
+- \frac{{\rm d}}{{\rm d}{t}} \left( \frac{\partial \mathcal{L}}
+{\partial \dot{q}^i} \right)   \right) \right]
+  +  \sum_{i}\frac{\partial \mathcal{L}} {\partial \dot{q}^i}
+  \updelta q^i(t) \Bigl|_{t_1}^{t_2} .
+\end{equation}
+如果在边界${t_1},{t_2}$处，变分$\updelta q^i(t_1)=0=\updelta q^i(t_2)$（固定边界）；
+又因$\updelta q^i$是独立变分，就可以得到粒子的欧拉-拉格朗日方程
+\begin{equation}\label{chlh:eqn_euler-lag}
+ \frac{\partial \mathcal{L}}{\partial q^i }
+- \frac{{\rm d}}{{\rm d}{t}} \left( \frac{\partial \mathcal{L}}
+{\partial \dot{q}^i} \right)   =0.
+\end{equation}
+这个方程描述了粒子的运动．
+为引用简单起见，我们称对应$\updelta I=0$的路径$q^i_z(t)$为{\heiti 正轨}，正轨只有一条；
+偏离正轨的路径$q^i_p(t)$为{\heiti 变轨}，变轨有无穷多条．
+其实变分$\updelta q^i(t)=q^i_p(t)-q^i_z(t)$，当$\updelta q^i(t)=0$时，正轨、变轨重合．
+
+%物理上的变分不考虑拉氏量$\mathcal{L}$函数形式的变化；
+%比如式\eqref{chlh:eqn_actiontotalvariation_nonreltivity}中就没考虑．
+%其原因是：例如，一般说来$\mathcal{L}$包含动量项的平方（即$p^2$），
+%在变分过程中我们不能把它变成其它形式（比如$p^{2.1}$、$\sin p^2$、$\ln p$、……）；
+%这是因为能描述真实物理世界的拉氏量的函数形式是固定的（只有少数几种），
+%如果把它变成其它函数形式，那么便不能再描述自然界中的真实物理了，
+%只能算没有物理意义的纯数学变分．故我们不考虑拉氏量的函数形式改变的变分．
+
+
+
+
+\subsection{哈密顿正则方程}
+在哈氏框架内，有三种得到哈密顿方程的途径． %，我们分别叙述．
+
+\subsubsection{途径一}
+认为哈密顿函数中的$q^i$与$p_i$是相互独立的，
+从式\eqref{chlh:eqn_Hamilton-particle}出发（在固定边界下）进行变分；即
+%我们称这种变分为{\kaishu 修正的最小作用量原理}\cite[\S 8.5]{goldstein-PS-2002}．
+\begin{align*}
+    0=& \updelta \int_{t_1}^{t_2} \mathcal{L} {\rm d}t 
+    = \int_{t_1}^{t_2} \left( p_i \updelta \dot{q}^i +  \dot{q}^i\updelta  p_i
+    - \updelta \mathcal{H}(q^i,p_i) \right){\rm d}t \\
+    =& \int_{t_1}^{t_2} \left( - \dot{p}_i \updelta q^i +  \dot{q}^i\updelta  p_i
+    - \frac{\partial \mathcal{H}}{\partial p_i }\updelta p_i
+    - \frac{\partial \mathcal{H}}{\partial q^i }\updelta q^i \right){\rm d}t 
+    + \left. \left( p_i  \updelta q^i\right)\right|_{t_1}^{t_2} \\
+    =&-\int_{t_1}^{t_2} \left[ \left(\frac{\partial \mathcal{H}}{\partial q^i } +\dot{p}_i \right)\updelta q^i
+    +\left(\frac{\partial \mathcal{H}}{\partial p_i }-\dot{q}^i \right)\updelta p_i \right] {\rm d}t .
+\end{align*}
+由于$\updelta q^i$与$\updelta p_i$是相互独立的变分，从上式可得哈密顿正则方程 %到两个方程
+\begin{equation}\label{chlh:eqn_hamiltion}
+    \dot{q}^i = \frac{\partial \mathcal{H}}{\partial p_i }, \qquad
+    \dot{p}_i = - \frac{\partial \mathcal{H}}{\partial q^i } .
+\end{equation}
+
+
+\subsubsection{途径二}
+认为哈密顿函数中的$q^i$与$p_i$是相互独立的，与途径一非常类似；但这种
+方法不用变分，而是从微分出发． %\cite[\S 40]{landau_1-mechanics}
+\begin{align*}
+	&{\rm d} \mathcal{H}(q^i,p_i) = {\rm d} (p_i v^i) - {\rm d} \mathcal{L}(q^i,v^i)
+        \quad {\color{red}\Rightarrow } \\
+    & \frac{\partial \mathcal{H}}{\partial q^i } {\rm d} q^i
+      +\frac{\partial \mathcal{H}}{\partial p_i } {\rm d} p_i =
+      p_i {\rm d} v^i + v^i {\rm d} p_i
+      -\frac{\partial \mathcal{L}}{\partial q^i } {\rm d} q^i
+      -\frac{\partial \mathcal{L}}{\partial v^i } {\rm d} v^i
+        \xlongequal{\ref{chlh:eqn_momentum-particle}}  
+     v^i{\rm d} p_i -\frac{\partial \mathcal{L}}{\partial q^i } {\rm d} q^i.
+\end{align*}
+因${\rm d} q^i$与${\rm d}p_i$是相互独立的，故可得两个方程
+\begin{equation}
+    \frac{\partial \mathcal{H}}{\partial q^i } = -\frac{\partial \mathcal{L}}{\partial q^i }
+    , \qquad v^i = \frac{\partial \mathcal{H}}{\partial p_i } .
+\end{equation}
+借助式\eqref{chlh:eqn_momentum-particle}和方程\eqref{chlh:eqn_euler-lag}，
+从上式可得哈密顿正则方程\eqref{chlh:eqn_hamiltion}．
+
+
+\subsubsection{途径三}
+在此种方法中回避$\updelta p$（或者$\updelta \dot{q}$）是否独立于$\updelta q$这个话题．
+
+
+继续对式\eqref{chlh:eqn_momentum-particle}求偏导，得
+\begin{equation}\label{chlh:eqn_Hess}
+    L_{ij} = \frac{\partial^2 \mathcal{L}(q,v^a)}{\partial v^i \partial v^j} .
+\end{equation}
+若${\rm det}(L_{ij}) \neq 0$，则称拉氏量是{\heiti 正规的}，
+否则称之为{\heiti 非正规的}．
+Dirac--Bergmann方法\cite{dirac-lecQ-1964}部分解决了非正规问题；
+此处，我们只关注正规情形．
+因为正规，故由式\eqref{chlh:eqn_momentum-particle}可以反解出$v^i$；
+$v^i$和$p^i$间存在非奇异的隐函数关系：$f(q,p,v)=0$．
+
+
+我们令$v^i$就是粒子的广义速度，也就是$v^i=\dot{q}^i$．
+那么，由式\eqref{chlh:eqn_Hamilton-particle}，得
+\begin{equation}
+    \frac{\partial \mathcal{H}(q,p)}{\partial p_i} =
+       \dot{q}^i + p_j \frac{\partial \dot{q}^j}{\partial p_i}
+      - \frac{\mathcal{L}(q,\dot{q}) }{\partial \dot{q}^j} \frac{\partial \dot{q}^j}{\partial p_i}
+      \xlongequal{\ref{chlh:eqn_momentum-particle}}
+      \dot{q}^i .
+\end{equation}
+这便导出了一半哈氏正则方程．再求另一半
+\begin{equation}
+    \frac{\partial \mathcal{H}(q,p)}{\partial q^i} =
+    - \frac{\mathcal{L}(q,\dot{q}) }{\partial {q}^i}
+    =- \dot{p}_i .
+\end{equation}
+此种途径也可以得到全部哈氏方程． %同时回避了
+%$\updelta p$（或者$\updelta \dot{q}$）是否独立于$\updelta q$这个话题．
+
+\subsubsection{$\updelta q$和$\updelta p$相互独立吗？} \label{chlh:sec_q-INDE-p}
+
+我们采用类比的方式来回答$\updelta p$（或者$\updelta \dot{q}$）是否独立于$\updelta q$．
+
+\paragraph{纯数学例子}
+给定二阶常微分方程组
+\begin{equation}\label{chlh:eqn_2ode-t}
+    \ddot{\boldsymbol{r}} = \boldsymbol{F} \qquad \Leftrightarrow \qquad
+    \ddot{\boldsymbol{r}}_2 = \boldsymbol{F}.
+\end{equation}
+其中“$\Leftrightarrow$”后式子中$\ddot{\boldsymbol{r}}_2$下标“$2$”表示此微分方程最高导数是二阶．
+将上式作一下代换，有
+\begin{equation}\label{chlh:eqn_1ode-t}
+    \begin{cases}
+        \dot{\boldsymbol{r}} = \boldsymbol{v} \\
+        \dot{\boldsymbol{v}} = \boldsymbol{F}
+    \end{cases}
+    \qquad \Leftrightarrow \qquad
+    \begin{cases}
+        \dot{\boldsymbol{r}}_1 = \boldsymbol{v} \\
+        \dot{\boldsymbol{v}} = \boldsymbol{F}
+    \end{cases}
+\end{equation}
+其中“$\Leftrightarrow$”后面式子中$\dot{\boldsymbol{r}}_1$的下标“$1$”表示此微分方程最高导数是一阶的．
+
+不难看出式\eqref{chlh:eqn_2ode-t}等价于式\eqref{chlh:eqn_1ode-t}．
+我们先讨论“$\Leftrightarrow$”前面的方程式．
+
+在式\eqref{chlh:eqn_2ode-t}中$\dot{\boldsymbol{r}}$自然\uwave{不}独立于$\boldsymbol{r}$，注意此方程是二阶的．
+
+在式\eqref{chlh:eqn_1ode-t}中独立变量是$(\boldsymbol{r}, \boldsymbol{v})$，
+$\boldsymbol{v}=\dot{\boldsymbol{r}}$自然\uwave{独立}于$\boldsymbol{r}$；此方程是一阶的．
+
+
+到底独立不独立？是不是很奇怪？若增加下标，则问题可能就清晰了！
+
+在式\eqref{chlh:eqn_2ode-t}中$\dot{\boldsymbol{r}}_2$自然\uwave{不}独立于$\boldsymbol{r}_2$，注意此方程是二阶的．
+
+在式\eqref{chlh:eqn_1ode-t}中$\dot{\boldsymbol{r}}_1$自然\uwave{独立}于$\boldsymbol{r}_1$，注意此方程是一阶的．
+
+问及$\dot{\boldsymbol{r}}$是否独立于$\boldsymbol{r}$时，只能在该方程所在框架内进行！
+不能拿着一阶方程组\eqref{chlh:eqn_1ode-t}中的$\dot{\boldsymbol{r}}$，去二阶方程\eqref{chlh:eqn_2ode-t}框架
+内去问：$\dot{\boldsymbol{r}}$是否独立于$\boldsymbol{r}$？
+
+若增加下标则没有此问题；不会有人问：$\dot{\boldsymbol{r}}_1$是否独立于$\boldsymbol{r}_2$？
+
+
+
+\paragraph{拉氏、哈氏理论}
+拉氏方程组是二阶的，我们将其自变量增加下标，记为$(q_L,\dot{q}_L)$．
+
+哈氏方程组是一阶的，我们将其自变量增加下标，记为$(q_H,\dot{q}_H, p_H)$．
+
+参考上面纯数学部分的例子，在拉氏框架内，$\dot{q}_L$不独立于$q_L$．
+
+在哈氏框架内，$\dot{q}_H$（或$p_H$）独立于$q_H$！
+
+我们不能拿着哈密顿框架内的$\dot{q}_H$（或$p_H$）去拉格朗日框架内
+问：$\dot{q}_H$（或$p_H$）独立于$q_L$吗？
+
+是提问方式有错！
+
+
+%\subsection{相对论粒子的拉氏理论}
+%在\ref{chlh:sec_spl}节中描述了经典系统的拉格朗日理论，这节我们将叙述
+%狭义相对论粒子的拉氏理论；之后可用最小替换法则（\S\ref{chfd:sec_sr2gr}）将其推广到广义相对论．
+%
+%除了引力之外，所有理论都要受到狭义相对论约束，
+%作用量应该具有洛伦兹变换即时空平移变换不变性，这对拉格朗日函数有很大约束．
+%作用量是拉氏函数乘以时间再积分，固有时是洛伦兹标量，我们只需要拉格朗日函数
+%是洛伦兹标量就可以得到作用量是洛伦兹标量．从量纲分析角度来说，作用量量纲
+%是{\kaishu{能量$\times$时间}}，固有时量纲是{\kaishu{时间}}，
+%那拉格朗日量$\mathcal{L}$量纲只能是{\kaishu{能量}}了．
+%
+%设区域$\Omega$是实数轴上一个区间$[\tau_1,\tau_2]$．
+%任意给定一个粒子系统，它的广义坐标和广义速度分别为$q^i(\tau)$和$\dot{q}^i(\tau)$，
+%它的力学体系由拉格朗日函数$\mathcal{L}$来描述，此时作用量为
+%（$\tau$是固有时，$c {\rm d}\tau = \sqrt{-{\rm d}s^2}$，$s$是时空间隔）
+%\begin{equation}\label{chlh:eqn_action-psr}
+%    I\bigl(q(\tau)\bigr) {=} \int_{\tau_1}^{\tau_2} {\rm d}{\tau}\ 
+%    \mathcal{L}\bigl(q^i(\tau),\dot{q}^i(\tau)\bigr) .
+%\end{equation}
+%与式\eqref{chlh:eqn_euler-lag}变分过程类似，可得相对论粒子的欧拉-拉格朗日方程
+%\begin{equation}\label{chlh:eqn_euler-lag-sr}
+%    \frac{\partial \mathcal{L}}{\partial q^i }
+%    - \frac{{\rm d}}{{\rm d}{t}} \left( \frac{\partial \mathcal{L}}
+%    {\partial \dot{q}^i} \right)   =0.
+%\end{equation}
+%
+%
+%%\cite[\S 8]{landau_2-classical-fields}
+%对于自由粒子而言，具有洛伦兹不变属性的拉氏量可取为：
+%\begin{equation}\label{chlh:eqn_fpl}
+%    \mathcal{L} =- m  c\sqrt{-\eta_{\mu\nu}
+%        \frac{{\rm d}x^\mu }{{\rm d}\tau}
+%      \frac{{\rm d}x^\nu }{{\rm d}\tau} }
+%      =- m c \sqrt{-\eta_{\mu\nu}u^\mu u^\nu }.
+%\end{equation}
+%由注解\ref{chgd:remk_cs}可知：
+%不能把拉氏函数中根号下的式子
+%$-\eta_{\mu\nu}\frac{{\rm d}x^\mu }{{\rm d}\tau}
+%\frac{{\rm d}x^\nu }{{\rm d}\tau} $等于$c^2$．
+%因为我们需要对作用量进行变分，
+%在正轨上它自然等于$c^2$，在变轨上它不等于$c^2$．
+%
+%拉氏函数\eqref{chlh:eqn_fpl}对应的正则动量是
+%\begin{equation} %\label{chlh:eqn_momentum-particle}
+%    p_\rho = \frac{\partial \mathcal{L}} {\partial u^\rho }
+%         =  \frac{mc\,  u_\rho } {\sqrt{-\eta_{\mu\nu}u^\mu u^\nu }} .
+%\end{equation}
+%同样，正则动量中的$-\eta_{\mu\nu}u^\mu u^\nu$在变轨上也不等于$c^2$．
+%由此可以得到哈氏量：
+%\begin{equation}
+%    \mathcal{H}= p_\rho u^\rho - \mathcal{L}
+%    =\frac{mc\,  u^\rho u_\rho } {\sqrt{-\eta_{\mu\nu}u^\mu u^\nu }} 
+%    + m c \sqrt{-\eta_{\mu\nu}u^\mu u^\nu }
+%    =0.
+%\end{equation}
+%哈密顿等于零需要用Dirac--Bergmann理论来解释．
+%
+%其中$u$是自由粒子的三速度，$t$是事先选定惯性系的坐标时．
+%上式最后一步定义了一个函数是$L=-m c^2 \sqrt{1-u^2/c^2}$，
+%在低速情形下展开为
+%\begin{equation}\label{chlh:eqn_fpnrl}
+%    L=-m c^2 \sqrt{1-\frac{u^2}{c^2}}
+%    =-m c^2 +\frac{m u^2}{2 }+ O\left(\frac{u^3}{c^3}\right) .
+%\end{equation}
+%读者现在应该能明白为什么式\eqref{chlh:eqn_fpl}中的拉氏量存在一个负号．
+%同时，很明显与经典拉氏量对应的表达式为$L$，不是$\mathcal{L}$．
+%
+
+
+
+
+
+\subsection{平直时空场论}\label{chlh:sec_lag-ham}
+%利用\S\ref{chfd:sec_sr2gr}中的最小替换法则可以由平直时空中的物理公式得到弯曲时空中相应公式．
+
+严格说来，平直时空中的场论并不属于广义相对论内容，故我们直接列出相应公式，不给出推导过程；
+可查阅文献\parencite[\S 2.4]{Greiner-FQ-1996}或类似文献．
+
+
+用一个元素$\Phi(x)$来标记平直时空的场（标量、向量、旋量场等），
+若场有多个分量（如电磁场规范势有4个分量），用一个后缀$r$标记，即$\Phi^r(x)$．
+场理论由洛伦兹标量——拉格朗日密度——来描述，
+它是场$\Phi^r(x)$及其对时空坐标的一阶导数$\partial_{\mu}\Phi^r(x)$的泛函：
+\begin{equation}\label{chlh:eqn_Lagrange_density-sr}
+    \mathscr{L} = \mathscr{L}\bigl(\Phi^r(x),\, \partial_{\mu}\Phi^r(x) \bigr) .
+\end{equation}
+设$\Omega$是时空的有限或无限区域，作用量可以写为
+\begin{equation}\label{chlh:eqn_action-sr}
+    I(\Omega) \overset{def}{=} \frac{1}{c} \int_\Omega {\rm d}^{\,4}x \,{\mathscr{L}}
+    \equiv  \frac{1}{c} \int_\Omega {{\rm d}(ct){\rm d}x {\rm d}y {\rm d}z} \,{\mathscr{L}} 
+    \equiv  \frac{1}{c} \int_\Omega {\rm d}(ct)  \,\mathcal{L}.
+\end{equation}
+由于作用量$I$的量纲是{\kaishu{能量$\times$时间}}（与普朗克常数$\hbar$量纲相同），
+所以拉格朗日密度$\mathscr{L}$量纲是{\kaishu{能量$\times$长度$\!^{\!-3}$}}；
+拉格朗日函数$\mathcal{L} $的量纲
+是{\kaishu{能量}}．其中场$\Phi$的量纲要由函数$\mathscr{L}$的具体形式来确定．
+为书写简单起见，后面令光速$c=1$．
+
+利用最小作用量原理可以得到欧拉-拉格朗日方程（见\parencite[Eq.(2.14)]{Greiner-FQ-1996}）：
+\begin{equation}\label{chlh:eqn_lagrange-Phi-sr}
+    \frac{\partial \mathscr{L}}{\partial \Phi^{r}} - \frac{\partial}{\partial x^\mu} 
+    \frac{\partial \mathscr{L}} {\partial (\partial_\mu \Phi^r )}  =0.
+\end{equation}
+
+
+德国女数学家Emmy Noether（1882-1935）于1910年代证明了如下定理：
+\begin{theorem}
+    任一连续等距对称变换都可得到一守恒定律．
+\end{theorem}
+
+
+Noether流（\parencite[\S 2.4]{Greiner-FQ-1996}式(2.53)）定义为
+\begin{equation}\label{chlh:eqn_Noether-current-sr}
+    j^\mu_{a} \overset{def}{=}  \frac{\updelta x^{\rho} }{\updelta\omega^{a}} 
+    \Bigl(  \mathscr{L} \eta_\rho^\mu   -   
+    \frac{\partial \mathscr{L}}{\partial(\partial_{\mu}\Phi^{r})} 
+    \partial_\rho \Phi^{r}  \Bigr)  + \frac{\updelta\Phi^{r}}{\updelta\omega^{a}}
+    \frac{\partial \mathscr{L}}{\partial(\partial_{\mu}\Phi^{r})}.
+\end{equation}
+Noether流满足如下守恒定律：
+\begin{equation}\label{chlh:eqn_Noether-current-conservation-sr}
+    \frac{\partial j^\mu_{a}}{\partial x^{\mu}} =0 .
+\end{equation}
+对式\eqref{chlh:eqn_Noether-current-conservation-sr}作三维空间积分并应用高斯散度定理，有
+\begin{align}\label{chlh:eqn_Noether-current-conservation-1d3d-sr}
+    0 = \int_{V}  {\rm d}^3 x  \frac{\partial j^\mu_{a}}{\partial x^{\mu}} 
+    %    = \int_{V}  {\rm d}^3 x  \frac{\partial j^0_{a}}{\partial x^{0}} 
+    %    + \int_{V}  {\rm d}^3 x  \frac{\partial j^i_{a}}{\partial x^{i}} 
+    = \frac{{\rm d} }{{\rm d} x^{0}}  \int_{V} \! {\rm d}^3 x  j^0_{a}(x) 
+    + \cancel{\oint_{\partial V}  {\rm d}\boldsymbol{S}\cdot  \boldsymbol{j}_{a}(x) }
+\end{align}
+因为$\boldsymbol{j}_{a}(x)$在无穷远处迅速趋于零，所以在三维体积$V$的边界$\partial V$面积分是零．
+由上式我们可以定义一个守恒量，称为{\heiti \bfseries Noether荷}：
+\begin{equation}\label{chlh:eqn_Noether-conservation-sr}
+    G\overset{def}{=} \int_{V}  {\rm d}^3 x  \ j^0_{a}(x) .
+\end{equation}
+由式\eqref{chlh:eqn_Noether-current-conservation-1d3d-sr}可知$G$不随时间改变．
+
+在这里，Noether定理中的连续对称变换可以是$x \rightarrow x'=x+\updelta x$，或者
+是$\Phi^r(x) \rightarrow\Phi'^r(x')= \Phi^r(x)+\updelta \Phi^r(x)$．守恒定律
+是指\eqref{chlh:eqn_Noether-current-conservation-sr}或
+者\eqref{chlh:eqn_Noether-current-conservation-1d3d-sr}，这两个式子是等价的；
+守恒定律对应的守恒量是\eqref{chlh:eqn_Noether-conservation-sr}中的$G$．
+
+
+变换$x \rightarrow x'=x+\updelta x$带来的
+{\heiti 正则能动张量}（\parencite[\S 2.4]{Greiner-FQ-1996}式(2.59)）为：
+\begin{equation}\label{chlh:eqn_energy-momentum-sr}
+    \Theta_{\mu\nu} = -  \mathscr{L} \eta_{\mu\nu}  +   
+    \frac{\partial \mathscr{L}}{\partial(\partial^{\mu}\Phi^{r})} 
+    \frac{\partial \Phi^{r} }{\partial x^\nu}.
+\end{equation}
+由式\eqref{chlh:eqn_energy-momentum-sr}定义的能动张量未必是对称的，
+即$\Theta_{\mu\nu}$有可能不等于$\Theta_{\nu\mu}$．
+Belinfante找到对称化办法，他得到了{\heiti 对称能动张量}\parencite[\S 2.4,例2.1]{Greiner-FQ-1996}是：
+\begin{align}
+    T_{\mu\nu} =& \Theta_{\mu\nu} + \partial^{\sigma} B_{\sigma \mu\nu} ,
+    \label{chlh:eqn_symmetic-energy-momentum-sr} \\
+    B_{\sigma\mu\nu} =&\frac{\mathbbm{i}}{2}\left[ 
+    -\frac{\partial \mathscr{L}}{\partial(\partial^{\mu}\Phi^{r})} \left( \mathcal{J}_{\sigma\nu}\right)^{r}_{\cdot s}  
+    -\frac{\partial \mathscr{L}}{\partial(\partial^{\sigma}\Phi^{r})} \left( \mathcal{J}_{\nu\mu}\right)^{r}_{\cdot s}  
+    +\frac{\partial \mathscr{L}}{\partial(\partial^{\nu}\Phi^{r})} \left( \mathcal{J}_{\mu\sigma}\right)^{r}_{\cdot s}  
+    \right]\Phi^{s}(x) . \notag %\label{chlh:eqn_belin-spin-sr}
+\end{align}
+式\eqref{chlh:eqn_symmetic-energy-momentum-sr}中的$( \mathcal{J}_{\sigma\nu})^{r}_{\cdot s}  $为
+洛伦兹代数的$N\times N$维矩阵表示（$N$是场$\Phi(x)$分量的个数，比如电磁场$A_\mu$有$4$个分量；
+可参见式\eqref{chlar:eqn_JKMN}）．
+%\begin{equation}\label{chsr:eqn_lorentz_4d_gen-compact}
+%    \left(\mathcal{J}_{\mu\nu}\right)^{r}_{\cdot s} = 
+%    \eta^{r}_\mu \eta_{\nu s} - \eta^{r}_\nu \eta_{\mu s} .
+%\end{equation}
+
+从某种角度来说这个对称的能动张量比正则能动张量$\Theta_{\mu\nu}$更基本．
+此时Noether流守恒\eqref{chlh:eqn_Noether-current-conservation-sr}为：
+\begin{equation}\label{chlh:eqn_NC-Tab-sr}
+    \frac{\partial T_{\mu\nu} }{\partial x^{\mu}} =0 .
+\end{equation}
+
+
+%本节所有内容都可以推广到弯曲时空，可参见第\ref{chlh}章．
+
+下面简要介绍两个应用．
+
+%\subsection{经典场}
+
+\paragraph{标量场}
+用于描述不带电粒子（如$\pi^0$介子）的标量场$\phi$；其拉氏函数为
+\begin{equation}\label{chlh:eqn_scalar-field}
+    \mathscr{L}=-\frac{1}{2} \eta^{ab} (\partial_a \phi) \partial_b \phi -\frac{m^2}{2 \hbar^2} \phi^2 .
+\end{equation}
+将上式带入式\eqref{chlh:eqn_lagrange-Phi-sr}，经过简单几步就可得到
+\begin{equation}
+    \eta^{ab} \partial_a \partial_b \phi - \frac{m^2}{\hbar^2} \phi =0 .
+\end{equation}
+
+
+\paragraph{电磁场} 
+无源电磁的拉氏密度可表示为
+\begin{equation}\label{chlh:eqn_EM-lag-den}
+    \mathscr{L}_{EM} = -\frac{1}{4\mu_0}(\partial_\mu A_\nu - \partial_\nu A_\mu)
+    (\partial_\rho A_\sigma - \partial_\sigma A_\rho) \eta^{\mu \rho} \eta^{\nu \sigma} .
+\end{equation}
+计算出如下偏导数
+\begin{align*}
+    \frac{\partial \mathscr{L}_{EM}} {\partial (\partial_\pi A_\xi )}
+    =& -\frac{1}{4\mu_0}(\delta^\pi_\mu \delta^\xi_\nu - \delta^\pi_\nu \delta^\xi_\mu )
+    (\partial_\rho A_\sigma - \partial_\sigma A_\rho) \eta^{\mu \rho} \eta^{\nu \sigma} \\
+    &-\frac{1}{4\mu_0}(\partial_\mu A_\nu - \partial_\nu A_\mu)
+    (\delta^\pi_\rho \delta^\xi_\sigma - \delta^\pi_\sigma \delta^\xi_\rho) \eta^{\mu \rho}\eta^{\nu \sigma}\\
+    =& -\frac{1}{\mu_0}( \partial^\pi A^\xi - \partial^\xi A^\pi)
+    = - \frac{1}{\mu_0}F^{\pi\xi}.
+\end{align*}
+把上式代入拉氏方程\eqref{chlh:eqn_lagrange-Phi}可以得到
+无源（$J^a=0$）的麦氏方程组\eqref{chsr:eqn_maxwell-poetential}．
+计算略繁、但不难，留给读者当练习．
+
+
+下面考察电磁规范变换\eqref{chsr:eqn_gauge-trans-covariant}（$A^{\prime\mu} = A^\mu + \partial^\mu f$）所产生的Noether流．
+因电磁规范变换不涉及位置矢量$x^\mu$，故只需关注式\eqref{chlh:eqn_Noether-current-sr}中的第二部分即可．
+结合上式，以及$\updelta A_\nu = \partial_\nu f$，有（省掉常数$\mu_0$）
+\begin{equation}\label{chlh:eqn_EM-Gauge-Noether}
+    j^\mu_N = \updelta A_\nu \frac{\partial \mathscr{L}}{\partial(\partial_{\mu} A_\nu )}
+    = F^{\nu\mu} \partial_\nu f = \partial_\nu (F^{\nu\mu} f) .
+\end{equation}
+上式中的参量“$f$”的意义非常含混，因为它的存在，
+截止到目前为止，仍没有发现式\eqref{chlh:eqn_EM-Gauge-Noether}的物理意义；
+换句话说，在自然界中还没有找到与电磁规范变换相对应的Noether守恒荷、Noether守恒流．
+
+这个例子生动地说明Noether定理是一个偏向于数学的定理，由Noether定理得到
+的守恒量、守恒流未必有物理对应．不过，由Noether定理出发可以找到几乎所有的
+守恒量、守恒流；对于理论物理来说是非常便宜的．
+
+
+
+\section{相对论经典场} \label{chlh:sec_field}
+我们来讲述四维闵氏流形$(M,g)$中的相对论经典场理论，假设$M$有局部坐标覆盖$(U;x)$．
+我们处理流形$M$上各种场，比如标量场、矢量场、张量场、旋量场等，
+用${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)$代表上述各种场；
+指标“$i$”表示场的种类不同．
+需要强调的是，在求导过程中
+像度规这种对称张量的对称部分需要当成不同分量，也就是会出现一个“2”倍（或$\frac{1}{2}$）因子．
+
+只需要把场看成上一节中的广义坐标，场的时空微分看成广义速度即可
+\begin{equation}
+q_i(t) \to  {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x), \qquad \dot{q}_i(t)
+\to \nabla_{e}{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x) .
+\end{equation}
+场理论由标量场——拉格朗日密度——来描述，
+它是场${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)$及其对时空坐标的
+一阶导数$\nabla_{e}{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)$的泛函
+（因度规与Levi-Civita联络相容，$\nabla_cg_{ab}=0$，故
+拉氏密度中不可能含有$\nabla_cg_{ab}$；但是拉氏密度中
+可能含有其偏导数$\partial_c g_{ab}$）
+\begin{equation}\label{chlh:eqn_Lagrange_density}
+  \mathscr{L} = \mathscr{L}\bigl({}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x),\
+   \nabla_{e}{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x) \bigr) .
+\end{equation}
+设$\Omega$是时空的有限或无限区域，作用量可以写为
+\begin{equation}\label{chlh:eqn_action}
+  I(\Omega) \overset{def}{=} \frac{1}{c} \int_\Omega {\mathscr{L}} \sqrt{-g}\,{\rm d}^{4}x
+    \equiv  \frac{1}{c} \int_\Omega {\mathscr{L}} \sqrt{-g} \,{{\rm d}(ct){\rm d}x {\rm d}y {\rm d}z} .
+\end{equation}
+
+
+我们采用与\S\ref{chgd:sec_arc-variation}相同的变分记号，即变分是指一族
+单参数场${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x;u)$，其中$x\in M$、$ u\in (-\epsilon,\epsilon)$；
+使得变分满足（第(2)条是指边界固定）
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chlh:eqn_fvonboud}
+    (1) {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x;0) = {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x). \
+    (2) {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x;u) = {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x), \
+    \text{当} x \in \partial \Omega.
+\end{equation}\setlength{\mathindent}{2em}
+
+在平直或弯曲流形上，从作用量\eqref{chlh:eqn_action}出发，求其变分；
+为简洁，采用了如下记号（换句话说，此处的变分就是场对单参数$u$的导数）
+\begin{equation} \label{chlh:eqn_updelta-Phi}
+    \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} =
+    \left.\frac{\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x;u)}
+    {\partial u}\right|_{u=0} .
+\end{equation}
+我们将省略“$(x;u)$”，读者不难通过上下文将其恢复．
+因$x$与$u$相互独立，故协变导数与$\updelta$是可交换的，即
+\begin{equation}\label{chlh:eqn_DppD}
+    \updelta \left( \nabla_e {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}\right) =
+    \nabla_e \left( \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}\right) .
+\end{equation}
+
+
+
+对于（非引力场）作用量，还有如下几点要求．
+
+第一，从数学上讲$\mathscr{L}$也可以包含场的时空坐标高阶导数，
+但一般说来这有可能会引起物理上某种不自洽；所以限制在一阶导数上，
+即只包含$\nabla_{e}{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)$．
+
+第二，一般情况下，我们假设$\mathscr{L}$是$\nabla_{e}{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$
+的二次式，这在物理上可以得到绝大多数理论．如果幂次高于二次，
+很多时候会引来不必要的缺陷．
+
+第三，作用量$I$应该是个实数；
+如果作用量是复数，那么由变分原理得到的方程会是场个数的两倍，
+一般说来无法求解．
+
+第四，在局部等距同构映射下，作用量$I$必须具有不变性．
+%作用量$I$要有庞加莱(Poincar\'e)不变性，也就是洛伦兹旋转不变和时空平移不变．
+
+
+在物理学上，研究最多的当然是在某种对称操作下具有不变性的内容．
+比如物理上的拉格朗日密度$\mathscr{L}(x)$（标量函数场），其宗量$x$可以是位型空间矢量$\boldsymbol{x}$，
+或时间$t$，或自旋等．在操作$Q$作用下$\mathscr{L}(x)$变成了$\mathscr{L}'(x')$，即宗量$x\to x'$，
+函数形式$\mathscr{L}\to \mathscr{L}'$；如果$\mathscr{L}(x)\neq \mathscr{L}'(x')$，那么$Q$就不是对称操作．
+因为几乎所有物理动力学方程都可以由拉格朗日密度通过变分得到，
+如果$Q$不是对称的（比如我们把它取为“平移”），那就是说在进行$Q$操作后（即平移后）
+物理方程就变了，与原来方程不同了！比如将伦敦平移至北京，物理规律变了！
+这是不可接受的！因此我们只关心那些变换后$\mathscr{L}(x)= \mathscr{L}'(x')$的操作，
+这些操作称作{\heiti 对称操作}（symmetric operators）．
+拉格朗日密度变换规则同样要用式\eqref{chlg:eqn_DQpsi}．
+
+%量子物理中的单粒子态也是标量函数，我们也只关心它的对称操作．
+%下面以单粒子态为例来说明对称操作$Q$会产生何种结果．
+%考虑量子物理中一个单粒子态$|\psi\rangle$，在位型空间表象中态函数
+%是$\psi(\boldsymbol{r}) = \langle \boldsymbol{r}|\psi\rangle$．
+%用$Q$表示某种对称作用，它会把态函数作整体变换；
+%变换后在新的位置$\boldsymbol{r}'=Q \boldsymbol{r}$的态函数与老位置的态函数是
+%相等的，这是对称变换的要求；用数学公式表示为
+%\begin{equation}
+%    \psi(\boldsymbol{r}) = \psi'(\boldsymbol{r}')
+%\end{equation}
+%我们将新旧位置关系（$\boldsymbol{r}'=Q \boldsymbol{r}$）带入上式，有
+%\begin{equation}
+%    \psi(\boldsymbol{r}) = \psi'(Q \boldsymbol{r}) \quad \Leftrightarrow \quad
+%    \psi(Q^{-1}\boldsymbol{r}) = \psi'(\boldsymbol{r}) .
+%\end{equation}
+%在对称变换$Q$的作用下，新的态矢量$\psi'$可用一个函数变换算符来表示，即
+%\begin{equation}\label{chlh:eqn_psip2psi}
+%    \psi'(\boldsymbol{r}) \overset{def}{=}\hat{D}(Q)\psi(\boldsymbol{r}).
+%    \qquad \text{等号两边的宗量$\boldsymbol{r}$是相同的}
+%\end{equation}
+%那么便有
+%\begin{equation}\label{chlh:eqn_DQpsi}
+%    \psi(Q^{-1}\boldsymbol{r})  = \psi'(\boldsymbol{r}) \equiv \hat{D}(Q)\psi(\boldsymbol{r}) .
+%\end{equation}
+%上式便是态矢量在对称变换下的变化关系式．
+
+
+我们将整个变分过程分为几个部分．
+首先，我们不考虑度规场的变化，也就把度规场当成外场（非动力学变量），
+并且不考虑坐标${x^\mu}$的变化，见\S\ref{chlh:sec_lagrange}．
+其次，考虑坐标${x^\mu}$的变化，且把度规场当成外场，见\S\ref{chlh:sec_BR-tensor}．
+最后，把度规场当成动力学变量的情形，见\S\ref{chlh:sec_Gravity}．
+
+
+%\subsection{标量函数变换规则}\label{chlh:sec_symmetry}
+
+
+
+\subsection{流形中拉氏量对度规偏导规则}\label{chlh:sec_rules-DLg}
+
+我们先给出度规的变分．利用$\delta^a_b = g^{ac} g_{cb}$可得到
+\begin{equation}\label{chlh:eqn_delta-gab}
+    0= g^{ac} \updelta g_{cb} + g_{cb}\updelta  g^{ac}
+    \quad \Leftrightarrow \quad
+    \updelta g_{cb} = -g_{ac} g_{db} \updelta  g^{ad} .
+\end{equation}
+由上式不难得到
+\begin{equation}\label{chlh:eqn_dgdg}
+    \frac{\partial g_{\alpha\beta}}{\partial g^{\mu\nu}}
+    =-\frac{1}{2}\left(g_{\alpha\mu}g_{\beta\nu}+g_{\alpha\nu}g_{\beta\mu}\right)
+    \quad \Leftrightarrow \quad
+    \frac{\partial g_{\alpha\beta}}{\partial g_{\mu\nu}}
+    =+\frac{1}{2}\left(\delta_\alpha^\mu \delta_\beta^\nu
+    +\delta_\alpha^\nu \delta_\beta^\mu \right) .
+\end{equation}
+仿照式\eqref{chrg:eqn_detgijij}（$\frac{1}{g}\frac{\partial g}{\partial x^k}
+= g^{ij} \frac{\partial g_{ij}}{\partial x^k}$）可以证明
+\begin{equation}\label{chlh:eqn_delta-g}
+    \updelta g = g g^{ab} \updelta g_{ab} = - g g_{ab} \updelta g^{ab};
+    \ \updelta \sqrt{-g} = \frac{\sqrt{-g}}{2} g^{ab} \updelta g_{ab}
+    = - \frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab}
+\end{equation}
+需注意$\updelta g_{ab}$和$\updelta g^{ab}$是相互独立的变分，
+它们皆由式\eqref{chlh:eqn_updelta-Phi}定义．
+\begin{equation}
+    \updelta g_{ab} = \left.\frac{\partial g_{ab}(x;u) }{\partial u}\right|_{u=0} ; \qquad
+    \updelta g^{ab} = \left.\frac{\partial g^{ab}(x;u) }{\partial u}\right|_{u=0} .
+\end{equation}
+由上式容易看出$g_{ab}(x;u)$是不能直接写进$\updelta g^{ab}$的变分号$\updelta$内来升降指标，
+因为$g_{ab}(x;u)$不能随意进出$\partial_u$．
+
+
+
+流形中的求导与普通微积分中的求导并不完全相同，先举一个例子．
+定义两个函数$f_1,f_2: \mathbb{R}^2 \to \mathbb{R}$，
+具体表达式为：$f_1(x,y)=x^2 y^3$，$f_2(x,y)=x y^2$．
+很显然，这是两个不同的函数．
+{\footnote{本例取自某论坛，非正式发表刊物；故未加引用．
+        其实我也找不到原网址了．}}
+
+再考虑两条曲线$\gamma_1,\gamma_2:\mathbb{R} \to \mathbb{R}^2$，
+分别定义为：$\gamma_1(t)=(t,t)$，$\gamma_2(t)=(t,t^2)$．
+很显然这也是两条不同的曲线．
+
+下面开始变魔术．$\forall t\in \mathbb{R}$，
+我们有$(f_1\circ \gamma_1) = t^5=(f_2\circ \gamma_2)$；
+这说明两个不同的映射$(f_1\circ \gamma_1)$和$(f_2\circ \gamma_2)$的
+“像”是重合的．我们来计算如下导数：
+\begin{equation}\label{chlh:eqn_f1dxf2dx}
+    \left.\frac{\partial f_1}{\partial x}\right|_{\gamma_1} = 2t^4 ,\qquad
+    \left.\frac{\partial f_2}{\partial x}\right|_{\gamma_2} = t^4 .
+\end{equation}
+两个导数并不相等！
+这说明虽然两个映射的像重合，但我们\uwave{没有理由}认为
+\begin{equation}\label{chlh:eqn_f1f2}
+    \frac{\partial f_1}{\partial x}\circ \gamma_1
+    \quad \text{一定等于}  \quad
+    \frac{\partial f_2}{\partial x}\circ \gamma_2 .
+\end{equation}
+这说明这类求导是与映射组合过程相关的．
+从纯数学角度来看，出现这种情形是十分正常的，两个导数都是正确无误的！
+
+
+把上述内容用到拉氏密度对度规求导中，以标量场拉氏密度为例来说明问题．
+在光滑流形$(M,g)$上，我们考虑如下两个映射
+\begin{align}
+    &\mathscr{L}_1: \mathfrak{T}^0_2(M)\times \mathfrak{X}(M)
+    \to C^{\infty}(M), \ \text{定义为}\ \mathscr{L}_1(H,\xi)= H_{ab}\xi^a\xi^b. \\
+    &\mathscr{L}_2: \mathfrak{T}^2_0(M)\times \mathfrak{X}^*(M)
+    \to C^{\infty}(M), \  \text{定义为}\  \mathscr{L}_2(K,\omega)= K^{ab}\omega_a\omega_b.
+\end{align} %
+映射$\mathscr{L}_1$第一个宗量是$(0,2)$型张量场，第二宗量位置是光滑切矢量场；
+输出结果是缩并后的标量场．
+映射$\mathscr{L}_2$第一个宗量是$(2,0)$型张量场，第二宗量位置是光滑\uwave{余}切矢量场；
+输出结果是缩并后的标量场．
+显然$\mathscr{L}_1$和$\mathscr{L}_2$是不同的映射．
+
+给定标量场$\phi\in C^\infty(M)$，将上述定义$\mathscr{L}_1$和$\mathscr{L}_2$中的宗量分别取为：
+\begin{align}
+    &\mathscr{L}_1(g)= \mathscr{L}_1(g_{ab},\nabla^a \phi)= g_{ab}(\nabla^a\phi) \nabla^b\phi . \\
+    &\mathscr{L}_2(g)= \mathscr{L}_2(g^{ab},\nabla_a \phi)= g^{ab}(\nabla_a\phi) \nabla_b\phi .
+\end{align}
+仿照式\eqref{chlh:eqn_f1dxf2dx}，我们可知一般情况下有下式成立
+\begin{equation}\label{chlh:eqn_dLdg}
+    \left.\frac{\partial \mathscr{L}_1}{\partial H}\right|_{(g_{ab},\nabla^a \phi)}
+    \quad \neq \quad
+    \left.\frac{\partial \mathscr{L}_2}{\partial K}\right|_{(g^{ab},\nabla_a \phi)} .
+\end{equation}
+其原因无非是$\mathscr{L}_1$和$\mathscr{L}_2$是两个不同的映射，
+只不过因为我们参量取得特殊导致它们映射后的“像”相同而已，
+即$\mathscr{L}_1(g)=\mathscr{L}_2(g)$；
+但是它们对第一宗量的导数未必是相等的；
+我们分别计算它们．用式\eqref{chlh:eqn_dgdg}来计算
+\begin{align*}
+    \frac{\partial \mathscr{L}_{1}}{\partial g_{ef}} =&
+    \frac{\partial }{\partial g_{ef}}\left(g_{ab}(\nabla^a\phi)\nabla^b\phi \right)
+    =\frac{1}{2} (\nabla^a\phi)\nabla^b\phi
+    \left( \delta_a^e \delta_b^f +\delta_a^f \delta_b^e  \right)
+    = +(\nabla^e\phi)\nabla^f\phi . \\
+    \frac{\partial \mathscr{L}_{2}}{\partial g_{ef}} =&
+    \frac{\partial }{\partial g_{ef}}\left(g^{ab}(\nabla_a\phi)\nabla_b\phi \right)
+    =-\frac{1}{2} (\nabla_a\phi)\nabla_b\phi
+    ( g^{ae}g^{bf} +g^{af}g^{be} )
+    = -(\nabla^e\phi)\nabla^f\phi .
+\end{align*} %\setlength{\mathindent}{2em}
+上述两个计算结果都是正确的！出现这种现象的原因是映射组合过程不同！
+
+\begin{remark}\label{chlh:rek_dynamical-variables}
+    从物理学角度来看，不能两个都选，那可能导致不同结果．
+    选择原则：{\bfseries (1)} 保证能量密度为正，即$T_{00}>0$；
+    {\bfseries (2)} 能量-动量张量中没有非物理项；
+    {\bfseries (3)} 当弯曲时空退化到平直时空时，弯曲能动张量同时要退化到平直能动张量．
+    
+    \index[physwords]{动力学变量}
+    为此我们约定\uwave{动力学变量}为：实物粒子的动力学变量角标在上面，比如位矢$x^a$、速度$u^a$等等；
+    场的动力学变量角标在下，比如$F_{ab}$、$A_a$、$\nabla_a\phi$、$g_{ab}$等等．
+    拉格朗日密度$\mathscr{L}$只能用动力学变量的形式来表示，不能包含非动力学变量．
+    
+    即便如此，若上述选择导致不合理物理结果，则需要换另外一种；
+    也就是说若拿捏不定，两个结果都算一下，看看哪个更合理！
+    最后再次强调，从纯数学角度来讲两个计算结果都是正确！ 
+    这说明不是每种数学都有物理对应． \qed
+\end{remark}
+
+
+下面以电磁场拉氏密度对度规的导数为例来进一步解释上述约定．
+我们先把电磁场拉氏密度$\mathscr{L}_{EM}$（见式\eqref{chlh:eqn_I-NG-maxwell}）
+写成$-\frac{1}{4}\left(F^{ac} F^{bd} g_{ab} g_{cd} \right)$（非动力学变量形式），
+用\eqref{chlh:eqn_dgdg}后面那个公式来计算，有
+\begin{align*}
+    \frac{\partial \mathscr{L}_{EM}}{\partial g_{ef}} = -\frac{1}{4}
+    \frac{\partial }{\partial g_{ef}}\left(F^{ac} F^{bd} g_{ab} g_{cd} \right) %\\
+    %    =&-\frac{1}{8} F^{ac} F^{bd} g_{ab}
+    %    \left( \delta_c^e \delta_d^f +\delta_c^f \delta_d^e  \right)
+    %    -\frac{1}{8} F^{ac} F^{bd} g_{cd}
+    %    \left( \delta_a^e \delta_b^f +\delta_a^f \delta_b^e  \right) \\
+    = -\frac{1}{2}  F^{e}_{\cdot a} F^{fa} .
+\end{align*}
+把上式带入能动张量表达式\eqref{chlh:eqn_BR-tensor}，
+会发现由此得到的能动张量是错误的：
+\begin{equation*}
+    T^{ab}=-\frac{1}{\mu_0} \left( F^{ac} F^{b}_{\cdot c} + \frac{1}{4} g^{ab} F_{cd} F^{cd} \right) .
+\end{equation*}
+请与正确的公式\eqref{chlh:eqn_EM-tensor}比对．
+“错误”（物理角度）原因是：电磁场动力学变量的角标在下面，即$F_{ab}$，不是$F^{ab}$；
+而本例电磁拉氏密度（$-\frac{1}{4}\left(F^{ac} F^{bd} g_{ab} g_{cd} \right)$）中
+的电磁场张量不是动力学变量．
+
+
+如果把$\mathscr{L}_{EM}$写成$-\frac{1}{4}\left(F_{ac} F_{bd} g^{ab} g^{cd} \right)$，
+用\eqref{chlh:eqn_dgdg}前面那个公式来计算
+\begin{align}
+    \frac{\partial \mathscr{L}_{EM}}{\partial g_{ef}} = -\frac{1}{4}
+    \frac{\partial }{\partial g_{ef}}\left(F_{ac} F_{bd} g^{ab} g^{cd} \right)  %\notag \\
+    %    =&+\frac{1}{8} F_{ac} F_{bd} g^{ab} ( g^{ce}g^{df} +g^{cf}g^{de} )
+    %    +\frac{1}{8} F_{ac} F_{bd} g^{cd} ( g^{ae}g^{bf} +g^{af}g^{be} ) \notag \\
+    = +\frac{1}{2}   F_{\cdot a}^e F^{f a} . \label{chlh:eqn_dLEMg}
+\end{align}
+此结果可以导出正确的对称能动张量（物理角度）．
+仿照式\eqref{chlh:eqn_dLEMg}，易得
+\begin{equation}\label{chlh:eqn_dLEMgup}
+    \frac{\partial \mathscr{L}_{EM}}{\partial g^{ef}} = -\frac{1}{4}
+    \frac{\partial }{\partial g^{ef}}\left(F_{ac} F_{bd} g^{ab} g^{cd} \right) 
+    = -\frac{1}{2}   F_{ec} F_{f}^{\cdot c} . 
+\end{equation}
+
+
+\subsection{拉格朗日方程}\label{chlh:sec_lagrange}
+
+从现在开始，我们只把度规$g_{ab}$当成外场，不看作动力学变量．
+直到\S\ref{chlh:sec_Gravity}才把度规$g_{ab}$当作动力学变量，并变分出爱因斯坦引力场方程．
+
+为了避免不必要的误解，我们给拉氏密度增加角标$NG$（Non-Gravitation），
+即$\mathscr{L}\to \mathscr{L}_{NG}$．
+变分推导如下（所有重复指标，包括“$(i)$”，都求和）
+\begin{align}
+  \updelta I_{NG}(\Omega) =& \int_\Omega
+  \left( \frac{\partial \mathscr{L}_{NG}}{\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}}
+   \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}
+   + \frac{\partial \mathscr{L}_{NG}}{\partial (\nabla_e {}^{(i)}\Phi^{a\cdots c}_{b\cdots d})}
+  \updelta \nabla_e {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} \right) \sqrt{-g} {\rm d}^{4}x
+    \notag \\
+  =& \int_\Omega \left[ \frac{\partial \mathscr{L}_{NG}}{\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}}
+   -  \nabla_e \left( \frac{\partial \mathscr{L}_{NG}}
+   {\partial (\nabla_e{}^{(i)}\Phi^{a\cdots c}_{b\cdots d})} \right) \right]
+    \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} \, \sqrt{-g} {\rm d}^{4}x \notag \\
+     &+ \int_{\Omega} \nabla_e
+  \left( \frac{\partial \mathscr{L}_{NG}}{\partial(\nabla_e{}^{(i)}\Phi^{a\cdots c}_{b\cdots d})}
+  \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} \right)  \,\sqrt{-g} {\rm d}^{4}x  \notag \\
+   =& \int_\Omega \left[ \frac{\partial \mathscr{L}_{NG}}{\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}}
+   -  \nabla_e \left( \frac{\partial \mathscr{L}_{NG}}
+   {\partial (\nabla_e{}^{(i)}\Phi^{a\cdots c}_{b\cdots d})} \right) \right]
+   \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} \, \sqrt{-g} {\rm d}^{4}x \notag \\
+   &+ \oint_{\Omega} \left( \frac{\partial \mathscr{L}_{NG}}{\partial(\nabla_e
+       {}^{(i)}\Phi^{a\cdots c}_{b\cdots d})}
+   \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} \right)  \,{\rm d}\sigma_e
+    . \label{chlh:eqn_Delta-Action}
+\end{align}
+上式最后一步用“${\rm d}\sigma_e $”代表区域$\Omega$的边界．
+此边界积分项是Noether流：
+\begin{equation}\label{chlh:eqn_noether}
+    j^e \equiv \sum_{i}\frac{\partial \mathscr{L}_{NG}}{\partial(\nabla_e
+        {}^{(i)}\Phi^{a\cdots c}_{b\cdots d})}
+    \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}.
+\end{equation}
+如果区域$\Omega$满足条件\eqref{chlh:eqn_fvonboud}，那么场变分在边界上为零，
+Noether流的超曲面边界积分为零；进而，作用量变分化简为
+\begin{equation}\label{chlh:eqn_action_principle}
+   \updelta I_{NG}(\Omega) = \int_\Omega \left[ \frac{\partial \mathscr{L}_{NG}}
+        {\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}}
+        -  \nabla_e \left( \frac{\partial \mathscr{L}_{NG}}
+        {\partial (\nabla_e{}^{(i)}\Phi^{a\cdots c}_{b\cdots d})} \right) \right]
+        \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}  \sqrt{-g}{\rm d}^{4}x .
+\end{equation}
+利用$\updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$是独立变分的条件，
+由式\eqref{chlh:eqn_action_principle}可以得到（除引力场外）各种场满足的欧拉-拉格朗日方程
+\begin{equation}\label{chlh:eqn_lagrange-Phi}
+    \frac{\partial \mathscr{L}_{NG}}
+    {\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}}
+    -  \nabla_e \left( \frac{\partial \mathscr{L}_{NG}}
+    {\partial (\nabla_e{}^{(i)}\Phi^{a\cdots c}_{b\cdots d})}\right)  =0.
+\end{equation}
+
+
+
+
+\subsection{对称能量-动量张量}\label{chlh:sec_BR-tensor}
+由拉氏密度得到的正则能动张量未必是对称的，而对称能动张量对整个物理学（不单单是引力论）
+更为重要．能动张量最早的对称化是由Belinfante和Rosenfeld分别独立完成的，
+故我们也称对称能量-动量张量为Belinfante--Rosenfeld能量-动量张量．
+在平直时空场论中一般采取Belinfante方法将能动张量对称化，在广义相对论中
+一般借用局部微分同胚变换得到对称能动张量；
+采用这种方式定义的文献有很多，比如\parencite[\S 94]{landau_2-classical-fields}，
+\parencite[\S 12.2]{weinberg_grav-1972}和\parencite[\S 21.3]{mtw1973}等．
+
+我们将由不包含引力的作用量$I_{NG}$（只包含物质和电磁场等）出发，
+把物质场的能量-动量张量定义为$I_{NG}$对$g_{ab}$的“泛函导数”；
+此时我们并不把$g_{ab}$当成动力学变量，只是看作外场，
+所以作用量对这种变分不取极值．
+我们想象给$g_{ab}$一个无穷小变分$g_{ab}\to g_{ab} + \updelta g_{ab}$，
+式中的$\updelta g_{ab}$是任意的（除了要求当$|x^\mu|\to \infty$时，$\updelta g_{ab}$趋于零）．
+于是，$\updelta I_{NG}$将是无穷小变分$\updelta g_{ab}$的某个线性泛函，
+我们借此定义式能量-动量张量
+\begin{equation}\label{chlh:def_BR-tensor}
+    \begin{aligned}
+    \updelta I_{NG} \overset{def}{=}& +\frac{1}{2c} \int_{\Omega}
+    T^{ab} \ \updelta g_{ab}(x) \ \sqrt{-g(x)} \ {\rm d}^4 x \\
+    =& -\frac{1}{2c} \int_{\Omega}
+    T_{ab} \ \updelta g^{ab}(x) \ \sqrt{-g(x)} \ {\rm d}^4 x .
+    \end{aligned}
+\end{equation}
+因子“$\frac{1}{2}$”是因为$g_{ab}$是对称张量．之后令$c=1$．
+上面两式中正负号差异源自度规的变分差异\eqref{chlh:eqn_delta-gab}．
+
+
+
+
+
+局部坐标变换等同于局部微分同胚变换，两者分别称为被动、主动模式；
+局部微分同胚变换最终化成李导数．设进行如下无穷小坐标变换
+\begin{equation}
+    x^\mu \to x'^\mu = x^\mu + \varepsilon^\mu .
+\end{equation}
+在无穷小情形下，$\varepsilon^\mu$是一个四维矢量；
+由它可以诱导出一个局部单参数微分同胚群$\psi_\varepsilon$，这个
+群作用在场上的效果是（单参数就是$\varepsilon$）
+\begin{equation}
+    \psi_\varepsilon^{-1*}\ {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)
+    ={}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x')
+\end{equation}
+我们将场的变分定义为单参数导数（见式\eqref{chlh:eqn_updelta-Phi}），
+而李导数是单参数微分同胚群的导数，自然符合此变分定义；
+用公式来表述便是
+\begin{equation*}
+    \Lie_{\varepsilon} {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}
+    = \lim_{\varepsilon\to 0}\frac{1}{\varepsilon} \left(
+    \psi_\varepsilon^{-1*}\ {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)
+    -{}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x) \right)
+%    = \left.\frac{\partial {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x)}
+%    {\partial \varepsilon}\right|_{\varepsilon=0}
+    =\updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} .
+\end{equation*}
+作为动力学变量的各种场${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$，
+以及作为非动力学变量（外场）的度规$g_{ab}$在以$\varepsilon^\mu$为
+诱导光滑矢量场的李导数（见\eqref{chccr:eqn_LieD-tensor-Nabla}）为
+\setlength{\mathindent}{0em}
+\begin{align}
+    \updelta {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} =&
+    \Lie_{\varepsilon} {}^{(i)}\Phi^{a\cdots c}_{b\cdots d} =
+     \varepsilon^e\nabla_e {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}
+    - {}^{(i)}\Phi^{e\cdots c}_{b\cdots d} \nabla_e \varepsilon^a 
+    + {}^{(i)}\Phi^{a\cdots c}_{e\cdots d} \nabla_b \varepsilon^e +\cdots
+      \label{chlh:eqn_updelta-Phi-Lie} \\
+    \updelta_{m} g_{ab} =&  
+    \Lie_{\varepsilon} g_{ab} = g_{eb} \nabla_a \varepsilon^e
+    + g_{ae} \nabla_b \varepsilon^e
+    =\varepsilon^e\partial_e g_{ab}  + g_{eb} \partial_a \varepsilon^e
+    + g_{ae} \partial_b \varepsilon^e . \label{chlh:eqn_updelta-gab-Lie}
+\end{align}\setlength{\mathindent}{2em}
+一般说来上两式的变换不是等距的；若等距，式\eqref{chlh:eqn_updelta-gab-Lie}恒为零．
+下面，我们将以场的李导数\eqref{chlh:eqn_updelta-Phi-Lie}和
+作为外场的度规的李导数\eqref{chlh:eqn_updelta-gab-Lie}为变分参量，
+用它去变分作用量\eqref{chlh:eqn_action}．
+当把度规$g_{ab}$看成\uwave{外场}进行变分时，
+为了避免不必要的误解，我们用$\updelta_{m}$（$m$代表metric）来代替前面使用的$\updelta$．
+
+
+
+对于动力学变量${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$来说，
+整个变分过程无非是重复推导出式\eqref{chlh:eqn_action_principle}；
+而我们已知动力学变量${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$遵守拉氏方程\eqref{chlh:eqn_lagrange-Phi}，
+故对动力学变量${}^{(i)}\Phi^{a\cdots c}_{b\cdots d}$来说这个变分结果是恒零的；
+我们也将直接忽略此部分的变分过程．
+
+
+对于作为外场的度规$g_{ab}$而言，则不然．
+重复\S\ref{chlh:sec_lagrange}推导过程（即类似式\eqref{chlh:eqn_Delta-Action}的推导），
+并用式\eqref{chlh:eqn_delta-g}，有
+\setlength{\mathindent}{0em}
+\begin{align}
+    \updelta_{m} I_{NG} =& \int_\Omega
+    \left( \frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}} \updelta_{m} g_{ab}
+    + \frac{\partial \mathscr{L}_{NG}}{\partial (\partial_e g_{ab})}
+    \updelta_m \partial_e  g_{ab} \right) \sqrt{-g} {\rm d}^{4}x
+    +\int_\Omega \mathscr{L}_{NG} \updelta_{m} \sqrt{-g} {\rm d}^{4}x \notag \\
+    =& \int_\Omega
+    \left[ \frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}}
+    - \frac{\partial }{\partial x^e} \left(
+    \frac{\partial \mathscr{L}_{NG}}{\partial (\partial_e g_{ab})}  \right)
+     + \frac{ g^{ab} \mathscr{L}_{NG}}{2}   \right]
+     \updelta_{m} g_{ab} \sqrt{-g} {\rm d}^{4}x .
+     \label{chlh:eqn_tmpact}
+\end{align} \setlength{\mathindent}{2em}
+推导过程丢掉了边界项（已假设当$|x^\mu|\to \infty$时$g_{ab}\to 0$）．
+%\begin{equation}\label{chlh:eqn_tmpact}
+%    \updelta I_{NG} = \int_\Omega
+%    \left(\sqrt{-g}  \updelta \mathscr{L}_{NG}
+%    + \mathscr{L} \updelta \sqrt{-g} \right)  {\rm d}^{4}x
+%    = \int_\Omega
+%    \left( \frac{\updelta \mathscr{L}_{NG}}{\updelta g_{ab}}
+%    + \frac{ g^{ab} \mathscr{L}_{NG}}{2}   \right)
+%    \updelta g_{ab} \sqrt{-g} {\rm d}^{4}x .
+%\end{equation}
+%\begin{equation}\label{chlh:eqn_BR-tensor}
+%    T^{ab} = 2\frac{\updelta \mathscr{L}_{NG}}{\updelta g_{ab}}
+%    +  g^{ab} \mathscr{L}_{NG}; \qquad
+%    T_{ab} = g_{ac}g_{bd} T^{cd} .
+%\end{equation}
+结合定义\eqref{chlh:def_BR-tensor}，可以得到对称能量-动量张量，
+\begin{equation}\label{chlh:eqn_BR-tensor}
+    T^{ab}  %= \frac{2}{\sqrt{-g}}   \frac{\updelta (\sqrt{-g}\mathscr{L}_{NG} ) }{\updelta_{m} g_{ab}}
+    = 2\frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}}
+    - 2\frac{\partial }{\partial x^e} \left(
+    \frac{\partial \mathscr{L}_{NG}}{\partial (\partial_e g_{ab})}  \right)
+    +  g^{ab} \mathscr{L}_{NG} 
+    ; \quad    T_{ab} = g_{ac}g_{bd} T^{cd} .
+\end{equation}
+很明显用此种方法得到的$T^{ab}$是对称张量．
+需要注意定义\eqref{chlh:def_BR-tensor}中的两式有正负号差别．
+但是由拉氏密度计算出来（用式\eqref{chlh:eqn_BR-tensor}）
+$T^{ab}$后则不再有这种差别；比如上式中已经给出指标升降后的能动张量，
+这里没有正负号差异是因为这里没有度规的变分了（见式\eqref{chlh:eqn_delta-gab}）．
+
+
+
+如果使用变分$\updelta_{m} g^{ab}$，重复式\eqref{chlh:eqn_tmpact}的推导，则得到
+\begin{equation}\label{chlh:eqn_BR-tensor-2}
+    T_{ab} %=\frac{-2}{\sqrt{-g}} \frac{\updelta (\sqrt{-g}\mathscr{L}_{NG}) }{\updelta_{m} g^{ab}}
+    = -2\frac{\partial \mathscr{L}_{NG}}{\partial g^{ab}}
+    + 2\frac{\partial }{\partial x^e} \left(
+    \frac{\partial \mathscr{L}_{NG}}{\partial (\partial_e g^{ab})}  \right)
+    +  g_{ab} \mathscr{L}_{NG} 
+    ; \quad    T^{ab} = g^{ac}g^{bd} T_{cd} .
+\end{equation}
+注意这种由度规变分\eqref{chlh:eqn_delta-gab}正负号差别引起的能动张量的正负号差异．
+
+
+
+我们说过此处的度规场变分是\eqref{chlh:eqn_updelta-gab-Lie}，
+把它代入\eqref{chlh:eqn_tmpact}后继续计算
+\begin{equation}\label{chlh:eqn_tmpacttab}
+    \begin{aligned}
+        \updelta I_{NG} =& \frac{1}{2}\int_\Omega
+        T^{ab}   \updelta_{m} g_{ab} \sqrt{-g} {\rm d}^{4}x
+        = \frac{1}{2}\int_\Omega T^{ab}
+          (\nabla_a \varepsilon_b + \nabla_b \varepsilon_a )
+        \sqrt{-g} {\rm d}^{4}x \\
+        =& \int_\Omega (T^{ab} \nabla_a \varepsilon_b) \sqrt{-g} {\rm d}^{4}x
+        = -\int_\Omega  (\nabla_aT^{ab})  \varepsilon_b \sqrt{-g} {\rm d}^{4}x .
+    \end{aligned}
+\end{equation}
+推导过程丢掉了边界项（假设当$|x^\mu|\to \infty$时没有物质）．
+这个变分过程是在坐标变换下得到的，独立变分自然是“$\updelta x^b =\varepsilon^b$”，
+取式\eqref{chlh:eqn_tmpacttab}的变分极值$\updelta I_{NG}=0$，必然得到
+\begin{equation}   %\label{chlh:eqn_DTab=0}
+    \nabla_a T^{ab} = 0 .  \tag{\ref{chfd:eqn_motion-gr} }
+\end{equation}
+这是非引力能动张量$T^{ab}$的守恒方程，或者称为{\heiti 物质场的运动方程}．
+
+{\kaishu 在式\eqref{chlh:eqn_tmpact}前一个自然段已
+说明式\eqref{chfd:eqn_motion-gr}（$\nabla_a T^{ab} = 0$）成立的前提条件之一便是
+拉式方程\eqref{chlh:eqn_lagrange-Phi}成立．拉式方程是物质场的运动方程；
+而$\nabla_a T^{ab} = 0$也包含物质场的运动方程，所以两者是相容的．
+但这并不与\S\ref{chfd:sec_liu2018}论述相矛盾，该节是在说$\nabla_a T^{ab} = 0$独立于
+爱因斯坦引力场方程（$G_{ab}=8\pi T_{ab}$）；
+而物质场拉式方程\eqref{chlh:eqn_lagrange-Phi}不含有爱氏引力场方程．}
+
+本节以及下节中所有理论、公式皆适用于狭义、广义相对论．
+对于狭义相对论来说，只需反向执行表\ref{chfd:tab-sr2gr}即可．
+%推导对称能动张量过程的$g_{ab}$可认为是曲线坐标．
+
+
+
+
+
+
+\section{电磁场与带电物质}\label{chlh:sec_matter-NG}
+本节讨论电磁场和带电粒子团（可称为等离子体）的基本物理\parencite[\S 12.1]{weinberg_grav-1972}，
+而不会涉及各种量子效应，比如不考虑自旋等等．
+本节从四维语言出发导出电磁场与等离子体的场方程，
+并与之前给出的公式比对．
+
+
+我们把度规$g_{ab}$当作外场（非动力学变量，故它的角标可上、可下），
+非引力场作用量为（动力学变量$u^a$、$x^a$、$A_a$的角标
+如\pageref{chlh:rek_dynamical-variables}页注解\ref{chlh:rek_dynamical-variables}中约定）：
+\begin{subequations}\label{chlh:eqn_I-NG}
+\begin{align}
+    I_{NG} =& -\frac{1}{4\mu_0}\int_\Omega F_{ab} F_{cd} g^{ac}g^{bd} \sqrt{-g}
+     \, {\rm d}^{4}x \label{chlh:eqn_I-NG-maxwell} \\
+    &+ \sum_{p} e_{p} \int A_{a}(x^\nu_p)
+     \frac{{\rm d} x^a}{{\rm d} \tau} \delta^4(x^\alpha-x^\alpha_p)
+      \, {\rm d} \tau {\rm d}^{4}x \label{chlh:eqn_I-NG-interact} \\
+    &- \sum_{p} m_p c \int \sqrt{-g_{ab} \frac{{\rm d} x^a}{{\rm d} \tau}
+         \frac{{\rm d}x^b}{{\rm d} \tau} }\delta^4(x^\alpha-x^\alpha_p)
+       \, {\rm d} \tau {\rm d}^{4}x. \label{chlh:eqn_I-NG-plasma}
+\end{align}
+\end{subequations}
+上式是国际单位制下的作用量，之后我们将使用自然单位制．
+式\eqref{chlh:eqn_I-NG-maxwell}是纯电磁场作用量；
+式\eqref{chlh:eqn_I-NG-plasma}是无碰撞带电粒子作用量，
+如果不带电就是一般无碰撞粒子团作用量；
+式\eqref{chlh:eqn_I-NG-interact}是带电粒子与电磁场相互作用项．
+如果粒子不带电，则没有前两项．
+求和指标$p$表示带电粒子，其静质量是$m_p$，其电荷是$e_p$，其四维时空中坐标是$x^\mu_p$．
+$x^\mu_p$的抽象指标表示为$x^a_p\equiv x^\mu_p (\partial_\mu)^a$．
+
+在广义相对论（或者说量子场论）之前，大师们从实验总结出（或者说连蒙带猜）基本方程式，
+比如牛顿力学、电磁学等．
+在广义相对论之后，大师们开始不猜方程式了，改猜拉格朗日密度；
+根据一些对称性，比如等距不变、规范不变等等，再结合各个基本量的量纲
+容易猜出拉氏密度的具体形式；现今看来猜拉氏密度比猜基本方程要简单．
+
+
+
+
+对于电磁场，我们隐含假设了：电磁场可由四矢量$A^a(x^\nu)$（规范势）来完全描述．
+相对论中把规范势当成最基本电磁学量的原因是：
+{\bfseries (1)} 规范势可以很容易量子化，而$\boldsymbol{B}$和$\boldsymbol{E}$很难量子化；
+{\bfseries (2)} 有些物理现象只能用规范势来描述，比如Aharonov--Bohm效应，
+若用$\boldsymbol{B}$、$\boldsymbol{E}$则是超距作用．
+现在还没有指定$A^a$所需满足的规范条件，故它仍是（四维）矢量（见\S\ref{chsr:sec_isAvec}）．
+
+{\heiti 电磁场张量}，也称为法拉第张量，定义为
+\begin{equation}\label{chlh:eqn_Fab}
+    F^{ab} \overset{def}{=} \nabla^a A^b - \nabla^b A^a =\partial^a A^b - \partial^b A^a .
+\end{equation}
+电磁场张量是反对称的，即$F^{ab}=-F^{ba}$．
+当$A^a$是矢量时，$F^{ab}$是个二阶反对称张量．
+当$A^a${\kaishu 不}是矢量时，$F^{ab}$仍旧是个二阶反对称张量，
+原因是电磁场张量是规范不变的．
+比如洛伦茨规范下的规范势为$A^a_L$，它是矢量．
+库仑规范下的规范势为$A^a_C$不是矢量，
+它们有如下关系： $ A^a_L = A^a_C + \nabla ^a f $；
+而电磁场张量在此规范变换下是不变的（以此为例说明电磁场张量是规范变不变的）
+\begin{equation}\label{chsr:eqn_F-gauge-inv}
+    F^{ab}_{L} = \nabla^a A^b_L - \nabla^b A^a_L
+    = \nabla^a A^b_C + {\nabla^a \nabla^b f}
+     -\nabla^b A^a_C - {\nabla^b \nabla^a f}
+%    = \nabla^a A^b_C  -\nabla^b A^a_C 
+    =F^{ab}_{C}.
+\end{equation}
+上式中，因联络无挠，故$\nabla^a \nabla^b f =\nabla^b \nabla^a f $．
+所以选取不同的规范并不影响$F^{ab}$是二阶反对称张量这一属性．
+
+
+
+
+
+
+
+\subsection{等离子体与电磁场}\label{chlh:sec_plasma}
+为令计算简洁一些，先定义（$J^a(x)$的具体意义见\S\ref{chlh:sec_charge}）
+\begin{equation}\label{chlh:eqn_eCurrent}
+    J^a(x) \overset{def}{=} \sum_{p} e_{p} \int  \frac{{\rm d} x^a}{{\rm d} \tau}
+    \delta^4(x^\alpha-x^\alpha_p)\frac{1}{\sqrt{-g}} {\rm d} \tau .
+%    = \sum_{p} \frac{e_{p}}{\sqrt{-g}} \int  \delta^4(x^\alpha-x^\alpha_p) {\rm d} x^a .
+\end{equation}
+
+
+我们从\S\ref{chlh:sec_lagrange}角度给出拉氏密度\eqref{chlh:eqn_Lagrange-NG}对应的
+欧拉-拉格朗日方程．
+先计算出关于电磁部分（$\mathscr{L}_{EMI}$为式\eqref{chlh:eqn_I-NG}前两行）的如下偏导数
+\begin{align}
+    \mathscr{L}_{EMI} =& -\frac{1}{4} F_{ab} F_{cd} g^{ac}g^{bd}
+    +  A_{a}(x^\nu_p) J^a(x^\mu_p) .    \label{chlh:eqn_L-EMI}  \\
+    \frac{\partial \mathscr{L}_{EMI}} {\partial  A_a } = &
+    J^a . \label{chlh:eqn_DLEMDA=J} \\
+    \frac{\partial \mathscr{L}_{EMI}} {\partial (\nabla_e A_f )}
+    =& -\frac{1}{4}(\delta^e_a \delta^f_b - \delta^e_b \delta^f_a )
+    (\nabla_c A_d - \nabla_d A_c) g^{a c} g^{b d} \notag \\
+    &-\frac{1}{4}(\nabla_a A_b - \nabla_b A_a)
+    (\delta^e_c \delta^f_d - \delta^e_d \delta^f_c) 
+    g^{a c}g^{b d}   \notag  \\
+    =& -( \partial^e A^f - \partial^f A^e)
+    = - F^{ef}. \label{chlh:eqn_DLEMDA}     
+\end{align}
+将上两式带入欧拉-拉格朗日方程\eqref{chlh:eqn_lagrange-Phi}，
+便有\eqref{chlh:eqn_Maxwell-1}；这是麦氏方程组．
+
+拉氏密度\eqref{chlh:eqn_I-NG}中，与纯电磁部分无关的两项分别是
+带电粒子与电磁场相互作用项以及带电粒子运动项；
+在推导剩余方程过程中，$\delta^4(x-x_p)$会产生不必要的麻烦，
+故将\eqref{chlh:eqn_I-NG}中的$\delta^4(x-x_p)$积分掉，并忽略纯电磁部分，有
+\begin{equation}
+    I_{pi} = \int \sum_{p}\left[ e_{p} A_{a}(x_p^\nu) \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    -  m_p  \sqrt{-g_{ab} \frac{{\rm d} x_p^a}{{\rm d} \tau}
+        \frac{{\rm d}x_p^b}{{\rm d} \tau} } \right]  \, {\rm d} \tau 
+    \equiv \int \mathcal{L}_{pi} {\rm d}\tau.
+\end{equation}
+我们求取如下偏导数，其中$\dot{x}^d_p\equiv \frac{{\rm d}x_p^d}{{\rm d} \tau}$，
+且令$-g_{ab} \frac{{\rm d} x_p^a}{{\rm d} \tau}\frac{{\rm d}x_p^b}{{\rm d} \tau}=1$：
+\begin{align}
+    \frac{\partial \mathcal{L}_{pi}}{\partial x^d_p}=& \sum_{p}
+    e_{p} \frac{\partial A_{a}(x_p^e)}{\partial x^d_p} \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    +\frac{m_p}{2} \frac{\partial g_{ab}}{\partial x^d_p}\frac{{\rm d} x_p^a}{{\rm d} \tau}
+    \frac{{\rm d}x_p^b}{{\rm d} \tau} . \\
+    \frac{\partial \mathcal{L}_{pi}}{\partial \dot{x}^d_p}=& \sum_{p}
+    e_p A_d(x_p^e) + m_p g_{db} \frac{{\rm d} x_p^b}{{\rm d} \tau} .
+\end{align}
+将上两式带入欧拉-拉格朗日方程\eqref{chlh:eqn_euler-lag}，并省略$\sum_{p}$，有
+\setlength{\mathindent}{0em}
+\begin{align*}
+    0&=e_{p} \frac{\partial A_{a}(x_p^e)}{\partial x^d_p} \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    +\frac{m_p}{2} \frac{\partial g_{ab}}{\partial x^d_p}\frac{{\rm d} x_p^a}{{\rm d} \tau}
+    \frac{{\rm d}x_p^b}{{\rm d} \tau}
+    - \frac{{\rm d}}{{\rm d}{\tau}} \left( e_p A_d(x_p^e) 
+    + m_p g_{db} \frac{{\rm d} x_p^b}{{\rm d} \tau}\right)  \\
+    &= e_{p} \frac{\partial A_{a}}{\partial x^d_p} \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    +\frac{m_p}{2} \frac{\partial g_{ab}}{\partial x^d_p}\frac{{\rm d} x_p^a}{{\rm d} \tau}
+    \frac{{\rm d}x_p^b}{{\rm d} \tau}
+    -e_{p} \frac{\partial A_{d}}{\partial x^a_p} \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    -m_p \frac{\partial g_{db}}{\partial x_p^a} \frac{{\rm d} x_p^a}{{\rm d} \tau}\frac{{\rm d} x_p^b}{{\rm d} \tau}
+    -m_p g_{dc} \frac{{\rm d}^2 x_p^c}{{\rm d} \tau^2} \\
+   \Rightarrow\, 0 &= {e_p} F_{\hphantom{c}a}^c \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+    +m_p\frac{1}{2}g^{dc} \left( \frac{\partial g_{ab}}{\partial x_p^d}
+    -\frac{\partial g_{db}}{\partial x_p^a} -\frac{\partial g_{da}}{\partial x_p^b}\right)
+    \frac{{\rm d} x_p^a}{{\rm d} \tau}\frac{{\rm d} x_p^b}{{\rm d} \tau}
+    -m_p\frac{{\rm d}^2 x_p^c}{{\rm d} \tau^2} .
+\end{align*}\setlength{\mathindent}{2em}
+将上式最后一步略加整理，再附上式\eqref{chsr:eqn_maxwell-F2}，有
+\begin{align}
+    \frac{{\rm d}^2 x^c_p}{{\rm d} \tau^2}
+    + \Gamma^c_{ab} \frac{{\rm d} x^a_p}{{\rm d} \tau}  \frac{{\rm d}x^b_p}{{\rm d} \tau}
+    =& \frac{e_p}{m_p} F_{\hphantom{c} a}^{ c} \frac{{\rm d} x^a_p}{{\rm d} \tau} .
+    \label{chlh:eqn_Plasma-Motion}\\
+    \frac{1}{\sqrt{-g}}\partial_b \left(F^{ab} \sqrt{-g} \right) =&
+    \nabla_b F^{ab} = J^a.     \label{chlh:eqn_Maxwell-1} \\
+    3\nabla_{[\gamma}F_{ \alpha \beta ]}=3\partial_{[\gamma}F_{ \alpha \beta ]}=&
+    \partial_\gamma F_{ \alpha \beta } + \partial_\alpha F_{ \beta \gamma }
+    + \partial_\beta F_{ \gamma \alpha } = 0. \tag{\ref{chsr:eqn_maxwell-F2}}
+\end{align}
+式\eqref{chlh:eqn_Plasma-Motion}是无碰撞等离子体的运动方程，
+参数$\tau$是其运动（类时）曲线的弧长参数．
+如果没有电磁场，那么式\eqref{chlh:eqn_Plasma-Motion}描述的便是
+一般无碰撞粒子运动方程，此式的右端恒为零，故它是测地线方程．
+从此也可以看出式\eqref{chlh:eqn_Plasma-Motion}与
+弯曲时空牛顿第二定律\eqref{chfd:eqn_NewtonII-gr}是完全相同的．
+牛顿第二定律既可以通过最小替换法则得到，也可以通过变分法得到．
+
+
+式\eqref{chlh:eqn_Maxwell-1}是麦氏方程组；还有另一半是\eqref{chsr:eqn_maxwell-F2}式．
+在上述变分过程中，我们只把$F_{ab}$当成中间量，不是最基本的变量；
+把式\eqref{chlh:eqn_Fab}代入\eqref{chsr:eqn_maxwell-F2}，
+发现这是一个微分恒等式；故当把规范势看成最基本电磁量时，
+方程式\eqref{chsr:eqn_maxwell-F2}是自动成立的，可以不算作基本方程式．
+式\eqref{chlh:eqn_Maxwell-1}为麦克斯韦方程组，其中偏导与协变导数等价证明如下：
+\begin{equation*}
+    J^a=\nabla_b F^{ab} = \partial_b F^{ab} + \cancel{\Gamma^a_{eb}F^{eb}} + \Gamma^b_{eb}F^{ae}
+     \xlongequal{\ref{chrg:eqn_Gamma-KKJ}} \frac{1}{\sqrt{-g}}\partial_b \left(F^{ab} \sqrt{-g} \right) .
+\end{equation*}
+注意使用电磁张量$F^{eb}$的反对称性，以及$\Gamma^a_{eb}$关于下标的对称性．
+
+
+
+
+\subsection{四维电流密度矢量和电荷守恒}\label{chlh:sec_charge}
+
+自然界中带电物质主要是正负电子，而电子的控制方程是狄拉克方程；
+故四维电流密度矢量的确切定义应由狄拉克方程（或狄拉克拉氏密度）来给出．
+但本书不会详细描述狄拉克方程；
+下面，我们给出一种由电磁拉氏密度导出的四维电流密度矢量表达式，
+与由狄拉克方程给出的定义相同（外在形式上）．
+
+在\S\ref{chlh:sec_BR-tensor}中，我们应用泛函变分方式定义了能动张量；
+用这种方式也可以描述四维电流密度矢量．
+我们只考虑非引力场作用量\eqref{chlh:eqn_I-NG}中动力学变量$A_a$的变分$\updelta A_a$，
+而不考虑带电粒子$x^a_p$的变分；在这样的变分下，纯电磁
+作用量\eqref{chlh:eqn_I-NG-maxwell}部分产生无源麦克斯韦方程组（可见\S\ref{chlh:sec_maxwell}），
+直接忽略这部分的变分；
+而带电粒子与电磁场相互作用项\eqref{chlh:eqn_I-NG-interact}将产生电流矢量．
+也就是说四维电流密度矢量$J^a(x)$可以通过下式来描述：
+\begin{equation}
+    \updelta I_{NG} =  \int \, J^a(x) \, \updelta A_{a} \sqrt{-g} \, {\rm d}^4 x.
+\end{equation}
+下面我们变分式\eqref{chlh:eqn_I-NG}（只对$\updelta A_a$变分）：
+\begin{equation*}
+    \updelta I_{NG} = \sum_{p} e_{p} \int \updelta A_{a}
+    \frac{{\rm d} x^a_p}{{\rm d} \tau}  \, {\rm d} \tau
+    = \sum_{p} e_{p} \int  \frac{{\rm d} x^a}{{\rm d} \tau}
+    \delta^4(x^\alpha-x^\alpha_p)\frac{1}{\sqrt{-g}} {\rm d} \tau
+    \, \updelta A_{a} \sqrt{-g} {\rm d}^4 x. 
+\end{equation*}
+由上两式立刻可以得到四维电流密度矢量表达式，见\eqref{chlh:eqn_eCurrent}．
+
+平直时空的电荷守恒定律是$\partial_a J^a =0 $；
+用最小替换法则\ref{chfd:tab-sr2gr}可得弯曲时空的电荷守恒定律是
+\begin{equation}\label{chlh:eqn_charge-conservation-curved}
+    \nabla_a J^a =0 .
+\end{equation}
+上述电荷守恒定律也可以通过对麦克斯韦方程组\eqref{chlh:eqn_Maxwell-1}再求一次
+导数来得到，这说明麦克斯韦方程组与电荷守恒是相容的（见\S\ref{chfd:sec_liu2018}）．
+这个推导并不困难，首先利用式\eqref{chccr:eqn_Riemannian13-Tensor-commutator}和
+电磁张量$F^{ab}$关于上标的反对称性可以
+得到$\nabla_a \nabla_b F^{ab} = \nabla_b \nabla_a F^{ab}$．
+其次，通过角标变换，并利用$F^{ab}$关于上标的反对称性
+可得$\nabla_a \nabla_b F^{ab} = \nabla_b \nabla_a F^{ba}=-\nabla_b \nabla_a F^{ab}$．
+这说明$\nabla_b \nabla_a F^{ab} = 0$．
+再对式\eqref{chlh:eqn_Maxwell-1}求一次协变导数，有
+\begin{equation}
+    \nabla_a J^a = \nabla_a \nabla_b F^{ab} =0.
+\end{equation}
+需要再次强调：这只能说明麦氏方程组与电荷守恒定律相容，
+不能说明麦氏方程组可以导出电荷守恒定律；电荷守恒定律仍旧独立于麦氏方程组．
+
+
+在式\eqref{chlh:eqn_tmpacttab}中，我们借助李导数得到了非引力场物质
+的运动方程式\eqref{chfd:eqn_motion-gr}．与此相似，
+可以借助规范势$A_a$的规范变换来得到电荷守恒定律，
+可见\textcite[\S 12.3]{weinberg_grav-1972}；
+但笔者并不十分赞同此观点．带电物质一般是正负电子，
+这些物质遵循的方程式为狄拉克方程，不是麦克斯韦方程组（麦氏方程只管光子，管不了电子运动）；
+{\kaishu 那么电荷守恒定律理应由狄拉克场拉氏密度的变分得到
+（无穷小相位变换，也称为狄拉克场的局部规范变换，见\parencite[Eq.(5.25), pp.120]{Greiner-FQ-1996}）}，
+而不是通过电磁场拉氏密度来得到．
+况且，纯电磁场拉氏密度\eqref{chlh:eqn_I-NG-maxwell}的规范变换并不产生有物理意义的守恒定律，
+可见式\eqref{chlh:eqn_EM-Gauge-Noether}．  %，更详细的可见\parencite{Karatas-1990}
+因此，笔者认为\textcite[\S 12.3]{weinberg_grav-1972}的推导
+只能说为：电荷守恒与电磁场规范势的规范变换\uwave{相容}（compatible）．
+
+
+
+
+\subsection{麦克斯韦方程组}\label{chlh:sec_maxwell}
+
+我们先给出1+3分解后的麦氏方程组．
+对于平直时空，度规场是洛伦兹度规$\eta_{ab}$，有瞬时观测者$(z,Z^a)$（见\S\ref{chfd:sec_oberver}）．
+当前最基本的电磁学量是规范势$A_a$，电磁张量$F_{ab}$只是中间量．
+我们可以借助它们给1+3分解后的电场$\boldsymbol{E}$和磁场$\boldsymbol{B}$一个定义：
+\begin{equation}\label{chlh:eqn_EBdef}
+    E_a \overset{def}{=}  F_{ab} Z^b ,\quad
+    B_a \overset{def}{=} -(*F)_{ab} Z^b .
+    \quad *F_{ab}\text{是} F_{ab} \text{的Hodge星对偶}  %，见\S\ref{chrg:sec_Hodge}
+\end{equation}
+将上式带入\eqref{chlh:eqn_Maxwell-1}和式\eqref{chsr:eqn_maxwell-F2}便可
+得到\eqref{chsr:eqn_maxwell-F}和\eqref{chsr:eqn_maxwell-vac}．
+
+
+\subsubsection{规范势形式}\label{chlh:sec_maxA}
+把式\eqref{chlh:eqn_Fab}代入麦氏方程组\eqref{chlh:eqn_Maxwell-1}，
+得（用式\eqref{chccr:eqn_Riemannian13-Vec-commutator}和Ricci曲率定义）
+\begin{equation}
+    \nabla_b F^{ab}    = \nabla_b \nabla^a A^b - \nabla_b \nabla^b A^a
+    = \nabla^a \nabla_b A^b + R^a_{d}A^d - \square A^a = J^a .
+\end{equation}
+若补充洛伦茨规范：$\nabla_a A^a =0$；
+则得到常用的麦氏方程组（$\square = \nabla_b \nabla^b$）
+\begin{equation}\label{chlh:eqn_Maxwell-AL}
+    \square A^a - R^a_{d}A^d = -J^a;\qquad\qquad \nabla_a A^a =0.
+\end{equation}
+
+在平直时空中，补充洛伦茨规范的麦氏方程组\eqref{chsr:eqn_maxwell-poetential}可以表示为
+\begin{equation}
+    \partial^b \partial_b A^a = - J^a;\qquad\qquad \partial_a A^a =0.
+\end{equation}
+若用最小替换法则\ref{chfd:tab-sr2gr}，只将偏导换为协变导数，
+则上述方程为$\square A^a  = -J^a $．
+显然这与式\eqref{chlh:eqn_Maxwell-AL}矛盾；
+而且对此式（$\square A^a  = -J^a $）两端取散度，
+并不能得到$\nabla_a J^a=0$，这说明它不与电荷守恒相容．
+
+最小替换法则不一定产生唯一结果（或正确结果），其根源
+是$(\nabla_a \nabla_b - \nabla_b \nabla_a)T^{\cdots}_{\cdots}$一般不等于零．
+要判断最小替换法则是否得到正确方程式，首先，研判替换后的方程式自身是否有矛盾．
+其次，和实验结果比对；这是最终判断方法．
+关于最小替换法则更多讨论请见\parencite[\S 16.3]{mtw1973}．
+
+
+\subsubsection{外微分形式}
+由外微分计算公式\eqref{chccr:eqn_exterior-differential-covD}直接可以
+得到：式\eqref{chsr:eqn_maxwell-F2}可表示为${\rm d}_a F_{bc}=0$．
+
+式\eqref{chlh:eqn_Maxwell-1}的转换如下．先将电磁张量取Hodge星对偶，然后求外微分
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &{\rm d}_a \bigl((*F)_{bc} \bigr)  ={\rm d}_a \bigl(\frac{1}{2!}F^{ef}\Omega_{efbc} \bigr)
+    = \frac{3}{2} \nabla _{[a} (F^{ef}\Omega_{|ef|bc]} )
+    = \frac{3}{2} \nabla _{[a} (\Omega_{bc]ef} F^{ef}) \\
+    &{\color{red}\Rightarrow}
+    \Omega^{habc}{\rm d}_a \bigl((*F)_{bc} \bigr)  = \frac{3}{2} \Omega^{habc} \nabla _{[a} (\Omega_{bc]ef} F^{ef})
+    =\frac{3}{2} \Omega^{habc} \left((\nabla _{a} \Omega_{bcef}) F^{ef} +\Omega_{bcef} (\nabla _{a}F^{ef}) \right) \\
+    &{\color{red}\xLongrightarrow[\ref{chrg:eqn_VE-contract-VE}]{\ref{chrg:eqn_dVE=0}} }
+    \Omega^{habc}{\rm d}_a \bigl((*F)_{bc} \bigr)  = - 3\cdot
+    (\updelta_{e}^{h}\updelta_{f}^{a} -\updelta_{f}^{h}\updelta_{e}^{a} )\nabla _{a}F^{ef}
+    = 6\cdot \nabla _{a}F^{ah} \\
+    &{\color{red}\Rightarrow}
+    {\rm d}_a \bigl((*F)_{bc} \bigr) = \Omega_{abch} \nabla _{e}F^{eh} .
+\end{align*}\setlength{\mathindent}{2em}
+$J^b$的Hodge星对偶是$*J_{abc} = {J^e}\Omega_{eabc}$，
+从而可得麦氏方程组的外微分表示
+\begin{subequations}\label{chlh:eqn_Maxwell-ext-diff}
+    \begin{align}
+        {\rm d}_a \bigl((*F)_{bc} \bigr)&= (*J)_{abc}  \quad \Leftrightarrow \quad
+        \bigl(*{\rm d}(*F) \bigr)_a = J_a , \label{chlh:eqn_Maxwell-ext-diff-1} \\
+        {\rm d}_a F_{bc} &= 0.      \label{chlh:eqn_Maxwell-ext-diff-2}
+    \end{align}
+\end{subequations}
+
+
+陈强顺、冯承天\cite{chen-feng1989-cn,chen-yu1993-en}证明了一个有用的定理；
+十几年后，文献\parencite{hehl-Obukhov-2003}也运用了类似工作．
+陈、冯二人试图从电荷守恒定律推出麦克斯韦方程组，这多少有些不合理（见后面评论），
+我们先叙述陈、冯文中的定理．
+\begin{theorem}\label{chlh:thm_chenfeng}
+    如果单连通星状、四维广义黎曼流形$(M,g)$上有矢量场$J^a$，其四维散度为零，
+    即$\nabla_a J^a=0$，那么必存在2次微分型式场$G_{bc}$满足下式
+    \begin{equation}\label{chlh:eqn_chenfeng}
+        *J_{abc} = {\rm d}_a G_{bc}  {\quad  \Leftrightarrow \quad} J_a = (-)^{s+1} ( *{\rm d}G  )_a .
+    \end{equation}
+    其中$s$是度规$g$的特征值中$-1$个数．
+\end{theorem}
+\begin{proof}
+    四维逆变矢量$J^a$，可以通过度规对其指标升降，其对偶矢量是${J_a} = {g_{ab}}{J^b}$．
+    这个对偶矢量的Hodge星对偶是：$*J_{abc} = {J^e}\Omega _{eabc}$；
+    对此式取外微分，有
+    \begin{equation}
+        {\rm d}_f(*{J_{abc}}) = {{\text{d}}_f}\left( {{J^e}{\Omega _{eabc}}} \right)
+        = 4{\nabla _{[f}}\left( {{J^e}{\Omega _{|e|abc]}}} \right)
+        = -4\left( {{\nabla _{[f}}{J^e}} \right){\Omega _{abc]e}} .
+    \end{equation}
+    对上式两边用体元${\Omega ^{fabc}}$缩并得
+    \begin{align*}
+        {\Omega ^{fabc}}{\rm d}_f (*{J_{abc}}) &=- 4\left( {{\nabla _{[f}}{J^e}} \right)
+        {\Omega _{abc]e}}{\Omega ^{fabc}} = 4\left( {{\nabla _f}{J^e}} \right)
+        {\Omega _{eabc}}{\Omega ^{[fabc]}} \\
+        &= 4\left( {{\nabla _f}{J^e}} \right){(-)^s}
+        3!1!\updelta _e^f = 4!{(- )^s}{\nabla _e}{J^e} .
+    \end{align*}
+    由于我们是在四维流形上讨论问题，${\rm d}_f*({J_{abc}})$已是最高次
+    的外微分型式场，它同构于一个标量场；
+    可以假设${\rm d}_f (*{J_{abc}}) = \kappa {\Omega _{fabc}}$，
+    其中$\kappa$是一个待定标量函数． 带入式上左端，有
+    \begin{equation}
+        {\Omega ^{fabc}}{\rm d}_f (*{J_{abc}}) = {\Omega ^{fabc}}\kappa
+        {\Omega _{fabc}} = \kappa 4!{(-)^s} .
+    \end{equation}
+    结合上两式可以得到$\kappa  = {\nabla _e}{J^e}$；那么，我们就得到
+    \begin{equation}
+        {\rm d}_f (*{J_{abc}}) = \left( {{\nabla _e}{J^e}} \right){\Omega _{fabc}} .
+    \end{equation}
+    从上式和定理条件（$\nabla_e J^e=0$）可得${\rm d}_f (*{J_{abc}}) = 0$，
+    即3次微分型式场$*{J_{abc}}$是闭的；那么
+    从Poincar\'e引理\ref{chdf:thm_poincare-lemma}可知，在星状区域内
+    式\eqref{chlh:eqn_chenfeng}必然成立．
+\end{proof}
+
+\begin{remark}
+    上述定理是从纯数学角度得到的结论，没有涉及任何物理过程，只对四维流形成立，
+    无论度规是正定还是不定．
+\end{remark}
+\begin{remark}
+    在四维闵可夫斯基时空（即定理中指标$s=1$），矢量$J^a$可以理解成
+    电流四矢量，那么它自然满足电荷守定定律，即$\nabla_a J^a=0$，
+    因此存在2次微分型式场$*{F_{bc}}$ （一般将${G_{bc}}$记成$*{F_{bc}}$以便和麦克斯韦方程组相匹配）
+    满足式\eqref{chlh:eqn_chenfeng}．
+    对比麦克斯韦外微分形式，可知此式就是半个麦氏方程组．
+    依照陈、冯\cite{chen-feng1989-cn}所述，如果还有磁荷守恒，即$\partial_a J^a_{mag}=0$，
+    那么还可知存在另外一个2次微分型式场$H_{bc}$满足$J_{mag} = *{\rm d}H$．
+    然而，仅从纯数学角度，我们无法确定两个2次微分型式场$*F_{bc}$和$H_{bc}$间的关系；
+    也就是我们无法从纯数学角度给出麦氏方程组．
+\end{remark}
+\begin{remark}
+    第\pageref{chdf:rek_poincare-lemma}页的
+    注解\ref{chdf:rek_poincare-lemma}翻译成陈冯定理中的语言便是，
+    如果数学上$J_{abc}=0$（也就是电流四矢量$J_{a}$为零），那么必然有$F_{ab}=0$．
+    这在物理上显然是不正确的，电流和电磁场是可以相互解耦的；电流四矢量为零的
+    地方电磁场未必为零．所以虽然陈冯定理给出了一个数学结构，但无法与物理完全对应；
+    也就是我们无法从纯数学角度给出麦氏方程组．
+\end{remark}
+\begin{remark}
+    物理上的粒子数守恒、能动四矢量守恒也都可表示为$\nabla_e J^e=0$的形式；从陈冯定理可知（纯数学角度），
+    它们也都有对应的二阶反对称张量场；但是物理上没有与这些二阶反对称张量场相对应的物理量．
+    电磁场中的反对称张量$F_{ab}$恰好与电荷守恒有对应而已！
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+\subsection{对称能动张量}
+由式\eqref{chlh:eqn_I-NG}不难给出非引力场所对应的拉氏密度（$J^a$定义见式\eqref{chlh:eqn_eCurrent}）：
+\begin{equation}\label{chlh:eqn_Lagrange-NG}
+    \begin{aligned}
+        \mathscr{L}_{NG} =& -\frac{1}{4} F_{ab} F_{cd} g^{ac}g^{bd} + A_{a}(x^\nu_p) J^a(x^\mu_p) \\
+        &+  \int \sum_{p}\frac{- m_p }{\sqrt{-g}} \sqrt{-g_{ab} \frac{{\rm d} x^a}{{\rm d} \tau}
+            \frac{{\rm d}x^b}{{\rm d} \tau} } \delta^4(x^\alpha-x^\alpha_p) {\rm d} \tau .
+    \end{aligned}
+\end{equation}
+我们需要对上述拉氏密度求取度规的导数．
+需要再啰嗦一次的是，拉氏密度中所有量必须是动力学变量，作为外场的度规除外．
+比如带电粒子与电磁场的相互作用项是$A_{a}(x^\nu_p) J^a(x^\mu_p)$，
+它对度规的导数自然恒为零．如果我们把它改写为$g_{ab}A^{a}(x^\nu_p) J^b(x^\mu_p)$，
+那么它对度规的导数不为零，从而导致能动张量中含有$A^a$；
+而规范势$A^a$不具有直接可观测效应，
+但能动张量必须具有可观测效应，从而产生了矛盾．
+这个矛盾再次说明了不是每种数学计算都有物理对应．
+
+
+
+
+我们先给出纯电磁部分的能动张量；只需运用\S\ref{chlh:sec_rules-DLg}末尾的两个公式即可．
+将式\eqref{chlh:eqn_dLEMg}带入式\eqref{chlh:eqn_BR-tensor}，得到纯电磁场能动张量（国际单位制）：
+\begin{equation}\label{chlh:eqn_EM-tensor}
+    T^{ab}=\frac{1}{\mu_0} \left( F^{ac} F^{b}_{\cdot c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} \right) .
+\end{equation}
+或将式\eqref{chlh:eqn_dLEMgup}带入式\eqref{chlh:eqn_BR-tensor-2}，得到纯电磁场能动张量（国际单位制）：
+\begin{equation}\label{chlh:eqn_EM-tensor-down}
+    T_{ab}=\frac{1}{\mu_0} \left( F_{ac} F_{b}^{\cdot c} - \frac{1}{4} g_{ab} F_{cd} F^{cd} \right) .
+\end{equation}
+
+
+带电粒子作用量所对应拉氏密度（即式\eqref{chlh:eqn_Lagrange-NG}第二行）的偏导数为
+\begin{align*}
+    \frac{\partial \mathscr{L}_{p}}{\partial g_{ab}}
+    =&\frac{\partial }{\partial g_{ab}} 
+    \int \sum_{p}\frac{- m_p }{\sqrt{-g}} \sqrt{-g_{ef} \frac{{\rm d} x^e}{{\rm d} \tau}
+        \frac{{\rm d}x^f}{{\rm d} \tau} } \delta^4(x^\alpha-x^\alpha_p) {\rm d} \tau \\
+    =& - \int \sum_{p} m_p \delta^4(x^\alpha-x^\alpha_p) \biggl[
+    \frac{1}{2}(-g)^{-3/2}  \frac{\partial g}{\partial g_{ab}} 
+    \sqrt{-g_{ef} \frac{{\rm d} x^e}{{\rm d} \tau} \frac{{\rm d}x^f}{{\rm d} \tau} } \\
+    &-\frac{1}{2\sqrt{-g}} \left(-g_{ef} \frac{{\rm d} x^e}{{\rm d} \tau}
+        \frac{{\rm d}x^f}{{\rm d} \tau} \right)^{-1/2} \times \frac{1}{2}
+      \left(\frac{{\rm d} x^a}{{\rm d} \tau} \frac{{\rm d}x^b}{{\rm d} \tau} +
+      \frac{{\rm d} x^b}{{\rm d} \tau} \frac{{\rm d}x^a}{{\rm d} \tau}\right) \biggr] {\rm d} \tau .
+\end{align*}
+考虑到$\tau$是弧长参数，有$-g_{ef} \frac{{\rm d} x^e}{{\rm d} \tau}
+\frac{{\rm d}x^f}{{\rm d} \tau} = 1$；再使用式\eqref{chlh:eqn_delta-g}；
+上式简化为
+\begin{equation}
+    \frac{\partial \mathscr{L}_{p}}{\partial g_{ab}}
+    = \int \sum_{p} \frac{m_p}{2\sqrt{-g}} \delta^4(x^\alpha-x^\alpha_p) 
+     \left( g^{ab} + \frac{{\rm d} x^a}{{\rm d} \tau} \frac{{\rm d}x^b}{{\rm d} \tau}
+    \right)  {\rm d} \tau .
+\end{equation}
+结合上式，再把纯电磁场的相应部分加上；
+由式\eqref{chlh:eqn_BR-tensor}便可得到电磁场和无碰撞等离子体的对称能动张量：
+\setlength{\mathindent}{0em}
+\begin{equation}\label{chlh:eqn_EM+Plasma-BRtensor}
+%\begin{aligned}
+    T^{ab} = F^{ac} F^{b}_{\hphantom{b} c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
+     + \int \sum_{p} \frac{m_p}{\sqrt{-g}} \delta^4\bigl(x^\alpha-x^\alpha_p(\tau)\bigr) 
+    \frac{{\rm d} x^a}{{\rm d} \tau} \frac{{\rm d}x^b}{{\rm d} \tau} {\rm d} \tau . %\\
+%    =& F^{ac} F^{b}_{\cdot c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
+%    + \sum_{p} \frac{m_p \, u^a u^b}{u^0 \sqrt{-g}} \delta^3
+%    \bigl(\boldsymbol{x}-\boldsymbol{x}_p(\tau)\bigr)  .
+%\end{aligned}
+\end{equation}\setlength{\mathindent}{2em}
+
+
+
+
+
+\section{引力场作用量}\label{chlh:sec_Gravity}
+
+引力场作用量是（David Hilbert于1915年引入）
+\begin{equation}\label{chlh:eqn_I-G}
+    I_G = \frac{1}{c} \int_\Omega \mathscr{L}_G \,{\rm d}^{4}x =
+    \frac{1}{c} \int_\Omega \frac{c^4}{16\pi G} R\sqrt{-g}\,{\rm d}^{4}x .
+\end{equation}
+其中$R$是标量曲率；上式是在国际单位制下的表示，之后将采用自然单位制．
+这个作用量一般称为{\bfseries\heiti Hilbert作用量}，
+Hilbert通过变分上式比爱因斯坦早五天得到了今天称为爱因斯坦引力场方程的
+基本物理定律\cite[\S 14(d)]{Pais-1982}．
+
+黎曼曲率（见式\eqref{chrg:eqn_Riemannian04-component}）中包含$g_{\mu\nu}$的二阶导数，这导致
+引力场作用量$I_G$包含度规的二阶导数．
+与此相反，非引力场作用量一般只包含动力学变量的一阶导数；
+可见式\eqref{chlh:eqn_I-NG}．
+其中的直接原因是：在流形中任一点附近，
+我们总可以选择一个坐标系使得$g_{\mu\nu}$的一阶导数为零（比如黎曼法坐标系）．
+因此，从度规系数及其一阶导数只能构造一个常数，而无法构造出一个标量场．
+有鉴于此，我们不使用欧拉-拉格朗日方程；而使用由意大利
+学者Attilio Palatini(1889--1949)提出的变分方法．
+
+\subsection{第一种变分}
+
+虽然我们已经选择$g_{ab}$是引力场的动力学变量，但在下述变分过程中只涉及度规场，
+不涉及其它场；故，引力场的作用量变分也可选择$\updelta g^{ab}$为独立变分．
+直接计算变分，有
+\begin{align}
+    \updelta I_G =& \frac{1}{16\pi } \int_\Omega
+    \updelta \left( R_{ab} g^{ab} \sqrt{-g} \right) \,{\rm d}^{4}x \label{chlh:eqn_Delta-IG}\\
+    =& \frac{1}{16\pi } \int_\Omega
+     \left( (\updelta R_{ab}) g^{ab} \sqrt{-g} 
+     \ +\  R_{ab} (\updelta g^{ab}) \sqrt{-g}
+     \ +\ R_{ab} g^{ab} \updelta \sqrt{-g} \right) \,{\rm d}^{4}x . \notag
+\end{align}
+变分分成三项，其中第一项最终是一个边界积分，我们最后处理它．第二项不用处理．
+第三项的变分也很简单，
+由式\eqref{chlh:eqn_delta-g}（$\updelta \sqrt{-g}=-\frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab}$）直接
+可得到我们想要的变分公式．我们把非引力作用量和引力作用量放到一起，
+再结合式\eqref{chlh:def_BR-tensor}，有
+\begin{equation}
+    0=\updelta (I_G + I_{NG})
+    = \int_\Omega \left[
+    \frac{1}{16\pi }\left( R_{ab} -\frac{1}{2}R g_{ab}\right)
+    -\frac{1}{2} T_{ab} \right]
+    \sqrt{-g} \updelta g^{ab} \,{\rm d}^{4}x .
+\end{equation}
+利用$\updelta g^{ab}$是独立变分，
+从上式即可得到爱因斯坦引力场方程\eqref{chfd:eqn_Einstein}．
+
+只剩下第一项没有处理，下面开始计算它．
+直接变分黎曼曲率\eqref{chccr:eqn_Riemannian13-component}：
+\begin{align*}
+    \updelta R_{cab}^d =& \partial_a \updelta\Gamma_{cb}^{d} -\partial_b \updelta\Gamma_{ca}^{d}
+    + \updelta\Gamma_{cb}^{e} \Gamma_{ea}^{d} + \Gamma_{cb}^{e} \updelta\Gamma_{ea}^{d}
+    - \updelta\Gamma_{ca}^{e} \Gamma_{eb}^{d} - \Gamma_{ca}^{e} \updelta\Gamma_{eb}^{d} \\
+    =&+\partial_a \updelta\Gamma_{cb}^{d} - \Gamma_{ca}^{e} \updelta\Gamma_{eb}^{d}
+    - \Gamma_{ba}^{e} \updelta\Gamma_{ce}^{d}  + \Gamma_{ea}^{d} \updelta\Gamma_{cb}^{e} \\
+    &-\partial_b \updelta\Gamma_{ca}^{d} - \Gamma_{eb}^{d}\updelta\Gamma_{ca}^{e}
+    + \Gamma_{ba}^{e} \updelta\Gamma_{ce}^{d} + \Gamma_{cb}^{e} \updelta\Gamma_{ea}^{d} .
+\end{align*}
+由上式最后一步可以得到黎曼曲率和Ricci曲率的{\heiti \bfseries Palatini恒等式}：
+\begin{equation}\label{chlh:eqn_Palatini}
+    \updelta R_{cab}^d = \nabla_a \updelta\Gamma_{cb}^{d} -\nabla_b \updelta\Gamma_{ca}^{d}; \qquad
+    \updelta R_{cb} = \nabla_a \updelta\Gamma_{cb}^{a} -\nabla_b \updelta\Gamma_{ca}^{a} .
+\end{equation}
+下面求克氏符\eqref{chrg:eqn_Christoffel-naturalbases}的变分
+（应用式\eqref{chlh:eqn_updelta-Phi}、\eqref{chlh:eqn_DppD}
+及\eqref{chlh:eqn_delta-gab}）：
+\begin{align*}
+    \updelta \Gamma_{ab}^c =& \frac{1}{2} \updelta {g^{ce}}
+       \left( \frac{\partial g_{ae} }{\partial x^b }
+       + \frac{\partial g_{eb}}{\partial x^a} - \frac{\partial g_{ab}}{\partial x^e} \right)
+     +\frac{1}{2}{g^{ce}}\left( \frac{\partial\updelta g_{ae} }{\partial x^b }
+     + \frac{\partial\updelta g_{eb}}{\partial x^a}
+     - \frac{\partial\updelta g_{ab}}{\partial x^e} \right)  \\
+     =&  -g^{cd} g^{ef} \updelta g_{df} \frac{1}{2}
+     \left( \frac{\partial g_{ae} }{\partial x^b }
+     + \frac{\partial g_{eb}}{\partial x^a} - \frac{\partial g_{ab}}{\partial x^e} \right)
+     +\frac{1}{2}{g^{cd}}\left( \frac{\partial\updelta g_{ad} }{\partial x^b }
+     + \frac{\partial\updelta g_{db}}{\partial x^a}
+     - \frac{\partial\updelta g_{ab}}{\partial x^d} \right)  \\
+     =&  -g^{cd} \Gamma_{ab}^e \updelta g_{de}
+     +\frac{1}{2}{g^{cd}}\biggl(
+     \frac{\partial\updelta g_{ad} }{\partial x^b }
+          - \Gamma^e_{ab} \updelta g_{ed}
+          - {\color{red}\Gamma^e_{db} \updelta g_{ae}}
+     + \frac{\partial\updelta g_{db}}{\partial x^a}
+          - {\color{blue}\Gamma^e_{da} \updelta g_{eb}} \\
+     & - \Gamma^e_{ba} \updelta g_{de}
+     - \frac{\partial\updelta g_{ab}}{\partial x^d}
+          + {\color{blue}\Gamma^e_{ad} \updelta g_{eb} }
+          + {\color{red}\Gamma^e_{bd} \updelta g_{ae}} \biggr)
+          + g^{cd} \Gamma_{ab}^e \updelta g_{de}  .
+\end{align*}
+最终可以得到
+\begin{equation}\label{chlh:eqn_DGamma}
+    \updelta \Gamma_{ab}^c= \frac{1}{2} g^{cd} \left(  \nabla_b \updelta g_{ad}
+     + \nabla_a \updelta g_{db} - \nabla_d \updelta g_{ab} \right) .
+\end{equation}
+这说明$\updelta \Gamma_{ab}^c$是一张量场；
+其实从例题\ref{chccr:exm_c-c=t}已知两个克氏符“差”是张量场，
+而变分是某种意义上的“差”．
+Palatini恒等式中的$\updelta\Gamma_{ca}^{a}$可以进一步化简
+\begin{equation}
+    \updelta\Gamma_{ca}^{a} = \frac{1}{2}g^{ad}\left( \nabla_a \updelta g_{cd}
+    + \nabla_c \updelta g_{da} - \nabla_d \updelta g_{ca} \right)
+    =\frac{1}{2}g^{ad} \nabla_c \updelta g_{da} .
+\end{equation}
+把上式和式\eqref{chlh:eqn_DGamma}代入\eqref{chlh:eqn_Palatini}得
+（式\eqref{chlh:eqn_Delta-IG}中第一项变分）
+\begin{equation}\label{chlh:eqn_hab}
+\begin{aligned}
+    g^{cb}\updelta R_{cb} =& \frac{1}{2}g^{cb} g^{ad}\left( \nabla_a \nabla_b \updelta g_{cd}
+    + \nabla_a\nabla_c \updelta g_{db} - \nabla_a\nabla_d \updelta g_{cb}
+    - \nabla_b\nabla_c \updelta g_{da}  \right) \\
+    =&\nabla^d\nabla^b \updelta g_{db} - g^{cb} \nabla^d\nabla_d \updelta g_{cb}
+%    = \nabla^d \left(\nabla^b \updelta g_{db} - g^{cb} \nabla_d \updelta g_{cb}\right)
+    \equiv  \nabla^d v_d .
+\end{aligned}
+\end{equation}
+上式表明式\eqref{chlh:eqn_Delta-IG}中第一项是一个
+矢量$v_d\equiv \nabla^b \updelta g_{db} - g^{cb} \nabla_d \updelta g_{cb}$的四维散度，
+利用散度定理\ref{chsm:thm_Gauss-Divergence}可以将之化为
+边界积分，而边界积分是零，不影响最终变分结果．
+不过后来发现这并不完全正确，补充一Gibbons--Hawking--York边界项才能使
+之完备，见\S\ref{chlh:sec_GHYB}．
+
+
+\subsection{第二种变分}
+选择$\updelta g_{ab}$为独立变分，参考式\eqref{chlh:eqn_Delta-IG}可得
+\begin{equation}\label{chlh:eqn_Delta-IG-2}
+        \updelta I_G
+        = \frac{1}{16\pi } \int_\Omega
+        \left( (\updelta R^{ab}) g_{ab} \sqrt{-g}
+        + R^{ab} (\updelta g_{ab}) \sqrt{-g}
+        +R \updelta \sqrt{-g} \right) \,{\rm d}^{4}x .
+\end{equation}
+第二、三项较为简单．我们先处理第一项（利用式\eqref{chlh:eqn_hab}），
+\begin{align*}
+    g_{ab} \updelta R^{ab} =& g_{ab} \updelta (g^{ac}g^{bd}R_{cd})
+     =g_{ab} g^{ac}g^{bd} \updelta R_{cd}
+     + g_{ab} g^{bd}R_{cd} \updelta g^{ac}
+     + g_{ab} g^{ac}R_{cd} \updelta g^{bd} \\
+     \xlongequal{\ref{chlh:eqn_hab}}& \nabla^d v_d
+     + 2R_{ca} \updelta g^{ac}
+     =\nabla^d v_d -2 R^{ab} \updelta g_{ab}.
+\end{align*}
+将上式代入\eqref{chlh:eqn_Delta-IG-2}，并忽略由$\nabla^d v_d $诱导的边界积分．
+我们把非引力作用量和引力作用量放到一起，
+再结合式\eqref{chlh:def_BR-tensor}，继续计算，有
+\begin{equation}
+    0=\updelta (I_G +I_{NG})
+    = \frac{1}{16\pi } \int_\Omega
+    \left( -R^{ab}  + \frac{1}{2} g^{ab} R + 8\pi T^{ab}\right)
+    \sqrt{-g} \updelta g_{ab}  \,{\rm d}^{4}x .
+\end{equation}
+由这种变分也能得到正确的爱因斯坦引力场方程．
+
+
+%\subsection{张量密度}\label{chlh:sec_tensor-density}
+%前面的计算中通常会涉及“$\sqrt{-g}$”这一项，为了令计算方便些可以
+%给任意张量$A^{a\cdots}_{b\cdots}$定义与其相对应的{张量密度}
+%\begin{equation}\label{chlh:eqn_tensor-density}
+%    \mathfrak{A}^{a\cdots}_{b\cdots} \overset{def}{=} \sqrt{-g} A^{a\cdots}_{b\cdots} .
+%\end{equation}
+%张量密度$\mathfrak{A}^{a\cdots}_{b\cdots}$的协变导数为
+%\begin{equation}
+%    \nabla_c \mathfrak{A}^{a\cdots}_{b\cdots} = 
+%     \sqrt{-g} \nabla_c A^{a\cdots}_{b\cdots} + A^{a\cdots}_{b\cdots} \nabla_c  \sqrt{-g} 
+%    = 
+%\end{equation}
+
+
+\subsection{Gibbons--Hawking--York边界项}\label{chlh:sec_GHYB}
+\textcite{York-1972}可能是第一个注意到这个边界项的问题，但他的文章并不十分完备；
+几年后，\textcite{Gibbons-Hawking-1977}彻底解决了这个问题．
+本节内容需要较多参考超曲面内容（见\S\ref{chsm:sec_hypersurface-basic}）．
+
+
+我们先描述一下问题的所在．在\eqref{chlh:eqn_hab}式中产生了一个
+矢量$v^a$的四维散度，它在带边区域$U$上积分时可通过推广的
+高斯定理\ref{chsm:thm_Gauss-Divergence}转化成$U$的边界积分
+\begin{equation}\label{chlh:eqn_GHYB-1}
+\begin{aligned}
+    \int_U (\updelta R_{ab}) g^{ab} \sqrt{-g} {\rm d}^{4}x
+     =&  \int_U  \nabla^a \left(\nabla^b \updelta g_{ab}
+      - g^{cb} \nabla_a \updelta g_{cb}\right)  \sqrt{-g} {\rm d}^{4}x \\
+     =&  \int_{\partial U} n^a g^{cb} \left(\nabla_c \updelta g_{ab}
+     -  \nabla_a \updelta g_{cb}\right)
+     \sqrt{|h|} {\rm d}^{3}x .
+\end{aligned}
+\end{equation}
+$\sqrt{|h|} {\rm d}^{3}x$是$\partial U$上的诱导体积元；
+$n^a$是$\partial U$的单位法向量；我们需要假设$\partial U$是非类光超曲面．
+根据约定，在边界$\partial U$上度规的变分$\updelta g_{ab}$（或$\updelta g^{ab}$）
+是恒为零的，但是它的导数$\nabla_c \updelta g_{ab}$未必等于零．
+这需要在引力场拉氏密度$\mathscr{L}_G$上添加一个边界项（GHY项）用以抵消它．
+
+我们将式\eqref{chlh:eqn_GHYB-1}中被积分量做变换．超曲面$\partial U$的
+诱导度规是$h_{ab}= g_{ab}- \epsilon {n}_a {n}_b$．
+利用对称、反对称关系容易得到
+\begin{equation}
+    n^a n^b n^c (\nabla_c \updelta g_{ab} -\nabla_a \updelta g_{cb})
+    =2n^b n^{(a}  n^{c)} \nabla_{[c} \updelta g_{a]b} =0 .
+\end{equation}
+把这个恒零量加在式\eqref{chlh:eqn_GHYB-1}中被积函数上后，
+有（本质上就是$g^{cb} \to h^{cb}$）
+\begin{align}
+    & n^a g^{cb} \left(\nabla_c \updelta g_{ab} - \nabla_a \updelta g_{cb}\right)
+    = n^a g^{cb} \left(\nabla_c \updelta g_{ab} - \nabla_a \updelta g_{cb}\right)  
+      -\epsilon n^a n^b n^c (\nabla_c \updelta g_{ab} - \nabla_a \updelta g_{cb}) \notag \\
+    &= n^a h^{cb} \left(\nabla_c \updelta g_{ab} - \nabla_a \updelta g_{cb}\right)
+    = - n^a h^{cb} \nabla_a \updelta g_{cb} .\label{chlh:eqn_tmp9}
+\end{align}  %  \setlength{\mathindent}{2em}
+上式最后一步中用到了$h^{cb} \nabla_c \updelta g_{ab}$实质上是
+沿超曲面$\partial U$切空间的导数，而在超曲面上$\updelta g_{ab}=0$，
+故它沿超曲面的导数也等于零．（注：但是法于超曲面的导数可能非零．）
+
+经过研究，式\eqref{chlh:eqn_tmp9}可以变成关于标量外曲率$K$（见式\eqref{chsm:eqn_K-scalar}）的形式．
+为了简单起见，我们还是从标量外曲率变分出发，最终得到式\eqref{chlh:eqn_tmp9}．
+考虑超曲面$\partial U$上的度规变分，所以$\updelta g_{ab}=0=\updelta h_{ab}$，
+但$\nabla_c\updelta g_{ab}$可能非零；故有
+\begin{equation}
+\begin{aligned}
+    \updelta K =& \updelta (h^{ab} K_{ab})
+    =h^{ab} \updelta (\partial_a n_b - \Gamma^c_{ab} n_c)
+      + K_{ab} \cancel{\updelta h^{ab}}
+    =-h^{ab} n_c \updelta \Gamma^c_{ab} \\
+    \xlongequal{\ref{chlh:eqn_DGamma}}&
+    -\frac{1}{2} g^{cd} h^{ab} n_c\left(  \nabla_b \updelta g_{ad}
+    + \nabla_a \updelta g_{db} - \nabla_d \updelta g_{ab} \right)
+    = \frac{1}{2} h^{ab} n^d \nabla_d \updelta g_{ab} .
+\end{aligned}
+\end{equation}
+由上式，结合式\eqref{chlh:eqn_tmp9}和\eqref{chlh:eqn_GHYB-1}可得
+引力场作用量的边界积分是
+\begin{equation}\label{chlh:eqn_GHYB}
+   \int_U (\updelta R_{ab}) g^{ab} \sqrt{-g} {\rm d}^{4}x
+        =  -2\int_{\partial U} \updelta K   \sqrt{|h|} {\rm d}^{3}x .
+\end{equation}
+换句话说，如果我们在引力场作用量上加上这个Gibbons--Hawking--York抵消项后，通过Hilbert作用量
+便可直接得到爱氏场方程．新的Hilbert作用量是
+\begin{equation}\label{chlh:eqn_I-G-new}
+    I_G^{new} =  \frac{1}{c} \int_\Omega \frac{c^4}{16\pi G} R\sqrt{-g}\,{\rm d}^{4}x
+     +\frac{1}{c} \int_{\partial \Omega} \frac{c^4}{8\pi G} K   \sqrt{|h|} {\rm d}^{3}x  .
+\end{equation}
+
+
+%\subsection{Lovelock定理}
+%我们不加证明地叙述一个定理．
+%
+%\begin{theorem}
+%    在四维闵氏时空中，所有由度规$g_{ab}$及其一阶导数、二阶导数构成的对称张量$E_{ab}$，
+%    且它满$\nabla^a E_{ab}=0$；则必有$E_{ab}=\alpha G_{ab}+\beta g_{ab}$，
+%    其中$\alpha$、$\beta$为实常数，$G_{ab}$是爱因斯坦张量．
+%    （证明见\parencite[p.321]{Lovelock-1989}定理）
+%\end{theorem}
+
+   
+%    在小于等于四维时空中，所有在坐标变换下不变的拉氏密度$\mathscr{L}$，
+%    并且通过变分此拉氏密度可以得到度规$g_{ab}$二阶导数的方程；
+%    则必有$\mathscr{L}=(\alpha R+ \beta) \sqrt{-\det(g_{\mu\nu})}$，
+%    其中$\alpha$、$\beta$为实常数，$R$是标量曲率．
+%    （\parencite[p.321]{Lovelock-1989}式(4.36)）
+
+
+
+
+
+\section{理想流体力学}\label{chlh:perfect-fluid}
+
+
+下面介绍一点相对论热力学内容\cite[\S 22.2]{mtw1973}．
+我们先给出固有参考系（相对流体质团静止的参考系）的数个物理量：
+{\bfseries (1)} 粒子数密度$n$，指重子数减去反重子数．
+{\bfseries (2)} 总质量密度$\rho$，包括质团的静止质量、内能等．
+{\bfseries (3)} 各向同性压强$p$．
+{\bfseries (4)} 平衡态的温度$T$．
+{\bfseries (5)} 单个粒子熵$s$，单位体积熵为$n s$．
+%{\bfseries (6)} 单位质量内能$\Pi$．
+
+
+我们只考虑宏观、经典、理想流体，不考虑粘性、热传导、量子效应、核反应、化学反应等；
+也不具体区分流体质团成分；这是相对论流体力学的最简模型．
+在这些假设下，流体的热力学属性只由两个参量来描述，我们选为粒子数密度和单个粒子熵；
+我们进一步假设流动是等熵、无旋的．
+更多相对论流体力学内容可参考\parencite[Ch.15]{landau_6-fluid}或\parencite[\S 2.10]{weinberg_grav-1972}．
+
+
+{\kaishu 粒子数守恒}是一个十分基本的定律，可参见\parencite[\S 3]{landau_5-statistical}；
+在平直时空中，此定律表示为$\partial_\mu (n U^\mu)=0$，其中$U^\mu$是流体质团的四速度．
+我们用最小替换法则，将其过渡到一般流形上：
+\begin{equation}\label{chlh:eqn_particle-cons}
+    \nabla_a (n U^a) = 0.
+\end{equation}
+
+
+我们直接给出热力学第一定律（\parencite[\S 22.2]{mtw1973}式(22.6)）：
+\begin{equation}\label{chlh:eqn_1TDL}
+    {\rm d}\rho = n T {\rm d}s +\frac{\rho+p}{n} {\rm d}n .
+\end{equation}
+
+
+
+理想流体的作用量\cite{Ray-1972}是（国际单位制，之后采用自然单位制）
+\begin{equation}\label{chlh:eqn_perfect-fluid}
+    \begin{aligned}
+    I_{PF}=&\frac{1}{c}\int \Bigl(-\rho c^2
+    +\kappa_1\left(g_{ab}U^a U^b+c^2 \right) 
+    +\kappa_2 \nabla_a (n U^a)  \Bigr)
+    \sqrt{-g}  {\rm d}^4x  \\
+    =&\int \Bigl(-\rho
+    +\kappa_1\left(g_{ab}U^a U^b+1 \right) 
+    -n U^a \nabla_a\kappa_2   \Bigr)
+    \sqrt{-g}  {\rm d}^4x .
+\end{aligned}
+\end{equation}
+其中$U^a$是流体质团四速度，它必然满足$g_{ab}U^a U^b+c^2=0$．
+拉格朗日乘子$\kappa_1(x)$、$\kappa_2(x)$是时空坐标$\{x\}$的函数；
+$\kappa_1$把约束$g_{ab}U^a U^b+c^2=0$加入拉氏密度；
+$\kappa_2$把粒子数守恒约束加入拉氏密度．
+式\eqref{chlh:eqn_perfect-fluid}中第二行作了关于$\kappa_2 \nabla_a (\rho U^a) $的
+分部积分，并丢掉了边界项．
+把式\eqref{chlh:eqn_perfect-fluid}中第二行积分号内的部分记为$\mathscr{L}_{PF}$．
+
+计算几个关于式\eqref{chlh:eqn_perfect-fluid}的导数：
+\begin{align}
+    \frac{\partial \mathscr{L}_{PF}}{\partial n} = &
+    -\frac{\partial\rho }{\partial n} - U^a \nabla_a\kappa_2 .\\
+    \frac{\partial \mathscr{L}_{PF}}{\partial \nabla_a n} = &
+    0 = \frac{\partial \mathscr{L}_{PF}}{\partial \nabla_b U^a} . \\
+    \frac{\partial \mathscr{L}_{PF}}{\partial U^a} = &
+    2\kappa_1 U_a - n \nabla_a \kappa_2 .
+\end{align}
+将上式带入欧拉-拉格朗日方程\eqref{chlh:eqn_euler-lag}可以得到
+\begin{align}
+    -\frac{\partial\rho }{\partial n}  = U^a \nabla_a\kappa_2; \qquad
+    2\kappa_1 U_a = n \nabla_a \kappa_2 .
+\end{align}
+将上式中的第二式两边缩并$U^a$，并利用第一式，有
+\begin{equation}\label{chlh:eqn_tmp-k1}
+    \kappa_1 = \frac{1}{2}n \frac{\partial\rho }{\partial n}
+    \xlongequal{\ref{chlh:eqn_1TDL}} \frac{\rho+p}{2} .
+\end{equation}
+由上两式可得
+\begin{equation}\label{chlh:eqn_tmp-k2}
+    \nabla_a \kappa_2 = \frac{\rho+p}{n} U_a . 
+\end{equation}
+不难计算出：
+\begin{equation}
+    \frac{\partial \mathscr{L}_{PF}}{\partial g_{ab}} = 
+    \kappa_1 U^a U^b = \frac{\rho+p}{2} U^a U^b .
+\end{equation}
+由式\eqref{chlh:eqn_BR-tensor}得
+\begin{equation*}
+    T^{ab}  %= 2\frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}}    +  g^{ab} \mathscr{L}_{NG} 
+    =(\rho + p)U^a U^b + g^{ab} \left( -\rho
+    +\kappa_1\left(g_{ab}U^a U^b+1 \right) 
+    -n U^a \nabla_a\kappa_2 \right) .
+\end{equation*}
+利用$g_{ab}U^a U^b+1\equiv 0$，并将式\eqref{chlh:eqn_tmp-k2}带入上式，
+可得能动张量（国际制）：
+\begin{equation}\label{chlh:eqn_perfect-fluid-Tab}
+    T^{ab}=\left(\rho  + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} .
+\end{equation}
+
+有了理想流体的能动张量\eqref{chlh:eqn_perfect-fluid-Tab}，
+便可由$\nabla_b T^{ab}=0$导出其运动方程；
+展开后的方程非常复杂，可参考\parencite{nelson-1981}；
+文献\parencite[\S 39.11]{mtw1973}给出了一阶近似的展开式．
+
+
+
+%连续性方程\parencite[\S 1]{landau_6-fluid}欧拉方程\parencite[\S 2]{landau_6-fluid}
+
+
+
+
+\section{引力场赝能动张量}
+
+本章前面重点内容之一是给出各种（非引力）场的能量-动量张量表达式，
+比如式\eqref{chlh:eqn_EM+Plasma-BRtensor}、\eqref{chlh:eqn_perfect-fluid-Tab}；
+它们都是协变的张量场．下面考虑引力场的能动量．
+
+一个合理的能量-动量表述应该是可定域化的（locality，或译为局域化）．
+这就是说，若从某一坐标系来看，某个时空点的能量密度不为零；
+当变换到其它坐标系后，该点的能量密度仍不为零；
+特别地，在纯空间变化下，该点的能量密度应该是个不变的标量场．
+比如电磁场的能动张量\eqref{chlh:eqn_EM-tensor}就是可定域化的；
+其原因是电磁场能动量本身是个张量场，具有坐标变换协变性．
+因此，要想使得引力场的能动张量表述定域化，应尽可能的提高表述的协变性．
+
+
+我们还经常说某个物理理论（比如爱氏引力场方程，或量子电动力学）是定域的，
+这里的定域是指该理论只能被它周围的力量影响；
+并且传递力量的非零能量、动量中间玻色子的传播速度必须是
+光速或亚光速的（参见\S\ref{chsr:sec_SR-scope}）．
+
+在牛顿力学中，能量或动量是牛顿第二定律（二阶微分方程）的一次积分，
+也就是说能量、动量只是动力学变量（位矢$\boldsymbol{r}$）的一次导数（$\dot{\boldsymbol{r}}$）．
+
+仿照于此，我们也要求广义相对论中的引力场能量密度也是动力学变量（$g_{ab}$）的一次导数．
+由于Levi Civita联络与度规相容，故有$\nabla_c g_{ab}\equiv 0$，
+因此，能动量只能包含$g_{ab}$的偏导数项了（$\partial_c g_{ab}$）．
+我们已知（见\S\ref{chgd:sec_RNC}）：在黎曼法坐标系中， 
+在$p\in M$点有$\bar{g}_{ij}(p)=\eta_{ij}$，$\bar{\Gamma}_{ij}^k(p)=0$，
+$\frac{\partial \bar{g}_{ij}}{\partial y^k}(p)=0$；见定理\ref{chgd:thm_RNC}．
+因此，在黎曼法坐标系中，引力场能量密度恒为零；在其他坐标系能量密度可以非零．
+
+总之，如果你期待引力场的能动量（stress-energy）满足：引力理论是度规引力理论，等效原理成立（比如GR）只依赖于局域的引力场．即，是度规和度规的偏导数的函数．（别忘了GR里度规的协变导数总是零．）是一个张量．即，在任意坐标变换下transforms as a tensor.满足守恒律．即，协变散度为零．那么，你将无法找到一个合适的能动量的定义，因为唯一同时满足上述四个条件的张量是0．
+
+
+
+Landau--Lifshitz引力场能动赝张量联络系数形式（自然单位制）：
+\begin{equation}\label{chlh:eqn_t-stress-Gamma}
+    \begin{aligned}
+        t_{LL}^{\mu \nu}  = \frac{1}{16\pi}\Big[
+        &(2\Gamma^{\sigma}_{\alpha \beta}\Gamma^{\rho}_{\sigma \rho}
+        - \Gamma^{\sigma}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+        - \Gamma^{\sigma}_{\alpha \sigma}\Gamma^{\rho}_{\beta \rho})
+        (g^{\mu \alpha}g^{\nu \beta} - g^{\mu \nu}g^{\alpha \beta})  \\
+        +&(\Gamma^{\nu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+        + \Gamma^{\nu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
+        - \Gamma^{\nu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
+        - \Gamma^{\nu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\mu \alpha}g^{\beta \sigma}  \\
+        +&(\Gamma^{\mu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+        +\Gamma^{\mu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
+        - \Gamma^{\mu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
+        - \Gamma^{\mu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\nu \alpha}g^{\beta \sigma}  \\
+        +&(\Gamma^{\mu}_{\alpha \sigma} \Gamma^{\nu}_{\beta \rho}
+        - \Gamma^{\mu}_{\alpha \beta} \Gamma^{\nu}_{\sigma \rho})g^{\alpha \beta}g^{\sigma \rho}\Big].
+    \end{aligned}
+\end{equation}
+上式还可以换成度规表述方式（自然单位制），
+\begin{equation}\label{chlh:eqn_t-stress-metric}
+    \begin{aligned}
+        (-g)t_{LL}^{\mu \nu} =& \frac{1}{16\pi} \Big[\mathfrak{g}^{\mu \nu}_{,\alpha}
+        \mathfrak{g}^{\alpha \beta}_{,\beta} - \mathfrak{g}^{\mu \alpha}_{,\alpha}\mathfrak{g}^{\nu \beta}_{,\beta} +
+        \frac{1}{2}g^{\mu \nu}g_{\alpha \beta}\mathfrak{g}^{\alpha \sigma}_{,\rho} \mathfrak{g}^{\rho \beta}_{,\sigma} \\
+        &-(g^{\mu \alpha}g_{\beta \sigma}\mathfrak{g}^{\nu \sigma}_{,\rho}
+        \mathfrak{g}^{\beta \rho}_{,\alpha}+g^{\nu \alpha}g_{\beta \sigma}
+        \mathfrak{g}^{\mu \sigma}_{,\rho}\mathfrak{g}^{\beta \rho}_{,\alpha}) + g_{\alpha \beta}g^{\sigma \rho}
+        \mathfrak{g}^{\mu \alpha}_{,\sigma}\mathfrak{g}^{\nu \beta}_{,\rho} \\
+        &+\frac{1}{8}(2g^{\mu \alpha}g^{\nu \beta}-g^{\mu \nu}g^{\alpha \beta})
+        (2g_{\sigma \rho}g_{\lambda \omega}-g_{\rho \lambda}g_{\sigma \omega})
+        \mathfrak{g}^{\sigma \omega}_{,\alpha}\mathfrak{g}^{\rho \lambda}_{,\beta}   \Big] .
+    \end{aligned}
+\end{equation}
+其中$\mathfrak{g}^{\mu\nu}=\sqrt{-g}g^{\mu\nu}$，$g=\det(g_{\mu\nu})$，
+$\mathfrak{g}^{\alpha \beta}_{,\gamma}\equiv \partial_\gamma \mathfrak{g}^{\alpha \beta}$．
+上两式不因度规号差而产生额外的负号；由于不涉及电磁学量，没有$4\pi$因子问题．
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography[heading=subbibliography,title=第\ref{chlh}章参考文献]
+
+\endinput
+
+
+

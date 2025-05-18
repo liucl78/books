@@ -1,0 +1,1549 @@
+% !TeX encoding = UTF-8
+% 此文件从2021.8开始
+
+\chapter{测地线}\label{chgd}
+
+我们先讨论了测地线的一般属性；
+借助测地线可以定义指数映射，由指数映射自然地引入黎曼法坐标的概念，法坐标系
+对于简化计算有特别的帮助．
+我们还简要介绍了测地完备性以及弧长变分公式．
+本章最后介绍了Jacobi场，这是描述引力论中测地偏离方程的工具．
+
+
+
+\index[physwords]{测地线}
+
+\section{测地线概念}\label{chgd:sec_concept}
+欧几里得空间$\mathbb{R}^m$的直线在几何图像上是“直”的，
+但这种感官性质的“直”是无法向流形上推广的．
+然而$\mathbb{R}^m$直线方程的两次导数恒为零的{\kaishu 微积分属性}是可以推广到流形上的，
+流形上测地线定义就是依据这个属性进行推广的．
+流形上的测地线感官上来看，一般不是“直”的．
+测地线是沿自身平行的曲线，可以看作是欧氏空间中直线方向不变的推广．
+
+\S \ref{chccr:sec_pxyd}节中，已经给出仿射空间测地线$\gamma(t)$定义\ref{chccr:def_geodesic}；
+这个定义也适用于$m$维广义黎曼流形$(M,g)$，此时有度规，内容更丰富．
+该定义中称满足$T^b \nabla _b T^a=0$的参数为仿射参数；
+有时也把满足$T^b \nabla _b T^a =f T^a$（$f$为非零标量场）的曲线称为测地线；
+不过，最好称之为{\kaishu 非仿射参数化的测地线（non-affinely parametrized geodesic）}，
+或者{\kaishu 准测地线}（pre-geodesic）．
+
+
+为了更精准的讨论测地线嵌入问题，需要诱导联络概念，可参考\S\ref{chfb:sec_pull-back-bundle}．
+在平行移动定义\ref{chccr:def_px}中所用的联络便是诱导联络的特例，即一条曲线上的诱导联络．
+有了诱导联络和度规，可以有如下定理：平行移动保内积不变．
+\begin{theorem}\label{chgd:thm_parallel-metric}
+    设有$m$维广义黎曼流形$(M,g)$，其上存在光滑曲线$\gamma(t)$．
+    如果有沿$\gamma(t)$平行的切矢量场$X^a, Y^a$，那么$g_{ab}X^aY^b$沿$\gamma(t)$是常数．
+\end{theorem}
+\begin{proof}
+    沿$\gamma(t)$平行是指：$\nabla_{\frac{\partial}{\partial t}}X^a=0,
+     \nabla_{\frac{\partial}{\partial t}}Y^a=0$；
+    其中$(\frac{\partial}{\partial t})^a$是$\gamma(t)$的切线．
+    \begin{equation*}
+        \nabla_{\frac{\partial}{\partial t}}\bigl( g_{ab}X^aY^b \bigr)
+        =\nabla_{\frac{\partial}{\partial t}}( g_{ab} ) X^aY^b
+        +g_{ab}\nabla_{\frac{\partial}{\partial t}}( X^a ) Y^b
+        +g_{ab}X^a\nabla_{\frac{\partial}{\partial t}}( Y^b )     =0.
+    \end{equation*}
+    为零原因：度规、联络相互容许，切矢量场$X^a, Y^a$沿$\gamma(t)$平行．
+    这说明，沿曲线$\gamma(t)$平行移动保持切矢量长度和夹角不变；换句话说：
+    平行移动是线性、局部等距同构映射．
+\end{proof}
+
+\index[physwords]{测地线!存在唯一性}
+\subsection{测地线的存在唯一性}
+设广义黎曼流形$M$的局部坐标系为$(U;x^i)$；
+曲线$\gamma(t)$的局部坐标表达式为$x^i\circ\gamma(t)$，
+由式\eqref{chccr:eqn_px-formula}可得：
+曲线$\gamma(t)$是测地线的充分必要条件是其
+分量$x^i\circ\gamma(t)$（为简洁起见，省掉后缀“$\circ\gamma$”）满足如下方程组：
+\begin{equation}\label{chgd:eqn_geodesic-formula}
+    \frac{{\rm d}^2 x^i(t)}{{\rm d}t^2} + \Gamma_{jk}^i(t)
+    \frac{{\rm d}x^j(t)}{{\rm d} t} \frac{{\rm d}x^k(t)}{{\rm d} t} =0,
+    \qquad 1 \leqslant i \leqslant m , \quad t\in (-\delta,\delta).
+\end{equation}
+上式中所有量均沿曲线$\gamma(t)$取值，并且当$t$变动时，$\gamma(t)$没有跑出开子集$U$．
+
+%\begin{equation}
+%    \frac{{\rm d}^2 x^\rho(\tau)}{{\rm d}\tau^2} + \Gamma_{\mu\nu}^\rho(\tau)
+%    \frac{{\rm d}x^\mu(\tau)}{{\rm d} \tau} \frac{{\rm d}x^\nu(\tau)}{{\rm d} \tau} =0.
+%\end{equation}
+
+
+式\eqref{chgd:eqn_geodesic-formula}是常微分方程（不论线性与否），
+根据常微分方程解存在唯一性以及初值依赖性，
+当给定初值时（点$p\in U$的坐标$x_p$以及此点的一个切矢量$v^a$）
+\begin{equation}\label{chgd:eqn_geodesic-init-data}
+    x^i(0) = x^i_p, \quad \frac{{\rm d}x^i(0)}{{\rm d}t}=v^i;
+    \qquad 1 \leqslant i \leqslant m.
+\end{equation}
+常微分方程式\eqref{chgd:eqn_geodesic-formula}在局部开集$U$内存在满足
+上述初始条件的唯一解；也就是说开集$U$内存在\uwave{唯一一条测地线}$\gamma(t;p,v^a)$满足
+初始条件\eqref{chgd:eqn_geodesic-init-data}，
+即$\gamma(0;p,v)=p$及$(\frac{\partial}{\partial t})^a|_{\gamma(0)}=v^a$．
+
+\begin{definition}
+    设$\gamma(t)$是广义黎曼流形$M$上的一条测地线，用$T^a=(\frac{\partial}{\partial t})^a$表示其切矢量；
+    若$T^a$处处非零，则称其为{\heiti 正则测地线}；
+    若$T_a T^a=1$处处成立，则称其为{\heiti 正规测地线}．
+\end{definition}
+
+测地线存在唯一性定理与度规场没有本质联系．
+
+\index[physwords]{测地线!仿射、缩放变换}
+\subsection{仿射变换}
+设有映射$t(u)$将\uwave{正则}测地线$\gamma(t)$实参数$t$变成了$u$（这称为重参数化），
+曲线也变成了$\tilde{\gamma}(u)$；对重参数化后的曲线作如下计算
+（注：对单参量$t$（或$u$）的偏导数相当于普通导数，即$\partial \to {\rm d}$）
+\setlength{\mathindent}{0em}
+\begin{align}
+    \nabla_{\frac{\partial}{\partial u}} \left(\frac{\partial}{\partial u}\right)^a =&
+    \nabla_{\frac{{\rm d}t}{{\rm d}u}\frac{\partial}{\partial t}}
+    \left(\frac{{\rm d}t}{{\rm d}u} \frac{\partial}{\partial t}\right)^a =
+    \bigl(t'(u)\bigr)^2 \nabla_{\frac{\partial}{\partial t}} \left(\frac{\partial}{\partial t}\right)^a +
+    t'(u)\left(\frac{\partial}{\partial t}\right)^a
+    \nabla_{\frac{\partial}{\partial t}} \left( \frac{{\rm d}t}{{\rm d}u}\right) \notag \\
+    \xlongequal[\text{测地线}]{\gamma(t)\text{是}} &
+    \left(\frac{\partial}{\partial t}\right)^a  \frac{{\rm d}t}{{\rm d}u}
+    {\frac{\partial}{\partial t}} \left( \frac{{\rm d}t}{{\rm d}u}\right)
+    =t''(u) \left(\frac{\partial}{\partial t}\right)^a . \label{chgd:eqn_gaf}
+\end{align}\setlength{\mathindent}{2em}
+由此式可以看出当变换$t(u)$是\uwave{仿射变换}时，即
+\begin{equation}\label{chgd:eqn_affine-transform}
+    t(u) = a u + b, \qquad a,b \text{是实常数，并且} a\neq 0.
+\end{equation}
+此时$t''(u)=0$，所以变换后的曲线$\tilde{\gamma}(u)$仍是测地线，
+即满足$\nabla_{\frac{\partial}{\partial u}} (\frac{\partial}{\partial u})^a=0$．
+
+反之，若要求变换后曲线$\tilde{\gamma}(u)$是测地线，
+则由式\eqref{chgd:eqn_gaf}可知必有$t''(u)=0$（因$\gamma(t)$正则，
+故在任意点都有$(\frac{\partial}{\partial t})^a\neq 0$），
+所以$t(u)$必是变换\eqref{chgd:eqn_affine-transform}．
+
+下面开始讨论一类特殊的仿射变换：缩放变换．
+对于测地线$\gamma(t;p,v^a)$，我们来作参数变换$t=\lambda u$（其中$\lambda$是正的实常数），
+变换前后的参数取值范围仍在测地线定义域内．
+这显然是仿射变换，变换后的曲线$\tilde{\gamma}(u)\equiv\gamma(\lambda u;p,v^a)$是仍是测地线，并且有
+\begin{equation}
+    \tilde{\gamma}(0)=\gamma(0)=p;\qquad
+    \left. \left(\frac{\partial}{\partial u}\right)^a \right|_{\tilde{\gamma}(0)}
+    = \lambda \left. \left(\frac{\partial}{\partial t}\right)^a \right|_{{\gamma}(0)}
+    = \lambda v^a .
+\end{equation}
+这说明$\tilde{\gamma}(u)$是经过$p$点以$\lambda\cdot  v^a$为初始切矢量的测地线，
+由测地线唯一性得：
+\begin{equation}\label{chgd:eqn_geodesic-zoom-transfrom}
+    \tilde{\gamma}(u) = \gamma(\lambda u;p, v^a) =\gamma(u;p,\lambda v^a)
+    \quad \Leftrightarrow \quad
+    \gamma(u;p, v^a) = \gamma(\lambda u;p, \frac{v^a}{\lambda} ).
+\end{equation}
+仿射变换、缩放变换与度规场没有本质联系．
+
+\subsection{弧长参数}
+下面来看测地线$\gamma(t)$的线元长度，计算下式
+\begin{equation}
+    \nabla_{\frac{\partial}{\partial t}} \left(g_{ab} \left(\frac{\partial}{\partial t}\right)^a
+    \left(\frac{\partial}{\partial t}\right)^b    \right) =
+    2 g_{ab} \nabla_{\frac{\partial}{\partial t}} \left( \left(\frac{\partial}{\partial t}\right)^a \right)
+    \left(\frac{\partial}{\partial t}\right)^b     = 0.
+\end{equation}
+可见测地线弧长平方求导之后恒为零，这说明测地线线元长度是实常数，
+因此必然有（也就是把上式换成下式）
+\begin{equation}
+    \frac{{\rm d}s}{{\rm d}t} =
+    \sqrt{g_{ab} \left(\frac{\partial}{\partial t}\right)^a
+        \left(\frac{\partial}{\partial t}\right)^b }
+    = a \quad >0.
+\end{equation}
+于是有常数$b$使得仿射变换$s=at+b$成立，这说明弧长参数$s$是仿射参数；
+以线长为参数的测地线，其切矢量恒为$1$（见式\eqref{chrg:eqn_arc-unit}），是正规测地线．
+
+
+
+\subsection{例}
+寻找测地线的通用方法是求解测地线方程\eqref{chgd:eqn_geodesic-formula}，见下例．
+
+\begin{example}\label{chgd:exm_Rmnu}
+    $\mathbb{R}^m_\nu$中测地线是直线或其一部分．
+\end{example}
+$\mathbb{R}^m_\nu$是平直空间，所有克氏符都为零．
+由测地线方程\eqref{chgd:eqn_geodesic-formula}可知：
+\begin{align}
+    \frac{{\rm d}^2 x^i(t)}{{\rm d}t^2} = 0     \ \Rightarrow \
+    x^i(t) = a^i t + b^i, \quad  a^i, b^i \in \mathbb{R},
+    \quad t\in (-\delta,\delta)  .
+\end{align}
+很明显这是直线（段），且参数$t$可以延拓至无穷远，
+故$\mathbb{R}^m_\nu$是测地完备的（完备性的定义见\ref{chgd:def_complete-geodesic}）．
+\qed
+
+然而，一般情形下测地线方程\eqref{chgd:eqn_geodesic-formula}难于求解，故这种方法虽然通用但不好用．
+我们可以借助流形自身的某些对称性来寻找测地线，为此先介绍一个命题．
+
+\begin{proposition}\label{chgd:thm_iso-geodesic}
+    设有广义黎曼流形$(M,g)$，其上有非零模、光滑曲线$\gamma(s)$，$s$是弧长参数．
+    如果存在$M$到自身的等距映射$\sigma$使得$\sigma$的不动点集恰好是曲线$\gamma$上的点
+    构成的集合，那么$\gamma(s)$是$M$上一条正规测地线．
+\end{proposition}
+\begin{proof}
+    由命题已知条件得：对于定义域内任意$s$有$\sigma\circ \gamma(s) = \gamma(s)$，
+    则由式\eqref{chdm:eqn_phiD=Dphi}可知
+    \begin{equation}
+        \sigma_{*}\left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\gamma(s)}\right)^a
+        = \left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\sigma\circ\gamma(s)}\right)^a
+        = \left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\gamma(s)}\right)^a .
+    \end{equation}
+    对于$\gamma$上任意一点$s_0$，设$\beta(s)$是一条测地线，它满足的初始条件是：
+    \begin{equation}\label{chgd:eqn_tmp20d}
+        \beta(s_0)=\gamma(s_0),\qquad 
+        \left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\beta(s_0)}\right)^a
+        =\left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\gamma(s_0)}\right)^a .
+    \end{equation}
+    由定理\ref{chrg:thm_geodesic-MN}（需用$\sigma$是等距）可
+    知：$\sigma\circ \beta(s)$也是测地线，且满足初条件
+    \begin{equation*}
+        \sigma\circ\beta(s_0)=\beta(s_0)=\gamma(s_0),\
+        \sigma_* \left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\beta(s_0)}\right)^a
+        =\left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\beta(s_0)}\right)^a
+        =\left(\left.\frac{{\rm d}  }{{\rm d} s}\right|_{\gamma(s_0)}\right)^a .
+    \end{equation*}
+    根据测地线唯一性，由上式可知：$\sigma\circ \beta(s) = \beta(s)$，
+    即$\beta$是$\sigma$的不动点集合．
+    命题已知条件中已假设$\sigma$不动点集合都在$\gamma$上，故$\beta(s)$与$\gamma(s)$是
+    重合的，只是参数化有所不同．由于$s$是$\beta(s)$与$\gamma(s)$的弧长，
+    且有式\eqref{chgd:eqn_tmp20d}成立，那么$\gamma(s)\equiv \beta(s)$是测地线．
+\end{proof}
+
+
+除了上述命题外，\S\ref{chsm:sec_sub-Geodesic}命题\ref{chsm:thm_sub-Geodesic}也是寻找测地线常用工具．
+
+
+\begin{example}
+    二维球面$S^2$上测地线是大圆或其一部分．
+\end{example}
+大圆是指过球心的二维平面与二维球面的交线．
+假设$\sigma$是$\mathbb{R}^3$上关于原点（即$S^2$球心）的反射变换，
+它在$S^2$上的限制是$S^2$到其自身的等距映射；$\sigma$的不动点集合是$S^1$．
+由命题\ref{chgd:thm_iso-geodesic}可知$S^1$是$S^2$的测地线．
+另一方面，在$S^2$上任一点$p$沿任意切方向$v^a$都有一个大圆通过$p$点
+并以$v^a$为切线切矢量；根据测地线唯一性，$S^2$上的测地线只能
+是大圆或大圆的一部分．
+\qed
+
+
+\index[physwords]{指数映射} \index[physwords]{测地线!指数映射}
+
+\section{指数映射与法坐标系}\label{chgd:sec_exp-RNC}
+我们先引入指数映射定义，然后借用指数映射介绍黎曼法坐标系（Riemanian Normal Coordinates）．
+
+\subsection{指数映射}\label{chgd:sec_exp}
+现有满足初始条件\eqref{chgd:eqn_geodesic-init-data}的广义黎曼流形$(M,g)$上的测地线$\gamma(t;p,v)$，
+当参数$t=1$时，赋予它一个新的名称：{\heiti 指数映射}，它是从$TM$上开子集到流形$M$开子集的映射：
+\begin{equation}\label{chgd:eqn_geodesic-exp}
+    \exp_p(v^a)\equiv\exp(p,v^a)\overset{def}{=}\gamma(1;p,v^a)
+    \xlongequal{\ref{chgd:eqn_geodesic-zoom-transfrom}}\gamma\left(|v|;p,\frac{v^a}{|v|}\right).
+\end{equation}
+指数映射的几何意义是沿测地线$\gamma(t)$由点$p\equiv \gamma(0)$到点$\gamma(1)$的测地线弧长
+等于$|v|$．需要注意，如果切矢量$v^a$过大，指数映射可能没有定义；但只要有定义则必然唯一．
+同理有
+\begin{equation}\label{chgd:eqn_geodesic-exptv}
+    \exp_p(t v^a)=\gamma(1;p,t v^a)=\gamma(t;p,v^a).
+\end{equation}
+指数映射\eqref{chgd:eqn_geodesic-exp}只是借助测地线将$T_pM$映射到流形$M$中，
+参数$t\equiv 1$；
+式\eqref{chgd:eqn_geodesic-exptv}则是测地线本身，参数$t$是变量．
+
+
+\begin{theorem}\label{chgd:thm_exp-homeomorphism}
+    设有$m$维广义黎曼流形$(M,g)$．$\forall p \in M$，在线性空间$T_p M$中存在原点的开邻域$V$，
+    使得指数映射$\exp_{p}$是从$V$到$M$中开子集$U=\exp_{p}(V)$上的微分同胚．
+\end{theorem}
+\begin{proof}
+    原点是指矢量空间$T_p M$中矢量为零的点，令
+    \begin{equation}
+        B_p(\epsilon) \equiv \{v^a\in T_pM \mid |v|<\epsilon \} .
+    \end{equation}
+    显然$B_p(\epsilon)$是$T_pM$中以原点为中心，半径为$\epsilon$的开球．
+    $\forall v\in B_p(\epsilon) \subset T_pM= T_0(T_pM) $
+    {\footnote{$T_pM$自然可看作流形；原点$0$是此流形上一点，
+            $T_0(T_p M)$是指流形$T_pM$中原点处切空间．}}，令$|t|\leqslant 1$，则
+    式\eqref{chgd:eqn_geodesic-exptv}肯定有定义；参考式\eqref{chdm:eqn_phiD=Dphi}
+    \begin{equation}
+        \phi_{*}\left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\gamma(0)}\right)^a
+        = \left(\left.\frac{{\rm d}  }{{\rm d} t}\right|_{\phi\circ\gamma(0)}\right)^a.
+        \tag{\ref{chdm:eqn_phiD=Dphi}}
+    \end{equation}
+    可得
+    \begin{equation}
+        (\exp_{p})_{*0} (v^a) = \left(\left.\frac{{\rm d}  }{{\rm d} t}
+         \right|_{\gamma(0;p,v^a)}\right)^a = v^a .
+    \end{equation}
+    此处的$(\exp_{p})_{*}$相当于式\eqref{chdm:eqn_phiD=Dphi}的$\phi_{*}$，
+    式\eqref{chdm:eqn_phiD=Dphi}中的$\gamma(t)$就是此处的测地线$\gamma(t;p,v^a)$；
+    而$(\exp_{p})_{*}$本质上是测地线的推前映射，所以才有最终上式的结果．
+    这说明$(\exp_{p})_{*0}$是恒等映射，那它自然是非退化的（Jacobi矩阵满秩），  %    而$B_p(\epsilon)$的维数与流形$M$的维数相同，
+    由定理\ref{chdm:thm_inv-in-M}可知映射$\exp_{p}$在原点${\bf 0}\in T_pM$处是局部微分同胚．
+\end{proof}
+
+\begin{example}
+    欧几里得空间$\mathbb{R}^m$上的指数映射．
+\end{example}
+欧氏空间测地线就是所谓的“直线”．原点处的切空间$T_0(\mathbb{R}^m)$就是$\mathbb{R}^m$自身．
+指数映射$\exp_{0}$则是恒等映射．一般的，$\forall p\in \mathbb{R}^m$，不难得到
+\begin{equation}
+    \exp_{p} = p + v, \qquad \forall v^a\in T_p(\mathbb{R}^m)=\mathbb{R}^m.
+\end{equation}
+我们借用这道例题来解释一下上面提到的指数映射“有无定义”这件事情．
+在本例中，我们把定义域和值域都取成了$\mathbb{R}^m$；如果我们把
+指数映射的定义域取成半径为$1$的开球，那么当$|v|>1$时就会出现所谓的“无定义”情形，
+当$|v|<1$时属于“有定义”情形．
+
+
+%李群中也可定义指数映射，且在满足一定条件下两者是相同的，见推论\ref{chlg:thm_expiso}．
+
+
+\index[physwords]{测地线!黎曼法坐标系}
+
+\subsection{黎曼法坐标系}\label{chgd:sec_RNC}
+在几何学中，为了能够简单明了的描述问题，选择适当坐标系非常重要；如果选择不当会使计算或证明异常困难．
+对于黎曼流形来说，“黎曼法坐标系”是非常合适的坐标系，它是借助指数映射建立起来的．
+
+要严格叙述黎曼法坐标系需要测地凸邻域等概念，请参阅\parencite[\S 3.4-3.5]{chen-li-2023-2ed-v1}；
+我们只给出描述性的说明．
+只要在$T_pM$原点足够小的邻域内，指数映射之后的值域$W\subset M$也足够小，那么在映射后
+的（$M$中）开集$W$内连接任意点$q\in W$和$p$的测地线全部位于$W$中，并且
+在$W$内连接$p$和$q$的测地线是唯一的；满足这些条件的$W$被称为测地凸邻域，
+注解\ref{chgd:rmk_geo-sph}给出了测地球概念，这便是一个测地凸邻域．
+可以证明$\forall p \in M$都存在包含$p$点的测地凸邻域．
+如果测地线不能完全落在$W$中，那么我们无法建立$T_pM$与$W$间的双射，也就无法建立坐标．
+如果测地线不唯一，建立后的坐标将是多值的，不符要求．
+
+
+
+指数映射将原点附近足够小的开邻域$V\subset T_pM$映射为
+\begin{equation}
+    \exp_{p} : V \to U \equiv\exp_{p}(V) \subset M .
+\end{equation}
+设$U$是$\exp_{p}(0)$点（即$p$点）测地凸邻域．
+由定理\ref{chgd:thm_exp-homeomorphism}可知指数映射是局部微分同胚的．
+因$T_pM \cong \mathbb{R}^m$，其上天然存在正交归一的笛卡尔坐标系；
+那么局部恒等映射$\varphi = \exp_{p}^{-1}:U\to V$便将$V\subset \mathbb{R}^m$中
+笛卡尔坐标携带到$U$中，从而$U$有一个局部坐标系$(U,\varphi;y^i)$，
+称为广义黎曼流形$(M,g)$在$p$点的{\heiti 黎曼法坐标系}，相应开集$U$称为{\heiti 黎曼法坐标邻域}；
+简称为{\heiti 法坐标系（邻域）}．
+
+\index[physwords]{法坐标系}
+
+%（其实由高斯引理的注解\ref{chgd:rmk_Gauss-lemma}可知指数映射是沿径向测地线局部等距同构映射）
+
+\begin{theorem}\label{chgd:thm_RNC}
+    设$(U,\varphi;y^i)$是$m$维广义黎曼流形$(M,g)$上任意点$p$的法坐标系，那么在$p$点有
+    $\bar{g}_{ij}(p)=\eta_{ij}$，$\bar{\Gamma}_{ij}^k(p)=0$，
+    $\frac{\partial \bar{g}_{ij}}{\partial y^k}(p)=0$．
+\end{theorem}
+\begin{proof}
+    我们把法坐标系下的诸多分量上加了一道横杠以区别，比如$\bar{g}_{ij},\bar{\Gamma}_{ij}^k$．
+
+    因点$p$切空间$T_pM$同构于$\mathbb{R}^m$中开子集，
+    故我们可以在$T_pM$中取正交归一的标架场$(e_i)^a$；
+    即$g_{ab}(e_i)^a(e_j)^a= \eta_{ij}$，
+    其中$\eta_{ij}$是指对角元为$\pm 1$，非对角元全为零的矩阵．
+    再任取$V$中一个矢量$v^a$，
+    在这个正交归一的标架场$(e_i)^a$上分量为$v=(v^1,\cdots,v^m)\in V$，其中$v^i$是实常数．
+    依据法坐标系定义，局部恒等映射映射$\varphi = \exp_{p}^{-1}$会把这个坐标带到$U$中，
+    矢量$v^a$在$(U;y^i)$中的坐标是
+    \begin{equation}\label{chgd:eqn_normal-coord}
+        y^i\circ\exp_{p}(v^a) \equiv v^i, \qquad
+        \left.\left(\frac{\partial}{\partial y^i}\right)^a\right|_{p} \equiv (e_i)^a;
+        \qquad 1\leqslant i\leqslant m.
+    \end{equation}
+    故$\bar{g}_{ij}(p)=g_{ab} (\frac{\partial}{\partial y^i})^a|_{p} (\frac{\partial}{\partial y^j})^b|_{p}
+    =g_{ab}(e_i)^a(e_j)^b=\eta_{ij}$．
+%    在离开$p$点后，仍有$(\frac{\partial}{\partial y^i})^a = (e_i)^a$．
+
+    在$V$中测地线是真正的“直线”；局部恒等映射$\varphi = \exp_{p}^{-1}$也
+    会把它带入到$U$中的法坐标系，因此从$p$点出发的相应测地线方程$\exp_{p}(sv^a)$的分量表达是
+    \begin{equation}\label{chgd:eqn_normal-coord-gedU}
+        y^i(s)= y^i\circ \exp_{p}(s v^a) = s v^i,\quad s\text{是弧长},  \qquad 1\leqslant i\leqslant m.
+    \end{equation}
+    把式\eqref{chgd:eqn_normal-coord-gedU}带入测地线方程式\eqref{chgd:eqn_geodesic-formula}，立即可得
+    \begin{equation}\label{chgd:eqn_tmp-Gamma}
+        v^i v^j \bar{\Gamma}_{ij}^k(s v^a) = 0 ,\qquad 1\leqslant i,j,k\leqslant m .
+    \end{equation}
+    特别地，当$s=0$时，利用$v^a$的任意性以及$\bar{\Gamma}_{ij}^k$关于下标$i,j$的对称性（如果不对称则没有以下结果），
+    可得$\bar{\Gamma}_{ij}^k(0)=0,\ 1\leqslant i,j,k\leqslant m $．
+    如果$s\neq 0$，那么$\bar{\Gamma}_{ij}^k(s v^a)$将与$v^a$相关，则式\eqref{chgd:eqn_tmp-Gamma}不是二次型，
+    未必能得到$\bar{\Gamma}_{ij}^k(s v^a)=0$．
+
+    由$\bar{g}_{ij}(p)=\eta_{ij}, \bar{\Gamma}_{ij}^k(p)=0$，再从
+    式\eqref{chrg:eqn_Dg=0}易得$\frac{\partial \bar{g}_{ij}}{\partial y^k}(p)=0$．
+
+
+    定理中给出的关系式仅在$p$点成立，哪怕离开一点点也未必再成立．
+\end{proof}
+
+%    注意，指数映射本身就是借助测地线来实现的，$\exp_{p}(s v^a)$是把$v^a\in V$映射为$U\subset M$中的
+%    测地线$\gamma(s;p,v^a)$．在$V$中，$s v^a$的坐标分量自然是$s v^i$，指数映射把这个
+%    坐标携带到$U$中测地线上，所以测地线坐标分量自然是$y^i(t) =s v^i$．
+%    定理\ref{chgd:thm_exp-homeomorphism}和注解\ref{chgd:rmk_Gauss-lemma}可知指数映射是沿径向测地线局部等距的；
+%    在$V$中，测地线是直线，依据定理\ref{chrg:thm_geodesic-MN}可知
+%    它自然也把这个属性搬到了$U$中，即在法坐标系下$U$中的测地线也是直线，
+%    见其分量表达式\eqref{chgd:eqn_normal-coord-gedU}．
+
+%    关于式\eqref{chgd:eqn_normal-coord-gedU}，需要做点注解．
+%    法坐标系不能用来覆盖整个流形，只对测地凸邻域内有效，这个区域并不大．
+%    如果在很大范围内，测地线都是直线，那么此区域范围内的黎曼曲率肯定为零．
+
+%    首先，$U$中法坐标系下有局部标架场$(\frac{\partial}{\partial y^i})^a$，在$p$点，
+%    因指数映射在原点附近是恒等映射，显然有；
+
+%$V$是切空间$T_pM$的开子集，在其中肯定存在笛卡尔直角坐标系，指数映射将两个相互正交的坐标轴映射为两个
+%相互正交的坐标轴（见高斯引理\ref{chgd:thm_Gauss-lemma}），所以在这个
+
+上面用抽象的映射定义了法坐标系，下面我们用分量语言再次看一下这个问题，
+并且给出法坐标系下诸多几何量的展开式；为此需要分成几部分来叙述．
+
+\index[physwords]{Christoffel记号!广义克氏符号}
+\subsubsection{广义克氏符号}
+对广义黎曼流形$(M,g)$上任意点$p$，在$T_pM$中取定理\ref{chgd:thm_RNC}中所述的
+正交归一标架$(e_i)^a$．
+再取$p$点局部坐标系为$(U;x^i)$，原点就是$p$；在局部坐标系中
+取标架场$\{(\frac{\partial}{\partial x^i})^a\}$，
+我们要求这个标架场在$p$点
+有$(\frac{\partial}{\partial x^i})^a|_p =(e_i)^a
+=(\frac{\partial}{\partial y^i})^a|_p $；
+但离开$p$点后$\{x\}$、$\{y\}$可能不同．
+
+
+令任意给定$p$点的切矢量$v^a|_{p}$，那么点$p$和$v^a|_{p}$的局部坐标表达式为
+\begin{equation}
+    x_p^i\equiv x^i_0, \qquad v^a|_{p} = \left. v^i \right|_{p}
+    \left. \left(\frac{\partial}{\partial x^i}\right)^a \right|_{p}.
+\end{equation}
+则可设满足上式的测地线坐标分量的Taylor展开为（即满足\eqref{chgd:eqn_geodesic-formula}）：
+\begin{equation}\label{chgd:eqn_tmpgeodesic-expand}
+    x^i = x^i_0 + s v^i  + \frac{s^2}{2!} \left(\frac{{\rm d}^2x^i}{{\rm d} s^2}\right)_{p}
+     + \frac{s^3}{3!} \left(\frac{{\rm d}^3 x^i}{{\rm d} s^3}\right)_{p}
+     + \frac{s^4}{4!} \left(\frac{{\rm d}^4 x^i}{{\rm d} s^4}\right)_{p}  + \cdots
+\end{equation}
+由于我们不晓得测地线解的确切表达式，我们假设上述多项式（假设收敛）是测地线方程式\eqref{chgd:eqn_geodesic-formula}的
+解（为叙述简单起见，需要把式\eqref{chgd:eqn_geodesic-formula}中的仿射参数$t$取为测地线弧长$s$）．
+
+我们通过对式\eqref{chgd:eqn_geodesic-formula}再次取$s$的导数来
+求得$\frac{{\rm d}^3 x^i}{{\rm d} s^3}$及更高阶导数，
+\begin{equation}
+    \frac{{\rm d}^3 x^i}{{\rm d} s^3}+\Gamma^{i}_{jkl}\frac{{\rm d} x^j}{{\rm d} s}
+    \frac{{\rm d} x^k}{{\rm d} s}\frac{{\rm d} x^l}{{\rm d} s} =0 , \quad
+    \frac{{\rm d}^4 x^i}{{\rm d} s^4}+\Gamma^{i}_{jkln}\frac{{\rm d} x^j}{{\rm d} s}
+    \frac{{\rm d} x^k}{{\rm d} s}\frac{{\rm d} x^l}{{\rm d} s}\frac{{\rm d} x^n}{{\rm d} s} =0,
+    \ \cdots
+\end{equation}
+其中$\Gamma^{i}_{jkl},\Gamma^{i}_{jkln}$等是广义克氏符号
+（参见文献\parencite[\S 17]{eisenhart-1997-rg}式(17.13)-(17.15)）：
+\begin{equation}\label{chgd:eqn_generalized-Christoffel}
+    \Gamma^{j}_{i_1i_2i_3\cdots i_n} =  \Gamma^{j}_{(i_1i_2i_3\cdots i_{n-1},\ i_n)}
+    - (n-1) \Gamma^{j}_{k(i_2i_3\cdots i_{n-1}}  \Gamma^{k}_{i_1i_n)},\qquad n>2 .
+\end{equation}
+先由普通的克氏符定义三阶广义克氏符，然后四阶，……，递归定义到$n$阶．
+与三、四阶方程类似，可求得其它高阶方程．
+求完之后，带入式\eqref{chgd:eqn_tmpgeodesic-expand}得
+\begin{equation}\label{chgd:eqn_geodesic-expand}
+    x^i = x^i_0 + s v^i  - \frac{s^2}{2!} \Gamma_{jk}^i(p) v^j v^k
+        - \frac{s^3}{3!}  \Gamma^{i}_{jkl}(p) v^j v^k v^l
+        - \cdots
+\end{equation}
+上式所有$v^i$均在$p$点取值，为使表达式简洁一些省略了角标$p$．
+%当$|s|\lll1$时，式\eqref{chgd:eqn_geodesic-expand}便退化成式\eqref{chgd:eqn_normal-coord-gedU}．
+假设式\eqref{chgd:eqn_geodesic-expand}是收敛的；即便如此，$s$也不能太大，因为
+在离$p$点非常远的地方（比如$q\in M$）测地线可能相交，这相当于坐标线相交于两点$p$和$q$；
+出现多值性，需要增加一个坐标卡来覆盖这个流形了．
+
+
+
+继续式\eqref{chgd:eqn_geodesic-expand}的讨论．
+黎曼本人引入了坐标\eqref{chgd:eqn_normal-coord}和测地线方程式\eqref{chgd:eqn_normal-coord-gedU}
+（约1920年代Birkhoff将它命名为法坐标），
+即$ y^i = s\cdot v^i$．我们把它带入式\eqref{chgd:eqn_geodesic-expand}得
+\begin{equation}
+    x^i = x^i_0 + y^i  - \frac{1}{2!} \Gamma_{jk}^i(p) y^j y^k
+    - \frac{1}{3!}  \Gamma^{i}_{jkl}(p) y^j y^k y^l + \cdots
+\end{equation}
+这样，在上式中就不再显示出现$v^a|_p$的信息了．
+很明显在$p$点处Jacobi矩阵$\frac{\partial x^i}{\partial y^j}$是非退化的，
+而且上式对经过$p$点的所有测地线都成立；因此$\{y^i\}$可以看作一组新的坐标（即法坐标），
+上式可以看作是两组坐标$\{x\}$和$\{y\}$的变换公式．
+%来计算一下在新的坐标$\{y\}$下$p$点切矢量
+%\begin{equation}
+%    \left.\left(\frac{{\rm d}}{{\rm d}s}\right)^a\right|_p
+%    =\left.\left(\frac{\partial}{\partial y^i}\right)^a\right|_p
+%        \left.\frac{\partial y^i}{\partial s} \right|_p
+%    =v^i|_p \left.\left(\frac{\partial}{\partial y^i}\right)^a\right|_p .
+%\end{equation}
+
+%在$p$点标架场$\{\left(\frac{\partial}{\partial x^i}\right)^a\}$、
+%$\{\left(\frac{\partial}{\partial y^i}\right)^a\}$和标架场
+%标架场$\{(e_i)^a\}$是完全重合的，因而在$p$点它们都是正交归一的．
+%坐标$\{y\}$就是式\eqref{chgd:eqn_normal-coord-gedU}．
+
+%式\eqref{chgd:eqn_geodesic-expand}的几何解释：点$p$是坐标原点，
+%任意给定点$p$处的切矢量$v^a|_p$．
+%在法邻域内（测地凸邻域）通过测地线，该式确定了某$q$点
+%（即参数为非零$s$值，比如$s=0.1$）的坐标$x^i(s)$．
+%换句话说，连接$p$和$q$的是一条沿$v^a|_p$的测地线，通过此条测地线，把原来没有
+%坐标的$q$点赋予了坐标．我们可以进一步缩小法邻域的范围，使得
+%式\eqref{chgd:eqn_geodesic-expand}中$s^k(k\geqslant 2)$可忽略，
+%所得到的$q$点坐标就线性地依赖于测地线线长$s$了．
+
+
+我们已约定坐标系$\{y\}$中，度规取为$g_{ab}=\bar{g}_{ij}({\rm d}y^i)_a({\rm d}y^j)_a$，
+相应的克氏符号取为$\bar{\Gamma}^k_{ij}$．那么对应的测地线方程变为
+\begin{equation}\label{chgd:eqn_geodesic-formula-RNC}
+    \frac{{\rm d}^2 y^i(s)}{{\rm d}s^2} + \bar{\Gamma}_{jk}^i(s)
+    \frac{{\rm d}y^j(s)}{{\rm d} s} \frac{{\rm d}y^k(s)}{{\rm d} s} =0,
+    \qquad 1 \leqslant i \leqslant m , \quad s\in (-\delta,\delta).
+\end{equation}
+很明显，我们可以重复上面的过程，得到类似于式\eqref{chgd:eqn_geodesic-expand}的方程式
+\begin{equation}\label{chgd:eqn_geodesic-expand-RNC}
+    y^i =  s v^i  - \frac{s^2}{2!} \bar{\Gamma}_{jk}^i(p) v^j v^k
+    - \frac{s^3}{3!}  \bar{\Gamma}^{i}_{jkl}(p) v^j v^k v^l + \cdots
+\end{equation}
+又因已知$y^i =  s v^i$，故可得所有法坐标系（广义）克氏符在$p$点为零，即
+\begin{equation}\label{chgd:eqn_Christoffel=0-RNC}
+    \bar{\Gamma}^i_{jk}(p)   =0, \quad
+    \bar{\Gamma}^i_{jkl}(p)  =0, \quad
+    \bar{\Gamma}^i_{jkln}(p) =0, \quad\cdots
+\end{equation}
+
+叙述到此，需要作一个声明：定理\ref{chgd:thm_RNC}中所描述的
+点$p$处切空间$T_pM$中正交归一基矢$(e_i)^a$是任取的；
+如果我们另取一套正交归一基矢$(e'_i)^a=C_i^j(e_j)^a$，
+其中$C_i^j$是常数正交矩阵；那么由$(e'_i)^a$也会诱导出
+一套法坐标$\{y'\}$，它与法坐标$\{y\}$相差一个常系数正交变换．
+
+\index[physwords]{测地线!法坐标系}
+\subsubsection{法坐标展开}
+%在法坐标域内，仅一个坐标域就能覆盖住，所以只需偏导数，无需考虑协变导数．
+
+由黎曼曲率的分量公式\eqref{chccr:eqn_Riemannian13-component}
+（$    R_{\cdot jln}^i = {\partial_l} \Gamma_{jn}^{i} -\partial_n \Gamma_{jl}^{i}
+      + \Gamma_{jn}^{k} \Gamma_{kl}^{i} - \Gamma_{jl}^{k}\Gamma_{kn}^{i} $）
+%\end{equation}      \tag{\ref{chccr:eqn_Riemannian13-component}}
+出发；在法坐标系下，在$p$点所有的（广义）克氏符都是零，故有
+\begin{equation}
+    \bar{R}_{\cdot jln}^i(p) = {\partial_l} \bar{\Gamma}_{jn}^{i}(p) -\partial_n \bar{\Gamma}_{jl}^{i}(p) .
+\end{equation}
+由$p$点$\bar{\Gamma}^{i}_{jkl}(p) = 0$得
+$\bar{\Gamma}^{i}_{jk,l}(p)+\bar{\Gamma}^{i}_{lj,k}(p)+\bar{\Gamma}^{i}_{kl,j}(p)=0$；
+再由上式可得
+\begin{equation}\label{chgd:eqn_dGAMMA}
+    \partial_n \bar{\Gamma}_{jl}^{i}(p) = -\frac{1}{3}\left(
+      \bar{R}_{\cdot jln}^i(p)+\bar{R}_{\cdot ljn}^i(p) \right).
+\end{equation}
+%推导过程
+%\begin{align*}
+%    \bar{R}_{\cdot jln}^i(p) =& {\partial_l} \bar{\Gamma}_{jn}^{i}(p) -\partial_n \bar{\Gamma}_{jl}^{i}(p) \\
+%    \bar{R}_{\cdot ljn}^i(p) =& {\partial_j} \bar{\Gamma}_{ln}^{i}(p) -\partial_n \bar{\Gamma}_{jl}^{i}(p) \\
+%    \bar{R}_{\cdot jln}^i(p)+\bar{R}_{\cdot ljn}^i(p) =&
+%    {\partial_l} \bar{\Gamma}_{jn}^{i}(p) -2\partial_n \bar{\Gamma}_{jl}^{i}(p)
+%    +{\partial_j} \bar{\Gamma}_{ln}^{i}(p)
+%    =-3\partial_n \bar{\Gamma}_{jl}^{i}(p)
+%\end{align*}
+利用式\eqref{chgd:eqn_dGAMMA}，
+由式\eqref{chrg:eqn_Dg=0}（$\partial_a g_{bc} = \Gamma_{ba}^e g_{ec} + \Gamma_{ca}^e g_{be}$）得
+\begin{equation}\label{chgd:eqn_gijkl=R}
+    \frac{\partial^2 \bar{g}_{ij}(p)}{\partial y^n\partial y^l}
+    = -\frac{1}{3}\left(\bar{R}_{iljn}(p)+\bar{R}_{injl}(p) \right).
+\end{equation}
+%推导过程
+%\begin{align*}
+%    \frac{\partial^2 \bar{g}_{ij}}{\partial y^n\partial y^l}
+%    =& \frac{\partial}{\partial y^n}
+%     \left(\bar{\Gamma}_{il}^r \bar{g}_{rj} + \bar{\Gamma}_{jl}^r \bar{g}_{ir}\right)
+%    =   \bar{g}_{rj} \frac{\partial}{\partial y^n}\bar{\Gamma}_{il}^r
+%      + \bar{g}_{ir} \frac{\partial}{\partial y^n}\bar{\Gamma}_{jl}^r \\
+%    =& -\frac{1}{3} \bar{g}_{rj} \left(\bar{R}_{\cdot iln}^r+\bar{R}_{\cdot lin}^r \right)
+%       -\frac{1}{3} \bar{g}_{ir} \left(\bar{R}_{\cdot jln}^r+\bar{R}_{\cdot ljn}^r \right)
+%    =  -\frac{1}{3}\left(\bar{R}_{jlin}+\bar{R}_{iljn} \right)
+%\end{align*}
+
+根据式\eqref{chgd:eqn_gijkl=R}和\eqref{chgd:eqn_dGAMMA}，我们可以得到度规和联络系数的Taylor展开式
+\begin{align}
+    \bar{g}_{ij}(y) = & \eta_{ij} - \frac{1}{3}\bar{R}_{iljn}(p) y^l y^n + \cdots \label{chgd:eqn_g-normal} \\
+    \bar{g}^{ij}(y) = & \eta^{ij} + \frac{1}{3}\bar{R}_{\cdot l\cdot n}^{i\cdot j}(p) y^l y^n
+      + \cdots \label{chgd:eqn_g1-normal} \\
+    \bar{\Gamma}_{jl}^{i}(y)=& -\frac{1}{3}\left(
+      \bar{R}_{\cdot jln}^i(p)+\bar{R}_{\cdot ljn}^i(p) \right) y^n +\cdots \label{chgd:eqn_Gamma-normal}
+\end{align}
+只需知道$p$点黎曼曲率$\bar{R}_{iljn}(p)$值就可以计算二阶微扰了．
+%更高阶法坐标系Taylor展开可用计算机代码\cite{brewin_2009}给出．
+
+
+%由式\eqref{chrg:eqn_Riemannian04-component}可得$p$点$\Tpq{0}{4}$型曲率表达式
+%\begin{equation}
+%    \bar{R}_{ijkn} =\frac{1}{2}\left(
+%      \frac{\partial^2 \bar{g}_{in}} {\partial x^j\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{jn}} {\partial x^i\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{ik}} {\partial x^j\partial x^n}
+%    + \frac{\partial^2 \bar{g}_{jk}} {\partial x^i\partial x^n} \right)
+%\end{equation}
+%
+%\begin{align*}
+%    \bar{R}_{ijkn} =&\frac{1}{2}\left(
+%      \frac{\partial^2 \bar{g}_{in}} {\partial x^j\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{jn}} {\partial x^i\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{ik}} {\partial x^j\partial x^n}
+%    + \frac{\partial^2 \bar{g}_{jk}} {\partial x^i\partial x^n} \right)   \\
+%    \bar{R}_{inkj} =&\frac{1}{2}\left(
+%      \frac{\partial^2 \bar{g}_{ij}} {\partial x^n\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{nj}} {\partial x^i\partial x^k}
+%    - \frac{\partial^2 \bar{g}_{ik}} {\partial x^n\partial x^j}
+%    + \frac{\partial^2 \bar{g}_{nk}} {\partial x^i\partial x^j} \right)
+%\end{align*}
+%
+%
+%
+%\begin{align*}
+%    R^a_{\cdot(bcd,e)} = \Gamma^a_{d(bc,e)} - \Gamma^a_{(bc,e)d}
+%    + \left(\Gamma^a_{i(c}\Gamma^i_{bd}\right)_{,e)}
+%    - \left(\Gamma^a_{id}\Gamma^i_{(bc}\right){}_{,e)}
+%\end{align*}
+
+
+
+%因为$\partial_k \partial_l g_{ij} =\partial_l \partial_k g_{ij} $，
+%由式\eqref{chrg:eqn_Dg=0}（$\partial_a g_{bc} = \Gamma_{ba}^e g_{ec} + \Gamma_{ca}^e g_{be}$）得
+%\begin{equation} \label{chgd:eqn_gijkl=dG}
+%    \partial_l \partial_k \bar{g}_{ij}
+%    = \partial_{(l}(\bar{\Gamma}_{k)j}^p \bar{g}_{pi}) + \partial_{(l}(\bar{\Gamma}_{k)i}^p \bar{g}_{jp}) .
+%\end{equation}
+%带入式\eqref{chgd:eqn_gijkl=dG}易得
+
+
+\begin{example}
+    二维半球面的法坐标系．
+\end{example}
+
+通过这道例题向大家初步展示如何建立法坐标系，以及初步验证上面几个微扰展开式．
+设有三维欧氏空间$(\mathbb{R}^3,\delta_{ij})$，半径为$1$的二维球面切于原点$O$，
+切平面是$x-y$平面，球心位于$z$轴上$(0,0,1)$点；我们只取$0\leqslant z <1$的半个球面．
+此半球面$S$方程是
+\begin{equation}
+    x^2+y^2 + (z-1)^2 = 1, \qquad -1<x,y< 1,\quad 0\leqslant z <1 .
+\end{equation}
+二维球面的测地线是过球心平面所截取的大圆．
+切空间是$x-y$平面，此空间上有坐标系$\{x,y\}$；
+半球面$S$上的指数映射$\exp_O$将坐标$\{x,y\}$带到$S$上；
+为了有显示的区分，我们用$\xi,\eta$两个参量来描述半球面$S$的法坐标系坐标参量．
+在$x-y$平面上显然有$\xi=x, \eta=y$，在半球面$S$上对应的点需要求出．
+点$(\xi,\eta)$在$x-y$平面上的弧长是$\sqrt{\xi^2 +\eta^2}$，
+指数映射$\exp_O$将它映射到大圆上弧长相等的点$p$，
+$p$点在$\mathbb{R}^3$中的坐标投影是
+\begin{equation}
+    \phi(\xi,\eta)=\left(\frac{ \sin \theta}{\theta }\xi,\
+      \frac{ \sin \theta}{\theta}\eta,\  1-\cos\theta \right); \quad
+      \text{其中}\ \theta = \sqrt{\xi^2 +\eta^2} .
+\end{equation}
+到此，已建立好法坐标系，我们开始验证式\eqref{chgd:eqn_g-normal}--\eqref{chgd:eqn_Gamma-normal}的正确性．
+可借助计算机符号软件完成下面繁琐的计算．
+用式\eqref{chsm:eqn_gijhab}来求取半球面上的诱导度规
+\begin{align}
+     h_{11}=& \frac{- \eta ^2 \cos 2\theta + \eta ^2
+         +2 \xi ^2 \left(\eta ^2+\xi ^2\right)}{2 \left(\eta ^2+\xi ^2\right)^2}
+         \approx 1-\frac{\eta ^2}{3} +\cdots \\
+     h_{12}=& \frac{\eta  \xi  \bigl( \cos 2\theta-1
+         +2 (\eta ^2+\xi ^2)\bigr)}{2 \left(\eta ^2+\xi ^2\right)^2}
+         \approx\frac{\eta  \xi }{3} +\cdots \\
+     h_{22}=& \frac{- \xi ^2 \cos 2\theta + \xi ^2
+         +2 \eta ^4+2 \eta ^2 \xi ^2}{2 \left(\eta ^2+\xi ^2\right)^2}
+         \approx1-\frac{\xi ^2}{3} +\cdots
+\end{align}
+由上面诱导度规$h_{ab}$可求得半球面的克氏符（表达式十分复杂），只给一个．
+\begin{equation*}
+    \Gamma^1_{12}=\frac{\eta  \left(\left( \xi ^2+4 \eta ^4-4 \xi ^4\right)
+        \cot\theta -  \xi ^2 \cos3\theta \csc\theta
+        -4 \eta ^2 \sqrt{\eta ^2+\xi ^2}\right)}
+        {4  \left(\eta ^2+\xi ^2\right)^{5/2}}
+       \approx-\frac{\eta}{3}+\cdots
+\end{equation*}
+由克氏符号可求得非零黎曼曲率 %以及截面曲率（见式\eqref{chrg:eqn_sectional-curvature}）
+\begin{equation}
+    R_{1212}=\left(\frac{\sin \theta}{\theta} \right)^2
+     \approx 1- \frac{\eta ^2+\xi ^2}{3}  + \cdots
+\end{equation}
+
+
+容易看出在二维半球面的法坐标系$\{\xi,\eta\}$下：度规、克氏符等符合定理\ref{chgd:thm_RNC}中叙述；
+首项非零微扰（二阶）展开式也符合式\eqref{chgd:eqn_g-normal}--\eqref{chgd:eqn_Gamma-normal}．
+
+
+
+
+\index[physwords]{完备!测地}
+
+\section{测地完备性}\label{chgd:sec_compelete}
+ 
+
+
+\begin{definition}\label{chgd:def_distance}
+    设$(M,g)$是$m$维、连通、正定黎曼流形，$\forall p,q \in M$，
+    令$\gamma\in M$是连接$p$、$q$的分段光滑曲线，$L(\gamma)$是两点间的线长；
+    我们将$p$、$q$两点间{\heiti 距离$d(p,q)$}定义为$L(\gamma)$的下确界．
+\end{definition}
+
+可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}距离$d$满足正定性、对称性和三角关系不等式．
+
+可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}$M$上由上述距离$d$诱导的拓扑与微分拓扑是同胚的．
+
+\begin{definition}\label{chgd:def_complete-distance}
+    设正定黎曼流形$(M,g)$是连通的，如果作为度量空间$(M,d)$是完备的（见定义\ref{chtop:def_complete-metric}），
+    那么称$M$是{\heiti 度量完备}的，一般简称{\heiti 完备}．
+\end{definition}
+
+因不定度规下存在零模曲线，其线长恒为零；
+故定义\eqref{chgd:def_distance}并不适合不定度规情形；
+同理，定义\eqref{chgd:def_complete-distance}也不大适合不定度规情形．
+
+\begin{definition}\label{chgd:def_complete-geodesic}
+    设广义黎曼流形$(M,g)$是连通的，如果任何一条测地线的
+    {\kaishu 仿射参数}定义域都可延拓至整个实数轴，
+    那么称$M$是{\heiti 测地完备}的．
+\end{definition}
+注意：上述定义中必须是{\kaishu 仿射参数}．
+测地完备还可以叙述成：$\forall p\in M$或$\forall v^a\in T_p M$或者两者都任意，指数
+映射$\exp_{p}(v^a)$都有定义．
+
+
+\begin{theorem}\label{chgd:thm_Hopf-Rinow}
+    （Hopf--Rinow定理）对于连通、正定黎曼流形$(M,g)$下面几个命题等价：
+    {\bfseries (1)} $M$是度量完备的；
+    {\bfseries (2)} $M$是测地完备的；
+    {\bfseries (3)} $(M,d)$的有界闭子集都是$M$的紧致子集．
+    （证明请参考\parencite[\S 3.6]{chen-li-2023-2ed-v1}或类似文献）
+\end{theorem}
+
+
+可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}完备正定黎曼流形上任意两点都可以用最短测地线相互连接．
+
+等距同胚保紧致性、保子集的（开）闭属性、保子集的有界性，所以
+由Hope--Rinow定理中的(3)可知：等距同胚保持正定黎曼流形完备性不变．
+
+\begin{definition}\label{chgd:def_extensible}
+    设有连通广义黎曼流形$(M,g)$和$(N,h)$，$(\widetilde{M},g)$是$M$的一个真开子流形；
+    若存在等距同胚映射$\phi:N\to \widetilde{M}$，则
+    称$(N,h)$是{\heiti 可延拓的}；否则称$(N,h)$是{\heiti 不可延拓的}．
+\end{definition}
+
+测地完备的正定黎曼流形$M$中已将测地线定义域延拓至最大了，
+没法再延拓了，所以完备正定黎曼流形是不可延拓的．
+
+
+Hopf--Rinow定理貌似还没有推广到不定度规情形．
+%不定度规情形下的延拓仍未彻底解决．
+
+\index[physwords]{弧长变分}
+\section{弧长变分公式}
+
+%先给出这里用到的变分概念以及记号\cite[\S 3.3]{chen-li-2023-2ed-v1}．
+
+\subsection{变分概念}\label{chgd:sec_arc-variation}
+\begin{definition}\label{chgd:def_arc-variation}
+    设$C:[r_1,r_2]\to M$是广义黎曼流形$(M,g)$中的一条光滑曲线段，如果有$\epsilon > 0$以及
+    光滑映射$\sigma:[r_1,r_2]\times (-\epsilon, \epsilon) \to M$使得
+    $\sigma(s,0)=C(s),\ \forall s\in [r_1,r_2]$，则称映射$\sigma$是
+    曲线$C$的一个{\heiti 变分}（variantion）；$C(s)$称为变分的{\heiti 基准曲线}（base curve）．
+    对于任意固定的$\tau \in(-\epsilon, \epsilon) $，由$\gamma_\tau(s)\equiv \sigma(s,\tau)$定义
+    的参数曲线$\gamma_\tau : [r_1,r_2]\to M$称为{\heiti 变分曲线}（curve in the variation；$s$-曲线）．
+    如果固定$s$，由$\phi_s(\tau)\equiv \sigma(s,\tau)$定义
+    的参数曲线称为{\heiti 横截曲线}（transversal curve；$\tau$-曲线）．
+\end{definition}
+
+对于任意固定的$\tau$，若变分曲线$\gamma_\tau$都是$M$上测地线，
+则称其为{\heiti 测地变分}． \index[physwords]{测地变分}
+
+\begin{remark}\label{chgd:remk_cs}
+    我们取基准曲线$C(s)$的参数$s$为曲线的弧长．
+    同一个$\tau$值下，变分曲线$\gamma_\tau(s)$的参数$s$和基准曲线的$s$数值是相同的，
+    但变分曲线$\gamma_\tau(s)$的参数$s$一般不再是弧长，所以$\gamma_\tau(s)$的
+    切线切矢量一般不是单位长．
+\end{remark}
+
+
+如果$C(s)$的变分$\sigma$满足
+\begin{equation*}
+    \sigma(r_1,\tau)=C(r_1), \quad   \sigma(r_2,\tau)=C(r_2), \qquad \forall \tau \in (-\epsilon, \epsilon),
+\end{equation*}
+则称$\sigma$是基准曲线$C(s)$的一个{\heiti 具有固定端点的变分}．
+
+对于$C$的每一个变分$\sigma$可以引入沿$\sigma$定义的光滑矢量场
+\begin{equation}
+    \tilde{S}^a = \sigma_{*(s,\tau)}\left(\frac{\partial}{\partial s}\right)^a, \qquad
+    \tilde{T}^a = \sigma_{*(s,\tau)}\left(\frac{\partial}{\partial \tau}\right)^a.
+\end{equation}
+那么$\tilde{S}^a$是变分曲线族$\{\gamma_\tau\}$的切矢场；
+$\tilde{T}^a$是横截曲线族$\{\phi_s\}$的切矢场．
+当端点固定时，有$\tilde{T}^a(r_1,\tau)=0=\tilde{T}^a(r_2,\tau),\ \forall \tau \in (-\epsilon,\epsilon)$．
+
+由二维区域$[r_1,r_2]\times (-\epsilon, \epsilon)$在$M$上构成的二维子流形上，$s$和$\tau$是两个
+相互独立的坐标，故它们的自然基矢是对易的，即诱导联络无挠
+（见\eqref{chfb:eqn_induce-con-NoTorsion}）
+\begin{equation}\label{chgd:eqn_stts}
+    \sigma_{*(s,\tau)}\left[\frac{\partial}{\partial s}, \frac{\partial}{\partial \tau}\right]^a = 0
+     {\  \Leftrightarrow \ }
+     \nabla_{\frac{\partial}{\partial s}}
+       \left(\sigma_{*(s,\tau)}\frac{\partial}{\partial \tau}\right)^a -
+     \nabla_{\frac{\partial}{\partial \tau}}
+       \left(\sigma_{*(s,\tau)}\frac{\partial}{\partial s}\right)^a = 0 .
+\end{equation}
+
+
+为简单起见，令$S^a(s)\equiv \tilde{S}^a(s,0)$和$T^a(s)\equiv \tilde{T}^a(s,0)$．
+$T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，
+称为变分$\sigma$的{\heiti 变分矢量场}．一般说来，它不平行于$C(s)$的切线．
+
+\index[physwords]{弧长第一变分}
+
+\subsection{第一、二变分公式}
+下面来计算变分曲线$\gamma_\tau(s)$弧长，由曲线弧长\eqref{chrg:eqn_arc-length}有：
+\begin{equation}
+    L(\tau)=\int_{r_1}^{r_2} \sqrt{g_{ab} \tilde{S}^a \tilde{S}^b} {\rm d}s,
+     \qquad \forall \tau \in (-\epsilon,\epsilon) .
+\end{equation}
+很明显$L(\tau)$是一个标量函数，对其取$\tau$的导数（需要把联络理解成诱导联络）．
+\setlength{\mathindent}{0em}
+\begin{align}
+    &\frac{{\rm d}}{{\rm d} \tau }L(\tau)= \left(\frac{\partial}{\partial \tau}\right)^c \nabla_c
+    \int_{r_1}^{r_2} \sqrt{ g_{ab} \tilde{S}^a \tilde{S}^b } {\rm d}s
+    =  \int_{r_1}^{r_2} \frac{1}{\sqrt{ \tilde{S}_a \tilde{S}^a } } g_{ab} \tilde{S}^a
+     \nabla_{\frac{\partial}{\partial \tau}} \tilde{S}^b {\rm d}s        \label{chgd:eqn_1st-tmp02} \\
+    &\xlongequal{\ref{chgd:eqn_stts}} 
+      \int_{r_1}^{r_2} \frac{1}{\sqrt{ \tilde{S}_a \tilde{S}^a } }
+      \tilde{S}_b \nabla_{\frac{\partial}{\partial s}} \tilde{T}^b {\rm d}s
+    =\int_{r_1}^{r_2}\frac{1}{\sqrt{ \tilde{S}_a \tilde{S}^a } }
+    \left\{ \nabla_{\frac{\partial}{\partial s}} (\tilde{S}_b  \tilde{T}^b)
+     -  \tilde{T}^b \nabla_{\frac{\partial}{\partial s}} \tilde{S}_b \right\} {\rm d}s . \notag
+\end{align}\setlength{\mathindent}{2em}
+需要注意上式中的曲线$\gamma_\tau(s)$的参数一般不是弧长；
+当$\tau=0$时，依约定$\gamma_0(s)$的参数$s$是弧长，即${S}_a {S}^a=1$；
+由此可以得到{\heiti 弧长第一变分公式}：  
+\begin{equation}\label{chgd:eqn_1st-var-arc}
+    L'(0)= \left.\left({S}_b  {T}^b\right)\right|_{r_1}^{r_2} - \int_{r_1}^{r_2}
+    {T}_b \nabla_{\frac{\partial}{\partial s}} {S}^b {\rm d}s .
+\end{equation}
+上式中的$S_b(s)=\tilde{S}_b(s,0)$，是曲线$\gamma_0(s)$的切矢量；而$T^a(s)= \tilde{T}^a(s,0)$．
+如果所有变分曲线有相同的端点，上式还可以化简（注$\tilde{T}^a(r_1,\tau)=0=\tilde{T}^a(r_2,\tau)$）．
+\begin{equation}\label{chgd:eqn_1st-var-arc-fixSE}
+    L'(0)= -\int_{r_1}^{r_2} {T}_b  \nabla_{\frac{\partial}{\partial s}} {S}^b {\rm d}s .
+\end{equation}
+当第一变分公式为零时，又因${T}_b=\sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a$不恒为零，
+故必有$\nabla_{\frac{\partial}{\partial s}} {S}^b=0$；这是测地线方程，所以曲线$C(s)$是测地线．
+最终，由式\eqref{chgd:eqn_1st-var-arc-fixSE}可得定理
+\begin{theorem}\label{chgd:thm_geo-1st-var}
+    光滑曲线$C(s)$为测地线的充要条件是：在固定端点情形下，曲线$C(s)$是弧长泛函变分的临界点，
+    也就是第一变分公式恒为零．
+\end{theorem}
+
+
+如果$C(s)$是分段光滑的，除了讨论会麻烦一些，所有结果都与上述相同．
+
+\index[physwords]{弧长第二变分}
+
+%\subsection{弧长第二变分公式}
+继续求弧长泛函的二阶导数，则可得第二变分公式． %\cite[\S 8.6]{cc2001-zh}
+%由于主要目的是判断两固定端点间的弧长是最短线还是最长线，所以
+需要在$L'(0)=0$（即$C(s)$是测地线）的前提下计算$L''(0)$． %，否则没有意义
+继续式\eqref{chgd:eqn_1st-tmp02}的计算，有
+\setlength{\mathindent}{0em}
+\begin{align*}
+    \frac{{\rm d}^2}{{\rm d} \tau^2 }L(\tau)=&   \frac{{\rm d}}{{\rm d} \tau }
+    \int_{r_1}^{r_2} \frac{1}{\sqrt{ \tilde{S}_a \tilde{S}^a } }
+    \tilde{S}_b \nabla_{\frac{\partial}{\partial s}} \tilde{T}^b {\rm d}s
+    =  \nabla_{\frac{\partial}{\partial \tau}}
+    \int_{r_1}^{r_2} \frac{1}{\sqrt{ \tilde{S}_a \tilde{S}^a } }
+    \tilde{S}_b \nabla_{\frac{\partial}{\partial s}} \tilde{T}^b {\rm d}s  \\
+    =& \int_{r_1}^{r_2} \left\{\frac{(\nabla_{\frac{\partial}{\partial \tau}} \tilde{S}_b)
+        (\nabla_{\frac{\partial}{\partial s}} \tilde{T}^b)
+    +\tilde{S}_b (\nabla_{\frac{\partial}{\partial \tau}} \nabla_{\frac{\partial}{\partial s}} \tilde{T}^b) }
+    {\sqrt{ \tilde{S}_a \tilde{S}^a } } - \frac{ (\tilde{S}_a \nabla_{\frac{\partial}{\partial \tau}} \tilde{S}^a)
+     (\tilde{S}_b\nabla_{\frac{\partial}{\partial s}} \tilde{T}^b)} {{( \tilde{S}_a \tilde{S}^a) }^{3/2}}  \right\}{\rm d}s \\
+    \xlongequal{\ref{chccr:eqn_RiemannianCurvature-13}} &
+    \int_{r_1}^{r_2} \biggl\{
+    \frac{(\nabla_{\frac{\partial}{\partial s}} \tilde{T}_b) 
+    (\nabla_{\frac{\partial}{\partial s}} \tilde{T}^b)}{\sqrt{ \tilde{S}_a \tilde{S}^a } }
+    -\frac{(\tilde{S}_b \nabla_{\frac{\partial}{\partial s}} \tilde{T}^b)^2 }
+    {{( \tilde{S}_a \tilde{S}^a) }^{3/2}} \\
+    &+ \frac{\tilde{S}_b}{\sqrt{ \tilde{S}_a \tilde{S}^a } }\left[
+     \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial \tau}} \tilde{T}^b
+    + R_{cad}^b{\left(\frac{\partial}{\partial \tau}\right)^a}
+    {\left(\frac{\partial}{\partial s}\right)^d}{\tilde{T}^c}\right] \biggr\} {\rm d}s . 
+\end{align*}\setlength{\mathindent}{2em}
+在$\tau=0$处取值，此时$\tilde{S}_a \tilde{S}^a =1$；继续计算，有
+\setlength{\mathindent}{0em}
+\begin{align*}
+    \frac{{\rm d}^2}{{\rm d} \tau^2 }L(0)
+    =&  \int_{r_1}^{r_2}\left\{ (\nabla_{\frac{\partial}{\partial s}} {T}_b)
+      (\nabla_{\frac{\partial}{\partial s}} {T}^b)
+      -({S}_b \nabla_{\frac{\partial}{\partial s}} {T}^b)^2
+    + {S}_b  R_{cad}^b {\left(\frac{\partial}{\partial \tau}\right)^a}
+       {\left(\frac{\partial}{\partial s}\right)^d}{{T}^c}  \right\} {\rm d}s  \\
+    & + \int_{r_1}^{r_2}  \frac{\partial}{\partial s} \left( {S}_b
+        \nabla_{\frac{\partial}{\partial \tau}} {T}^b    \right) {\rm d}s
+      - \int_{r_1}^{r_2} (\nabla_{\frac{\partial}{\partial s}} {S}_b) (
+        \nabla_{\frac{\partial}{\partial \tau}} {T}^b) {\rm d}s .
+\end{align*}\setlength{\mathindent}{2em}
+因$C(s)$是测地线，故$\nabla_{\frac{\partial}{\partial s}} {S}_b=0$，继续计算得到{\heiti 弧长第二变分公式}：
+\begin{equation}\label{chgd:eqn_2st-var-arc}
+    \begin{aligned}
+    &L''(0)= \left.\left( {S}_b  \nabla_{\frac{\partial}{\partial \tau}} {T}^b \right)\right|_{r_1}^{r_2} \\
+    & +\int_{r_1}^{r_2} \left( (\nabla_{\frac{\partial}{\partial s}} {T}_b)
+       (\nabla_{\frac{\partial}{\partial s}} {T}^b)
+       -({S}_b \nabla_{\frac{\partial}{\partial s}} {T}^b)^2
+     +  R_{cad}^b {T^a} {S^d}T{^c}{S}_b \right) {\rm d}s .
+    \end{aligned}
+\end{equation}
+上面所有计算都需按诱导联络理解． 
+
+%在判断弧长是极大还是极小时，会用到弧长第二变分公式．
+
+\index[physwords]{Gauss引理}
+\subsection{Gauss引理}
+\begin{theorem}\label{chgd:thm_Gauss-lemma}
+    设有$m$维广义黎曼流形$(M,g)$，$\forall p\in M$，$v^a\in T_p M$．如果指数映射$\exp_p$在$v^a$有定义，
+    那么$\forall w^a\in T_p M = T_v(T_p M)$，有
+    \begin{equation}\label{chgd:eqn_Gauss-lemma}
+        g_{ab} \, \left[(\exp_{p})_{*v}(v^a)\right] \,
+        \left[(\exp_{p})_{*v}(w^b)\right] = v_b w^b .
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    $T_pM$是线性空间，自然可以看成流形；$v\in T_pM$是这个流形上一点，$T_v(T_p M)$是指流形$T_pM$中点$v$处的切空间．
+    定理中已假设$\exp_{p}$在$v^a$处有定义；我们任取$w^a \in T_pM$，存在充分小的$\epsilon >0$使得
+    下面的映射有定义（参照定义\ref{chgd:def_arc-variation}）：
+    \begin{equation}\label{chgd:eqn_gltmp01}
+        \sigma(s,\tau)=\exp_{p}\bigl(s (v^a+\tau w^a)\bigr),
+        \qquad \forall (s,\tau)\in [0,1]\times (-\epsilon,\epsilon) .
+    \end{equation}
+    显然，对于每一个固定的$\tau\in  (-\epsilon,\epsilon)$，$\gamma_\tau(s)=\sigma(s,\tau)$是测地线；
+    依定义\ref{chgd:def_arc-variation}，$\sigma(s,\tau)$是测地线$\gamma_0(s)$的一个测地变分．
+    容易求得$\gamma_0(s)$的切线切矢量场为
+    \begin{equation}
+        S^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial s}\right)^a
+        = (\exp_{p})_{*s v} v^a .
+    \end{equation}
+    由于式\eqref{chgd:eqn_gltmp01}是指数映射，当$s$固定、$\tau$变化时，得到的
+    曲线是测地线，记为$\alpha(\tau;q,s w^a)$，其中$q=\exp_p(s v^a)$．
+    很明显$\alpha(\tau;q,s w^a)$是横截曲线，它的切线切矢量$T^a(s)$为
+    \begin{equation}
+        T^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a = s\cdot (\exp_{p})_{*s v} w^a .
+    \end{equation}
+    将以上两式带入弧长第一变分公式\eqref{chgd:eqn_1st-var-arc}，并注意$\gamma_{\tau}(s)$是测地线，有
+    \begin{equation}\label{chgd:eqn_gltmp03}
+        L'(0)= \left.\left({S}_b  {T}^b\right)\right|_{0}^{1}
+        =g_{ab} \, (\exp_{p})_{*v}(v^a) \, (\exp_{p})_{*v}(w^b) .
+    \end{equation}
+    上式中的$g_{ab}$自然是在推前后（$(\exp_{p})_{*v}(v^a)$）的点取值．
+
+    我们再以另外一种方法来求$L'(0)$．
+    对于任意固定的$\tau$，$\gamma_\tau(s)$的弧长也可按下式计算
+    \begin{equation}
+        L(\tau)=\int_{0}^{1} \left|\frac{{\rm d}}{{\rm d}s} \gamma_\tau(s;p,v^a+\tau w^a)\right| {\rm d}s
+        =\int_{0}^{1} |v+\tau w| {\rm d}s = |v+\tau w|.
+    \end{equation}
+    对上式求$\tau$的导数，
+    \begin{align*}
+        \left.\frac{{\rm d}L(\tau)}{{\rm d}\tau}\right|_{\tau=0} =& \left.
+        \frac{{\rm d} (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}{{\rm d}\tau}\right|_{\tau=0}  \\
+        =&\left.\frac{v_aw^a+\tau w_a w^a}{ (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}\right|_{\tau=0}
+        =\frac{v_aw^a}{|v|} .
+    \end{align*}
+    因为我们采用的是弧长参数，所以$|v|=1$．
+    结合上式与式\eqref{chgd:eqn_gltmp03}便可得式\eqref{chgd:eqn_Gauss-lemma}．
+    上式中的$v_aw^a$是切空间$T_p M$上的内积，在$p$点取值．
+\end{proof}
+
+\begin{lemma}\label{chgd:thm_Gauss-lemma-old}
+    指数映射$\exp_{p}$把$T_pM$中正交的切矢量$v^a$和$w^a$映射到$M$中正交的切矢量．
+\end{lemma}
+\begin{proof}
+    只需将$v_aw^a=0$带入定理\ref{chgd:thm_Gauss-lemma}即可得到本引理．本引理才是
+    最早由Gauss证明的“Gauss lemma”，定理\ref{chgd:thm_Gauss-lemma}是推广的“Gauss lemma”．
+\end{proof}
+
+\begin{proposition}\label{chgd:thm_Gauss-lemma-baochang}
+    指数映射$\exp_{p}$沿射线$tv^a$的切方向是保长的，即对于任意的、平行于$v^a$的
+    切矢量$w^a\in T_pM$，都有$|(\exp_{p})_{*tv}(w)|=|w|$．
+\end{proposition}
+\begin{proof}
+    设$w^a= \lambda v^a$，其中$\lambda$是非零实常数，则由高斯引理可得
+    \begin{equation*}
+        |(\exp_{p})_{*tv}(w)| = g_{ab}(\exp_{p})_{*tv}(\lambda v^a) (\exp_{p})_{*tv}(w^b)
+        = \lambda v_a w^a = w_a w^a.
+    \end{equation*}
+    需要提醒读者$v^a$是测地线的切线方向．
+\end{proof}
+
+\begin{remark}\label{chgd:rmk_Gauss-lemma}
+    由此可见指数映射既保长又保角，故它是沿径向测地线局部等距同构．
+\end{remark}
+
+\begin{remark}\label{chgd:rmk_geo-sph}
+设$p \in M$，假定 $\delta>0$ 使得指数映射 $\exp _p$ 在
+\begin{equation}\label{chgd:eqn_Ball}
+    B_p(\delta)=\left\{v^a \in T_p M \mid  |v|<\delta\right\}
+\end{equation}
+上有定义．根据 Gauss 引理，
+\begin{equation}\label{chgd:eqn_gdBall}
+    \mathscr{B}_p(\delta)  =\exp _p\bigl(B_p(\delta)\bigr) .
+\end{equation}
+$\mathscr{B}_p(\delta)$的几何含义是：它由这样的$q$点组成，$q$和$p$间存在测地线$\gamma$连接它们，  
+并且两点间测地线长度 $L(\gamma)<\delta$．
+$\mathscr{B}_p(\delta)$称为在$M$中以$p$为中心、以$\delta$为半径的{\heiti 测地球}；
+其边界$\partial \mathscr{B}_p(\delta)$记为$\mathscr{S}_p(\delta)$，
+称为在$M$中以$p$为中心、以$\delta$为半径的{\heiti 测地球面}．
+很明显，测地球$\mathscr{B}_p(\delta)$和开球$B_p(\delta) \subset T_p M$ 未必是同胚的．
+但从定理\ref{chgd:thm_exp-homeomorphism}可知：当$\delta$充分小时，
+指数映射是从 $B_p(\delta)$ 到 $\mathscr{B}_p(\delta)$ 的光滑同胚；
+此时，$\mathscr{S}_p(\delta)$与球面$S^{m-1}$是同胚的．
+根据Gauss引理\ref{chgd:thm_Gauss-lemma-old}可知：
+从点$p$出发的测地线与$\mathscr{S}_p(\delta)$是正交的，
+所以通常把这样的测地线称为{\heiti 径向测地线}． \qed
+\end{remark}
+\index[physwords]{测地球}
+\index[physwords]{测地球面}
+\index[physwords]{径向测地线}
+
+
+\index[physwords]{Jacobi场}
+\section{Jacobi场}\label{chgd:sec_Jacobi}
+采用\S \ref{chgd:sec_arc-variation}记号．
+需提醒读者，在考虑曲线时，一般使用的是诱导联络．
+设曲线$C(s)$是测地线，它的每一个变分$\sigma(s,\tau)$也是测地线，
+即只考虑{\kaishu 测地变分}情形．
+$\tilde{S}^a$是测地变分曲线族$\{\gamma_\tau(s)\}$的切矢场；
+$\tilde{T}^a$是横截曲线族$\{\phi_s(\tau)\}$的切矢场．
+因是测地变分，则$ \nabla_{\frac{\partial}{\partial s}}\tilde{S}^a=0$；
+再由\eqref{chgd:eqn_stts}（$ \nabla_{\frac{\partial}{\partial s}}\tilde{T}^a
+- \nabla_{\frac{\partial}{\partial \tau}}\tilde{S}^a =0$）可得
+\begin{equation}
+    \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}}\tilde{T}^a
+    =\nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial \tau}}\tilde{S}^a
+    =\nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial \tau}}\tilde{S}^a
+     -\nabla_{\frac{\partial}{\partial \tau}} \nabla_{\frac{\partial}{\partial s}}\tilde{S}^a
+    =R^{a}_{\cdot bcd} \tilde{S}^c\tilde{T}^d \tilde{S}^b .
+\end{equation}
+上式最后一步再次利用式\eqref{chgd:eqn_stts}（$\left[\frac{\partial}{\partial s},
+\frac{\partial}{\partial \tau}\right]^a = 0$）
+以及黎曼曲率定义式\eqref{chccr:eqn_RiemannianCurvature-13}．
+令上式中的$\tau=0$，那么依照\S \ref{chgd:sec_arc-variation}中约定
+（即$S^a(s)\equiv \tilde{S}^a(s,0)$和$T^a(s)\equiv \tilde{T}^a(s,0)$），
+去掉符号上面的波浪线；上面方程变为（同时令$T\to J$）
+\begin{equation}\label{chgd:eqn_Jacobi}
+    \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}}{J}^a =
+    R^{a}_{\cdot bcd} {S}^c{J}^d {S}^b.
+\end{equation}
+此式称为{\bfseries \heiti Jacobi方程}；自然是因为Jacobi的原因才将$T$变$J$．
+
+\index[physwords]{Jacobi方程}
+
+\begin{definition}\label{chgd:def_Jacobi-field}
+    设$C:[r_1,r_2]\to M$是$m$维广义黎曼流形$(M,g)$上的一条测地线，$J^a(s)$是$M$上
+    沿$C(s)$定义的一个光滑矢量场．如果$J^a(s)$满足式\eqref{chgd:eqn_Jacobi}，
+    则称$J^a(s)$是沿测地线$C(s)$定义的一个{\bfseries \heiti Jacobi矢量场}，
+    简称为{\bfseries \heiti Jacobi场}.
+\end{definition}
+$J^a(s)$是定义在$C(s)$上的切矢量场；
+$S^a$是$C(s)$的切线切矢量．则有
+\begin{proposition}\label{chgd:thm_vvJ}
+    设$C:[r_1,r_2]\to M$是$m$维广义黎曼流形$(M,g)$上的一条测地线，
+    则$C(s)$测地变分的变分矢量场是沿测地线$C(s)$的Jacobi矢量场．
+\end{proposition}
+%此定理之逆也成立，见\ref{chgd:thm_vvJ-inv}．
+%$C(s)$的变分矢量场的方向一般不平行于$C(s)$的切线切矢量（称为纵向），直观感觉它
+%沿横向拉着$C(s)$偏离原来的位置，
+%所以Jacobi方程也被称为{\heiti 测地偏离方程}（geodesic deviation）．
+
+
+
+下面给出Jacobi方程的分量表达式．我们取一个沿测地线$C(s)$平行移动的
+正交归一活动标架场$\{(e_i)^a\}$，并取$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$
+（如果指标$i$是从$0$开始记号的，则取$(e_0)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$）．
+因标架场是平行移动的，所以有
+\begin{equation}
+    \nabla_{\frac{\partial}{\partial s}} (e_i)^a=0,\qquad 1\leqslant i \leqslant m.
+\end{equation}
+因$J^a$是沿$C(s)$定义的光滑切矢量场，可以把它表示为
+\begin{equation}
+    J^a(s) =  J^i(s) (e_i)^a .
+\end{equation}
+于是有（我们已约定$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}=S^a$）
+\begin{align}
+    &\nabla_{\frac{\partial}{\partial s}} J^a(s) = \frac{\partial J^i(s)}{\partial s} (e_i)^a, \qquad
+    \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}} J^a(s) =
+      \frac{\partial^2 J^i(s)}{\partial s^2} (e_i)^a. \\
+    &\nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}} J^a(s)
+     -R^{a}_{\cdot bcd} {S}^c{J}^d {S}^b = \left( \frac{\partial^2 J^i(s)}{\partial s^2}
+     -R^i_{\cdot 11j}\bigl(C(s)\bigr) J^j(s) \right)(e_i)^a .
+\end{align}
+由此可得Jacobi方程的在活动标架场$\{(e_i)^a(s)\}$的分量方程式
+\begin{equation}\label{chgd:eqn_Jacobi-componet}
+    \frac{{\rm d}^2 J_i(s)}{{\rm d} s^2} =R_{i11j}\bigl(C(s)\bigr) J^j(s) ,
+    \qquad  1\leqslant i \leqslant m.
+\end{equation}
+因标架场$\{(e_i)^a(s)\}$是正交归一的，所以$g_{ij}=g_{ab}(e_i)^a(e_j)^b=\eta_{ij}$，
+其中$\eta_{ij}$非对角元都是零，对角元是$+1$或$-1$．我们已用$\eta_{ij}$把上式中的指标降下来了，
+$J_i=\eta_{ij} J^j$．
+同时考虑到方程只是在测地线$C(s)$上取值，是单参数的，所以作了$\partial \to {\rm d}$的替换．
+从式\eqref{chgd:eqn_Jacobi-componet}可看出Jacobi方程是线性、齐次常微分方程组．
+
+\begin{proposition}\label{chgd:thm_Jacobi-unique}
+    设$C:[r_1,r_2]\to M$是广义黎曼流形$(M,g)$上一条测地线，那么$\forall v^a,w^a\in T_{C(r_1)}M$，
+    存在唯一的一个沿$C(s)$的Jacobi场$J^a(s)$满足$J^a(r_1)=v^a,\frac{{\rm d}J^a}{{\rm d}s}|_{r_1}=w^a$．
+\end{proposition}
+\begin{proof}
+    我们先把方程式\eqref{chgd:eqn_Jacobi-componet}化成一阶常微分方程组，
+    令$W_i= \frac{{\rm d}J_i}{{\rm d}s}$，有
+    \begin{equation}\label{chgd:eqn_Jacobi-componet-1stOrder}
+        \begin{cases}
+          \frac{{\rm d}J_i}{{\rm d}s} =W_i(s) \\
+          \frac{{\rm d} W_i}{{\rm d} s} =R_{i11j}\bigl(C(s)\bigr) J^j(s)
+        \end{cases}, \qquad \text{初条件}\
+        \begin{cases}
+           J_i(r_1) = \eta_{ij} v^j \\ W_i(r_1) = \eta_{ij}w^j
+        \end{cases} .
+    \end{equation}
+    依据常微分方程组解存在唯一性定理可知 %\cite[\S 31]{arnold-2001-ode}
+    上述方程式解存在、唯一．
+\end{proof}
+
+我们知道$T_{C(r_1)}M$是$m$维的线性空间，而Jacobi场方程\eqref{chgd:eqn_Jacobi-componet-1stOrder}的解
+由初始条件$(v^a,w^a)\in T_{C(r_1)}M\oplus T_{C(r_1)}M$唯一确定；由上述命题可知
+这个关系是一个\uwave{双射}．因Jacobi方程是线性的，所有解的集合
+按定义\ref{chmla:def_linear-space}构成线性空间，很明显有如下命题：
+\begin{proposition}\label{chgd:thm_Jacobi-2mD}
+    线性Jacobi场方程\eqref{chgd:eqn_Jacobi-componet}或\eqref{chgd:eqn_Jacobi-componet-1stOrder}的
+    解空间是一个$2m$维线性空间．
+\end{proposition}
+
+
+有了这些准备，现在可以证明命题\ref{chgd:thm_vvJ}的逆命题了．
+\begin{proposition}\label{chgd:thm_vvJ-inv}
+    设$C:[r_1,r_2]\to M$是$m$维完备广义黎曼流形$(M,g)$上的测地线，
+    $J^a(s)$是一沿测地线$C(s)$的Jacobi场．
+    则$J^a(s)$必是$C(s)$的某个测地变分的变分矢量场．
+\end{proposition}
+\begin{proof}
+    为了叙述简单，令$r_1=0$，并记$p=C(0)$．在流形$M$上任取一条光滑曲线$\alpha(\tau)$，
+    其中$\tau\in (-\epsilon,\epsilon)$，使得
+    \begin{equation}\label{chgd:eqn_tmpinit}
+        \alpha(0)=p,\quad \left.\left(\frac{\rm{d}}{{\rm d} \tau}\right)^a \right|_{\alpha(0)}=v^a;
+        \qquad \text{对任意固定的}\  v^a \in T_pM .
+    \end{equation}
+    再取对于任意固定的$w^a \in T_pM$，把$w^a$和$S^a(0)=(\frac{\rm{d}}{{\rm d} s})^a|_{C(0)}$
+    （测地线端点的切线切矢量）沿曲线$\alpha(\tau)$作平行移动，得到两个沿$\alpha(\tau)$平行
+    的矢量场$W^a(\tau)$和$S^a(\tau)$，它们满足
+    \begin{equation}\label{chgd:eqn_tmppp}
+        \nabla_{\frac{\rm{d}}{{\rm d} \tau}} W^a(\tau) =0,\qquad
+        \nabla_{\frac{\rm{d}}{{\rm d} \tau}} S^a(\tau) =0.
+    \end{equation}
+    由此可以构造映射$\sigma(s,\tau)$如下
+    \begin{equation}\label{chgd:eqn_sigmaJT}
+        \sigma(s,\tau)= \exp_{\alpha(\tau)}\Bigl[s\bigl(S^a(\tau)+\tau W^a(\tau)\bigr)\Bigr],
+        \qquad (s,\tau)\in [0,r_2]\times(-\epsilon,\epsilon)  .
+    \end{equation}
+    对于每一个固定的$\tau$，曲线$\alpha_\tau(\cdot)\equiv \sigma(\cdot,\tau)$是测地线，
+    并且$C(s)=\alpha_0(s)$；所以$\sigma(s,\tau)$是测地线$C(s)$的{\kaishu 测地变分}．
+    其变分曲线和横截曲线的切矢量场分别是
+    \begin{equation}
+        \tilde{S}^a = \sigma_{*(s,\tau)}\left(\frac{\partial}{\partial s}\right)^a ,\quad
+        \tilde{T}^a = \sigma_{*(s,\tau)}\left(\frac{\partial}{\partial \tau}\right)^a .
+    \end{equation}
+    其中变分曲线的切矢量场是
+    \begin{equation*}
+        \left.\tilde{S}^a\right|_{s=0} = \sigma_{*(0,\tau)} \left(\frac{\partial}{\partial s}\right)^a
+        =\bigl(\exp_{\alpha(\tau)}\bigr)_{*0} \bigl(S^a(\tau)+ \tau W^a(\tau) \bigr)
+        =S^a(\tau)+ \tau W^a(\tau) .
+    \end{equation*}
+    根据命题\ref{chgd:thm_vvJ}可知$T^a=\tilde{T}|_{\tau=0}$是沿$C(s)$的Jacobi场，并且有
+    \begin{equation*}
+        T^a(0)=\sigma_{*(0,0)}\left(\frac{\partial}{\partial \tau}\right)^a
+        = \left.\left(\frac{\partial}{\partial \tau}\right)^a  \right|_{s=0,\tau=0} \bigl(\sigma(0,\tau)\bigr)
+        = \left.\left(\frac{\partial}{\partial \tau}\right)^a  \right|_{\tau=0}\alpha(\tau) = v^a.
+    \end{equation*}
+    再由式\eqref{chgd:eqn_stts}（$ \nabla_{\frac{\partial}{\partial s}}\tilde{T}^a
+    - \nabla_{\frac{\partial}{\partial \tau}}\tilde{S}^a =0$）可得
+    \begin{equation*}
+        \nabla_{\frac{\partial}{\partial s}} \left.\tilde{T}^a \right|_{\substack{s=0\\ \tau=0}} \!
+        =\nabla_{\frac{\partial}{\partial \tau}} \left.\tilde{S}^a \right|_{\substack{s=0\\ \tau=0}} \!
+        =\left. \nabla_{\frac{\partial}{\partial \tau}}\bigl(S^a(\tau)+ \tau W^a(\tau) \bigr)
+         \right|_{\substack{s=0\\ \tau=0}}\! \xlongequal{\ref{chgd:eqn_tmppp}} W^a(0) =w^a .
+    \end{equation*}
+    上面讨论说明$T(s)$是$C(s)$上满足初始条件\eqref{chgd:eqn_tmpinit}的Jacobi场．
+
+    现在取$v^a=J^a(0)$，$w^a=\frac{{\rm d}J^a(0)}{{\rm d} s}$．
+    那么$T^a$和$J^a$都是定义在$C(s)$上的由$v^a,w^a\in T_pM$确定的Jacobi场，
+    从定理\ref{chgd:thm_Jacobi-unique}的唯一性可知$J^a(s)=T^a(s)$，
+    故$J^a(s)$是测地线$C(s)$的测地变分的变分矢量场．
+\end{proof}
+
+上述定理证明过程给出了定理\ref{chgd:thm_Jacobi-unique}存在性部分的几何证明．
+同时可得：
+\begin{corollary}\label{chgd:thm_Jexp}
+    设$C:[0,b]\to M$是$m$维完备广义黎曼流形$(M,g)$上的测地线；
+    $J^a(s)$是一沿测地线$C(s)$的Jacobi场，它满足$J^a(0)=0$
+    和$J^a(s)$是测地变分（式中$p\equiv C(0)$）
+    \begin{equation}\label{chgd:eqn_Jexp-1}
+        \sigma(s,\tau)= \exp_{p}\Bigl[s\bigl(v^a+\tau w^a\bigr)\Bigr],
+        \quad v^a = \left.\left(\frac{\rm{d}}{{\rm d} s}\right)^a \right|_{p},
+        \quad \forall w^a \in T_{p} M 
+    \end{equation}
+    的变分矢量场．根据变分矢量场定义和式\eqref{chgd:eqn_Jexp-1}可知
+    \begin{equation}\label{chgd:eqn_Jexp-2}
+        J^a(s)= \sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a
+        =  (\exp_{p})_{* s v} (sw^a) =s\cdot (\exp_{p})_{* s v} ( w^a) .
+    \end{equation}    
+\end{corollary}
+\begin{proof}
+    式\eqref{chgd:eqn_Jexp-1}只不过是\eqref{chgd:eqn_sigmaJT}的变种；
+    其中$w^a$是任取的，经计算可知$ w^a = \frac{{\rm d}J^a(0)}{{\rm d}s}$；
+    $v^a$是测地线$C(s)$在初始点$s=0$处的切线切矢量．
+    由式\eqref{chgd:eqn_Jexp-2}可见$J^a(0)=0$．
+\end{proof}
+
+
+
+\index[physwords]{法Jacobi场}
+
+\subsection{法Jacobi场}
+%沿用上一小节符号．
+\begin{definition}\label{chgd:def_normal-Jacobi}
+    设$C(s)$是广义黎曼流形$(M,g)$上测地线，$J^a(s)$是沿$C(s)$的Jacobi场．
+    若$J^a(s)$与$C(s)$处处正交，则称$J^a(s)$是沿测地线$C(s)$的{\heiti \bfseries 法Jacobi场}．  
+\end{definition}
+
+取Jacobi方程\eqref{chgd:eqn_Jacobi-componet}中指标$i=1$，由黎曼曲率的反对称性
+可知$\frac{{\rm d}^2 J_1(s)}{{\rm d} s^2} =0$，所以$J_1(s)$是个线性函数，即
+\begin{equation}\label{chgd:eqn_tmp-J1kc}
+    J_1(s)= k \cdot s + c_0 . \qquad k, c_0 \in \mathbb{R} .
+\end{equation}
+由此，易得
+\begin{equation}
+    g_{ab}(e_1)^b\frac{{\rm d}J^a}{{\rm d}s}=g_{ab}(e_1)^b(e_i)^a\frac{{\rm d}J^i}{{\rm d}s}
+    =\eta_{11}\frac{{\rm d}J^1}{{\rm d}s}=k.
+\end{equation}
+令上两式中的$s=r_1$，有
+\begin{equation}
+    k=g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s},\qquad
+    k\cdot r_1 +c_0 = J_1(r_1)=g_{ab}(e_1)^b|_{r_1} J^a(r_1).
+\end{equation}
+由此可得$c_0$为
+\begin{equation}
+    c_0= g_{ab}(e_1)^b|_{r_1}\left( J^a(r_1) - r_1 \cdot \frac{{\rm d}J^a(r_1)}{{\rm d}s} \right) .
+\end{equation}
+将$k,c_0$带回式\eqref{chgd:eqn_tmp-J1kc}，有
+\begin{equation}\label{chgd:eqn_J1kc}
+    J_1(s)= (s-r_1)\cdot g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s}
+       + g_{ab}(e_1)^b|_{r_1} J^a(r_1) .
+\end{equation}
+我们注意到$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$是测地线$C(s)$的切线切矢量，故上式可改写为
+\begin{equation*} %\label{chgd:eqn_J1}
+    g_{ab} J^a(s) \left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s)} = J_1(s)=
+    \left( (s-r_1)\cdot \frac{{\rm d}J^a(r_1)}{{\rm d}s}
+    +  J^a(r_1) \right) g_{ab}(e_1)^b|_{r_1}  .
+\end{equation*}
+进而可得如下命题
+\begin{proposition}\label{chgd:thm_normal-Jacobi}
+    设$C:[r_1,r_2]\to M$是广义黎曼流形$(M,g)$上一条测地线，$J^a(s)$是沿
+    测地线$C(s)$的Jacobi场，那么$J^a(s)$与测地线$C(s)$处处正交的充要条件是
+    \begin{equation}\label{chgd:eqn_normal-Jacobi}
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(r_1)} \frac{{\rm d}J^a(r_1)}{{\rm d}s} =0,
+        \quad \text{且} \quad
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(r_1)} J^a(r_1) =0 .
+    \end{equation}
+\end{proposition}
+
+
+\begin{proposition}
+    设$C:[r_1,r_2]\to M$是$m$维广义黎曼流形$(M,g)$上的一条测地线，
+    设$J^a(s)$沿$C(s)$的Jacobi矢量场．若存在两个不同的
+    点$s_1,s_2\in [r_1,r_2]$使得
+    \begin{equation}\label{chgd:eqn_tmp-s1s2}
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_1)} J^a(s_1) =0 ,
+        \quad \text{且} \quad
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_2)} J^a(s_2) =0 .
+    \end{equation}
+    那么$J^a(s)$是法Jacobi场．
+\end{proposition}
+\begin{proof}
+    将式\eqref{chgd:eqn_J1kc}带入\eqref{chgd:eqn_tmp-s1s2}，有
+    \begin{align*}
+        0=& (s_1 -r_1)\cdot g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s}+ g_{ab}(e_1)^b|_{r_1} J^a(r_1) , \\
+        0=& (s_2 -r_1)\cdot g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s}+ g_{ab}(e_1)^b|_{r_1} J^a(r_1) .
+    \end{align*}
+    因$s_1\neq s_2$，由上式必然可以得到式\eqref{chgd:eqn_normal-Jacobi}；故$J^a(s)$是法Jacobi场．
+\end{proof}
+
+
+\begin{proposition}
+    设$C(s)$是$m$维广义黎曼流形$(M,g)$上一条测地线．
+    用$\mathfrak{J}^{\bot}(C)$表示$M$上沿测地线$C(s)$法Jacobi场的集合，
+    则$\mathfrak{J}^{\bot}(C)$是一个$2m-2$维线性空间．
+\end{proposition}
+\begin{proof}
+    由命题\ref{chgd:thm_Jacobi-2mD}可知$M$上全体沿测地线$C(s)$的Jacobi场的集合是
+    一个$2m$维线性空间．从命题\ref{chgd:thm_Jacobi-2mD}的证明过程可知，
+    初始条件$(v^a,w^a)\in T_{C(r_1)}M\oplus T_{C(r_1)}M$中使下式
+    \begin{equation}
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_1)} v^a =0 =
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_1)} w^a,
+    \end{equation}
+    成立的子空间是$2m-2$维的；而这个子空间线性同构于$\mathfrak{J}^{\bot}(C)$，
+    故$\mathfrak{J}^{\bot}(C)$是$2m-2$维的线性空间．
+\end{proof}
+
+因黎曼曲率的反对称性，有
+\begin{equation*}
+    R^{a}_{\cdot bcd} \left(\frac{{\rm d}}{{\rm d}s}\right)^c
+    \left(\frac{{\rm d}}{{\rm d}s}\right)^d \left(\frac{{\rm d}}{{\rm d}s}\right)^b =0, \quad
+    R^{a}_{\cdot bcd} s\left(\frac{{\rm d}}{{\rm d}s}\right)^c
+    s\left(\frac{{\rm d}}{{\rm d}s}\right)^d s\left(\frac{{\rm d}}{{\rm d}s}\right)^b =0   .
+\end{equation*}
+很明显测地线$C(s)$的切线切矢量$(\frac{{\rm d}}{{\rm d}s})^a$满足
+\begin{equation*}
+    \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}}
+      \left(\frac{{\rm d}}{{\rm d}s}\right)^a =0, \qquad
+    \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}}
+      \left[s \left(\frac{{\rm d}}{{\rm d}s}\right)^a\right] =0  .
+\end{equation*}
+由上两式可知集合
+\begin{equation}
+    \mathfrak{J}^{\top}(C) \equiv {\rm Span}_{\mathbb{R}} 
+    \left\{\left(\frac{{\rm d}}{{\rm d}s}\right)^a, \quad
+    s\cdot \left(\frac{{\rm d}}{{\rm d}s}\right)^a\right\} .
+\end{equation}
+满足Jacobi方程\eqref{chgd:eqn_Jacobi}，因此
+两维空间$\mathfrak{J}^{\top}(C)$也是Jacobi场；称它们为切Jacobi场．
+很明显$\mathfrak{J}^{\top}(C) \cap \mathfrak{J}^{\bot}(C) = \{{\bf 0}\}$，
+故切Jacobi场与法Jacobi场交集为零．
+
+
+
+\subsection{常曲率空间}
+本节讨论一下常曲率空间（见\S \ref{chrg:sec_const-curvature}）的Jacobi场．
+设$C:[r_1,r_2]\to M$是$m$维广义黎曼流形$(M,g)$上的一条测地线，测地线参数取弧长$s$；
+我们取一个沿测地线$C(s)$平行移动的
+正交归一活动标架场$\{(e_i)^a\}$，并取$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$．
+
+设常曲率空间$M$的曲率为$c$．利用$\{(e_i)^a\}$正交归一性，由式\eqref{chrg:eqn_const-curvature}知
+\setlength{\mathindent}{0em}
+\begin{align*}
+    &R_{abcd} (e_i)^a (e_1)^b (e_1)^c (e_j)^d  =
+      -c(g_{af}(e_i)^f (e_1)^a  g_{bh}(e_1)^h(e_j)^b
+        -g_{bf}(e_i)^f (e_j)^a  g_{bh}(e_1)^h(e_1)^b )  \\
+    &\Rightarrow\ R_{i11j} = -c (\eta_{i1}\eta_{1j}- \eta_{ij}\eta_{11} )
+       = c \eta_{ij}\eta_{11}   .
+\end{align*}\setlength{\mathindent}{2em}
+设$J^a(s)$是沿$C(s)$定义的法Jacobi场，其展开式为$J^a=J^i (e_i)^a$．
+结合上式，由Jacobi方程\eqref{chgd:eqn_Jacobi-componet}得
+\begin{equation}
+    \frac{{\rm d}^2 J_i(s)}{{\rm d} s^2} =R_{i11j}\bigl(C(s)\bigr) J^j(s)
+      = c \eta_{ij}\eta_{11} J^j(s) =c \eta_{11} J_i(s) ,
+      \ 1 < i \leqslant m.
+\end{equation}
+其中$\eta_{11}$是$+1$或$-1$．
+考虑到我们使用的是沿$C(s)$平行移动的标架场，故{\kaishu 法场}$J^a$的第一分量
+恒为零，即$J_1(s)\equiv 0$；所以上式中的指标$i$可以从$2$记起．上式的通解是
+\begin{equation}\label{chgd:eqn_Jacobi-const-curvature}
+    J_i(s) = \begin{cases}
+        \lambda_i \sin(\sqrt{-c \eta_{11}} s)  + \mu_i \cos(\sqrt{-c \eta_{11}} s ),
+            & \text{若 }\ c \eta_{11} <0 ; \\
+        \lambda_i s  + \mu_i , & \text{若 }\ c \eta_{11} = 0; \\
+        \lambda_i \sinh(\sqrt{ c \eta_{11}} s) + \mu_i \cosh(\sqrt{c \eta_{11}} s) ,
+            & \text{若 }\ c \eta_{11}>0 .
+    \end{cases}
+\end{equation}
+其中$\lambda_i, \mu_i$是积分常数．
+
+%        \frac{\lambda_i}{\sqrt{-c \eta_{11}}} \sin (\sqrt{-c \eta_{11}} s)
+%+ \frac{\mu_i}{\sqrt{-c \eta_{11}}} \cos(\sqrt{-c \eta_{11}} s )
+%& \text{如果 }\ c \eta_{11} <0 , \\
+%\lambda_i s  + \mu_i  & \text{如果 }\ c \eta_{11} = 0, \\
+%\frac{\lambda_i}{\sqrt{c \eta_{11}}} \sinh (\sqrt{ c \eta_{11}} s)
+%+ \frac{\mu_i}{\sqrt{c \eta_{11}}} \cosh(\sqrt{c \eta_{11}} s)
+%& \text{如果 }\ c \eta_{11}>0 .
+
+
+%\subsection{共轭点}\label{chgd:sec_conjugate-point}
+%设广义黎曼流形$(M,g)$是完备的，
+%由Hopf--Rinow定理可知指数映射$\exp_p$在切空间$T_pM$上处处由定义，
+%再由定理\ref{chgd:thm_exp-homeomorphism}可知指数映射在原点附近是非退化的；
+%但指数映射未必是处处非退化的．从而引出如下定义：
+%\begin{definition}\label{chgd:def_conjugate-point}
+%    设$m$维广义黎曼流形$(M,g)$是完备的．$p\in M,\ v^a\in T_pM$，如果
+%    指数映射$\exp_{p}$在$v^a$处是退化的，即存在非零切矢量$w^a\in T_pM = T_v(T_pM)$使得
+%    $(\exp_{p})_{*v}(w^a)=0$；那么称$q=\exp_p(v^a)\in M$是点$p$（沿
+%    测地线$\exp_{p}(tv^a)$）的{\heiti 共轭点}．
+%\end{definition}
+
+
+
+\section*{小结}
+本章主要参考了\parencite[Ch.3, Ch.5, Ch.6]{chen-li-2023-2ed-v1}．
+
+%\parencite[Ch.4]{baizg-2004-irg}
+
+本章除了\S\ref{chgd:sec_compelete}外，所有内容适用于正定、不定度规．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{1em}
+%要了解我们未给出的定理证明过程，或需要学习更多内容的读者，
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography[heading=subbibliography,title=第\ref{chgd}章参考文献]
+
+\endinput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\index[physwords]{诱导联络}
+%\subsection{诱导联络}\label{chgd:sec_induced-connection}
+%为了更精准地讨论，需先引入诱导联络的概念；请先阅读\S\ref{chdm:sec_related}．
+%先看一下目前的Levi-Civita联络有何不足．设$\gamma(t)$是流形$M$中的一条曲线，$X^a$是
+%沿$\gamma$的一条光滑切矢量场（注意，它未必平行于$\gamma$的切线；$X^a$是切丛$TM$中的矢量，
+%只是在$\gamma$上取值而已）；$T^a=(\frac{\partial }{\partial t})^a$是$\gamma(t)$的真正的切线切矢量．
+%在讨论$\gamma$的平行移动或者$\gamma$是测地线时，我们需要定义$T^b\nabla_b X^a$；
+%此时需要将$\gamma$上的$X^a$延拓至整个$M$上．
+%如果$\gamma$有自交点，那么在交点处出现多值性；如果$T^a$在某点为零，那么联络定义也有问题．
+%而下面定义的诱导联络大体可以避免这种缺陷．
+%
+%设$N$是$n$维光滑流形；$(M,g)$是$m$维广义黎曼流形，
+%$\nabla_a$是其Levi-Civita联络；存在光滑\uwave{浸入}映射$\phi:N\to M$．
+%如果$\forall p\in N$，$X^a\in T_{\phi(p)}M$，则称$X^a$是{\heiti $\phi$上的矢量场}．
+%
+%前面讨论的曲线$\gamma(t)$自然是一条浸入曲线，可看作此定义中的流形$N$．
+%如果$u^a$是$N$上的矢量场，一般说来$\phi_{*}u^a$可能不是$M$上的矢量场；
+%比如$\phi$不是满的（注：$\phi$是浸入，必是局部单射），那么推前之后，在$M$上不是每一点都有一个矢量场．
+%{\kaishu 但$\phi_{*}u^a$是$\phi$上的矢量场，因为映射$\phi:N\to \phi(N)$是（局部）双射．}
+%可见有必要引入“$\phi$上的矢量场”这一概念．
+%矢量场$u^a$在$N$中原来只有$n(<m)$个分量；在浸入$M$后，矢量场$\phi_{*}u^a$可以假设
+%前$n$个分量不变{\footnote{因为是浸入，所以可以认为$N$中的$n$个坐标与流形$M$中的前$n$个坐标
+%        完全重合；见定理\ref{chdm:thm_immerse-1}．}}，
+%后$m-n$个分量为零；这样$\phi_{*}u^a$就有了$m$个分量，便是$TM$中矢量了．
+%如果$TM$有矢量$Y^a$在点${\phi(p)}\in M$有定义，但后$m-n$个分量中有非零值，那么$Y^a$也是$\phi$上的矢量场．
+%$\phi$上的矢量场不一定都由$TN$推前得到．
+%
+%设$\{(e_i)^a, 1\leqslant i \leqslant m\}$是在点$\phi(p)\in U \subset M$邻域$U$中的局部标架场．
+%为了讨论诱导联络定义与局部标架场无关，我们同时设点$\phi(p)\in V$有
+%从$N$带来的局部标架场$\{(\tilde{e}_\alpha)^a\}$，并且$\phi(p)\in U\cap V \neq \varnothing$；
+%映射$\phi$只带来$n$个局部标架，我们任意补充$m-n$个与前$n$个正交的标架场；
+%这样$p$点局部邻域$V$也是$M$上的一个开邻域．
+%再设存在$m^2$个光滑函数$A_\alpha^i\in C^\infty(U\cap V)$使得
+%$(\tilde{e}_\alpha)^a= A_\alpha^i (e_i)^a {\color{red}\Leftrightarrow} B^\alpha_i  (\tilde{e}_\alpha)^a= (e_i)^a$．
+%那么$\phi$上的矢量场$X^a\in T_{\phi(p)}(U\cap V) \subset T_{\phi(p)}M$可展开为
+%\begin{equation}
+%    X^a = \xi^i_{\phi(p)} \cdot (e_i)^a|_{\phi(p)}
+%    = \eta^\alpha_{\phi(p)} \cdot (\tilde{e}_\alpha)^a|_{\phi(p)}
+%    = \bigl(\eta^\alpha_{\phi(p)} \cdot A_\alpha^i \bigr) \cdot (e_i)^a|_{\phi(p)} .
+%\end{equation}
+%
+%定义沿$v^a\in T_pN$的$\phi$上矢量场$X^a\in T_{\phi(p)}M$的{\heiti 诱导联络}
+%$\tilde{\nabla}_{v} X^a \in  T_{\phi(p)}M$为
+%\begin{equation}\label{chgd:eqn_induced-connection}
+%    \tilde{\nabla}_{v} X^a \overset{def}{=} \bigl(\phi_{*}v(\xi^i)\bigr) (e_i)^a|_{\phi(p)}
+%    + \xi^i_{\phi(p)} \nabla_{\phi_* v} \bigl( (e_i)^a|_{\phi(p)}\bigr)
+%    = {\nabla}_{\phi_{*}v} X^a .
+%\end{equation}
+%先证明这个定义与局部标架场$\{(e_i)^a\}$选取无关，为简洁起见省略角标${\phi(p)}$．
+%\begin{align*}
+%    &\bigl(\phi_{*}v(\xi^i)\bigr) (e_i)^a|_{\phi(p)}
+%    + \xi^i_{\phi(p)} \nabla_{\phi_* v} \bigl( (e_i)^a|_{\phi(p)}\bigr) \\
+%    =& v(\eta^\alpha A_\alpha^i ) (\tilde{e}_\beta)^a B^\beta_i
+%    + \eta^\alpha A_\alpha^i \nabla_{\phi_* v} \bigl( (\tilde{e}_\beta)^a B^\beta_i  \bigr) \\
+%    =& \eta^\alpha v( A_\alpha^i ) (\tilde{e}_\beta)^a B^\beta_i
+%    + A_\alpha^i v(\eta^\alpha  ) (\tilde{e}_\beta)^a B^\beta_i
+%    + \eta^\alpha A_\alpha^i B^\beta_i \nabla_{\phi_* v} \bigl( (\tilde{e}_\beta)^a   \bigr)
+%    + \eta^\alpha A_\alpha^i (\tilde{e}_\beta)^a \nabla_{\phi_* v} \bigl(  B^\beta_i  \bigr) \\
+%    =&  v(\eta^\alpha  ) (\tilde{e}_\alpha)^a
+%    + \eta^\alpha  \nabla_{\phi_* v}  (\tilde{e}_\alpha)^a
+%    + \eta^\alpha  (\tilde{e}_\beta)^a \left(v( A_\alpha^i )\cdot  B^\beta_i
+%    +  A_\alpha^i  v \bigl(  B^\beta_i  \bigr) \right) \\
+%    =&  v(\eta^\alpha  ) (\tilde{e}_\alpha)^a
+%    + \eta^\alpha  \nabla_{\phi_* v}  (\tilde{e}_\alpha)^a
+%    + \eta^\alpha  (\tilde{e}_\beta)^a \left(v( A_\alpha^i B^\beta_i) \right) \\
+%    =&  v(\eta^\alpha  ) (\tilde{e}_\alpha)^a
+%    + \eta^\alpha  \nabla_{\phi_* v}  (\tilde{e}_\alpha)^a   .
+%\end{align*}
+%注意$A^T=B^{-1}$．这便证明了定义与标架场选取无关．
+%%在上面计算过程中用到了这些关系式，但都省略了这些繁杂的变换关系．
+%
+%%$\bigl(v(\xi)\bigr)_{\phi(p)}$应理解为${\phi_* v}(\xi)=v(\xi\circ \phi)$，以及
+%
+%直接带入即可验证式\eqref{chgd:eqn_induced-connection}满足
+%定义\ref{chccr:def_connection}中的前三个条件（将$K$和$L$看成矢量场或标量场）；
+%最后两条看作附加原则；因此式\eqref{chgd:eqn_induced-connection}符合联络定义．
+%
+%
+%
+%再列出几条关于诱导联络的性质．
+%\begin{align}
+%    v(X_a Y^a) =& (\tilde{\nabla}_{v} X_a) Y^a + X_a (\tilde{\nabla}_{v}Y^a) ; \qquad
+%    \forall X^a,Y^a \in T_{\phi(p)}M, \quad \forall v^a\in T_pN . \label{chgd:eqn_induce-con-compatibility} \\
+%    \phi_{*}[X,Y]^a =& \tilde{\nabla}_{X}(\phi_{*}Y^a)-\tilde{\nabla}_{Y}(\phi_{*}X^a) ; \qquad
+%    \forall X^a,Y^a \in T_pN . \label{chgd:eqn_induce-con-NoTorsion}
+%\end{align}
+%式\eqref{chgd:eqn_induce-con-compatibility}说明度规与诱导联络是相容的，请比对式\eqref{chgd:eqn_connection-compatibility}；
+%式\eqref{chgd:eqn_induce-con-NoTorsion}说明诱导联络是无挠的，请比对式\eqref{chccr:eqn_Ttorsion}．
+%
+%
+%先证明式\eqref{chgd:eqn_induce-con-compatibility}．
+%注意$v(X_a Y^a)$应理解为${\phi_* v}(X_a Y^a)$，故  %因$\phi$是浸入，
+%\begin{align*}
+%    (\phi_{*}v)(X_a Y^a) =&  \nabla_{\phi_{*}v}(X_a Y^a)
+%    = Y^a \nabla_{\phi_{*}v} X_a  + X_a \nabla_{\phi_{*}v} Y^a
+%    =(\tilde{\nabla}_{v} X_a) Y^a + X_a (\tilde{\nabla}_{v}Y^a).
+%\end{align*}
+%再证明式\eqref{chgd:eqn_induce-con-NoTorsion}．
+%设$T_pN$处的局部标架场是$\{(E_i)^a\}(1\leqslant i \leqslant n)$；因$\phi$是浸入，故基矢推前后在$T_{\phi(p)}M$处
+%基矢场$\{(e_\alpha)^a\}$展开表示为$(E_i)^a=c_i^\alpha (e_\alpha)^a$，其中$c_i^\alpha\in C^\infty(M)$．
+%有了这些准备，可得$\phi_{*}X^a = \phi_{*}(X^i (E_i)^a)= X^i c_i^\alpha (e_\alpha)^a$，
+%和$\phi_{*}Y^a = \phi_{*}(Y^j (E_j)^a)= Y^j c_j^\beta (e_\beta)^a$．
+%\begin{equation}
+%    \begin{aligned}
+%        &\tilde{\nabla}_{X}(\phi_{*}Y^a)-\tilde{\nabla}_{Y}(\phi_{*}X^a) =
+%        \bigl(X^i c_i^\alpha e_\alpha(Y^j c_j^\pi)\bigr) (e_\pi)^a
+%        + Y^j c_j^\pi \bigl( X^i c_i^\alpha (e_\alpha)^b \bigr)\nabla_{b} (e_\pi)^a  \\
+%        &\quad - \bigl(Y^i c_i^\alpha e_\alpha(X^j c_j^\pi)\bigr) (e_\pi)^a
+%        - X^j c_j^\pi \bigl( Y^i c_i^\alpha (e_\alpha)^b \bigr)\nabla_{b} (e_\pi)^a \\
+%        &=\Bigl(X^i c_i^\alpha e_\alpha(Y^j c_j^\sigma)
+%        + Y^j c_j^\pi  X^i c_i^\alpha \gamma_{\pi\alpha}^\sigma
+%        - Y^i c_i^\alpha e_\alpha(X^j c_j^\sigma)
+%        - X^j c_j^\pi  Y^i c_i^\alpha \gamma_{\pi\alpha}^\sigma  \Bigr) (e_\sigma)^a  \\
+%        &=\Bigl(X^i c_i^\alpha e_\alpha(Y^j c_j^\sigma)
+%        - Y^i c_i^\alpha e_\alpha(X^j c_j^\sigma)   + X^i c_i^\alpha Y^j c_j^\pi
+%        \bigl(\gamma_{\pi\alpha}^\sigma -  \gamma_{\alpha\pi}^\sigma\bigr)   \Bigr) (e_\sigma)^a  \\
+%        &\xlongequal{\ref{chrg:eqn_XYcommutator-Ebase}}
+%        \bigl[ \phi_{*}X, \phi_{*}Y \bigr]^a 
+%        \xlongequal[\ref{chdm:thm_push-Poisson-related}]{\text{定理}} \phi_{*}[X,Y]^a .
+%    \end{aligned}
+%\end{equation}

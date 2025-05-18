@@ -1,0 +1,2293 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     69235,       2285]
+NotebookOptionsPosition[     67767,       2244]
+NotebookOutlinePosition[     68131,       2260]
+CellTagsIndexPosition[     68088,       2257]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{
+      RowBox[{"Dim", "=", "2"}], ";"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    RowBox[{
+     StyleBox[
+      RowBox[{"LC", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "Dim"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "Dim"}], "}"}], 
+         StyleBox[",",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["{",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"k", ",", "Dim"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox["}",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}]}], "]"}]}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(*", "\:7ed3\:6784\:5e38\:6570", "*)"}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Consolas",
+      FontSize->16], 
+     RowBox[{
+      StyleBox[
+       StyleBox[
+        RowBox[{"(", "*"}]],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox["\:4e8c\:7ef4\:975e\:5bf9\:6613\:674e\:4ee3\:6570",
+        FontFamily->"Consolas",
+        FontSize->16],
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        RowBox[{
+         StyleBox["*",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         StyleBox[")",
+          FontFamily->"Consolas",
+          FontSize->16]}]],
+       FontWeight->"Plain"]}], 
+     StyleBox[
+      StyleBox[" ",
+       FontFamily->"Consolas",
+       FontSize->16],
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{
+        StyleBox[
+         StyleBox["LC",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"],
+         FontFamily->"Consolas",
+         FontSize->16], 
+        StyleBox[
+         StyleBox["[",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"],
+         FontFamily->"Consolas",
+         FontSize->16], 
+        RowBox[{
+         StyleBox["[",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         RowBox[{
+          StyleBox["1",
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox[
+           StyleBox[",",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"],
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox["2",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           StyleBox[",",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"],
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox["2",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox[
+          StyleBox["]",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"],
+          FontFamily->"Consolas",
+          FontSize->16]}], 
+        StyleBox[
+         StyleBox["]",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"],
+         FontFamily->"Consolas",
+         FontSize->16]}], 
+       StyleBox[
+        StyleBox["=",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"],
+        FontFamily->"Consolas",
+        FontSize->16], 
+       StyleBox[
+        StyleBox["1",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"],
+        FontFamily->"Consolas",
+        FontSize->16]}],
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox[";",
+       FontFamily->"Consolas",
+       FontSize->16],
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{
+        StyleBox["LC",
+         FontFamily->"Consolas",
+         FontSize->16], 
+        StyleBox["[",
+         FontFamily->"Consolas",
+         FontSize->16], 
+        RowBox[{
+         StyleBox["[",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         RowBox[{
+          StyleBox["2",
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox["1",
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16], 
+          StyleBox["2",
+           FontFamily->"Consolas",
+           FontSize->16]}], 
+         StyleBox["]",
+          FontFamily->"Consolas",
+          FontSize->16]}], 
+        StyleBox["]",
+         FontFamily->"Consolas",
+         FontSize->16]}], 
+       StyleBox["=",
+        FontFamily->"Consolas",
+        FontSize->16], 
+       RowBox[{
+        StyleBox["-",
+         FontFamily->"Consolas",
+         FontSize->16], 
+        StyleBox["1",
+         FontFamily->"Consolas",
+         FontSize->16]}]}],
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox[";",
+       FontFamily->"Consolas",
+       FontSize->16],
+      FontWeight->"Plain"]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       RowBox[{"(", "*"}]],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["For",
+       FontWeight->"Plain"], 
+      StyleBox["[",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox[
+        RowBox[{"i", "=", "1"}],
+        FontWeight->"Plain"], 
+       StyleBox[",",
+        FontWeight->"Plain"], 
+       StyleBox[
+        RowBox[{"i", "\[LessEqual]", "Dim"}],
+        FontWeight->"Plain"], 
+       StyleBox[",",
+        FontWeight->"Plain"], 
+       StyleBox[
+        RowBox[{"i", "++"}],
+        FontWeight->"Plain"], 
+       StyleBox[",",
+        FontWeight->"Plain"], 
+       RowBox[{
+        StyleBox["For",
+         FontWeight->"Plain"], 
+        StyleBox["[",
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox[
+          RowBox[{"j", "=", "1"}],
+          FontWeight->"Plain"], 
+         StyleBox[",",
+          FontWeight->"Plain"], 
+         StyleBox[
+          RowBox[{"j", "\[LessEqual]", "Dim"}],
+          FontWeight->"Plain"], 
+         StyleBox[",",
+          FontWeight->"Plain"], 
+         StyleBox[
+          RowBox[{"j", "++"}],
+          FontWeight->"Plain"], 
+         StyleBox[",",
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["For",
+           FontWeight->"Plain"], 
+          StyleBox["[",
+           FontWeight->"Plain"], 
+          RowBox[{
+           StyleBox[
+            RowBox[{"k", "=", "1"}],
+            FontWeight->"Plain"], 
+           StyleBox[",",
+            FontWeight->"Plain"], 
+           StyleBox[
+            RowBox[{"k", "\[LessEqual]", "Dim"}],
+            FontWeight->"Plain"], 
+           StyleBox[",",
+            FontWeight->"Plain"], 
+           StyleBox[
+            RowBox[{"k", "++"}],
+            FontWeight->"Plain"], 
+           StyleBox[",",
+            FontWeight->"Plain"], 
+           StyleBox[" ",
+            FontWeight->"Plain"], 
+           RowBox[{
+            StyleBox["Print",
+             FontWeight->"Plain"], 
+            StyleBox["[",
+             FontWeight->"Plain"], 
+            RowBox[{"\!\(\*
+StyleBox[\"\\\"\",
+FontWeight->\"Plain\"]\)C\!\(\*
+StyleBox[\"\\\"\",
+FontWeight->\"Plain\"]\)", 
+             StyleBox[",",
+              FontWeight->"Plain"], 
+             StyleBox["i",
+              FontWeight->"Plain"], 
+             StyleBox[",",
+              FontWeight->"Plain"], 
+             StyleBox["j",
+              FontWeight->"Plain"], 
+             StyleBox[",",
+              FontWeight->"Plain"], 
+             StyleBox["k",
+              FontWeight->"Plain"], 
+             StyleBox[",",
+              FontWeight->"Plain"], 
+             StyleBox["\"\< = \>\"",
+              FontWeight->"Plain"], 
+             StyleBox[",",
+              FontWeight->"Plain"], 
+             StyleBox[
+              RowBox[{"LC", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "j", ",", "k"}], "]"}], "]"}],
+              FontWeight->"Plain"]}], 
+            StyleBox["]",
+             FontWeight->"Plain"]}]}], 
+          StyleBox["]",
+           FontWeight->"Plain"]}]}], 
+        StyleBox["]",
+         FontWeight->"Plain"]}]}], 
+      StyleBox["]",
+       FontWeight->"Plain"]}], 
+     StyleBox[
+      StyleBox[
+       RowBox[{"*", ")"}]],
+      FontWeight->"Plain"]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       StyleBox[
+        RowBox[{
+         StyleBox["K",
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox["F",
+          FontFamily->"Consolas",
+          FontSize->16]}]], 
+       StyleBox["=",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox[
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Sum", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"LC", "[", 
+              RowBox[{"[", 
+               RowBox[{"\[Alpha]", ",", "k", ",", "j"}], "]"}], "]"}], " ", 
+             RowBox[{"LC", "[", 
+              RowBox[{"[", 
+               RowBox[{"\[Beta]", ",", "j", ",", "k"}], "]"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "Dim"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"k", ",", "Dim"}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Alpha]", ",", "Dim"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Beta]", ",", "Dim"}], "}"}]}], "]"}],
+        FontFamily->"Times New Roman",
+        FontSize->14]}], 
+      StyleBox[";",
+       FontFamily->"Times New Roman",
+       FontSize->14]}],
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      StyleBox["(*",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         RowBox[{"K", 
+          StyleBox["i",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], "llin", 
+          StyleBox["g",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}]],
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox[" ",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox["F",
+        FontFamily->"Consolas",
+        FontSize->16], 
+       StyleBox["or",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox["m",
+        FontFamily->"Consolas",
+        FontSize->16]}], 
+      StyleBox["*)",
+       FontFamily->"Times New Roman",
+       FontSize->14]}],
+     FontWeight->"Plain"], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{"MatrixForm", "[", "KF", "]"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"]}],
+   TraditionalForm]}]], "Input",
+ CellChangeTimes->{{3.9504298945127354`*^9, 3.950429954478428*^9}, {
+  3.9504299850876274`*^9, 3.9504300575274153`*^9}, {3.9504301510658092`*^9, 
+  3.9504301740388126`*^9}, {3.950430217869494*^9, 3.9504302484107313`*^9}, {
+  3.950430374263318*^9, 3.9504304895775547`*^9}, {3.9504305275686316`*^9, 
+  3.950430577216632*^9}, {3.9504306078488765`*^9, 
+  3.9504306817217903`*^9}},ExpressionUUID->"7357577e-7715-42cc-ad30-\
+a2e3ffc8123b"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["Null", "4"], " ", 
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"1", "0"},
+      {"0", "0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]]}]], "Output",
+ CellChangeTimes->{{3.950430657787712*^9, 
+  3.9504306825845833`*^9}},ExpressionUUID->"6dec78f6-df38-495b-8245-\
+28211be620fe"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   StyleBox["\[IndentingNewLine]",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{
+      RowBox[{"Dim", "=", "6"}], ";"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    RowBox[{
+     StyleBox[
+      RowBox[{"LC", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "Dim"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "Dim"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "Dim"}], "}"}]}], "]"}]}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(*", "\:7ed3\:6784\:5e38\:6570", "*)"}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(*", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "\[LessEqual]", "Dim"}], ",", 
+         RowBox[{"i", "++"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"j", "=", 
+            RowBox[{"i", "+", "1"}]}], ",", 
+           RowBox[{"j", "\[LessEqual]", "Dim"}], ",", 
+           RowBox[{"j", "++"}], ",", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"k", "=", "1"}], ",", 
+             RowBox[{"k", "\[LessEqual]", "Dim"}], ",", 
+             RowBox[{"k", "++"}], ",", " ", 
+             RowBox[{"Print", "[", 
+              RowBox[{
+              "\"\<C \>\"", ",", "i", ",", "j", ",", "k", ",", "\"\< = \>\"", 
+               ",", 
+               RowBox[{"LC", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "j", ",", "k"}], "]"}], "]"}]}], "]"}]}], 
+            "]"}]}], "]"}]}], "]"}], "*)"}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"\:4e8c\:7ef4\:975e\:5bf9\:6613\:674e\:4ee3\:6570", " ", 
+          StyleBox[
+           RowBox[{"LC", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "2", ",", 
+              StyleBox["2",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"]}], "]"}], "]"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox["=",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         StyleBox["1",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}], ";", 
+        RowBox[{
+         RowBox[{"LC", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "1", ",", 
+            StyleBox["2",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"]}], "]"}], "]"}], "=", 
+         RowBox[{"-", "1"}]}], ";"}], "*)"}],
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(*",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox[
+       RowBox[{
+        RowBox[{
+         StyleBox[
+          RowBox[{
+           RowBox[{"so", "(", "3", ")"}], ",", 
+           RowBox[{
+            RowBox[{"su", "(", "2", ")"}], "\:7ed3\:6784\:5e38\:6570"}]}],
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox["\[IndentingNewLine]",
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox[
+          RowBox[{
+           RowBox[{
+            RowBox[{"LC", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ",", "2", ",", 
+               StyleBox["3",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"]}], "]"}], "]"}], "=", "1"}], ";", 
+           RowBox[{
+            RowBox[{"LC", "[", 
+             RowBox[{"[", 
+              RowBox[{"2", ",", "1", ",", 
+               StyleBox["3",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"]}], "]"}], "]"}], "=", 
+            RowBox[{"-", "1"}]}], ";"}],
+          FontFamily->"Consolas",
+          FontSize->16], 
+         StyleBox["\[IndentingNewLine]",
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox[
+          RowBox[{
+           RowBox[{
+            RowBox[{"LC", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               StyleBox["2",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"], ",", 
+               StyleBox["3",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"], ",", 
+               StyleBox["1",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"]}], "]"}], "]"}], "=", "1"}], ";", 
+           RowBox[{
+            RowBox[{"LC", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               StyleBox["3",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"], ",", 
+               StyleBox["2",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"], ",", 
+               StyleBox["1",
+                FontFamily->"Consolas",
+                FontSize->16,
+                FontWeight->"Plain"]}], "]"}], "]"}], "=", 
+            RowBox[{"-", "1"}]}], ";"}],
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox["\[IndentingNewLine]",
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox[
+          RowBox[{
+           RowBox[{"LC", "[", 
+            RowBox[{"[", 
+             RowBox[{
+              StyleBox["3",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], ",", 
+              StyleBox["1",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], ",", 
+              StyleBox["2",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"]}], "]"}], "]"}], "=", "1"}],
+          FontFamily->"Times New Roman",
+          FontSize->14]}], 
+        StyleBox[";",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox[
+         RowBox[{
+          RowBox[{"LC", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             StyleBox["1",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"], ",", 
+             StyleBox["3",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"], ",", 
+             StyleBox["2",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"]}], "]"}], "]"}], "=", 
+          RowBox[{"-", "1"}]}],
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox[";",
+         FontFamily->"Times New Roman",
+         FontSize->14]}],
+       FontWeight->"Plain"], "*)"}], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Consolas",
+      FontSize->16,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"so", "(", 
+         RowBox[{"1", ",", "3"}], ")"}], "\:7ed3\:6784\:5e38\:6570"}], "*)"}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox["\[IndentingNewLine]",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2", ",", "3"}], "]"}], "]"}], "=", "1"}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "1", ",", "3"}], "]"}], "]"}], "=", 
+       RowBox[{"-", "1"}]}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "3", ",", "1"}], "]"}], "]"}], "=", "1"}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "2", ",", "1"}], "]"}], "]"}], "=", 
+       RowBox[{"-", "1"}]}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         StyleBox["3",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], ",", 
+         StyleBox["1",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], ",", 
+         StyleBox["2",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}], "]"}], "]"}], "=", "1"}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         StyleBox["1",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], ",", 
+         StyleBox["3",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], ",", 
+         StyleBox["2",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"4", ",", "5", ",", "3"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"5", ",", "4", ",", "3"}], "]"}], "]"}], "=", "1"}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"5", ",", "6", ",", "1"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"6", ",", "5", ",", "1"}], "]"}], "]"}], "=", "1"}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"6", ",", "4", ",", "2"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"4", ",", "6", ",", "2"}], "]"}], "]"}], "=", "1"}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"4", ",", "2", ",", "6"}], "]"}], "]"}], "=", "1"}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "4", ",", "6"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";", 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"5", ",", "3", ",", "4"}], "]"}], "]"}], "=", "1"}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "5", ",", "4"}], "]"}], "]"}], "=", 
+       RowBox[{"-", "1"}]}],
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"6", ",", "1", ",", "5"}], "]"}], "]"}], "=", "1"}], ";", 
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "6", ",", "5"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        StyleBox["K",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox["F",
+         FontFamily->"Consolas",
+         FontSize->16]}], 
+       StyleBox["=",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox[
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Sum", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"LC", "[", 
+              RowBox[{"[", 
+               RowBox[{"\[Alpha]", ",", "k", ",", "j"}], "]"}], "]"}], " ", 
+             RowBox[{"LC", "[", 
+              RowBox[{"[", 
+               RowBox[{"\[Beta]", ",", "j", ",", "k"}], "]"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "Dim"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"k", ",", "Dim"}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Alpha]", ",", "Dim"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Beta]", ",", "Dim"}], "}"}]}], "]"}],
+        FontFamily->"Times New Roman",
+        FontSize->14]}], 
+      StyleBox[";",
+       FontFamily->"Times New Roman",
+       FontSize->14]}],
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      StyleBox["(*",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         RowBox[{"K", 
+          StyleBox["i",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], "llin", 
+          StyleBox["g",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}]],
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox[" ",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox["F",
+        FontFamily->"Consolas",
+        FontSize->16], 
+       StyleBox["or",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox["m",
+        FontFamily->"Consolas",
+        FontSize->16]}], 
+      StyleBox["*)",
+       FontFamily->"Times New Roman",
+       FontSize->14]}],
+     FontWeight->"Plain"], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"Ki", "=", 
+       RowBox[{"Inverse", "[", "KF", "]"}]}], ";"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{"MatrixForm", "[", "KF", "]"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    RowBox[{
+     StyleBox["(*",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       StyleBox[
+        RowBox[{
+         RowBox[{"so", "(", "3", ")"}], "\:57fa\:77e2"}],
+        FontFamily->"Consolas",
+        FontSize->16,
+        FontWeight->"Plain"], 
+       StyleBox["\[IndentingNewLine]",
+        FontWeight->"Plain"], 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          StyleBox["lgr",
+           FontWeight->"Plain"], 
+          StyleBox["[",
+           FontWeight->"Bold"], 
+          StyleBox["1",
+           FontWeight->"Bold"], 
+          StyleBox["]",
+           FontWeight->"Bold"]}], 
+         StyleBox["=",
+          FontWeight->"Bold"], 
+         StyleBox[
+          RowBox[{"(", GridBox[{
+             {"0", "0", "0"},
+             {"0", "0", 
+              RowBox[{"-", "1"}]},
+             {"0", "1", "0"}
+            }], ")"}],
+          FontWeight->"Bold"]}], 
+        StyleBox[";",
+         FontWeight->"Bold"], 
+        StyleBox[
+         RowBox[{
+          RowBox[{"lgr", "[", "2", "]"}], "=", 
+          RowBox[{"(", GridBox[{
+             {"0", "0", "1"},
+             {"0", "0", "0"},
+             {
+              RowBox[{"-", "1"}], "0", "0"}
+            }], ")"}]}],
+         FontWeight->"Bold"], 
+        StyleBox[";",
+         FontWeight->"Bold"], 
+        StyleBox[
+         RowBox[{
+          RowBox[{"lgr", "[", "3", "]"}], "=", 
+          RowBox[{"(", GridBox[{
+             {"0", 
+              RowBox[{"-", "1"}], "0"},
+             {"1", "0", "0"},
+             {"0", "0", "0"}
+            }], ")"}]}],
+         FontWeight->"Bold"], 
+        StyleBox[";",
+         FontWeight->"Bold"]}]}],
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     StyleBox[" ",
+      FontFamily->"Times New Roman",
+      FontSize->14,
+      FontWeight->"Plain"], "*)"}], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"sl", "(", 
+        RowBox[{"2", ",", "C"}], ")"}], "\:57fa\:77e2"}], "*)"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "1", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         StyleBox["-",
+          FontFamily->"Times New Roman",
+          FontSize->14,
+          FontWeight->"Plain"], "\[ImaginaryI]"}], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "1", "]"}]}]}], ";", 
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "2", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         StyleBox["-",
+          FontFamily->"Times New Roman",
+          FontSize->14,
+          FontWeight->"Plain"], "\[ImaginaryI]"}], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "2", "]"}]}]}], ";", 
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "3", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         StyleBox["-",
+          FontFamily->"Times New Roman",
+          FontSize->14,
+          FontWeight->"Plain"], "\[ImaginaryI]"}], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "3", "]"}]}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "4", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        StyleBox[
+         RowBox[{"-", "1"}],
+         FontFamily->"Times New Roman",
+         FontSize->14,
+         FontWeight->"Plain"], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "1", "]"}]}]}], ";", 
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "5", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        StyleBox[
+         RowBox[{"-", "1"}],
+         FontFamily->"Times New Roman",
+         FontSize->14,
+         FontWeight->"Plain"], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "2", "]"}]}]}], ";", 
+     RowBox[{
+      StyleBox[
+       RowBox[{"lgr", "[", "6", "]"}],
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        StyleBox[
+         RowBox[{"-", "1"}],
+         FontFamily->"Times New Roman",
+         FontSize->14,
+         FontWeight->"Plain"], "/", "2"}], " ", 
+       RowBox[{"PauliMatrix", "[", "3", "]"}]}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{"(*", "Casimir\:7b97\:5b50", "*)"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{"C2", "=", 
+        RowBox[{
+         StyleBox["Sum",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         StyleBox["[",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            StyleBox["LC",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            StyleBox["[",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            RowBox[{
+             StyleBox["[",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"], 
+             RowBox[{
+              StyleBox["i1",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], 
+              StyleBox[",",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], "j1", 
+              StyleBox[",",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], "j2"}], 
+             StyleBox["]",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"]}], 
+            StyleBox["]",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"]}], 
+           StyleBox[" ",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{
+            StyleBox["LC",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            StyleBox["[",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            RowBox[{
+             StyleBox["[",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"], 
+             RowBox[{"i2", 
+              StyleBox[",",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], "j2", ",", "j1"}], 
+             StyleBox["]",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"]}], 
+            StyleBox["]",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"]}], 
+           StyleBox[
+            RowBox[{"Ki", "[", 
+             RowBox[{"[", 
+              RowBox[{"i1", ",", "k1"}], "]"}], "]"}],
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{
+            StyleBox["Ki",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            StyleBox["[",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            RowBox[{
+             StyleBox["[",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"], 
+             RowBox[{"i2", 
+              StyleBox[",",
+               FontFamily->"Consolas",
+               FontSize->16,
+               FontWeight->"Plain"], "k2"}], 
+             StyleBox["]",
+              FontFamily->"Consolas",
+              FontSize->16,
+              FontWeight->"Plain"]}], 
+            StyleBox["]",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"]}], 
+           RowBox[{
+            StyleBox["lgr",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], "[", "k1", "]"}], 
+           RowBox[{"lgr", "[", "k2", "]"}]}], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"{", 
+            RowBox[{"i1", ",", "Dim"}], "}"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          RowBox[{
+           StyleBox["{",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{"i2", 
+            StyleBox[",",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            StyleBox["Dim",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"]}], 
+           StyleBox["}",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"]}], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"{", 
+            RowBox[{"j1", ",", "Dim"}], "}"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"{", 
+            RowBox[{"j2", ",", "Dim"}], "}"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"{", 
+            RowBox[{"k1", ",", "Dim"}], "}"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox[
+           RowBox[{"{", 
+            RowBox[{"k2", ",", "Dim"}], "}"}],
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox["]",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}]}],
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox[";",
+       FontFamily->"Consolas",
+       FontSize->16]}],
+     FontWeight->"Plain"], "\[IndentingNewLine]", 
+    StyleBox[
+     RowBox[{"MatrixForm", "[", "C2", "]"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"]}]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.6769791667268023`*^9, 3.6769797446003184`*^9}, {
+   3.676979940558849*^9, 3.67697994614925*^9}, {3.751107037238922*^9, 
+   3.751107070455757*^9}, {3.751195356237585*^9, 3.751195359575985*^9}, {
+   3.7511955925449853`*^9, 3.751195610986185*^9}, {3.751195854707385*^9, 
+   3.7511958845833855`*^9}, {3.7511963859613853`*^9, 
+   3.7511963866009855`*^9}, {3.7511964257891855`*^9, 
+   3.7511964918445854`*^9}, {3.751196533170985*^9, 3.751196544995785*^9}, {
+   3.783564901423277*^9, 3.783564909947215*^9}, {3.7837708334347324`*^9, 
+   3.7837709192657423`*^9}, {3.783771235893257*^9, 3.7837712882855625`*^9}, {
+   3.7837713189992285`*^9, 3.7837713491024337`*^9}, {3.783848487841262*^9, 
+   3.783848488414405*^9}, {3.7843683244688015`*^9, 3.7843683641867986`*^9}, {
+   3.784369356076229*^9, 3.784369361651125*^9}, {3.8441606755929174`*^9, 
+   3.8441606786340284`*^9}, {3.898336570868718*^9, 3.898336696790419*^9}, {
+   3.898336727938043*^9, 3.8983368303974667`*^9}, {3.8983368699732175`*^9, 
+   3.898336945667525*^9}, {3.898337117794136*^9, 3.898337123265296*^9}, 
+   3.898337160943543*^9, {3.898337268192905*^9, 3.8983373689199886`*^9}, {
+   3.8983374001934876`*^9, 3.898337496257642*^9}, {3.905329455207425*^9, 
+   3.905329456019709*^9}, {3.922679019950815*^9, 3.9226790358093357`*^9}, {
+   3.922679085460539*^9, 3.92267923756444*^9}, 3.9314178449990296`*^9, {
+   3.931417884944625*^9, 3.931417964966795*^9}, {3.9314180489166193`*^9, 
+   3.9314180505474873`*^9}, {3.9314182997939777`*^9, 3.931418347905941*^9}, {
+   3.931418562145426*^9, 3.9314185845722704`*^9}, {3.931427532182061*^9, 
+   3.9314275473750553`*^9}, {3.9314275860711956`*^9, 3.93142788442272*^9}, {
+   3.9314279243820086`*^9, 3.9314279344549417`*^9}, {3.9314279752467823`*^9, 
+   3.9314280332906284`*^9}, {3.931428253967435*^9, 3.931428255014931*^9}, {
+   3.9315136032800193`*^9, 3.931513671785799*^9}, {3.931513856927418*^9, 
+   3.9315139050773153`*^9}, {3.9315139446323366`*^9, 3.931513963456812*^9}, {
+   3.9315140331966767`*^9, 3.9315140768828907`*^9}, {3.931514109523239*^9, 
+   3.931514109679526*^9}, {3.9315141668749104`*^9, 3.9315143318674216`*^9}, {
+   3.9315143723841033`*^9, 3.931514497502698*^9}, {3.9315145280551167`*^9, 
+   3.9315145409961095`*^9}, {3.9315438984189134`*^9, 
+   3.9315439591335354`*^9}, {3.931544106565361*^9, 3.931544111200227*^9}, {
+   3.931544466249223*^9, 3.9315445048104258`*^9}, {3.931544539102173*^9, 
+   3.9315445704801807`*^9}, {3.9315446005841727`*^9, 3.931544635945902*^9}, {
+   3.931544710277342*^9, 3.9315447319216166`*^9}, {3.931544804705087*^9, 
+   3.931544847920163*^9}, {3.9315449106890955`*^9, 3.9315449120086374`*^9}, {
+   3.9315451153792114`*^9, 3.9315452398023615`*^9}, {3.9315452869751177`*^9, 
+   3.9315453427867985`*^9}, {3.9315453954853244`*^9, 
+   3.9315454768564606`*^9}, {3.931545531077178*^9, 3.9315455440341153`*^9}, {
+   3.9315455794115686`*^9, 3.9315457354509144`*^9}, {3.931546876967266*^9, 
+   3.9315469530520616`*^9}, {3.9318283345180597`*^9, 3.9318283715855694`*^9}, 
+   3.950429891189228*^9},ExpressionUUID->"38fa2065-ef25-4b0b-bac9-\
+99cd2e3df069"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", "2"}], "0", "0"},
+     {"0", 
+      RowBox[{"-", "2"}], "0"},
+     {"0", "0", 
+      RowBox[{"-", "2"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.9314280181816187`*^9, 3.9315144995495586`*^9, {3.931514535588295*^9, 
+   3.9315145419374504`*^9}, 3.9315445077945147`*^9, {3.931544574318533*^9, 
+   3.9315446013184137`*^9}, 3.931544637164365*^9, 3.9315446784403625`*^9, {
+   3.931544711340975*^9, 3.931544727716877*^9}, 
+   3.931544889109825*^9},ExpressionUUID->"67c4d5cd-7eca-4038-865e-\
+7a9ab82ec810"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "2"]}]},
+     {
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], "0", 
+      RowBox[{"-", 
+       FractionBox["1", "2"]}]},
+     {
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], 
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.9314280181816187`*^9, 3.9315144995495586`*^9, {3.931514535588295*^9, 
+   3.9315145419374504`*^9}, 3.9315445077945147`*^9, {3.931544574318533*^9, 
+   3.9315446013184137`*^9}, 3.931544637164365*^9, 3.9315446784403625`*^9, {
+   3.931544711340975*^9, 3.931544727716877*^9}, 
+   3.931544889109825*^9},ExpressionUUID->"12c57ca1-726b-41ad-b646-\
+c0e1355e93f3"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7834583194794083`*^9, 
+  3.7834583195113487`*^9}},ExpressionUUID->"d13c34d7-a253-4e71-bd97-\
+3044318992ce"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.783458322144663*^9, 
+  3.7834583221742887`*^9}},ExpressionUUID->"07f3c68f-5fd1-4cfa-864c-\
+975370d7d6ce"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7834583259697433`*^9, 
+  3.7834583259757485`*^9}},ExpressionUUID->"5cdc7fee-1167-4d76-9ba0-\
+3a9d84632eaf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}],
+   FontFamily->"Times New Roman",
+   FontSize->14,
+   FontWeight->"Plain"], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{"Dim", "=", "3"}], ";"}],
+   FontFamily->"Times New Roman",
+   FontSize->14,
+   FontWeight->"Plain"], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{"LC", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "Dim"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "Dim"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "Dim"}], "}"}]}], "]"}]}],
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox[";",
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox[
+     RowBox[{"(*", "\:7ed3\:6784\:5e38\:6570", "*)"}],
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14], 
+    RowBox[{
+     StyleBox["(*",
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     StyleBox[
+      RowBox[{"\:590dsl", "(", 
+       RowBox[{"2", ",", "C"}], ")"}],
+      FontFamily->"Times New Roman",
+      FontSize->14], "*)"}], 
+    StyleBox["\[IndentingNewLine]",
+     FontFamily->"Times New Roman",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "2", ",", "2"}], "]"}], "]"}], "=", "2"}],
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox[";",
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"LC", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ",", "1", ",", "2"}], "]"}], "]"}], "=", 
+      RowBox[{"-", "2"}]}],
+     FontFamily->"Consolas",
+     FontSize->16], 
+    StyleBox[";",
+     FontFamily->"Consolas",
+     FontSize->16]}],
+   FontWeight->"Plain"], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["LC",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox["[",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      RowBox[{
+       StyleBox["[",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       RowBox[{
+        StyleBox["1",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox[",",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox["3",
+         FontFamily->"Consolas",
+         FontSize->16], 
+        StyleBox[",",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox["3",
+         FontFamily->"Times New Roman",
+         FontSize->14]}], 
+       StyleBox["]",
+        FontFamily->"Times New Roman",
+        FontSize->14]}], 
+      StyleBox["]",
+       FontFamily->"Times New Roman",
+       FontSize->14]}], 
+     StyleBox["=",
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     StyleBox[
+      RowBox[{"-", "2"}],
+      FontFamily->"Times New Roman",
+      FontSize->14]}], 
+    StyleBox[";",
+     FontFamily->"Times New Roman",
+     FontSize->14], 
+    RowBox[{
+     RowBox[{
+      StyleBox["LC",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox["[",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      RowBox[{
+       StyleBox["[",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       RowBox[{
+        StyleBox["3",
+         FontFamily->"Consolas",
+         FontSize->16], 
+        StyleBox[",",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox["1",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox[",",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        StyleBox["3",
+         FontFamily->"Times New Roman",
+         FontSize->14]}], 
+       StyleBox["]",
+        FontFamily->"Times New Roman",
+        FontSize->14]}], 
+      StyleBox["]",
+       FontFamily->"Times New Roman",
+       FontSize->14]}], 
+     StyleBox["=",
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     StyleBox["2",
+      FontFamily->"Times New Roman",
+      FontSize->14]}], 
+    StyleBox[";",
+     FontFamily->"Times New Roman",
+     FontSize->14]}],
+   FontWeight->"Plain"], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       RowBox[{"LC", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "3", ",", "1"}], "]"}], "]"}], "=", "1"}],
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     RowBox[{
+      RowBox[{
+       StyleBox["LC",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       StyleBox["[",
+        FontFamily->"Times New Roman",
+        FontSize->14], 
+       RowBox[{
+        StyleBox["[",
+         FontFamily->"Times New Roman",
+         FontSize->14], 
+        RowBox[{
+         StyleBox["3",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         StyleBox[",",
+          FontFamily->"Times New Roman",
+          FontSize->14], 
+         StyleBox["2",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         StyleBox[",",
+          FontFamily->"Consolas",
+          FontSize->16], 
+         StyleBox["1",
+          FontFamily->"Consolas",
+          FontSize->16]}], 
+        StyleBox["]",
+         FontFamily->"Times New Roman",
+         FontSize->14]}], 
+       StyleBox["]",
+        FontFamily->"Times New Roman",
+        FontSize->14]}], 
+      StyleBox["=",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox[
+       RowBox[{"-", "1"}],
+       FontFamily->"Times New Roman",
+       FontSize->14]}], 
+     StyleBox[";",
+      FontFamily->"Times New Roman",
+      FontSize->14]}],
+    FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"]}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      StyleBox["K",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      StyleBox["F",
+       FontFamily->"Consolas",
+       FontSize->16,
+       FontWeight->"Plain"]}]], 
+    StyleBox["=",
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"LC", "[", 
+           RowBox[{"[", 
+            RowBox[{"\[Alpha]", ",", "k", ",", "j"}], "]"}], "]"}], " ", 
+          RowBox[{"LC", "[", 
+           RowBox[{"[", 
+            RowBox[{"\[Beta]", ",", "j", ",", "k"}], "]"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "Dim"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "Dim"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\[Alpha]", ",", "Dim"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\[Beta]", ",", "Dim"}], "}"}]}], "]"}],
+     FontFamily->"Times New Roman",
+     FontSize->14,
+     FontWeight->"Plain"]}], 
+   StyleBox[";",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox[
+    RowBox[{
+     StyleBox["(*",
+      FontFamily->"Times New Roman",
+      FontSize->14], 
+     RowBox[{
+      StyleBox[
+       StyleBox[
+        RowBox[{"K", 
+         StyleBox["i",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], "llin", 
+         StyleBox["g",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}]],
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox[" ",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox["F",
+       FontFamily->"Consolas",
+       FontSize->16], 
+      StyleBox["or",
+       FontFamily->"Times New Roman",
+       FontSize->14], 
+      StyleBox["m",
+       FontFamily->"Consolas",
+       FontSize->16]}], 
+     StyleBox["*)",
+      FontFamily->"Times New Roman",
+      FontSize->14]}],
+    FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox[
+    RowBox[{"Ki", "=", 
+     RowBox[{"Inverse", "[", "KF", "]"}]}],
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox[";",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"]}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{"MatrixForm", "[", "KF", "]"}],
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]",
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"], 
+   StyleBox[
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"sl", "(", 
+       RowBox[{"2", ",", "C"}], ")"}], "\:57fa\:77e2"}], "*)"}],
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"]}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["lgr",
+       FontWeight->"Plain"], 
+      StyleBox["[",
+       FontWeight->"Bold"], 
+      StyleBox["1",
+       FontWeight->"Bold"], 
+      StyleBox["]",
+       FontWeight->"Bold"]}], 
+     StyleBox["=",
+      FontWeight->"Bold"], 
+     StyleBox[
+      RowBox[{"(", GridBox[{
+         {"1", "0"},
+         {"0", 
+          RowBox[{"-", "1"}]}
+        }], ")"}],
+      FontWeight->"Bold"]}], 
+    StyleBox[";",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"lgr", "[", "2", "]"}], "=", 
+      RowBox[{"(", GridBox[{
+         {"0", "1"},
+         {"0", "0"}
+        }], ")"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[";",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"lgr", "[", "3", "]"}], "=", 
+      RowBox[{"(", GridBox[{
+         {"0", "0"},
+         {"1", "0"}
+        }], ")"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[";",
+     FontWeight->"Bold"]}], "\[IndentingNewLine]", 
+   RowBox[{
+    StyleBox[
+     StyleBox[
+      RowBox[{"(", "*"}]],
+     FontWeight->"Bold"], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"lgr", "[", "1", "]"}], ".", 
+      RowBox[{"lgr", "[", "2", "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"lgr", "[", "2", "]"}], ".", 
+      RowBox[{"lgr", "[", "1", "]"}]}], "-", 
+     RowBox[{"2", 
+      RowBox[{"lgr", "[", "2", "]"}], 
+      StyleBox["\[IndentingNewLine]",
+       FontFamily->"Times New Roman",
+       FontSize->14,
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{"lgr", "[", "1", "]"}], ".", 
+       RowBox[{"lgr", "[", "3", "]"}]}]}], "-", 
+     RowBox[{
+      RowBox[{"lgr", "[", "3", "]"}], ".", 
+      RowBox[{"lgr", "[", "1", "]"}]}], "+", 
+     RowBox[{"2", 
+      RowBox[{"lgr", "[", "3", "]"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"lgr", "[", "2", "]"}], ".", 
+       RowBox[{"lgr", "[", "3", "]"}]}]}], "-", 
+     RowBox[{
+      RowBox[{"lgr", "[", "3", "]"}], ".", 
+      RowBox[{"lgr", "[", "2", "]"}]}], "-", 
+     RowBox[{"lgr", "[", "1", "]"}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{"(*", "Casimir\:7b97\:5b50", "*)"}],
+    FontFamily->"Times New Roman",
+    FontSize->14,
+    FontWeight->"Plain"]}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{"C2", "=", 
+      RowBox[{
+       StyleBox["Sum",
+        FontFamily->"Consolas",
+        FontSize->16,
+        FontWeight->"Plain"], 
+       StyleBox["[",
+        FontFamily->"Consolas",
+        FontSize->16,
+        FontWeight->"Plain"], 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          StyleBox["LC",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox["[",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          RowBox[{
+           StyleBox["[",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{
+            StyleBox["i1",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], 
+            StyleBox[",",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], "j1", 
+            StyleBox[",",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], "j2"}], 
+           StyleBox["]",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"]}], 
+          StyleBox["]",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox[" ",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["LC",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox["[",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          RowBox[{
+           StyleBox["[",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{"i2", 
+            StyleBox[",",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], "j2", ",", "j1"}], 
+           StyleBox["]",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"]}], 
+          StyleBox["]",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox[
+          RowBox[{"Ki", "[", 
+           RowBox[{"[", 
+            RowBox[{"i1", ",", "k1"}], "]"}], "]"}],
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["Ki",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox["[",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          RowBox[{
+           StyleBox["[",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"], 
+           RowBox[{"i2", 
+            StyleBox[",",
+             FontFamily->"Consolas",
+             FontSize->16,
+             FontWeight->"Plain"], "k2"}], 
+           StyleBox["]",
+            FontFamily->"Consolas",
+            FontSize->16,
+            FontWeight->"Plain"]}], 
+          StyleBox["]",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         RowBox[{
+          StyleBox["lgr",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], "[", "k1", "]"}], 
+         RowBox[{"lgr", "[", "k2", "]"}]}], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"i1", ",", "Dim"}], "}"}],
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox["{",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"], 
+         RowBox[{"i2", 
+          StyleBox[",",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"], 
+          StyleBox["Dim",
+           FontFamily->"Consolas",
+           FontSize->16,
+           FontWeight->"Plain"]}], 
+         StyleBox["}",
+          FontFamily->"Consolas",
+          FontSize->16,
+          FontWeight->"Plain"]}], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"j1", ",", "Dim"}], "}"}],
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"j2", ",", "Dim"}], "}"}],
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"k1", ",", "Dim"}], "}"}],
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[",",
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"k2", ",", "Dim"}], "}"}],
+         FontFamily->"Consolas",
+         FontSize->16,
+         FontWeight->"Plain"]}], 
+       StyleBox["]",
+        FontFamily->"Consolas",
+        FontSize->16,
+        FontWeight->"Plain"]}]}],
+     FontFamily->"Times New Roman",
+     FontSize->14], 
+    StyleBox[";",
+     FontFamily->"Consolas",
+     FontSize->16]}],
+   FontWeight->"Plain"], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  StyleBox[
+   RowBox[{"MatrixForm", "[", "C2", "]"}],
+   FontFamily->"Times New Roman",
+   FontSize->14,
+   FontWeight->"Plain"], TraditionalForm]}], "Input",
+ CellChangeTimes->{{3.93182839029873*^9, 3.9318284552142825`*^9}, {
+  3.9318285076256437`*^9, 3.9318286034972363`*^9}, {3.9318286359220667`*^9, 
+  3.931828636911237*^9}, {3.9318295478471117`*^9, 3.9318296213422804`*^9}, {
+  3.9318296573502707`*^9, 
+  3.9318296606590567`*^9}},ExpressionUUID->"3ab18efd-e892-4e7d-8c06-\
+79306a2b5374"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"8", "0", "0"},
+     {"0", "0", "4"},
+     {"0", "4", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.931828618921381*^9, 3.9318286385485554`*^9}, {
+   3.93182961469158*^9, 3.9318296219823112`*^9}, 
+   3.9318296644503574`*^9},ExpressionUUID->"df3cf5a4-4a9e-4879-90aa-\
+6368b8a39470"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox["1", "8"], "0"},
+     {"0", 
+      FractionBox["1", "8"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.931828618921381*^9, 3.9318286385485554`*^9}, {
+   3.93182961469158*^9, 3.9318296219823112`*^9}, 
+   3.9318296644503574`*^9},ExpressionUUID->"919dd43e-e3b1-431b-8bf8-\
+08f39c66e230"]
+}, Open  ]]
+},
+WindowSize->{1920, 994},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification->1.5,
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (March 13, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 12580, 441, 313, "Input", "ExpressionUUID" -> \
+"7357577e-7715-42cc-ad30-a2e3ffc8123b"],
+Cell[13162, 465, 779, 22, 101, "Output", "ExpressionUUID" -> \
+"6dec78f6-df38-495b-8245-28211be620fe"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13978, 492, 31130, 966, 895, "Input", "ExpressionUUID" -> \
+"38fa2065-ef25-4b0b-bac9-99cd2e3df069"],
+Cell[45111, 1460, 1061, 28, 95, "Output", "ExpressionUUID" -> \
+"67c4d5cd-7eca-4038-865e-7a9ab82ec810"],
+Cell[46175, 1490, 1283, 37, 128, "Output", "ExpressionUUID" -> \
+"12c57ca1-726b-41ad-b646-c0e1355e93f3"]
+}, Open  ]],
+Cell[47473, 1530, 156, 3, 46, "Input", "ExpressionUUID" -> \
+"d13c34d7-a253-4e71-bd97-3044318992ce"],
+Cell[47632, 1535, 154, 3, 46, "Input", "ExpressionUUID" -> \
+"07f3c68f-5fd1-4cfa-864c-975370d7d6ce"],
+Cell[47789, 1540, 156, 3, 46, "Input", "ExpressionUUID" -> \
+"5cdc7fee-1167-4d76-9ba0-3a9d84632eaf"],
+Cell[CellGroupData[{
+Cell[47970, 1547, 18115, 645, 682, "Input", "ExpressionUUID" -> \
+"3ab18efd-e892-4e7d-8c06-79306a2b5374"],
+Cell[66088, 2194, 821, 22, 95, "Output", "ExpressionUUID" -> \
+"df3cf5a4-4a9e-4879-90aa-6368b8a39470"],
+Cell[66912, 2218, 839, 23, 91, "Output", "ExpressionUUID" -> \
+"919dd43e-e3b1-431b-8bf8-08f39c66e230"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,141 @@
+% !Mode:: "TeX:UTF-8"
+% 此文件从2018.11.10开始写作
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{3}     %%设置在 目录 的显示的章节深度
+\setcounter{secnumdepth}{3}  %%设置章节的编号深度
+\allowdisplaybreaks[4]  %%允许公式跨页，即可跨4页
+
+
+% 设置水印内容
+%\SetWatermarkLightness{0.97}
+%\SetWatermarkText{27257957}
+
+%% 
+%\newcommand{\dbar} {\mathrm{d}\kern{-4.3pt}\bar{\small\phantom{q}}\kern{-0.7pt}}
+%\newcommand{\bbar} {\mathrm{b}\kern{-4.3pt}\bar{\small\phantom{q}}\kern{-0.7pt}}
+
+% 定义小号圆圈
+%\newcommand{\circo}{~\raisebox{1pt}{\tikz \draw[line width=0.5pt] circle(1.0pt);}~}
+% 定义 overset 后牛顿中的Gamma
+\newcommand{\oversetmy}[2]{\overset{\mathclap{\scriptscriptstyle #1}}{#2}\vphantom{#2}}
+
+% 定义 (p,q) 型张量
+\newcommand{\Tpq}[2]{\binom{#1}{#2}}
+
+%% A Lie derivative % 定义Lie导数
+\renewcommand*{\mathsterling}{%
+    \text{%
+        \fontencoding{T1}%
+        \fontfamily{lmss}%
+        \fontshape{it}%
+        \selectfont
+        \pounds
+    }%
+}
+\newcommand{\Lie}{\pounds} 
+
+
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection-\arabic{equation}}  %将公式中的 . 换成 -
+
+%\newcommand{\rqed}{\hfill $\blacksquare$}
+\renewcommand{\qed}{\hfill $\blacksquare$}
+
+%定义版面
+%\geometry{top=2.5cm, bottom=2.5cm,left=3cm,right=3cm}
+
+%定义超链接
+\hypersetup{colorlinks,bookmarksnumbered=true,%bookmarks=true,
+            pdfstartview=FitH,linkcolor=black,anchorcolor=black,%
+            citecolor=black}
+
+%\theoremstyle{definition}
+%\theoremstyle{plain}
+%\theoremstyle{remark}
+
+
+\newtheoremstyle{mystyle} % name
+{3pt} % Space above, empty = `usual value'
+{3pt} % Space below
+{\fangsong } % Body font
+{0pt} % Indent amount(empty = no indent, \parindent = para indent)
+{\bfseries } % Theorem head font
+{\ } % Punctuation after theorem head
+{0.2em } % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning 'normal' )
+\theoremstyle{mystyle}
+
+\renewcommand{\proofname}{\heiti{证明} }
+
+\newcounter{countthm} [chapter]
+\renewcommand{\thecountthm}{\thechapter.\arabic{countthm}}
+\newtheorem{axiom} [countthm] {公理}
+\newtheorem{corollary}[countthm]{推论}
+\newtheorem{lemma}[countthm]{引理} 
+\newtheorem{proposition}[countthm]{命题}
+\newtheorem{theorem}[countthm]{定理}
+\newtheorem{remark}[countthm]{注}
+\newtheorem{definition}[countthm]{定义}
+\newtheorem{example} [countthm] {\rm \noindent \bfseries 例 }
+
+
+% 定义习题、问题、解答、例题编号
+\newcounter{countEX}[chapter]
+\renewcommand{\thecountEX}{\thechapter-\arabic{countEX}}
+\newtheorem{exercise} [countEX]  {\rm \noindent \bfseries 练习 }
+
+
+
+%定义公式新环境
+%\newcounter{myeq}
+%\newenvironment{myeq}[0]
+%{\refstepcounter{myeq}\equation}
+%{\tag{\themyeq}\endequation}
+
+%定义选读环境
+%\newcounter{myxdnum}[chapter]
+%\newenvironment{myxd}[0]
+%{ %新环境定义开始
+%	\stepcounter{myxdnum}
+%    \vspace{5mm}
+%	\leftline{{\rule{5ex}{1.7ex}} 
+%		\heiti{[选读 \thechapter-\arabic{myxdnum}]}
+%		{\rule{40ex}{1.7ex}}
+%	}
+%	\kaishu
+%}
+%{ %新环境定义结束
+%    \par  %换行
+%	\rightline {
+%		\rule{30ex}{1.7ex}
+%		\heiti{[选读\thechapter-\arabic{myxdnum}结束]}
+%		\rule{10ex}{1.7ex}
+%       \vspace{5mm}
+%	}
+%}
+
+
+
+
+
+%%
+%%索引
+%\makeatletter
+%%%define index items layout
+%\def\@idxitem{\par\addvspace{7\p@ \@plus 3\p@ \@minus 3\p@}\hangindent 17\p@}
+%%%define index subitems layout
+%\def\subitem{\par\hangindent 0\p@ \hspace*{0\p@}}
+%%%define index subsubitems layout
+%\def\subsubitem{\par\hangindent 0\p@ \hspace*{0\p@}}
+%%%define vspace above lettergroup name
+%\def\indexspace{\par\addvspace{12\p@ \@plus 2\p@ \@minus 2\p@}} 
+%\patchcmd\theindex{\indexname}{\indexname\vspace{5pt}}{}{}
+%\makeatother
+
+
+
+
+    
+\endinput 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
