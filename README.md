@@ -1,6 +1,6 @@
 这是我的读书笔记。
 
-GR.zip中包含Latex源文件、图、Mathematica代码。
+GR目录包含Latex源文件、图、Mathematica代码。
 
 请遵守开源协议（虽然我不晓得协议内容）。
 
