@@ -739,923 +739,923 @@ $\mathfrak{g}^{\alpha \beta}_{,\gamma}\equiv \partial_\gamma \mathfrak{g}^{\alph
 
 
 
-\section{引力辐射}
-
-对于“反迹”方程\eqref{chle:eqn_Einstein-1bar}（$\square_{x} \bar{h}_{\mu\nu} = -16 \pi T_{\mu\nu}$）来说，
-我们可以把能动张量当作产生波的源；此时，我们可以利用格林函数方法来求解
-（不熟悉格林函数的读者请参阅数学物理方法书籍或类似文献）：
-\begin{equation*}
-	\square_x G\left(x-y\right)=\delta^4\left(x-y\right); \qquad
-	\square_x \equiv \frac{\partial}{\partial x^\mu}\frac{\partial}{\partial x_\mu} .
-\end{equation*}
-其中$x$、$y$代表四维时空的坐标；$G\left(x-y\right)$是格林函数．
-我们关心的是引力源在过去产生的引力波传播到探测器的物理过程，
-因此应该使用{\kaishu 延迟格林函数}：
-\begin{equation*}
-	G(x-y)=-\frac{1}{4 \pi |\boldsymbol{x}-\boldsymbol{y}|} \delta\left[|\boldsymbol{x}-\boldsymbol{y}|
-	-(x^0-y^0)\right] \theta(x^0-y^0).
-\end{equation*}
-上式中$\theta\left(x^0-y^0\right)$ 是一个阶梯函数：
-\begin{equation*}
-	\theta\left(x^0-y^0\right)= \begin{cases}1, & x^0>y^0, \\ 0, & x^0<y^0,\end{cases}
-\end{equation*}
-我们关心一个天体（比如太阳）在离它很远的地方（比如地球）所产生的引力场，
-此时边界条件在无穷远处（或者认为无论边界条件是什么都不影响地球处的引力场），
-故可用格林函数法求解上述方程．线性化爱氏场方程的一般解为
-\begin{equation}\label{chle:eqn_LE-radiation}
-	\bar{h}_{\mu \nu} (x)=-16 \pi \int G(x-y) T_{\mu \nu}(y) \mathrm{d}^4 y
-	= \int \frac{4\, T_{\mu \nu}\left(t_{\mathrm{r}}, \boldsymbol{y}\right)}
-	{|\boldsymbol{x}-\boldsymbol{y}|} \mathrm{d}^3 y.
-\end{equation}
-其中$t_{\mathrm{r}}\equiv x^0-|\boldsymbol{x}-\boldsymbol{y}|$．
-这个解的物理意义是：在 $(x^0, \boldsymbol{x})$处（比如地球）的引力场来自于在过去光锥中
-$\left(t_{\mathrm{r}}, \boldsymbol{x}-\boldsymbol{y}\right)$处（比如太阳）能动张量源产生的影响．
-需要强调：在无迹规范中（$h=0$），有$\bar{h}_{\mu \nu}={h}_{\mu \nu}$。
-
-我们已假设场点$\boldsymbol{x}$（比如地球）位于远离物质系统的辐射区域（比如太阳）；
-这意味着可以把式\eqref{chle:eqn_LE-radiation}中积分的分母$\left|\boldsymbol{x}-\boldsymbol{y}\right|$用$|\boldsymbol{x}|$来代替．
-我们进一步假设$T_{\mu \nu}$随时间变化并不很快，其含义大致如下：设引力波$h_{\mu\nu}$的频率为$\omega$，对应引力波波长是$\lambda$，
-且有$\lambda \omega =c$（$c$是光速），辐射区尺度（比如太阳）约为$b$；
-那么$T_{\mu \nu}$“慢”变化的条件可以表示为$\omega b \ll c \ \Leftrightarrow \  b \ll \lambda $。
-%对于在辐射区域的$\boldsymbol{y}$，该条件可以表示为 $|\boldsymbol{x}| \gg \lambda$ ．
-在$T_{\mu \nu}$“慢”变近似下用$x^0-|\boldsymbol{x}|$来代替式\eqref{chle:eqn_LE-radiation}积分
-分子中的$x^0-\left|\boldsymbol{x}-\boldsymbol{y}\right|$是一个很好的近似．进而，我们得到
-\begin{equation}\label{chle:eqn_LE-radiation-approx}
-	\bar{h}_{\mu \nu}(x^0, \boldsymbol{x}) 	= \frac{4}{|\boldsymbol{x}|} \int T_{\mu \nu} 
-	\left(x^0-|\boldsymbol{x}|, \boldsymbol{y}\right) \mathrm{d}^{3} y .
-\end{equation}
-
-
-在线性近似下，我们知道$T^{\mu \nu}$ 满足如下方程：
-\begin{equation}
-	\partial_{\nu} T^{\mu \nu}=0 .
-\end{equation}
-让我们把上式分开成空间和时间的分量：
-\begin{align}
-	\frac{\partial}{\partial y^0} T^{k0}=& -\frac{\partial}{\partial y^i} T^{ki}, \label{chle:eqn_ptTk0} \\
-	\frac{\partial}{\partial y^0} T^{00}=& -\frac{\partial}{\partial y^i} T^{0i}. \label{chle:eqn_ptT00}
-\end{align}
-由于式\eqref{chle:eqn_ptTk0}，我们有下面的恒等式：
-\begin{equation}\label{chle:eqn_tmpkl1}
-	\int T^{k l} \mathrm{d}^{3} y=\frac{1}{2} \frac{\partial}{\partial y^0} 
-	\int\left(T^{k 0} y^{l}+T^{l0} y^{k}\right) \mathrm{d}^{3} y .
-\end{equation}
-上式三维积分范畴包含全部物质系统（比如包含整个太阳）．证明也不难，
-\setlength{\mathindent}{0em}
-\begin{align*}
-	&\frac{1}{2} \frac{\partial}{\partial y^0} \int\left(T^{k0} y^{l}+T^{l0} y^{k}\right) \mathrm{d}^{3} y
-	=\frac{1}{2} \int\left(\frac{\partial T^{k0}}{\partial y^0} y^{l} + T^{k0} \frac{\partial y^{l}}{\partial y^0}
-	+\frac{\partial T^{l0}}{\partial y^0} y^{k}+ T^{l0} \frac{\partial y^{k}}{\partial y^0}\right) \mathrm{d}^{3} y \\
-	&\xlongequal[\dot{y}^k = 0]{\ref{chle:eqn_ptTk0}}
-	\frac{1}{2} \int\left(-(\partial_{i} T^{ki}) y^{l} -(\partial_{i} T^{li}) y^{k}\right) \mathrm{d}^{3} y
-	%=\frac{1}{2} \int\left(-\partial_{i} (T^{ki} y^{l}) +T^{ki} \partial_{i} y^l
-	%-\partial_{i} (T^{li} y^{k}) +T^{li} \partial_{i} y^k \right) \mathrm{d}^{3} x \\
-	\xlongequal[\text{舍弃边界项}]{\text{分部积分}} 
-	%\frac{1}{2} \int\left(T^{ki} \delta_{i}^l +T^{li} \delta_{i}^k \right) \mathrm{d}^{3} y =
-	\int T^{k l} \mathrm{d}^{3} y .
-\end{align*}\setlength{\mathindent}{2em}
-类似地，作为式\eqref{chle:eqn_ptT00}的一个结果（证明留给读者当练习），有
-\begin{equation}\label{chle:eqn_tmpkl2}
-	\int\left(T^{k 0} y^{l}+T^{l 0} y^{k}\right) \mathrm{d}^{3} y
-	=\frac{\partial}{\partial y^0} \int T^{00} y^{k} y^{l} \mathrm{d}^{3} y.
-\end{equation}
-如果把式\eqref{chle:eqn_tmpkl1}、\eqref{chle:eqn_tmpkl2}结合在一起，易得
-\begin{equation}\label{chle:eqn_TklT00}
-	\int T^{k l} \mathrm{d}^{3} y=\frac{1}{2} \frac{\partial^{2}}{\partial y^{0}\partial y^{0}} 
-	\int T^{00} y^{k} y^{l} \mathrm{d}^{3} y .
-\end{equation}
-在接受引力波地点远离辐射源区和辐射源慢变假设下，式\eqref{chle:eqn_LE-radiation-approx}的积分中，大部分可以用$T_{00}$项来表示．
-物理上来看，$T_{kl}$是动量流密度，$T_{k0}$是能量流密度，$T_{00}$是能量密度，$T_{\mu 0}$是四动量密度；
-当$T_{k l}$不为零时，动量密度必定在体积的某个地方积累起来，即$T_{k0}$必定变化；
-进而，能量密度$T_{00}$必定在体积的某个地方积累起来．最终体现在数学公式\eqref{chle:eqn_TklT00}上。
-
-
-对于非相对论性物质，可以作近似
-\begin{equation}
-	T_{00}=[\text { 能量密度 }] \simeq[\text { 静质量密度 }]=\rho .
-\end{equation}
-且得到
-\begin{equation}
-	\bar{h}_{kl}(t, x)= \left[\frac{4}{|\boldsymbol{x}|} \frac{\partial^{2}}{\partial t^{2}} 
-	\int \rho\left(\boldsymbol{y}\right) y^{k} y^{l} \mathrm{d}^{3} y^{}\right]_{t-r} .
-\end{equation}
-这一积分也可以用四极矩张量
-\begin{equation}
-	Q_{kl}=\int\left(3 y_{k} y_{l}-r^{2} \delta_{kl} \right) \rho(y) \mathrm{d}^{3} y .
-\end{equation}
-来表示，由此得
-\begin{equation}\label{chle:eqn_h-Q}
-	\bar{h}_{kl}(t, \boldsymbol{x})= \frac{4}{|\boldsymbol{x}|} \frac{1}{3}
-	\left[\frac{\partial^{2}}{\partial t^{2}} Q_{kl}+\delta_{kl} \frac{\partial^{2}}{\partial t^{2}} 
-	\int r^{2} \rho(\boldsymbol{y}) \mathrm{d}^{3} y\right]_{t-r} .
-\end{equation}
-为了计算能量流，我们可以省略正比于式\eqref{chle:eqn_h-Q}括号中的 $\delta_{kl}$ 的项，
-因为波的这一部分不带走能量．为看到这一点，注意只要距离 $r$ 足够大，
-$\bar{h}_{kl}$在充分近似的情况下可以看成是点$\boldsymbol{x}$附近的平面波．
-在TT规范下，仅有的携带能量的平面波极化是式\eqref{chle:eqn_tLL-plane-e0}给出的；
-显然，$\delta_{kl}$不是这种类型的极化．若略去$\delta_{kl}$项，则
-\begin{equation*}
-	\bar{h}_{kl}(t, \boldsymbol{x})= \frac{4}{|\boldsymbol{x}|} \frac{1}{3} \ddot{Q}_{kl} .
-\end{equation*}
-其中圆点表示时间导数，而且等号右边的计算应理解为对于推迟了的时间$t-r$进行．
-
-我们使用式\eqref{chlh:eqn_t-stress-metric}来计算径向方向的能量流。
-\begin{equation}
-	\begin{aligned}
-		(-g)t_{LL}^{0s} =& \frac{1}{16\pi} \Big[
-		\underbrace{\mathfrak{g}^{0 s}_{,\alpha}\mathfrak{g}^{\alpha \beta}_{,\beta} }_{\tiny \textcircled{1}}
-		\underbrace{- \mathfrak{g}^{0 \alpha}_{,\alpha}\mathfrak{g}^{s \beta}_{,\beta} }_{\tiny \textcircled{2}}
-		\underbrace{+\frac{1}{2}g^{0 s}g_{\alpha \beta}\mathfrak{g}^{\alpha \sigma}_{,\rho} 
-			\mathfrak{g}^{\rho \beta}_{,\sigma}}_{\tiny \textcircled{3}} \\
-		&\underbrace{-(g^{0 \alpha}g_{\beta \sigma}\mathfrak{g}^{s \sigma}_{,\rho}
-			\mathfrak{g}^{\beta \rho}_{,\alpha}+g^{s \alpha}g_{\beta \sigma}
-			\mathfrak{g}^{0 \sigma}_{,\rho}\mathfrak{g}^{\beta \rho}_{,\alpha})}_{\tiny \textcircled{4}} 
-		+ \underbrace{g_{\alpha \beta}g^{\sigma \rho}\mathfrak{g}^{0 \alpha}_{,\sigma}
-			\mathfrak{g}^{s \beta}_{,\rho}}_{\tiny \textcircled{5}} \\
-		&+\underbrace{\frac{1}{8}(2g^{0 \alpha}g^{s \beta}-g^{0 s}g^{\alpha \beta})
-			(2g_{\sigma \rho}g_{\lambda \omega}-g_{\rho \lambda}g_{\sigma \omega})
-			\mathfrak{g}^{\sigma \omega}_{,\alpha}\mathfrak{g}^{\rho \lambda}_{,\beta}}_{\tiny \textcircled{6}}  \Big] .
-	\end{aligned} \tag{\ref{chlh:eqn_t-stress-metric}}
-\end{equation}
-其中 $n^{s}=\left(n_{x}, n_{y}, n_{z}\right)=(x / r, y / r, z / r)$ 是径向的单位矢量．
-把 $\phi^{\alpha \beta}$ 分成空间部分和时间部分，
-\begin{align*}
-	\sum_{s=1}^{3}t_{LL}^{0 s}n^s = &
-\end{align*}
-
-\begin{align*}
-	t_{(1)}{ }^{0 s} n^{s}= & \frac{n^{s}}{4}\left(2 \phi^{k l, 0} \phi^{k l, s}-4 \phi^{k 0,0} \phi^{k 0, s}+2 \phi^{00,0} \phi^{00, s}-\phi^{k k, 0} \phi^{u, s}\right. \\
-	& \left.+\phi^{k k, 0} \phi^{00, s}+\phi^{00,0} \phi^{k k, s}-\phi^{00,0} \phi^{00, s}\right) \tag{5.60}
-\end{align*}
-
-
-按照式（5．58）和式（5．56），这里我们已经考虑到
-
-$$
-\phi^{k k} \propto \ddot{Q}^{k k}=0
-$$
-
-在计算 $\phi_{\alpha \beta, s}$ 时，我们可以忽略式（5．57）中出现的因子 $1 / r$ 的导数，因为已经假设了 $r$ 非常大＊．其他与 $r$ 有关的地方只是推迟的时间 $t-r$ ；这意味着 $r$ 和 $t$ 仅仅以结合的形式 $t-r$ 出现，并且因此有
-
-
-\begin{equation*}
-	\phi_{, s}^{a \beta}=-\phi^{\alpha \beta}, 0 \frac{\partial r}{\partial x^{s}}=-\phi_{, 0}^{a \beta} n^{s} \tag{5.61}
-\end{equation*}
-
-
-\footnotetext{＊只要 $r \gg \lambda$ ，其中 $\lambda$ 是辐射的波长，这一近似就成立．
-}相应地，式（5．60）括号中第一项中出现的导数可以写为
-
-
-\begin{equation*}
-	\phi^{k l, s}=\phi^{k l, 0} n^{s} \tag{5.62}
-\end{equation*}
-
-
-由熟悉的规范条件
-
-
-\begin{equation*}
-	\phi_{0}^{\mu}{ }_{0}^{0}=-\phi_{, l}^{\mu l} \tag{5.63}
-\end{equation*}
-
-
-开始，我们可以得到式（5．60）中其他项的方便表述．这给出
-
-
-\begin{equation*}
-	\phi_{0}^{k 0}=-\phi_{, l}^{k l}=\phi_{0}^{k l} n^{l}=\phi^{k l, 0} n^{l} \tag{5.64}
-\end{equation*}
-
-
-以及
-
-
-\begin{equation*}
-	\phi^{00,0}=-\phi_{, l}^{0 l}=\phi^{0 l}{ }_{0} n^{l}=\phi^{k l, 0} n^{k} n^{l} \tag{5.65}
-\end{equation*}
-
-
-把式（5．62），式（5．64）和式（5．65）代人式（5．60），得到
-
-
-\begin{equation*}
-	t_{(1)}{ }^{0 s} n^{s}=\frac{n^{s}}{4}\left(2 \phi^{k, 0} \phi^{k, 0} n^{s}-4 \phi^{k l, 0} n^{t} \phi^{k n, 0} n^{m} n^{s}+\phi^{k l 0} n^{k} n^{l} \phi^{m r, 0} n^{m} n^{r} n^{s}\right) \tag{5.66}
-\end{equation*}
-
-
-如果利用 $n^{s} n_{s}=1$ 以及式（5．58），这变成
-
-
-\begin{align*}
-	t_{(1)}{ }^{0 s} n^{s} & =\frac{1}{4}\left(2 \phi^{k l, 0} \phi^{k l, 0}-4 \phi^{k l, 0} \phi^{k m, 0} n^{l} n^{m}+\phi^{k l, 0} \phi^{n r, 0} n^{k} n^{l} n^{m} n^{r}\right) \\
-	& =\frac{1}{9}\left(\frac{\kappa}{8 \pi r}\right)^{2}\left(\frac{1}{2} \dddot{Q}^{k l} \dddot{Q^{k l}}-\dddot{Q}^{k l} \dddot{Q^{k m}} n^{l} n^{m}+\frac{1}{4} \dddot{Q}^{k l} \dddot{Q}^{m r} n^{k} n^{l} n^{m} n^{r}\right) \tag{5.67}
-\end{align*}
-
-
-该系统在单位时间，沿 $n^{s}$ 方向的单位立体角辐射的能量是
-
-
-\begin{equation*}
-	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \Omega}=r^{2} t_{(\mathrm{i})}^{0 \mathrm{~s}} n^{s} \tag{5.68}
-\end{equation*}
-
-
-显然，这一角分布是非常复杂的；但总的辐射功率可以由式（5．68）对所有的立体角积分而得到，最后的表示式变得相当简单．我们有
-
-
-\begin{align*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}= & \int r^{2} t_{(1)}^{\theta_{\mathrm{s}}} n^{s} \mathrm{~d} \Omega \\
-	= & \frac{1}{9}\left(\frac{\kappa}{8 \pi}\right)^{2}\left(\frac{1}{2} \dddot{Q}^{k l} \dddot{Q^{k}} \int \mathrm{~d} \Omega-\dddot{Q}^{k l} \dddot{Q}^{k n} \int n^{l} n^{m} \mathrm{~d} \Omega\right. \\
-	& \left.+\frac{1}{4} \dddot{Q}^{k l} \dddot{Q^{m r}} \int n^{k} n^{l} n^{m} n^{r} \mathrm{~d} \Omega\right) \tag{5.69}
-\end{align*}
-
-
-$n^{l} n^{m}$ 和 $n^{k} n^{l} n^{m} n^{r}$ 对一个球面的平均值分别是
-
-
-\begin{gather*}
-	\frac{1}{4 \pi} \int n^{l} n^{m} \mathrm{~d} \Omega=\frac{1}{3} \delta_{l}^{m}  \tag{5.70}\\
-	\frac{1}{4 \pi} \int n^{k} n^{l} n^{m} n^{r} \mathrm{~d} \Omega=\frac{1}{15}\left(\delta_{k}^{2} \delta_{m}^{r}+\delta_{k}^{m} \delta_{l}^{r}+\delta_{k}^{r} \delta_{l}^{m}\right) \tag{5.71}
-\end{gather*}
-
-
-■练习11 验证这一结果．（提示：除非式（5．70）和式（5．71）中出现的指数成对地相同，积分将为零，因为被积函数是奇函数．这表明这些方程的左右两边必须成正比；确定该比例常数．）
-
-把式（5．70）和式（5．71）代入式（5．69），我们得到
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{4 \pi}{45}\left(\frac{\kappa}{8 \pi}\right)^{2} \dddot{Q}^{k l} \dddot{Q}^{k l} \tag{5.72}
-\end{equation*}
-
-
-■ 练习 12 验证这一结果．\\
-如果代人 $\kappa^{2}=16 \pi G$ 并回到 cgs 单位制，我们得到辐射功率
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{G}{45 c^{5}} \dddot{Q}^{k l} \dddot{Q}^{k l} \tag{5.73}
-\end{equation*}
-
-
-在1．3节中我们看到，坐标原点的移动会使四极矩改变一个附加常数（见式 （1．28））．因为辐射的发射只涉及 $Q^{k l}$ 的含时部分，因而原点的改变不影响我们的结果；我们可以选择任何方便的点作为原点．
-
-以上计算的辐射常被称为四极辐射．因为我们所有的结果都包含四极矩张量，故这个名称是一个非常好的名称．然而应当记住，如果我们在电磁情况下也做上述引力情况下的同样近似，将会得到电磁偶极辐射．与引力＂四极＂辐射相类比的是电磁偶极辐射——这些类型的辐射对应于在场方程的推迟解（式（5．47）以及电磁学的相应方程）中，我们可以做的最低阶近似．
-
-\section{振动四极子的发射}
-按照式（5．73），任何具有含时的四极矩以及 $\dddot{Q}^{k l} \neq 0$ 的质量系统都将辐射引力波．我们可以把引力波的源分类为周期源和爆发源．前者具有周期变化的四极矩；它们发射简谐波．后者的四极矩在一个短的时间里发生非周期变化；它们辐射爆发式的，或脉冲式的引力波．例如，振动的质量和转动的质量是周期性的源；而与另一个质量碰撞，经受短暂而急剧加速度的质量是一个爆发源．
-
-最简单的周期性引力波源由两个相同的质量组成，它们之间用一弹簧连接（见图5．8）．这一理想系统叫做线性四极子．我们将把这两个质量当作粒子处理，但是如果它们是球形的，结果也会同样好（对于球状质量系统，其四极矩与粒子系统的四极矩相同）．理想线性四极子主要是出于理论上的兴趣．虽然这样一个线性四极子容易在实验室里建造，但引力辐射的总量对于实验室大小的质量来说是微不足道的．没有任何天体物理引力辐射源是线性四极子形状的．但是以一种拉长振动模式振动的星，会呈现振动线性四极子的某些普遍特性，因而如果我们运用线性四极子的简单公式，还是可以对这样的星发出的引力辐射作出一些粗略的估计． ■ 练习13 证明一个由球形质量组成的系统的四极矩，与由位于球体中心的质点组成的相应系统的四极矩相等．
-
-如图5．8所示，质量沿 $z$ 轴运动；它们的位置分别是
-
-
-\begin{equation*}
-	z= \pm(b+a \sin \omega t) \tag{5.74}
-\end{equation*}
-
-
-
-\[
-Q(0)^{k l}=\left(\begin{array}{ccc}
-	-2 m b^{2} & 0 & 0  \tag{5.77}\\
-	0 & -2 m b^{2} & 0 \\
-	0 & 0 & 4 m b^{2}
-\end{array}\right)
-\]
-
-是静态四极矩．\\
-练习14 推导式（5．76）．\\
-■ 练习15 证明辐射的引力场是
-
-
-\begin{equation*}
-	\phi^{k l}=\frac{\kappa}{8 \pi r} \frac{2 a}{3 b} \omega^{2} \sin \omega(t-r) Q(0)^{k l} \tag{5.78}
-\end{equation*}
-
-
-式（5．68）给出的辐射角分布是
-
-$$
-\begin{gathered}
-	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \Omega}=\frac{1}{9}\left(\frac{\kappa}{8 \pi}\right)^{2}\left[\frac{1}{2}\left(\dddot{Q^{11}}\right)^{2}+\frac{1}{2}\left(\dddot{Q^{22}}\right)^{2}+\frac{1}{2}\left(\dddot{Q}^{33}\right)^{2}\right. \\
-	\left.-\left(\dddot{Q}^{11} n^{1}\right)^{2}-\left(\dddot{Q}^{22} n^{2}\right)^{2}-\left(\dddot{Q^{33}} n^{3}\right)^{2}+\frac{1}{4}\left(\dddot{Q^{11}} n^{1} n^{1}+\dddot{Q}^{22} n^{2} n^{2}+\dddot{Q}^{33} n^{3} n^{3}\right)^{2}\right]
-\end{gathered}
-$$
-
-利用图5．9中定义的通常的极角，我们有
-
-
-\begin{gather*}
-	n^{1}=n_{x}=\sin \theta \cos \phi  \tag{5.80}\\
-	n^{2}=n_{y}=\sin \theta \sin \phi  \tag{5.81}\\
-	n^{3}=n_{z}=\cos \theta \tag{5.82}
-\end{gather*}
-
-
-式（5．79）化为
-
-
-\begin{equation*}
-	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \omega}=\left(\frac{\kappa}{8 \pi}\right)^{2}\left[2 m a b \omega^{3} \cos \omega(t-r)\right]^{2} \sin ^{4} \theta \tag{5.83}
-\end{equation*}
-
-
-
-图5．9 引力波辐射的角方向
-
-练习16 由式（5．79）推出式（5．83）．\\
-图5．10表示辐射的图样．注意这一辐射图样与电磁四极子的图样完全没有相似之处；在后者的情况下，至少在三个垂直方向（及其相反方向）上能量流为零．如果说有一点类似的话，图5．10只能使我们隐约回忆起电磁偶极辐射的图样．\\
-
-
-图5．10 一个四极子沿 $z$ 轴振动发出的引力波辐射的辐射图样这是函数 $\sin ^{4} \theta$ 的极坐标图．从原点到曲线上一点的距离正比于该方向上的辐射流量．这一图样关于 $z$ 轴是柱对称的
-
-总的辐射功率是
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{G}{45 c^{5}} \dddot{Q}^{k} \dddot{Q^{k}}=\frac{32 G}{15 c^{5}}\left[m a b \omega^{3} \cos \omega(t-r)\right]^{2} \tag{5.84}
-\end{equation*}
-
-
-其时间平均值是
-
-
-\begin{equation*}
-	-\frac{\overline{\mathrm{d} E}}{\mathrm{~d} t}=\frac{16 G}{15 c^{5}}(m a b)^{2} \omega^{6} \tag{5.85}
-\end{equation*}
-
-
-我们定义振子的阻尼率为能量损失率与能量之比
-
-
-\begin{equation*}
-	\gamma_{\mathrm{rad}} \equiv-\frac{1}{E} \frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t} \tag{5.86}
-\end{equation*}
-
-
-因为每一质量的能量是 $\frac{1}{2} m \omega^{2} a^{2}$ ，我们得到
-
-
-\begin{equation*}
-	\gamma_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} m b^{2} \omega^{4} \tag{5.87}
-\end{equation*}
-
-
-量 $1 / \gamma_{\mathrm{rad}}$ 称为阻尼时间；这是振子损失其 $1 / \mathrm{e}$ 的能量以产生辐射的时间．\\
-虽然我们推导出的式（5．85）是针对一个由弹簧连接的两个质点或两个球体组成的系统，但它对任何弹性体振动所辐射的引力波能量给出了一个数量级估计，只
-
-要振动大致是在一个方向上＊．例如，我们可以用式（5．85）估计一根钢杆沿其长度方向振动时辐射的功率；在这一情况下，$a$ 是振动的振幅，$m$ 是杆的质量，$b$ 是其长度，$\omega$ 是振动的频率．一个振动弹性体发出的引力波辐射的更精密的计算，可以用一个有效振幅代替振动振幅来进行（见式（5．131））．
-
-四极子振动发出的辐射在新星的情况下可能很重要．新星爆发发生在双星系统的白矮星上，从伴星吸积的核燃料逐渐在白矮星表面积累起来，当核燃料达到一个临界质量时就会发生爆炸．伴随其他一些事件，爆炸触发了白矮星星体中的振动，其典型的频率是 $0.01 \sim 1 \mathrm{~Hz}$ ．新星爆发释放的典型能量为 $10^{45} \mathrm{erg}$ ，其中大概有 $10 \%$ 储藏为星体的振动能，然后以引力波的形式辐射出来．
-
-超新星暴缩形成的中子星的振动，发出更高频率和更大量的能量辐射．由于中子星振动的阻尼时间相当短（几分之一秒），这种辐射具有爆发的形式，我们将在以后再讨论它．
-
-\section{转动四极子的发射}
-另一种简单的周期性引力波源是转动四极子，它由两个粒子或两个球形质量\\
-
-
-图5．11 两个球形质量在以质心为中心的圆轨道上运动构成，它们围绕其公共质心作圆轨道运动（见图 5．11）．因为当质量经过半圈轨道运动时四极矩重复一次，故辐射波的频率是轨道频率的两倍．这一系统辐射的功率是
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{32 G}{5 c^{5}}\left(\frac{m_{1} m_{2}}{m_{1}+m_{2}}\right)^{2} r^{4} \omega^{6} \tag{5.88}
-\end{equation*}
-
-
-其中 $m_{1}, m_{2}$ 是质量，$r$ 是它们之间的距离，$\omega$ 是轨道频率．\\
-－练习 17 推导式（5．88）．\\
-■ 练习 18 证明，垂直于轨道平面的辐射是圆偏振的；在轨道平面内的辐射是＂线＂偏振的．
-
-我们可以把式（5．88）用于一个由两颗彼此围绕，沿圆轨道运动的恒星构成的双星系统．在这一情况下，把两颗星保持在轨道上的力是引力，并且 $r$ 和 $\omega$ 由 Kepler 第三定律相联系，
-
-
-\begin{equation*}
-	\omega^{2}=\frac{G\left(m_{1} \cdot+m_{2}\right)}{r^{3}} \tag{5.89}
-\end{equation*}
-
-
-\footnotetext{＊式（5．85）不能用于一个球体的径向脉动；在球对称的情况下，辐射严格为零．
-}这样式（5．88）变成
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{32 G^{4}}{5 c^{5} r^{5}}\left(m_{1} m_{2}\right)^{2}\left(m_{1}+m_{2}\right) \tag{5.90}
-\end{equation*}
-
-
-由于该引力系统因辐射而损失能量，两个质量之间距离减小的速率是
-
-
-\begin{equation*}
-	\frac{\mathrm{d} r}{\mathrm{~d} t}=-\frac{64 G^{3}}{5 c^{5} r^{3}} m_{1} m_{2}\left(m_{1}+m_{2}\right) \tag{5.91}
-\end{equation*}
-
-
-轨道频率增加的速率是
-
-
-\begin{equation*}
-	\frac{\mathrm{d} \omega}{\mathrm{~d} t}=-\frac{3 \omega}{2 r} \frac{\mathrm{~d} r}{\mathrm{~d} t}=\frac{96}{5}\left[\frac{G\left(m_{1}+m_{2}\right)}{c^{2} r}\right]^{3 / 2} \frac{G^{2} m_{1} m_{2}}{c^{2} r^{4}} \tag{5.92}
-\end{equation*}
-
-
-练习19 推出式（5．91）和式（5．92）．（提示：利用 $E=-G m_{1} m_{2} / 2 r$ ，以及式 （5．90）和 Kepler 第三定律．）
-
-只要轨道半径很小，双星系统就会有明显的引力辐射．表 5.2 给出了某些已知的小轨道半径（和短轨道周期）双星系统样本．辐射功率最强，在地球上产生的流量最大的是 Am CVn，其流量为 $3 \times 10^{32} \mathrm{erg} / \mathrm{s}$ ．这一系统由一颗蓝白矮星和一颗低质量白矮星构成（见图5．12），相互绕转的轨道异常地小，其周期仅为 17.5分（！）．但是，在地球上产生引力波振幅最大的是 $\mu \mathrm{Sco}$ ，为 $\kappa A \simeq 2 \times 10^{-20}$（虽然由 AmCVn 发过来的波的振幅较小，但非常高的频率使得波能携带较多的能量；见式（5．28）和式（5．29））．灵敏度能够检测到振幅 $\kappa A \simeq 2 \times 10^{-20}$ 的引力波探测器已经建造出来，但是它们只对频率比双星系统辐射频率高得多的波产生响应，而在近期还看不到直接探测双星系统引力波的希望．
-
-表5．2 作为引力辐射源的双星系统＊
-
-\begin{center}
-	\begin{tabular}{|c|c|c|c|c|c|c|}
-		\hline
-		系统 & 质量（ $M_{\odot}$ ） & 距离／pc & 波的频率 \( / 10^{-6} \mathrm{~Hz} \) & 地球上的光度 \( / 10^{30} \mathrm{erg} / \mathrm{s} \) & 地球上的能流 $/ 10^{-12} \mathrm{erg} / \mathrm{cm}^{2} \cdot$ & 地球上的振幅 \( \text { s } \quad / 10^{-22} \) \\
-		\hline
-		\multicolumn{7}{|l|}{食双星} \\
-		\hline
-		$l$ Boo & 1．0，0．5 & 11.7 & 86 & 1.1 & 68.0 & 51 \\
-		\hline
-		$\mu \mathrm{Sco}$ & 12,12 & 109 & 16 & 51 & 38.0 & 210 \\
-		\hline
-		$V$ Pup & 16．5，9．7 & 520 & 16 & 59 & 1.9 & 46 \\
-		\hline
-		\multicolumn{7}{|l|}{激变双星（新星）} \\
-		\hline
-		Am CVn & 1．0， 0.041 & 100 & 1900 & 300 & 240 & 5 \\
-		\hline
-		WZ Sge & 1．5， 0.12 & 75 & 410 & 24 & 37 & 8 \\
-		\hline
-		SS Cyg & $0.97,0.83$ & 30 & 84 & 2 & 20 & 30 \\
-		\hline
-		\multicolumn{7}{|l|}{双星 X 射线源（黑洞或中子星）} \\
-		\hline
-		Cyg X－1 & 30， 6 & 2500 & 4.1 & 1.0 & 1 & 4 \\
-		\hline
-		\multirow[t]{3}{*}{PSR $1913+16$} & $1.4,1.4$ & 5000 & $70^{* *}$ & 0.6 & 0.2 & 0.12 \\
-		\hline
-		&  &  & 140 & 2.9 & 1.1 & 0.14 \\
-		\hline
-		&  &  & 210 & 5.8 & 2.1 & 0.12 \\
-		\hline
-	\end{tabular}
-\end{center}
-
-致密星具有较大的质量 $\left(m_{1}\right)$ 并且是一颗蓝白矮星；另一颗星 $\left(m_{2}\right)$ 是一颗低质量的白矮星．由后者到前者有质量转移（根据 Faulkner，Flannery，Warner 1972）
-
-然而，引力波可以由能量损失对双星系统轨道运动的影响而间接地探测到．其中，最有兴趣的是 PSR 1913＋16，它是一个脉冲双星系统，是 Hulse 和 Taylor在1974年用 Arecibo 射电望远镜搜寻脉冲星时发现的．这一系统由一颗脉冲星 （发出射电脉冲的转动中子星）和一颗伴星组成，伴星或者是一颗白矮星，或者是另一颗中子星，两者的轨道非常接近．Hulse 和 Taylor 发现脉冲频率呈现周期性变化，这是由于脉冲星围绕其（未探测到的）伴星轨道运动的 Doppler 频移而引起．他们根据检查单个脉冲到达的时间，从而仔细地分析了系统的运动．这样对单个脉冲到达时间的分析，比测量＂瞬时＂频率要给出较高的精度，因为在一个有限时间 $\Delta \tau$ 内的时间测量，要受到通常的不确定性 $\Delta \nu \simeq 1 / \Delta \tau$ 的影响．例如，如果我们想要测量轨道上一分钟路段内的＂瞬时＂频率，则 $\Delta \nu \simeq 1 / 60 \mathrm{~Hz}$ ，这是一个相当大的误差．
-
-双星系统轨道参数的精确值已由到达时间的最小二乘拟合得出．这一分析不仅给出了轨道周期和投影半长轴（ $a \sin i$ ，其中 $i$ 是轨道相对于视线的倾角），而且还有偏心率和近星点进动率（类似于太阳系中水星近日点进动）．表 5.3 列出了 PSR $1913+16$ 的最重要的参数．注意脉冲周期和脉冲频率大约有 10 位有效数字．这一分析同时显示出有明显的时间膨胀效应，当脉冲星在椭圆轨道上运行时，它与其伴星的距离时远时近，这就使得时间膨胀效应的大小有所变化．时间膨胀效应的出现，部分地是由于伴星引力场所产生的引力时间膨胀，部分地是由于＂横向的＂，或狭义相对论的轨道速度所产生的时间膨胀．表 5.3 列出的标称脉冲周期，已经对这些时间膨胀效应做了改正（脉冲周期也受到脉冲星自己的引力场时间膨胀的影响；但这是一个常数因子，它不能由这些观测数据确定）．
-
-双星系统由于引力辐射而失去能量，这使得 PSR $1913+16$ 的轨道周期每秒钟减少 $2.4 \times 10^{-12} \mathrm{~s}$ ．为了对理论预言的轨道周期变化率做一个定量的检测，我们需要知道这两颗伴星的质量（见式（5．92））．该质量值可以由系统的两个相对论效应的测量值得出：近星点进动和时间膨胀．近星点进动只决定于质量之和 $m_{1}+$\\
-$m_{2}$ ，而时间膨胀决定于 $m_{1}$ 和 $m_{2}$ 的不同组合．这样，测量到的近星点进动值和时间膨胀值（见表 5．3）就确定了 $m_{1}$ 和 $m_{2}$
-
-\[
-\begin{array}{cc}
-	m_{1}=(1.442 \pm 0.003) M_{\odot} & \text { 对于脉冲星 } \\
-	m_{2}=(1.386 \pm 0.003) M_{\odot} & \text { 对于伴星 } \tag{5.93}
-\end{array}
-\]
-
-表 5．3 PSR $1913+16$ 的某些观测参数
-
-\begin{center}
-	\begin{tabular}{ll}
-		\hline
-		脉冲周期（标称） & $0.059029995271 \pm 0.000000000002 \mathrm{~s}$ \\
-		投影半长轴 & $2.3418 \pm 0.0001$ 光秒 \\
-		偏心率 & $0.617127 \pm 0.000003$ \\
-		轨道周期 & $27906.98163 \pm 0.00002 \mathrm{~s}$ \\
-		近星点进动率 & $4.2263 \pm 0.0003^{\circ}$ 每年 \\
-		时间延缓因子幅度 & $0.0044 \pm 0.0001$ \\
-		轨道周期变化率 & $(-2.40 \pm 0.09) \times 10^{-12} \mathrm{~s} / \mathrm{s}$ \\
-		自转轴进动率 & $?$ \\
-		\hline
-	\end{tabular}
-\end{center}
-
-利用这些质量值，周期变化率的理论预言值是每秒 $-2.38 \times 10^{-12} \mathrm{~s}$ ，即观测到的变化率（Tayler，Weisberg 1989）的 $0.99 \pm 0.01$ 倍．图5．13表示观测的以及预言的经过近星点时间的移动；图中表明，周期减小的理论预言值和观测结果符合得极好．\\
-
-
-图5．13 观测到的通过近星点的时间移动（圆点）和预期的移动（实线）\\
-因为轨道运动的周期在减小，该系统到达近星点的时间要早一些，相应于一个负的时间移动．这一移动的大小年复一年地增加（Taylor，Weisberg 1989）
-
-注意在把理论与观测相比较时，我们不能用简单的公式（5．92），因为这个公式只对圆轨道成立，而 PSR $1913+16$ 的轨道是椭圆的，有一个实际的偏心率（ $\varepsilon=$ 0.617 ）．对于一个椭圆轨道，引力辐射不单单是以基频或者轨道频率＊发射，而且还以这一基频的倍数发射，因为一个在椭圆轨道上的质点的 $x$ 坐标和 $y$ 坐标不是简单的简谐函数，而是简谐级数（Fourier 级数），它包括轨道频率的所有倍数．在 PSR $1913+16$ 的情况下，最强的辐射发生在频率为轨道频率的 8 倍时，而最大的波振幅发生在频率为轨道频率的 4 倍时（见表5．2）．
-
-还有另外一个复杂性，这就是该系统的引力场相当强．由 $M=1.44 M_{\odot}$ 和典型中子星的半径 $r \simeq 10 \mathrm{~km}$ ，我们得出在星体表面 $G M / r c^{2} \simeq 0.2$ ．因而对线性近似进行仔细考虑并给予修正看来是必需的，因为引力辐射四极子的公式都是基于线性近似．Damour（1983a，1983b，1983c，1987）详尽地探究了所需要做的修正，他的结论是，四极子公式实际上比预期的要好——它正确地给出了引力波形式下的辐射功率，即使背景引力场相当强也是如此．
-
-PSR $1913+16$ 轨道周期减小率的观测结果和理论预言极好地一致，给我们提供了很好的，尽管还是非主要的证据，说明了引力辐射的存在．目前，它是关于引力辐射的唯一可用的观测证据．
-
-PSR $1913+16$ 参数的极高精度，使我们能够用这颗脉冲星来检测其他某些相对论和宇宙学效应，它们可能对转动或轨道运动产生影响．例如，正像 4.7 节已经提到过的，相对论引力理论预言了引磁效应；并且脉冲双星的数据给我们提供了关于这些引磁效应的观测证据，同时确认了引力的自旋一轨道耦合．此外，按照某些宇宙学的推测，引力常数 $G$ 可能逐渐在减小，其特征时间尺度等于宇宙的年龄．引力强度这样的减小，将引起所有引力束缚体系的轨道逐渐膨胀，以及随之而来的轨道周期的逐渐增加．因为脉冲双星系统没有显示出剩余的，无法解释的周期变化，我们可以对 $G$ 的变化率设定一个极限．与观测不确定性相一致的极限是 $|\mathrm{d} G / \mathrm{d} t| / G<2 \times 10^{-11} /$ 年（Damour et al．1988）．
-
-双星系统的轨道运动给我们提供了转动四极子引力波辐射的最简单的例子．但是几乎任何由粒子组成并绕一个中心作轨道运动的系统，或者围绕一个轴自转的非对称物体，其旋转运动也将产生一个含时的四极矩，并且辐射引力波．与此相联系，中子星的自转就有重要的天体物理意义．中子星的自转周期（脉冲星的脉冲周期）的典型值是在 $0.03 \sim 3 \mathrm{~s}$ ．如果这样一个中子星相对其转动轴不是严格柱对称的，则它将构成一个转动四极子，并发出引力波辐射．例如，蟹状星云脉冲星以 0.033 s 的周期转动，如果它在赤道面上的大小有 $1 / 1200$ 的偏差，则引力波辐射将
-
-\footnotetext{＊对于圆轨道，引力辐射的基频是轨道频率的两倍，因为四极矩每半个周期重复一次．但是对于椭圆轨道，四极矩在近星点要比在远星点小，因而基频就是轨道频率．
-}达到 $10^{38} \mathrm{erg} / \mathrm{s}$（Ferrari，Ruffini 1969）．这一能量损失可以考虑为是观测到的蟹状星云脉冲星自转速率变慢的原因．但是，已知该脉冲星辐射大量的电磁能，且占转动动能损失的大部分，因而引力能的辐射率（以及赤道面的变形）应该比较小．曾经有人试图搜寻蟹状星云脉冲星的引力波，所用的探测器调谐在预期的波频率 $2 \times(1 / 0.033) \mathrm{Hz}=60 \mathrm{~Hz}$ ．但结果是否定的（见 5.7 节）．
-
-\section{引力辐射暴的发射}
-我们在上一节中看到，因为引力辐射造成能量损失，双星系统中的两颗子星的轨道逐渐收缩——它们彼此逐渐螺旋式地接近．这种向内的运动开始很慢，但当子星下落到越来越小的轨道时，频率越来越高，向内运动急剧加速．子星相互螺旋接近的速度越来越快，发出的引力辐射也逐渐增强．当两颗星碰撞在一起时，双星系统发出的＂天鹅的歌声＂戛然而止．碰撞释放出引力辐射的最后一爆．
-
-在双星系统这一并合过程中发出的辐射开始是周期的或准周期的，但是在最后几转发出的辐射是类似爆发式的．比如，考虑一个双中子星系统的并合过程，开始时的距离为 $r_{0}=100 \mathrm{~km}$ ．如果每颗星的质量是 $1 M_{\odot}$ ，辐射功率开始是 $3.3 \times$ $10^{51} \mathrm{erg} / \mathrm{s}$ ，距离减小的速率是 $[-\mathrm{d} r / \mathrm{d} t]_{0}=2.5 \times 10^{6} \mathrm{~cm} / \mathrm{s}$ ．积分式（5．91），我们得到
-
-
-\begin{equation*}
-	\frac{1}{4}\left(r^{4}-r_{0}^{4}\right)=-\frac{64 G^{3}}{5 c^{5}} m_{1} m_{2}\left(m_{1}+m_{2}\right)\left(t-t_{0}\right) \tag{5.94}
-\end{equation*}
-
-
-此结果也可以写为
-
-
-\begin{equation*}
-	t-t_{0}=\left(1-\frac{r^{4}}{r_{0}^{4}}\right) \frac{r_{0}}{4} \frac{1}{[-\mathrm{d} r / \mathrm{d} t]_{0}} \tag{5.95}
-\end{equation*}
-
-
-其中下标 0 表示计算是在初始时刻 $t_{0}$ 进行的．距离从 $r_{0}$ 减小到 $r \ll r_{0}$ 所需的时间间隔是
-
-
-\begin{equation*}
-	\Delta t \simeq \frac{r_{0}}{4} \frac{1}{[-\mathrm{d} r / \mathrm{d} t]_{0}} \tag{5.96}
-\end{equation*}
-
-
-这一结果（近似地）与最终的距离 $r$ 无关，因为体系在距离比较大时耗费了大部分时间，而在通过较小的距离时非常快．如果代入上面给出的 $r_{0}$ 和 $[-\mathrm{d} r / \mathrm{d} t]_{0}$ 的值，则得
-
-
-\begin{equation*}
-	\Delta t \simeq 1.0 \mathrm{~s} \tag{5.97}
-\end{equation*}
-
-
-简单的计算表明，在这一时间间隔内双星系统转了大约 130 圈，轨道的形状像缠紧的螺旋．辐射的频率随时间增加，开始时的频率大约是 160 Hz ，但在结尾时增加到大约 10 倍．辐射功率的增加还要剧烈，最后会达到开始时的将近 3000 倍．
-
-在并合过程中辐射的总能量等于系统总能的改变，
-
-
-\begin{equation*}
-	\Delta E=\frac{G}{2} m_{1} m_{2}\left(\frac{1}{r_{0}}-\frac{1}{r}\right) \tag{5.98}
-\end{equation*}
-
-
-代人 $r_{0}=100 \mathrm{~km}$ 和 $r=20 \mathrm{~km}$ ，辐射的总量是
-
-
-\begin{equation*}
-	-\Delta E=5.3 \times 10^{52} \mathrm{erg} \tag{5.99}
-\end{equation*}
-
-
-这是系统静止质量的 $1 \%$ ！这一能量的大部分是在并合过程的最后阶段辐射的．当两个中子星碰撞时将辐射一个特大的脉冲；此外，碰撞之后形成的系统（一个较大的中子星或黑洞），当它的位形稳定下来以后，也许会发出更多的引力辐射．在银河系或邻近星系中某处，一个正在并合的双中子星辐射的脉冲，其强度将足以使目前可以利用的设备探测到；然而，这样的事件预计将是非常罕见的．
-
-注意前面的计算只是近似；相对论改正被忽略了．即使在 $r=100 \mathrm{~km}$ ，轨道速度也将是 $v / c \simeq 1 / 10$ ，当距离达到 $r=20 \mathrm{~km}$ 时，速度要更大一些，$v / c \simeq 2 / 10$ ．同样也要考虑到引力场的非线性所引起的改正．因而我们的计算只能看作是一个数量级估计．\\
-
-
-图5．14 粒子朝一个质量径向下落
-
-到目前为止，我们提及的引力辐射源是周期的或准周期的，并且是基于振动的或转动的四极子．因为任何具有非零三阶时间导数的四极子将发出辐射，故存在许多其他可能的源．例如，考虑一个沿径向朝一颗恒星直接加速下落的粒子（零角动量轨道）．为简单起见，假设恒星的质量 $M$ 比粒子的质量 $m$ 大得多．这表明恒星处于静止，只是粒子贡献一个含时的四极矩．如果我们取 $z$ 轴沿着入射方向并且原点位于恒星中心（见图5．14），则式（5．73）给出
-
-
-\begin{equation*}
-	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{2 G m^{2}}{15 c^{5}}(6 \dddot{z} \ddot{z}+2 z \ddot{z})^{2} \tag{5.100}
-\end{equation*}
-
-
-－练习20 推导式（5．100）．\\
-如果粒子从无穷远处以零初速度（零能量轨道）开始下落，则有
-
-
-\begin{equation*}
-	\frac{1}{2} m \dot{z}^{2}=\frac{G m M}{|z|} \tag{5.101}
-\end{equation*}
-
-
-以及
-
-$$
-\begin{gathered}
-	\dot{z}=\frac{1}{|z|^{1 / 2}}(2 G M)^{1 / 2} \\
-	\ddot{z}=\frac{G M}{z^{2}}
-\end{gathered}
-$$
-
-
-\begin{equation*}
-	\dddot{z}=\frac{2 G M}{|z|^{7 / 2}}(2 G M)^{1 / 2} \tag{5.102}
-\end{equation*}
-
-
-式（5．100）和式（5．101）给出
-
-
-\begin{equation*}
-	-\mathrm{d} E=\frac{1}{|z|^{9 / 2}} \frac{2 G m^{2}}{15 c^{5}}(2 G M)^{5 / 2} \mathrm{~d} z \tag{5.103}
-\end{equation*}
-
-
-在从 $z=-\infty$ 到 $z=-R$ 的下降过程中，辐射的能量可以由式（5．103）的积分得出
-
-
-\begin{equation*}
-	-\Delta E=\frac{1}{R^{7 / 2}} \frac{4 G m^{2}}{105 c^{5}}(2 G M)^{5 / 2} \tag{5.104}
-\end{equation*}
-
-
-显然，当下限 $R$ 很小时能量辐射很大．因而考虑非常致密的恒星或其他天体的情况将是有利的．我们可以想到的最致密的天体是黑洞．我们将在以后讨论这类天体；现在只需要知道，一个质量为 $M$ 的黑洞具有半径
-
-
-\begin{equation*}
-	R=\frac{2 G M}{c^{2}} \tag{5.105}
-\end{equation*}
-
-
-在这一半径处的引力场是如此之强，以致任何粒子（或光，或任何物体）达到比 $2 G M / c^{2}$ 更近的地方时，将不可避免地被拉进黑洞并且不可能逃逸．
-
-对于粒子直接落人这样一个黑洞的情况，下限 $R$ 由式（5．105）给出，因为此后发出的任何引力辐射都将保留在黑洞之内．代入式（5．104）得到
-
-
-\begin{equation*}
-	-\Delta E=\frac{2}{105} m c^{2}\left(\frac{m}{M}\right)=0.019 m c^{2}\left(\frac{m}{M}\right) \tag{5.106}
-\end{equation*}
-
-
-我们的简单计算是有缺陷的，因为没有考虑到当粒子接近 $R=2 G M / c^{2}$ 时，运动变成相对论性的．同时，非线性引力作用也必须考虑．Davis et al．（1971）的精确计算表明
-
-
-\begin{equation*}
-	-\Delta E=0.0104 m c^{2}\left(\frac{m}{M}\right) \tag{5.107}
-\end{equation*}
-
-
-它与我们简单的近似结果（5．106）相当接近．\\
-注意引力波辐射的能量随 $M$ 的增大而减小．为了得到一个大的辐射脉冲，我们必须选择大的 $m$ 和尽可能小的 $M$（回忆一下，我们在计算中假设过 $M \gg m$ ）．如果取＂粒子＂的质量为 $M_{\odot}$ ，黑洞的质量为 $M=10 M_{\odot}$ ，半径 $R=2 G M / c^{2} \simeq 30 \mathrm{~km}$ ，我们得到
-
-
-\begin{equation*}
-	-\Delta E=2 \times 10^{51} \mathrm{erg} \tag{5.108}
-\end{equation*}
-
-
-辐射的大部分是在粒子从 $2 R$ 到 $R$ 的急降阶段发出的．因而辐射表现为一个脉冲，其时间长度为
-
-
-\begin{equation*}
-	\Delta t \simeq R /[\text { 粒子速度 }] \simeq R / c \simeq 30 \mathrm{~km} / c \simeq 10^{-4} \mathrm{~s} \tag{5.109}
-\end{equation*}
-
-
-这样一个脉冲将包含高至 $10^{4} \mathrm{~Hz}$ 的频率．频谱计算的结果在图5．15中给出．
-
-作为引力辐射源的最后一个例子，我们来谈一下超新星（II 型超新星）的引力坍缩．当一颗几个太阳质量的恒星演化到高密度阶段，引力场变得如此之强，使得内部压力支持不住恒星外层的重力．恒星的核心在其自身引力的作用下被压碎并坍缩，直至达到原子核的密度，此时坍缩突然变慢或停止．这一突然停止产生一个冲击波，它向外传播并以剧烈爆炸的形式冲破恒星外层，我们就看到一颗超新星．同时，恒星的核心或者形成一个中子星那样的稳定结构，或者由于质量太大而继续坍缩，最终成为一个黑洞．\\
-
-
-图5．15 一个质量为 $m$ ，沿径向落人一个质量为 $M$ 的黑洞的粒子，所发射的引力辐射的谱\\
-$\mathrm{d} E / \mathrm{d} \omega$ 给出单位频率间隔辐射的能量．标记 $l=2$ 的曲线对应于四极辐射；其他曲线（ $l=$ $3, l=4$ ）对应于较高阶的多极辐射．注意大多数辐射的频率都低于 $\omega \simeq 0.5 c^{3} / G M$（根据 Davis，Ruffini，Press \textbackslash ＆Prjce，1971）
-
-引力坍缩过程中是否发出引力辐射，取决于非对称性是否存在．如果坍缩中的恒星保持球对称，它就没有四极矩，也就不会发出引力辐射．但是，大多数恒星有转动，它们是柱对称的而不是球对称的．在引力坍缩过程中，这样一颗转动恒星的极点和赤道坍缩的速度是不同的，它们甚至可能在核心达到核子密度时，还处于里外振荡的状态．这样就产生了一个与时间有关的，甚至可能是振荡的四极矩．此外，坍缩结束时形成的中子星，很也可能处于某种激发的振动状态．一颗超新星引力坍缩所辐射的引力能，估计大约为 $10^{-6} M_{\odot} c^{2}$ ，在快速转动恒星的情况下它可能会更大一些，此时恒星在坍缩中可能碎裂为几个高度非对称的碎块．引力辐射脉冲包含的频率范围是 $10^{3} \sim 10^{4} \mathrm{~Hz}$ ．
-
-另外一种引力坍缩可能发生在致密的星系核中，该处的一个星团可能合并而成为一个大的黑洞，其质量在 $10^{3} M_{\odot}$ 到 $10^{7} M_{\odot}$ 之间．这样的坍缩可以产生 $10 \sim$\\
-$10^{-4} \mathrm{~Hz}$ 的低频引力波．
-
-表5．4 典型的天体物理引力波源＊
-
-\begin{center}
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		源 & 频率 & 距离＊＊ & 振幅（ $\kappa$ A） \\
-		\hline
-		\multicolumn{4}{|l|}{周期源} \\
-		\hline
-		双星 & $10^{-4} \mathrm{~Hz}$ & 10 pc & $10^{-20}$ \\
-		\hline
-		新星 & $10^{-2} \sim 1$ & 500 pe & $10^{-22}$ \\
-		\hline
-		转动中子星（蟹状星云） & 60 & 2 Kpc & $<10^{-24}$ \\
-		\hline
-		爆发源 &  &  &  \\
-		\hline
-		双星并合 & $10 \sim 10^{3}$ & 100 Mpc & $10^{-21}$ \\
-		\hline
-		恒星落入 $10 M_{\odot}$ 质量的黑洞 & $10^{-4}$ & 10 Mpc & $10^{-21}$ \\
-		\hline
-		超新星 & $10^{3}$ & 10 Kpc & $10^{-18}$ \\
-		\hline
-		$10^{4} M_{\odot}$ 质量的星的引力切缩 & $10^{-1}$ & 3 Gpc & $10^{-19}$ \\
-		\hline
-	\end{tabular}
-\end{center}
-
-＊引自 Thorne（1987）．\\
-＊＊距离选择为足够大，以使近似地每年有三个事例．
-
-表5．4是典型的天体物理引力波源的一览表，它给出了相应的频率范围和引力波到达地球时的振幅．对每一种爆发源，表中所列的距离已选择为足够大，以包含所估计的每年三例事件．
-
-\section{四极探测器及其截面}
-两个质量用弹簧连接起来就构成一个简单的四极振子，可以用来作为引力波探测器．我们知道这一系统的振动会辐射引力波，故可以预期，人射到这一系统的引力波将激发起振动．我们希望计算出入射的引力波可以激发多大的振动幅度，以及从波中吸收到多少能量．但是，这里有一个困难：在两个质量以相同的方式加速时，系统不会激发起振动．引力不是直接可以观测的；只有作用于这两个质量的力之差才产生可观测的效应．即使实验者尽力寻找仪器的净平移运动，他也不会发现任何效应，因为实验者也在引力场中被加速．只有两个质量之间有相对运动，或它们与实验者之间有相对运动时，才会有明显的效应．这意味着施加于振子的可观测驱动力是潮汐力．
-
-假设有一个如式（5．24）给出的平面引力波，人射到由两个以弹簧连接起来的质量构成的简单四极振子，振子沿 $x$ 轴放置，两个质量的平衡位置是 $x= \pm b$（见图 5．16）．用复数记法，我们可以把波写为
-
-
-\begin{equation*}
-	h^{\mu \nu}=A_{\oplus} \varepsilon_{\oplus}{ }^{\mu \nu} \mathrm{e}^{\mathrm{i} \omega t-\mathrm{i} k z} \tag{5.110}
-\end{equation*}
-
-
-如果两个质量的位移始终保持为很小 $(|x-b| \ll b)$ ，则作用于每一质量的潮汐力由\\
-
-
-图5．16 由一根沿 $x$ 轴方向的弹簧连接两个质量构成的四极振子
-
-式（5．41）给出
-
-
-\begin{equation*}
-	f_{x}=\left(m \frac{\kappa}{2} A_{\oplus} \omega^{2} \mathrm{e}^{\mathrm{i} \omega t}\right) x \simeq\left(m \frac{\kappa}{2} A_{\oplus} \omega^{2} \mathrm{e}^{\mathrm{i} \omega t}\right) b \tag{5.111}
-\end{equation*}
-
-
-其中一个质量，比如说位于 $x$ 轴正方向的质量，其运动方程是
-
-
-\begin{equation*}
-	m \ddot{x}+m \gamma \dot{x}+m \omega_{0}^{2}(x-b)=m \frac{\kappa}{2} A_{\oplus} \omega^{2} b \mathrm{e}^{\mathrm{i} \omega t} \tag{5.112}
-\end{equation*}
-
-
-这里 $\omega_{0}^{2}$ 是自由振动的自然频率，$\gamma$ 是与作用在振子上的摩擦力有关的阻尼率．利用摩擦引起的能量损失的平均值（对一个周期），阻尼率为
-
-
-\begin{equation*}
-	\gamma=-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {friction }} \tag{5.113}
-\end{equation*}
-
-
-实验者通常更愿意使用振子的 $Q$ 值或＂品质因数＂，其定义是
-
-
-\begin{equation*}
-	Q=\omega_{0} / \gamma \tag{5.114}
-\end{equation*}
-
-
-时间 $\tau_{0}=\gamma^{-1}$ 或 $\tau_{0}=\omega_{0} / \gamma$ 称为驰豫时间，即自由振动（无驱动力时）的能量减小一个因子 e 的时间间隔．
-
-引力潮汐力式（5．111）在式（5．112）中起着驱动力的作用．在这一驱动力的作用下，运动方程的稳态解是
-
-
-\begin{equation*}
-	x-b=\frac{\frac{1}{2} \kappa A_{\oplus} \omega^{2} b \mathrm{e}^{\mathrm{i} \omega t}}{-\omega^{2}+\omega_{0}^{2}+\mathrm{i} \gamma \omega} \tag{5.115}
-\end{equation*}
-
-
-－练习21 验证此式．\\
-如果振子的摩擦力相对很小，即有
-
-$$
-\gamma \ll \omega_{0}
-$$
-
-则振子的稳态响应在频率 $\omega \simeq \omega_{0}$ 有一个尖锐的极大值．这一频率的引力波就与系统的自然振动处于共振．对于 $\omega=\omega_{0}$ ，式（5．115）给出振动的振幅
-
-
-\begin{equation*}
-	\frac{1}{2} \kappa A_{\oplus}\left(\frac{\omega_{0}}{\gamma}\right) b \tag{5.116}
-\end{equation*}
-
-
-这比自由粒子＊运动的振幅要大一个 $\omega / \gamma$ 因子．按照式（5．115），这一因子大于 1 ．习惯上，探测器的灵敏度用一个称为截面的参数来表征．让我们从定义散射截面开始．当引力波在四极探测器中激发起振动时，这些振动反过来辐射引力波；
-
-\footnotetext{＊自由粒子的结果可以由式（5．115）取 $\omega_{0}=\gamma=0$ 得到．
-}这就是说，从人射的引力波中吸收的某些能量，又作为新的引力波再辐射出来．散射截面定义为，再辐射功率与入射流量之比，
-
-
-\begin{equation*}
-	\sigma_{\text {scatt }}=\frac{[\text { 再辐射功率 }]}{[\text { 人射流量 }]} \tag{5,117}
-\end{equation*}
-
-
-这里，再辐射功率和人射流量都应理解为对一个周期进行平均．式（5．117）定义的截面具有面积的量纲．但是，它没有任何关于振动质量几何截面面积的含义；该截面只是一个参数，以测量振子对辐射散射的有效程度．
-
-在我们的情况下，人射波的流量是 $\frac{1}{2} A_{\oplus}{ }^{2} \omega^{2} / c$ ．为求出辐射功率，我们利用式（5．85）．在这一方程中出现的量 $a$ 是振动的振幅；根据式（5．115），
-
-
-\begin{equation*}
-	a=\frac{\frac{1}{2} \kappa A_{\oplus} \omega^{2} b}{\left|-\omega^{2}+\omega_{0}^{2}+\mathrm{i} \gamma \omega\right|} \tag{5.118}
-\end{equation*}
-
-
-因而
-
-
-\begin{equation*}
-	-\left(\frac{\overline{\mathrm{d} E}}{\mathrm{~d} t}\right)_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} \frac{\left(\frac{1}{2} m \kappa A_{\oplus} \omega^{2} b^{2}\right)^{2}}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \omega^{6} \tag{5.119}
-\end{equation*}
-
-
-以及
-
-
-\begin{align*}
-	\sigma_{\text {scatt }} & =-\frac{1}{\frac{1}{2} A_{\oplus}{ }^{2} \omega^{2} / c}\left(\frac{\overline{\mathrm{~d} \bar{E}}}{\mathrm{~d} t}\right)_{\mathrm{rad}} \\
-	& =\frac{128 \pi G^{2}}{15 c^{8}} \frac{\left(m b^{2} \omega^{4}\right)^{2}}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}}  \tag{5.120}\\
-	& =\frac{15 \pi c^{2}}{2}\left(\gamma_{\mathrm{rad}}\right)^{2} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.121}
-\end{align*}
-
-
-其中，与式（5．87）相同，
-
-
-\begin{equation*}
-	\gamma_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} m b^{2} \omega^{4} \tag{5.122}
-\end{equation*}
-
-
-注意 $\sigma_{\mathrm{scatt}}$ 与入射波的振幅无关（振幅在式（5．120）中消去了）；这使得在测量四极子散射多少人射波的辐射时，截面作为一种量度而非常有用．
-
-为了探测引力波，我们对从引力波吸收的能量比对散射的能量更感兴趣．这表示我们希望知道，振子把多少功率传递给振子的（机械）摩擦力．我们可以定义一个相应的吸收截面
-
-
-\begin{equation*}
-	\sigma_{\mathrm{abs}}=\frac{[\text { 机械摩擦的功率损失 }]}{[\text { 人射能流 }]} \tag{5.123}
-\end{equation*}
-
-
-我们可以在 $\sigma_{\mathrm{scatt}}$ 和 $\sigma_{\mathrm{abs}}$ 之间建立起联系，只要注意到式（5．113）给出的总的阻尼率\\
-$\gamma$ 是两项之和
-
-
-\begin{align*}
-	\gamma & =-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {total }}=-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {friction }}-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\mathrm{rad}} \\
-	& =\gamma_{\mathrm{m}}+\gamma_{\mathrm{rad}} \tag{5.124}
-\end{align*}
-
-
-用话来说就是，总的＂摩擦力＂归结为机械摩擦和辐射阻尼两者．按照它们的定义， $\sigma_{\mathrm{scatt}}$ 和 $\sigma_{\mathrm{abs}}$ 必须成比率 $\gamma_{\mathrm{rad}} / \gamma_{\mathrm{m}}$ ，即
-
-
-\begin{equation*}
-	\sigma_{\mathrm{abs}}=\frac{\gamma_{\mathrm{m}}}{\gamma_{\mathrm{rad}}} \sigma_{\mathrm{scatt}} \tag{5.125}
-\end{equation*}
-
-
-对于任何实际的振子，我们希望有 $\gamma_{\mathrm{m}} \gg \gamma_{\mathrm{rad}}$ ，因此 $\gamma_{\mathrm{m}} \simeq \gamma$ ．这样
-
-
-\begin{align*}
-	\sigma_{\mathrm{abs}} & \simeq \frac{\gamma}{\gamma_{\mathrm{rad}}} \sigma_{\mathrm{scatt}}  \tag{5.126}\\
-	& =\frac{15}{2} \pi c^{2} \gamma_{\mathrm{rad}} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.127}
-\end{align*}
-
-
-
-对于一个在引力波的潮汐场中位于最佳取向的四极振子，我们已经计算出截面式（5．121）和式（5．127）．两个质量振动的方向都取为垂直于人射方向，并平行于潮汐形变场的主轴之一．对于一个质量被限制在与入射方向（ $z$ 轴）成 $\theta$角，与潮汐场的一个主轴成 $\phi$ 角的连线上振动的振子（见图5．17），与最佳情况相比，潮汐力沿该连线的分量要缩减一个因子
-
-
-\begin{equation*}
-	\sin ^{2} \theta \cos 2 \phi \tag{5.128}
-\end{equation*}
-
-
-这一因子容易被理解：潮汐力的大小正比于系统的横向大小 $(\simeq \sin \theta)$ ；取这个力沿振动连线的分量，就出现另一个 $\sin \theta$ 因子；最后，因子 $\cos 2 \phi$ 只不过表示横截面上的（径向）潮汐场强度的角度依赖关系 （见式（5．44））．
-
-截面决定于潮汐力沿振动方向分量的平方；因此式（5．121）和式（5．127）必须缩减一个因子 $\sin ^{4} \theta \cos ^{2} 2 \phi$ ．这表明探测器的截面对取向相当敏感，并在式（5．127）给出的上限和零之间变化．作为折中，对波和探测器之间的随机相对取向引入一个截面是方便的．为此，我们把因子 $\sin ^{4} \theta \cos ^{2} 2 \phi$ 用它对所有角度的平均值来代替，
-
-
-\begin{equation*}
-	\frac{1}{4 \pi} \int \sin ^{4} \theta \cos ^{2} 2 \phi \mathrm{~d} \Omega=\frac{4}{15} \tag{5.129}
-\end{equation*}
-
-
-这给出
-
-
-\begin{equation*}
-	\bar{\sigma}_{\mathrm{abs}}=2 \pi c^{2} \gamma \gamma_{\mathrm{rad}} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.130}
-\end{equation*}
-
-
-虽然我们的计算是基于理想线性四极子的特殊情况，但其结果对于以柱对称模式振动的任意质量系统也是正确的．更准确地说，因为四极张量含时部分的振幅是某种对称矩阵 $Q^{\prime k l}$ ，，它可以用变换到主轴的办法对角化．柱对称意味着对角化矩阵的两个对角元素是相等的．如果我们取轴沿 $z$ 方向，则 $Q^{\prime 11}=Q^{\prime 22}$ ．此外，因为迹必须为零，$Q^{\prime 33}=-2 Q^{\prime 11}$ ．现在让我们把这些分量写为
-
-
-\begin{equation*}
-	Q^{\prime 11}=Q^{\prime 22}=-\frac{1}{2} Q^{\prime 33}=-2 m b a^{\prime} \tag{5.131}
-\end{equation*}
-
-
-其中 $m$ 是振动系统质量的一半，$b$ 是系统长度的一半，$a^{\prime}$ 由式（5．131）定义．显然， $a^{\prime}$ 具有长度量纲；它可以被看作是四极子中的质量的＂有效振动振幅＂．对角化的四极矩阵于是为
-
-\[
-Q^{\prime k l}=\left(\begin{array}{ccc}
-	-2 m b a^{\prime} & 0 & 0  \tag{5.132}\\
-	0 & -2 m b a^{\prime} & 0 \\
-	0 & 0 & 4 m b a^{\prime}
-\end{array}\right)
-\]
-
-注意，这一形式实质上与线性四极子的四极矩含时部分的形式相同（见式（5．77））；这样，一个轴对称振动系统就等效于一个线性四极子．目前的探测器是以纵向振动模式工作的圆柱体；这些探测器满足我们的假设． $a^{\prime}$ 的值通常与 $a$ 的量级相同 （见式（5．118））；例如，一个以基谐纵向模式振动的长圆柱体，其 $a^{\prime} / a=2 / \pi$ ．
-
-
-
+%\section{引力辐射}
+%
+%对于“反迹”方程\eqref{chle:eqn_Einstein-1bar}（$\square_{x} \bar{h}_{\mu\nu} = -16 \pi T_{\mu\nu}$）来说，
+%我们可以把能动张量当作产生波的源；此时，我们可以利用格林函数方法来求解
+%（不熟悉格林函数的读者请参阅数学物理方法书籍或类似文献）：
+%\begin{equation*}
+%	\square_x G\left(x-y\right)=\delta^4\left(x-y\right); \qquad
+%	\square_x \equiv \frac{\partial}{\partial x^\mu}\frac{\partial}{\partial x_\mu} .
+%\end{equation*}
+%其中$x$、$y$代表四维时空的坐标；$G\left(x-y\right)$是格林函数．
+%我们关心的是引力源在过去产生的引力波传播到探测器的物理过程，
+%因此应该使用{\kaishu 延迟格林函数}：
+%\begin{equation*}
+%	G(x-y)=-\frac{1}{4 \pi |\boldsymbol{x}-\boldsymbol{y}|} \delta\left[|\boldsymbol{x}-\boldsymbol{y}|
+%	-(x^0-y^0)\right] \theta(x^0-y^0).
+%\end{equation*}
+%上式中$\theta\left(x^0-y^0\right)$ 是一个阶梯函数：
+%\begin{equation*}
+%	\theta\left(x^0-y^0\right)= \begin{cases}1, & x^0>y^0, \\ 0, & x^0<y^0,\end{cases}
+%\end{equation*}
+%我们关心一个天体（比如太阳）在离它很远的地方（比如地球）所产生的引力场，
+%此时边界条件在无穷远处（或者认为无论边界条件是什么都不影响地球处的引力场），
+%故可用格林函数法求解上述方程．线性化爱氏场方程的一般解为
+%\begin{equation}\label{chle:eqn_LE-radiation}
+%	\bar{h}_{\mu \nu} (x)=-16 \pi \int G(x-y) T_{\mu \nu}(y) \mathrm{d}^4 y
+%	= \int \frac{4\, T_{\mu \nu}\left(t_{\mathrm{r}}, \boldsymbol{y}\right)}
+%	{|\boldsymbol{x}-\boldsymbol{y}|} \mathrm{d}^3 y.
+%\end{equation}
+%其中$t_{\mathrm{r}}\equiv x^0-|\boldsymbol{x}-\boldsymbol{y}|$．
+%这个解的物理意义是：在 $(x^0, \boldsymbol{x})$处（比如地球）的引力场来自于在过去光锥中
+%$\left(t_{\mathrm{r}}, \boldsymbol{x}-\boldsymbol{y}\right)$处（比如太阳）能动张量源产生的影响．
+%需要强调：在无迹规范中（$h=0$），有$\bar{h}_{\mu \nu}={h}_{\mu \nu}$。
+%
+%我们已假设场点$\boldsymbol{x}$（比如地球）位于远离物质系统的辐射区域（比如太阳）；
+%这意味着可以把式\eqref{chle:eqn_LE-radiation}中积分的分母$\left|\boldsymbol{x}-\boldsymbol{y}\right|$用$|\boldsymbol{x}|$来代替．
+%我们进一步假设$T_{\mu \nu}$随时间变化并不很快，其含义大致如下：设引力波$h_{\mu\nu}$的频率为$\omega$，对应引力波波长是$\lambda$，
+%且有$\lambda \omega =c$（$c$是光速），辐射区尺度（比如太阳）约为$b$；
+%那么$T_{\mu \nu}$“慢”变化的条件可以表示为$\omega b \ll c \ \Leftrightarrow \  b \ll \lambda $。
+%%对于在辐射区域的$\boldsymbol{y}$，该条件可以表示为 $|\boldsymbol{x}| \gg \lambda$ ．
+%在$T_{\mu \nu}$“慢”变近似下用$x^0-|\boldsymbol{x}|$来代替式\eqref{chle:eqn_LE-radiation}积分
+%分子中的$x^0-\left|\boldsymbol{x}-\boldsymbol{y}\right|$是一个很好的近似．进而，我们得到
+%\begin{equation}\label{chle:eqn_LE-radiation-approx}
+%	\bar{h}_{\mu \nu}(x^0, \boldsymbol{x}) 	= \frac{4}{|\boldsymbol{x}|} \int T_{\mu \nu} 
+%	\left(x^0-|\boldsymbol{x}|, \boldsymbol{y}\right) \mathrm{d}^{3} y .
+%\end{equation}
+%
+%
+%在线性近似下，我们知道$T^{\mu \nu}$ 满足如下方程：
+%\begin{equation}
+%	\partial_{\nu} T^{\mu \nu}=0 .
+%\end{equation}
+%让我们把上式分开成空间和时间的分量：
+%\begin{align}
+%	\frac{\partial}{\partial y^0} T^{k0}=& -\frac{\partial}{\partial y^i} T^{ki}, \label{chle:eqn_ptTk0} \\
+%	\frac{\partial}{\partial y^0} T^{00}=& -\frac{\partial}{\partial y^i} T^{0i}. \label{chle:eqn_ptT00}
+%\end{align}
+%由于式\eqref{chle:eqn_ptTk0}，我们有下面的恒等式：
+%\begin{equation}\label{chle:eqn_tmpkl1}
+%	\int T^{k l} \mathrm{d}^{3} y=\frac{1}{2} \frac{\partial}{\partial y^0} 
+%	\int\left(T^{k 0} y^{l}+T^{l0} y^{k}\right) \mathrm{d}^{3} y .
+%\end{equation}
+%上式三维积分范畴包含全部物质系统（比如包含整个太阳）．证明也不难，
+%\setlength{\mathindent}{0em}
+%\begin{align*}
+%	&\frac{1}{2} \frac{\partial}{\partial y^0} \int\left(T^{k0} y^{l}+T^{l0} y^{k}\right) \mathrm{d}^{3} y
+%	=\frac{1}{2} \int\left(\frac{\partial T^{k0}}{\partial y^0} y^{l} + T^{k0} \frac{\partial y^{l}}{\partial y^0}
+%	+\frac{\partial T^{l0}}{\partial y^0} y^{k}+ T^{l0} \frac{\partial y^{k}}{\partial y^0}\right) \mathrm{d}^{3} y \\
+%	&\xlongequal[\dot{y}^k = 0]{\ref{chle:eqn_ptTk0}}
+%	\frac{1}{2} \int\left(-(\partial_{i} T^{ki}) y^{l} -(\partial_{i} T^{li}) y^{k}\right) \mathrm{d}^{3} y
+%	%=\frac{1}{2} \int\left(-\partial_{i} (T^{ki} y^{l}) +T^{ki} \partial_{i} y^l
+%	%-\partial_{i} (T^{li} y^{k}) +T^{li} \partial_{i} y^k \right) \mathrm{d}^{3} x \\
+%	\xlongequal[\text{舍弃边界项}]{\text{分部积分}} 
+%	%\frac{1}{2} \int\left(T^{ki} \delta_{i}^l +T^{li} \delta_{i}^k \right) \mathrm{d}^{3} y =
+%	\int T^{k l} \mathrm{d}^{3} y .
+%\end{align*}\setlength{\mathindent}{2em}
+%类似地，作为式\eqref{chle:eqn_ptT00}的一个结果（证明留给读者当练习），有
+%\begin{equation}\label{chle:eqn_tmpkl2}
+%	\int\left(T^{k 0} y^{l}+T^{l 0} y^{k}\right) \mathrm{d}^{3} y
+%	=\frac{\partial}{\partial y^0} \int T^{00} y^{k} y^{l} \mathrm{d}^{3} y.
+%\end{equation}
+%如果把式\eqref{chle:eqn_tmpkl1}、\eqref{chle:eqn_tmpkl2}结合在一起，易得
+%\begin{equation}\label{chle:eqn_TklT00}
+%	\int T^{k l} \mathrm{d}^{3} y=\frac{1}{2} \frac{\partial^{2}}{\partial y^{0}\partial y^{0}} 
+%	\int T^{00} y^{k} y^{l} \mathrm{d}^{3} y .
+%\end{equation}
+%在接受引力波地点远离辐射源区和辐射源慢变假设下，式\eqref{chle:eqn_LE-radiation-approx}的积分中，大部分可以用$T_{00}$项来表示．
+%物理上来看，$T_{kl}$是动量流密度，$T_{k0}$是能量流密度，$T_{00}$是能量密度，$T_{\mu 0}$是四动量密度；
+%当$T_{k l}$不为零时，动量密度必定在体积的某个地方积累起来，即$T_{k0}$必定变化；
+%进而，能量密度$T_{00}$必定在体积的某个地方积累起来．最终体现在数学公式\eqref{chle:eqn_TklT00}上。
+%
+%
+%对于非相对论性物质，可以作近似
+%\begin{equation}
+%	T_{00}=[\text { 能量密度 }] \simeq[\text { 静质量密度 }]=\rho .
+%\end{equation}
+%且得到
+%\begin{equation}
+%	\bar{h}_{kl}(t, x)= \left[\frac{4}{|\boldsymbol{x}|} \frac{\partial^{2}}{\partial t^{2}} 
+%	\int \rho\left(\boldsymbol{y}\right) y^{k} y^{l} \mathrm{d}^{3} y^{}\right]_{t-r} .
+%\end{equation}
+%这一积分也可以用四极矩张量
+%\begin{equation}
+%	Q_{kl}=\int\left(3 y_{k} y_{l}-r^{2} \delta_{kl} \right) \rho(y) \mathrm{d}^{3} y .
+%\end{equation}
+%来表示，由此得
+%\begin{equation}\label{chle:eqn_h-Q}
+%	\bar{h}_{kl}(t, \boldsymbol{x})= \frac{4}{|\boldsymbol{x}|} \frac{1}{3}
+%	\left[\frac{\partial^{2}}{\partial t^{2}} Q_{kl}+\delta_{kl} \frac{\partial^{2}}{\partial t^{2}} 
+%	\int r^{2} \rho(\boldsymbol{y}) \mathrm{d}^{3} y\right]_{t-r} .
+%\end{equation}
+%为了计算能量流，我们可以省略正比于式\eqref{chle:eqn_h-Q}括号中的 $\delta_{kl}$ 的项，
+%因为波的这一部分不带走能量．为看到这一点，注意只要距离 $r$ 足够大，
+%$\bar{h}_{kl}$在充分近似的情况下可以看成是点$\boldsymbol{x}$附近的平面波．
+%在TT规范下，仅有的携带能量的平面波极化是式\eqref{chle:eqn_tLL-plane-e0}给出的；
+%显然，$\delta_{kl}$不是这种类型的极化．若略去$\delta_{kl}$项，则
+%\begin{equation*}
+%	\bar{h}_{kl}(t, \boldsymbol{x})= \frac{4}{|\boldsymbol{x}|} \frac{1}{3} \ddot{Q}_{kl} .
+%\end{equation*}
+%其中圆点表示时间导数，而且等号右边的计算应理解为对于推迟了的时间$t-r$进行．
+%
+%我们使用式\eqref{chlh:eqn_t-stress-metric}来计算径向方向的能量流。
+%\begin{equation}
+%	\begin{aligned}
+%		(-g)t_{LL}^{0s} =& \frac{1}{16\pi} \Big[
+%		\underbrace{\mathfrak{g}^{0 s}_{,\alpha}\mathfrak{g}^{\alpha \beta}_{,\beta} }_{\tiny \textcircled{1}}
+%		\underbrace{- \mathfrak{g}^{0 \alpha}_{,\alpha}\mathfrak{g}^{s \beta}_{,\beta} }_{\tiny \textcircled{2}}
+%		\underbrace{+\frac{1}{2}g^{0 s}g_{\alpha \beta}\mathfrak{g}^{\alpha \sigma}_{,\rho} 
+%			\mathfrak{g}^{\rho \beta}_{,\sigma}}_{\tiny \textcircled{3}} \\
+%		&\underbrace{-(g^{0 \alpha}g_{\beta \sigma}\mathfrak{g}^{s \sigma}_{,\rho}
+%			\mathfrak{g}^{\beta \rho}_{,\alpha}+g^{s \alpha}g_{\beta \sigma}
+%			\mathfrak{g}^{0 \sigma}_{,\rho}\mathfrak{g}^{\beta \rho}_{,\alpha})}_{\tiny \textcircled{4}} 
+%		+ \underbrace{g_{\alpha \beta}g^{\sigma \rho}\mathfrak{g}^{0 \alpha}_{,\sigma}
+%			\mathfrak{g}^{s \beta}_{,\rho}}_{\tiny \textcircled{5}} \\
+%		&+\underbrace{\frac{1}{8}(2g^{0 \alpha}g^{s \beta}-g^{0 s}g^{\alpha \beta})
+%			(2g_{\sigma \rho}g_{\lambda \omega}-g_{\rho \lambda}g_{\sigma \omega})
+%			\mathfrak{g}^{\sigma \omega}_{,\alpha}\mathfrak{g}^{\rho \lambda}_{,\beta}}_{\tiny \textcircled{6}}  \Big] .
+%	\end{aligned} \tag{\ref{chlh:eqn_t-stress-metric}}
+%\end{equation}
+%其中 $n^{s}=\left(n_{x}, n_{y}, n_{z}\right)=(x / r, y / r, z / r)$ 是径向的单位矢量．
+%把 $\phi^{\alpha \beta}$ 分成空间部分和时间部分，
+%\begin{align*}
+%	\sum_{s=1}^{3}t_{LL}^{0 s}n^s = &
+%\end{align*}
+%
+%\begin{align*}
+%	t_{(1)}{ }^{0 s} n^{s}= & \frac{n^{s}}{4}\left(2 \phi^{k l, 0} \phi^{k l, s}-4 \phi^{k 0,0} \phi^{k 0, s}+2 \phi^{00,0} \phi^{00, s}-\phi^{k k, 0} \phi^{u, s}\right. \\
+%	& \left.+\phi^{k k, 0} \phi^{00, s}+\phi^{00,0} \phi^{k k, s}-\phi^{00,0} \phi^{00, s}\right) \tag{5.60}
+%\end{align*}
+%
+%
+%按照式（5．58）和式（5．56），这里我们已经考虑到
+%
+%$$
+%\phi^{k k} \propto \ddot{Q}^{k k}=0
+%$$
+%
+%在计算 $\phi_{\alpha \beta, s}$ 时，我们可以忽略式（5．57）中出现的因子 $1 / r$ 的导数，因为已经假设了 $r$ 非常大＊．其他与 $r$ 有关的地方只是推迟的时间 $t-r$ ；这意味着 $r$ 和 $t$ 仅仅以结合的形式 $t-r$ 出现，并且因此有
+%
+%
+%\begin{equation*}
+%	\phi_{, s}^{a \beta}=-\phi^{\alpha \beta}, 0 \frac{\partial r}{\partial x^{s}}=-\phi_{, 0}^{a \beta} n^{s} \tag{5.61}
+%\end{equation*}
+%
+%
+%\footnotetext{＊只要 $r \gg \lambda$ ，其中 $\lambda$ 是辐射的波长，这一近似就成立．
+%}相应地，式（5．60）括号中第一项中出现的导数可以写为
+%
+%
+%\begin{equation*}
+%	\phi^{k l, s}=\phi^{k l, 0} n^{s} \tag{5.62}
+%\end{equation*}
+%
+%
+%由熟悉的规范条件
+%
+%
+%\begin{equation*}
+%	\phi_{0}^{\mu}{ }_{0}^{0}=-\phi_{, l}^{\mu l} \tag{5.63}
+%\end{equation*}
+%
+%
+%开始，我们可以得到式（5．60）中其他项的方便表述．这给出
+%
+%
+%\begin{equation*}
+%	\phi_{0}^{k 0}=-\phi_{, l}^{k l}=\phi_{0}^{k l} n^{l}=\phi^{k l, 0} n^{l} \tag{5.64}
+%\end{equation*}
+%
+%
+%以及
+%
+%
+%\begin{equation*}
+%	\phi^{00,0}=-\phi_{, l}^{0 l}=\phi^{0 l}{ }_{0} n^{l}=\phi^{k l, 0} n^{k} n^{l} \tag{5.65}
+%\end{equation*}
+%
+%
+%把式（5．62），式（5．64）和式（5．65）代人式（5．60），得到
+%
+%
+%\begin{equation*}
+%	t_{(1)}{ }^{0 s} n^{s}=\frac{n^{s}}{4}\left(2 \phi^{k, 0} \phi^{k, 0} n^{s}-4 \phi^{k l, 0} n^{t} \phi^{k n, 0} n^{m} n^{s}+\phi^{k l 0} n^{k} n^{l} \phi^{m r, 0} n^{m} n^{r} n^{s}\right) \tag{5.66}
+%\end{equation*}
+%
+%
+%如果利用 $n^{s} n_{s}=1$ 以及式（5．58），这变成
+%
+%
+%\begin{align*}
+%	t_{(1)}{ }^{0 s} n^{s} & =\frac{1}{4}\left(2 \phi^{k l, 0} \phi^{k l, 0}-4 \phi^{k l, 0} \phi^{k m, 0} n^{l} n^{m}+\phi^{k l, 0} \phi^{n r, 0} n^{k} n^{l} n^{m} n^{r}\right) \\
+%	& =\frac{1}{9}\left(\frac{\kappa}{8 \pi r}\right)^{2}\left(\frac{1}{2} \dddot{Q}^{k l} \dddot{Q^{k l}}-\dddot{Q}^{k l} \dddot{Q^{k m}} n^{l} n^{m}+\frac{1}{4} \dddot{Q}^{k l} \dddot{Q}^{m r} n^{k} n^{l} n^{m} n^{r}\right) \tag{5.67}
+%\end{align*}
+%
+%
+%该系统在单位时间，沿 $n^{s}$ 方向的单位立体角辐射的能量是
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \Omega}=r^{2} t_{(\mathrm{i})}^{0 \mathrm{~s}} n^{s} \tag{5.68}
+%\end{equation*}
+%
+%
+%显然，这一角分布是非常复杂的；但总的辐射功率可以由式（5．68）对所有的立体角积分而得到，最后的表示式变得相当简单．我们有
+%
+%
+%\begin{align*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}= & \int r^{2} t_{(1)}^{\theta_{\mathrm{s}}} n^{s} \mathrm{~d} \Omega \\
+%	= & \frac{1}{9}\left(\frac{\kappa}{8 \pi}\right)^{2}\left(\frac{1}{2} \dddot{Q}^{k l} \dddot{Q^{k}} \int \mathrm{~d} \Omega-\dddot{Q}^{k l} \dddot{Q}^{k n} \int n^{l} n^{m} \mathrm{~d} \Omega\right. \\
+%	& \left.+\frac{1}{4} \dddot{Q}^{k l} \dddot{Q^{m r}} \int n^{k} n^{l} n^{m} n^{r} \mathrm{~d} \Omega\right) \tag{5.69}
+%\end{align*}
+%
+%
+%$n^{l} n^{m}$ 和 $n^{k} n^{l} n^{m} n^{r}$ 对一个球面的平均值分别是
+%
+%
+%\begin{gather*}
+%	\frac{1}{4 \pi} \int n^{l} n^{m} \mathrm{~d} \Omega=\frac{1}{3} \delta_{l}^{m}  \tag{5.70}\\
+%	\frac{1}{4 \pi} \int n^{k} n^{l} n^{m} n^{r} \mathrm{~d} \Omega=\frac{1}{15}\left(\delta_{k}^{2} \delta_{m}^{r}+\delta_{k}^{m} \delta_{l}^{r}+\delta_{k}^{r} \delta_{l}^{m}\right) \tag{5.71}
+%\end{gather*}
+%
+%
+%■练习11 验证这一结果．（提示：除非式（5．70）和式（5．71）中出现的指数成对地相同，积分将为零，因为被积函数是奇函数．这表明这些方程的左右两边必须成正比；确定该比例常数．）
+%
+%把式（5．70）和式（5．71）代入式（5．69），我们得到
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{4 \pi}{45}\left(\frac{\kappa}{8 \pi}\right)^{2} \dddot{Q}^{k l} \dddot{Q}^{k l} \tag{5.72}
+%\end{equation*}
+%
+%
+%■ 练习 12 验证这一结果．\\
+%如果代人 $\kappa^{2}=16 \pi G$ 并回到 cgs 单位制，我们得到辐射功率
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{G}{45 c^{5}} \dddot{Q}^{k l} \dddot{Q}^{k l} \tag{5.73}
+%\end{equation*}
+%
+%
+%在1．3节中我们看到，坐标原点的移动会使四极矩改变一个附加常数（见式 （1．28））．因为辐射的发射只涉及 $Q^{k l}$ 的含时部分，因而原点的改变不影响我们的结果；我们可以选择任何方便的点作为原点．
+%
+%以上计算的辐射常被称为四极辐射．因为我们所有的结果都包含四极矩张量，故这个名称是一个非常好的名称．然而应当记住，如果我们在电磁情况下也做上述引力情况下的同样近似，将会得到电磁偶极辐射．与引力＂四极＂辐射相类比的是电磁偶极辐射——这些类型的辐射对应于在场方程的推迟解（式（5．47）以及电磁学的相应方程）中，我们可以做的最低阶近似．
+%
+%\section{振动四极子的发射}
+%按照式（5．73），任何具有含时的四极矩以及 $\dddot{Q}^{k l} \neq 0$ 的质量系统都将辐射引力波．我们可以把引力波的源分类为周期源和爆发源．前者具有周期变化的四极矩；它们发射简谐波．后者的四极矩在一个短的时间里发生非周期变化；它们辐射爆发式的，或脉冲式的引力波．例如，振动的质量和转动的质量是周期性的源；而与另一个质量碰撞，经受短暂而急剧加速度的质量是一个爆发源．
+%
+%最简单的周期性引力波源由两个相同的质量组成，它们之间用一弹簧连接（见图5．8）．这一理想系统叫做线性四极子．我们将把这两个质量当作粒子处理，但是如果它们是球形的，结果也会同样好（对于球状质量系统，其四极矩与粒子系统的四极矩相同）．理想线性四极子主要是出于理论上的兴趣．虽然这样一个线性四极子容易在实验室里建造，但引力辐射的总量对于实验室大小的质量来说是微不足道的．没有任何天体物理引力辐射源是线性四极子形状的．但是以一种拉长振动模式振动的星，会呈现振动线性四极子的某些普遍特性，因而如果我们运用线性四极子的简单公式，还是可以对这样的星发出的引力辐射作出一些粗略的估计． ■ 练习13 证明一个由球形质量组成的系统的四极矩，与由位于球体中心的质点组成的相应系统的四极矩相等．
+%
+%如图5．8所示，质量沿 $z$ 轴运动；它们的位置分别是
+%
+%
+%\begin{equation*}
+%	z= \pm(b+a \sin \omega t) \tag{5.74}
+%\end{equation*}
+%
+%
+%
+%\[
+%Q(0)^{k l}=\left(\begin{array}{ccc}
+%	-2 m b^{2} & 0 & 0  \tag{5.77}\\
+%	0 & -2 m b^{2} & 0 \\
+%	0 & 0 & 4 m b^{2}
+%\end{array}\right)
+%\]
+%
+%是静态四极矩．\\
+%练习14 推导式（5．76）．\\
+%■ 练习15 证明辐射的引力场是
+%
+%
+%\begin{equation*}
+%	\phi^{k l}=\frac{\kappa}{8 \pi r} \frac{2 a}{3 b} \omega^{2} \sin \omega(t-r) Q(0)^{k l} \tag{5.78}
+%\end{equation*}
+%
+%
+%式（5．68）给出的辐射角分布是
+%
+%$$
+%\begin{gathered}
+%	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \Omega}=\frac{1}{9}\left(\frac{\kappa}{8 \pi}\right)^{2}\left[\frac{1}{2}\left(\dddot{Q^{11}}\right)^{2}+\frac{1}{2}\left(\dddot{Q^{22}}\right)^{2}+\frac{1}{2}\left(\dddot{Q}^{33}\right)^{2}\right. \\
+%	\left.-\left(\dddot{Q}^{11} n^{1}\right)^{2}-\left(\dddot{Q}^{22} n^{2}\right)^{2}-\left(\dddot{Q^{33}} n^{3}\right)^{2}+\frac{1}{4}\left(\dddot{Q^{11}} n^{1} n^{1}+\dddot{Q}^{22} n^{2} n^{2}+\dddot{Q}^{33} n^{3} n^{3}\right)^{2}\right]
+%\end{gathered}
+%$$
+%
+%利用图5．9中定义的通常的极角，我们有
+%
+%
+%\begin{gather*}
+%	n^{1}=n_{x}=\sin \theta \cos \phi  \tag{5.80}\\
+%	n^{2}=n_{y}=\sin \theta \sin \phi  \tag{5.81}\\
+%	n^{3}=n_{z}=\cos \theta \tag{5.82}
+%\end{gather*}
+%
+%
+%式（5．79）化为
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d}^{2} E}{\mathrm{~d} t \mathrm{~d} \omega}=\left(\frac{\kappa}{8 \pi}\right)^{2}\left[2 m a b \omega^{3} \cos \omega(t-r)\right]^{2} \sin ^{4} \theta \tag{5.83}
+%\end{equation*}
+%
+%
+%
+%图5．9 引力波辐射的角方向
+%
+%练习16 由式（5．79）推出式（5．83）．\\
+%图5．10表示辐射的图样．注意这一辐射图样与电磁四极子的图样完全没有相似之处；在后者的情况下，至少在三个垂直方向（及其相反方向）上能量流为零．如果说有一点类似的话，图5．10只能使我们隐约回忆起电磁偶极辐射的图样．\\
+%
+%
+%图5．10 一个四极子沿 $z$ 轴振动发出的引力波辐射的辐射图样这是函数 $\sin ^{4} \theta$ 的极坐标图．从原点到曲线上一点的距离正比于该方向上的辐射流量．这一图样关于 $z$ 轴是柱对称的
+%
+%总的辐射功率是
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{G}{45 c^{5}} \dddot{Q}^{k} \dddot{Q^{k}}=\frac{32 G}{15 c^{5}}\left[m a b \omega^{3} \cos \omega(t-r)\right]^{2} \tag{5.84}
+%\end{equation*}
+%
+%
+%其时间平均值是
+%
+%
+%\begin{equation*}
+%	-\frac{\overline{\mathrm{d} E}}{\mathrm{~d} t}=\frac{16 G}{15 c^{5}}(m a b)^{2} \omega^{6} \tag{5.85}
+%\end{equation*}
+%
+%
+%我们定义振子的阻尼率为能量损失率与能量之比
+%
+%
+%\begin{equation*}
+%	\gamma_{\mathrm{rad}} \equiv-\frac{1}{E} \frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t} \tag{5.86}
+%\end{equation*}
+%
+%
+%因为每一质量的能量是 $\frac{1}{2} m \omega^{2} a^{2}$ ，我们得到
+%
+%
+%\begin{equation*}
+%	\gamma_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} m b^{2} \omega^{4} \tag{5.87}
+%\end{equation*}
+%
+%
+%量 $1 / \gamma_{\mathrm{rad}}$ 称为阻尼时间；这是振子损失其 $1 / \mathrm{e}$ 的能量以产生辐射的时间．\\
+%虽然我们推导出的式（5．85）是针对一个由弹簧连接的两个质点或两个球体组成的系统，但它对任何弹性体振动所辐射的引力波能量给出了一个数量级估计，只
+%
+%要振动大致是在一个方向上＊．例如，我们可以用式（5．85）估计一根钢杆沿其长度方向振动时辐射的功率；在这一情况下，$a$ 是振动的振幅，$m$ 是杆的质量，$b$ 是其长度，$\omega$ 是振动的频率．一个振动弹性体发出的引力波辐射的更精密的计算，可以用一个有效振幅代替振动振幅来进行（见式（5．131））．
+%
+%四极子振动发出的辐射在新星的情况下可能很重要．新星爆发发生在双星系统的白矮星上，从伴星吸积的核燃料逐渐在白矮星表面积累起来，当核燃料达到一个临界质量时就会发生爆炸．伴随其他一些事件，爆炸触发了白矮星星体中的振动，其典型的频率是 $0.01 \sim 1 \mathrm{~Hz}$ ．新星爆发释放的典型能量为 $10^{45} \mathrm{erg}$ ，其中大概有 $10 \%$ 储藏为星体的振动能，然后以引力波的形式辐射出来．
+%
+%超新星暴缩形成的中子星的振动，发出更高频率和更大量的能量辐射．由于中子星振动的阻尼时间相当短（几分之一秒），这种辐射具有爆发的形式，我们将在以后再讨论它．
+%
+%\section{转动四极子的发射}
+%另一种简单的周期性引力波源是转动四极子，它由两个粒子或两个球形质量\\
+%
+%
+%图5．11 两个球形质量在以质心为中心的圆轨道上运动构成，它们围绕其公共质心作圆轨道运动（见图 5．11）．因为当质量经过半圈轨道运动时四极矩重复一次，故辐射波的频率是轨道频率的两倍．这一系统辐射的功率是
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{32 G}{5 c^{5}}\left(\frac{m_{1} m_{2}}{m_{1}+m_{2}}\right)^{2} r^{4} \omega^{6} \tag{5.88}
+%\end{equation*}
+%
+%
+%其中 $m_{1}, m_{2}$ 是质量，$r$ 是它们之间的距离，$\omega$ 是轨道频率．\\
+%－练习 17 推导式（5．88）．\\
+%■ 练习 18 证明，垂直于轨道平面的辐射是圆偏振的；在轨道平面内的辐射是＂线＂偏振的．
+%
+%我们可以把式（5．88）用于一个由两颗彼此围绕，沿圆轨道运动的恒星构成的双星系统．在这一情况下，把两颗星保持在轨道上的力是引力，并且 $r$ 和 $\omega$ 由 Kepler 第三定律相联系，
+%
+%
+%\begin{equation*}
+%	\omega^{2}=\frac{G\left(m_{1} \cdot+m_{2}\right)}{r^{3}} \tag{5.89}
+%\end{equation*}
+%
+%
+%\footnotetext{＊式（5．85）不能用于一个球体的径向脉动；在球对称的情况下，辐射严格为零．
+%}这样式（5．88）变成
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{32 G^{4}}{5 c^{5} r^{5}}\left(m_{1} m_{2}\right)^{2}\left(m_{1}+m_{2}\right) \tag{5.90}
+%\end{equation*}
+%
+%
+%由于该引力系统因辐射而损失能量，两个质量之间距离减小的速率是
+%
+%
+%\begin{equation*}
+%	\frac{\mathrm{d} r}{\mathrm{~d} t}=-\frac{64 G^{3}}{5 c^{5} r^{3}} m_{1} m_{2}\left(m_{1}+m_{2}\right) \tag{5.91}
+%\end{equation*}
+%
+%
+%轨道频率增加的速率是
+%
+%
+%\begin{equation*}
+%	\frac{\mathrm{d} \omega}{\mathrm{~d} t}=-\frac{3 \omega}{2 r} \frac{\mathrm{~d} r}{\mathrm{~d} t}=\frac{96}{5}\left[\frac{G\left(m_{1}+m_{2}\right)}{c^{2} r}\right]^{3 / 2} \frac{G^{2} m_{1} m_{2}}{c^{2} r^{4}} \tag{5.92}
+%\end{equation*}
+%
+%
+%练习19 推出式（5．91）和式（5．92）．（提示：利用 $E=-G m_{1} m_{2} / 2 r$ ，以及式 （5．90）和 Kepler 第三定律．）
+%
+%只要轨道半径很小，双星系统就会有明显的引力辐射．表 5.2 给出了某些已知的小轨道半径（和短轨道周期）双星系统样本．辐射功率最强，在地球上产生的流量最大的是 Am CVn，其流量为 $3 \times 10^{32} \mathrm{erg} / \mathrm{s}$ ．这一系统由一颗蓝白矮星和一颗低质量白矮星构成（见图5．12），相互绕转的轨道异常地小，其周期仅为 17.5分（！）．但是，在地球上产生引力波振幅最大的是 $\mu \mathrm{Sco}$ ，为 $\kappa A \simeq 2 \times 10^{-20}$（虽然由 AmCVn 发过来的波的振幅较小，但非常高的频率使得波能携带较多的能量；见式（5．28）和式（5．29））．灵敏度能够检测到振幅 $\kappa A \simeq 2 \times 10^{-20}$ 的引力波探测器已经建造出来，但是它们只对频率比双星系统辐射频率高得多的波产生响应，而在近期还看不到直接探测双星系统引力波的希望．
+%
+%表5．2 作为引力辐射源的双星系统＊
+%
+%\begin{center}
+%	\begin{tabular}{|c|c|c|c|c|c|c|}
+%		\hline
+%		系统 & 质量（ $M_{\odot}$ ） & 距离／pc & 波的频率 \( / 10^{-6} \mathrm{~Hz} \) & 地球上的光度 \( / 10^{30} \mathrm{erg} / \mathrm{s} \) & 地球上的能流 $/ 10^{-12} \mathrm{erg} / \mathrm{cm}^{2} \cdot$ & 地球上的振幅 \( \text { s } \quad / 10^{-22} \) \\
+%		\hline
+%		\multicolumn{7}{|l|}{食双星} \\
+%		\hline
+%		$l$ Boo & 1．0，0．5 & 11.7 & 86 & 1.1 & 68.0 & 51 \\
+%		\hline
+%		$\mu \mathrm{Sco}$ & 12,12 & 109 & 16 & 51 & 38.0 & 210 \\
+%		\hline
+%		$V$ Pup & 16．5，9．7 & 520 & 16 & 59 & 1.9 & 46 \\
+%		\hline
+%		\multicolumn{7}{|l|}{激变双星（新星）} \\
+%		\hline
+%		Am CVn & 1．0， 0.041 & 100 & 1900 & 300 & 240 & 5 \\
+%		\hline
+%		WZ Sge & 1．5， 0.12 & 75 & 410 & 24 & 37 & 8 \\
+%		\hline
+%		SS Cyg & $0.97,0.83$ & 30 & 84 & 2 & 20 & 30 \\
+%		\hline
+%		\multicolumn{7}{|l|}{双星 X 射线源（黑洞或中子星）} \\
+%		\hline
+%		Cyg X－1 & 30， 6 & 2500 & 4.1 & 1.0 & 1 & 4 \\
+%		\hline
+%		\multirow[t]{3}{*}{PSR $1913+16$} & $1.4,1.4$ & 5000 & $70^{* *}$ & 0.6 & 0.2 & 0.12 \\
+%		\hline
+%		&  &  & 140 & 2.9 & 1.1 & 0.14 \\
+%		\hline
+%		&  &  & 210 & 5.8 & 2.1 & 0.12 \\
+%		\hline
+%	\end{tabular}
+%\end{center}
+%
+%致密星具有较大的质量 $\left(m_{1}\right)$ 并且是一颗蓝白矮星；另一颗星 $\left(m_{2}\right)$ 是一颗低质量的白矮星．由后者到前者有质量转移（根据 Faulkner，Flannery，Warner 1972）
+%
+%然而，引力波可以由能量损失对双星系统轨道运动的影响而间接地探测到．其中，最有兴趣的是 PSR 1913＋16，它是一个脉冲双星系统，是 Hulse 和 Taylor在1974年用 Arecibo 射电望远镜搜寻脉冲星时发现的．这一系统由一颗脉冲星 （发出射电脉冲的转动中子星）和一颗伴星组成，伴星或者是一颗白矮星，或者是另一颗中子星，两者的轨道非常接近．Hulse 和 Taylor 发现脉冲频率呈现周期性变化，这是由于脉冲星围绕其（未探测到的）伴星轨道运动的 Doppler 频移而引起．他们根据检查单个脉冲到达的时间，从而仔细地分析了系统的运动．这样对单个脉冲到达时间的分析，比测量＂瞬时＂频率要给出较高的精度，因为在一个有限时间 $\Delta \tau$ 内的时间测量，要受到通常的不确定性 $\Delta \nu \simeq 1 / \Delta \tau$ 的影响．例如，如果我们想要测量轨道上一分钟路段内的＂瞬时＂频率，则 $\Delta \nu \simeq 1 / 60 \mathrm{~Hz}$ ，这是一个相当大的误差．
+%
+%双星系统轨道参数的精确值已由到达时间的最小二乘拟合得出．这一分析不仅给出了轨道周期和投影半长轴（ $a \sin i$ ，其中 $i$ 是轨道相对于视线的倾角），而且还有偏心率和近星点进动率（类似于太阳系中水星近日点进动）．表 5.3 列出了 PSR $1913+16$ 的最重要的参数．注意脉冲周期和脉冲频率大约有 10 位有效数字．这一分析同时显示出有明显的时间膨胀效应，当脉冲星在椭圆轨道上运行时，它与其伴星的距离时远时近，这就使得时间膨胀效应的大小有所变化．时间膨胀效应的出现，部分地是由于伴星引力场所产生的引力时间膨胀，部分地是由于＂横向的＂，或狭义相对论的轨道速度所产生的时间膨胀．表 5.3 列出的标称脉冲周期，已经对这些时间膨胀效应做了改正（脉冲周期也受到脉冲星自己的引力场时间膨胀的影响；但这是一个常数因子，它不能由这些观测数据确定）．
+%
+%双星系统由于引力辐射而失去能量，这使得 PSR $1913+16$ 的轨道周期每秒钟减少 $2.4 \times 10^{-12} \mathrm{~s}$ ．为了对理论预言的轨道周期变化率做一个定量的检测，我们需要知道这两颗伴星的质量（见式（5．92））．该质量值可以由系统的两个相对论效应的测量值得出：近星点进动和时间膨胀．近星点进动只决定于质量之和 $m_{1}+$\\
+%$m_{2}$ ，而时间膨胀决定于 $m_{1}$ 和 $m_{2}$ 的不同组合．这样，测量到的近星点进动值和时间膨胀值（见表 5．3）就确定了 $m_{1}$ 和 $m_{2}$
+%
+%\[
+%\begin{array}{cc}
+%	m_{1}=(1.442 \pm 0.003) M_{\odot} & \text { 对于脉冲星 } \\
+%	m_{2}=(1.386 \pm 0.003) M_{\odot} & \text { 对于伴星 } \tag{5.93}
+%\end{array}
+%\]
+%
+%表 5．3 PSR $1913+16$ 的某些观测参数
+%
+%\begin{center}
+%	\begin{tabular}{ll}
+%		\hline
+%		脉冲周期（标称） & $0.059029995271 \pm 0.000000000002 \mathrm{~s}$ \\
+%		投影半长轴 & $2.3418 \pm 0.0001$ 光秒 \\
+%		偏心率 & $0.617127 \pm 0.000003$ \\
+%		轨道周期 & $27906.98163 \pm 0.00002 \mathrm{~s}$ \\
+%		近星点进动率 & $4.2263 \pm 0.0003^{\circ}$ 每年 \\
+%		时间延缓因子幅度 & $0.0044 \pm 0.0001$ \\
+%		轨道周期变化率 & $(-2.40 \pm 0.09) \times 10^{-12} \mathrm{~s} / \mathrm{s}$ \\
+%		自转轴进动率 & $?$ \\
+%		\hline
+%	\end{tabular}
+%\end{center}
+%
+%利用这些质量值，周期变化率的理论预言值是每秒 $-2.38 \times 10^{-12} \mathrm{~s}$ ，即观测到的变化率（Tayler，Weisberg 1989）的 $0.99 \pm 0.01$ 倍．图5．13表示观测的以及预言的经过近星点时间的移动；图中表明，周期减小的理论预言值和观测结果符合得极好．\\
+%
+%
+%图5．13 观测到的通过近星点的时间移动（圆点）和预期的移动（实线）\\
+%因为轨道运动的周期在减小，该系统到达近星点的时间要早一些，相应于一个负的时间移动．这一移动的大小年复一年地增加（Taylor，Weisberg 1989）
+%
+%注意在把理论与观测相比较时，我们不能用简单的公式（5．92），因为这个公式只对圆轨道成立，而 PSR $1913+16$ 的轨道是椭圆的，有一个实际的偏心率（ $\varepsilon=$ 0.617 ）．对于一个椭圆轨道，引力辐射不单单是以基频或者轨道频率＊发射，而且还以这一基频的倍数发射，因为一个在椭圆轨道上的质点的 $x$ 坐标和 $y$ 坐标不是简单的简谐函数，而是简谐级数（Fourier 级数），它包括轨道频率的所有倍数．在 PSR $1913+16$ 的情况下，最强的辐射发生在频率为轨道频率的 8 倍时，而最大的波振幅发生在频率为轨道频率的 4 倍时（见表5．2）．
+%
+%还有另外一个复杂性，这就是该系统的引力场相当强．由 $M=1.44 M_{\odot}$ 和典型中子星的半径 $r \simeq 10 \mathrm{~km}$ ，我们得出在星体表面 $G M / r c^{2} \simeq 0.2$ ．因而对线性近似进行仔细考虑并给予修正看来是必需的，因为引力辐射四极子的公式都是基于线性近似．Damour（1983a，1983b，1983c，1987）详尽地探究了所需要做的修正，他的结论是，四极子公式实际上比预期的要好——它正确地给出了引力波形式下的辐射功率，即使背景引力场相当强也是如此．
+%
+%PSR $1913+16$ 轨道周期减小率的观测结果和理论预言极好地一致，给我们提供了很好的，尽管还是非主要的证据，说明了引力辐射的存在．目前，它是关于引力辐射的唯一可用的观测证据．
+%
+%PSR $1913+16$ 参数的极高精度，使我们能够用这颗脉冲星来检测其他某些相对论和宇宙学效应，它们可能对转动或轨道运动产生影响．例如，正像 4.7 节已经提到过的，相对论引力理论预言了引磁效应；并且脉冲双星的数据给我们提供了关于这些引磁效应的观测证据，同时确认了引力的自旋一轨道耦合．此外，按照某些宇宙学的推测，引力常数 $G$ 可能逐渐在减小，其特征时间尺度等于宇宙的年龄．引力强度这样的减小，将引起所有引力束缚体系的轨道逐渐膨胀，以及随之而来的轨道周期的逐渐增加．因为脉冲双星系统没有显示出剩余的，无法解释的周期变化，我们可以对 $G$ 的变化率设定一个极限．与观测不确定性相一致的极限是 $|\mathrm{d} G / \mathrm{d} t| / G<2 \times 10^{-11} /$ 年（Damour et al．1988）．
+%
+%双星系统的轨道运动给我们提供了转动四极子引力波辐射的最简单的例子．但是几乎任何由粒子组成并绕一个中心作轨道运动的系统，或者围绕一个轴自转的非对称物体，其旋转运动也将产生一个含时的四极矩，并且辐射引力波．与此相联系，中子星的自转就有重要的天体物理意义．中子星的自转周期（脉冲星的脉冲周期）的典型值是在 $0.03 \sim 3 \mathrm{~s}$ ．如果这样一个中子星相对其转动轴不是严格柱对称的，则它将构成一个转动四极子，并发出引力波辐射．例如，蟹状星云脉冲星以 0.033 s 的周期转动，如果它在赤道面上的大小有 $1 / 1200$ 的偏差，则引力波辐射将
+%
+%\footnotetext{＊对于圆轨道，引力辐射的基频是轨道频率的两倍，因为四极矩每半个周期重复一次．但是对于椭圆轨道，四极矩在近星点要比在远星点小，因而基频就是轨道频率．
+%}达到 $10^{38} \mathrm{erg} / \mathrm{s}$（Ferrari，Ruffini 1969）．这一能量损失可以考虑为是观测到的蟹状星云脉冲星自转速率变慢的原因．但是，已知该脉冲星辐射大量的电磁能，且占转动动能损失的大部分，因而引力能的辐射率（以及赤道面的变形）应该比较小．曾经有人试图搜寻蟹状星云脉冲星的引力波，所用的探测器调谐在预期的波频率 $2 \times(1 / 0.033) \mathrm{Hz}=60 \mathrm{~Hz}$ ．但结果是否定的（见 5.7 节）．
+%
+%\section{引力辐射暴的发射}
+%我们在上一节中看到，因为引力辐射造成能量损失，双星系统中的两颗子星的轨道逐渐收缩——它们彼此逐渐螺旋式地接近．这种向内的运动开始很慢，但当子星下落到越来越小的轨道时，频率越来越高，向内运动急剧加速．子星相互螺旋接近的速度越来越快，发出的引力辐射也逐渐增强．当两颗星碰撞在一起时，双星系统发出的＂天鹅的歌声＂戛然而止．碰撞释放出引力辐射的最后一爆．
+%
+%在双星系统这一并合过程中发出的辐射开始是周期的或准周期的，但是在最后几转发出的辐射是类似爆发式的．比如，考虑一个双中子星系统的并合过程，开始时的距离为 $r_{0}=100 \mathrm{~km}$ ．如果每颗星的质量是 $1 M_{\odot}$ ，辐射功率开始是 $3.3 \times$ $10^{51} \mathrm{erg} / \mathrm{s}$ ，距离减小的速率是 $[-\mathrm{d} r / \mathrm{d} t]_{0}=2.5 \times 10^{6} \mathrm{~cm} / \mathrm{s}$ ．积分式（5．91），我们得到
+%
+%
+%\begin{equation*}
+%	\frac{1}{4}\left(r^{4}-r_{0}^{4}\right)=-\frac{64 G^{3}}{5 c^{5}} m_{1} m_{2}\left(m_{1}+m_{2}\right)\left(t-t_{0}\right) \tag{5.94}
+%\end{equation*}
+%
+%
+%此结果也可以写为
+%
+%
+%\begin{equation*}
+%	t-t_{0}=\left(1-\frac{r^{4}}{r_{0}^{4}}\right) \frac{r_{0}}{4} \frac{1}{[-\mathrm{d} r / \mathrm{d} t]_{0}} \tag{5.95}
+%\end{equation*}
+%
+%
+%其中下标 0 表示计算是在初始时刻 $t_{0}$ 进行的．距离从 $r_{0}$ 减小到 $r \ll r_{0}$ 所需的时间间隔是
+%
+%
+%\begin{equation*}
+%	\Delta t \simeq \frac{r_{0}}{4} \frac{1}{[-\mathrm{d} r / \mathrm{d} t]_{0}} \tag{5.96}
+%\end{equation*}
+%
+%
+%这一结果（近似地）与最终的距离 $r$ 无关，因为体系在距离比较大时耗费了大部分时间，而在通过较小的距离时非常快．如果代入上面给出的 $r_{0}$ 和 $[-\mathrm{d} r / \mathrm{d} t]_{0}$ 的值，则得
+%
+%
+%\begin{equation*}
+%	\Delta t \simeq 1.0 \mathrm{~s} \tag{5.97}
+%\end{equation*}
+%
+%
+%简单的计算表明，在这一时间间隔内双星系统转了大约 130 圈，轨道的形状像缠紧的螺旋．辐射的频率随时间增加，开始时的频率大约是 160 Hz ，但在结尾时增加到大约 10 倍．辐射功率的增加还要剧烈，最后会达到开始时的将近 3000 倍．
+%
+%在并合过程中辐射的总能量等于系统总能的改变，
+%
+%
+%\begin{equation*}
+%	\Delta E=\frac{G}{2} m_{1} m_{2}\left(\frac{1}{r_{0}}-\frac{1}{r}\right) \tag{5.98}
+%\end{equation*}
+%
+%
+%代人 $r_{0}=100 \mathrm{~km}$ 和 $r=20 \mathrm{~km}$ ，辐射的总量是
+%
+%
+%\begin{equation*}
+%	-\Delta E=5.3 \times 10^{52} \mathrm{erg} \tag{5.99}
+%\end{equation*}
+%
+%
+%这是系统静止质量的 $1 \%$ ！这一能量的大部分是在并合过程的最后阶段辐射的．当两个中子星碰撞时将辐射一个特大的脉冲；此外，碰撞之后形成的系统（一个较大的中子星或黑洞），当它的位形稳定下来以后，也许会发出更多的引力辐射．在银河系或邻近星系中某处，一个正在并合的双中子星辐射的脉冲，其强度将足以使目前可以利用的设备探测到；然而，这样的事件预计将是非常罕见的．
+%
+%注意前面的计算只是近似；相对论改正被忽略了．即使在 $r=100 \mathrm{~km}$ ，轨道速度也将是 $v / c \simeq 1 / 10$ ，当距离达到 $r=20 \mathrm{~km}$ 时，速度要更大一些，$v / c \simeq 2 / 10$ ．同样也要考虑到引力场的非线性所引起的改正．因而我们的计算只能看作是一个数量级估计．\\
+%
+%
+%图5．14 粒子朝一个质量径向下落
+%
+%到目前为止，我们提及的引力辐射源是周期的或准周期的，并且是基于振动的或转动的四极子．因为任何具有非零三阶时间导数的四极子将发出辐射，故存在许多其他可能的源．例如，考虑一个沿径向朝一颗恒星直接加速下落的粒子（零角动量轨道）．为简单起见，假设恒星的质量 $M$ 比粒子的质量 $m$ 大得多．这表明恒星处于静止，只是粒子贡献一个含时的四极矩．如果我们取 $z$ 轴沿着入射方向并且原点位于恒星中心（见图5．14），则式（5．73）给出
+%
+%
+%\begin{equation*}
+%	-\frac{\mathrm{d} E}{\mathrm{~d} t}=\frac{2 G m^{2}}{15 c^{5}}(6 \dddot{z} \ddot{z}+2 z \ddot{z})^{2} \tag{5.100}
+%\end{equation*}
+%
+%
+%－练习20 推导式（5．100）．\\
+%如果粒子从无穷远处以零初速度（零能量轨道）开始下落，则有
+%
+%
+%\begin{equation*}
+%	\frac{1}{2} m \dot{z}^{2}=\frac{G m M}{|z|} \tag{5.101}
+%\end{equation*}
+%
+%
+%以及
+%
+%$$
+%\begin{gathered}
+%	\dot{z}=\frac{1}{|z|^{1 / 2}}(2 G M)^{1 / 2} \\
+%	\ddot{z}=\frac{G M}{z^{2}}
+%\end{gathered}
+%$$
+%
+%
+%\begin{equation*}
+%	\dddot{z}=\frac{2 G M}{|z|^{7 / 2}}(2 G M)^{1 / 2} \tag{5.102}
+%\end{equation*}
+%
+%
+%式（5．100）和式（5．101）给出
+%
+%
+%\begin{equation*}
+%	-\mathrm{d} E=\frac{1}{|z|^{9 / 2}} \frac{2 G m^{2}}{15 c^{5}}(2 G M)^{5 / 2} \mathrm{~d} z \tag{5.103}
+%\end{equation*}
+%
+%
+%在从 $z=-\infty$ 到 $z=-R$ 的下降过程中，辐射的能量可以由式（5．103）的积分得出
+%
+%
+%\begin{equation*}
+%	-\Delta E=\frac{1}{R^{7 / 2}} \frac{4 G m^{2}}{105 c^{5}}(2 G M)^{5 / 2} \tag{5.104}
+%\end{equation*}
+%
+%
+%显然，当下限 $R$ 很小时能量辐射很大．因而考虑非常致密的恒星或其他天体的情况将是有利的．我们可以想到的最致密的天体是黑洞．我们将在以后讨论这类天体；现在只需要知道，一个质量为 $M$ 的黑洞具有半径
+%
+%
+%\begin{equation*}
+%	R=\frac{2 G M}{c^{2}} \tag{5.105}
+%\end{equation*}
+%
+%
+%在这一半径处的引力场是如此之强，以致任何粒子（或光，或任何物体）达到比 $2 G M / c^{2}$ 更近的地方时，将不可避免地被拉进黑洞并且不可能逃逸．
+%
+%对于粒子直接落人这样一个黑洞的情况，下限 $R$ 由式（5．105）给出，因为此后发出的任何引力辐射都将保留在黑洞之内．代入式（5．104）得到
+%
+%
+%\begin{equation*}
+%	-\Delta E=\frac{2}{105} m c^{2}\left(\frac{m}{M}\right)=0.019 m c^{2}\left(\frac{m}{M}\right) \tag{5.106}
+%\end{equation*}
+%
+%
+%我们的简单计算是有缺陷的，因为没有考虑到当粒子接近 $R=2 G M / c^{2}$ 时，运动变成相对论性的．同时，非线性引力作用也必须考虑．Davis et al．（1971）的精确计算表明
+%
+%
+%\begin{equation*}
+%	-\Delta E=0.0104 m c^{2}\left(\frac{m}{M}\right) \tag{5.107}
+%\end{equation*}
+%
+%
+%它与我们简单的近似结果（5．106）相当接近．\\
+%注意引力波辐射的能量随 $M$ 的增大而减小．为了得到一个大的辐射脉冲，我们必须选择大的 $m$ 和尽可能小的 $M$（回忆一下，我们在计算中假设过 $M \gg m$ ）．如果取＂粒子＂的质量为 $M_{\odot}$ ，黑洞的质量为 $M=10 M_{\odot}$ ，半径 $R=2 G M / c^{2} \simeq 30 \mathrm{~km}$ ，我们得到
+%
+%
+%\begin{equation*}
+%	-\Delta E=2 \times 10^{51} \mathrm{erg} \tag{5.108}
+%\end{equation*}
+%
+%
+%辐射的大部分是在粒子从 $2 R$ 到 $R$ 的急降阶段发出的．因而辐射表现为一个脉冲，其时间长度为
+%
+%
+%\begin{equation*}
+%	\Delta t \simeq R /[\text { 粒子速度 }] \simeq R / c \simeq 30 \mathrm{~km} / c \simeq 10^{-4} \mathrm{~s} \tag{5.109}
+%\end{equation*}
+%
+%
+%这样一个脉冲将包含高至 $10^{4} \mathrm{~Hz}$ 的频率．频谱计算的结果在图5．15中给出．
+%
+%作为引力辐射源的最后一个例子，我们来谈一下超新星（II 型超新星）的引力坍缩．当一颗几个太阳质量的恒星演化到高密度阶段，引力场变得如此之强，使得内部压力支持不住恒星外层的重力．恒星的核心在其自身引力的作用下被压碎并坍缩，直至达到原子核的密度，此时坍缩突然变慢或停止．这一突然停止产生一个冲击波，它向外传播并以剧烈爆炸的形式冲破恒星外层，我们就看到一颗超新星．同时，恒星的核心或者形成一个中子星那样的稳定结构，或者由于质量太大而继续坍缩，最终成为一个黑洞．\\
+%
+%
+%图5．15 一个质量为 $m$ ，沿径向落人一个质量为 $M$ 的黑洞的粒子，所发射的引力辐射的谱\\
+%$\mathrm{d} E / \mathrm{d} \omega$ 给出单位频率间隔辐射的能量．标记 $l=2$ 的曲线对应于四极辐射；其他曲线（ $l=$ $3, l=4$ ）对应于较高阶的多极辐射．注意大多数辐射的频率都低于 $\omega \simeq 0.5 c^{3} / G M$（根据 Davis，Ruffini，Press \textbackslash ＆Prjce，1971）
+%
+%引力坍缩过程中是否发出引力辐射，取决于非对称性是否存在．如果坍缩中的恒星保持球对称，它就没有四极矩，也就不会发出引力辐射．但是，大多数恒星有转动，它们是柱对称的而不是球对称的．在引力坍缩过程中，这样一颗转动恒星的极点和赤道坍缩的速度是不同的，它们甚至可能在核心达到核子密度时，还处于里外振荡的状态．这样就产生了一个与时间有关的，甚至可能是振荡的四极矩．此外，坍缩结束时形成的中子星，很也可能处于某种激发的振动状态．一颗超新星引力坍缩所辐射的引力能，估计大约为 $10^{-6} M_{\odot} c^{2}$ ，在快速转动恒星的情况下它可能会更大一些，此时恒星在坍缩中可能碎裂为几个高度非对称的碎块．引力辐射脉冲包含的频率范围是 $10^{3} \sim 10^{4} \mathrm{~Hz}$ ．
+%
+%另外一种引力坍缩可能发生在致密的星系核中，该处的一个星团可能合并而成为一个大的黑洞，其质量在 $10^{3} M_{\odot}$ 到 $10^{7} M_{\odot}$ 之间．这样的坍缩可以产生 $10 \sim$\\
+%$10^{-4} \mathrm{~Hz}$ 的低频引力波．
+%
+%表5．4 典型的天体物理引力波源＊
+%
+%\begin{center}
+%	\begin{tabular}{|c|c|c|c|}
+%		\hline
+%		源 & 频率 & 距离＊＊ & 振幅（ $\kappa$ A） \\
+%		\hline
+%		\multicolumn{4}{|l|}{周期源} \\
+%		\hline
+%		双星 & $10^{-4} \mathrm{~Hz}$ & 10 pc & $10^{-20}$ \\
+%		\hline
+%		新星 & $10^{-2} \sim 1$ & 500 pe & $10^{-22}$ \\
+%		\hline
+%		转动中子星（蟹状星云） & 60 & 2 Kpc & $<10^{-24}$ \\
+%		\hline
+%		爆发源 &  &  &  \\
+%		\hline
+%		双星并合 & $10 \sim 10^{3}$ & 100 Mpc & $10^{-21}$ \\
+%		\hline
+%		恒星落入 $10 M_{\odot}$ 质量的黑洞 & $10^{-4}$ & 10 Mpc & $10^{-21}$ \\
+%		\hline
+%		超新星 & $10^{3}$ & 10 Kpc & $10^{-18}$ \\
+%		\hline
+%		$10^{4} M_{\odot}$ 质量的星的引力切缩 & $10^{-1}$ & 3 Gpc & $10^{-19}$ \\
+%		\hline
+%	\end{tabular}
+%\end{center}
+%
+%＊引自 Thorne（1987）．\\
+%＊＊距离选择为足够大，以使近似地每年有三个事例．
+%
+%表5．4是典型的天体物理引力波源的一览表，它给出了相应的频率范围和引力波到达地球时的振幅．对每一种爆发源，表中所列的距离已选择为足够大，以包含所估计的每年三例事件．
+%
+%\section{四极探测器及其截面}
+%两个质量用弹簧连接起来就构成一个简单的四极振子，可以用来作为引力波探测器．我们知道这一系统的振动会辐射引力波，故可以预期，人射到这一系统的引力波将激发起振动．我们希望计算出入射的引力波可以激发多大的振动幅度，以及从波中吸收到多少能量．但是，这里有一个困难：在两个质量以相同的方式加速时，系统不会激发起振动．引力不是直接可以观测的；只有作用于这两个质量的力之差才产生可观测的效应．即使实验者尽力寻找仪器的净平移运动，他也不会发现任何效应，因为实验者也在引力场中被加速．只有两个质量之间有相对运动，或它们与实验者之间有相对运动时，才会有明显的效应．这意味着施加于振子的可观测驱动力是潮汐力．
+%
+%假设有一个如式（5．24）给出的平面引力波，人射到由两个以弹簧连接起来的质量构成的简单四极振子，振子沿 $x$ 轴放置，两个质量的平衡位置是 $x= \pm b$（见图 5．16）．用复数记法，我们可以把波写为
+%
+%
+%\begin{equation*}
+%	h^{\mu \nu}=A_{\oplus} \varepsilon_{\oplus}{ }^{\mu \nu} \mathrm{e}^{\mathrm{i} \omega t-\mathrm{i} k z} \tag{5.110}
+%\end{equation*}
+%
+%
+%如果两个质量的位移始终保持为很小 $(|x-b| \ll b)$ ，则作用于每一质量的潮汐力由\\
+%
+%
+%图5．16 由一根沿 $x$ 轴方向的弹簧连接两个质量构成的四极振子
+%
+%式（5．41）给出
+%
+%
+%\begin{equation*}
+%	f_{x}=\left(m \frac{\kappa}{2} A_{\oplus} \omega^{2} \mathrm{e}^{\mathrm{i} \omega t}\right) x \simeq\left(m \frac{\kappa}{2} A_{\oplus} \omega^{2} \mathrm{e}^{\mathrm{i} \omega t}\right) b \tag{5.111}
+%\end{equation*}
+%
+%
+%其中一个质量，比如说位于 $x$ 轴正方向的质量，其运动方程是
+%
+%
+%\begin{equation*}
+%	m \ddot{x}+m \gamma \dot{x}+m \omega_{0}^{2}(x-b)=m \frac{\kappa}{2} A_{\oplus} \omega^{2} b \mathrm{e}^{\mathrm{i} \omega t} \tag{5.112}
+%\end{equation*}
+%
+%
+%这里 $\omega_{0}^{2}$ 是自由振动的自然频率，$\gamma$ 是与作用在振子上的摩擦力有关的阻尼率．利用摩擦引起的能量损失的平均值（对一个周期），阻尼率为
+%
+%
+%\begin{equation*}
+%	\gamma=-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {friction }} \tag{5.113}
+%\end{equation*}
+%
+%
+%实验者通常更愿意使用振子的 $Q$ 值或＂品质因数＂，其定义是
+%
+%
+%\begin{equation*}
+%	Q=\omega_{0} / \gamma \tag{5.114}
+%\end{equation*}
+%
+%
+%时间 $\tau_{0}=\gamma^{-1}$ 或 $\tau_{0}=\omega_{0} / \gamma$ 称为驰豫时间，即自由振动（无驱动力时）的能量减小一个因子 e 的时间间隔．
+%
+%引力潮汐力式（5．111）在式（5．112）中起着驱动力的作用．在这一驱动力的作用下，运动方程的稳态解是
+%
+%
+%\begin{equation*}
+%	x-b=\frac{\frac{1}{2} \kappa A_{\oplus} \omega^{2} b \mathrm{e}^{\mathrm{i} \omega t}}{-\omega^{2}+\omega_{0}^{2}+\mathrm{i} \gamma \omega} \tag{5.115}
+%\end{equation*}
+%
+%
+%－练习21 验证此式．\\
+%如果振子的摩擦力相对很小，即有
+%
+%$$
+%\gamma \ll \omega_{0}
+%$$
+%
+%则振子的稳态响应在频率 $\omega \simeq \omega_{0}$ 有一个尖锐的极大值．这一频率的引力波就与系统的自然振动处于共振．对于 $\omega=\omega_{0}$ ，式（5．115）给出振动的振幅
+%
+%
+%\begin{equation*}
+%	\frac{1}{2} \kappa A_{\oplus}\left(\frac{\omega_{0}}{\gamma}\right) b \tag{5.116}
+%\end{equation*}
+%
+%
+%这比自由粒子＊运动的振幅要大一个 $\omega / \gamma$ 因子．按照式（5．115），这一因子大于 1 ．习惯上，探测器的灵敏度用一个称为截面的参数来表征．让我们从定义散射截面开始．当引力波在四极探测器中激发起振动时，这些振动反过来辐射引力波；
+%
+%\footnotetext{＊自由粒子的结果可以由式（5．115）取 $\omega_{0}=\gamma=0$ 得到．
+%}这就是说，从人射的引力波中吸收的某些能量，又作为新的引力波再辐射出来．散射截面定义为，再辐射功率与入射流量之比，
+%
+%
+%\begin{equation*}
+%	\sigma_{\text {scatt }}=\frac{[\text { 再辐射功率 }]}{[\text { 人射流量 }]} \tag{5,117}
+%\end{equation*}
+%
+%
+%这里，再辐射功率和人射流量都应理解为对一个周期进行平均．式（5．117）定义的截面具有面积的量纲．但是，它没有任何关于振动质量几何截面面积的含义；该截面只是一个参数，以测量振子对辐射散射的有效程度．
+%
+%在我们的情况下，人射波的流量是 $\frac{1}{2} A_{\oplus}{ }^{2} \omega^{2} / c$ ．为求出辐射功率，我们利用式（5．85）．在这一方程中出现的量 $a$ 是振动的振幅；根据式（5．115），
+%
+%
+%\begin{equation*}
+%	a=\frac{\frac{1}{2} \kappa A_{\oplus} \omega^{2} b}{\left|-\omega^{2}+\omega_{0}^{2}+\mathrm{i} \gamma \omega\right|} \tag{5.118}
+%\end{equation*}
+%
+%
+%因而
+%
+%
+%\begin{equation*}
+%	-\left(\frac{\overline{\mathrm{d} E}}{\mathrm{~d} t}\right)_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} \frac{\left(\frac{1}{2} m \kappa A_{\oplus} \omega^{2} b^{2}\right)^{2}}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \omega^{6} \tag{5.119}
+%\end{equation*}
+%
+%
+%以及
+%
+%
+%\begin{align*}
+%	\sigma_{\text {scatt }} & =-\frac{1}{\frac{1}{2} A_{\oplus}{ }^{2} \omega^{2} / c}\left(\frac{\overline{\mathrm{~d} \bar{E}}}{\mathrm{~d} t}\right)_{\mathrm{rad}} \\
+%	& =\frac{128 \pi G^{2}}{15 c^{8}} \frac{\left(m b^{2} \omega^{4}\right)^{2}}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}}  \tag{5.120}\\
+%	& =\frac{15 \pi c^{2}}{2}\left(\gamma_{\mathrm{rad}}\right)^{2} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.121}
+%\end{align*}
+%
+%
+%其中，与式（5．87）相同，
+%
+%
+%\begin{equation*}
+%	\gamma_{\mathrm{rad}}=\frac{16 G}{15 c^{5}} m b^{2} \omega^{4} \tag{5.122}
+%\end{equation*}
+%
+%
+%注意 $\sigma_{\mathrm{scatt}}$ 与入射波的振幅无关（振幅在式（5．120）中消去了）；这使得在测量四极子散射多少人射波的辐射时，截面作为一种量度而非常有用．
+%
+%为了探测引力波，我们对从引力波吸收的能量比对散射的能量更感兴趣．这表示我们希望知道，振子把多少功率传递给振子的（机械）摩擦力．我们可以定义一个相应的吸收截面
+%
+%
+%\begin{equation*}
+%	\sigma_{\mathrm{abs}}=\frac{[\text { 机械摩擦的功率损失 }]}{[\text { 人射能流 }]} \tag{5.123}
+%\end{equation*}
+%
+%
+%我们可以在 $\sigma_{\mathrm{scatt}}$ 和 $\sigma_{\mathrm{abs}}$ 之间建立起联系，只要注意到式（5．113）给出的总的阻尼率\\
+%$\gamma$ 是两项之和
+%
+%
+%\begin{align*}
+%	\gamma & =-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {total }}=-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\text {friction }}-\frac{1}{E}\left(\frac{\overline{\mathrm{~d} E}}{\mathrm{~d} t}\right)_{\mathrm{rad}} \\
+%	& =\gamma_{\mathrm{m}}+\gamma_{\mathrm{rad}} \tag{5.124}
+%\end{align*}
+%
+%
+%用话来说就是，总的＂摩擦力＂归结为机械摩擦和辐射阻尼两者．按照它们的定义， $\sigma_{\mathrm{scatt}}$ 和 $\sigma_{\mathrm{abs}}$ 必须成比率 $\gamma_{\mathrm{rad}} / \gamma_{\mathrm{m}}$ ，即
+%
+%
+%\begin{equation*}
+%	\sigma_{\mathrm{abs}}=\frac{\gamma_{\mathrm{m}}}{\gamma_{\mathrm{rad}}} \sigma_{\mathrm{scatt}} \tag{5.125}
+%\end{equation*}
+%
+%
+%对于任何实际的振子，我们希望有 $\gamma_{\mathrm{m}} \gg \gamma_{\mathrm{rad}}$ ，因此 $\gamma_{\mathrm{m}} \simeq \gamma$ ．这样
+%
+%
+%\begin{align*}
+%	\sigma_{\mathrm{abs}} & \simeq \frac{\gamma}{\gamma_{\mathrm{rad}}} \sigma_{\mathrm{scatt}}  \tag{5.126}\\
+%	& =\frac{15}{2} \pi c^{2} \gamma_{\mathrm{rad}} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.127}
+%\end{align*}
+%
+%
+%
+%对于一个在引力波的潮汐场中位于最佳取向的四极振子，我们已经计算出截面式（5．121）和式（5．127）．两个质量振动的方向都取为垂直于人射方向，并平行于潮汐形变场的主轴之一．对于一个质量被限制在与入射方向（ $z$ 轴）成 $\theta$角，与潮汐场的一个主轴成 $\phi$ 角的连线上振动的振子（见图5．17），与最佳情况相比，潮汐力沿该连线的分量要缩减一个因子
+%
+%
+%\begin{equation*}
+%	\sin ^{2} \theta \cos 2 \phi \tag{5.128}
+%\end{equation*}
+%
+%
+%这一因子容易被理解：潮汐力的大小正比于系统的横向大小 $(\simeq \sin \theta)$ ；取这个力沿振动连线的分量，就出现另一个 $\sin \theta$ 因子；最后，因子 $\cos 2 \phi$ 只不过表示横截面上的（径向）潮汐场强度的角度依赖关系 （见式（5．44））．
+%
+%截面决定于潮汐力沿振动方向分量的平方；因此式（5．121）和式（5．127）必须缩减一个因子 $\sin ^{4} \theta \cos ^{2} 2 \phi$ ．这表明探测器的截面对取向相当敏感，并在式（5．127）给出的上限和零之间变化．作为折中，对波和探测器之间的随机相对取向引入一个截面是方便的．为此，我们把因子 $\sin ^{4} \theta \cos ^{2} 2 \phi$ 用它对所有角度的平均值来代替，
+%
+%
+%\begin{equation*}
+%	\frac{1}{4 \pi} \int \sin ^{4} \theta \cos ^{2} 2 \phi \mathrm{~d} \Omega=\frac{4}{15} \tag{5.129}
+%\end{equation*}
+%
+%
+%这给出
+%
+%
+%\begin{equation*}
+%	\bar{\sigma}_{\mathrm{abs}}=2 \pi c^{2} \gamma \gamma_{\mathrm{rad}} \frac{1}{\left(\omega^{2}-\omega_{0}^{2}\right)^{2}+\gamma^{2} \omega^{2}} \tag{5.130}
+%\end{equation*}
+%
+%
+%虽然我们的计算是基于理想线性四极子的特殊情况，但其结果对于以柱对称模式振动的任意质量系统也是正确的．更准确地说，因为四极张量含时部分的振幅是某种对称矩阵 $Q^{\prime k l}$ ，，它可以用变换到主轴的办法对角化．柱对称意味着对角化矩阵的两个对角元素是相等的．如果我们取轴沿 $z$ 方向，则 $Q^{\prime 11}=Q^{\prime 22}$ ．此外，因为迹必须为零，$Q^{\prime 33}=-2 Q^{\prime 11}$ ．现在让我们把这些分量写为
+%
+%
+%\begin{equation*}
+%	Q^{\prime 11}=Q^{\prime 22}=-\frac{1}{2} Q^{\prime 33}=-2 m b a^{\prime} \tag{5.131}
+%\end{equation*}
+%
+%
+%其中 $m$ 是振动系统质量的一半，$b$ 是系统长度的一半，$a^{\prime}$ 由式（5．131）定义．显然， $a^{\prime}$ 具有长度量纲；它可以被看作是四极子中的质量的＂有效振动振幅＂．对角化的四极矩阵于是为
+%
+%\[
+%Q^{\prime k l}=\left(\begin{array}{ccc}
+%	-2 m b a^{\prime} & 0 & 0  \tag{5.132}\\
+%	0 & -2 m b a^{\prime} & 0 \\
+%	0 & 0 & 4 m b a^{\prime}
+%\end{array}\right)
+%\]
+%
+%注意，这一形式实质上与线性四极子的四极矩含时部分的形式相同（见式（5．77））；这样，一个轴对称振动系统就等效于一个线性四极子．目前的探测器是以纵向振动模式工作的圆柱体；这些探测器满足我们的假设． $a^{\prime}$ 的值通常与 $a$ 的量级相同 （见式（5．118））；例如，一个以基谐纵向模式振动的长圆柱体，其 $a^{\prime} / a=2 / \pi$ ．
+%
+%
+%
 
 
 

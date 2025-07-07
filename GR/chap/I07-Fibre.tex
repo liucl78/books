@@ -779,17 +779,17 @@ $\omega_{\hphantom{\alpha}\beta}^\alpha$称为联络$\nabla$在
 \end{equation}
 与式\eqref{chfb:eqn_dsom}的第二式相比较，可得
 \begin{equation}\label{chfb:eqn_wform-trans}
-    a_{\hphantom{\alpha}\gamma}^\beta \tilde{\omega}_{\hphantom{\alpha}\alpha}^\gamma 
-    =\mathrm{d} a_{\hphantom{\alpha}\alpha}^\beta + 
-    \omega_{\hphantom{\alpha}\gamma}^\beta a_{\hphantom{\alpha}\alpha}^\gamma
-    \quad \Leftrightarrow \quad
-    \tilde{\omega}_{\hphantom{\alpha}\alpha}^\beta=b_{\gamma}^{\hphantom{\alpha}\beta}
-     \mathrm{d} a_{\hphantom{\alpha}\alpha}^\gamma+b_{\gamma}^{\hphantom{\alpha}\beta} 
-    \omega_{\hphantom{\alpha}\delta}^\gamma a_{\hphantom{\alpha}\alpha}^\delta .
+	a_{\hphantom{\alpha}\gamma}^\beta \tilde{\omega}_{\hphantom{\alpha}\alpha}^\gamma
+	=\mathrm{d} a_{\hphantom{\alpha}\alpha}^\beta +
+	\omega_{\hphantom{\alpha}\gamma}^\beta a_{\hphantom{\alpha}\alpha}^\gamma
+	\ \Leftrightarrow \
+	\tilde{\omega}_{\hphantom{\alpha}\alpha}^\sigma=(a^{-1})_{\hphantom{\alpha}\beta}^{\sigma}
+	\mathrm{d} a_{\hphantom{\alpha}\alpha}^\beta+(a^{-1})_{\hphantom{\alpha}\beta}^{\sigma}
+	\omega_{\hphantom{\alpha}\gamma}^\beta a_{\hphantom{\alpha}\alpha}^\gamma .
 \end{equation}
-其中 $(b_{\alpha}^{\hphantom{\alpha}\beta})$是矩阵$(a_{\hphantom{\alpha}\alpha}^\beta)$的转置逆矩阵．
-式\eqref{chfb:eqn_wform-trans}是联络型式在局部标架场变换下的变换公式；
-此式与\eqref{chccr:eqn_1form-transformation}相似，只是适用领域不同．
+式\eqref{chfb:eqn_wform-trans}是联络型式在局部标架场变换下的变换公式．
+此式与\eqref{chccr:eqn_1form-transformation}相似，该式只适用于切标架丛；
+式\eqref{chfb:eqn_wform-trans}适用于矢量丛（包含切标架丛）．
 
 
 %\begin{example}
@@ -1547,4 +1547,125 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 \printbibliography[heading=subbibliography,title=第\ref{chfb}章参考文献]
 
 \endinput
+
+
+%\section{矢量丛与规范场概述}\label{chfb:sec_G-connection}
+%
+%
+%令底流形是$m$维的光滑流形$M$．设$r$维李群$G$是半单的，其李代数是$\mathfrak{g}$；
+%群$G$有$q\times q$维表示$\hat{G}$，同态映射为$\rho : G\to \hat{G}$；
+%设群$\hat{G}$是作用在纤维型$\mathbb{C}^q$上的{\kaishu 结构群}，即过渡函数族$g_{UV}\in \hat{G}$．
+%设群$\hat{G}$的李代数是$\mathfrak{\hat{g}}$；
+%我们额外要求$\mathfrak{\hat{g}}$线性同构于$\mathfrak{g}$；
+%设$\mathfrak{\hat{g}}$的基为$\{T_a\mid a=1,\cdots,r\}$．
+%
+%
+%我们要求$\mathfrak{g}$是半单的，主要目的是令其Killing型（定义见\S\ref{chlg:sec_KillingForm}）非退化；
+%对物理学来说，退化的Killing型貌似没用．
+%如果进一步要求$G$是紧致的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
+%李群$G$的李代数$\mathfrak{g}$诱导出的Killing型是负定的；
+%进而可以在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型
+%的{\kaishu 负值}（这样，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$便是正定的了）；
+%从而可以定义不变积分（见\S\ref{chlg:sec_Integral}）．
+%如果没有紧致性，那么$\mathfrak{g}$的Killing型是不定的，没必要额外引入一个负号了；
+%但此时不变积分貌似无法定义．
+%
+%
+%在开子集$U\subset M$、$V\subset M$上分别引入局部坐标$\{x^i\}$、$\{y^i\}$，并假定$U\cap V\neq \varnothing$．
+%在纤维型$\mathbb{C}^q$上引入局部标架$s_{\alpha}$（$1\leqslant \alpha \leqslant q$）．
+%这样丛空间$E$便有了局部标架$\{\frac{\partial }{\partial x^i}; s_\alpha\}$．
+%取矢量丛的联络矩阵为：
+%\begin{equation}\label{chfb:eqn_Gwform}
+%	\omega_{\hphantom{\alpha}\alpha}^\beta=\sum_{a=1}^{r} \sum_{i=0}^{m-1} 
+%	A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta {\rm d}x^i;
+%	\quad 1\leqslant \alpha , \beta \leqslant q,\quad A^a_i\in C^\infty(U).
+%\end{equation}
+%其中$T_a$是李代数$\mathfrak{\hat{g}}$的基矢矩阵，它们是$q$维常数方阵．
+%上述定义还不是联络型式，还需要求它在变换（$x^i\to y^j$、$s_\alpha\to \tilde{s}_\beta$）下
+%满足式\eqref{chfb:eqn_wform-trans}，同时令\eqref{chfb:eqn_wform-trans}中
+%的$a_{\hphantom{\alpha}\gamma}^\beta\in \hat{G}$，即令其是过渡函数族中的元素．
+%把式\eqref{chfb:eqn_wform-trans}中的联络方阵$\omega_{\hphantom{\alpha}\alpha}^\beta$写成
+%联络系数（见式\eqref{chfb:eqn_con-form}）的形式：
+%\begin{equation}\label{chfb:eqn_GGamma}
+%	\Gamma_{\alpha i }^\beta=\left< \omega_{\hphantom{\alpha}\alpha}^\beta,
+%	\ \frac{\partial }{\partial x^i} \right>
+%	=\sum_{a=1}^{r} A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta ;
+%	\qquad 1\leqslant \alpha , \beta \leqslant q.
+%\end{equation}
+%把式\eqref{chfb:eqn_wform-trans}写成联络系数的形式
+%（$a_{\hphantom{\alpha}\gamma}^\beta=[g_{VU}]_{\hphantom{\alpha}\gamma}^\beta \in \hat{G}$）：
+%\begin{equation}\label{chfb:eqn_GDG}
+%	\bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\gamma}^\beta \tilde{\Gamma}_{\alpha j}^\gamma (y)
+%	=\left(\frac{\partial \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\beta}{\partial x^i}
+%	+\Gamma_{\gamma i}^\beta(x) \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma
+%	\right) \times \frac{\partial x^i }{\partial y^j}.
+%\end{equation}
+%满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为矢量丛的{\heiti $\boldsymbol{G}$型联络}．
+%
+%\index[physwords]{G型联络} 
+%
+%
+%在物理学中，通常将$M$选为平直的四维闵氏流形$(\mathbb{R}^4_1,\eta)$；
+%并且一般不作坐标变换$x^i\to y^j$，只作变换$s_\alpha\to \tilde{s}_\beta$．
+%以下两个例题就在这样的假设来阐述．
+%
+%\begin{example}
+%	$U(1)$规范场．
+%\end{example}
+%
+%
+%取$G=\hat{G}=U(1)=\exp(\mathbbm{i}\theta)$，则它的李代数$\mathfrak{g}=\{\mathbbm{i}\}$．
+%
+%即令式\eqref{chfb:eqn_GDG}中的$g_{VU}(x)=e^{\mathbbm{i}\theta}$、$T_a=(\mathbbm{i})$，
+%则式\eqref{chfb:eqn_GDG}化为：
+%\begin{equation}
+%	e^{\mathbbm{i}\theta} \tilde{\Gamma}_{1 j}^{1} 
+%	=\frac{\partial e^{\mathbbm{i}\theta}}{\partial x^j}
+%	+\Gamma_{1 j}^1 e^{\mathbbm{i}\theta} 
+%	\quad \xRightarrow[\ref{chfb:eqn_GGamma}]{\text{带入式}}\quad
+%	\tilde{A}_{j}(x) =\frac{\partial \theta}{\partial x^j}  +A_j(x)  .
+%\end{equation}
+%这正是电磁规范势的规范变换公式；此时式\eqref{chfb:eqn_GGamma}中的$A^a_i$对应{\kaishu 电磁规范势}．
+%
+%把式\eqref{chfb:eqn_GGamma}（$U(1)$群是可对易群）带入曲率公式\eqref{chfb:eqn_R-vector-bundle}，有
+%\begin{equation}\label{chfb:eqn_EM-strength}
+%	R_{1 i j}^1 = {\partial_i} A_{j} -\partial_j A_i.
+%\end{equation}
+%上式正是电磁场强公式$R_{1 i j}^1\equiv F_{ij} = {\partial_i} A_{j} -\partial_j A_i$．
+%\qed
+%
+%\begin{example}
+%	非对易规范场（群$G$是非对易群）．
+%\end{example}
+%非对易规范场也称为Yang--Mills场（杨振宁-米尔斯场）．
+%请参考任一本相关教材，读者你会发现式\eqref{chfb:eqn_GGamma}就是Yang--Mills场；
+%式\eqref{chfb:eqn_GDG}正是Yang--Mills场需要满足的规范变换．
+%把式\eqref{chfb:eqn_GGamma}带入曲率公式\eqref{chfb:eqn_R-vector-bundle}（$R_{\alpha i j}^\beta 
+%= {\partial_i} \Gamma_{\alpha j}^{\beta} -\partial_j \Gamma_{\alpha i}^{\beta}
+%+\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} -  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta}$），
+%有（注意$(T_a)_{\hphantom{\alpha}\alpha}^\beta $是常数矩阵）
+%\begin{align}
+%	R_{\hphantom{\alpha}\alpha i j}^\beta 
+%	=&{\partial_i} A^a_j (T_a)_{\hphantom{\alpha}\alpha}^\beta 
+%	-\partial_j A^a_i (T_a)_{\hphantom{\alpha}\alpha}^\beta 
+%	+A^c_j (T_c)_{\hphantom{\alpha}\alpha}^\sigma  A^b_i (T_b)_{\hphantom{\alpha}\sigma}^\beta
+%	-A^b_i (T_b)_{\hphantom{\alpha}\alpha}^\sigma  A^c_j (T_c)_{\hphantom{\alpha}\sigma}^\beta \notag\\
+%	=& \sum_{a=1}^{r}(T_a)_{\hphantom{\alpha}\alpha}^\beta  \times \bigl(
+%	{\partial_i} A^a_j  -\partial_j A^a_i  + A^b_i A^c_j C_{bc}^a    \bigr) .
+%	\label{chfb:eqn_YM-Strength}
+%\end{align}
+%其中$C_{bc}^a$是李代数$\mathfrak{\hat{g}}$的结构常数．
+%此式正是非对易规范场的场强公式；
+%当$G$是可对易群时，式\eqref{chfb:eqn_YM-Strength}退化为式\eqref{chfb:eqn_EM-strength}．
+%式\eqref{chfb:eqn_YM-Strength}是非对易规范场论的基础．
+%\qed
+%
+%\index[physwords]{Yang--Mills场}  \index[physwords]{杨振宁-米尔斯场} \index[physwords]{规范场} 
+%
+%
+%\begin{remark}
+%	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解Yang--Mills理论．
+%	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
+%\end{remark}
+%
 

@@ -94,7 +94,7 @@ $C^\times_\times(\nabla_X K_{\cdots}^{\cdots}) \overset{def}{=} \nabla_X(C^\time
 
 
 \subsection{联络系数}
-为讨论联络系数，先要叙述一个命题，一般称之为{\heiti 局部性定理}．\index[physwords]{局部性定理!仿射联络}
+为讨论联络系数，先要叙述一个命题，一般称之为{\heiti 局部性定理}．  \index[physwords]{局部性定理!仿射联络}
 \begin{proposition}\label{chccr:thm_local}
     设有仿射联络空间$(M,\nabla_a)$，则仿射联络$\nabla_a$具有如下{\kaishu 局部性质}：
     设$X_1,X_2,Y_1,Y_2\in \mathfrak{X}(M)$，则如果存在$M$的开集$U$使
@@ -123,13 +123,15 @@ $C^\times_\times(\nabla_X K_{\cdots}^{\cdots}) \overset{def}{=} \nabla_X(C^\time
     因点$p$的任意性，可得$\nabla_{X_1} Y_1|_U = \nabla_{X_1} Y_2|_U$，进而可证明命题．
 \end{proof}
 
+
+
+
 关于局部性定理的理解，请先参考切矢量场的评注\ref{chdm:rmk_local}．
 读者需要注意，定义\ref{chccr:def_connection}是针对整体流行$M$而言；
 一般说来不能用一个坐标域覆盖住$M$，
-目前我们不知道把定义在整个流形$M$上的仿射联络$\nabla_a$作用在
-局部坐标系上具体会是什么样子．
-{\kaishu 局部性定理}说：只要$X_1|_U =X_2|_U,\ Y_1|_U =Y_2|_U  $，那么必然
-有$(\nabla_{X_1} Y_1) |_U=(\nabla_{X_2} Y_2) |_U$．
+目前我们不知道把定义在整个流形$M$上的仿射联络$\nabla_a$作用在局部坐标系上具体会是什么样子．
+{\kaishu 局部性定理}说：只要$X_1|_U =X_2|_U,\ Y_1|_U =Y_2|_U  $，
+那么必然有$(\nabla_{X_1} Y_1) |_U=(\nabla_{X_2} Y_2) |_U$．
 换句话说仿射联络的计算只需要知道切矢量场的局部性状即可，
 无需知道$p$点开邻域$V$外的性状；这和微积分中的“导数运算”完全一致．
 这也就说明只需要一个坐标域就能解决仿射联络的局部表示，
@@ -240,8 +242,10 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 令$z\equiv y$，则上式最左端恒为零，最右端的式子便可证明\eqref{chccr:eqn_Exchange-Christoffel}．
 
 从式\eqref{chccr:eqn_Exchange-Christoffel}可以看到$\Gamma^{k}_{ij}$不满足张量分量
-变换公式\eqref{chdm:eqn_tensor-component-trans}，所以它不是张量（场）．
-%读者应该知道克氏符不是张量的原因是：$(\frac{\partial}{\partial x^k} )^a$不是整个流形$(M,\nabla_a)$的联络．
+变换公式\eqref{chdm:eqn_tensor-component-trans}，所以它不是张量场．
+读者需注意，$\Gamma^{k}_{ij}$只在流形$M$上才能定义，在线性空间$V$上是无法定义的；
+因为单个线性空间没有坐标系$\{x^i\}$的概念，也就无法诞生$\Gamma^{k}_{ij}$了．
+
 我们人为约定它们在局部坐标$(U;x^i)$的抽象指标表达式为
 \begin{equation}\label{chccr:eqn_Christoffel-naturalbases-ij}
     \Gamma_{ab}^c = \Gamma_{ij}^k ({\rm d}x^i)_a ({\rm d}x^j)_b
@@ -249,7 +253,7 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
     \Gamma_{ij}^k  = \Gamma_{ab}^c  \left(\frac{\partial}{\partial x^i} \right)^a
     \left(\frac{\partial}{\partial x^j} \right)^b ({\rm d}x^k)_c .
 \end{equation}
-再次强调，虽然有抽象指标记号，但不是张量（场）．
+再次强调，虽然有抽象指标记号，但$\Gamma_{ab}^c$不是张量场．
 
 上面从联络得到了联络系数．
 反之，在$m$维光滑流形$M$的每个局部开集$(U;x^i)$中给定$m^3$个
@@ -433,6 +437,12 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 所以$\partial_a v^b$在坐标变换时不具有协变属性．
 因此可以得到结论：\uwave{$\partial_a$不是联络}．
 
+联络定义\ref{chccr:def_connection}隐藏了局部坐标卡，但隐含着：
+在任意局部坐标卡中，联络必须满足定义中的三条公理．
+从上面的推导可以看出，算符$\partial_a$只能在某个坐标卡满足三条公理，
+在与其相邻的不同坐标卡中可能不满足；这也说明$\partial_a$不是联络．
+
+
 虽然$\partial_a$不是联络，但是在局部坐标$(U;x^i)$上，当作用在标量函数场$f$上时，
 它们是相同的，即$\partial_a f = \nabla_a f = {\rm d}_a f$．
 其实，几乎所有“导数”的算符，作用在标量场上时所得结果必须与微积分中结果相同；否则不能称为“导数”．
@@ -530,7 +540,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 当$\Gamma^{i}_{kj}$下标对称时，挠率恒为零．
 反之，若$T_{bc}^a\equiv 0$，则$\Gamma^{i}_{kj}$下标对称．
 \begin{definition}
-    设$(M,\nabla_a)$是仿射空间，如果挠率$T_{bc}^a$恒为零，
+    设$(M,\nabla_a)$是仿射空间，若挠率$T_{bc}^a$恒为零，
     则称$\nabla_a$为{\heiti 无挠联络}．
 \end{definition}
 

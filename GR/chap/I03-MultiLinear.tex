@@ -1666,6 +1666,8 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     并记$\tau(\alpha,\beta)=\alpha \otimes \beta, \ \forall \alpha \in U, \beta \in V$．
 \end{definition}
 
+定义\ref{chmla:def_tensor-product}中的线性空间可以拓展成无穷维，
+证明可参见\parencite[\S 11.2.2]{qiuws-2019-v2}例2．
 
 \subsection{张量积性质}
 
@@ -2155,7 +2157,7 @@ $\Tpq{0}{0}$型张量（即数域$\mathbb{F}$中元素）称为{\heiti 标量}�
 \begin{equation}\label{chmla:eqn_tmp201}
     \Phi = \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
     \boldsymbol{\epsilon}_{i_1} \otimes\cdots\otimes \boldsymbol{\epsilon}_{i_p} \otimes
-    \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q}
+    \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q},
 \end{equation}
 其中，
 \begin{equation}\label{chmla:eqn_tmp203}
@@ -2187,6 +2189,8 @@ $\tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 \end{align}
 上式是在基矢变换下，张量对应分量之间的变换式．  \index[physwords]{张量!张量变换关系}
 最早，Ricci就是用此式定义张量，也就是张量的分量定义方式．
+虽然式\eqref{chmla:def_tensor-by-compoents}中只有分量，
+但依照本书习惯，需分量结合基矢才是张量，即\eqref{chmla:eqn_tmp201}式中的$\Phi$．
 
 反之，如果对空间$V$的每一个基底$\{\boldsymbol{\epsilon}\otimes\boldsymbol{\epsilon}^{*}\}$都指定一个
 由$m^{p+q}$个$\mathbb{F}$值数构成的数组$\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}$；
@@ -2204,8 +2208,7 @@ $\tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
       \overset{def}{=} \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
       \alpha_{i_1}\cdots\alpha_{i_p}\ v^{j_1}\cdots v^{j_q} .
 \end{equation*}
-这样定义的映射对每个宗量都是线性的，在基矢变化时定义右端项具有
-形式不变性．
+这样定义的映射对每个宗量都是线性的，在基矢变化时定义右端项具有形式不变性．
 不难看出$\Phi_{new}\in \mathscr{L}(V^* \times \cdots \times V^*
 \times V\times \cdots \times V;\mathbb{F})$，
 这个定义便说明了可由分量定义得到张量的代数定义\ref{chmla:def_tensor2}．
@@ -2223,10 +2226,10 @@ $\tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 一般情形下会比这个要求要严格．
 设有子群$G\in GL(m,\mathbb{F})$，若式\eqref{chmla:def_tensor-by-compoents}中
 系数$A$、$B$是$G$中元素，则称之为{\heiti $\boldsymbol{G}$型张量．}
-{\kaishu 例一}：牛顿力学将$A$、$B$限定在$SO(3)$中；比如第\ref{chcdg}章中的张量．
-{\kaishu 例二}：狭义相对论将$A$、$B$限定在$SO^{+}(1,3)$中，称为{\heiti \bfseries Lorentz四矢量}，简称四矢量．
-{\kaishu 例三}：量子力学将$A$、$B$限定在$SU(2)$中，称为Pauli旋量．
-{\kaishu 例四}：量子场论将$A$、$B$限定在$SL(2,\mathbb{C})$中，称为$SL(2,\mathbb{C})${\heiti 旋量}（或Lorentz旋量）；
+{\kaishu 例一}：将$A$、$B$限定在$SO(3)$中，是牛顿力学中常用张量，比如第\ref{chcdg}章中的张量．
+{\kaishu 例二}：将$A$、$B$限定在$SO^{+}(1,3)$中，称为{\heiti \bfseries Lorentz张量}．
+{\kaishu 例三}：将$A$、$B$限定在$SU(2)$中，称为{\heiti \bfseries Pauli旋量}．
+{\kaishu 例四}：将$A$、$B$限定在$SL(2,\mathbb{C})$中，称为$SL(2,\mathbb{C})${\heiti 旋量}（或Lorentz旋量）；
 见第\ref{chlar}章．
 
 \index[physwords]{G型张量}
@@ -3428,6 +3431,8 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 进而讲解了双线性映射、多重线性映射；有了这些准备之后张量的代数定义水到渠成；
 然后讲述了外代数．最后引入了抽象指标记号，这种方式比较适合于物理学者．
 
+本章中线性空间限定在有限维（显示标明的除外）；
+无限维理论比有限维情形复杂得多，请参阅泛函分析书籍．
 
 需要强调：张量定义不需要度规（度量、内积等附加结构）．
 度规是$\binom{0}{2}$型张量（场）；若在定义张量时用到度规，则多少有些循环定义的感觉．

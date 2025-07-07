@@ -26,7 +26,7 @@
     文献\parencite[\S 5.1]{cc2001-zh}中的定理1.1表明光滑流形必存在正定的黎曼度规；
     需注意此定理不是平庸的，没有这个定理，正定的黎曼度规有点像空中楼阁．
     并不是任何光滑流形都能定义广义Lorentz型度规，需满足一些条件；
-    文献\parencite[\S 4.1]{kriele-1999}给出了广义Lorentz型度规的存在性定理．
+    文献\parencite{oneill1983}命题5.37给出了广义Lorentz型度规的存在性定理．
 \end{remark}
 
 \begin{remark}
@@ -2171,7 +2171,7 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 可以再定义
 \begin{equation}
     (\omega _{\mu\nu})_{a} \overset{def}{=}
-      g_{\mu\sigma} (\omega ^{\sigma}_{\cdot\nu})_{a}
+      g_{\mu\sigma} (\omega ^{\sigma}_{\hphantom{\sigma}\nu})_{a}
     = g_{\mu\sigma} (e^\sigma)_c \nabla _a (e_\nu)^c
     = (e_\mu)_c \nabla _a (e_\nu)^c
     = g_{\mu\sigma}\Gamma^{\sigma}_{\nu\tau} (e^\tau)_a .
@@ -2189,10 +2189,10 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
     +g_{\mu\nu}(e^\mu)_b \bigl(\nabla_a (e^\nu)_c \bigr) \\
     {\color{red}\Rightarrow} &0=
     ({\rm d}_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
-    -g_{\mu\nu} \bigl( (e^j)_b (\omega_{\cdot j}^{\mu})_a \bigr) (e^\nu)_c
-    -g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\omega_{\cdot j}^{\nu})_a \bigr) .
+    -g_{\mu\nu} \bigl( (e^j)_b (\omega_{\hphantom{\sigma} j}^{\mu})_a \bigr) (e^\nu)_c
+    -g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\omega_{\hphantom{\sigma} j}^{\nu})_a \bigr) .
 \end{align*}\setlength{\mathindent}{2em}
-上式应用了式\eqref{chccr:eqn_D-omega-form}（$\nabla _a (e^\mu)_b=- (e^j)_b (\omega_{\cdot j}^{\mu})_a$）．
+上式应用了式\eqref{chccr:eqn_D-omega-form}（$\nabla _a (e^\mu)_b=- (e^j)_b (\omega_{\hphantom{\sigma} j}^{\mu})_a$）．
 消去基矢，得到度规在一般标架场下的相容性条件，即$\nabla_a g_{bc}=0$的具体表达式
 \begin{equation}\label{chrg:eqn_Dg=0-onframes}
     {\rm d}_a g_{\mu\nu} 
@@ -2208,7 +2208,7 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 曲率型式\eqref{chccr:eqn_Cform}中的内指标降下来的公式为：
 \begin{equation}\label{chrg:eqn_Cform-down}
     (\Omega_{\mu\nu} )_{ab} 
-    = g_{\mu\sigma}(\Omega_{\cdot \nu} ^{\sigma})_{ab}
+    = g_{\mu\sigma}(\Omega_{\hphantom{\sigma} \nu} ^{\sigma})_{ab}
     = \frac{1}{2} R_{\mu \nu \rho\sigma}  (e^\rho)_a \wedge (e^\sigma)_b
     = R_{\mu \nu \rho\sigma} (e^\rho)_a (e^\sigma)_b .
 \end{equation}
@@ -2216,7 +2216,7 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 \begin{subequations}\label{chrg:eqn_CST-down}
     \begin{align}
         {\rm d}_a (e_\mu)_b &=- (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b  , \label{chrg:eqn_CST-down-I} \\
-        {\rm d}_a (\omega _{\mu\nu})_b  &= (\omega_{\sigma \mu})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b
+        {\rm d}_a (\omega _{\mu\nu})_b  &= (\omega_{\sigma \mu})_a \wedge (\omega _{\hphantom{\sigma} \nu} ^\sigma  )_b
           + (\Omega_{\mu \nu})_{ab}  . \label{chrg:eqn_CST-down-II}
     \end{align}
 \end{subequations}
@@ -2245,18 +2245,18 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 \paragraph{Bianchi恒等式}
 内指标降下来后的第一Bianchi恒等式\eqref{chccr:eqn_Bianchi-CI}变为
 \begin{equation}\label{chrg:eqn_Bianchi-CI-bak}
-    (e^\sigma)_c \wedge (\Omega_{\cdot \sigma} ^{\mu})_{ab} = 0 =
+    (e^\sigma)_c \wedge (\Omega_{\hphantom{\sigma} \sigma} ^{\mu})_{ab} = 0 =
     (e^\sigma)_c \wedge (\Omega_{\mu \sigma} )_{ab}  .
 \end{equation}
 应用式\eqref{chrg:eqn_Dg=0-onframes}容易得到内指标降下来后的第二Bianchi恒等式 %\eqref{chccr:eqn_Bianchi-CII}
 \begin{align}
     {\rm d}_c (\Omega_{\mu\nu} )_{ab} = &
-       ( \omega _{\cdot \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
-      +(\Omega_{\cdot \nu} ^{\sigma})_{ca} \wedge (\omega_{\sigma \mu})_{b}
+       ( \omega _{\hphantom{\sigma} \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
+      +(\Omega_{\hphantom{\sigma} \nu} ^{\sigma})_{ca} \wedge (\omega_{\sigma \mu})_{b}
        . \label{chrg:eqn_Bianchi-CII-down} \\
-    {\rm d}_c (\Omega_{\cdot \nu} ^{\mu})_{ab}  =&
-       ( \omega _{\cdot \nu}^\sigma )_c  \wedge  (\Omega_{\cdot \sigma} ^{\mu})_{ab}
-     - (\Omega_{\cdot \nu} ^{\sigma})_{ca}\wedge ( \omega _{\cdot \sigma}^\mu )_b
+    {\rm d}_c (\Omega_{\hphantom{\sigma} \nu} ^{\mu})_{ab}  =&
+       ( \omega _{\hphantom{\sigma} \nu}^\sigma )_c  \wedge  (\Omega_{\hphantom{\sigma} \sigma} ^{\mu})_{ab}
+     - (\Omega_{\hphantom{\sigma} \nu} ^{\sigma})_{ca}\wedge ( \omega _{\hphantom{\sigma} \sigma}^\mu )_b
        . \tag{\ref{chccr:eqn_Bianchi-CII}}
 \end{align}
 为了比对，保留了式\eqref{chccr:eqn_Bianchi-CII}．
@@ -2288,6 +2288,36 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 
 
 
+\index[physwords]{音乐同构}
+\subsection{\S\ref{chmla:sec_tensor}记号中的音乐同构}\label{chrg:sec_music-iso}
+为了读者能更好地阅读其它文献，本小节给出\S\ref{chmla:sec_tensor}记号下的同构表示；
+因这种表示使用了五线谱中的升号“$\sharp$”与降号“$\flat$”，
+故称之为{\heiti 音乐同构}（Musical isomorphism，也称为典范同构 Canonical isomorphism）．
+
+
+%在抽象指标中，$TM$中切矢量场的指标在上，$T^*M$中余切矢量场的指标在下．
+降号“$\flat$”是将$TM$中的切矢量场映射成$T^*M$中余切矢量场；
+升号“$\sharp$”是将$T^*M$中的余切矢量场映射成$TM$中切矢量场．
+基矢的具体表示为：
+\begin{align*}
+	&\flat: TM \to T^*M, \quad \flat(\boldsymbol{e}_\mu) 
+	= \boldsymbol{e}_\mu^{*}=g_{\mu \sigma}\boldsymbol{e}^{*\sigma} ;
+	\quad \text{对应}\quad
+	g_{ab} (e_\mu)^b = (e_\mu)_a =  g_{\mu \sigma} (e^\sigma)_a . \\
+	&\sharp: T^*M \to TM, \quad \sharp(\boldsymbol{e}^{*\mu})  
+	= \boldsymbol{e}^\mu=g^{\mu \sigma}\boldsymbol{e}_{\sigma} ;
+	\quad \text{对应}\quad
+	g^{ab} (e^\mu)_b  = (e^\mu)^a=  g^{\mu \sigma} (e_\sigma)^a .
+\end{align*}
+由此易得（下式中$X\in \mathfrak{X}(M)$，$\omega \in \mathfrak{X}^*(M)$）：
+\begin{align*}
+	X^{\flat} \equiv&  \flat(X) = \flat (X^\mu \boldsymbol{e}_\mu) = X^\mu \,  \flat ( \boldsymbol{e}_\mu)
+	=X^\mu g_{\mu \sigma}\boldsymbol{e}^{*\sigma} = X_\sigma \boldsymbol{e}^{*\sigma}. \\
+	\omega^{\sharp} \equiv& \sharp(\omega) = \sharp(\omega_\mu \boldsymbol{e}^{*\mu})
+	= \omega_\mu \,  \sharp( \boldsymbol{e}^{*\mu}) = \omega_\mu g^{\mu \sigma}\boldsymbol{e}_{\sigma}
+	=\omega^\sigma \boldsymbol{e}_{\sigma}.
+\end{align*}
+高阶张量的音乐升降需要显示指定升降哪个指标，表示起来略繁琐；不再赘述．
 
 
 
@@ -2324,102 +2354,102 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 下面证明必要性．因Levi-Civita联络无挠，故方程\eqref{chccr:eqn_CST}变为
 \begin{subequations}\label{chrg:eqn_CST-Rieman-Conn}
     \begin{align}
-        {\rm d}_a (e^\mu)_b &=(e^\nu)_a \wedge (\omega _{\cdot \nu}^\mu)_b , \label{chrg:eqn_CST-Rieman-Conn-I} \\
-        {\rm d}_a ( \omega _{\cdot \nu} ^\mu  )_b  &=  ( \omega _{\cdot \nu}^\sigma )_a
-        \wedge ( \omega _{\cdot \sigma}^\mu )_b + (\Omega_{\cdot \nu} ^{\mu})_{ab}. \label{chrg:eqn_CST-Rieman-Conn-II}
+        {\rm d}_a (e^\mu)_b &=(e^\nu)_a \wedge (\omega _{\hphantom{\mu} \nu}^\mu)_b , \label{chrg:eqn_CST-Rieman-Conn-I} \\
+        {\rm d}_a ( \omega _{\hphantom{\mu} \nu} ^\mu  )_b  &=  ( \omega _{\hphantom{\mu} \nu}^\sigma )_a
+        \wedge ( \omega _{\hphantom{\mu} \sigma}^\mu )_b + (\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab}. \label{chrg:eqn_CST-Rieman-Conn-II}
     \end{align}
 \end{subequations}
 上式的基矢量是$(e_\mu)^a$（称为旧的）．
 %其中式\eqref{chrg:eqn_CST-Rieman-Conn-III}已由式\eqref{chrg:eqn_omega-anti}证明；
-%        (\omega _{\cdot \nu} ^\mu)_a &=- (\omega _{\cdot \mu} ^\nu)_a . \label{chrg:eqn_CST-Rieman-Conn-III}
+%        (\omega _{\hphantom{\mu} \nu} ^\mu)_a &=- (\omega _{\hphantom{\mu} \mu} ^\nu)_a . \label{chrg:eqn_CST-Rieman-Conn-III}
 
 现另选一套新基矢$(\tilde{e}_i)^a$，
-在标架变换\eqref{chccr:base_change}下（即$(\tilde{e} _i)^a = (e_\mu)^{a} A_{\cdot i}^{\mu},\
-(\tilde{e} ^j)_a = (e^\nu)_{a} B^{\cdot j}_{\nu}$，其中$A\cdot B^T=I$），
+在标架变换\eqref{chccr:base_change}下（即$(\tilde{e} _i)^a = (e_\mu)^{a} A_{\hphantom{\mu} i}^{\mu},\
+(\tilde{e} ^j)_a = (e^\nu)_{a} B^{\hphantom{\mu} j}_{\nu}$，其中$A\cdot B^T=I$），
 新的联络系数及联络一次微分型式场为式\eqref{chccr:eqn_connection-form-tilde}：
 \begin{equation}
     (\tilde{e}_i)^b \nabla _b (\tilde{e}_j)^a  =
     \tilde{\Gamma}^{k}_{ji} (\tilde{e}_k)^a,   \qquad
-    (\tilde{\omega} _{\cdot j}^{k})_a  \equiv
+    (\tilde{\omega} _{\hphantom{k} j}^{k})_a  \equiv
     \tilde{\Gamma}^{k}_{j i} (\tilde{e}^i)_a .
     \tag{\ref{chccr:eqn_connection-form-tilde}}
 \end{equation}
 新旧一次微分型式场基本变换关系为式\eqref{chccr:eqn_1form-transformation}：
 \begin{equation}
-    {\rm d}_a A_{\cdot j}^{\sigma} + (\omega ^{\sigma}_{\cdot\nu})_a  A_{\cdot j}^{\nu}
-    =  A_{\cdot k}^{\sigma} (\tilde{\omega} _{\cdot j} ^{k})_a .
+    {\rm d}_a A_{\hphantom{\mu} j}^{\sigma} + (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a  A_{\hphantom{\mu} j}^{\nu}
+    =  A_{\hphantom{\mu} k}^{\sigma} (\tilde{\omega} _{\hphantom{k} j} ^{k})_a .
     \tag{\ref{chccr:eqn_1form-transformation}}
 \end{equation}
-我们的目的是在$p$点附近寻找一组适当的光滑函数$A_{\cdot k}^{\sigma}\in C^\infty(U)$使
-得$\det(A_{\cdot k}^{\sigma})\neq 0$，并且在新标架场$(\tilde{e}_i)^a$下
-\uwave{新一次联络型式场}$(\tilde{\omega} _{\cdot j} ^{k})_a $恒为零，也就是新的联络
+我们的目的是在$p$点附近寻找一组适当的光滑函数$A_{\hphantom{\mu} k}^{\sigma}\in C^\infty(U)$使
+得$\det(A_{\hphantom{\mu} k}^{\sigma})\neq 0$，并且在新标架场$(\tilde{e}_i)^a$下
+\uwave{新一次联络型式场}$(\tilde{\omega} _{\hphantom{k} j} ^{k})_a $恒为零，也就是新的联络
 系数$\tilde{\Gamma}^{k}_{j i}$恒为零；由上面的式子\eqref{chccr:eqn_connection-form-tilde}可
 知$(\tilde{e}_i)^b \nabla _b (\tilde{e}_j)^a=0$，也就是新标架场$(\tilde{e}_i)^a$式平行标架场．
 由上面的式\eqref{chccr:eqn_1form-transformation}可知，
-这个问题转化为如下Pfaff方程（未知量是$A_{\cdot j}^{\sigma}$）的求解．
+这个问题转化为如下Pfaff方程（未知量是$A_{\hphantom{\mu} j}^{\sigma}$）的求解．
 \begin{equation}\label{chrg:eqn_tmp109}
-    (\pi _{\cdot j} ^{\sigma})_a \overset{def}{=}
-    {\rm d}_a A_{\cdot j}^{\sigma} + (\omega ^{\sigma}_{\cdot\nu})_a  A_{\cdot j}^{\nu}=0,
-    \quad \det(A_{\cdot k}^{\sigma})\neq 0,\quad 1 \leqslant j,k,\sigma,\nu \leqslant m .
+    (\pi _{\hphantom{\mu} j} ^{\sigma})_a \overset{def}{=}
+    {\rm d}_a A_{\hphantom{\mu} j}^{\sigma} + (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a  A_{\hphantom{\mu} j}^{\nu}=0,
+    \ \det(A_{\hphantom{\mu} k}^{\sigma})\neq 0,\ 1 \leqslant j,k,\sigma,\nu \leqslant m .
 \end{equation}
 此Pfaff方程是由$m^2$个一次微分式组成的，它的秩是$m^2$．
-我们对此式再次求外微分，并利用\uwave{黎曼曲率为零}的条件（即$(\Omega_{\cdot \nu} ^{\mu})_{ab}=0$）
+我们对此式再次求外微分，并利用\uwave{黎曼曲率为零}的条件（即$(\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab}=0$）
 \begin{align*}
-    {\rm d}_b(\pi _{\cdot j} ^{\sigma})_a =&
-       \bigl({\rm d}_b (\omega ^{\sigma}_{\cdot\nu})_a\bigr)  A_{\cdot j}^{\nu}
-      + ({\rm d}_b  A_{\cdot j}^{\nu}) \wedge (\omega ^{\sigma}_{\cdot\nu})_a   \\
+    {\rm d}_b(\pi _{\hphantom{\mu} j} ^{\sigma})_a =&
+       \bigl({\rm d}_b (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a\bigr)  A_{\hphantom{\mu} j}^{\nu}
+      + ({\rm d}_b  A_{\hphantom{\mu} j}^{\nu}) \wedge (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a   \\
     \xlongequal[\ref{chrg:eqn_tmp109}]{\ref{chrg:eqn_CST-Rieman-Conn-II}}&
-    ( \omega _{\cdot \nu}^\xi )_b \wedge ( \omega _{\cdot \xi}^{\sigma} )_a  A_{\cdot j}^{\nu}
-    + \bigl((\pi _{\cdot j} ^{\nu})_b-(\omega ^{\nu}_{\cdot\xi})_b  A_{\cdot j}^{\xi}\bigr)
-     \wedge (\omega ^{\sigma}_{\cdot\nu})_a
-     =(\pi _{\cdot j} ^{\nu})_b \wedge (\omega ^{\sigma}_{\cdot\nu})_a  .
+    ( \omega _{\hphantom{\mu} \nu}^\xi )_b \wedge ( \omega _{\hphantom{\mu} \xi}^{\sigma} )_a  A_{\hphantom{\mu} j}^{\nu}
+    + \bigl((\pi _{\hphantom{\mu} j} ^{\nu})_b-(\omega ^{\nu}_{\hphantom{\mu}\xi})_b  A_{\hphantom{\mu} j}^{\xi}\bigr)
+     \wedge (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a
+     =(\pi _{\hphantom{\mu} j} ^{\nu})_b \wedge (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a  .
 \end{align*}
 于是Pfaff方程组\eqref{chrg:eqn_tmp109}满足Frobenius条件\eqref{chdf:eqn_frobenius-Diff-Form}；
 由Frobenius定理\ref{chdf:thm_frobenius-Diff-Form}可知此方程组完全可积．
 Pfaff方程组\eqref{chrg:eqn_tmp109}没有给定初始条件，
 我们将$p$点初始条件设为（下式包括正定、不定度规情形）
 \begin{equation}\label{chrg:eqn_tmp109-init}
-    A_{\cdot \alpha}^{i}(p)\, A_{\cdot \beta}^{j}(p) \, g_{ij} (p) = \eta_{\alpha\beta} .
+    A_{\hphantom{i} \alpha}^{i}(p)\, A_{\hphantom{j} \beta}^{j}(p) \, g_{ij} (p) = \eta_{\alpha\beta} .
     \quad \eta_{\alpha\beta}\text{表达式见定义\ref{chrg:def_local-EuclideanSpace}中描述}
 \end{equation}
 此时的$g_{ij}(x)$是一般的度规，非对角元可能非零．现在可假设满足Pfaff方程组\eqref{chrg:eqn_tmp109}和
-其初始条件\eqref{chrg:eqn_tmp109-init}的解为$a_{\cdot \alpha}^{i}(x)$，令
+其初始条件\eqref{chrg:eqn_tmp109-init}的解为$a_{\hphantom{i} \alpha}^{i}(x)$，令
 \begin{equation}\label{chrg:eqn_tmp109-fij}
-    f_{\alpha\beta}(x) \equiv a_{\cdot \alpha}^{i}(x) a_{\cdot \beta}^{j}(x) g_{ij} (x)-\eta_{\alpha\beta} ,
+    f_{\alpha\beta}(x) \equiv a_{\hphantom{i} \alpha}^{i}(x) a_{\hphantom{j} \beta}^{j}(x) g_{ij} (x)-\eta_{\alpha\beta} ,
 \end{equation}
 那么在$p$点有$f_{\alpha\beta}(p)=0$（初始条件）；对式\eqref{chrg:eqn_tmp109-fij}求外微分，
-得（需注意，当$a_{\cdot \alpha}^{i}(x)$是解时，由式\eqref{chrg:eqn_tmp109}可知
-${\rm d}_b a_{\cdot j}^{\sigma} =- (\omega ^{\sigma}_{\cdot\nu})_b  a_{\cdot j}^{\nu}$）
+得（需注意，当$a_{\hphantom{i} \alpha}^{i}(x)$是解时，由式\eqref{chrg:eqn_tmp109}可知
+${\rm d}_b a_{\hphantom{\mu} j}^{\sigma} =- (\omega ^{\sigma}_{\hphantom{\mu}\nu})_b  a_{\hphantom{\mu} j}^{\nu}$）
 \begin{align*}
-    {\rm d}_b f_{\alpha\beta}(x) =&  ({\rm d}_b a_{\cdot \alpha}^{i}) a_{\cdot \beta}^{j} g_{ij}
-    + a_{\cdot \alpha}^{i} ({\rm d}_b a_{\cdot \beta}^{j}) g_{ij}
-    + a_{\cdot \alpha}^{i} a_{\cdot \beta}^{j} {\rm d}_b g_{ij}  \\
-    =&  -(\omega ^{i}_{\cdot k })_b a_{\cdot \alpha}^{k} a_{\cdot \beta}^{j} g_{ij}
-    - a_{\cdot \alpha}^{i}(\omega ^{j}_{\cdot k})_b  a_{\cdot \beta}^{k} g_{ij}
-    + a_{\cdot \alpha}^{i} a_{\cdot \beta}^{j} {\rm d}_b g_{ij}  \\
-    =&  a_{\cdot \alpha}^{k} a_{\cdot \beta}^{j}  \left( -(\omega ^{i}_{\cdot k })_b g_{ij}
-     - (\omega ^{l}_{\cdot j})_b  g_{kl} + {\rm d}_b g_{kj}  \right)
+    {\rm d}_b f_{\alpha\beta}(x) =&  ({\rm d}_b a_{\hphantom{i} \alpha}^{i}) a_{\hphantom{j} \beta}^{j} g_{ij}
+    + a_{\hphantom{i} \alpha}^{i} ({\rm d}_b a_{\hphantom{j} \beta}^{j}) g_{ij}
+    + a_{\hphantom{i} \alpha}^{i} a_{\hphantom{j} \beta}^{j} {\rm d}_b g_{ij}  \\
+    =&  -(\omega ^{i}_{\hphantom{i} k })_b a_{\hphantom{k} \alpha}^{k} a_{\hphantom{j} \beta}^{j} g_{ij}
+    - a_{\hphantom{i} \alpha}^{i}(\omega ^{j}_{\hphantom{j} k})_b  a_{\hphantom{k} \beta}^{k} g_{ij}
+    + a_{\hphantom{i} \alpha}^{i} a_{\hphantom{j} \beta}^{j} {\rm d}_b g_{ij}  \\
+    =&  a_{\hphantom{k} \alpha}^{k} a_{\hphantom{j} \beta}^{j}  \left( -(\omega ^{i}_{\hphantom{i} k })_b g_{ij}
+     - (\omega ^{l}_{\hphantom{l} j})_b  g_{kl} + {\rm d}_b g_{kj}  \right)
      \xlongequal{\ref{chrg:eqn_Dg=0-onframes}}  0 .
 \end{align*}
 既然在整个邻域$U$内都有${\rm d}_b f_{\alpha\beta}(x)=0$，那么必然可以
 得出$f_{\alpha\beta}(x)$在整个邻域$U$内为常数，所以有$f_{\alpha\beta}(x)=f_{\alpha\beta}(p)=0$．
 由此可见在邻域$U$内，有
 \begin{equation}\label{chrg:eqn_gij=deltaij}
-    a_{\cdot \alpha}^{i}(x) a_{\cdot \beta}^{j}(x) g_{ij} (x) 
+    a_{\hphantom{i} \alpha}^{i}(x) a_{\hphantom{i} \beta}^{j}(x) g_{ij} (x) 
     \xlongequal{\ref{chrg:eqn_tmp109-fij}} \eta_{\alpha\beta} ,
 \end{equation}
 而度规$g_{ab}$在新标架场$(\tilde{e}_i)^a$的分量为（要用上式）
 \begin{equation}
     \tilde{g}_{ij}(x)=g_{bc} (\tilde{e}_i)^b(\tilde{e}_j)^c
-    = g_{bc} (e_\mu)^{b} a_{\cdot i}^{\mu} (e_\nu)^{c} a_{\cdot j}^{\nu}
-    = g_{\mu\nu}(x) a_{\cdot i}^{\mu}(x)  a_{\cdot j}^{\nu}(x) = \eta_{ij}.
+    = g_{bc} (e_\mu)^{b} a_{\hphantom{i} i}^{\mu} (e_\nu)^{c} a_{\hphantom{i} j}^{\nu}
+    = g_{\mu\nu}(x) a_{\hphantom{i} i}^{\mu}(x)  a_{\hphantom{i} j}^{\nu}(x) = \eta_{ij}.
 \end{equation}
 此式在整个邻域$U$上成立．
 
-在上面论述过程中，已经指出新标架场$(\tilde{e}_i)^a$是平行的，即有$(\tilde{\omega} _{\cdot \nu}^\mu)_b$恒为零，
+在上面论述过程中，已经指出新标架场$(\tilde{e}_i)^a$是平行的，即有$(\tilde{\omega} _{\hphantom{\mu} \nu}^\mu)_b$恒为零，
 将其带入Cartan第一结构方程\eqref{chrg:eqn_CST-Rieman-Conn-I}，可以得到，
 \begin{equation}
-    {\rm d}_a (\tilde{e}^\mu)_b =(\tilde{e}^\nu)_a \wedge (\tilde{\omega} _{\cdot \nu}^\mu)_b =0 .
+    {\rm d}_a (\tilde{e}^\mu)_b =(\tilde{e}^\nu)_a \wedge (\tilde{\omega} _{\hphantom{\mu} \nu}^\mu)_b =0 .
 \end{equation}
 也就是每一个$(\tilde{e}^\mu)_b$都是闭的，由Poincar\'{e}引理\ref{chdf:thm_poincare-lemma}可知
 存在$p\in M$的局部坐标邻域$U$以及其上的光滑函数族$\{x^\mu\}$使得
@@ -2507,8 +2537,8 @@ $ (\tilde{e}^\mu)_a = {\rm d}_a x^\mu = ({\rm d} x^\mu)_a, \ (1\leqslant \mu \le
 
 %\begin{align}
 %    \nabla_a u^c &= \left[e_j (u^\alpha) + u^l \Gamma^{i}_{lj} \right] (e^j)_a (e_i)^c
-%    =  \left[{\rm d}_a (u^i) + u^l (\omega_{\cdot l}^{i})_a \right] (e_i)^c .   \\
-%    {e} _i (f)&= A_{\cdot i}^{j}(x) \frac{\partial f}{\partial x^j}, \\
+%    =  \left[{\rm d}_a (u^i) + u^l (\omega_{\hphantom{i} l}^{i})_a \right] (e_i)^c .   \\
+%    {e} _i (f)&= A_{\hphantom{j} i}^{j}(x) \frac{\partial f}{\partial x^j}, \\
 %    {\rm d}_a (f) &=   [{e} _\nu (f)] (e^\nu)_a .
 %\end{align}
 
@@ -2539,13 +2569,13 @@ $ (\tilde{e}^\mu)_a = {\rm d}_a x^\mu = ({\rm d} x^\mu)_a, \ (1\leqslant \mu \le
   = (e_\mu)^{k} \left(\frac{\partial}{\partial x^k}\right)^{a}
    (e_\rho)^{l} \left(\frac{\partial}{\partial x^l}\right)^{b}
     \nabla _b \bigl[ (e_\nu)_{n}({\rm d}x^n)_{a} \bigr]  \\
-  &=(e_\mu)^{k}(e_\rho)^{l} (e_\nu)_{k,l}
-   -(e_\mu)^{k}(e_\rho)^{l}\Gamma^n _{kl}(e_\nu)_{n} .
+  &=(e_\mu)^{k}(e_\rho)^{l} \frac{\partial (e_\nu)_{k}}{\partial x^l}
+   -(e_\mu)^{k}(e_\rho)^{l} (e_\nu)_{n} \oversetmy{x}{\Gamma}^n _{kl} .
 \end{align*}
 交换指标$\rho$和$\mu$，有
 $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
--(e_\rho)^{k}(e_\mu)^{l}\Gamma^n _{kl}(e_\nu)_{n}$；
-将这两式相减，并利用坐标基底克氏符$\Gamma^n _{kl}$关于下标的对称性，得
+-(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{n} \oversetmy{x}{\Gamma}^n _{kl}$；
+将这两式相减，并利用坐标基底克氏符$\oversetmy{x}{\Gamma}^n _{kl}$关于下标的对称性，得
 \begin{align}
   \omega_{\mu\nu\rho}  -  \omega_{\rho\nu\mu}=
   \left[ (e_\mu)^{k}(e_\rho)^{l}
@@ -2563,8 +2593,8 @@ $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
 由式\eqref{chrg:eqn_Coef-Lambda1}出发，进行指标轮换后相加减，
 不难证明Ricci旋转系数可由这个中间步符号$\Lambda_{\mu\nu\rho}$表示为
 \begin{equation}\label{chrg:eqn_Ricci-Coef}
-\omega_{\mu\nu\rho} = \frac{1}{2}\left(\Lambda_{\mu\nu\rho}
-+ \Lambda_{\rho\mu\nu} - \Lambda_{\nu\rho\mu} \right) .
+\omega_{\mu\nu\rho} = \left(\Lambda_{\mu\nu\rho}
++ \Lambda_{\rho\mu\nu} - \Lambda_{\nu\rho\mu} \right) /2.
 \end{equation}
 这样，先选定局部自然坐标基底场$(\frac{\partial}{\partial x^k})^{a}$，
 再选择一个刚性标架场$(e_\mu)^a$，
@@ -2573,7 +2603,7 @@ $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
 
 \begin{remark}\label{chrg:remark_ricci-coef-num}
     注解\ref{chccr:remark_connection-coef-num}指出
-    无挠联络系数$\Gamma^{i}_{jk}$有$\frac{1}{2}m^2(m+1)$个．
+    无挠联络系数$\oversetmy{x}{\Gamma}^{i}_{jk}$有$\frac{1}{2}m^2(m+1)$个．
     因Ricci旋转系数$\omega_{\mu\nu\rho}$关于前两个指标反对称，
     故共有$\frac{1}{2}m^2(m-1)$个；比联络系数少$m^2$个．
 \end{remark}
@@ -2600,7 +2630,9 @@ $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
     &{\qquad} + g^{\xi\zeta} (\omega _{\zeta\sigma\nu} \omega _{\rho\xi\mu}
       - \omega _{\zeta\sigma\mu} \omega _{\rho\xi\nu}) .
 \end{align*}\setlength{\mathindent}{2em}
-利用式\eqref{chccr:eqn_natural-base_change}可得\uwave{刚性标架}$(e_\mu)^a$下黎曼曲率分量表达式
+由式\eqref{chccr:eqn_natural-base_change}（
+$({e}_\mu)^a = (\frac{\partial}{\partial x^\pi})^a C_{\hphantom{\pi} \mu}^{\pi}$）
+可得\uwave{刚性标架}$(e_\mu)^a$下黎曼曲率分量表达式
 \begin{equation}\label{chrg:eqn_Riemann_rr}
 \begin{aligned}
    R_{\rho\sigma\mu\nu} =&
@@ -2611,10 +2643,10 @@ $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
    - \omega _{\zeta\sigma\mu} \omega _{\rho\xi\nu} \bigr] .
 \end{aligned}
 \end{equation}
-可以看出在{\kaishu 刚性}标架场$(e_\mu)^{a}$中计算黎曼张量，
-不需要计算自然坐标基矢场的克氏符$\Gamma^n _{kl}$．
-标架法中的Ricci旋转系数$\omega _{\mu\zeta\sigma}$与自然坐标基底法
-中的克氏符$\Gamma^n _{kl}$地位相当，但Ricci旋转系数计算量较小．
+%可以看出在{\kaishu 刚性}标架场$(e_\mu)^{a}$中计算黎曼张量，
+%不需要计算自然坐标基矢场的克氏符$\oversetmy{x}{\Gamma}^n _{kl}$．
+%标架法中的Ricci旋转系数$\omega _{\mu\zeta\sigma}$与自然坐标基底法
+%中的克氏符$\oversetmy{x}{\Gamma}^n_{kl}$地位相当，但Ricci旋转系数计算量较小．
 
 
 表面上来看，式\eqref{chrg:eqn_Riemann_rr}不具有对称性$R_{\rho\sigma\mu\nu}=R_{\mu\nu\rho\sigma}$；
@@ -2965,12 +2997,11 @@ $E^3$中的坐标原点是$O$，再任意指定一点$P\in E^3$和其伴随矢�
 一组基底$\{(e_1)^a,(e_2)^a,(e_3)^a\}$．度规是正定的单位矩阵．
 
 在$E^3$中先选定固定的、正交归一的切标架场$\{O;(\delta_i)^a\},\, 1\leqslant i \leqslant 3$；
-对应坐标直线是$\{x^i\}$，即$(\delta_i)^a= (\frac{\partial}{\partial x^i})^a$；
-这套基矢在$E^3$中每点都相同．
+对应坐标直线是$\{x^i\}$，即$(\delta_i)^a= (\frac{\partial}{\partial x^i})^a$；这套基矢在$E^3$中每点都相同．
 则任意活动标架场$\{P;(e_\alpha)^a\}$（标架可能非正交归一，可能逐点不同）可表示为：
 \begin{equation}
     (OP)^a = x^i (\delta_i)^a,\qquad
-    (e_\beta)^a = (\delta_j)^a A^j_{\cdot \beta} .
+    (e_\beta)^a = (\delta_j)^a A^j_{\hphantom{j} \beta} .
 \end{equation}
 上式中为了让抽象指标匹配，已令$(OP)^a=\overrightarrow{OP}$．
 需要注意切矢量场的外微分运算是没有定义的；
@@ -2979,22 +3010,23 @@ $E^3$中的坐标原点是$O$，再任意指定一点$P\in E^3$和其伴随矢�
 很简单地把切矢量变成余切矢量：
 \begin{equation}
     (OP)_a = x^i (\delta_i)_a,\qquad
-    (e_\alpha)_a = (\delta_j)_a A^j_{\cdot \alpha} .
+    (e_\alpha)_a = (\delta_j)_a A^j_{\hphantom{j} \alpha} .
 \end{equation}
 有了余切矢量场，便可以用外微分算符了（注意常矢量$(\delta_i)_a$的微分恒为零）．
 \begin{equation}
     {\rm d}_b (OP)_a = ({\rm d}_b x^i) \wedge (\delta_i)_a,\quad
-    {\rm d}_b (e_\beta)_a = ({\rm d}_b A^j_{\cdot \beta}) \wedge  (\delta_j)_a .
+    {\rm d}_b (e_\beta)_a = ({\rm d}_b A^j_{\hphantom{j} \beta}) \wedge  (\delta_j)_a .
 \end{equation}
 把上式中的固定基矢场$(\delta_i)_a$消去，换为活动基矢场$(e_\alpha)_a$，有
 \begin{equation}\label{chrg:eqn_tmpopeBA}
-    {\rm d}_b (OP)_a = B^{\alpha}_{\cdot i} {\rm d}_b x^i \wedge (e_\alpha)_a  ,\quad
-    {\rm d}_b (e_\beta)_a = B^{\alpha}_{\cdot j}{\rm d}_b A^j_{\cdot \beta} \wedge  (e_\alpha)_a .
+    {\rm d}_b (OP)_a = B^{\alpha}_{\hphantom{\alpha} i} {\rm d}_b x^i \wedge (e_\alpha)_a  ,\quad
+    {\rm d}_b (e_\beta)_a = B^{\alpha}_{\hphantom{\alpha} j}{\rm d}_b A^j_{\hphantom{j} \beta} \wedge  (e_\alpha)_a .
 \end{equation}
 其中，变换矩阵$A$和$B$是互逆关系，即$B^{-1} = A$．令
 \begin{equation}\label{chrg:eqn_om324}
-    (\omega^\alpha)_b = B^{\alpha}_{\cdot i} {\rm d}_b x^i,\qquad
-    (\omega^{\alpha}_{\cdot \beta})_b=B^{\alpha}_{\cdot j}{\rm d}_b A^j_{\cdot \beta} .
+    (\omega^\alpha)_b = B^{\alpha}_{\hphantom{\alpha} i} {\rm d}_b x^i,\qquad
+    (\omega^{\alpha}_{\hphantom{\alpha} \beta})_b=B^{\alpha}_{\hphantom{\alpha} j}
+    {\rm d}_b A^j_{\hphantom{j} \beta} .
 \end{equation}
 将上式带回\eqref{chrg:eqn_tmpopeBA}，
 并对该式再次求取外微分，利用${\rm d}\circ {\rm d}=0$可得结构方程：
@@ -3002,11 +3034,11 @@ $E^3$中的坐标原点是$O$，再任意指定一点$P\in E^3$和其伴随矢�
 \begin{align}
     0=&\bigl({\rm d} (\omega^\alpha)\bigr)_{cb} \wedge (e_\alpha)_a - (\omega^\alpha)_c \wedge {\rm d}_b(e_\alpha)_a
     {\color{red}\ \Rightarrow \ }
-    {\rm d}_c (\omega^\alpha)_b = (\omega^\sigma)_c\wedge (\omega_{\cdot \sigma}^\alpha)_b . \label{chrg:eqn_jgfc1} \\
-    0=&\bigl({\rm d} (\omega^\alpha_{\cdot \beta})\bigr)_{cb} \wedge  (e_\alpha)_a 
-    - (\omega^\alpha_{\cdot \beta})_c \wedge {\rm d}_b (e_\alpha)_a {\color{red}\ \Rightarrow \ }
-    {\rm d}_c (\omega^\alpha_{\cdot \beta})_b = (\omega^{\sigma}_{\cdot \beta})_c 
-    \wedge (\omega^{\alpha}_{\cdot \sigma})_b .    \label{chrg:eqn_jgfc2}
+    {\rm d}_c (\omega^\alpha)_b = (\omega^\sigma)_c\wedge (\omega_{\hphantom{\alpha} \sigma}^\alpha)_b . \label{chrg:eqn_jgfc1} \\
+    0=&\bigl({\rm d} (\omega^\alpha_{\hphantom{\alpha} \beta})\bigr)_{cb} \wedge  (e_\alpha)_a 
+    - (\omega^\alpha_{\hphantom{\alpha} \beta})_c \wedge {\rm d}_b (e_\alpha)_a {\color{red}\ \Rightarrow \ }
+    {\rm d}_c (\omega^\alpha_{\hphantom{\alpha} \beta})_b = (\omega^{\sigma}_{\hphantom{\alpha} \beta})_c 
+    \wedge (\omega^{\alpha}_{\hphantom{\alpha} \sigma})_b .    \label{chrg:eqn_jgfc2}
 \end{align}\setlength{\mathindent}{2em}
 
 
@@ -3023,7 +3055,7 @@ $\{u^\alpha\}$是活动标架（例如球坐标）所对应的坐标曲线．
     (e_\alpha)^a = \left.\left(\frac{\partial}{\partial u^\alpha}\right)^a\right|_{P}
     =\frac{\partial x^j}{\partial u^\alpha}
     \left.\left(\frac{\partial}{\partial x^j}\right)^a \right|_{P}
-    =A^j_{\cdot \alpha} \left.\left(\frac{\partial}{\partial x^j}\right)^a\right|_{P} .
+    =A^j_{\hphantom{j} \alpha} \left.\left(\frac{\partial}{\partial x^j}\right)^a\right|_{P} .
 \end{equation}
 在$E^3$（$g_{ab}=\delta_{ij}({\rm d}x^i)_a ({\rm d}x^j)_b$）中，
 活动标架场$\{P;(e_\alpha)^a\}$下的度规分量是：
@@ -3081,12 +3113,11 @@ $\{u^\alpha\}$是活动标架（例如球坐标）所对应的坐标曲线．
 
 
 继续讨论结构方程\eqref{chrg:eqn_jgfc1}、\eqref{chrg:eqn_jgfc2}．
-在活动标架场$\{P;(\frac{\partial}{\partial u^\alpha})^a\}$下，
-我们计算式\eqref{chrg:eqn_om324}：
+在标架场$\{P;(\frac{\partial}{\partial u^\alpha})^a\}$下计算式\eqref{chrg:eqn_om324}：
 \begin{align}
-    (\omega^\alpha)_a =& B^{\alpha}_{\cdot i} {\rm d}_a x^i=\frac{\partial u^\alpha}{\partial x^i}
+    (\omega^\alpha)_a =& B^{\alpha}_{\hphantom{\alpha} i} {\rm d}_a x^i=\frac{\partial u^\alpha}{\partial x^i}
     \frac{\partial x^i}{\partial u^\sigma}({\rm d}u^\sigma)_a=({\rm d}u^\alpha)_a, \label{chrg:eqn_tmpe45} \\
-    (\omega^{\alpha}_{\cdot \beta})_a=&B^{\alpha}_{\cdot j}{\rm d}_a A^j_{\cdot \beta}
+    (\omega^{\alpha}_{\hphantom{\alpha} \beta})_a=&B^{\alpha}_{\hphantom{\alpha} j}{\rm d}_a A^j_{\hphantom{j} \beta}
     =\frac{\partial u^\alpha}{\partial x^j} \frac{\partial^2 x^j}
     {\partial u^\sigma\partial u^\beta}({\rm d}u^\sigma)_a
     \xlongequal[\ref{chrg:eqn_tmpra32}]{\ref{chrg:eqn_tmpr23}}
@@ -3132,14 +3163,14 @@ $\{u^\alpha\}$是活动标架（例如球坐标）所对应的坐标曲线．
     ({E}_\alpha)^a = L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a ,
     \quad \text{重复指标$\alpha$不求和，} L_{\alpha} \ \text{是Lam\'e系数}
 \end{equation}
-$({E}_\alpha)^a$是归一化后的矢量．带入度规，有
+$({E}_\alpha)^a$是归一化后的矢量．带入欧式度规，有
 \begin{align*}
     \delta_{\alpha \beta} =& g_{ab} ({E}_\alpha)^a ({E}_\beta)^b = g_{ab}
     L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a 
     L_{\beta}^{-1}  \left(\frac{\partial}{\partial u^\beta}\right)^b 
     =g_{\alpha\beta} L_{\alpha}^{-1} L_{\beta}^{-1} \\
     \xlongequal{\ref{chrg:eqn_gabEuclid}} &    L_{\alpha}^{-1} L_{\beta}^{-1}
-    \sum_{l=1}^{3}\frac{\partial x^l}{\partial u^\alpha}\frac{\partial x^l}{\partial u^\beta},
+    \sum\nolimits_{l=1}^{3}\frac{\partial x^l}{\partial u^\alpha}\frac{\partial x^l}{\partial u^\beta},
     \qquad \text{重复指标}\alpha,\beta \text{不求和} 
 \end{align*}
 因此可得Lam\'e系数为：
@@ -3149,15 +3180,27 @@ $({E}_\alpha)^a$是归一化后的矢量．带入度规，有
         + \left(\frac{\partial z}{\partial u^\alpha}\right)^2 } \  ;
     \qquad \alpha = 1,2,3
 \end{equation}
-对于正交的活动标架场$(\frac{\partial}{\partial u^\alpha})^a$，其度规可以表示为
-\begin{equation}\label{chrg:eqn_E3gab}
-    \begin{aligned}
-        g_{ab}=& (L_1)^2({\rm d}u^1)_a ({\rm d}u^1)_b
-        +(L_2)^2({\rm d}u^2)_a ({\rm d}u^2)_b
-        +(L_3)^2({\rm d}u^3)_a ({\rm d}u^3)_b \\
-        =& (E^1)_a (E^1)_b + (E^2)_a (E^2)_b + (E^3)_a (E^3)_b .
-    \end{aligned}    
+不难得到（下式重复指标不求和）
+\begin{equation}
+	(E^\alpha)_a = L_\alpha ({\rm d}u^\alpha)_a,\qquad \alpha = 1,2,3
 \end{equation}
+进而，度规可以表示为
+\begin{subequations}\label{chrg:eqn_E3gab}
+    \begin{align}
+        g_{ab}=& \sum\nolimits_{\alpha=1}^{3} (L_\alpha)^2({\rm d}u^\alpha)_a ({\rm d}u^\alpha)_b
+        = \sum\nolimits_{\alpha=1}^{3} (E^\alpha)_a (E^\alpha)_b ; \\
+        g^{ab}=& \sum\nolimits_{\alpha=1}^{3} (L_\alpha)^{-2}\left(\frac{\partial}{\partial u^\alpha}\right)^a 
+        \left(\frac{\partial}{\partial u^\alpha}\right)^b = \sum\nolimits_{\alpha=1}^{3} (E_\alpha)^a (E_\alpha)^b .
+    \end{align}    
+\end{subequations}
+不难看出，在标架$\{(E_\alpha)^a,(E^\alpha)_a\}$下，
+度规分量$\{g^{\alpha\beta},g_{\alpha\beta}\}$是单位矩阵；故有
+\begin{equation}
+	(E^\alpha)^a = \sum_{\beta=1}^{3} g^{\alpha\beta} (E_\beta)^a=(E_\alpha)^a;\quad
+	(E_\alpha)_a = \sum_{\beta=1}^{3} g_{\alpha\beta} (E^\beta)_a=(E^\alpha)_a .
+\end{equation}
+也就是说，对于正定的、正交标架场，可以不必严格区分内指标在上还是在下．
+
 由式\eqref{chrg:eqn_Gmf}可得坐标$\{u^\alpha\}$的联络系数$\oversetmy{u}{\Gamma}$（下式重复指标不求和）
 \setlength{\mathindent}{0em}
 \begin{equation}\label{chrg:eqn_E3gamma}
@@ -3168,42 +3211,43 @@ $({E}_\alpha)^a$是归一化后的矢量．带入度规，有
 \end{equation}\setlength{\mathindent}{2em}
 式\eqref{chrg:eqn_E3gamma}中最后一式中的$\beta$可以等于$\mu$、也可以不等于$\mu$．
 
-%对于复杂的标架场，我们可以通过Cartan结构方程或者式\eqref{chccr:eqn_D-omega-form}来求解标架运动．
+
 对于上述正交归一标架场可通过如下直接计算方式求得基矢导数．
 \begin{align*}
-    \nabla_{\frac{\partial }{\partial u^j}} (E_k)^b = & \nabla_{\frac{\partial }{\partial u^j}}
-    \left[ L_{k}^{-1} \left(\frac{\partial}{\partial u^k}\right)^b \right]
-    =-L_{k}^{-2} \frac{\partial L_{k}}{\partial u^j}\left(\frac{\partial}{\partial u^k}\right)^b
-    +L_{k}^{-1} \nabla_{\frac{\partial }{\partial u^j}} \left(\frac{\partial}{\partial u^k}\right)^b \\
-    =&-L_{k}^{-1} \frac{\partial L_{k}}{\partial u^j} (E_k)^b
-    +L_{k}^{-1}  \sum_{l=1}^{3} \oversetmy{u}{\Gamma}^l_{kj} L_{l} (E_l)^b  .
+    \nabla_{\frac{\partial }{\partial u^\beta}} (E_\sigma)^b = & \nabla_{\frac{\partial }{\partial u^\beta}}
+    \left[ L_{\sigma}^{-1} \left(\frac{\partial}{\partial u^\sigma}\right)^b \right]
+    =-L_{\sigma}^{-2} \frac{\partial L_{\sigma}}{\partial u^\beta}\left(\frac{\partial}{\partial u^\sigma}\right)^b
+    +L_{\sigma}^{-1} \nabla_{\frac{\partial }{\partial u^\beta}} \left(\frac{\partial}{\partial u^\sigma}\right)^b \\
+    =&-L_{\sigma}^{-1} \frac{\partial L_{\sigma}}{\partial u^\beta} (E_\sigma)^b
+    +L_{\sigma}^{-1}  \sum\nolimits_{\rho=1}^{3} \oversetmy{u}{\Gamma}^\rho_{\sigma\beta} L_{\rho} (E_\rho)^b  .
 \end{align*}
 利用式\eqref{chrg:eqn_E3gamma}，可将上式分成如下两种形式（下式中重复指标不求和）：
 \begin{subequations}\label{chrg:eqn_E3-Triad}
     \begin{align}    
-        \nabla_{\frac{\partial }{\partial u^j}} (E_k)^b  = &
-        \frac{1}{L_k} \frac{\partial L_j}{\partial u^k} (E_j)^b  ,
-        \qquad k\neq j ; \label{chrg:eqn_E3-Triad-1}\\
-        \nabla _{\frac{\partial }{\partial u^j}} (E_j)^b =& 
-        - (E_k)^b \frac{1}{L_k} \frac{\partial L_j}{\partial u^k} 
-        - (E_i)^b \frac{1}{L_i} \frac{\partial L_j}{\partial u^i},
-        \qquad j\neq k \neq i . \label{chrg:eqn_E3-Triad-2}
+        \nabla_{\frac{\partial }{\partial u^\beta}} (E_\sigma)^b  = &
+        \frac{1}{L_\sigma} \frac{\partial L_\beta}{\partial u^\sigma} (E_\beta)^b  ,
+        \qquad \sigma\neq \beta ; \label{chrg:eqn_E3-Triad-1}\\
+        \nabla _{\frac{\partial }{\partial u^\beta}} (E_\beta)^b =& 
+        - (E_\sigma)^b \frac{1}{L_\sigma} \frac{\partial L_\beta}{\partial u^\sigma} 
+        - (E_\alpha)^b \frac{1}{L_\alpha} \frac{\partial L_\beta}{\partial u^\alpha},
+        \qquad \beta\neq \sigma \neq \alpha . \label{chrg:eqn_E3-Triad-2}
     \end{align}    
 \end{subequations}
-式\eqref{chrg:eqn_E3-Triad-2}中$1\leqslant i,j,k \leqslant 3$，且互不相等．
-共有三组，分别是：$j=1$、$k=2$、$i=3$；$j=2$、$k=3$、$i=1$；$j=3$、$k=1$、$i=2$．
+式\eqref{chrg:eqn_E3-Triad-2}中$1\leqslant \alpha,\beta,\sigma \leqslant 3$，且互不相等．
+共有三组，分别是：$\beta=1$、$\sigma=2$、$\alpha=3$；
+$\beta=2$、$\sigma=3$、$\alpha=1$；$\beta=3$、$\sigma=1$、$\alpha=2$．
 
 
 式\eqref{chrg:eqn_E3-Triad}是力学张量分析中的常用公式，
-由该式可以得到球坐标等正交归一基矢量的偏导数关系，请读者试着推演．
-因$\{u^i\}$是活动标架，故不建议把这两式中的
-协变导数$\nabla _{\frac{\partial }{\partial u^i}} (E_j)^b$记
-成偏导数$\frac{\partial }{\partial u^i} (E_j)^b$．
-需要强调的是：$\{u^i\}$不是正交归一基矢$\{(E_i)^a\}$的坐标线，
-$\{u^i\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^j})^a$的坐标线．
+由该式可以得到球坐标等正交归一基矢量的偏导数关系．
+因$\{u^\alpha\}$是活动标架，故不建议把这两式中的
+协变导数$\nabla _{\frac{\partial }{\partial u^\alpha}} (E_\beta)^b$记
+成偏导数$\frac{\partial }{\partial u^\alpha} (E_\beta)^b$．
+需要强调的是：$\{u^\alpha\}$不是正交归一基矢$\{(E_\alpha)^a\}$的坐标线，
+$\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\alpha})^a$的坐标线．
 
 
-%\subsection{$E^3$中的二维曲面论}\label{chrg:sec_E3-2surface}
+
 
 
 \begin{exercise}
@@ -3370,11 +3414,11 @@ $\{u^i\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^j})^a$�
     \end{align*}
     同时，由式\eqref{chrg:eqn_Bianchi-CII-down}可知联络型式还可以表示为
     \begin{align*}
-      {\rm d}_c (\Omega_{ij})_{ab}  =&  ( \omega _{\cdot j}^k )_c
-      \wedge (\Omega_{i k} )_{ab} + ( \omega _{\cdot i}^{k} )_c \wedge (\Omega_{k j})_{ab}   \\
+      {\rm d}_c (\Omega_{ij})_{ab}  =&  ( \omega _{\hphantom{k} j}^k )_c
+      \wedge (\Omega_{i k} )_{ab} + ( \omega _{\hphantom{k} i}^{k} )_c \wedge (\Omega_{k j})_{ab}   \\
       \xlongequal{\ref{chrg:eqn_const-curvature-inFORM}}&
-      K( \omega _{\cdot j}^k )_c \wedge (e_i)_a \wedge (e_k)_b
-      +K ( \omega _{\cdot i}^{k} )_c \wedge (e_k)_a \wedge (e_j)_b .
+      K( \omega _{\hphantom{k} j}^k )_c \wedge (e_i)_a \wedge (e_k)_b
+      +K ( \omega _{\hphantom{k} i}^{k} )_c \wedge (e_k)_a \wedge (e_j)_b .
     \end{align*}
     对比以上两式可知，有
     \begin{equation}
@@ -3763,7 +3807,7 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
 
 
 \section*{小结}
-本章主要参考了\parencite{cc2001-zh}、\parencite{chen-li-2023-2ed-v1}相应章节．
+本章主要参考了\parencite{oneill1983}、\parencite{cc2001-zh}、\parencite{chen-li-2023-2ed-v1}相应章节．
 
 本章内容（除\S\ref{chrg:sec_E3MF}外）适用于正定、不定度规．
 
