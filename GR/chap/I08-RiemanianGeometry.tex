@@ -14,7 +14,8 @@
 \index[physwords]{黎曼结构}
 
 \section{黎曼流形}\label{chrg:sec_riemann}
-\subsection{黎曼流形定义}
+
+\subsection{黎曼流形定义}\label{chrg:sec_riemann-metric}
 \begin{definition}
     给$m$维$C^\infty$微分流形$M$指定一个处处非退化、光滑、对称$\Tpq{0}{2}$型张量场$g$后，
     称$(M,g)$为广义{\heiti 黎曼流形}，$g$称为其{\heiti 度规}或{\heiti 基本度量}或{\heiti 黎曼结构}．
@@ -1107,9 +1108,9 @@ $V$、$W$有相同的维数，$g$的正（负）特征值个数等于$h$的正�
 \end{remark}
 
 \begin{example}
-	定理\ref{chrg:sec_isometry-connection}的另一种证明途径．
+	定理\ref{chrg:thm_isometry-connection-vector}的另一种证明途径．
 \end{example}
-所有符号与定理\ref{chrg:sec_isometry-connection}相同．
+所有符号与定理\ref{chrg:thm_isometry-connection-vector}相同．
 在$N$中已有Levi-Civita联络${\rm D}_a$，利用它，
 可在$M$中定义一个算符$\bar{\nabla}_a$如下（$\bar{\nabla}_X \equiv X^a\bar{\nabla}_a $）：
 \begin{equation}\label{chrg:eqn_bND}
@@ -1165,7 +1166,8 @@ $V$、$W$有相同的维数，$g$的正（负）特征值个数等于$h$的正�
 \end{align*}
 上式说明了仿射联络\eqref{chrg:eqn_bND}与度规$g_{ab}$相容．
 根据定理\ref{chrg:thm_Levi-Civita-Connetion}可知由\eqref{chrg:eqn_bND}式定义
-的仿射联络$\bar{\nabla}_a$就是$M$上的Levi-Civita联络${\nabla}_a$．证毕．\qed
+的仿射联络$\bar{\nabla}_a$就是$M$上的Levi-Civita联络${\nabla}_a$．
+证毕．\qed
 
 
 \begin{proposition}\label{chrg:thm_isometry-connection-scalar}
@@ -1417,7 +1419,9 @@ $V$、$W$有相同的维数，$g$的正（负）特征值个数等于$h$的正�
     这个式子等号两端必须是同一点的张量．在变换式\eqref{chdm:eqn_isometry-MMcoord}中，
     我们用坐标$\{x\}$、$\{y\}$来代表两个不同点（$p$、$q$两点距离非常近）．
     两式的差异是一个是单点张量变换，另一个是两点张量变换；但公式形式完全相同．
-    而$\tilde{g}$上是否带有波浪号则是无关紧要的． \qed
+    
+    若等距，则必有$\tilde{g}_{ab}(x)=g_{ab}(x)$，故式\eqref{chdm:eqn_isometry-MMcoord}中
+    的$g_{ij}(x)$上是否带有波浪号则是无关紧要的． \qed
 
 
 \begin{example}\label{chrg:exam_killing-poisson}
@@ -2163,7 +2167,8 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 \end{align}
 上面两式说明，基矢的内外指标均可用度规相应指标进行升降．
 需要说明，如果没有度规，无法定义$(e_\rho)_a$和$(e^\rho)^a$．
-由此可得：
+我们在\S\ref{chdm:sec_metric-abi}曾经引入过这两个记号，在那里是平直空间；
+这里是弯曲空间或平直空间．由此可得：
 \begin{equation}
   g_{ab}=(e_\mu)_a (e^\mu)_b, \  g^{ab}=(e^\mu)^a (e_\mu)^b ; \
   g_{\mu\nu}=(e_\mu)_a (e_\nu)^a, \  g^{\mu\nu}=(e^\mu)^a (e^\nu)_a .
@@ -2670,53 +2675,53 @@ $({e}_\mu)^a = (\frac{\partial}{\partial x^\pi})^a C_{\hphantom{\pi} \mu}^{\pi}$
 \noindent \fbox{甲}
 由于$\Omega^{2}(t,x)$是自然坐标$\{t,x\}$的函数，所以
 自然坐标基矢不是刚性标架，需另选基矢．我们选成如下正交归一的切基矢及对偶基矢
-\begin{align}
-(e^0)_{a} & = \Omega ({\rm d}t)_{a},    & (e^1)_{a} & = \Omega ({\rm d}x)_{a}.    \\
-(e_0)^{a} & = \Omega^{-1} (\partial_t)^{a}, & (e_1)^{a} & = \Omega^{-1}(\partial_x)^{a}.
-\end{align}
+\begin{align*}
+(e^0)_{a}  = \Omega ({\rm d}t)_{a}, \quad    (e^1)_{a}  = \Omega ({\rm d}x)_{a};    \quad
+(e_0)^{a}  = \Omega^{-1} (\partial_t)^{a}, \quad (e_1)^{a}  = \Omega^{-1}(\partial_x)^{a}.
+\end{align*}
 由此容易写出度规张量
-\begin{align}
+\begin{align*}
 g_{ab}  =  - \Omega^2 ({\rm d}t)_{a} ({\rm d}t)_{b}
 + \Omega^{2} ({\rm d}x)_{a} ({\rm d}x)_{b}
 =    - (e^0)_{a}(e^0)_{b} + (e^1)_{a}(e^1)_{b}
-\end{align}
+\end{align*}
 显然，在新选的标架场$(e_\mu)^a$下，度规系数为常数，此标架是刚性的．
 用上式容易得到将指标升降后的基矢表达式
-\begin{align}
+\begin{align*}
 (e_0)_{a} =  -\Omega ({\rm d}t)_{a}, \qquad
 (e_1)_{a} =  \Omega ({\rm d}x)_{a}.
-\end{align}
+\end{align*}
 由式\eqref{chrg:eqn_component-base}可得全部坐标分量
-\begin{align}
+\begin{align*}
 (e_0)_{0} &= -\Omega, &(e_0)_{1} &= 0; & (e_1)_{0} &=0, & (e_1)_{1} &= \Omega.   \\
 (e_0)^{0} &= \Omega^{-1}, &(e_0)^{1} &= 0; &(e_1)^{0} &=0,  & (e_1)^{1} &= \Omega^{-1}.
-\end{align}
+\end{align*}
 协变基矢导数不为零的分量为，“点”代表对$t$求导，“撇”代表对$x$求导．
-\begin{align}
+\begin{align*}
 (e_0)_{0,0} = -\dot{\Omega}, \quad (e_0)_{0,1} = -\Omega' , \quad
 (e_1)_{1,0} = \dot{\Omega}, \quad (e_1)_{1,1} = \Omega' .
-\end{align}
+\end{align*}
 
 
 \noindent \fbox{乙}
 由式\eqref{chrg:eqn_Coef-Lambda1}或\eqref{chrg:eqn_Coef-Lambda2}计算
 中间步符号$\Lambda$，全部不为零的式子为
-\begin{align}
+\begin{align*}
 \Lambda_{001 } &= -\Lambda_{100}
 = \bigl( (e_0)_{0,1}-(e_0)_{1,0} \bigr) (e_0)^{0} (e_1)^{1}
 =  -\Omega^{-2} \Omega' , \\
 \Lambda_{011 } &= -\Lambda_{110}
 = \bigl( (e_1)_{0,1}-(e_1)_{1,0} \bigr) (e_0)^{0} (e_1)^{1}
 =  -\Omega^{-2} \dot{\Omega} .
-\end{align}
+\end{align*}
 由式\eqref{chrg:eqn_Ricci-Coef}可得两个
 独立的Ricci旋转系数$\omega_{\mu\nu\rho}$，分别是
-\begin{align}
+\begin{align*}
 \omega_{010} &= \frac{1}{2}\left(\Lambda_{010} + \Lambda_{001} - \Lambda_{100} \right)
 = \Lambda_{001} = -\Omega^{-2} \Omega' = -\omega_{100} \\
 \omega_{011} &= \frac{1}{2}\left(\Lambda_{011} + \Lambda_{101} - \Lambda_{110} \right)
 = \Lambda_{011} = -\Omega^{-2} \dot{\Omega}  = -\omega_{101}
-\end{align}
+\end{align*}
 
 \noindent \fbox{丙}
 由\eqref{chrg:eqn_Riemann_rr}式可得唯一独立的黎曼分量
@@ -2739,7 +2744,7 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
    +\Omega^{-4} \bigl(\dot{\Omega}^2 - \Omega'^2 \bigr)
 \end{align*}
 这是在基矢$\{(e^\mu)_{a}\}$下的黎曼曲率分量．
-计算过程中注意$g^{00}=-1,g^{11}=+1$，其它度规分量为零；
+计算过程中注意$g^{00}=-1$、$g^{11}=+1$，其它度规分量为零；
 全部系数为常数是刚性标架的体现．
 \qed
 
@@ -2753,69 +2758,61 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
 \end{example}
 \noindent \fbox{甲}
 局部坐标基矢不是刚性标架，另选如下正交归一协变基矢
-\begin{equation}
-\begin{aligned}
-  (e^1)_{a} & = \sqrt{2}e^A ({\rm d}u)_{a},
-& (e^2)_{a} & = \sqrt{2}e^A ({\rm d}v)_{a},    \\
-  (e^3)_{a} & = Z ({\rm d}\theta)_{a},
-& (e^4)_{a} & = Z \sin\theta ({\rm d}\phi)_{a}.
-\end{aligned}
-\end{equation}
+\begin{align*}
+  (e^1)_{a}  = \sqrt{2}e^A ({\rm d}u)_{a},\
+  (e^2)_{a}  = \sqrt{2}e^A ({\rm d}v)_{a},    \
+  (e^3)_{a}  = Z ({\rm d}\theta)_{a}, \
+  (e^4)_{a}  = Z \sin\theta ({\rm d}\phi)_{a}.
+\end{align*}
 由此容易写出度规张量
-\begin{align}
+\begin{align*}
   g_{ab}  = - (e^1)_{a}(e^2)_{b} - (e^2)_{a}(e^1)_{b}
     + (e^3)_{a}(e^3)_{b}  + (e^4)_{a}(e^4)_{b}
-\end{align}
+\end{align*}
 显然，在新选的标架场$(e^\mu)_a$下，度规系数为常数，
 即非零分量是$g_{12}=g_{21}=-1,\ g_{33}=g_{44}=1$；此标架是刚性的．
 用上式容易得到逆变基矢
-\begin{equation}
-\begin{aligned}
-(e_1)^{a} & = \frac{e^{-A}}{\sqrt{2}} (\partial_u)^{a},
-   & (e_2)^{a} & = \frac{e^{-A}}{\sqrt{2}} (\partial_v)^{a},    \\
-(e_3)^{a} & = Z^{-1} (\partial_\theta)^{a},
-& (e_4)^{a} & = (Z \sin\theta)^{-1} (\partial_\phi)^{a}.
-\end{aligned}
-\end{equation}
+\begin{align*}
+(e_1)^{a}  = \frac{e^{-A}}{\sqrt{2}} (\partial_u)^{a},\
+    (e_2)^{a}  = \frac{e^{-A}}{\sqrt{2}} (\partial_v)^{a},    \
+(e_3)^{a}  = Z^{-1} (\partial_\theta)^{a},\
+ (e_4)^{a}  = (Z \sin\theta)^{-1} (\partial_\phi)^{a}.
+\end{align*}
 将外指标降下来，有
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   (e_1)_{a}&=g_{ab} (e_1)^{b}= -(e^2)_{a} =-\sqrt{2}e^A ({\rm d}v)_{a} \\
   (e_2)_{a}&=g_{ab} (e_2)^{b}= -(e^1)_{a} =-\sqrt{2}e^A ({\rm d}u)_{a} \\
   (e_3)_{a}&=g_{ab} (e_3)^{b}= +(e^3)_{a} =+Z ({\rm d}\theta)_{a} \\
   (e_4)_{a}&=g_{ab} (e_4)^{b}= +(e^4)_{a} =+Z \sin\theta ({\rm d}\phi)_{a}
-\end{aligned}
-\end{equation}
+\end{align*}
+
 \noindent \fbox{乙}
 矢量$(e_\mu)_{a}$在自然坐标基矢$({\rm d}x^j)_{a}$上的非零分量为
-\begin{equation}
+\begin{equation*}
   (e_1)_{v}=-\sqrt{2}e^A, \quad
   (e_2)_{u}=-\sqrt{2}e^A, \quad
   (e_3)_{\theta}=Z, \quad
   (e_4)_{\phi}=Z \sin\theta
-\end{equation}
+\end{equation*}
 刚性标架基矢$(e_\mu)^{a}$在自然坐标基矢$(\partial _j)^{a}$上的非零分量为
-\begin{equation}
+\begin{equation*}
   (e_1)^{u}=\frac{e^{-A}}{\sqrt{2}}, \quad
   (e_2)^{v}=\frac{e^{-A}}{\sqrt{2}}, \quad
   (e_3)^{\theta}=Z^{-1}, \quad
   (e_4)^{\phi}=(Z\sin\theta)^{-1}
-\end{equation}
+\end{equation*}
 基矢非零分量$(e_\mu)_{k}$的非零导数是
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   (e_1)_{v,u}&=-\sqrt{2}e^A \partial_u A,  & (e_1)_{v,v}&=-\sqrt{2}e^A \partial_v A  \\
   (e_2)_{u,u}&=-\sqrt{2} e^A \partial_u A, & (e_2)_{u,v}&=-\sqrt{2} e^A \partial_v A  \\
   (e_3)_{\theta,u}&= \partial_u Z, & (e_3)_{\theta,v}&= \partial_v Z \\
   (e_4)_{\phi,u}&= \sin\theta \, \partial_u Z, &
   (e_4)_{\phi,v}&= \sin\theta \, \partial_v Z, &
   (e_4)_{\phi,\theta}=Z \cos\theta
-\end{aligned}
-\end{equation}
+\end{align*}
 利用式\eqref{chrg:eqn_Coef-Lambda1}或\eqref{chrg:eqn_Coef-Lambda2}，
 可得独立非零中间步符号
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   \Lambda_{112}&= \frac{e^{-A}}{\sqrt{2}} \partial_u A, &
   \Lambda_{221}&= \frac{e^{-A}}{\sqrt{2}} \partial_v A, \\
   \Lambda_{331}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_u Z, &
@@ -2823,11 +2820,9 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
   \Lambda_{441}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_u Z, &
   \Lambda_{442}&= \frac{e^{-A}}{\sqrt{2}\, Z} \partial_v Z, &
   \Lambda_{443} = \frac{\cot\theta}{Z}
-\end{aligned}
-\end{equation}
+\end{align*}
 进而利用式\eqref{chrg:eqn_Ricci-Coef}，可得独立非零Ricci旋转系数
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   \omega_{121} &= \frac{e^{-A}}{\sqrt{2}}  \partial_u A, &
   \omega_{212} &= \frac{e^{-A}}{\sqrt{2}}  \partial_v A, \\
   \omega_{313} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_u Z, &
@@ -2835,14 +2830,12 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
   \omega_{414} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_u Z, &
   \omega_{424} &= \frac{e^{-A}}{\sqrt{2}\, Z}  \partial_v Z, &
   \omega_{434}  = \frac{\cot\theta}{Z}
-\end{aligned}
-\end{equation}
+\end{align*}
 
 \noindent \fbox{丙}
 由\eqref{chrg:eqn_Riemann_rr}式可得在基矢$(e^\mu)_a$下
 独立非零黎曼张量分量（注意求和过程中应用刚性标架的度规系数，见\fbox{甲}部分）
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   R_{1221} =& -e^{-2 A} \partial_u\partial_v A, \qquad
   R_{1332} = R_{1442} = \frac{e^{-2A} \partial_u \partial_v Z }{{2}\, Z}, \\
   R_{1313} =& R_{1414}= \frac{e^{-2A}}{{2}\, Z} (2\, \partial_u A \,
@@ -2850,17 +2843,14 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
   R_{2323} =& R_{2424} = \frac{e^{-2A}}{{2}\, Z}
     (2\, \partial_v A \, \partial_v Z - \partial_v \partial_v Z ),  \\
   R_{3434} =& Z^{-2} (1+ e^{-2A} \partial_u Z \,\partial_v Z )
-\end{aligned}
-\end{equation}
+\end{align*}
 进而易得在基矢$(e^\mu)_a$下独立非零Ricci张量分量
-\begin{equation}
-\begin{aligned}
+\begin{align*}
   R_{11} &= e^{-2A} Z^{-1} ( 2\,\partial_u A \,\partial_u Z - \partial_u \partial_u Z)  \\
   R_{12} &=-e^{-2A} Z^{-1} ( Z\partial_u\partial_v A + \partial_u \partial_v Z )  \\
   R_{22} &= e^{-2A} Z^{-1} ( 2\,\partial_v A \,\partial_v Z - \partial_v \partial_v Z)  \\
   R_{33} &= R_{44}=e^{-2A}Z^{-2}(e^{2A}+\partial_u Z \,\partial_v Z + Z\partial_u \partial_v Z)
-\end{aligned}
-\end{equation}
+\end{align*}
 需要注意，以上给出的分量是在$(e^\mu)_a$下的分量，不是在$({\rm d}x^\mu)_a$下的分量．
 \qed
 
@@ -2903,24 +2893,20 @@ R_{0101} &= (e_0)^a\nabla_a \omega_{011} - (e_1)^a\nabla_a \omega_{010}  \\
 容易看出它是Lorentz型的，并且非退化．
 上式同时表明它是刚性标架．
 容易得到式\eqref{chrg:eqn_SWP-g-frame}的对偶基矢：
-\begin{equation}
-	\begin{aligned}
+	\begin{align*}
 		(e_1)^{a} =& (\partial_x)^{a},\quad
 		(e_2)^{a} = (\partial_y)^{a},    \quad
 		(e_3)^{a} = (\partial_t)^{a}+(\partial_z)^{a}, \\
 		(e_4)^{a} =& \left(\frac{1}{2}+F(x, y, u)\right) (\partial_t)^{a}
 		+\left(-\frac{1}{2}+F(x, y, u)\right)(\partial_z)^{a}.
-	\end{aligned}
-\end{equation}
+	\end{align*}
 将外指标降下来，有
-\begin{equation}
-	\begin{aligned}
+	\begin{align*}
 		(e_1)_{a}=& ({\rm d}x)_{a}, \quad		(e_2)_{a}=({\rm d}y)_{a},\quad 
 		(e_3)_{a}=-({\rm d}t)_{a} +({\rm d}z)_{a}, \\
 		(e_4)_{a}=&\left(F(x, y, u)-\frac{1}{2}\right) ({\rm d}t)_{a}
 		- \left(F(x, y, u)+\frac{1}{2}\right) ({\rm d}z)_{a} .
-	\end{aligned}
-\end{equation}
+	\end{align*}
 直接计算得非零量为（注意$\partial_t F(x,y,t-z)=-\partial_z F(x,y,t-z)$）：
 \begin{align*}
 &\Lambda_{144} = -\partial_x F,\quad

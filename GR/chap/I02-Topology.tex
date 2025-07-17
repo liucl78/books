@@ -596,13 +596,16 @@ $e a = a e  =a, \ \forall a \in R $；
     {\bfseries (3)} $\forall x,y,z \in X$，$d(x,y) +d(y,z) \geqslant d(x,z)$．
 \end{definition}
 
-
-定义\ref{chtop:def_metric}中的度量是拓扑学上的度量；
-之后，我们还会在线性空间、黎曼流形上引入度量概念；它们各有异同．
-
 \begin{definition}
     集合$X$连同给定的度量$d$称为{\heiti 度量空间}，记为$(X,d)$．
 \end{definition}
+
+定义\ref{chtop:def_metric}中的度量是拓扑学上的度量．
+之后，我们还会在线性空间、黎曼流形上引入度量概念；
+如果它们是正定的（比如欧式度量，黎曼度量），则符合定义\ref{chtop:def_metric}；
+如果它们是不定的（比如Lorentz度量），则不符合定义\ref{chtop:def_metric}中的第(3)条，
+不能称为拓扑学上的度量．
+
 
 
 给定$X$一个度量$d$，实数$d(x,y)$通常称为$x$和$y$之间在$d$下的{\heiti 距离}．
@@ -680,7 +683,7 @@ $B_{d}(x,\varepsilon)$称为{\heiti 以$x$为中心的$\varepsilon$-球}．
 \end{proof}
 
 定理\ref{chtop:thm_RD}中的$\mathscr{T}_d$称为由度量$d$诱导出来的{\heiti 度量拓扑}．
-该定理自然适用于$(\mathbb{R}^m,d)$．
+%该定理自然适用于$(\mathbb{R}^m,d)$．
 
 
 下面讨论$\mathbb{R}^m$上{\heiti 标准开集}的概念；
@@ -791,10 +794,8 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，�
     连续的，则称映射$f$为{\heiti 同胚}． 此处指整体同胚．  \index[physwords]{同胚}
 \end{definition}
 
-正是因为有例\ref{chtop:exm_txyr}这种情形，定义\ref{chtop:def_homeomorphism}中
-必须同时满足$f$、$f^{-1}$连续．
-在同胚映射下不变的属性称为{\heiti 拓扑性质}（topological property）；
-比如紧致就是拓扑性质的例子．
+正是因为有例\ref{chtop:exm_txyr}这种情形，定义\ref{chtop:def_homeomorphism}中必须同时满足$f$、$f^{-1}$连续．
+在同胚映射下不变的属性称为{\heiti 拓扑性质}（topological property），比如紧致性．
 
 
 \begin{definition}\label{chtop:def_topological-manifold}
@@ -810,7 +811,7 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，�
 如果$U$、$V$相互同胚，那么它们的维数相等，即$m=n$．
 
 
-微积分中有许多定理可以推广到度量空间（或一般拓扑空间）中，我们不加证明
+微积分中有许多定理可以推广到度量空间中，我们不加证明
 （可参考\parencite{munkres-2000-topology}定理18.2、18.4、21.5）的叙述两个．
 下面定理中$X$、$Y$均是度量空间．
 
@@ -966,17 +967,13 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，�
 \end{proposition}
 
 \begin{example}
-    在度量\eqref{chtop:eqn_Rdc}意义下，有$\mathbb{R}$中开区间$(-1,1)$的
-    序列$\{x_n=1-1/n\}$，这是一个Cauchy序列．此序列的极限点是$1$，
-    然而$1 \notin (-1,1)$，故它不完备．
+    在度量\eqref{chtop:eqn_Rdc}意义下，有$\mathbb{R}$中开区间$(-1,1)$的序列$\{x_n=1-1/n\}$，
+    此序列的极限点是$1$，然而$1 \notin (-1,1)$，故它不完备．
     
     已知$(-1,1)$同胚于实直线$\mathbb{R}$，而$\mathbb{R}$是完备的；
     故{\kaishu 完备不是拓扑属性}．\qed
 \end{example}
 
-%\section{代数拓扑初步}\label{chtop:sec_at}
-
-%将代数拓扑单列一节的目的是在于强调它不同于点集拓扑，从定义伊始就不同．
 代数拓扑完全超出了本书的范畴，请参阅\parencite{munkres-2000-topology}；
 我们只给出一个定义．
 

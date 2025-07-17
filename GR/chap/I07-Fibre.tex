@@ -5,6 +5,10 @@
 
 本章简要介绍矢量丛和标架丛，极简单地阐述纤维丛．本章采用\S\ref{chmla:sec_tensor}记号．
 
+矢量丛定义并不需要李群概念．
+纤维丛（\S\ref{chfb:sec_fb}之后的内容）内容只需要李变换群的定义，并不需要更多李群概念．
+因此，即使没有李群知识也不大影响阅读\S\ref{chfb:sec_fb}、\S\ref{chfb:sec_frame-bundles}内容．
+\S\ref{chfb:sec_G-connection}内容需要一些李群、李代数概念．
 
 \section{丛}
 丛是更复杂的矢量丛和纤维丛概念的基本底层结构．
@@ -31,13 +35,12 @@
 %则$s$是$(E',B,\pi')$的截面的充要条件是：$\forall b\in B$，有$s(b)\in E'$．
 
 
-给一个最简单的例子，设有拓扑空间$B$和拓扑空间$F$，$B\times F$是它们的笛卡尔积空间；
+给一个最简单的例子，设有拓扑空间$B$、$F$，$B\times F$是积空间；
 则$(B\times F, B,\pi)$构成丛，其中$\pi$是$B\times F$到$B$的投影．
 笛卡尔积丛$(B \times F, B,\pi)$的每个截面$s$具有$s(b) = \bigl(b,\, f(b)\bigr)$的形式，
-其中映射$f: B\to F$是由$s$唯一决定的．
-关于截面的这个命题证明过程大致是：
-“$f: B\to F$是由$s$唯一决定的”是显然的，因为$s$就是
-在每一点处指定了纤维丛中的元素，也就是说唯一决定了$f$．
+其中映射$f: B\to F$是由$s$唯一决定的．上述命题证明过程大致是：
+“$f: B\to F$是由$s$唯一决定的”是显然的，
+因为$s$就是在每一点处指定了纤维丛中的元素，也就是说唯一决定了$f$．
 假设每个映射$s: B\to B\times F$具有$s(b) = \bigl(\tau(b), \, f (b)\bigr)$的形式；
 由于$b=\pi \circ s(b) = \tau(b)$，所以$s$为$B\times F$截面的
 充要条件是$s(b) = \bigl(b,\, f(b)\bigr)$对于每个$b\in B$成立．
@@ -651,7 +654,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 由 $E_1$ 和 $E_2$ 可以构造矢量丛的直和 $E_1 \oplus E_2$ 和张量积 $E_1 \otimes E_2$．
 我们要给出 $\nabla^{(1)}$ 和 $\nabla^{(2)}$ 在这两个矢量丛上的诱导联络；
 对于任意的 $X \in \mathfrak{X}(M)$，和对于任意的 $\xi_i \in \Gamma(E_i)$，
-定义（这种定义是极其自然的）
+极其自然地定义：
 \begin{align}
     \nabla_X\left(\xi_1 \oplus \xi_2\right)\overset{def}{=}&
     \left(\nabla_X^{(1)} \xi_1\right) \oplus \nabla_X^{(2)} \xi_2, \label{chfb:eqn_opcon} \\
@@ -701,7 +704,7 @@ $\nabla_X \tau$结果便是式\eqref{chccr:eqn_T-covariantD}，请读者补齐�
 把矢量丛上的联络用到张量丛上自然得到了定义\ref{chccr:def_connection}、\ref{chccr:def_connection-tb}．
 
 
-\subsection{局部标架表示}
+\subsection{局部标架表示}\label{chfb:sec_vc}
 
 设$(E,M,\pi)$是一个秩为$q$的矢量丛，$U$是$M$的任意一个非空开子集，
 $\tilde{\pi}$是$\pi$在 $\pi^{-1}(U)$上的限制，
@@ -934,7 +937,7 @@ $\tilde{e}_\sigma= e_\alpha A^\alpha_{\hphantom{\alpha}\sigma} {\  \color{red}\L
 
 
 注意到，对于任意的 $X \in \mathfrak{X}(M), \phi_*(X) \in \Gamma(\phi^* T N)$．
-现在进一步假定 $N$是广义黎曼流形，则$\mathrm{D}$是相应的Levi-Civita联络．
+现在进一步假定 $N$是广义黎曼流形，则$\mathrm{D}$是相应的Levi-Civita联络（见\S\ref{chrg:sec_riemann-metric}）．
 则根据联络 $\nabla$ 的构造以及Levi-Civita联络$\mathrm{D}$的性质，
 可以证明下面两个恒等式：
 \begin{align}
@@ -975,7 +978,7 @@ $U\subset M$局部微分同胚于$\phi(U)\subset V \subset N$．
         &{\nabla}_{X}(\phi_{*}Y)-{\nabla}_{Y}(\phi_{*}X) =
         \bigl(X^\alpha e_\alpha(Y^\sigma)\bigr) e_\sigma
         + Y^\pi  X^\alpha \nabla_{e_\alpha} e_\pi  \\
-        &\quad - \bigl(Y^\alpha e_\alpha(X^\sigma)\bigr) e_\sigma
+        &\qquad\qquad\qquad\qquad\qquad\  - \bigl(Y^\alpha e_\alpha(X^\sigma)\bigr) e_\sigma
         - X^\pi Y^\alpha \nabla_{e_\alpha} e_\pi \\
         &=\Bigl(X^\alpha e_\alpha(Y^\sigma)
         + Y^\pi  X^\alpha \Gamma_{\pi\alpha}^\sigma
@@ -1031,6 +1034,19 @@ $A=(a_{\hphantom{\alpha}\gamma}^\beta)$，则有
     =(\mathrm{d}\omega) A - \omega\wedge \mathrm{d} A .
 \end{equation}
 其中矩阵之间的外积“$\wedge$”表示矩阵在相乘时，矩阵元素的积是外积．
+我们以二维方阵为例来说明这个外积；设二维方阵$A$、$B$的矩阵元是1型式场，有
+\begin{align*}
+	\begin{pmatrix}
+		a_{11} & a_{12} \\ a_{21} & a_{22} 
+	\end{pmatrix} \wedge
+	\begin{pmatrix}
+		b_{11} & b_{12} \\ b_{21} & b_{22} 
+	\end{pmatrix} 
+	=\begin{pmatrix}
+		a_{11}\wedge b_{11} + a_{12}\wedge b_{21} & a_{11}\wedge b_{12} + a_{12}\wedge b_{22} \\ 
+		a_{21}\wedge b_{11} + a_{22}\wedge b_{21} & a_{21}\wedge b_{12} + a_{22}\wedge b_{22}
+	\end{pmatrix}.
+\end{align*}
 将\eqref{chfb:eqn_wftmat}第一式改写为$\mathrm{d} A = A \tilde{\omega}-\omega A $，
 然后带入\eqref{chfb:eqn_tmp-dwa1}，有
 \begin{equation}\label{chfb:eqn_ATheta}
@@ -1072,7 +1088,7 @@ $\forall p \in U\subset M$ 任取两个切矢量 $X, Y \in$ $T_p(M)$，则用曲
 $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 则命
 \begin{equation}\label{chfb:eqn_CurvatureO}
-    R(X, Y) \xi \overset{def}{=}\sum_{\alpha, \beta=1}^q \xi^\alpha 
+    R(X, Y) \xi \overset{def}{=}\sum\nolimits_{\alpha, \beta=1}^q \xi^\alpha 
     \Omega_{\hphantom{\alpha}\alpha}^\beta(X, Y) s_{\beta}|_p .
 \end{equation}
 如果读者不清楚上式的指标记号，请参阅\pageref{chccr:def_TCF}页定义\ref{chccr:def_TCF}．
@@ -1113,6 +1129,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
     \Bigr) s_\alpha .
 \end{align*}
 因此
+\setlength{\mathindent}{0em}
 \begin{align*}
     \nabla_X \nabla_Y \xi & -\nabla_Y \nabla_X \xi =
     \Bigl(      
@@ -1144,9 +1161,9 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
    +\left< [X,Y],\, \omega_{\hphantom{\alpha}\beta}^\alpha\right> 
    + (\omega_{\hphantom{\alpha}\gamma}^\alpha \wedge \omega_{\hphantom{\alpha}\beta}^\gamma)(X,Y)
     \bigr)  \Bigr)s_\alpha  \\
-   =&\nabla_{[X,Y]} \xi + \sum_{\alpha,\beta=1}^{q} 
+   =&\nabla_{[X,Y]} \xi + \sum\nolimits_{\alpha,\beta=1}^{q} 
    \xi^\beta \Omega_{\hphantom{\alpha}\beta}^\alpha (X,Y) s_\alpha .
-\end{align*}
+\end{align*} \setlength{\mathindent}{2em}
 由式\eqref{chfb:eqn_CurvatureO}可知定理得证．
 \end{proof}
 
@@ -1163,7 +1180,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 %若$R$的分量形式为$R_{\hphantom{\alpha}\alpha i j}^\beta$，
 
 \begin{theorem}
-    $R(X, Y)$有以下性质：
+    有以下性质：
     {\bfseries (1)} $R(X, Y)=-R(Y, X)$；
     {\bfseries (2)} $R(f X, Y)=f \cdot R(X, Y)$；
     {\bfseries (3)} $R(X, Y)(f \xi)=f \cdot\bigl(R(X, Y) \xi\bigr)$．
@@ -1206,9 +1223,9 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
     并且对每个$\alpha \in I$有光滑同胚
     \begin{equation*}
         \psi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha \times F,
-        \quad \text{使得}\quad
+        \quad \text{使得}\ 
         \pi \circ \psi_\alpha^{-1}(p, f)=p, \quad \forall p \in U_\alpha, f \in F 
-        \quad \text{成立}.
+        \ \text{成立}.
     \end{equation*}
     
     {\bfseries (2)} 对每一固定点 $p \in U_\alpha$，记
@@ -1254,11 +1271,13 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 \end{proof}
 
 
-
+\index[physwords]{G-主丛}   
+\index[physwords]{主丛}
 
 \begin{definition}
-    设$(E, M, \pi, F, G)$是一纤维丛，若$F=G$，且$G$在$F$上的左作用就是$G$在它自身上的{\kaishu 自由且可迁}的左移动；
-    则称此丛为$M$上以$G$为结构群的{\heiti \bfseries $G$-主丛}，记为 $(E, M, \pi, G)$．
+    设$(E, M, \pi, F, G)$是一纤维丛，若$F=G$，
+    且$G$在$F$上的左（或右）作用就是$G$在它自身上的{\kaishu 自由且可迁}的左（或右）移动；
+    则称此丛为$M$上以$G$为结构群的{\heiti \bfseries G-主丛}，记为 $(E, M, \pi, G)$．
 \end{definition} 
 
 \begin{definition}\label{chfb:def_associated}
@@ -1289,7 +1308,6 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 故类似于定义\ref{chfb:def_vb-conncection}中的三条公理的框架几乎无法推广到$G$-主丛．
 1950年，Ehresmann 给出了$G$-主丛的联络定义；
 $G$-主丛联络可以导出矢量丛定义\ref{chfb:def_vb-conncection}中的三条公理；
-物理学中的规范场可以用纤维丛描述，这需要$G$-主丛的联络、曲率等知识；
 以上内容可参阅\parencite{chen-li-2004v2}第十章或类似文献．
 
 
@@ -1416,19 +1434,13 @@ $ \omega_{a}^{(\alpha) b}=\Gamma_{a i}^{(\alpha) b} \mathrm{d} x_{\alpha}^{i} $
     & =f \cdot A^{-1}\left(\mathrm{d} A+\omega^{(\alpha)} \cdot A\right)
     =f \cdot \theta .    
 \end{aligned}\end{equation}
-其中$\theta$表达式见\eqref{chfb:eqn_lt}．
-之后，将$\nabla^F$简记为$\nabla$．
+其中$\theta$表达式见\eqref{chfb:eqn_lt}．之后，将$\nabla^F$简记为$\nabla$．
 \begin{equation}\label{chfb:eqn_lt}
     \theta_{\hphantom{a}a}^{b}\! =\! \left(A^{-1}\right)_{\hphantom{a}c}^{b}
     \left(\mathrm{d} A_{\hphantom{a}a}^{c}+\omega_{d}^{(\alpha) c} A_{\hphantom{a}a}^{d} \right) 
     =\left(A^{-1}\right)_{\hphantom{a}c}^{b}\left(\mathrm{d} A_{\hphantom{a}a}^{c}+A_{\hphantom{a}a}^{d}
-     \Gamma_{d i}^{(\alpha) c} \mathrm{d} x_{\alpha}^{i}\right) 
+     \Gamma_{d i}^{(\alpha) c} \mathrm{d} x_{\alpha}^{i}\right) .
 \end{equation}
-
-%一次微分式$\theta_{\hphantom{a}a}^{b} (1 \leqslant a,b \leqslant q)$有明显的几何意义．
-%事实上，$\left(x_{\alpha}^{i}, A_{\hphantom{a}a}^{b}\right)$代表$\tilde{\pi}^{-1}\left(U_{\alpha}\right)$中的点，
-%因而是矢量丛$E$在$U_{\alpha}$上的标架．于是$\theta_{\hphantom{a}a}^{b} (1 \leqslant a,b \leqslant q)$恰好
-%是$E$在$U_{\alpha}$上的活动标架的 “ 协变微分 ” 关于该标架自身的分量（即活动标架的相对分量）．
 
 
 \begin{theorem}\label{chfb:thm_ltg}
@@ -1469,12 +1481,13 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 上式表明定义与局部标架选取无关，故在大范围上有定义．
 \end{proof}
 
-%一般说来，光滑流形$M$上不存在整体的标架场．由于$M$上一定存在联络（见定理\ref{chfb:thm_existence}）；
-%故，根据上述定理，在标架丛$F(E)$上总是存在整体标架场的．
-%在这个意义上来说，流形$F(E)$显得比底流形$M$简单．
+一般说来，光滑流形$M$上不存在整体的标架场．
+由于$M$上一定存在联络（见定理\ref{chfb:thm_existence}）；
+故，根据上述定理，在标架丛$F(E)$上总是存在整体标架场的．
+在这个意义上来说，流形$F(E)$显得比底流形$M$简单．
 
 \begin{example}
-    对偶标架的协变导数．
+    对偶标架的联络．
 \end{example}
 已知标架丛$F(E)$的标架场\eqref{chfb:eqn_F-comp}．我们通过
 \begin{equation}
@@ -1515,29 +1528,179 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 在那里，我们已经导出了有关切标架丛的众多内容，比如联络型式、Cartan结构方程、Bianchi恒等式等．
 
 切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型是$GL(m)$；
-若把纤维型限定为它的闭子群$O(m)$，则得到切标架丛的
-子丛{\heiti 正交切标架丛}，记为$\mathcal{O}(TM)$．
-对于相对论而言，我们需要把结构群取为$O(1,3)$．
+若把纤维型限定为它的子群$O(m)$，则得到它的子丛{\heiti 正交切标架丛}，
+记为$\mathcal{O}(TM)$．当底流形已定向，则纤维型与结构群变为$SO(m)$．
+
+对狭义、广义相对论而言，切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型与结构群是$O(1,3)$．
+当底流形已定向，则纤维型与结构群变为$SO^{+}(1,3)$．
 
 
+
+\section{矢量丛与规范场概述}\label{chfb:sec_G-connection}
+
+要完整、严谨的从纤维丛角度叙述规范场理论必须先了解$G$-主丛的联络、曲率等知识；
+这超出了本书的范畴，可参考文献\parencite{chen-li-2004v2}第十章或者\parencite{Husemoller-1994}．
+
+
+本节将主丛的结构群$G$限定在矩阵群$GL(q,\mathbb{C})$的子群，
+此时的$G$-主丛就是上节叙述的标架丛．我们令底流形是$m$维的光滑流形$M$．
+设结构群$G$的李代数是$\mathfrak{g}$（其维数是$r$），
+李代数$\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q\times q$维矩阵）．
+若$\mathfrak{g}$的Killing型退化（定义见\S\ref{chlg:sec_KillingForm}），
+对物理学来说貌似无用，故要求$\mathfrak{g}$是半单的．
+进一步要求$G$是紧致的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
+矩阵群$G$的李代数$\mathfrak{g}$诱导出的Killing型是负定的；
+进而可以在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型
+的{\kaishu 负值}（这样，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$便是正定的了）；
+从而可以定义不变积分（见\S\ref{chlg:sec_Integral}）．
+如果没有紧致性，那么貌似无法定义群$G$上的不变积分．
+
+
+在开子集$U\subset M$、$V\subset M$上分别引入局部坐标$\{x^i\}$、$\{y^i\}$，并假定$U\cap V\neq \varnothing$；
+在纤维型$\mathbb{C}^q$上引入局部标架$s_{\alpha}$（$1\leqslant \alpha \leqslant q$）；
+故矢量丛有局部标架$\{\frac{\partial }{\partial x^i}; s_\alpha\}$．
+在上述前提下，与矢量丛相配的$G$-标架丛（$G$-主丛）的联络型式$\theta$为：
+\begin{equation}
+	\theta_{\hphantom{a}a}^{b} = \left(a^{-1}\right)_{\hphantom{a}\beta}^{b}
+	\left(\mathrm{d} a_{\hphantom{a}a}^{\beta}
+	+\omega_{\hphantom{c}\alpha}^{\beta} a_{\hphantom{a}a}^{\alpha} \right) , 
+	\qquad \text{其中}\  a_{\hphantom{a}a}^b\in {G}     \tag{\ref{chfb:eqn_lt}}
+\end{equation}
+其中$\omega_{\hphantom{\alpha}\alpha}^\beta$是：
+\begin{equation}\label{chfb:eqn_Gwform}
+	\omega_{\hphantom{\alpha}\alpha}^\beta=\sum\nolimits_{a=1}^{r} \sum\nolimits_{i=1}^{m} 
+	A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta {\rm d}x^i;
+	\ 1\leqslant \alpha , \beta \leqslant q,\ A^a_i(x)\in C^\infty(U).
+\end{equation}
+上式中$T_a$是结构群$G$的李代数$\mathfrak{g}$的基矢矩阵，它们是$q$维常数方阵．
+
+请注意：我们省略了大量内容（$G$-主丛联络理论）才得到式\eqref{chfb:eqn_Gwform}．
+$G$-标架丛理论中有定理表明在它的联络中可以自然地引入结构群$G$的李代数$\mathfrak{g}$，
+见式\eqref{chfb:eqn_Gwform}；若只考虑矢量丛，则无法自然引入结构群$G$的李代数$\mathfrak{g}$．
+这是我们由$G$-标架丛（$G$-主丛）出发来阐述规范场的原因．
+
+当$G$-标架丛是$GL(m)$-切标架丛时，其结构群便是$GL(m)$；与切标架丛相配的矢量丛就是切丛．
+此时$G$-标架丛联络\eqref{chfb:eqn_Gwform}就是\eqref{chccr:def_1form-gauge}（请读者验证之）．
+
+
+由\S\ref{chfb:sec_vc}、\S\ref{chfb:sec_frame-bundles}内容可知由矢量丛联络可诱导出标架丛联络．
+反之，若先给定$G$-标架丛联络（见上面两式），$G$-主丛联络理论表明：标架丛联络也可自然诱导出矢量丛联络；
+两个丛的联络是相互唯一确定的，即式\eqref{chfb:eqn_Dsos}和式\eqref{chfb:eqn_lt}．
+由$G$-标架丛联络\eqref{chfb:eqn_Gwform}诱导出的与之相配矢量丛的联络$\omega$自然
+满足式\eqref{chfb:eqn_wform-trans}：
+\begin{equation}
+	\tilde{\omega}_{\hphantom{\alpha}\alpha}^\sigma=(a^{-1})_{\hphantom{\alpha}\beta}^{\sigma}
+	\mathrm{d} a_{\hphantom{\alpha}\alpha}^\beta+(a^{-1})_{\hphantom{\alpha}\beta}^{\sigma}
+	\omega_{\hphantom{\alpha}\gamma}^\beta a_{\hphantom{\alpha}\alpha}^\gamma ,
+	\qquad \text{其中}\  a_{\hphantom{\alpha}\gamma}^\beta\in {G} 
+	\tag{\ref{chfb:eqn_wform-trans}}
+\end{equation}
+至此，我们由$G$-标架丛联络得到了与之相配的矢量丛的联络$\omega$．
+
+
+由式\eqref{chfb:eqn_Gwform}可得矢量丛联络系数表达式（见式\eqref{chfb:eqn_con-form}）：
+\begin{equation}\label{chfb:eqn_GGamma}
+	\Gamma_{\alpha i }^\beta=\left< \omega_{\hphantom{\alpha}\alpha}^\beta,
+	\ \frac{\partial }{\partial x^i} \right>
+	=\sum\nolimits_{a=1}^{r} A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta ;
+	\quad 1\leqslant \alpha , \beta \leqslant q.
+\end{equation}
+把式\eqref{chfb:eqn_wform-trans}写成联络系数的形式
+（$a_{\hphantom{\alpha}\gamma}^\beta=[g_{VU}]_{\hphantom{\alpha}\gamma}^\beta \in {G}$）：
+\begin{equation}\label{chfb:eqn_GDG}
+	\bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\gamma}^\beta \tilde{\Gamma}_{\alpha j}^\gamma (y)
+	=\left(\frac{\partial \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\beta}{\partial x^i}
+	+\Gamma_{\gamma i}^\beta(x) \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma
+	\right) \times \frac{\partial x^i }{\partial y^j}.
+\end{equation}
+满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为
+矢量丛的{\heiti $\boldsymbol{G}$型联络}．
+
+\index[physwords]{G型联络} 
+
+
+在物理学中，通常将$M$选为平直的四维闵氏流形$(\mathbb{R}^4_1,\eta)$；
+并且一般不作坐标变换$x^i\to y^j$，只作变换$s_\alpha\to \tilde{s}_\beta$．
+以下两个例题就在这样的假设来阐述．
+
+\begin{example}
+	$U(1)$规范场．
+\end{example}
+
+
+取$G=U(1)=\exp(\mathbbm{i}\theta)$，则它的李代数$\mathfrak{g}=\{\mathbbm{i}\}$．
+
+即令式\eqref{chfb:eqn_GDG}中的$g_{VU}(x)=e^{\mathbbm{i}\theta}$、$T_a=(\mathbbm{i})$，
+则式\eqref{chfb:eqn_GDG}化为：
+\begin{equation}
+	e^{\mathbbm{i}\theta} \tilde{\Gamma}_{1 j}^{1} 
+	=\frac{\partial e^{\mathbbm{i}\theta}}{\partial x^j}
+	+\Gamma_{1 j}^1 e^{\mathbbm{i}\theta} 
+	\quad \xRightarrow[\ref{chfb:eqn_GGamma}]{\text{带入式}}\quad
+	\tilde{A}_{j}(x) =\frac{\partial \theta}{\partial x^j}  +A_j(x)  .
+\end{equation}
+这正是电磁规范势的规范变换公式；此时式\eqref{chfb:eqn_GGamma}中的$A^a_i$对应{\kaishu 电磁规范势}．
+
+把式\eqref{chfb:eqn_GGamma}（$U(1)$群是可对易群）带入曲率公式\eqref{chfb:eqn_R-vector-bundle}，有
+\begin{equation}\label{chfb:eqn_EM-strength}
+	R_{1 i j}^1 = \mathbbm{i} ({\partial_i} A_{j} -\partial_j A_i) .
+\end{equation}
+上式正是电磁场强公式$\mathbbm{i}^{-1} R_{1 i j}^1\equiv F_{ij} = {\partial_i} A_{j} -\partial_j A_i$．
+\qed
+
+\begin{example}
+	非对易规范场（结构群$G$是半单、紧致、非对易矩阵群）．
+\end{example}
+非对易规范场也称为Yang--Mills场（杨振宁与米尔斯于1954年发现）．
+请参考任一本相关教材，读者你会发现式\eqref{chfb:eqn_GGamma}就是Yang--Mills场；
+式\eqref{chfb:eqn_GDG}正是Yang--Mills场需要满足的规范变换．
+把式\eqref{chfb:eqn_GGamma}带入曲率公式\eqref{chfb:eqn_R-vector-bundle}（$R_{\alpha i j}^\beta 
+= {\partial_i} \Gamma_{\alpha j}^{\beta} -\partial_j \Gamma_{\alpha i}^{\beta}
++\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} -  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta}$），
+有（注意$(T_a)_{\hphantom{\alpha}\alpha}^\beta $是常数矩阵）：
+\begin{align}
+	R_{\hphantom{\alpha}\alpha i j}^\beta 
+	=&{\partial_i} A^a_j (T_a)_{\hphantom{\alpha}\alpha}^\beta 
+	-\partial_j A^a_i (T_a)_{\hphantom{\alpha}\alpha}^\beta 
+	+A^c_j (T_c)_{\hphantom{\alpha}\alpha}^\sigma  A^b_i (T_b)_{\hphantom{\alpha}\sigma}^\beta
+	-A^b_i (T_b)_{\hphantom{\alpha}\alpha}^\sigma  A^c_j (T_c)_{\hphantom{\alpha}\sigma}^\beta \notag\\
+	=& \sum\nolimits_{a=1}^{r}(T_a)_{\hphantom{\alpha}\alpha}^\beta  \times \bigl(
+	{\partial_i} A^a_j  -\partial_j A^a_i  + \sum\nolimits_{b,c=1}^{r} A^b_i A^c_j C_{bc}^a    \bigr) .
+	\label{chfb:eqn_YM-Strength}
+\end{align}
+其中$C_{bc}^a$是李代数$\mathfrak{g}$的结构常数．此式正是非对易规范场的场强公式；
+当$G$是可对易群时，式\eqref{chfb:eqn_YM-Strength}退化为式\eqref{chfb:eqn_EM-strength}．
+式\eqref{chfb:eqn_YM-Strength}是非对易规范场论的基础．
+虽然数学家们早在1940年代就已知晓矢量丛的曲率公式\eqref{chfb:eqn_R-vector-bundle}；
+但是一直到1975年，才由物理学家杨振宁发现规范场强公式\eqref{chfb:eqn_YM-Strength}与
+矢量丛的曲率公式本质相同；该式为杨先生最重要的学术贡献．
+由此可以窥见数学与物理之间的鸿沟．
+\qed
+
+\index[physwords]{Yang--Mills场}  
+\index[physwords]{杨振宁-米尔斯场} 
+\index[physwords]{规范场} 
+
+
+\begin{remark}\label{chfb:rem_qft}
+	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解平直时空的Yang--Mills理论．
+	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
+	如果研究弯曲时空的规范场，那么必须掌握$G$-主丛理论．
+\end{remark}
 
 
 
 \section*{小结}
-本章主要参考了\parencite{cc2001-zh}\S 3.1、第四章，%\parencite[\S 2.8]{chen-li-2023-2ed-v1}，
-\parencite{chen-li-2004v2}第十章．
-
-专著\parencite{Husemoller-1994}全面阐述了纤维丛理论．
+本章主要参考了\parencite{cc2001-zh}\S 3.1、第四章，\parencite{chen-li-2004v2}第十章．
 
 
+从第\ref{chtop}章到本页，我们没有实质使用度量（除\S\ref{chdm:sec_Euclidean-space}、
+\S\ref{chfb:sec_pull-back-bundle}、\S\ref{chfb:sec_G-connection}）；
+故，所有内容适用于正定度量、不定度量．从下章开始引入度量（度规，metric）．
 
-从第\ref{chtop}章到本页，我们没有实质使用度量（除\S\ref{chdm:sec_Euclidean-space}）；
-故，所有内容适用于正定度量、不定度量．从下章开始引入度量（度规）．
-
-
-笔者这样安排度规的原因有两个：首先是参考了\parencite{cc2001-zh}的结构，
+笔者这样安排度规的原因有两个：首先，是参考了\parencite{cc2001-zh}的结构，
 该书中前四章并未涉及度规，从第五章开始才有度规．
-其次，是爱因斯坦的《自传笔记》\parencite[p.67]{einstein-1970}中写道：
+其次，在爱因斯坦的《自传笔记》\parencite[p.67]{einstein-1970}中写道：
 {\kaishu 为什么广义相对论的建立又需要七年（指从1908--1915）的时间？
     主要的原因在于，要摆脱坐标自身有直接度规意义的观念是不容易的．}
 度规困扰了爱因斯坦七年之久，为此，笔者从一开始就不引入度规，直至下一章才引入．
@@ -1549,123 +1712,4 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 \endinput
 
 
-%\section{矢量丛与规范场概述}\label{chfb:sec_G-connection}
-%
-%
-%令底流形是$m$维的光滑流形$M$．设$r$维李群$G$是半单的，其李代数是$\mathfrak{g}$；
-%群$G$有$q\times q$维表示$\hat{G}$，同态映射为$\rho : G\to \hat{G}$；
-%设群$\hat{G}$是作用在纤维型$\mathbb{C}^q$上的{\kaishu 结构群}，即过渡函数族$g_{UV}\in \hat{G}$．
-%设群$\hat{G}$的李代数是$\mathfrak{\hat{g}}$；
-%我们额外要求$\mathfrak{\hat{g}}$线性同构于$\mathfrak{g}$；
-%设$\mathfrak{\hat{g}}$的基为$\{T_a\mid a=1,\cdots,r\}$．
-%
-%
-%我们要求$\mathfrak{g}$是半单的，主要目的是令其Killing型（定义见\S\ref{chlg:sec_KillingForm}）非退化；
-%对物理学来说，退化的Killing型貌似没用．
-%如果进一步要求$G$是紧致的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
-%李群$G$的李代数$\mathfrak{g}$诱导出的Killing型是负定的；
-%进而可以在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型
-%的{\kaishu 负值}（这样，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$便是正定的了）；
-%从而可以定义不变积分（见\S\ref{chlg:sec_Integral}）．
-%如果没有紧致性，那么$\mathfrak{g}$的Killing型是不定的，没必要额外引入一个负号了；
-%但此时不变积分貌似无法定义．
-%
-%
-%在开子集$U\subset M$、$V\subset M$上分别引入局部坐标$\{x^i\}$、$\{y^i\}$，并假定$U\cap V\neq \varnothing$．
-%在纤维型$\mathbb{C}^q$上引入局部标架$s_{\alpha}$（$1\leqslant \alpha \leqslant q$）．
-%这样丛空间$E$便有了局部标架$\{\frac{\partial }{\partial x^i}; s_\alpha\}$．
-%取矢量丛的联络矩阵为：
-%\begin{equation}\label{chfb:eqn_Gwform}
-%	\omega_{\hphantom{\alpha}\alpha}^\beta=\sum_{a=1}^{r} \sum_{i=0}^{m-1} 
-%	A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta {\rm d}x^i;
-%	\quad 1\leqslant \alpha , \beta \leqslant q,\quad A^a_i\in C^\infty(U).
-%\end{equation}
-%其中$T_a$是李代数$\mathfrak{\hat{g}}$的基矢矩阵，它们是$q$维常数方阵．
-%上述定义还不是联络型式，还需要求它在变换（$x^i\to y^j$、$s_\alpha\to \tilde{s}_\beta$）下
-%满足式\eqref{chfb:eqn_wform-trans}，同时令\eqref{chfb:eqn_wform-trans}中
-%的$a_{\hphantom{\alpha}\gamma}^\beta\in \hat{G}$，即令其是过渡函数族中的元素．
-%把式\eqref{chfb:eqn_wform-trans}中的联络方阵$\omega_{\hphantom{\alpha}\alpha}^\beta$写成
-%联络系数（见式\eqref{chfb:eqn_con-form}）的形式：
-%\begin{equation}\label{chfb:eqn_GGamma}
-%	\Gamma_{\alpha i }^\beta=\left< \omega_{\hphantom{\alpha}\alpha}^\beta,
-%	\ \frac{\partial }{\partial x^i} \right>
-%	=\sum_{a=1}^{r} A^a_i(x) (T_a)_{\hphantom{\alpha}\alpha}^\beta ;
-%	\qquad 1\leqslant \alpha , \beta \leqslant q.
-%\end{equation}
-%把式\eqref{chfb:eqn_wform-trans}写成联络系数的形式
-%（$a_{\hphantom{\alpha}\gamma}^\beta=[g_{VU}]_{\hphantom{\alpha}\gamma}^\beta \in \hat{G}$）：
-%\begin{equation}\label{chfb:eqn_GDG}
-%	\bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\gamma}^\beta \tilde{\Gamma}_{\alpha j}^\gamma (y)
-%	=\left(\frac{\partial \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\beta}{\partial x^i}
-%	+\Gamma_{\gamma i}^\beta(x) \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma
-%	\right) \times \frac{\partial x^i }{\partial y^j}.
-%\end{equation}
-%满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为矢量丛的{\heiti $\boldsymbol{G}$型联络}．
-%
-%\index[physwords]{G型联络} 
-%
-%
-%在物理学中，通常将$M$选为平直的四维闵氏流形$(\mathbb{R}^4_1,\eta)$；
-%并且一般不作坐标变换$x^i\to y^j$，只作变换$s_\alpha\to \tilde{s}_\beta$．
-%以下两个例题就在这样的假设来阐述．
-%
-%\begin{example}
-%	$U(1)$规范场．
-%\end{example}
-%
-%
-%取$G=\hat{G}=U(1)=\exp(\mathbbm{i}\theta)$，则它的李代数$\mathfrak{g}=\{\mathbbm{i}\}$．
-%
-%即令式\eqref{chfb:eqn_GDG}中的$g_{VU}(x)=e^{\mathbbm{i}\theta}$、$T_a=(\mathbbm{i})$，
-%则式\eqref{chfb:eqn_GDG}化为：
-%\begin{equation}
-%	e^{\mathbbm{i}\theta} \tilde{\Gamma}_{1 j}^{1} 
-%	=\frac{\partial e^{\mathbbm{i}\theta}}{\partial x^j}
-%	+\Gamma_{1 j}^1 e^{\mathbbm{i}\theta} 
-%	\quad \xRightarrow[\ref{chfb:eqn_GGamma}]{\text{带入式}}\quad
-%	\tilde{A}_{j}(x) =\frac{\partial \theta}{\partial x^j}  +A_j(x)  .
-%\end{equation}
-%这正是电磁规范势的规范变换公式；此时式\eqref{chfb:eqn_GGamma}中的$A^a_i$对应{\kaishu 电磁规范势}．
-%
-%把式\eqref{chfb:eqn_GGamma}（$U(1)$群是可对易群）带入曲率公式\eqref{chfb:eqn_R-vector-bundle}，有
-%\begin{equation}\label{chfb:eqn_EM-strength}
-%	R_{1 i j}^1 = {\partial_i} A_{j} -\partial_j A_i.
-%\end{equation}
-%上式正是电磁场强公式$R_{1 i j}^1\equiv F_{ij} = {\partial_i} A_{j} -\partial_j A_i$．
-%\qed
-%
-%\begin{example}
-%	非对易规范场（群$G$是非对易群）．
-%\end{example}
-%非对易规范场也称为Yang--Mills场（杨振宁-米尔斯场）．
-%请参考任一本相关教材，读者你会发现式\eqref{chfb:eqn_GGamma}就是Yang--Mills场；
-%式\eqref{chfb:eqn_GDG}正是Yang--Mills场需要满足的规范变换．
-%把式\eqref{chfb:eqn_GGamma}带入曲率公式\eqref{chfb:eqn_R-vector-bundle}（$R_{\alpha i j}^\beta 
-%= {\partial_i} \Gamma_{\alpha j}^{\beta} -\partial_j \Gamma_{\alpha i}^{\beta}
-%+\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} -  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta}$），
-%有（注意$(T_a)_{\hphantom{\alpha}\alpha}^\beta $是常数矩阵）
-%\begin{align}
-%	R_{\hphantom{\alpha}\alpha i j}^\beta 
-%	=&{\partial_i} A^a_j (T_a)_{\hphantom{\alpha}\alpha}^\beta 
-%	-\partial_j A^a_i (T_a)_{\hphantom{\alpha}\alpha}^\beta 
-%	+A^c_j (T_c)_{\hphantom{\alpha}\alpha}^\sigma  A^b_i (T_b)_{\hphantom{\alpha}\sigma}^\beta
-%	-A^b_i (T_b)_{\hphantom{\alpha}\alpha}^\sigma  A^c_j (T_c)_{\hphantom{\alpha}\sigma}^\beta \notag\\
-%	=& \sum_{a=1}^{r}(T_a)_{\hphantom{\alpha}\alpha}^\beta  \times \bigl(
-%	{\partial_i} A^a_j  -\partial_j A^a_i  + A^b_i A^c_j C_{bc}^a    \bigr) .
-%	\label{chfb:eqn_YM-Strength}
-%\end{align}
-%其中$C_{bc}^a$是李代数$\mathfrak{\hat{g}}$的结构常数．
-%此式正是非对易规范场的场强公式；
-%当$G$是可对易群时，式\eqref{chfb:eqn_YM-Strength}退化为式\eqref{chfb:eqn_EM-strength}．
-%式\eqref{chfb:eqn_YM-Strength}是非对易规范场论的基础．
-%\qed
-%
-%\index[physwords]{Yang--Mills场}  \index[physwords]{杨振宁-米尔斯场} \index[physwords]{规范场} 
-%
-%
-%\begin{remark}
-%	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解Yang--Mills理论．
-%	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
-%\end{remark}
-%
 

@@ -1208,7 +1208,9 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 %   + C^\beta_{\hphantom{a} i} C^\alpha_{\hphantom{a} j} \oversetmy{x}{\Gamma}^{\sigma}_{\alpha\beta}  .
 %\end{equation}
 
-定义{\heiti 联络型式场}：
+\index[physwords]{联络1型式场}
+
+定义{\heiti 联络1型式场}：
 \begin{equation}\label{chccr:def_1form}
     (\omega_{\hphantom{a} j}^{k})_a \overset{def}{=} \Gamma_{ji}^k (e^i)_a
     \equiv (e^i)_a (e^k)_c (e_i)^b \nabla _b (e_j)^c
@@ -1220,6 +1222,19 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
     \nabla _a (e_i)^b= + (\omega_{\hphantom{a} i}^{j})_a (e_j)^b .
 \end{equation}
 
+我们从另一个角度再叙述一下联络型式场．
+设有$m\times m$维矩阵$E^\alpha_{\hphantom{\alpha} \beta}(1\leqslant \alpha,\beta \leqslant m)$，
+其中矩阵$E^\alpha_{\hphantom{\alpha} \beta}$的第$\alpha$行、第$\beta$列元素为$1$，其余矩阵元是$0$．
+那么联络型式场可以改写为：
+\begin{equation}\label{chccr:def_1form-gauge}
+	(\omega_{\hphantom{k} j}^{k})_a \equiv \Gamma_{ji}^k (e^i)_a
+	=\sum_{\alpha,\beta=1}^{m} \sum_{i=1}^{m} 
+	(E^\alpha_{\hphantom{\alpha} \beta})_{\hphantom{k}j}^k
+	A^{\alpha\beta}_i(x) ({\rm d}x^i)_a;
+    \ A^{\alpha\beta}_i(x)\in C^{\infty}(U).
+\end{equation}
+上式中$(E^\alpha_{\hphantom{\alpha} \beta})_{\hphantom{k}j}^k$表示
+矩阵$E^\alpha_{\hphantom{\alpha} \beta}$的第$k$行、第$j$列的矩阵元．
 
 \subsection{标架变换}
 现在考虑在标架变换\eqref{chccr:base_change}下，联络型式如何变化．

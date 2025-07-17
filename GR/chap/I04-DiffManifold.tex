@@ -10,7 +10,7 @@
 本章及以后各章节，如无特殊声明，在实数域$\mathbb{R}$上讨论问题．
 
 
-\section{广义欧几里得空间}\label{chdm:sec_Euclidean-space}
+\section{平直的广义欧几里得空间}\label{chdm:sec_Euclidean-space}
 在正式描述弯曲的（指黎曼曲率非零）微分流形前，
 再对平直的（指黎曼曲率为零）广义欧几里得空间做些说明是大有裨益的．
 本节的概念可直接用到流形上的切空间，进而可用到流形论中．
@@ -63,7 +63,7 @@
 上式仍旧使用了\S\ref{chmla:sec_tensor}记号，下面详细介绍如何用抽象指标表示度规张量．
 
 
-\subsection{度规张量的表示}\label{chdm:sec_metric-abi}
+\subsection{平直空间度规张量的表示}\label{chdm:sec_metric-abi}
 给定数域$\mathbb{R}$上线性空间$V$，基矢组是$(e_\mu)^a$；
 它的对偶空间是$V^*$，基矢组是$(e^\mu)_a$．
 度规是一个$\Tpq{0}{2}$型对称、非退化张量，它的抽象指标表示可写为
@@ -108,6 +108,16 @@
 \end{aligned}
 \end{equation}
 上式最后一行便是$\delta^a_{\cdot c}$的抽象指标表达式．
+
+再引入两个记号
+\begin{align}
+	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
+	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
+	= g_{\mu\rho}(e^\mu)_a, \\
+	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
+	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
+	= g^{\mu\rho}(e_\mu)^a .
+\end{align}
 
 线性空间$V$中指定了度规张量$g_{ab}$后，
 由\pageref{chmla:thm_tonggou-by-gVVS}页
