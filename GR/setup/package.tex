@@ -26,11 +26,10 @@
 \usepackage[stable]{footmisc}
 \usepackage{geometry}
 \usepackage{graphicx,subfigure}
-\usepackage{hyperref}
-\usepackage{imakeidx}
 \usepackage{longtable}
 \usepackage{lscape}
 \usepackage{makecell}
+\usepackage{makeidx,imakeidx}  % 必须在 hyperref 之前，否则无法超链接
 %\usepackage{marginnote}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
@@ -54,7 +53,7 @@
 \usepackage{xr}
 \usepackage{youngtab}
 
-
+\usepackage{hyperref} % 放在最后，以便其它package产生超链接
 
 
 \endinput
