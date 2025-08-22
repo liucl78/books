@@ -121,12 +121,13 @@ $R_{ab}$是时空的Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率�
 此处给出时间定向的初步阐述．
 更详尽内容可见\parencite[\S 6.1]{hawking-ellis1973}或\parencite[p.143]{oneill1983}．
 
-时空中有关质点$p$（包括有静质量和无静质量粒子）的全部事件集合
-称为$p$的{\heiti 世界线}．世界线自然是时空中的一条光滑曲线，
-与\S\ref{chsr:sec_stc}相同．广义相对论中，依照世界线的切线切矢量
-在度规场$g$下的属性被分为：类时、类空和类光
+广义相对论中，依照曲线的切线切矢量在度规场$g$下的属性被分为：类时、类空和类光
 （见第\pageref{chrg:def_vector-property}页定义\ref{chrg:def_vector-property}）．
+若光滑曲线的每点切线切矢量都是类时的（类空的、类光的），则称此线为类时（类空、类光）曲线．
 其中类空曲线是超光速的，属于非物理；即便非物理，它在相对论中仍有许多应用．
+
+时空中有关质点$p$（包括有静质量和无静质量粒子）的全部事件集合称为$p$的{\heiti 世界线}．
+世界线自然是时空中的一条光滑曲线，与\S\ref{chsr:sec_stc}相同．
 类时、类光世界线合称为{\heiti 因果世界线}（causal）．
 
 设有类时世界线$\gamma(\tau)$，$\tau$是其弧长参数；
@@ -134,12 +135,12 @@ $R_{ab}$是时空的Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率�
 $\gamma(\tau)$上某点的切线切矢量$T^a$只有两个方向，如果$T^a$指向$\tau$增大的方向，
 我们称$T^a${\heiti 指向未来}，否则{\heiti 指向过去}．
 
-设有两类时矢量$T^a$、$S^b$；若$g_{ab}T^a S^b <0$，则称$T^a$、$S^b${\heiti 同向}，否则{\heiti 反向}．
+设$p$点有类时矢量$T^a$、$S^b$；若$g_{ab}T^a S^b <0$，则称$T^a$、$S^b${\heiti 同向}，否则{\heiti 反向}．
 
 
 因类光线的弧长为零，其上没有时间概念；我们采用如下方式定义其指向．
 时空$M$上一点$p\in M$的所有类光矢量集合称为$p$点的{\heiti 光锥}（平直时空的例子可见\S\ref{chsr:sec_spacetime}）．
-在狭义或广义相对论中，类时矢量过去与未来的指向是绝对的，不可能通过物理允许的连续变换改变其指向；
+在狭义或广义相对论中，类时矢量过去与未来的指向是绝对的，不可能通过物理允许的连续变换改变其指向．
 因此，我们将$p$点包裹指向未来类时矢量的光锥定义为{\heiti 指向未来}的，
 将$p$点包裹指向过去类时矢量的光锥定义为{\heiti 指向过去}的．
 也就是说，我们借用类时线上质点速度趋于光速的极限状态的时间定向来定义类光线的指向．
@@ -741,7 +742,7 @@ Lipschitz条件一定独立于“第二层”中所有内容，是“第二层�
 {\bfseries (2)}Yang--Mills场；
 {\bfseries (3)}引力度规场；
 {\bfseries (4)}量子物理的波函数（相差非零常数倍的波函数描述同一状态）；
-{\bfseries (5)}拉格朗日密度场可以相差一个矢量场的全散度（变分时不影响欧拉-拉格朗日方程）．
+{\bfseries (5)}拉格朗日密度场（及哈氏密度）可以相差一个矢量场的全散度．
 
 
 
@@ -882,23 +883,64 @@ $z$是初始点，通常并不大关心点$z$和$Z^a$，故
 
 \index[physwords]{共动观测者}
 \subsection{共动观测者}\label{chfd:sec_comoving}
+本小节只在流形$(M,g)$的局部邻域$\{U;t,x^i\}$讨论问题．
+
 我们把随着质点$p$（或流体质团）一起运动的观测者$Z^a$称为{\heiti 共动观测者}（co-moving）．
 观测者$Z^a$相对于$p$是静止不动的，但从其他观测者来看$Z^a$随着$p$一起运动．
 同样要求共动观测者$Z^a$的四速度归一化到光速．
-设流形$(M,g)$局部有共动坐标系$\{t,x^i\}$，度规
-在此局部坐标系下为$g_{ab}=g_{\mu\nu}({\rm d}x^\mu)_a ({\rm d}x^\nu)_b$．
+设流形$(U,g)$局部有共动坐标系$\{t,x^i\}$，
+度规在此局部坐标系下为$g_{ab}=g_{\mu\nu}({\rm d}x^\mu)_a ({\rm d}x^\nu)_b$．
 则共动观测者$Z^a$正比于$(\frac{\partial}{\partial t})^a$，
-即$Z^a= h (\frac{\partial}{\partial t})^a$；
-由$Z^a Z_a=-1$易得$h^{-1}=\sqrt{-g_{00}}$，
-也就是（下式中$x^0=t$）
-\begin{equation}
+即$Z^a= \zeta (\frac{\partial}{\partial t})^a$；
+由$Z^a Z_a=-1$易得$\zeta^{-1}=\sqrt{-g_{00}}$，也就是（下式中$x^0=ct$）：
+\begin{equation}\label{chfd:eqn_CM-Zu}
     Z^a= \frac{c}{\sqrt{-g_{00}}} \left(\frac{\partial}{\partial x^0}\right)^a .
+    \qquad \text{之后令光速} \,  c=1 
 \end{equation}
-之后令$c=1$．由此易得
-\begin{equation}
+由此易得
+\begin{equation}\label{chfd:eqn_CM-Zd}
     Z_a= g_{ab}Z^b =\frac{1}{\sqrt{-g_{00}}}\left(
     g_{00}({\rm d}t)_a + g_{i0} ({\rm d}x^i)_a\right) .
 \end{equation}
+
+依照上述类时矢量场$Z^a$可以将四维闵氏时空进行1+3分解；
+但是不难发现此种分解不同于ADM分解．分解后的类空超曲面$\Sigma$度量为：
+\begin{align*}
+	h_{ab}=& g_{ab} + Z_a Z_b
+	= g_{ab} + \frac{1}{-g_{00}}
+	\left(g_{00}({\rm d}t)_a + g_{i0} ({\rm d}x^i)_a\right)
+	\left(g_{00}({\rm d}t)_b + g_{j0} ({\rm d}x^j)_b\right) \\
+	=& g_{ab} - 
+	g_{00}({\rm d}t)_a ({\rm d}t)_b - g_{i0} ({\rm d}x^i)_a ({\rm d}t)_b
+	- g_{j0} ({\rm d}t)_a  ({\rm d}x^j)_b 
+	-\frac{ g_{i0} g_{j0} }{g_{00}} ({\rm d}x^i)_a  ({\rm d}x^j)_b .
+\end{align*}
+由上式可得类空超曲面$\Sigma$度量$h_{ab}$在局部坐标系$\{t,x^i\}$的分量表达式：
+\begin{equation}\label{chfd:eqn_CM-hij}
+	h_{00} = 0 = h_{0i} ; \qquad
+	h_{ij} = g_{ij} -\frac{ g_{i0}\, g_{j0} }{g_{00}}.
+\end{equation}
+
+设
+\begin{equation}
+	\Sigma'={\rm Span_{\infty}} \left\{ 
+	\left(\frac{\partial}{\partial x^1}\right)^a,\
+	\left(\frac{\partial}{\partial x^2}\right)^a,\
+	\left(\frac{\partial}{\partial x^3}\right)^a \right\}  .
+\end{equation}
+在局部邻域$U$上，$\Sigma'$可积分成一张超曲面$\Sigma$；
+$\Sigma'$是超曲面$\Sigma$的切矢量场．
+一般情形下，我们并不要求$g_{0i}=0$，故
+\begin{equation}
+	0 \neq g_{0i} =g_{ab} \left(\frac{\partial}{\partial x^0}\right)^a
+	\left(\frac{\partial}{\partial x^i}\right)^b
+	\propto g_{ab} Z^a \left(\frac{\partial}{\partial x^i}\right)^b .
+\end{equation}
+所以$Z^a$不是$\Sigma$的法矢量，$Z^a$不与超曲面$\Sigma$正交．
+
+
+
+
 
 
 \section{时间、空间}

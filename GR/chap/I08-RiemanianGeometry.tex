@@ -109,7 +109,7 @@
     第一类Christoffel记号用的较少．
     式\eqref{chrg:eqn_Christoffel-2-naturalbases}为局部坐标系下的第二类Christoffel记号（给出了抽象指标及分量表示方式），
     简称（第二类）克氏符，\uwave{第二类克氏符与度规号差无关}．由此可见无挠容许联络系数由度规唯一确定．
-    需注意，两个克氏符都不是张量，所以上指标降下位置是人为约定的．
+    需注意，两个克氏符都不是张量，上指标降下位置是人为约定的．
 
 %\begin{equation}
 %    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}\left(
@@ -668,16 +668,46 @@ $m(m-1)(m-2)(m-3)/4!$个限制，最终黎曼曲率张量$R_{abcd}$留下的独�
     \nabla^a G_{ab} \equiv \nabla^a R_{ab} -\frac{1}{2}g_{ab} \nabla^a R \equiv 0 .
 \end{equation}
 需注意，微分恒等式\eqref{chrg:eqn_Div-Einstein-tensor=0}对任意$m$维广义黎曼流形都成立；
-并且只要$G_{ab}$满足可微条件即可，不论$G_{ab}$是否满足爱氏方程组
-（$G_{ab}=8\pi T_{ab}$）．
+并且只要$G_{ab}$满足可微条件即可，不论$G_{ab}$是否满足爱氏方程组（$G_{ab}=8\pi T_{ab}$）．
 
-%\begin{definition}\label{chrg:def_Einstein-manifold}
-%    设有$m$维广义黎曼流形$(M,g)$，如果存在实常数$\lambda \in \mathbb{R}$使得
-%    \begin{equation}\label{chrg:eqn_Einstein-manifold}
-%        R_{ab} = \lambda \cdot g_{ab},
-%    \end{equation}
-%    在流形$M$上每一点都成立，则称$(M,g)$是{\heiti 爱因斯坦流形}．
-%\end{definition}
+\begin{definition}\label{chrg:def_Einstein-manifold}
+    设有$m$维广义黎曼流形$(M,g)$，若存在实常数$\lambda$使
+    得$R_{ab} = \lambda  g_{ab}$在流形$M$上每一点都成立，则称$(M,g)$是{\heiti 爱因斯坦流形}． 
+    进一步，若$\lambda=0$，称$(M,g)$为{\bfseries\heiti Ricci平坦流形}．
+\end{definition}
+\index[physwords]{爱因斯坦流形} \index[physwords]{Einstein流形} \index[physwords]{Ricci平坦}
+
+由第\pageref{chrg:eqn_CR-ricci}页式\eqref{chrg:eqn_CR-ricci}可知常曲率空间必为爱氏流形；反之未必．
+
+%\begin{equation}\label{chrg:eqn_Einstein-manifold}
+%	R_{ab} = \lambda \cdot g_{ab}
+%\end{equation}
+
+对于爱氏流形，由定义可得其标量曲率为：
+\begin{equation}\label{chrg:eqn_ERml}
+	R = g^{ab} R_{ab} = \lambda \cdot g^{ab}  g_{ab} = \lambda g^a_{\hphantom{a}a} = m \lambda ,
+	\quad m\, \text{是}\, M \, \text{的维数} .
+\end{equation}
+
+\begin{proposition}
+	$(M,g)$是爱因斯坦流形的充要条件是：$R_{ab} = f \cdot g_{ab}$，$f\in C^{\infty}(M)$．
+\end{proposition}
+\begin{proof}
+	必要性是显然的．下面证明充分性．对此式两边取散度，有
+	\begin{align*}
+		\nabla^a R_{ab} = \nabla^a (f \cdot g_{ab}) = \nabla_b f .
+	\end{align*}
+	由上式与式\eqref{chrg:eqn_Div-Einstein-tensor=0}可知：
+	\begin{align*}
+		\frac{1}{2} \nabla_b R = \nabla_b f 
+		\ \xRightarrow{\ref{chrg:eqn_ERml}}\ 
+		\frac{1}{2} m \nabla_b f = \nabla_b f 
+		\quad \Rightarrow\quad f\ \text{是常数}.
+	\end{align*}
+	请注意：推导式\eqref{chrg:eqn_ERml}的过程中并不要求$\lambda$是常数，
+	该式也适用于$\lambda$为标量函数的情形．
+	由上式可知标量函数$f$必然是常数，故$(M,g)$是爱氏流形．
+\end{proof}
 
 \index[physwords]{Weyl张量}
 \subsection{Weyl张量}
@@ -3233,7 +3263,14 @@ $\beta=2$、$\sigma=3$、$\alpha=1$；$\beta=3$、$\sigma=1$、$\alpha=2$．
 $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\alpha})^a$的坐标线．
 
 
-
+\begin{remark}
+	在经典张量分析中，经常将矢量记为${\bf v}= v^i {\bf g}_i = v_i {\bf g}^i$；
+	在抽象指标记号中此式等价于$v^a = v^i ({\bf g}_i)^a = v_i ({\bf g}^i)^a$，	参见式\eqref{chdm:eqn_ct-v}．
+	然而，在经典张量分析中，有基矢的协变导数
+	$\frac{\partial {\bf g}^i}{\partial x^j}=-\Gamma_{kj}^i {\bf g}^k$；
+	协变导数中的${\bf g}^i$是指抽象指标记号下的$({\bf g}^i)_a$，不是$({\bf g}^i)^a$；
+	可见经典张量分析中的记号是混乱的．
+\end{remark}
 
 
 \begin{exercise}
@@ -3436,15 +3473,22 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 
 
 \index[physwords]{共形变换}
-\section{共形变换}\label{chrg:sec_comformal-transformation}
-有$m$维广义黎曼流形$(M,g)$，设$\Omega \in C^\infty(M)$是处处恒正函数场，于是
-\begin{equation}\label{chrg:eqn_comformal-transformation}
-    \tilde{g}_{ab} = \Omega^2 g_{ab} \quad \Leftrightarrow \quad
-    \tilde{g}^{ab} = \Omega^{-2} g^{ab},
+\section{共形变换}\label{chrg:sec_conformal-transformation}
+有$m$维广义黎曼流形$(M,g)$、$(N,\tilde{g})$，两者之间存在微分同胚$M\overset{\phi}{\to}N$．
+如果存在处处恒正函数场$\Omega \in C^\infty(M)$使得
+\begin{equation}\label{chrg:eqn_conformal-transformation}
+    \phi^* \tilde{g}_{ab} = \Omega^2 g_{ab} \quad \Leftrightarrow \quad
+    \phi_*^{-1}\tilde{g}^{ab} = \Omega^{-2} g^{ab}
+    \quad \text{成立},
 \end{equation}
-在流形$M$上定义了一个\uwave{新}度规场$\tilde{g}_{ab}$；
-式\eqref{chrg:eqn_comformal-transformation}称为流形$M$上的{\heiti 共形变换}；
-特别的，如果$\Omega$是正的实常数，则称为称为{\heiti 相似变换}．
+则称$\phi$为流形$M$、$N$间的{\heiti 共形映射}．
+若$N=M$，则称之为{\heiti 共形变换}；
+进一步，若$\Omega$为实常数，则称之为{\heiti 相似变换}．
+本节只讨论共形变换，且$\phi\equiv {\rm id}$．
+
+在引力论中，很多学者称满足式\eqref{chrg:eqn_conformal-transformation}的映射
+为{\kaishu 共形等距映射（conformally isometric map）}．
+笔者觉得“等距”有蛇足之嫌，故不用．
 
 与$g_{ab}$相容的联络记为$\nabla_a$，克氏符记为$\Gamma_{ij}^k$．
 与$\tilde{g}_{ab}$相容的联络记为$\tilde{\nabla}_a$，克氏符记为$\tilde{\Gamma}_{ij}^k$．
@@ -3471,10 +3515,10 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
       =&\Gamma_{ij}^k+ \delta_i^k \frac{\partial \ln \Omega  }{\partial x^j}
       + \delta_j^k \frac{\partial \ln\Omega} {\partial x^i}
       - {g}_{ij} {g}^{kl}\frac{\partial \ln\Omega} {\partial x^l}
-      \equiv \Gamma_{ij}^k+ \Xi_{ij}^k. \label{chrg:eqn_comformal-Gamma}
+      \equiv \Gamma_{ij}^k+ \Xi_{ij}^k. \label{chrg:eqn_conformal-Gamma}
 \end{align}
 上式最后一步定义了
-\begin{equation}\label{chrg:eqn_comformal-Xi}
+\begin{equation}\label{chrg:eqn_conformal-Xi}
     \Xi_{ij}^k \equiv \delta_i^k \frac{\partial \ln \Omega  }{\partial x^j}
     + \delta_j^k \frac{\partial \ln\Omega} {\partial x^i}
     - {g}_{ij} {g}^{kl}\frac{\partial \ln\Omega} {\partial x^l} .
@@ -3484,15 +3528,15 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 很明显有$\Xi_{ab}^c=\Xi_{ba}^c$．
 因$\ln \Omega$是标量函数场，在局部上可以将偏导数换成协变导数，
 即$\partial_a \ln \Omega = \nabla_a\ln \Omega$；所以上式还可以表示成
-\begin{equation}\label{chrg:eqn_comformal-Xi-nabla}
+\begin{equation}\label{chrg:eqn_conformal-Xi-nabla}
     \Xi_{ab}^c = \delta_a^c \nabla_b\ln \Omega + \delta_b^c \nabla_a\ln \Omega
     - {g}_{ab} {g}^{ce}\nabla_e\ln \Omega .
 \end{equation}
 
 有了克氏符的差异，那联络差异便容易求得了，$\forall X^a\in \mathfrak{X}(M),\ \omega_a \in \mathfrak{X}^*(M)$
 \begin{align}
-    (\tilde{\nabla}_a-\nabla_a) X^b & = \Xi_{ca}^b X^c,    \label{chrg:eqn_comformal-X-D} \\
-    (\tilde{\nabla}_a-\nabla_a) \omega_b & = -\Xi_{ba}^c \omega_c.    \label{chrg:eqn_comformal-w-D}
+    (\tilde{\nabla}_a-\nabla_a) X^b & = \Xi_{ca}^b X^c,    \label{chrg:eqn_conformal-X-D} \\
+    (\tilde{\nabla}_a-\nabla_a) \omega_b & = -\Xi_{ba}^c \omega_c.    \label{chrg:eqn_conformal-w-D}
 \end{align}
 由上两式容易求得高阶张量场的协变导数差异．
 
@@ -3520,26 +3564,26 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
     \ =R_{cab}^d Z^c + 2Z^f {\nabla}_{[a} \Xi_{b]f}^d  + 2\Xi_{e[a}^d\Xi_{b]f}^e Z^f .
 \end{align*} %\setlength{\mathindent}{2em}
 因$\forall Z^a\in \mathfrak{X}(M)$，故有
-\begin{subequations}\label{chrg:eqn_comformal-Riemann}
+\begin{subequations}\label{chrg:eqn_conformal-Riemann}
 \begin{align}
     \tilde{R}_{cab}^d=& R_{cab}^d + 2 {\nabla}_{[a} \Xi_{b]c}^d  + 2\Xi_{e[a}^d\Xi_{b]c}^e
-    \label{chrg:eqn_comformal-Riemann-a}\\
-%    \xlongequal{\ref{chrg:eqn_comformal-Xi}}&R_{cab}^d
+    \label{chrg:eqn_conformal-Riemann-a}\\
+%    \xlongequal{\ref{chrg:eqn_conformal-Xi}}&R_{cab}^d
 %    -2\delta_{[a}^d{\nabla}_{b]}  \partial_c \ln \Omega + 2{g}^{df} {g}_{c[a} {\nabla}_{b]} \partial_f \ln\Omega
 %    +2 (\partial_c \ln\Omega) \delta_{[a}^d\partial_{b]} \ln\Omega  \notag \\
 %    &- 2 {g}_{c[a} (\partial_{b]} \ln \Omega)  {g}^{df}\partial_f \ln\Omega
 %    - 2\delta_{[a}^d {g}_{b]c} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
-%    \label{chrg:eqn_comformal-Riemann-b} \\
-    \xlongequal{\ref{chrg:eqn_comformal-Xi-nabla}}& R_{cab}^d -2\delta_{[a}^d{\nabla}_{b]}  \nabla_c \ln \Omega
+%    \label{chrg:eqn_conformal-Riemann-b} \\
+    \xlongequal{\ref{chrg:eqn_conformal-Xi-nabla}}& R_{cab}^d -2\delta_{[a}^d{\nabla}_{b]}  \nabla_c \ln \Omega
     + 2{g}^{df} {g}_{c[a} {\nabla}_{b]} \nabla_f \ln\Omega
     + 2(\nabla_c \ln\Omega) \delta_{[a}^d\nabla_{b]} \ln\Omega  \notag \\
     &- 2 {g}_{c[a} (\nabla_{b]} \ln \Omega)  {g}^{df}\nabla_f \ln\Omega
     - 2\delta_{[a}^d {g}_{b]c} {g}^{ef}(\nabla_e \ln\Omega)\nabla_f \ln\Omega .
-    \label{chrg:eqn_comformal-Riemann-c}
+    \label{chrg:eqn_conformal-Riemann-c}
 \end{align}
 \end{subequations}
 上式计算过程并不复杂，请读者补齐计算．
-%式\eqref{chrg:eqn_comformal-Riemann-a}到\eqref{chrg:eqn_comformal-Riemann-b}的计算过程
+%式\eqref{chrg:eqn_conformal-Riemann-a}到\eqref{chrg:eqn_conformal-Riemann-b}的计算过程
 %\begin{align*}
 %    2 {\nabla}_{[a} \Xi_{b]c}^d  =&  2\delta_{[b}^d{\nabla}_{a]}  \partial_c \ln \Omega +
 %     2\delta_c^d {\nabla}_{[a} \partial_{b]} \ln\Omega - 2{g}^{df} {g}_{c[b} {\nabla}_{a]} \partial_f \ln\Omega
@@ -3566,8 +3610,8 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 %  \\& \Xi_{ab}^c \equiv \delta_a^c \partial_b \ln \Omega + \delta_b^c \partial_a \ln\Omega - {g}_{ab} {g}^{ce}\partial_e \ln\Omega
 %\end{align*}
 
-式\eqref{chrg:eqn_comformal-Riemann-c}收缩后得Ricci曲率间的差异是：
-\begin{equation}\label{chrg:eqn_comformal-Ricci}
+式\eqref{chrg:eqn_conformal-Riemann-c}收缩后得Ricci曲率间的差异是：
+\begin{equation}\label{chrg:eqn_conformal-Ricci}
     \begin{aligned}
         \tilde{R}_{bc}=& R_{bc} - {g}_{bc} {g}^{ef}{\nabla}_{e} {\nabla}_f \ln\Omega
         -(m-2) {\nabla}_{b}  {\nabla}_c \ln \Omega \\
@@ -3600,7 +3644,7 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 %    - (m-2) {g}_{bc} {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
 %\end{align*}
 再次收缩得标量曲率间的差异是（需用度规，所以有系数$\Omega^2$）
-\begin{equation}\label{chrg:eqn_comformal-R-scalar}
+\begin{equation}\label{chrg:eqn_conformal-R-scalar}
    \Omega^2\tilde{R}= R -2(m-1) g^{bc} {\nabla}_{b}  {\nabla}_c \ln \Omega
         -(m-1)(m-2)  {g}^{bc}({\nabla}_b \ln\Omega){\nabla}_c \ln\Omega .
 \end{equation}
@@ -3615,11 +3659,11 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 %    -(m-1)(m-2)  {g}^{ef}(\partial_e \ln\Omega)\partial_f \ln\Omega
 %\end{align*}
 $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升上来得到）间的差异是
-\begin{equation}\label{chrg:eqn_comformal-Weyl}
+\begin{equation}\label{chrg:eqn_conformal-Weyl}
     \tilde{C}_{\hphantom{a} bcd}^a = C_{\hphantom{a} bcd}^a .
 \end{equation}
-上式计算较为繁琐，但无需任何技巧，直接把式\eqref{chrg:eqn_comformal-Riemann}、
-\eqref{chrg:eqn_comformal-Ricci}和\eqref{chrg:eqn_comformal-R-scalar}带入
+上式计算较为繁琐，但无需任何技巧，直接把式\eqref{chrg:eqn_conformal-Riemann}、
+\eqref{chrg:eqn_conformal-Ricci}和\eqref{chrg:eqn_conformal-R-scalar}带入
 式\eqref{chrg:eqn_WeylConform-d4}硬算便是；
 注意利用：因联络无挠，故$\nabla_b \nabla_c \ln \Omega =\nabla_c \nabla_b \ln \Omega$．
 在共形映射下，$\Tpq{1}{3}$型Weyl张量是不变的，所它也被称为{\heiti 共形张量}．
@@ -3707,10 +3751,11 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
     参见文献\parencite[\S 3.3]{baizg-2004-irg}；$m= 3$的情形也可参见上述文献．
 \end{proof}
 
-二维流形则一定局部共形平坦，我们将其分为两个定理．
+
+\paragraph{二维情形} 二维流形则一定局部共形平坦，我们将其分为两个定理．
 
 \begin{proposition}\label{chrg:thm_exist-oth-coord}
-	对于度规正定的、可嵌入$E^3$中的二维流形来说，一定存在局部坐标系$\{x,y\}$使得
+	对于度规正定的、可嵌入$E^3$中的二维黎曼流形来说，一定存在局部坐标系$\{x,y\}$使得
 	度规满足${\rm d}s^2= \Omega(x,y)({\rm d}x^2 + {\rm d}y^2)$，其中$\Omega(x,y)$恒正．
 \end{proposition}
 \begin{proof}
@@ -3767,15 +3812,68 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
 \end{proof}
 
 
+\begin{example}
+	二维单位球面$S^2$共形于二维欧式平面．
+\end{example}
+二维单位球面$S^2(1)$度规以及坐标变换见例\ref{chrg:exm_S3}．
+由例\ref{chdm:exm_sphere2}中式\eqref{chdm:eqn_tmppsip}得
+\begin{align}
+	(\xi^1,\xi^2) 
+	= \left(\frac{\sin\theta \cos\phi }{1+\cos\theta},\ \frac{\sin\theta \sin\phi}{1+\cos\theta}\right) 
+	= \tan \frac{\theta}{2} \left(\cos\phi,\ \sin\phi\right).
+\end{align}
+上式最后一步本质上是二维平面的极坐标，只需令
+\begin{equation}
+	\rho=\tan ({\theta}/{2});\quad 
+	x = \rho \cos\phi, \quad y = \rho \sin\phi .
+\end{equation}
+需要注意：由$0 \leqslant \theta \leqslant \pi$得$0\leqslant \rho \leqslant +\infty$；
+当$\theta\to \pi$时，$\rho\to +\infty$；下面会看到这正是共形无限远．
+则上上式变为
+\begin{equation}
+	(\xi^1,\xi^2)=\rho\left(\cos\phi,\sin\phi\right) = (x,y).
+\end{equation}
+经过上述变换，我们将二维单位球面坐标$\{\theta,\phi\}$变成了二维欧式平面坐标$\{\rho,\phi\}$；
+此变换不是等距的，而是共形的．二维单位球面线元变成
+\begin{align}
+	\mathrm{d} {s}^2 =& \mathrm{d} \theta^2+\sin ^2 \theta \mathrm{d} \phi^2 
+	= \left(2 \cos^2(\theta / 2) \right)^2 \left( (\mathrm{d} \rho)^2+ 
+	\frac{\sin ^2 \theta }{4 \cos^4(\theta / 2)} \mathrm{d} \phi^2 \right)\notag \\
+	=& \left(2 \cos^2(\theta / 2) \right)^2 \left( \mathrm{d} \rho^2+ (\rho \mathrm{d} \phi)^2 \right)
+	= \left(2 \cos^2(\theta / 2) \right)^2 \left( \mathrm{d} x^2 + \mathrm{d} y^2 \right).
+	\label{chrg:eqn_S2P}
+\end{align}
+由此可见：二维单位球面线元经变换得到了二维欧式平面线元，共形因子是
+\begin{equation}
+	\Omega \equiv 2 \cos ^2(\theta / 2) .
+\end{equation}
+式\eqref{chrg:eqn_S2P}第二行为平面度规（极坐标形式、笛卡尔坐标形式）乘以$\Omega^2$．
+若记二维单位球面度规为$g_{ab}$，二维欧式平面度规为$\delta_{ab}$，
+则由式\eqref{chrg:eqn_S2P}可得
+\begin{equation}
+	g_{ab} = \Omega^2 \delta_{ab} .
+\end{equation}
+
+在二维欧式平面上，从$\rho=0$点出发的射线（$\phi=$常数）
+都对应于单位球面上从$\theta=0$点（北极点）出发的经线．
+需注意，二维欧式平面是非紧致的，二维单位球面是紧致的闭曲面．
+$\theta \rightarrow \pi$意味着$\rho \rightarrow +\infty$，这不是欧式平面上的点；
+即在欧式平面上不存在与$\theta=\pi$对应$\rho$值；
+因此单位球面上$\theta=\pi$的点（南极点）不对应于二维欧式平面中的任一点．
+如果我们把$\rho \rightarrow +\infty$的点当成二维欧式平面的无穷远点；
+那么在共形映射\eqref{chrg:eqn_S2P}下，
+欧式平面上所有的无穷远点经无限压缩（此时$\Omega=0$ ）
+对应到二维单位球面的南极点（$\theta=\pi$）．
+\qed
 
 
-
+\paragraph{常曲率空间}
 设$m(>3)$维广义黎曼流形$(M,g)$是曲率为$K_0$的常曲率空间，
 那么，由式\eqref{chrg:eqn_const-curvature-component}可得
 其各种曲率分量表达式
 \begin{align}
     R_{ijkl}=&  K_0 ( g_{ik}g_{jl}- g_{il}g_{jk}  ), \\
-    R_{jl}=&  K_0 ( m - 1  ) g_{jl}, \\
+    R_{jl}=&  K_0 ( m - 1  ) g_{jl}, \label{chrg:eqn_CR-ricci} \\
     R=& K_0 ( m - 1  ) m , \\
     C_{ijkl}=& 0 .
 \end{align}
@@ -3788,7 +3886,7 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
 
 
 \begin{exercise}
-	证明式\eqref{chrg:eqn_comformal-Weyl}．
+	证明式\eqref{chrg:eqn_conformal-Weyl}．
 \end{exercise}
 
 

@@ -3,7 +3,7 @@
 
 %% Chapter Lie Group & Algebra Representation
 
-\chapter{李群李代数（续）}\label{chlar}
+\chapter{李群与李代数（续）}\label{chlar}
 
 本章是第\ref{chlg}章的续篇，内容仍是初级的．
 
@@ -550,7 +550,7 @@ $\{I_2,-I_2\}$是同态核（令$R_u = I_3$即可证明），
 
 我们证明三维单位球面群$S^3(1)\equiv S^3$与$SU(2)$同构．
 三维单位球面$S^3\equiv \{(t,x,y,z)\in \mathbb{R}^4 \mid t^2+x^2+y^2+z^2=1 \}$可通过
-四元数乘法（见\pageref{chtop:eqn_quaternion}页的式\eqref{chtop:eqn_quaternion}）建立李群．
+四元数乘法（见\pageref{chtop:exam_quaternion}页的例\ref{chtop:exam_quaternion}）建立李群．
 我们将流形$S^3$上两点$(t_1,x_1,y_1,z_1)$、$(t_2,x_2,y_2,z_2)$间的{\kaishu 群乘法定义为四元数乘法}，
 这个群乘法是封闭的（略显繁琐的乘法验证过程，请读者补齐）、满足结合律、不对易．
 将$S^3$的单位元选成$(1,0,0,0)$；在四元数乘法下，$(t,x,y,z)$的逆元是$(+t,-x,-y,-z)$．
@@ -1291,7 +1291,24 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的希尔伯特空间上�
     \end{pmatrix}.
 \end{align}\setlength{\mathindent}{2em}
 
-
+\begin{example}
+	上式与式\eqref{chlar:eqn_so3-J}间的等价变换．
+\end{example}
+命
+\begin{align}
+U=\frac{1}{\sqrt{2}}
+	\begin{pmatrix}
+		-1 & 0 & 1 \\
+		-\mathbbm{i} & 0 & -\mathbbm{i} \\
+		0 & \sqrt{2} & 0 
+	\end{pmatrix}, 
+	\quad U^{-1} = U^\dagger.
+\end{align}	
+我们将式\eqref{chlar:eqn_so3-J}中矩阵改记为$J_i^s$，则有
+\begin{align}
+	U  J_i U^{-1} =  J_i^s ,\qquad i = x,y,z .
+\end{align}
+请读者完成上式中的计算．\qed
 
 \begin{exercise}
 	试证明\S\ref{chlar:sec_S3SU2}中$S^3$群乘法是封闭的．
@@ -1907,6 +1924,7 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 线性空间${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \overline{\boldsymbol{B}}^{j_2}_{s_2}\}$的基本元素．
 
 
+
 当$j_1+j_2$为整数时，式\eqref{chlar:eqn_SL2-3rd}是Lorentz群的（单值）表示．
 当$j_1+j_2$为半奇数时，式\eqref{chlar:eqn_SL2-3rd}对应Lorentz群{\kaishu 双值表示}；
 依照\S\ref{chlar:sec_C2Q}约定，我们不采用双值表示这一术语．
@@ -1915,6 +1933,14 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 {\bfseries (1)} 所有旋量表示\eqref{chlar:eqn_SL2-3rd}都是不可约的．
 {\bfseries (2)} 所有有限维不可约复表示都等价于旋量表示．
 {\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（也可参见定理\ref{chlar:thm_IFU}）．
+
+\index[physwords]{左手旋量} \index[physwords]{右手旋量}
+\index[physwords]{旋量!左手} \index[physwords]{旋量!右手}
+\begin{definition}
+	设$D^{(j_1 j_2)}$是$SL(2,\mathbb{C})$群的表示，且$j_1>j_2$；
+	称${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \overline{\boldsymbol{B}}^{j_2}_{s_2}\}$中的元素是{\heiti 左手旋量}，
+	与其对偶的空间${\rm Span}\{\boldsymbol{B}^{j_2}_{s_2} \overline{\boldsymbol{B}}^{j_1}_{s_1}\}$中的元素被称为{\heiti 右手旋量}．
+\end{definition}
 
 
 当$j_1=0=j_2$时，表示是一维单位矩阵，即$D^{(00)}=(1)$．
@@ -1966,8 +1992,7 @@ Lorentz群有三个单参数子群分别是绕$x$、$y$、$z$轴转动；
 在式\eqref{chlar:eqn_su2-x}--\eqref{chlar:eqn_su2-z}中，
 我们已然找到它们在$SL(2,\mathbb{C})$群中的对应表达式为：
 \begin{small}
-\setlength{\mathindent}{0em}
-\begin{equation}
+\begin{align*}
     J_1=\begin{pmatrix}
         \cos \frac{\psi}{2} & -\mathbbm{i} \sin \frac{\psi}{2} \\
         -\mathbbm{i} \sin \frac{\psi}{2} & \cos \frac{\psi}{2}
@@ -1980,13 +2005,14 @@ Lorentz群有三个单参数子群分别是绕$x$、$y$、$z$轴转动；
         \mathrm{e}^{-\mathbbm{i} \psi / 2} & 0 \\
         0 & \mathrm{e}^{\mathbbm{i} \psi / 2}
    \end{pmatrix}.
-\end{equation}   \setlength{\mathindent}{2em}
+\end{align*}  % \setlength{\mathindent}{2em}
+\end{small}
 
 Lorentz群还有三个单参数子群分别是沿$x$、$y$、$z$轴的伪转动；
 在式\eqref{chlar:eqn_sL2-x}--\eqref{chlar:eqn_sL2-z}中，
 我们已然找到它们在$SL(2,\mathbb{C})$群中的对应表达式为：
-\setlength{\mathindent}{-1em}
-\begin{equation}
+\begin{small}
+\begin{align*}
     K_1=\begin{pmatrix}
         \cosh \frac{\psi}{2} & -\sinh \frac{\psi}{2} \\
         -\sinh \frac{\psi}{2} & \cosh \frac{\psi}{2}
@@ -1999,7 +2025,7 @@ Lorentz群还有三个单参数子群分别是沿$x$、$y$、$z$轴的伪转动�
         \mathrm{e}^{-\psi / 2} & 0 \\
         0 & \mathrm{e}^{\psi / 2}
 \end{pmatrix} .
-\end{equation}\setlength{\mathindent}{2em}
+\end{align*}  %\setlength{\mathindent}{2em}
 \end{small}
 符号$J$、$K$是借用了Lorentz代数中的生成元的符号．
 
@@ -2106,15 +2132,38 @@ $\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes \overline{\mathfrak{s
 通过指数映射$\exp\bigl(-\mathbbm{i}\sum_{i=1}^{3}(\theta_i J_i + \phi_i K_i)\bigr)$便可得到$SL(2,\mathbb{C})$群的表示；
 由此得到群表示与式\eqref{chlar:eqn_SL2-3rd}相对应．
 
-式\eqref{chlar:eqn_JKMN}给出的一维表示$\mathfrak{D}^{(00)}$为：$J_i=(0)=K_i$．
+式\eqref{chlar:eqn_JKMN}给出的几个低维表示如下（下面的$\sigma_i$是Pauli矩阵）：
+\begin{align}
+\mathfrak{D}^{(00)}&: J_i=(0)=K_i . \\
+\mathfrak{D}^{(\frac{1}{2}0)}&: J_i = \sigma_i/2,\quad K_i =-\mathbbm{i} \sigma_i/2 ;
+\quad Weyl\,\text{左手旋量}. \\
+\mathfrak{D}^{(0\frac{1}{2})}&: J_i = \sigma_i/2,\quad K_i =+\mathbbm{i} \sigma_i/2;
+\quad Weyl\,\text{右手旋量}\\
+\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}&:
+J_i = (I_2\otimes\sigma_i + \sigma_i\otimes I_2)/2, \quad
+K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2 .
+\end{align}
 
-$\mathfrak{D}^{(\frac{1}{2}0)}$为：$J_i = \sigma_i/2$、$K_i =-\mathbbm{i} \sigma_i/2$；$\sigma_i$是Pauli矩阵．
-
-$\mathfrak{D}^{(0\frac{1}{2})}$为：$J_i = \sigma_i/2$、$K_i =+\mathbbm{i} \sigma_i/2$．
-
-$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$为：
-$J_i = (I_2\otimes\sigma_i + \sigma_i\otimes I_2)/2$、
-$K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2$．
+\begin{example}
+	式\eqref{chlar:eqn_JKMN}的$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$表示
+	与式\eqref{chlg:eqn_LA-so13-JK}的等价关系．
+\end{example}
+令
+\begin{align} 
+	U=\frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+			0 & -1 & 1 & 0 \\
+			1 & 0 & 0 & -1 \\
+			\mathbbm{i} & 0 & 0 & \mathbbm{i} \\
+			0 & -1 & -1 & 0 
+		\end{pmatrix},\qquad
+    U^{-1} = U^\dagger .
+\end{align}
+我们将式\eqref{chlg:eqn_LA-so13-JK}中的$J_i$、$K_i$记为$J_i^s$、$K_i^s$．则有
+\begin{align}
+	J_i = U^{-1} J_i^s U, \quad K_i = U^{-1} K_i^s U,  \quad i = 1,2,3.
+\end{align}
+请读者完成上式中的计算．\qed
 
 式\eqref{chlar:eqn_JKMN}较为清晰地展示了$M$与$N$的地位并不相同．
 下面的表述中，我们略微含混一下$M$与$N$的地位．我们可以利用Clebsch--Gordan系数
@@ -2146,6 +2195,7 @@ $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 %此时我们可用3个复变数$\theta_j+\mathbbm{i}\phi_j$（$j=1,2,3$）出发，利用指数映射，
 %将\eqref{chlar:eqn_DLDU}中$\mathfrak{D}^{(j)}$的三个生成元映射成$SL(2,\mathbb{C})$群的表示．
 %\S\ref{chlar:sec_sl-LA}就是二维表示的例子，此时的生成元是三个Pauli矩阵．
+
 
 
 \begin{exercise}
@@ -3602,9 +3652,9 @@ $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三�
 	试计算公式\eqref{chlar:eqn_gc-18}．验证$S^\mu_{\hphantom{\mu}\nu} (E,0,0,p)^T=(E,0,0,p)^T$．
 \end{exercise}
 
-%\begin{exercise}
-%	试证明公式\eqref{chlar:eqn_eBe}．
-%\end{exercise}
+\begin{exercise}
+	试证明公式\eqref{chlar:eqn_eBe}，比如用数学归纳法．
+\end{exercise}
 
 
 

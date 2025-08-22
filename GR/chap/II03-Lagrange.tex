@@ -1358,7 +1358,7 @@ $J^b$的Hodge星对偶是$*J_{abc} = {J^e}\Omega_{eabc}$，
         {\Omega _{fabc}} = \kappa 4!{(-)^s} .
     \end{equation}
     结合上两式可以得到$\kappa  = {\nabla _e}{J^e}$；那么，我们就得到
-    \begin{equation}
+    \begin{equation}\label{chlh:eqn_dJ=nJO}
         {\rm d}_f (*{J_{abc}}) = \left( {{\nabla _e}{J^e}} \right){\Omega _{fabc}} .
     \end{equation}
     从上式和定理条件（$\nabla_e J^e=0$）可得${\rm d}_f (*{J_{abc}}) = 0$，
@@ -1856,8 +1856,72 @@ $\kappa_2$把粒子数守恒约束加入拉氏密度．
 
 
 
+\section{四维流形中的守恒量}
 
-\section{引力场赝能动张量}
+设有四维闵氏时空$(M,g)$，它可能是弯曲的，也可能是平直的．
+$T_{ab}$是$M$中物质场的能动张量；假设$M$上存在Killing切矢量场$\xi^b$，
+可定义1型式场
+\begin{equation}
+	L_a \overset{def}{=} -T_{a b} \xi^b .
+\end{equation}
+则$T_{ab}$的对称性$T_{ab}=T_{(ab)}$、无散性 $\nabla^a T_{ab}=0$，
+以及$\xi^a$的Killing性（参见式\eqref{chrg:eqn_killing-2}，即$\nabla_{a}\xi_{b} =\nabla_{[a}\xi_{b]}$）导致
+\begin{align}
+	\nabla_a L^a=-(\nabla_a T^{ab})\xi_b -T^{a b} \nabla_a \xi_b=-T^{(a b)} \nabla_{[a} \xi_{b]}=0.
+\end{align}
+$L_a$的Hodge星对偶是：
+\begin{equation}
+	*L_{abc} = {L^e}\Omega _{eabc} .
+\end{equation}
+参考式\eqref{chlh:eqn_dJ=nJO}的推导过程，有
+\begin{equation}\label{chlh:eqn_dL=nLO}
+	{\rm d}_f (*{L_{abc}}) = \left( {{\nabla _e}{L^e}} \right){\Omega _{fabc}} = 0.
+\end{equation}
+由上式，我们可以证明$L_a$是个守恒量。设$M$上有类空超曲面$\Sigma$，
+这个超曲面还需满足一些条件用以保障下述积分存在且有意义（我们暂且忽略这些条件的叙述），
+在$\Sigma$上定义
+\begin{equation}\label{chlh:eqn_Pxi}
+	P_{\xi}\overset{def}{=}\int_{\Sigma} {*L_{abc}} =\int_{\Sigma} T_{a b} n^a \xi^b.
+\end{equation}
+因超曲面$\Sigma$是三维类空的，上述定义是合理的；同时$*L_{abc}$应理解成限制在$\Sigma$上取值。
+下面证明上式第二个等号是成立的。
+由于$L^a$是类时切矢量场（如何证明？），故可以设想在四维闵氏流形$M$中，
+由$L^a$的积分曲线构成一个闭合的类时超曲面$\Pi$，
+在这个类时超曲面两端有两个类空超曲面$\Sigma_1$、$\Sigma_2$，
+此三个超曲面围城了一个紧致的四维闵氏时空$D$。则有
+\begin{align}
+	0 = &\int_{D}{\rm d}_f ({*L_{abc}})  \xlongequal[\text{定理}]{Stokes}
+	\int_{\Sigma_1} *L_{abc} + \int_{\Sigma_2} *L_{abc} + \cancel{\int_{\Pi} *L_{abc}} \notag \\
+	=& P_{\xi}({\Sigma_1}) - P_{\xi}({\Sigma_2}). 
+\end{align}
+由式\eqref{chlh:eqn_dL=nLO}可知上式积分最左段的等号必然成立。
+因$L^a$不会流出、流进超曲面$\Pi$，故沿它的积分为零。
+根据类空超曲面的定向可知其积分必然是一正一负。
+由此可知式\eqref{chlh:eqn_Pxi}定义的$P_{\xi}$是守恒量，
+这说明此定义与类空超曲面$\Sigma$的选取无关。
+
+
+以 $n^a$ 代表 $\Sigma$ 的指向未来单位法矢，则 $\Omega_{a b c d}$在$\Sigma$上的诱导体元为
+$\hat{\Omega}_{a b c}=n^d \Omega_{d a b c}$。
+由于类空超曲面是三维流形，而Hodge星对偶$*L_{abc}$也是三维的，
+那么它在$\Sigma$上的限制$\widetilde{*L_{abc}}$必然是三维体积元$\hat{\Omega}_{a b c}$的倍数，
+即可以表示为$\widetilde{*L_{abc}} = \kappa \hat{\Omega}_{abc}$，其中$\kappa\in C^\infty(\Sigma)$。
+以$\hat{\Omega}^{abc}$缩并此式，此式左端为：
+\begin{align*}
+	\hat{\Omega}^{abc}\widetilde{*L_{abc}}=n_e \Omega^{eabc} L^d \Omega_{dabc}
+	=-n_e L^d\, 3! \delta_d^e = -6 n_d L^d .
+\end{align*}
+该式右端为：$+6 \kappa$。由此得 $\kappa=-L_a n^a$，从而
+\begin{equation}
+	\widetilde{L^d \Omega_{dabc}}=-n^d L_d \hat{\Omega}_{abc}=T_{de} \xi^e n^d \hat{\Omega}_{abc}.
+\end{equation}
+于是便证明了式\eqref{chlh:eqn_Pxi}中第二个等号。
+$P_{\xi}$的物理意义取决于定义$L_a$时所用的$\xi^a$是哪一类Killing切矢量场。
+
+
+
+
+\subsection{引力场赝能动张量}
 
 本章前面重点内容之一是给出各种（非引力）场的能量-动量张量表达式，
 比如式\eqref{chlh:eqn_EM+Plasma-BRtensor}、\eqref{chlh:eqn_perfect-fluid-Tab}；
@@ -1894,47 +1958,42 @@ $\frac{\partial \bar{g}_{ij}}{\partial y^k}(p)=0$；见定理\ref{chgd:thm_RNC}�
 
 Landau--Lifshitz引力场能动赝张量联络系数形式（自然单位制）：
 \begin{equation}\label{chlh:eqn_t-stress-Gamma}
-    \begin{aligned}
-        t_{LL}^{\mu \nu}  = \frac{1}{16\pi}\Big[
-        &(2\Gamma^{\sigma}_{\alpha \beta}\Gamma^{\rho}_{\sigma \rho}
-        - \Gamma^{\sigma}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
-        - \Gamma^{\sigma}_{\alpha \sigma}\Gamma^{\rho}_{\beta \rho})
-        (g^{\mu \alpha}g^{\nu \beta} - g^{\mu \nu}g^{\alpha \beta})  \\
-        +&(\Gamma^{\nu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
-        + \Gamma^{\nu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
-        - \Gamma^{\nu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
-        - \Gamma^{\nu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\mu \alpha}g^{\beta \sigma}  \\
-        +&(\Gamma^{\mu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
-        +\Gamma^{\mu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
-        - \Gamma^{\mu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
-        - \Gamma^{\mu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\nu \alpha}g^{\beta \sigma}  \\
-        +&(\Gamma^{\mu}_{\alpha \sigma} \Gamma^{\nu}_{\beta \rho}
-        - \Gamma^{\mu}_{\alpha \beta} \Gamma^{\nu}_{\sigma \rho})g^{\alpha \beta}g^{\sigma \rho}\Big].
-    \end{aligned}
+	\begin{aligned}
+		t_{LL}^{\mu \nu}  = \frac{1}{16\pi}\Big[
+		&(2\Gamma^{\sigma}_{\alpha \beta}\Gamma^{\rho}_{\sigma \rho}
+		- \Gamma^{\sigma}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+		- \Gamma^{\sigma}_{\alpha \sigma}\Gamma^{\rho}_{\beta \rho})
+		(g^{\mu \alpha}g^{\nu \beta} - g^{\mu \nu}g^{\alpha \beta})  \\
+		+&(\Gamma^{\nu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+		+ \Gamma^{\nu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
+		- \Gamma^{\nu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
+		- \Gamma^{\nu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\mu \alpha}g^{\beta \sigma}  \\
+		+&(\Gamma^{\mu}_{\alpha \rho}\Gamma^{\rho}_{\beta \sigma}
+		+\Gamma^{\mu}_{\beta \sigma} \Gamma^{\rho}_{\alpha \rho}
+		- \Gamma^{\mu}_{\sigma \rho} \Gamma^{\rho}_{\alpha \beta}
+		- \Gamma^{\mu}_{\alpha \beta} \Gamma^{\rho}_{\sigma \rho})g^{\nu \alpha}g^{\beta \sigma}  \\
+		+&(\Gamma^{\mu}_{\alpha \sigma} \Gamma^{\nu}_{\beta \rho}
+		- \Gamma^{\mu}_{\alpha \beta} \Gamma^{\nu}_{\sigma \rho})g^{\alpha \beta}g^{\sigma \rho}\Big].
+	\end{aligned}
 \end{equation}
 上式还可以换成度规表述方式（自然单位制），
 \begin{equation}\label{chlh:eqn_t-stress-metric}
-    \begin{aligned}
-        (-g)t_{LL}^{\mu \nu} =& \frac{1}{16\pi} \Big[\mathfrak{g}^{\mu \nu}_{,\alpha}
-        \mathfrak{g}^{\alpha \beta}_{,\beta} - \mathfrak{g}^{\mu \alpha}_{,\alpha}\mathfrak{g}^{\nu \beta}_{,\beta} +
-        \frac{1}{2}g^{\mu \nu}g_{\alpha \beta}\mathfrak{g}^{\alpha \sigma}_{,\rho} \mathfrak{g}^{\rho \beta}_{,\sigma} \\
-        &-(g^{\mu \alpha}g_{\beta \sigma}\mathfrak{g}^{\nu \sigma}_{,\rho}
-        \mathfrak{g}^{\beta \rho}_{,\alpha}+g^{\nu \alpha}g_{\beta \sigma}
-        \mathfrak{g}^{\mu \sigma}_{,\rho}\mathfrak{g}^{\beta \rho}_{,\alpha}) + g_{\alpha \beta}g^{\sigma \rho}
-        \mathfrak{g}^{\mu \alpha}_{,\sigma}\mathfrak{g}^{\nu \beta}_{,\rho} \\
-        &+\frac{1}{8}(2g^{\mu \alpha}g^{\nu \beta}-g^{\mu \nu}g^{\alpha \beta})
-        (2g_{\sigma \rho}g_{\lambda \omega}-g_{\rho \lambda}g_{\sigma \omega})
-        \mathfrak{g}^{\sigma \omega}_{,\alpha}\mathfrak{g}^{\rho \lambda}_{,\beta}   \Big] .
-    \end{aligned}
+	\begin{aligned}
+		(-g)t_{LL}^{\mu \nu} =& \frac{1}{16\pi} \Big[\mathfrak{g}^{\mu \nu}_{,\alpha}
+		\mathfrak{g}^{\alpha \beta}_{,\beta} - \mathfrak{g}^{\mu \alpha}_{,\alpha}\mathfrak{g}^{\nu \beta}_{,\beta} +
+		\frac{1}{2}g^{\mu \nu}g_{\alpha \beta}\mathfrak{g}^{\alpha \sigma}_{,\rho} \mathfrak{g}^{\rho \beta}_{,\sigma} \\
+		&-(g^{\mu \alpha}g_{\beta \sigma}\mathfrak{g}^{\nu \sigma}_{,\rho}
+		\mathfrak{g}^{\beta \rho}_{,\alpha}+g^{\nu \alpha}g_{\beta \sigma}
+		\mathfrak{g}^{\mu \sigma}_{,\rho}\mathfrak{g}^{\beta \rho}_{,\alpha}) + g_{\alpha \beta}g^{\sigma \rho}
+		\mathfrak{g}^{\mu \alpha}_{,\sigma}\mathfrak{g}^{\nu \beta}_{,\rho} \\
+		&+\frac{1}{8}(2g^{\mu \alpha}g^{\nu \beta}-g^{\mu \nu}g^{\alpha \beta})
+		(2g_{\sigma \rho}g_{\lambda \omega}-g_{\rho \lambda}g_{\sigma \omega})
+		\mathfrak{g}^{\sigma \omega}_{,\alpha}\mathfrak{g}^{\rho \lambda}_{,\beta}   \Big] .
+	\end{aligned}
 \end{equation}
 其中$\mathfrak{g}^{\mu\nu}=\sqrt{-g}g^{\mu\nu}$，$g=\det(g_{\mu\nu})$，
 $\mathfrak{g}^{\alpha \beta}_{,\gamma}\equiv \partial_\gamma \mathfrak{g}^{\alpha \beta}$．
 上两式不因度规号差而产生额外的负号；由于不涉及电磁学量，没有$4\pi$因子问题．
-
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

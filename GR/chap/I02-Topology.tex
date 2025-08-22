@@ -141,7 +141,7 @@
     群$G$的{\heiti 中心}定义为：$C(G)=\{x\in G\ |\ xy=yx, \forall y\in G\}$．
 \end{definition}
 
-如果群$G$有不变子群$H$，则可以证明（\parencite[\S 1.3]{mengdj-cxds-1}）商集$G/H$也是群，
+如果群$G$有不变子群$H$，则可以证明\cite[\S 1.3]{mengdj-cxds-1}商集$G/H$也是群，
 称为群$G$对$H$的{\heiti 商群}．商群$G/H$中的元素是$G$中$H$的所有陪集，单位元是$H$．
 存在从$G$到$G/H$的映射$\boxed{\pi (g)= gH,\ \forall g\in G}$，
 则$\pi$是同态映射，称为{\heiti 自然同态}．
@@ -229,7 +229,7 @@
     	1 &2 &\cdots &n \\  a_1 &a_2 &\cdots &a_n
     \end{smallmatrix} )$
     其中$1, 2, \cdots, n$表示物体所在原来的抽屉，
-    $a_1, a_2, \cdots, a_n $表示物体所在新的抽屉编号．
+    $a_1, a_2, \cdots, a_n $表示物体所在新的抽屉编号，且$\{a_i\}$两两不等．
     这些操作的集合构成$n$阶{\kaishu 置换群}$S_n$．
     下面以三个客体$A,B,C$为例来说明这个操作该过程．
     \begin{equation*}
@@ -301,14 +301,16 @@ $e a = a e  =a, \ \forall a \in R $；
 \end{example}
 
 \begin{example}
-    整数集$\mathbb{Z}$对其自身的加法和乘法构成环，称为{\heiti 整数环}．
-    此环不是数域．
+    整数集$\mathbb{Z}$对其自身的加法和乘法构成环，称为{\heiti 整数环}．此环不是数域．
 \end{example}
 
+\begin{definition}
 如果环$R$的非零元素集合对乘法构成群（且$1\neq 0$），则称为{\heiti 体}．
+\end{definition}
 
+\begin{definition}
 可交换的体称为{\heiti 域}，即环$R$中非零元素集合对乘法构成交换群．
-
+\end{definition}
 
 环和域还有{\kaishu 特征}（Characteristic）概念；
 此处想声明的是：所有\uwave{数域}特征为{\kaishu 零}．
@@ -322,12 +324,14 @@ $e a = a e  =a, \ \forall a \in R $；
 \index[physwords]{代数闭域}
 \index[physwords]{四元数}
 
-生于爱尔兰都柏林的数学家、力学家哈密顿（William Rowan Hamilton 1805～1865）
-于1843年发明了{\heiti 四元数}（quaternion）如下  
+\begin{example}\label{chtop:exam_quaternion}
+	四元数$\mathbb{H}$（quaternion）．
+\end{example}
+爱尔兰数学家、力学家哈密顿（1805～1865）于1843年发明了四元数：  
 \begin{equation}\label{chtop:eqn_quaternion}
     a+b \mathbbm{i} +c\mathbbm{j} +d \mathbbm{k}, \qquad \forall a,b,c,d \in \mathbb{R}.
 \end{equation}
-其中符号$\mathbbm{i,j,k}$满足，
+其中符号$\mathbbm{i,j,k}$满足：
 \begin{equation*}
     \mathbbm{i}^2 = \mathbbm{j}^2 = \mathbbm{k}^2 = -1; \quad
     \mathbbm{i}\mathbbm{j}=-\mathbbm{j}\mathbbm{i}=\mathbbm{k}, \quad
@@ -335,26 +339,21 @@ $e a = a e  =a, \ \forall a \in R $；
     \mathbbm{k}\mathbbm{i}=-\mathbbm{i}\mathbbm{k}=\mathbbm{j}.
 \end{equation*}
 所有四元数组成的集合记为$\mathbb{H}$，规定$\mathbb{H}$的加法和乘法与复数类似，即
-\begin{equation*}
-    a+b \mathbbm{i} +c\mathbbm{j} +d \mathbbm{k}
-    + a'+b' \mathbbm{i} +c'\mathbbm{j} +d' \mathbbm{k}
-    \overset{def}{=} (a+a')+ (b+b')\mathbbm{i} +(c+c')\mathbbm{j} + (d+d') \mathbbm{k} .
-\end{equation*}
-和
+\setlength{\mathindent}{0em}
 \begin{align*}
-    (a&+b \mathbbm{i} +c\mathbbm{j} +d \mathbbm{k} )
+    &a+b \mathbbm{i} +c\mathbbm{j} +d \mathbbm{k}
+    + a'+b' \mathbbm{i} +c'\mathbbm{j} +d' \mathbbm{k}
+    \overset{def}{=} (a+a')+ (b+b')\mathbbm{i} +(c+c')\mathbbm{j} + (d+d') \mathbbm{k} . \\
+    &(a+b \mathbbm{i} +c\mathbbm{j} +d \mathbbm{k} )
     (a'+b' \mathbbm{i} +c'\mathbbm{j} +d' \mathbbm{k})
-    \overset{def}{=} aa'+ ab' \mathbbm{i} +ac'\mathbbm{j} +ad' \mathbbm{k}
-    + ba'\mathbbm{i}+bb' \mathbbm{i}\mathbbm{i} \\
-    &+bc'\mathbbm{i}\mathbbm{j} +bd' \mathbbm{i}\mathbbm{k}
-    + ca'\mathbbm{j}+cb' \mathbbm{j}\mathbbm{i} +cc'\mathbbm{j}\mathbbm{j} +cd' \mathbbm{j}\mathbbm{k}
-    + da'\mathbbm{k}+db' \mathbbm{k}\mathbbm{i} +dc'\mathbbm{k}\mathbbm{j} +dd' \mathbbm{k}\mathbbm{k} \\
-    =&aa'-bb'-cc'-dd' + (ab'+ba'+cd'-dc')\mathbbm{i} \\
-    &+ (ac'+ca'-bd'+db')\mathbbm{j} + (ad' +da' +bc'-cb')\mathbbm{k} .
-\end{align*}
+    \overset{def}{=}  aa'-bb'-cc'-dd' \\ 
+    &\quad + (ab'+ba'+cd'-dc')\mathbbm{i} 
+    + (ac'+ca'-bd'+db')\mathbbm{j} + (ad' +da' +bc'-cb')\mathbbm{k} .
+\end{align*}\setlength{\mathindent}{2em}
 很明显四元数对于乘法不具有对易性．
 容易验证全体四元数$\mathbb{H}$是{\kaishu 体}，但不是{\kaishu 域}．
 由此可见定义\ref{chtop:def_number-field}将取值范围限制在复数集合是合理的．
+\qed
 
 \begin{definition}\label{chtop:def_module}
     设$R$是一交换环，有一个非空的集合$M$，如它满足下列条件：    

@@ -1144,27 +1144,27 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 自然基底标架场$\{(\frac{\partial}{\partial x^i})^a\}$外，还可以使用一般的局部
 标架场$\{(e_i)^a\}$；它们是定义在流形$M$的某开集$U$上的切矢量场，并且对于
 任意一点$p\in U$，$(e_i)^a|_p$是切空间$T_p M$的基底．
-既然是基矢量，自然可以用自然标架场来展开
+既然是切矢量场，自然可以用自然标架场来展开
 \begin{align}\label{chccr:eqn_natural-base_change}
     ({e} _i)^a = \left(\frac{\partial}{\partial x^\alpha}\right)^a C_{\hphantom{a} i}^{\alpha}(x) , \quad
     ({e} ^i)_a = \left({\rm d} x^\alpha \right)_a \left(C^{-1}\right)^{\hphantom{a} i}_{\alpha}   ;
     \ C_{\hphantom{a} i}^{\alpha}(x) \in C^{\infty}(U).
 \end{align}
-要求变换矩阵$C$的行列式$\det(C)>0$，用以保证$(e_i)^a$与$(\frac{\partial}{\partial x^i})^a$定向相同．
+一般要求变换矩阵$C$的行列式$\det(C)>0$，用以保证$(e_i)^a$与$(\frac{\partial}{\partial x^i})^a$定向相同．
 
 \index[physwords]{黎曼曲率!型式}
 
 
-现在考虑一般的标架变换，
+现考虑一般的标架变换，
 若$(\tilde{e}_i)^a$是另一局部标架，则存在光滑函数使得
 \begin{align}\label{chccr:base_change}
     (\tilde{e} _i)^a = (e_\mu)^{a} A_{\hphantom{a} i}^{\mu} , \quad
     (\tilde{e} ^j)_a = (e^\nu)_{a} B^{\hphantom{a} j}_{\nu};
-    \qquad A,B \in C^{\infty}(U) .
+    \qquad A_{\hphantom{a} i}^{\mu},B^{\hphantom{a} j}_{\nu} \in C^{\infty}(U) .
 \end{align}
 矩阵$A$和$B$的指标在前的是行指标，在后的是列指标（不论在上还是在下）；
 依照定理\ref{chmla:thm_inv-cov-base}，变换矩阵$A$和$B$是转置逆关系（$B^{-1} = A^T$）．
-设有张量$T^a _{\hphantom{a} b}$，则有
+设有张量$T^a _{\hphantom{a} b}$，则
 \begin{align}
     T^a _{\hphantom{a} b} &= T^{\mu} _{\hphantom{a} \nu}(e_\mu)^{a} (e^\nu)_{b}
     = \tilde{T}^{i} _{\hphantom{a} j} (\tilde{e} _i)^a (\tilde{e} ^j)_b
@@ -1225,7 +1225,7 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 我们从另一个角度再叙述一下联络型式场．
 设有$m\times m$维矩阵$E^\alpha_{\hphantom{\alpha} \beta}(1\leqslant \alpha,\beta \leqslant m)$，
 其中矩阵$E^\alpha_{\hphantom{\alpha} \beta}$的第$\alpha$行、第$\beta$列元素为$1$，其余矩阵元是$0$．
-那么联络型式场可以改写为：
+那么联络型式场可以改写为（下式中的$A^{\alpha\beta}_i(x)$是由联络系数决定的）：
 \begin{equation}\label{chccr:def_1form-gauge}
 	(\omega_{\hphantom{k} j}^{k})_a \equiv \Gamma_{ji}^k (e^i)_a
 	=\sum_{\alpha,\beta=1}^{m} \sum_{i=1}^{m} 
@@ -1402,7 +1402,7 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
     (\Omega_{\hphantom{a} j} ^{i})_{ab} = &\frac{1}{2}R_{\hphantom{a} jkl}^i
     (e^k)_a \wedge (e^l)_b = R_{\hphantom{a} jkl}^i (e^k)_a (e^l)_b . \label{chccr:eqn_Cform-bak}
 \end{align}
-\uwave{则两个结构方程可以表示成如下常用形式}：
+\uwave{则两个{\heiti \bfseries Cartan结构方程}可以表示成如下常用形式}：
 \begin{subequations}\label{chccr:eqn_CST}
 \begin{align}
     {\rm d}_a (e^i)_b =&(e^j)_a \wedge (\omega _{\hphantom{a} j}^i)_b +(\Theta ^{i})_{ab}, \label{chccr:eqn_CST-I} \\

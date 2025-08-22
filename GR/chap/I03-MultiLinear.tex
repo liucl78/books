@@ -556,11 +556,12 @@ $(-\alpha)+W$是$\alpha+W$的{\kaishu 负元}；
 式\eqref{chmla:eqn_tmp12}构造映射的方式具有代表性，后面诸多命题
 证明都会用到．
 
-这个定理没有考虑线性空间的元素是什么，也没有
-考虑空间运算的具体定义，只涉及矢量空间的代数性质；从这个观点来看同构的线性空间
-可以不加区分，视为等同．而维数是线性空间唯一本质特征．
-由此定理立刻可以得到：数域$\mathbb{F}$上的任意$n$维线性空间$V$皆
-线性同构于$\mathbb{F}^n$；因此，原则上我们只需要研究$\mathbb{F}^n$即可．
+这个定理没有考虑线性空间的元素是什么，也没有考虑空间运算的具体定义，
+只涉及矢量空间的代数性质；从这个观点来看，
+在研究代数结构时，同构的线性空间可以不加区分，视为等同．
+而维数是线性空间唯一本质特征．由此定理立刻可以得到：
+数域$\mathbb{F}$上的任意$n$维线性空间$V$皆线性同构于$\mathbb{F}^n$；
+因此，原则上我们只需要研究$\mathbb{F}^n$即可．
 需要指出的是：同构不代表不可区分．
 比如三维欧氏空间中位移$\boldsymbol{r}$张成的线性空间与
 力$\boldsymbol{F}$张成的线性空间是同构的；但两个空间绝不等同，
@@ -739,14 +740,14 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
         \sum_{kl} b_{ki}  a_{lj}  \delta_{kl} =
         \sum_{k} b_{ki}  a_{kj}.
     \end{equation*}\setlength{\mathindent}{2em}
-    可见过渡矩阵间的关系是$B^T=A^{-1}$．
+    可见过渡矩阵间的关系是$B^T=A^{-1} \ \Leftrightarrow \ B^{-1} = A^T$．
 
     也可以用$\{\boldsymbol{\eta}\}$表示$\{\boldsymbol{\epsilon}\}$，
     $\boldsymbol{\epsilon}_j=\boldsymbol{\eta}_i b_j ^{\hphantom{a} i}$和
     $\boldsymbol{\epsilon}^{*j}=\boldsymbol{\eta}^{*i} a_{\hphantom{a} i} ^{j}$．
     用矩阵表示更显简洁：$\boldsymbol{\eta}=\boldsymbol{\epsilon}A$,
-    $\boldsymbol{\eta}^{*}=\boldsymbol{\epsilon}^{*}B$，和
-    $\boldsymbol{\eta}B^T=\boldsymbol{\epsilon}$,
+    $\boldsymbol{\eta}^{*}=\boldsymbol{\epsilon}^{*}B=\boldsymbol{\epsilon}^{*}A^{-T}$，和
+    $\boldsymbol{\eta}B^T=\boldsymbol{\eta}A^{-1}=\boldsymbol{\epsilon}$,
     $\boldsymbol{\eta}^{*}A^T=\boldsymbol{\epsilon}^{*}$．
 \end{proof}
 
@@ -1196,7 +1197,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 \begin{equation}\label{chmla:eqn_tmp10}
     f(\alpha,\beta)=f(x^i \boldsymbol{\epsilon}_i,y^j \boldsymbol{\epsilon}_j)
     =x^i y^j f( \boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j)
-    =\sum_{i=1}^{n} d_i x^i y^i .
+    =\sum\nolimits_{i=1}^{n} d_i x^i y^i .
 \end{equation}
 
 \begin{corollary}\label{chmla:thm_pm1num-comp}
@@ -1256,7 +1257,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 
 
 \subsection{不定对称双线性函数}\label{chmla:sec_indefbif}
-
+本小节在实数域上讨论．
 非退化、对称、{\heiti 正定}双线性函数是指式\eqref{chmla:eqn_gmetric}中特征值没有$-1$和$0$，
 全部是$+1$；它有许多良好性质．
 若要求它是{\heiti 不定的}，即式\eqref{chmla:eqn_gmetric}中特征值包含$\pm 1$，则情形有些变化．
@@ -1381,7 +1382,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     对每一个变元都具有如下线性性质（其中$\forall k \in \mathbb{F}$）： \index[physwords]{线性函数!多重线性函数}
     \begin{align*}
         f(\cdots, k\alpha+\beta, \cdots )= k f(\cdots,\alpha,\cdots) + f(\cdots,\beta,\cdots);
-        \ , \ \forall \alpha,\beta \in V_p ,  \  1 \leqslant p \leqslant r.
+        \  \forall \alpha,\beta \in V_p ,  \  1 \leqslant p \leqslant r.
     \end{align*}
     则称映射$f$是从$V_1 \times  \cdots \times V_r$到$W$的$r${\heiti 重线性映射}．
     如果$W\equiv \mathbb{F}$，那么映射$f$称为$\mathbb{F}$值$r${\heiti 重线性函数}．
@@ -1390,15 +1391,16 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 双线性映射的定理可以几乎不用任何修改地推广到$r(>2)$重线性映射．
 
 \begin{example}
-    牛顿力学中位矢点乘力$\boldsymbol{r}\cdot \boldsymbol{F}$是$U\times V \to \mathbb{R}$的
-    不同线性空间的双线性函数．{\kaishu 内积}的两个元素必须属于同一线性空间$V$，故上述点乘不是内积．
+    牛顿力学中位矢与力之间的运算$\boldsymbol{r}\cdot \boldsymbol{F}$是$U\times V \to \mathbb{R}$的
+    不同线性空间（分别来自位矢空间和力空间）的双线性函数．
+    {\kaishu 内积}的两个元素必须属于同一线性空间$V$，故上述运算不是内积．
     {\kaishu 配合}中的两个元素一个来自$V$，另一个来自$V^*$．这两个双线性函数分别赋予了专有名字（内积、配合）；
-    除此以外的双线性函数没有专有名称，比如$\boldsymbol{r}\cdot \boldsymbol{F}$就没有．
+    除此以外的双线性函数没有专有名称，比如$\boldsymbol{r}\cdot \boldsymbol{F}$就没有． \qed
 \end{example}
 
 \begin{example}
     Dirac场$\psi$与电磁规范势$A_\mu$的相互作用项$q A_\mu \bar{\psi}\gamma^\mu \psi$是
-    三重线性函数$U\times V^* \times V\to \mathbb{R}$； 其中$\gamma^\mu$是常数矩阵，$q$是常数．
+    三重线性函数$U\times V^* \times V\to \mathbb{R}$； 其中$\gamma^\mu$是常数矩阵，$q$是常数． \qed
 \end{example}
 
 \begin{example}\label{chmla:exm_det}
@@ -1540,7 +1542,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     （下式构造方式与式\eqref{chmla:eqn_tmp12}几乎相同，这是此类映射的通用定义方法）
     \begin{equation}\label{chmla:eqn_tensorpruduct}
             \tau \left(x^i\boldsymbol{\epsilon}_i, y^j\boldsymbol{\eta}_j\right)
-            \overset{def}{=} \sum_{i=1}^{m} \sum_{j=1}^{n} x^i y^j \boldsymbol{\omega}_{ij} .
+            \overset{def}{=} \sum\nolimits_{i=1}^{m} \sum\nolimits_{j=1}^{n} x^i y^j \boldsymbol{\omega}_{ij} .
         \end{equation}
     容易验证这个映射是双线性的，并且有$\tau (\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)
      = \boldsymbol{\omega}_{ij}$，空间$Y$由$\tau(U\times V)$生成．
@@ -1551,8 +1553,8 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     设$Z$是$\mathbb{F}$上任意线性空间，$\forall f \in \mathscr{L}(U,V;Z)$，
     定义线性映射$g:Y \to Z$：
     \begin{equation}\label{chmla:eqn_fgtau}
-            g \left(\sum_{i,j}^{m,n} z^{ij}\boldsymbol{\omega}_{ij}\right)
-            \overset{def}{=} \sum_{i,j}^{m,n} z^{ij} f(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j) .
+            g \left(\sum\nolimits_{i,j}^{m,n} z^{ij}\boldsymbol{\omega}_{ij}\right)
+            \overset{def}{=} \sum\nolimits_{i,j}^{m,n} z^{ij} f(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j) .
     \end{equation}
     定义左端可作变化$g(\sum_{i,j} z^{ij}\boldsymbol{\omega}_{ij})
     = \sum_{i,j} z^{ij} g(\tau (\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)  ) $．
@@ -1714,13 +1716,13 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 
 张量积$U\otimes V$中任意矢量$\omega$皆可由基矢展开，即
 \begin{equation}\label{chmla:eqn_tmpomij}
-    \omega = \sum_{i,j} z_{ij} \boldsymbol{\epsilon}_i \otimes \boldsymbol{\eta}_j
-    = \sum_{i} \boldsymbol{\epsilon}_i \otimes  \left(\sum_{j}z_{ij}\boldsymbol{\eta}_j\right),
+    \omega = \sum\nolimits_{i,j} z_{ij} \boldsymbol{\epsilon}_i \otimes \boldsymbol{\eta}_j
+    = \sum\nolimits_{i} \boldsymbol{\epsilon}_i \otimes  \left(\sum\nolimits_{j}z_{ij}\boldsymbol{\eta}_j\right),
 \end{equation}
 上式中的展开系数$z_{ij}$是唯一确定的．令$\beta_i = \sum_{j}z_{ij}\boldsymbol{\eta}_j$，
 则上式变为
 \begin{equation}\label{chmla:eqn_tmp67}
-    \omega = \sum_{i} \boldsymbol{\epsilon}_i \otimes  \beta _i ,
+    \omega = \sum\nolimits_{i} \boldsymbol{\epsilon}_i \otimes  \beta _i ,
 \end{equation}
 需注意，$\beta_i(1\leqslant i \leqslant m)$几乎不可能是$n$维空间$V$的基矢，
 并且$\{\beta_i\}$可能是线性相关的．
@@ -3309,7 +3311,7 @@ $T_{c}^{ab}$表示$\binom{2}{1}$型张量，等等．
 \fbox{丙} 通常会省略张量积记号“$\otimes$”．
 例如在\S \ref{chmla:sec_tensor}表示法中有$T\in \mathcal{T}^{2}_{1}(V)$和$S\in \mathcal{T}^{1}_{1}(V)$，
 则$T\otimes S$在抽象指标法中记作$T^{ab}_c S^d_e$；当然记成$T^{ab}_c\otimes S^d_e$也没有任何问题．
-显然，\S \ref{chmla:sec_tensor}记号{\heiti 不能}表明张量类型；
+显然，\S \ref{chmla:sec_tensor}记号{\heiti 不能}表明张量类型，需另外声明；
 而抽象指标记号{\heiti 能}清晰表明\uwave{张量类型}，这是抽象指标记号最重要的优点．
 
 
@@ -3383,8 +3385,9 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 \fbox{癸}
 读者慢慢会体会到抽象指标记号的角标比用分量表示法还要繁杂，这对公式的具体表示带来诸多不便．
 如果读者你的数学计算十分纯熟，用\S\ref{chmla:sec_tensor}记号可能更好．
+说得更直白一点，当读者你对抽象数学认知有限时，抽象指标是有益的；
+当读者你能深刻、准确理解抽象数学时，抽象指标多少有些累赘，\S\ref{chmla:sec_tensor}记号更合适．
 笔者选用这种方式的原因是：它可以减少我的计算错误（本质是数学水平低；不论哪种记号，高手是不会犯错误的）！
-
 
 
 

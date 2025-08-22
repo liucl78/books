@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 % 此文件从2022.8开始
 
-\chapter{李群李代数初步}\label{chlg}
+\chapter{李群与李代数初步}\label{chlg}
 
 李群是由挪威数学家Sophus Lie最早研究的；
 它是一类重要的微分流形，其线性化后便是李代数．
@@ -15,7 +15,7 @@
 \index[physwords]{李群}
 \index[physwords]{李代数}
 
-\section{李群李代数定义}\label{chlg:sec_definition}
+\section{李群与李代数定义}\label{chlg:sec_definition}
 
 \begin{definition}\label{chlg:def_lg}
     设$G$是一个非空集合，如果
@@ -200,7 +200,7 @@ $A$、$B$是这个李代数的两个基，不难验证它们是对易的．
 
 
 
-\section{李群李代数例子}\label{chlg:sec_example}
+\section{李群与李代数例子}\label{chlg:sec_example}
 %我们讨论复数域上的李群时，仍假设底流形是实数的，把复数运算看作额外引入
 %的附加运算（见例\ref{chmla:exm_rc1}和\ref{chmla:exm_rc2}）．
 %我们不去研究建立在复流形（比如Hermite流形）上的复李群，这远超出了此课的范畴．
@@ -355,9 +355,9 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 %因为对下指标“$ij$”不是$C^\infty(G)-$线性的，所以$c^k_{ij}$不是张量\uwave{场}．
 
 \begin{example}
-    $\mathbb{R}^3$中的叉乘构成李代数．设有$\mathbb{R}^3$中三个矢量$\bf u, v, w$，
+    $\mathbb{R}^3$中的叉乘构成李代数．设有$\mathbb{R}^3$中三个矢量$\boldsymbol{u},\boldsymbol{v},\boldsymbol{w}$，
     定义李积为$[\boldsymbol{u},\boldsymbol{v}]\overset{def}{=}\boldsymbol{u} \times \boldsymbol{v}$．
-    很明显，叉乘符合定义\ref{chlg:def_la}中性质(1)和(2)．对于性质(3)，有
+    显然，叉乘符合定义\ref{chlg:def_la}中性质(1)和(2)．对于性质(3)，有
     \begin{align*}
         &\bigl[\boldsymbol{u},[\boldsymbol{v},\boldsymbol{w}]\bigr]
         +\bigl[\boldsymbol{v},[\boldsymbol{w},\boldsymbol{u}]\bigr]+\bigl[\boldsymbol{w},
@@ -1396,6 +1396,8 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 若有 $k$ 使得 $\mathfrak{g}^k=0$，则称 $\mathfrak{g}$ 为{\heiti 幂零李代数}（nilpotent）．
 若有 $k$ 使得 $\mathfrak{g}^{(k)}=0$，则称 $\mathfrak{g}$ 为{\heiti 可解李代数}（solvable）．
 \end{definition}
+
+由于可解（幂零）李代数必定包含非零可对易理想，故它一定不是半单的．
 
 \begin{example}
 显然，可对易李代数（Abel李代数）是幂零李代数．\qed
@@ -3441,7 +3443,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\h
 
 
 
-\section{常用等距李群}\label{chlg:sec_matrixG-II}
+\section{物理中常用等距李群}\label{chlg:sec_matrixG-II}
 继\S\ref{chlg:sec_isometry}，本节再描述一些保度规群\cite{tung-1985}，有些群会涉及流形局部坐标．
 
 
@@ -4625,7 +4627,7 @@ $\sinh(x \pm y) = \sinh x \cosh y \pm  \cosh x \sinh y, \
 \begin{equation}\label{chlg:eqn_LA-so13-JK}
     J_i = \mathbbm{i} r_i,\qquad  K_i = \mathbbm{i} b_i .
 \end{equation}
-那么对易关系\eqref{chlg:eqn_LA-so13-comm}变成（省略了求和符号）
+那么对易关系\eqref{chlg:eqn_LA-so13-comm}变成（省略了求和符号）：
 \begin{equation}\label{chlg:eqn_LA-so13-comm-JK}
     [J_i, J_j] = \mathbbm{i} \epsilon_{ijk} J_k,\quad
     [J_i, K_j] = \mathbbm{i} \epsilon_{ijk} K_k,\quad
@@ -6095,7 +6097,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$．
 \section{半单李代数}
 
 
-由于可解（幂零）李代数必定包含非零可对易理想，故它一定不是半单的．
+
 
 
 \begin{theorem}\label{chlg:thm_LA-semi}

@@ -601,9 +601,6 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
     
     {\bfseries (3)} $\nabla_X(f \xi) \overset{def}{=} (\nabla_X f) \xi+f \nabla_X \xi
      \equiv X(f) \xi+f \nabla_X \xi$．
-    
-   
-    规定$\nabla_X$与缩并运算可对易． \qed
 \end{definition}
 
 
@@ -661,9 +658,11 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
     \nabla_X\left(\xi_1 \otimes \xi_2\right)\overset{def}{=}& \left(\nabla_X^{(1)} \xi_1\right) \otimes 
     \xi_2+\xi_1 \otimes \nabla_X^{(2)} \xi_2 . \label{chfb:eqn_otcon}
 \end{align}
-通过直接验证可知（留给读者当练习），上面定义的两个映射满足定义\ref{chfb:def_vb-conncection}中的
-三个公理，因而是矢量丛 $E_1 \oplus E_2$ 和 $E_1 \otimes E_2$ 上的联络；
-分别记为 $\nabla^{(1)} \oplus \nabla^{(2)}$ 和 $\nabla^{(1)} \otimes \nabla^{(2)}$．
+容易验证：上面两个映射满足定义\ref{chfb:def_vb-conncection}中的三个公理，
+因而是矢量丛 $E_1 \oplus E_2$ 和 $E_1 \otimes E_2$ 上的联络．
+我们规定式\eqref{chfb:eqn_otcon}中$\nabla_X$与缩并运算可对易．
+
+%分别记为 $\nabla^{(1)} \oplus \nabla^{(2)}$ 和 $\nabla^{(1)} \otimes \nabla^{(2)}$
 
 \begin{example}
     对偶丛$(E^*,M,\tilde{\pi})$上的联络$\nabla^*$（导出后，将$\nabla^*$简记为$\nabla$）．
@@ -952,7 +951,7 @@ $\tilde{e}_\sigma= e_\alpha A^\alpha_{\hphantom{\alpha}\sigma} {\  \color{red}\L
 
 继续采用式\eqref{chfb:eqn_pbb-connection}中记号．在$TN$上，有 %$\phi_* \xi$恐怕无定义
 \begin{equation}\label{chfb:eqn_pbb-tmpN}
-    \mathrm{D}_{\phi_*X} \xi = X\left(\xi^\alpha \bigl(\phi(p)\bigr) \right) e_\alpha\bigl(\phi(p)\bigr)
+    \mathrm{D}_{\phi_*X} \xi = \phi_{*}X\left(\xi^\alpha \bigl(\phi(p)\bigr) \right) e_\alpha\bigl(\phi(p)\bigr)
     +\xi^\alpha\bigl(\phi(p)\bigr) \mathrm{D}_{\phi_*X} e_\alpha\bigl(\phi(p)\bigr).
 \end{equation}
 因$\phi$是浸入映射，故在局部上它是单一的；由此我们可以认为：
@@ -1276,7 +1275,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 
 \begin{definition}
     设$(E, M, \pi, F, G)$是一纤维丛，若$F=G$，
-    且$G$在$F$上的左（或右）作用就是$G$在它自身上的{\kaishu 自由且可迁}的左（或右）移动；
+    且$G$在$F$上的左（或右）作用就是$G$在它自身上的左（或右）移动（左、右移动自然是自由且可迁的）；
     则称此丛为$M$上以$G$为结构群的{\heiti \bfseries G-主丛}，记为 $(E, M, \pi, G)$．
 \end{definition} 
 
@@ -1539,21 +1538,21 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 \section{矢量丛与规范场概述}\label{chfb:sec_G-connection}
 
 要完整、严谨的从纤维丛角度叙述规范场理论必须先了解$G$-主丛的联络、曲率等知识；
-这超出了本书的范畴，可参考文献\parencite{chen-li-2004v2}第十章或者\parencite{Husemoller-1994}．
+这超出了本书的范畴，可参考文献\parencite{chen-li-2004v2}第十章或类似文献．
 
 
-本节将主丛的结构群$G$限定在矩阵群$GL(q,\mathbb{C})$的子群，
-此时的$G$-主丛就是上节叙述的标架丛．我们令底流形是$m$维的光滑流形$M$．
-设结构群$G$的李代数是$\mathfrak{g}$（其维数是$r$），
-李代数$\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q\times q$维矩阵）．
-若$\mathfrak{g}$的Killing型退化（定义见\S\ref{chlg:sec_KillingForm}），
-对物理学来说貌似无用，故要求$\mathfrak{g}$是半单的．
-进一步要求$G$是紧致的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
+%%本节将主丛的结构群$G$限定在矩阵群$GL(q,\mathbb{C})$的子群，此时的$G$-主丛就是上节叙述的标架丛．
+设底流形$M$是$m$维的光滑实流形，$M$上植有$G$-标架丛（$G$是$GL(q,\mathbb{C})$的子群）．
+设群$G$的李代数是$\mathfrak{g}$（李代数的维数是$r$），
+$\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q\times q$维矩阵）．
+%若$\mathfrak{g}$的Killing型退化（定义见\S\ref{chlg:sec_KillingForm}），
+%对物理学来说貌似无用，故要求$\mathfrak{g}$是半单的．
+进一步要求$G$是紧致的、半单的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
 矩阵群$G$的李代数$\mathfrak{g}$诱导出的Killing型是负定的；
 进而可以在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型
 的{\kaishu 负值}（这样，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$便是正定的了）；
 从而可以定义不变积分（见\S\ref{chlg:sec_Integral}）．
-如果没有紧致性，那么貌似无法定义群$G$上的不变积分．
+若没有紧致性，那么貌似无法定义群$G$上的不变积分．
 
 
 在开子集$U\subset M$、$V\subset M$上分别引入局部坐标$\{x^i\}$、$\{y^i\}$，并假定$U\cap V\neq \varnothing$；
@@ -1575,8 +1574,9 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 上式中$T_a$是结构群$G$的李代数$\mathfrak{g}$的基矢矩阵，它们是$q$维常数方阵．
 
 请注意：我们省略了大量内容（$G$-主丛联络理论）才得到式\eqref{chfb:eqn_Gwform}．
-$G$-标架丛理论中有定理表明在它的联络中可以自然地引入结构群$G$的李代数$\mathfrak{g}$，
-见式\eqref{chfb:eqn_Gwform}；若只考虑矢量丛，则无法自然引入结构群$G$的李代数$\mathfrak{g}$．
+$G$-主丛理论中有定理表明在它的联络中可以自然地引入结构群$G$的李代数$\mathfrak{g}$，
+见式\eqref{chfb:eqn_Gwform}．若不使用$G$-主丛，只考虑矢量丛，
+则无法在联络中自然引入结构群$G$的李代数$\mathfrak{g}$．
 这是我们由$G$-标架丛（$G$-主丛）出发来阐述规范场的原因．
 
 当$G$-标架丛是$GL(m)$-切标架丛时，其结构群便是$GL(m)$；与切标架丛相配的矢量丛就是切丛．
@@ -1681,12 +1681,18 @@ $G$-标架丛理论中有定理表明在它的联络中可以自然地引入结�
 \index[physwords]{杨振宁-米尔斯场} 
 \index[physwords]{规范场} 
 
-
-\begin{remark}\label{chfb:rem_qft}
-	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解平直时空的Yang--Mills理论．
-	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
-	如果研究弯曲时空的规范场，那么必须掌握$G$-主丛理论．
+\begin{remark}
+	我们{\kaishu 省略$G$-主丛理论}，使用矢量丛联络、曲率来描述规范场
+	（比如规范变换\eqref{chfb:eqn_GDG}、场强\eqref{chfb:eqn_YM-Strength}），
+	从纯数学角度来看这是不严谨的．因为笔者只想初步阐述纤维丛与规范场关系，
+	所以这种写法是划算的．
 \end{remark}
+
+%\begin{remark}\label{chfb:rem_qft}
+%	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解平直时空的Yang--Mills理论．
+%	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
+%	如果研究弯曲时空的规范场，那么必须掌握$G$-主丛理论．
+%\end{remark}
 
 
 
@@ -1694,7 +1700,7 @@ $G$-标架丛理论中有定理表明在它的联络中可以自然地引入结�
 本章主要参考了\parencite{cc2001-zh}\S 3.1、第四章，\parencite{chen-li-2004v2}第十章．
 
 
-从第\ref{chtop}章到本页，我们没有实质使用度量（除\S\ref{chdm:sec_Euclidean-space}、
+从\S\ref{chdm:sec_Euclidean-space}到本页，我们没有实质使用度量（除\S\ref{chdm:sec_tmpdmcon}、
 \S\ref{chfb:sec_pull-back-bundle}、\S\ref{chfb:sec_G-connection}）；
 故，所有内容适用于正定度量、不定度量．从下章开始引入度量（度规，metric）．
 

@@ -168,7 +168,7 @@ Hermite{\footnote{Charles Hermite(1822-1901)法国数学家，译为厄尔米特
 \begin{definition}
     $m$维复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 厄米双线性函数}，
     是指它满足如下条件（下式中$\forall c\in \mathbb{C},\  \forall \alpha,\beta,\gamma\in V$，
-    $\bar{c}$是$c$的共轭复数）
+    $\bar{c}$是$c$的共轭复数）：
     \begin{equation*}
         h(c\cdot \alpha+\beta,\gamma) = \bar{c}\cdot h(\alpha,\gamma)+ h(\beta,\gamma),\quad
         h(\gamma,c\cdot \alpha+\beta) = c\cdot h(\gamma,\alpha)+ h(\gamma,\beta).
@@ -235,8 +235,8 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\uwave{度量矩阵}（
     =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上厄米双线性函数，则有
     \begin{align*}
         A\equiv h(\boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j)
-        =h\left(\sum_k \boldsymbol{e}_k C_{ki},\ \sum_l \boldsymbol{e}_l C_{lj}\right)
-        =\sum_{kl} \bar{C}_{ki} C_{lj} h(\boldsymbol{e}_k, \boldsymbol{e}_l)
+        =h\left(\sum\nolimits_k \boldsymbol{e}_k C_{ki},\ \sum\nolimits_l \boldsymbol{e}_l C_{lj}\right)
+        =\sum\nolimits_{kl} \bar{C}_{ki} C_{lj} h(\boldsymbol{e}_k, \boldsymbol{e}_l)
         =C^\dagger B C. 
     \end{align*}
     其中$B\equiv h(\boldsymbol{e}_k, \boldsymbol{e}_l)$．    
@@ -266,7 +266,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\uwave{度量矩阵}（
     {\bfseries (4)} $\left<\alpha,\alpha\right>$是非负实数，当且仅当$\alpha=0$时，$\left<\alpha,\alpha\right> = 0$．
     
     \noindent 其中$\forall\alpha,\beta,\gamma \in V$，$\forall k\in \mathbb{C}$．
-    这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}．
+    这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}． \qed
 \end{definition}
 
 \index[physwords]{酉空间} \index[physwords]{幺正空间|see{酉空间}}
@@ -294,7 +294,7 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 也就是规定基矢$\{{e}_i\}$是正交归一的；此种情况下，酉内积的表达式较为简单
 \begin{equation}\label{chcx:eqn_Hermite-Product}
     \left<\alpha,\beta\right>=\bar{x}^i y^j \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right>
-     =\bar{x}^i y^j \delta_{ij} = \sum_{i=1}^{m}\bar{x}^i y^i.
+     =\bar{x}^i y^j \delta_{ij} = \sum\nolimits_{i=1}^{m}\bar{x}^i y^i.
 \end{equation}
 上式为最常用的酉内积形式．
 
@@ -306,9 +306,9 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
    \begin{equation*}
        \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij} 
        =\left<\boldsymbol{\epsilon}_i,\boldsymbol{\epsilon}_j\right> 
-       =\sum_{kl}\bar{U}_{ki} U_{lj}\left<\boldsymbol{e}_k,\boldsymbol{e}_l\right>
-       =\sum_{kl}\bar{U}_{ki} U_{lj}\delta_{kl}
-       =\sum_{k}\bar{U}_{ki} U_{kj} .
+       =\sum\nolimits_{kl}\bar{U}_{ki} U_{lj}\left<\boldsymbol{e}_k,\boldsymbol{e}_l\right>
+       =\sum\nolimits_{kl}\bar{U}_{ki} U_{lj}\delta_{kl}
+       =\sum\nolimits_{k}\bar{U}_{ki} U_{kj} .
    \end{equation*}
    上式说明两组正交归一基矢量间的变换系数满足
    \begin{equation}
@@ -316,16 +316,15 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
        U \text {可逆且} U^{-1} = U^\dagger \quad \Leftrightarrow\quad
        U U^\dagger = I .
    \end{equation}
-   满足上述关系的矩阵称为{\heiti 幺正矩阵}（也称为酉矩阵）；也就是说联系两组正交归一
-   基矢量的变换矩阵是幺正矩阵．
-   无穷维矩阵需满足$U^\dagger U = I=U U^\dagger$，不能只是其中一个．
-   \qed
+   满足上述关系的矩阵称为{\heiti 幺正矩阵}（或酉矩阵）；
+   即，联系两组正交归一基矢量的变换矩阵是幺正矩阵．
+   若$U$是无穷维的，则需满足$U^\dagger U = I=U U^\dagger$．   \qed
 \end{example}
 
 
 \begin{definition}
-    设有$m$维酉空间$V$，$\forall \alpha \in V$，$\sqrt{\left<\alpha,\alpha\right>}$称
-    为矢量$\alpha$的{\heiti 长度}，记作$|\alpha|$．    
+    设有$m$维酉空间$V$，$\forall \alpha \in V$，
+    $|\alpha|\equiv\sqrt{\left<\alpha,\alpha\right>}$称为矢量$\alpha$的{\heiti 长度}．
 \end{definition}
 
 \begin{definition}
@@ -345,26 +344,11 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
         &\left<\alpha,\beta\right>=\sum_{kl}\left<\alpha^i \boldsymbol{e}_k U_{ki}, \beta^j \boldsymbol{e}_l U_{lj} \right>
         =\sum_{kl}\bar{U}_{ki} U_{lj} \bar{\alpha}^i \beta^j \left< \boldsymbol{e}_k, \boldsymbol{e}_l\right>
         =\sum_k \bar{U}_{ki} U_{kj} \bar{\alpha}^i \beta^j \\
-        \Rightarrow\ & \bar{\alpha}^i \beta^j \delta_{ij}=\sum_k \bar{U}_{ki} U_{kj} \bar{\alpha}^i \beta^j 
+        \Rightarrow\ & \bar{\alpha}^i \beta^j \delta_{ij}=\sum\nolimits_k \bar{U}_{ki} U_{kj} \bar{\alpha}^i \beta^j 
         \quad \Rightarrow \quad U^\dagger U = I.
     \end{align*}
     可见在正交归一基底下幺正变换对应幺正矩阵．
 \end{proof}
-
-\begin{definition}
-    酉空间$V$上线性变换$\hat{A}$称为{\heiti 厄米变换}是
-    指$\left<\hat{A}\alpha,\beta\right>=\left<\alpha,\hat{A}\beta\right>$，
-    $\forall \alpha,\beta\in V$．
-\end{definition}
-厄米变换$\hat{A}$在正交归一基底下对应的矩阵是厄米矩阵（证明留给读者）．
-
-
-\begin{definition}\label{chcx:def_Hilbert-Space}
-    完备的酉空间称为希尔伯特空间．
-\end{definition}
-完备性是指第\pageref{chtop:def_complete-metric}页的定义\ref{chtop:def_complete-metric}（距离由酉积定义）．
-
-
 
 \begin{theorem}\label{chcx:thm_UD}
 	设$A$是任意$m$维幺正矩阵；则一定存在一个幺正矩阵$P$使得$P^{-1}A P=D$，
@@ -374,6 +358,26 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 \begin{proof}
 	证明可参考\parencite[p.522]{qiuws-2019-v2}定理16；或类似文献．
 \end{proof}
+
+
+\begin{definition}
+    酉空间$V$上线性变换$\hat{A}$称为{\heiti 厄米变换}是
+    指$\left<\hat{A}\alpha,\beta\right>=\left<\alpha,\hat{A}\beta\right>$．
+%    $\forall \alpha,\beta\in V$．
+\end{definition}
+厄米变换$\hat{A}$在正交归一基底下对应的矩阵是厄米矩阵（证明留给读者）．
+
+
+
+\begin{definition}\label{chcx:def_Hilbert-Space}
+	完备的酉空间称为Hilbert空间．
+\end{definition}
+完备性是指第\pageref{chtop:def_complete-metric}页的定义\ref{chtop:def_complete-metric}（距离由酉积定义）．
+大多数情形下，物理中的Hilbert空间是指$L^2(\mathbb{R}^3)$：定义在$\mathbb{R}^4_1$上，且平方可积的复函数集，
+即$\{f(t,\boldsymbol{x}) \mid \int_{-\infty}^{\infty} 
+\bar{f}(t,\boldsymbol{x}) f(t,\boldsymbol{x}) {\rm d}^3x  < +\infty \}$．
+可以证明$L^2(\mathbb{R}^3)$是完备的酉空间（略）．
+
 
 
 
