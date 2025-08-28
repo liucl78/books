@@ -109,15 +109,6 @@
 \end{equation}
 上式最后一行便是$\delta^a_{\cdot c}$的抽象指标表达式．
 
-再引入两个记号
-\begin{align}
-	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
-	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
-	= g_{\mu\rho}(e^\mu)_a, \\
-	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
-	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
-	= g^{\mu\rho}(e_\mu)^a .
-\end{align}
 
 线性空间$V$中指定了度规张量$g_{ab}$后，
 由\pageref{chmla:thm_tonggou-by-gVVS}页
@@ -130,8 +121,8 @@
 而$u_a$可以看成矢量$\bf u$的协变形式；
 也就是，将它们看作同一矢量的不同表现形式．
 
-反之，也可认为$g^{ab}$将$V^*${\kaishu 自然同构}于$V$，请读者
-仿照定理\ref{chmla:thm_tonggou-by-gVVS}证明一下．
+%反之，也可认为$g^{ab}$将$V^*${\kaishu 自然同构}于$V$，
+%请读者仿照定理\ref{chmla:thm_tonggou-by-gVVS}证明一下．
 
 还可以将度规作用理解成：升降指标，比如：
 \begin{equation*}
@@ -184,6 +175,19 @@
 \end{align}
 只有$g_{ij}$全部是常数的情形下才有${\rm d}x_i =g_{ij}{\rm d}x^j$．
 
+在本小节最后，我们引入两个记号（更详尽的讨论见\S\ref{chrg:sec_form2}）：
+\begin{align}
+	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b 
+	%	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
+	= g_{\mu\rho}(e^\mu)_a
+	\quad \text{对应}\quad 
+	\boldsymbol{e}_\rho ^* \overset{def}{=} g_{\mu\rho} \boldsymbol{e}^{*\mu}, \\
+	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b 
+	%	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
+	= g^{\mu\rho}(e_\mu)^a 
+	\quad \text{对应}\quad 
+	\boldsymbol{e}^\rho \overset{def}{=} g^{\mu\rho} \boldsymbol{e}_{\mu} .
+\end{align}
 
 
 \subsection{矢量抽象化}\label{chdm:sec_vector-abstract2geo}

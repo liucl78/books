@@ -2154,8 +2154,7 @@ $\Tpq{0}{0}$型张量（即数域$\mathbb{F}$中元素）称为{\heiti 标量}�
     \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q}, \quad
     i_1, \cdots, i_p; j_1, \cdots, j_q = 1,\cdots, m
 \end{equation}
-是$\mathcal{T}^p_q(V)$的一组基矢．$\forall \Phi \in \mathcal{T}^p_q(V)$可
-唯一表示为
+是$\mathcal{T}^p_q(V)$的一组基矢．$\forall \Phi \in \mathcal{T}^p_q(V)$可唯一表示为
 \begin{equation}\label{chmla:eqn_tmp201}
     \Phi = \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
     \boldsymbol{\epsilon}_{i_1} \otimes\cdots\otimes \boldsymbol{\epsilon}_{i_p} \otimes
@@ -2170,12 +2169,12 @@ $\Tpq{0}{0}$型张量（即数域$\mathbb{F}$中元素）称为{\heiti 标量}�
 $\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}$称为
 张量$\Phi$在基矢$\{\boldsymbol{\epsilon}\otimes\boldsymbol{\epsilon}^{*}\}$上的{\heiti 分量}．
 
-选空间$V$的另一组基底$\{\boldsymbol{\eta}\otimes\boldsymbol{\eta}^{*}\}$，两组基底
-由非退化矩阵关联，即$\boldsymbol{\eta}_k = \boldsymbol{\epsilon}_i A_{\cdot k} ^i$，
+选空间$V$的另一组基底$\{\boldsymbol{\eta}\otimes\boldsymbol{\eta}^{*}\}$，
+两组基底关系为$\boldsymbol{\eta}_k = \boldsymbol{\epsilon}_i A_{\cdot k} ^i$，
 $B$是矩阵$A$的转置逆（见定理\ref{chmla:thm_inv-cov-base}）．
 $\tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
-在基矢$\{\boldsymbol{\eta}\otimes\boldsymbol{\eta}^{*}\}$上的分量，结合式\eqref{chmla:eqn_tmp201}有
-\begin{align}
+在基矢$\{\boldsymbol{\eta}\otimes\boldsymbol{\eta}^{*}\}$上的分量：
+\begin{align*}
     \Phi &= \tilde{\Phi}_{k_1 \cdots k_q} ^{l_1 \cdots l_p}
     \boldsymbol{\eta}_{l_1} \otimes\cdots\otimes \boldsymbol{\eta}_{l_p} \otimes
     \boldsymbol{\eta}^{*k_1} \otimes\cdots\otimes \boldsymbol{\eta}^{*k_q} \notag \\
@@ -2183,12 +2182,20 @@ $\tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
     A_{\cdot l_1} ^{i_1}\cdots A_{\cdot l_p} ^{i_p}
     B_{j_1}^{\cdot k_1} \cdots B_{j_q}^{\cdot k_q}
     \boldsymbol{\epsilon}_{i_1} \otimes\cdots\otimes \boldsymbol{\epsilon}_{i_p} \otimes
-    \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q} \notag \\
-    {\color{red}\Rightarrow}\quad
-    \tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q} &= \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
-      A_{\cdot k_1}^{j_1} \cdots A_{\cdot k_q}^{j_q}  B_{i_1}^{\cdot l_1} \cdots B_{i_p}^{\cdot l_p} .
-    \label{chmla:def_tensor-by-compoents}
+    \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q} .
+\end{align*}
+结合式\eqref{chmla:eqn_tmp201}，利用式\eqref{chmla:eqn_tmp203}消掉上式中的基矢，有
+\begin{subequations}\label{chmla:def_tensor-by-compoents}
+\begin{align}
+	\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q} = & \tilde{\Phi}_{k_1 \cdots k_q} ^{l_1 \cdots l_p}
+	A_{\hphantom{i_1} l_1} ^{i_1}\cdots A_{\hphantom{i_p} l_p} ^{i_p}
+	B_{j_1}^{\hphantom{j_1} k_1} \cdots B_{j_q}^{\hphantom{j_q} k_q},
+	\qquad {\color{red} \Leftrightarrow } \\
+    \tilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q} =& \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
+      A_{\hphantom{j_1} k_1}^{j_1} \cdots A_{\hphantom{j_q} k_q}^{j_q}  
+      B_{i_1}^{\hphantom{i_1} l_1} \cdots B_{i_p}^{\hphantom{i_p} l_p} . 
 \end{align}
+\end{subequations}
 上式是在基矢变换下，张量对应分量之间的变换式．  \index[physwords]{张量!张量变换关系}
 最早，Ricci就是用此式定义张量，也就是张量的分量定义方式．
 虽然式\eqref{chmla:def_tensor-by-compoents}中只有分量，
@@ -3424,6 +3431,17 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
         度规（度量） & $g_{ab}$ & $g$，$\left<\cdot ,\cdot \right>_{g}$ \\ \hline
     \end{tabular}
 \end{table}
+
+\begin{remark}
+	在很多文献（可能是绝大多数文献）中不引入记号$\{\boldsymbol{e}_j^{*}\}$，
+	而且在基矢上也不增加星号（也不用黑体）以示区别，读者需谨慎区分．
+	在这些文献中只有记号$\{{e}_i\}$和$\{{e}^{i}\}$，
+	这些文献中的$\{{e}_i\}$就是\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}_i\}\cong \{(e_i)^a\}$，
+	而这些文献中的$\{{e}^{i}\}$是指\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}^{*i}\}\cong \{(e^i)_a\}$．
+	有些时候，这些文献还会使用如下记号：$(e_i)_a \cong \flat({e}_i) \equiv {e}_i^\flat \equiv {e}_{i\flat}$以
+	及$(e^i)^a \cong \sharp({e}^{i}) \equiv {e}^{i\sharp}$；
+	符号“$\flat$”、“$\sharp$”的含义见\S\ref{chrg:sec_music-iso}．
+\end{remark}
 
 
 
