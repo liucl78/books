@@ -115,22 +115,22 @@
 %%    &+e^{-2 \lambda } \bigl(\nu _{,3} \psi _{,3}+ \mu _{,3} (\nu _{,3}+\psi _{,3})\bigr)
 %%    +\frac{1}{4} e^{2 (\psi-\nu )} \bigl(e^{-2 \lambda } (\omega _{,3})^2 - e^{-2 \mu } (\omega _{,2})^2 \bigr).
 %\end{align*}
-%由上式容易得到轴对称真空爱氏场方程。
+%由上式容易得到轴对称真空爱氏场方程．
 从爱氏方程（$R_{\mu\nu}=0$）出发推演得到Kerr解是一繁琐、冗长的过程，
-\textcite{chandrasekhar-1983}第六章给出了详尽的推导；有兴趣的读者可研读之。
-%我们将省略推导，直接给出此解。
+\textcite{chandrasekhar-1983}第六章给出了详尽的推导；有兴趣的读者可研读之．
+%我们将省略推导，直接给出此解．
 
 
 \begin{definition}\label{chkerr:def_killing-horizon}
-    设四维闵氏流形$(M,g)$上有Killing矢量场$\xi^a$，以及一个类光超曲面$\mathcal{N}$。
-    如果$\xi^a$与$\mathcal{N}$正交，则称$\mathcal{N}$是$\xi^a$的{\heiti \bfseries Killing视界}。
+    设四维闵氏流形$(M,g)$上有Killing矢量场$\xi^a$，以及一个类光超曲面$\mathcal{N}$．
+    如果$\xi^a$与$\mathcal{N}$正交，则称$\mathcal{N}$是$\xi^a$的{\heiti \bfseries Killing视界}．
 \end{definition}
 
-%平直闵氏时空中，类光面$x\pm t =0$是Killing视界，但不是事件视界（见\pageref{chsch:sec_event-horizon}页）。
+%平直闵氏时空中，类光面$x\pm t =0$是Killing视界，但不是事件视界（见\pageref{chsch:sec_event-horizon}页）．
 %
-%可以证明渐进平坦定态时空的黑洞视界是Killing视界。
+%可以证明渐进平坦定态时空的黑洞视界是Killing视界．
 %
-%我们将坐标$x^2$、$x^3$分别选为$r$、$\theta$。
+%我们将坐标$x^2$、$x^3$分别选为$r$、$\theta$．
 %Killing视界$\mathcal{N}$的方程是
 %\begin{equation}\label{chkerr:eqn_gNr}
 %    g^{ab}\left(\nabla_a \mathcal{N}\right)\nabla_b \mathcal{N} = 0 
@@ -143,9 +143,9 @@
 %\end{equation}
 %式\eqref{chkerr:eqn_gNr}中的两个平方项$(\mathcal{N}_{,r})^2 $、$ (\mathcal{N}_{,\theta})^2$必然都是非负的；
 %而我们通过规范将$e^{2(\lambda-\mu)}$限定为$r$的函数，故必有$ (\mathcal{N}_{,\theta})^2=0$，
-%和$\Delta (r)=0$；并且$(\mathcal{N}_{,r})^2\neq 0$，否则$\mathcal{N}$就是常数了（这不可能）。
+%和$\Delta (r)=0$；并且$(\mathcal{N}_{,r})^2\neq 0$，否则$\mathcal{N}$就是常数了（这不可能）．
 %
-%Killing视界是类光超曲面，故度规在此曲面上是退化的。
+%Killing视界是类光超曲面，故度规在此曲面上是退化的．
 %Killing视界由$(\frac{\partial}{\partial \phi})^a$、$(\frac{\partial}{\partial t})^a$张成，
 %故在超曲面$\mathcal{N}$上，有二维度规行列式为零：
 %\begin{equation}
@@ -157,7 +157,7 @@
 %\end{equation}
 %
 %我们通过真空爱氏场方程（$R_{\mu\nu}=0$）来确定；
-%这需要\S\ref{chkerr:sec_axis-sym}中的Ricci曲率。
+%这需要\S\ref{chkerr:sec_axis-sym}中的Ricci曲率．
 %由$R_{00}$和$R_{11}$相加减得
 
 
@@ -165,20 +165,28 @@
 
 \section{Kerr--Newman解}
 
-Boyer--Lindquist坐标为$\{t,r,\theta,\phi\}$，
-则Kerr--Newman度规\cite[\S 33.2]{mtw1973}$g_{\mu\nu}$是：
-\begin{equation}\label{chkerr:eqn_KN}
- g=\begin{pmatrix}
-    \frac{-\Delta+a^2\sin^2\theta }{\rho^2} & 0 & 0 & (\Delta -r^2-a^2)\frac{ a \sin^2\theta}{\rho^2} \\
+我们采用Boyer--Lindquist坐标$\{t,r,\theta,\phi\}$，
+它与Schwarzschild坐标所用字母是相同的．
+则Kerr--Newman度规$g_{\mu\nu}$及其逆$g^{\mu\nu}$是\cite[\S 33.2]{mtw1973}：
+\begin{small}
+\begin{align}
+ g_{\mu\nu}=& \begin{pmatrix}
+    \frac{-\Delta+a^2\sin^2\theta }{\rho^2} & 0 & 0 & (\frac{Q^2}{4\pi}-2Mr)\frac{ a \sin^2\theta}{\rho^2} \\
     0 & \frac{\rho^2}{\Delta} & 0 & 0 \\
     0 & 0 & \rho^2 & 0 \\
-    (\Delta -r^2-a^2)\frac{ a \sin^2\theta}{\rho^2} & 0 & 0 
+    (\frac{Q^2}{4\pi}-2Mr)\frac{ a \sin^2\theta}{\rho^2} & 0 & 0 
     & \frac{\sin^2\theta}{\rho^2}((r^2+a^2)^2-\Delta a^2 \sin^2\theta) 
-\end{pmatrix}.
-\end{equation}
-电磁规范势为：
+\end{pmatrix}. \label{chkerr:eqn_KN} \\
+g^{\mu\nu}=& \begin{pmatrix}
+	\bigl(a^2 \sin^2\theta -(r^2+a^2)^2/\Delta\bigr)/\rho^2  & 0 & 0 & a(\frac{Q^2}{4\pi}-2Mr) / \rho^2 \Delta \\
+	0 & \Delta / \rho^2 & 0 & 0 \\
+	0 & 0 & 1 / \rho^2 & 0 \\
+	a(\frac{Q^2}{4\pi}-2Mr) / \rho^2 \Delta & 0 & 0 & (\sin^{-2} \theta -a^2/\Delta) / \rho^2 
+\end{pmatrix}. \label{chkerr:eqn_KN-inv}
+\end{align} \end{small}
+与上两式对应的电磁规范势为（下式为国际制无量纲化后的自然单位制）：
 \begin{equation}\label{chkerr:eqn_KN-EMA}
-    A_a= -\frac{Q r}{4 \pi \rho^2 } \left(({\rm d}t)_a - a \sin ^2\theta ({\rm d}\phi)_a \right) .
+    A_a= -\frac{Q r}{{4 \pi} \rho^2 } \left(({\rm d}t)_a - a \sin ^2\theta ({\rm d}\phi)_a \right) .
 \end{equation}
 其中（$Q$是电荷，$M$是质量，$J$是角动量）
 \begin{equation}
@@ -186,14 +194,16 @@ Boyer--Lindquist坐标为$\{t,r,\theta,\phi\}$，
     \rho^2=\left(a \cos \theta \right)^2+r^2;\quad
     a=\frac{J}{M}.
 \end{equation}
+通过符号演算程序，容易验证式\eqref{chkerr:eqn_KN}、\eqref{chkerr:eqn_KN-EMA}符合爱氏-麦氏场方程．
 
-通过符号演算程序，容易验证式\eqref{chkerr:eqn_KN}、\eqref{chkerr:eqn_KN-EMA}符合爱氏-麦氏场方程。
+当$Q=0$时，Kerr--Newman度规退化为纯粹的Kerr解．笔者认为，不论有无电荷，
+这个解的核心人物只有Roy Kerr（新西兰数学物理学家，1934-）．
 
-当$Q=0$时，Kerr--Newman度规退化为纯粹的Kerr解。笔者认为，不论有无电荷，
-这个解的核心人物只有Roy Kerr（新西兰物理学家，1934-）。
 
-很明显，当$a=0=Q$时，Kerr解退化为Schwarzschild解。
-Boyer--Lindquist坐标与Schwarzschild坐标所用字母是相同的。
+
+
+很明显，当$a=0=Q$时，Kerr解退化为Schwarzschild解．
+
 
 \begin{equation}
     \bar{\rho} =r+\mathbbm{i} a \cos\theta ;\quad 
@@ -202,6 +212,8 @@ Boyer--Lindquist坐标与Schwarzschild坐标所用字母是相同的。
 %        \Sigma^2=&(a^2+r^2)^2-\Delta\, a^2\sin ^2\theta;\quad
 \end{equation}
 
+
+\section{Newman--Penrose型式}
 
 \section*{小结}
 本章内容主要取自\parencite{chandrasekhar-1983}相应章节．

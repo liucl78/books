@@ -2631,7 +2631,7 @@ $\epsilon_{\dot{A}}^{\hphantom{A}\dot{A}}=2=-\epsilon_{\hphantom{A}\dot{A}}^{\do
     X^{{\mathcal{A}}\dot{\mathcal{A}}}=
     x^{\alpha} (\sigma_\alpha)^{{\mathcal{A}}\dot{\mathcal{A}}}.
 \end{align}
-\uwave{进而可以推广至Lorentz张量和旋量记号间的关系}（注意等号右端的正负号）：
+\CJKunderwave{进而可以推广至Lorentz张量和旋量记号间的关系}（注意等号右端的正负号）：
 \setlength{\mathindent}{0em}
 \begin{subequations}\label{chlar:eqn_spin-tensor} 
     \begin{align}
@@ -2885,7 +2885,7 @@ Poincar\'{e}代数不是半单的，故不能仿照式\eqref{chlg:eqn_Casimir}�
 
 %文章\parencite{Chaichian-1983}公式(5.7)指出Poincar\'{e}代数有两个相互独立的Casimir算子．
 经过前人研究，发现Poincar\'{e}代数有两个相互独立的Casimir算子，
-并已找到这两个算子；\uwave{第一个是四动量的平方}
+并已找到这两个算子；\CJKunderwave{第一个是四动量的平方}
 \begin{equation}\label{chlar:eqn_PA-Casimir-P2}
 	\hat{C}_1 \equiv \hat{P}_\mu \hat{P}^\mu = \hat{H}^2 - \boldsymbol{\hat{P}}^2
 	= \hat{H}^2 - \boldsymbol{\hat{P}}\cdot \boldsymbol{\hat{P}}.
@@ -2950,7 +2950,7 @@ Poincar\'{e}代数不是半单的，故不能仿照式\eqref{chlg:eqn_Casimir}�
 \end{equation}
 
 
-\uwave{第二个Casimir算子定义为}
+\CJKunderwave{第二个Casimir算子定义为}
 \begin{equation}\label{chlar:eqn_PA-Casimir-W2}
 	\hat{C}_2 \equiv \hat{W}_\mu \hat{W}^\mu 
 	= -\frac{1}{2} \hat{C}_1 \hat{M}_{\mu\nu}  \hat{M}^{\mu\nu}
@@ -3192,7 +3192,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 	\hat{C}_2 |k\sigma\rangle_s =-M^2 \boldsymbol{\hat{S}}\cdot\boldsymbol{\hat{S}}
 	|k\sigma\rangle_s =- M^2 s(s+1)|k\sigma\rangle_s.
 \end{equation}
-也就是说，\uwave{有质量粒子正能态可依据粒子{\kaishu 质量}和{\kaishu 自旋}进行分类．}
+也就是说，\CJKunderwave{有质量粒子正能态可依据粒子{\kaishu 质量}和{\kaishu 自旋}进行分类．}
 
 $SU(2)$群及其李代数的具体表示见\S\ref{chlar:sec_SU2SO3}．
 
@@ -3579,8 +3579,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 \end{equation}
 
 下面我们验证一下式\eqref{chlar:eqn_Phi-P}与有限平移算符是兼容的．
-为此需要用到如下算符求和表达式，许多文献都有下述式子的证明，
-比如可参考\parencite[p.27]{Greiner-FQ-1996}．
+为此需要用到如下算符求和表达式（证明见例题\ref{chlar:exam_eBe}）．
 \begin{subequations}\label{chlar:eqn_eBe}
 	\begin{align}
 		e^{\hat{A}} \hat{B} e^{-\hat{A}} = & \hat{B} + \left[\hat{A},\hat{B}\right]
@@ -3639,7 +3638,86 @@ $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三�
 表示\eqref{chlar:eqn_JKMN}为$\mathfrak{D}^{(00)} = (0)$，这说明标量场自旋为零．
 当$N>1$时，具体表示矩阵可参考式\eqref{chlar:eqn_JKMN}．
 
-更多内容请参考\parencite[\S 5.6,5.7]{weinberg_vol1}．
+关于量子场的更多内容请参考\parencite[\S 5.6,5.7]{weinberg_vol1}．
+
+
+
+\begin{example}\label{chlar:exam_eBe}
+	证明公式\eqref{chlar:eqn_eBe}．
+\end{example}
+
+我们分两步来证明，先证明式\eqref{chlar:eqn_BAkinfty}．
+设$A$和$B$为两个方阵（或线性算符），它们互不对易．
+定义多重对易式$\left[A^{(i)}, B\right]$和$\left[B, A^{(i)}\right]$如下：
+\begin{align*}
+\begin{array}{ll}
+	{\left[A^{(0)}, B\right]=B} & {\left[B, A^{(0)}\right]=B} \\
+	{\left[A^{(1)}, B\right]=[A, B]} & {\left[B, A^{(1)}\right]=[B, A]} \\
+	{\left[A^{(2)}, B\right]=[A,[A, B]]} & {\left[B, A^{(2)}\right]=[[B, A], A]} \\
+	\cdots\cdots\cdots \quad \cdots\cdots\cdots & \cdots\cdots\cdots \quad \cdots\cdots\cdots
+\end{array}
+\end{align*}
+显然，对于$\left[A^{(i+1)}, B\right]$、$\left[B, A^{(i+1)}\right]$型的多重对易式，有
+\begin{align*}
+	&\left[A,\left[A^{(i)}, B\right]\right]=\left[A^{(i+1)}, B\right]
+	\quad \Rightarrow \quad
+	A\left[A^{(i)}, B\right]=\left[A^{(i)}, B\right] A+\left[A^{(i+1)}, B\right] . \\
+	&\left[\left[B, A^{(i)}\right], A\right] = \left[B, A^{(i+1)}\right]
+	\quad \Rightarrow \quad
+	\left[B, A^{(i)}\right] A = A \left[B, A^{(i)}\right] + \left[B, A^{(i+1)}\right] .
+\end{align*}
+由上两式，利用数学归纳法可以证明：
+\begin{subequations}\label{chlar:eqn_AkBAk}
+\begin{align}
+	A^k B= & \sum_{i=0}^k \frac{k!}{(k-i)!i!}\left[A^{(i)}, B\right] A^{k-i}, \label{chlar:eqn_AkB} \\
+	B A^k= & \sum_{i=0}^k \frac{k!}{(k-i)!i!} A^{k-i}\left[B, A^{(i)}\right] . \label{chlar:eqn_BAk}
+\end{align}
+\end{subequations}
+此处只证明式\eqref{chlar:eqn_BAk}，另一个等式的证明留给读者当练习．
+
+当 $k=0$ 和 $k=1$ 时，有
+\begin{align*}
+	B A^0=&B=\left[B, A^{(0)}\right]=\frac{0!}{(0-0)!0!} A^{0-0}\left[B, A^{(0)}\right] .\\
+	B A^1=&B A=\frac{1!}{(1-0)!0!} A^{1-0}\left[B, A^{(0)}\right]+\frac{1!}{(1-1)!1!} A^{1-1}\left[B, A^{(1)}\right] .
+\end{align*}
+故式\eqref{chlar:eqn_BAk}对$k=0$、$k=1$成立．
+假设$k=n$时式\eqref{chlar:eqn_BAk}成立，则
+\begin{align*}
+	B A^{n+1}= & \sum_{i=0}^n \frac{n!}{(n-i)!i!} A^{n-i}\left[B, A^{(i)}\right] A \\
+	= & \sum_{i=0}^n \frac{n!}{(n-i)!i!} A^{n-i}\left(A\left[B, A^{(i)}\right]+\left[B, A^{(i+1)}\right]\right) \\
+%	= & \sum_{i=0}^n \frac{n!}{(n-i)!i!} A^{n+1-i}\left[B, A^{(i)}\right]+\sum_{i=0}^n \frac{n!}{(n-i)!i!} A^{n-i}\left[B, A^{(i+1)}\right] \\
+	= & \sum_{i=0}^n \frac{n!}{(n-i)!i!} A^{n+1-i}\left[B, A^{(i)}\right]
+	 +\sum_{j=1}^{n+1} \frac{n!}{(n-j+1)!(j-1)!} A^{n-j+1}\left[B, A^{(j)}\right] \\
+	= & \frac{n!}{(n-0)!0!} A^{n+1}\left[B, A^{(0)}\right] \\
+	&\quad +\sum_{i=1}^n\left[\frac{n!}{(n-i)!i!}+\frac{n!}{(n-i+1)!(i-1)!}\right] A^{n+1-i}\left[B, A^{(i)}\right] \\
+	& \quad +\frac{n!}{[n-(n+1)+1]![(n+1)-1]!} A^{n-(n+1)+1}\left[B, A^{(n+1)}\right] \\
+	= & A^{n+1}\left[B, A^{(0)}\right]+\sum_{i=1}^n\frac{(n+1)!}{(n-i+1)!i!} A^{n+1-i}\left[B, A^{(i)}\right] 
+	 +A^{0}\left[B, A^{(n+1)}\right] \\
+	= & \sum_{i=0}^{n+1} \frac{(n+1)!}{[(n+1)-i]!i!} A^{(n+1)-i}\left[B, A^{(i)}\right] .
+\end{align*}
+即$k=n+1$时式\eqref{chlar:eqn_BAk}也成立．
+于是，式\eqref{chlar:eqn_BAk}对任意非负整数$k$成立．
+若规定负整数的阶乘为正无穷大，则式\eqref{chlar:eqn_AkBAk}右边的级数化成无穷级数：
+\begin{subequations}\label{chlar:eqn_BAkinfty}
+	\begin{align}
+	A^k B= & \sum_{i=0}^{\infty} \frac{k!}{(k-i)!i!}\left[A^{(i)}, B\right] A^{k-i},  \\
+	B A^k= & \sum_{i=0}^{\infty} \frac{k!}{(k-i)!i!} A^{k-i}\left[B, A^{(i)}\right] .
+	\end{align}
+\end{subequations}
+至此，完成了第一步的证明．下面利用式\eqref{chlar:eqn_BAkinfty}完成第二步的证明．
+\begin{align*}
+	{e}^{-A} B {e}^A & ={e}^{-A} \sum_{k=0}^{\infty} \frac{1}{k!} B A^k
+	={e}^{-A} \sum_{k=0}^{\infty} \frac{1}{k!} \sum_{i=0}^{\infty} \frac{k!}{(k-i)!i!} A^{k-i}\left[B, A^{(i)}\right] \\
+  & ={e}^{-A} \sum_{i=0}^{\infty} \frac{1}{i!} \sum_{k=0}^{\infty} \frac{1}{(k-i)!} A^{k-i}\left[B, A^{(i)}\right]
+	={e}^{-A} \sum_{i=0}^{\infty} \frac{1}{i!} {e}^A\left[B, A^{(i)}\right] .
+\end{align*}
+上式最后一步中的指数$e^A$、$e^{-A}$相消后，
+便完成了公式\eqref{chlar:eqn_eBe}之一的证明；
+另一式子的证明留给读者当练习．
+\qed
+
+
+
 
 
 
@@ -3652,9 +3730,6 @@ $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三�
 	试计算公式\eqref{chlar:eqn_gc-18}．验证$S^\mu_{\hphantom{\mu}\nu} (E,0,0,p)^T=(E,0,0,p)^T$．
 \end{exercise}
 
-\begin{exercise}
-	试证明公式\eqref{chlar:eqn_eBe}，比如用数学归纳法．
-\end{exercise}
 
 
 

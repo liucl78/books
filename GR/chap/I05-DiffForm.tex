@@ -13,16 +13,16 @@
 
 \section{外微分型式场}\label{chdf:sec_exterior-diff-fields}
 在\S \ref{chmla:sec_exterior-algebra}中，我们已经引入了线性空间$V$中外代数
-的概念；那里只是针对一个特定空间$V$（或其对偶空间$V^*$），而本节我们将这些概念推广到\uwave{场}中．
+的概念；那里只是针对一个特定空间$V$（或其对偶空间$V^*$），而本节我们将这些概念推广到\CJKunderwave{场}中．
 在\S \ref{chdm:sec_tensor-fields}中引入了张量场的概念，微分型式场是全反对称的协变张量场．
 
 \begin{definition}
-设有$m$维光滑流形$M$，其上一个$C^\infty$\uwave{全反对称}$r$阶\uwave{协变}张量\uwave{场}称为
-流形$M$上的一个$r$次{\heiti 外微分型式\uwave{场}}，简称为{\heiti 外型式场}；也称为{\heiti 外微分式}．
+设有$m$维光滑流形$M$，其上一个$C^\infty$\CJKunderwave{全反对称}$r$阶\CJKunderwave{协变}张量\CJKunderwave{场}称为
+流形$M$上的一个$r$次{\heiti 外微分型式\CJKunderwave{场}}，简称为{\heiti 外型式场}；也称为{\heiti 外微分式}．
 \end{definition}
-上面已将\S \ref{chmla:sec_exterior-form}中“型式”定义\ref{chmla:def_exterior-form}推广到了\uwave{场}．
+上面已将\S \ref{chmla:sec_exterior-form}中“型式”定义\ref{chmla:def_exterior-form}推广到了\CJKunderwave{场}．
 在不引起误解时，可以省略前缀“外”字．
-此\uwave{场}自然是构建在余切丛$T^*M$上的，对于点$x\in M$，有局部坐标系$(U;x^i)$；
+此\CJKunderwave{场}自然是构建在余切丛$T^*M$上的，对于点$x\in M$，有局部坐标系$(U;x^i)$；
 仿照式\eqref{chmla:eqn_expand-on-base}，$r$型式场有如下表达式
 \begin{subequations}\label{chdf:eqn_omega-expand-on-bases}
 \begin{align}
@@ -191,7 +191,7 @@
     满足上面条件的映射“${\rm d}$”称为{\heiti 外微分}．
 \end{theorem}
 我们稍后证明此定理，先叙述一些必要信息．为令公式表述简洁，叙述此定理时未使用抽象指标记号．
-这个定理是流形$M$的整体描述，我们需要一个\uwave{局部性定理}，才能得到局部坐标系中的外微分表达式．
+这个定理是流形$M$的整体描述，我们需要一个\CJKunderwave{局部性定理}，才能得到局部坐标系中的外微分表达式．
 \begin{lemma}\label{chdm:thm_d-exiterior-local}
     假设满足上述四个条件的外微分${\rm d}$存在；
     如果$\alpha, \beta \in A(M)$，并且在开子集$U\subset M$上
@@ -697,7 +697,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 \end{definition}
 流形上每点切空间都与流形同维数，分布的含义便是先在$T_pU$ %（此式及下面诸式中的$U$皆可换成$M$）
 找到$h$个线性无关的切矢量$X^a_1(p),\cdots,X^a_h(p)$；然后让点$p$遍历$U$，这样就有$h$个线性无关的
-切矢量\uwave{场}$X^a_1,\cdots,X^a_h\ \in \mathfrak{X}(U)$；
+切矢量\CJKunderwave{场}$X^a_1,\cdots,X^a_h\ \in \mathfrak{X}(U)$；
 分布便是由这些切矢量场张成（为简单起见，要求这些切矢量场是光滑的），记为
 \begin{equation}
     L^h|_U \equiv \text{Span}_{\infty}\{X^a_1,\cdots,X^a_h \},\quad
@@ -1111,7 +1111,7 @@ $\{(\frac{\partial }{\partial y^i})^a\}$，这两组基矢量
 更为常用的定义是由余切空间来描述，此时会用到外微分型式场．
 先给出定义\ref{chdf:def_orientation}的对偶定义：
 \begin{definition}\label{chdf:def_orientation-dual}
-    如果$m$阶光滑流形$M$上\uwave{存在}一个连续的、处处非零的$m$阶外微分型式场$\omega$，
+    如果$m$阶光滑流形$M$上\CJKunderwave{存在}一个连续的、处处非零的$m$阶外微分型式场$\omega$，
     则称$M$是{\heiti 可定向}的光滑流形；$\omega$称为流形$M$的{\heiti 定向}．
     反之，流形$M$不可定向．
 \end{definition}
@@ -1475,7 +1475,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
 下面叙述Stokes--Cartan定理，这是流形论积分学中一个极为重要的定理，
 现在所用表述形式是由Cartan给出并证明的．
 \begin{theorem}\label{chdf:thm_stokes-cartan}
-    设$M$是$m$维、已定向、\uwave{带边}光滑流形，$\omega \in A^{m-1}(M)$，则
+    设$M$是$m$维、已定向、\CJKunderwave{带边}光滑流形，$\omega \in A^{m-1}(M)$，则
     \begin{equation}\label{chdf:eqn_stokes-cartan}
         \int_{M} {\rm d} \omega =  \int_{\partial M} \imath^{*} \omega .
     \end{equation}
