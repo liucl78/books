@@ -1613,8 +1613,7 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 	+\Gamma_{\gamma i}^\beta(x) \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma
 	\right) \times \frac{\partial x^i }{\partial y^j}.
 \end{equation}
-满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为
-矢量丛的{\heiti $\boldsymbol{G}$型联络}．
+满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为矢量丛的{\heiti $\boldsymbol{G}$型联络}．
 
 \index[physwords]{G型联络} 
 
@@ -1632,13 +1631,13 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 
 即令式\eqref{chfb:eqn_GDG}中的$g_{VU}(x)=e^{\mathbbm{i}\theta}$、$T_a=(\mathbbm{i})$，
 则式\eqref{chfb:eqn_GDG}化为：
-\begin{equation}
+\begin{equation*}
 	e^{\mathbbm{i}\theta} \tilde{\Gamma}_{1 j}^{1} 
 	=\frac{\partial e^{\mathbbm{i}\theta}}{\partial x^j}
 	+\Gamma_{1 j}^1 e^{\mathbbm{i}\theta} 
 	\quad \xRightarrow[\ref{chfb:eqn_GGamma}]{\text{带入式}}\quad
 	\tilde{A}_{j}(x) =\frac{\partial \theta}{\partial x^j}  +A_j(x)  .
-\end{equation}
+\end{equation*}
 这正是电磁规范势的规范变换公式；此时式\eqref{chfb:eqn_GGamma}中的$A^a_i$对应{\kaishu 电磁规范势}．
 
 把式\eqref{chfb:eqn_GGamma}（$U(1)$群是可对易群）带入曲率公式\eqref{chfb:eqn_R-vector-bundle}，有
@@ -1651,13 +1650,13 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 \begin{example}
 	非对易规范场（结构群$G$是半单、紧致、非对易矩阵群）．
 \end{example}
-非对易规范场也称为Yang--Mills场（杨振宁与米尔斯于1954年发现）．
-请参考任一本相关教材，读者你会发现式\eqref{chfb:eqn_GGamma}就是Yang--Mills场；
+非对易规范场也称为Yang--Mills场（杨振宁与米尔斯于1954年发现，这是杨先生最重要的学术贡献）．
+请参考任一本相关教材，读者你会发现\eqref{chfb:eqn_GGamma}式就是Yang--Mills场，
 式\eqref{chfb:eqn_GDG}正是Yang--Mills场需要满足的规范变换．
-把式\eqref{chfb:eqn_GGamma}带入曲率公式\eqref{chfb:eqn_R-vector-bundle}（$R_{\alpha i j}^\beta 
+把\eqref{chfb:eqn_GGamma}式带入曲率公式\eqref{chfb:eqn_R-vector-bundle}（$R_{\alpha i j}^\beta 
 = {\partial_i} \Gamma_{\alpha j}^{\beta} -\partial_j \Gamma_{\alpha i}^{\beta}
-+\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} -  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta}$），
-有（注意$(T_a)_{\hphantom{\alpha}\alpha}^\beta $是常数矩阵）：
++\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} 
+-  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta}$），有：
 \begin{align}
 	R_{\hphantom{\alpha}\alpha i j}^\beta 
 	=&{\partial_i} A^a_j (T_a)_{\hphantom{\alpha}\alpha}^\beta 
@@ -1668,13 +1667,12 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 	{\partial_i} A^a_j  -\partial_j A^a_i  + \sum\nolimits_{b,c=1}^{r} A^b_i A^c_j C_{bc}^a    \bigr) .
 	\label{chfb:eqn_YM-Strength}
 \end{align}
-其中$C_{bc}^a$是李代数$\mathfrak{g}$的结构常数．此式正是非对易规范场的场强公式；
-当$G$是可对易群时，式\eqref{chfb:eqn_YM-Strength}退化为式\eqref{chfb:eqn_EM-strength}．
-式\eqref{chfb:eqn_YM-Strength}是非对易规范场论的基础．
-虽然数学家们早在1940年代就已知晓矢量丛的曲率公式\eqref{chfb:eqn_R-vector-bundle}；
-但是一直到1975年，才由物理学家杨振宁发现规范场强公式\eqref{chfb:eqn_YM-Strength}与
-矢量丛的曲率公式本质相同；该式为杨先生最重要的学术贡献．
-由此可以窥见数学与物理之间的鸿沟．
+其中$C_{bc}^a$是李代数$\mathfrak{g}$的结构常数（注意$(T_a)_{\hphantom{\alpha}\alpha}^\beta $是常数矩阵）．
+式\eqref{chfb:eqn_YM-Strength}正是非对易规范场的场强公式，它是非对易规范场论的基础．
+当$G$可对易时，\eqref{chfb:eqn_YM-Strength}式退化为\eqref{chfb:eqn_EM-strength}式．
+虽然数学家们早在1940年代就已知晓矢量丛的曲率\eqref{chfb:eqn_R-vector-bundle}；
+但直到1975年，才由物理学家杨振宁发现规范场强\eqref{chfb:eqn_YM-Strength}与
+矢量丛的曲率本质相同．由此可以窥见数学与物理之间的鸿沟．
 \qed
 
 \index[physwords]{Yang--Mills场}  
@@ -1683,7 +1681,8 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 
 \begin{remark}
 	我们{\kaishu 省略$G$-主丛理论}，使用矢量丛联络、曲率来描述规范场
-	（比如规范变换\eqref{chfb:eqn_GDG}、场强\eqref{chfb:eqn_YM-Strength}），
+	（比如规范变换\eqref{chfb:eqn_GDG}、Yang--Mills场\eqref{chfb:eqn_GGamma}、
+	场强\eqref{chfb:eqn_YM-Strength}），
 	从纯数学角度来看这是不严谨的．因为笔者只想初步阐述纤维丛与规范场关系，
 	所以这种写法是划算的．
 \end{remark}
