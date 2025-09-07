@@ -577,7 +577,7 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 \index[physwords]{矢量丛的联络}
 
 
-\section{矢量丛的联络和曲率}\label{chfb:sec_connection}
+\section{矢量丛的联络与曲率}\label{chfb:sec_connection}
 
 联络的概念可以推广到任意矢量丛，下面会看到而光滑流形上的
 联络定义\ref{chccr:def_connection}恰好是该流形的切丛上的联络．
@@ -660,7 +660,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 \end{align}
 容易验证：上面两个映射满足定义\ref{chfb:def_vb-conncection}中的三个公理，
 因而是矢量丛 $E_1 \oplus E_2$ 和 $E_1 \otimes E_2$ 上的联络．
-我们规定式\eqref{chfb:eqn_otcon}中$\nabla_X$与缩并运算可对易．
+我们\CJKunderwave{规定式\eqref{chfb:eqn_otcon}中$\nabla_X$与缩并运算可对易}．
 
 %分别记为 $\nabla^{(1)} \oplus \nabla^{(2)}$ 和 $\nabla^{(1)} \otimes \nabla^{(2)}$
 
@@ -710,9 +710,9 @@ $\tilde{\pi}$是$\pi$在 $\pi^{-1}(U)$上的限制，
 则有矢量丛$E$在$U$上的限制：$\tilde{\pi}:\left.E\right|_U=\pi^{-1}(U) \to U$．
 
 利用矢量丛联络的局部性定理不难知道，从$E$上的联络$\nabla$可以诱导出局部开集$\left.E\right|_U$上的联络．
-如果在$U$上存在$M$的局部切标架场$\left\{e_i,\ 1 \leqslant i \leqslant m\right\}$，
-它的对偶标架场是$\left\{e^{*i},\ 1 \leqslant i \leqslant m\right\}$；
-以及矢量丛$E$在$U$上的局部标架场$\left\{s_\alpha,\ 1 \leqslant \alpha \leqslant q\right\}$，
+若在$U\subset M$上存在局部切标架场$\left\{e_i,\ 1 \leqslant i \leqslant m\right\}$，
+其余切标架场是$\left\{e^{*i},\ 1 \leqslant i \leqslant m\right\}$；
+以及矢量丛$\left.E\right|_U$上的局部标架场$\left\{s_\alpha,\ 1 \leqslant \alpha \leqslant q\right\}$，
 $s^{*\alpha}$是其对偶标架场；那么对于 $X \in \mathfrak{X}(M)$，$ \xi \in \Gamma(E)$，可设
 \begin{equation*}
     \left.X\right|_U= \sum_{i=1}^{m}X^i e_i,\left.\quad 
@@ -734,29 +734,34 @@ $\left\{e_i\right\}$及$\left\{s_\alpha\right\}$下的{\heiti 联络系数}．
     (\xi^\alpha s_\alpha ) = X^i \bigl((\nabla_{e_i} \xi^\alpha ) s_\alpha+ 
     \xi^\alpha \nabla_{e_i} s_\alpha \bigr) \\
     \xlongequal{\ref{chfb:eqn_con-Gamma}}& 
-    \sum_{\alpha,\beta=1}^{q} \sum_{i=1}^{m}
+    \sum\nolimits_{\alpha,\beta=1}^{q} \sum\nolimits_{i=1}^{m}
     X^i\bigl(e_i (\xi^\alpha )+\xi^\beta \Gamma_{\beta i}^\alpha \bigr) s_\alpha .
 \end{aligned}    
 \end{equation}
 式\eqref{chfb:eqn_con-comp}为协变导数$\nabla_X \xi$在局部标架场下的表达式．记
 \begin{equation}\label{chfb:eqn_con-form}
-    \omega_{\hphantom{\alpha}\beta}^\alpha \equiv \sum_{i=1}^{m} \Gamma_{\beta i}^\alpha e^{*i} 
+    \omega_{\hphantom{\alpha}\beta}^\alpha \equiv \sum\nolimits_{i=1}^{m} \Gamma_{\beta i}^\alpha e^{*i} 
     \quad \Leftrightarrow \quad
     \left< \omega_{\hphantom{\alpha}\beta}^\alpha,\ e_i \right> = \Gamma_{\beta i}^\alpha  .
     \qquad \langle \cdot,\cdot\rangle \ \text{是配合}
 \end{equation}
 $\omega_{\hphantom{\alpha}\beta}^\alpha$称为联络$\nabla$在
-局部标架场$\left\{s_\alpha\right\}$下的{\heiti 联络型式}．
-%如果用抽象指标表示此联络型式，则为
-%\begin{equation*}
-%    \left(\omega_{\hphantom{\alpha}\beta}^\alpha\right)_a = 
-%    \sum_{i=1}^{m}\Gamma_{\beta i}^\alpha (e^{i})_a . \qquad
-%    \text{这里强调的是：}  1\leqslant i \leqslant m,\quad 1\leqslant \alpha,\beta \leqslant q
-%\end{equation*}
-%同时需要注意$(e^{i})_a\in \mathfrak{X}^*(U)$，不是丛空间$E$上的对偶矢量．继续，有
+局部标架场$\left\{s_\alpha\right\}$下的{\heiti 联络型式}
+{\footnote{如果用抽象指标表示此联络型式，
+		则为$\left(\omega_{\hphantom{\alpha}\beta}^\alpha\right)_a = 
+    \sum\nolimits_{i=1}^{m}\Gamma_{\beta i}^\alpha (e^{i})_a,\quad
+    1\leqslant i \leqslant m,\ 1\leqslant \alpha,\beta \leqslant q $．
+同时需要注意$(e^{i})_a\in \mathfrak{X}^*(U)$，不是丛空间$E$上的对偶矢量．}}．
 则
 \begin{equation}\label{chfb:eqn_Dsos}
-    \nabla s_\alpha=\omega_{\hphantom{\alpha}\alpha}^\beta s_\beta .
+    \nabla s_\alpha=s_\beta \omega_{\hphantom{\alpha}\alpha}^\beta  , 
+    \quad \text{及} \quad
+    \nabla_{e_i} s_\alpha=s_\beta \langle \omega_{\hphantom{\alpha}\alpha}^\beta ,\  e_i\rangle
+    = \langle s_\beta\omega_{\hphantom{\alpha}\alpha}^\beta ,\  e_i\rangle.
+\end{equation}
+上式中用到了
+\begin{equation}
+	\nabla_{e_i} (\cdots) \equiv \langle \nabla(\cdots) ,\  e_i\rangle.
 \end{equation}
 并且由式\eqref{chfb:eqn_con-comp}可得
 \begin{equation}\label{chfb:eqn_D-form}
@@ -794,23 +799,23 @@ $\omega_{\hphantom{\alpha}\beta}^\alpha$称为联络$\nabla$在
 式\eqref{chfb:eqn_wform-trans}适用于矢量丛（包含切标架丛）．
 
 
-%\begin{example}
-%    矢量丛截面的平行．
-%\end{example}
-%
-%设$\nabla$是矢量丛$(E,M,\pi)$ 上的一个联络，令$p \in M$．
-%$\forall \xi \in \Gamma(E)$，$\forall v \in T_p M$，
-%$\nabla_v \xi$是光滑截面 $\xi$ 在 $p$ 点沿切矢量 $v$ 的协变导数．
-%另外，对于 $M$ 中的光滑曲线 $\gamma:[0, b] \rightarrow M$，如果 $\xi \in \Gamma(E)$ 满足
-%\begin{equation}
-%    \nabla_{\gamma^{\prime}(t)} \xi=0, \qquad \forall t \in[0, b],
-%\end{equation}
-%则称光滑截面$\xi$沿曲线$\gamma$是{\heiti 平行}的；当然，此时只需要 $\xi$ 沿 $\gamma$ 有定义即可．
-%类似于仿射联络空间，对于任意的 $p \in M$，还可以定义矢量 $\xi \in \pi^{-1}(p)$沿底流形 $M$ 上
-%从 $p$ 出发的光滑曲线 $\gamma$ 的平行移动，从而得到在两个不同点 $p, q \in M$ 处
-%的纤维 $\pi^{-1}(p)$ 和 $\pi^{-1}(q)$ 之间的线性同构，
-%该同构与连接 $p, q$ 的光滑曲线 $\gamma$ 有关． 
-%这种推广并不困难，不再赘述．\qed
+
+
+\begin{example}
+    矢量丛截面的平行．
+\end{example}
+
+设$\nabla$是矢量丛$(E,M,\pi)$ 上的一个联络，令$p \in M$．
+$\forall \xi \in \Gamma(E)$，$\forall v \in T_p M$，
+$\nabla_v \xi$是光滑截面 $\xi$ 在 $p$ 点沿切矢量 $v$ 的协变导数．
+另外，对于 $M$ 中的光滑曲线 $\gamma:[0, b] \rightarrow M$，如果 $\xi \in \Gamma(E)$ 满
+足$ \nabla_{\gamma^{\prime}(t)} \xi=0, \ \forall t \in[0, b]$，
+则称光滑截面$\xi$沿曲线$\gamma$是{\heiti 平行}的；当然，此时只需要 $\xi$ 沿 $\gamma$ 有定义即可．
+类似于仿射联络空间，对于任意的 $p \in M$，还可以定义矢量 $\xi \in \pi^{-1}(p)$沿底流形 $M$ 上
+从 $p$ 出发的光滑曲线 $\gamma$ 的平行移动，从而得到在两个不同点 $p, q \in M$ 处
+的纤维 $\pi^{-1}(p)$ 和 $\pi^{-1}(q)$ 之间的线性同构，
+该同构与连接 $p, q$ 的光滑曲线 $\gamma$ 有关． 
+这种推广并不困难，不再赘述．\qed
 
 
 \begin{example}
@@ -977,7 +982,7 @@ $U\subset M$局部微分同胚于$\phi(U)\subset V \subset N$．
         &{\nabla}_{X}(\phi_{*}Y)-{\nabla}_{Y}(\phi_{*}X) =
         \bigl(X^\alpha e_\alpha(Y^\sigma)\bigr) e_\sigma
         + Y^\pi  X^\alpha \nabla_{e_\alpha} e_\pi  \\
-        &\qquad\qquad\qquad\qquad\qquad\  - \bigl(Y^\alpha e_\alpha(X^\sigma)\bigr) e_\sigma
+        &\qquad\qquad\qquad\qquad\quad \ \,   - \bigl(Y^\alpha e_\alpha(X^\sigma)\bigr) e_\sigma
         - X^\pi Y^\alpha \nabla_{e_\alpha} e_\pi \\
         &=\Bigl(X^\alpha e_\alpha(Y^\sigma)
         + Y^\pi  X^\alpha \Gamma_{\pi\alpha}^\sigma
@@ -991,26 +996,27 @@ $U\subset M$局部微分同胚于$\phi(U)\subset V \subset N$．
         \xlongequal[\ref{chdm:thm_push-Poisson-related}]{\text{定理}} \phi_{*}[X,Y] .
 \end{align*}
 
-%\begin{example}
-%    浸入曲线例子．
-%\end{example}
-%设$\gamma:[a, b] \rightarrow N$是仿射联络空间 $(N, \mathrm{D})$上的正则光滑曲线，
-%即切矢量 $\gamma^{\prime}$ 处处不为零；则 $\gamma$ 在局部上是正则嵌入．
-%因此，对于任意的 $X \in \Gamma(\gamma^* TN)$，$X$在局部上是$N$上的
-%切矢量在曲线 $\gamma$ 上的限制，因而协变导数 $\mathrm{D}_{\gamma^{\prime}(t)} X$ 处处有意义．
-%根据诱导联络 $\nabla$ 和 $\mathrm{D}_{\gamma^{\prime}(t)} X$的定义可知
-%\begin{equation}
-%    \nabla_{\frac{\partial}{\partial t}} X=\mathrm{D}_{\gamma^{\prime}(t)} X, 
-%    \qquad \forall X \in \Gamma(\gamma^* T N) .
-%\end{equation}
-%据此，$X$ 沿曲线 $\gamma$ 是平行矢量场的条件可以改写为$\nabla_{\frac{\partial}{\partial t}} X=0$．
-%特别地，$\gamma$是测地线等价于$\nabla_{\frac{\partial}{\partial t}} \gamma^{\prime}=0$．
-%\qed
+\begin{example}
+    浸入曲线例子．
+\end{example}
+设$\gamma:[a, b] \rightarrow N$是仿射联络空间 $(N, \mathrm{D})$上的正则光滑曲线，
+即切矢量 $\gamma^{\prime}$ 处处不为零；则 $\gamma$ 在局部上是正则嵌入．
+因此，对于任意的 $X \in \Gamma(\gamma^* TN)$，$X$在局部上是$N$上的
+切矢量在曲线 $\gamma$ 上的限制，因而协变导数 $\mathrm{D}_{\gamma^{\prime}(t)} X$ 处处有意义．
+根据诱导联络 $\nabla$ 和 $\mathrm{D}_{\gamma^{\prime}(t)} X$的定义可知
+\begin{equation}
+    \nabla_{\frac{\partial}{\partial t}} X=\mathrm{D}_{\gamma^{\prime}(t)} X, 
+    \qquad \forall X \in \Gamma(\gamma^* T N) .
+\end{equation}
+据此，$X$ 沿曲线 $\gamma$ 是平行矢量场的条件可以改写为$\nabla_{\frac{\partial}{\partial t}} X=0$．
+特别地，$\gamma$是测地线等价于$\nabla_{\frac{\partial}{\partial t}} \gamma^{\prime}=0$．
+\qed
 
 
 \index[physwords]{矢量丛曲率}
 
-\subsection{曲率}
+\subsection{曲率}\label{chfb:sec_curvature}
+
 
 将式\eqref{chfb:eqn_wform-trans}改成矩阵形式；
 令$\omega=(\omega_{\hphantom{\alpha}\gamma}^\beta)$、
@@ -1052,17 +1058,6 @@ $A=(a_{\hphantom{\alpha}\gamma}^\beta)$，则有
     A (\tilde{\omega}\wedge \tilde{\omega} + \mathrm{d} \tilde{\omega} )
     =(\mathrm{d}\omega +  \omega\wedge\omega )A .
 \end{equation}
-%推导过程
-%\begin{align*}
-%    & (A \tilde{\omega}-\omega A )\wedge \tilde{\omega}+ A \mathrm{d} \tilde{\omega} 
-%    =(\mathrm{d}\omega) A - \omega\wedge(A \tilde{\omega}-\omega A) \\
-%    \Rightarrow\ &
-%    A \tilde{\omega}\wedge \tilde{\omega}-\omega A \wedge \tilde{\omega} + A \mathrm{d} \tilde{\omega} 
-%    =(\mathrm{d}\omega) A - \omega\wedge A \tilde{\omega}+  \omega\wedge\omega A \\
-%    \Rightarrow\ &
-%    A \tilde{\omega}\wedge \tilde{\omega} + A \mathrm{d} \tilde{\omega} 
-%    =(\mathrm{d}\omega) A +  \omega\wedge\omega A
-%\end{align*}
 
 
 \begin{definition}
@@ -1084,8 +1079,7 @@ $A=(a_{\hphantom{\alpha}\gamma}^\beta)$，则有
 $\forall p \in U\subset M$ 任取两个切矢量 $X, Y \in$ $T_p(M)$，则用曲率型式$\Omega$可定义从纤维$\pi^{-1}(p)$到
 自身的线性变換$R(X, Y)$．它的定义如下：设 $\xi \in \pi^{-1}(p)$，它用矢量丛$E$在$U$上
 的局部标架场$s_\alpha=\left(s_1, \cdots, s_q\right)$可表成
-$\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
-则命
+$\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 \begin{equation}\label{chfb:eqn_CurvatureO}
     R(X, Y) \xi \overset{def}{=}\sum\nolimits_{\alpha, \beta=1}^q \xi^\alpha 
     \Omega_{\hphantom{\alpha}\alpha}^\beta(X, Y) s_{\beta}|_p .
@@ -1168,17 +1162,8 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 
 
 
-取底流形$M$的局部自然标架$\{\frac{\partial }{\partial x^i}\}$，取丛空间的标架$\{s_\alpha\}$；
-在这样的标架场下，我们可以得到矢量丛上的曲率分量表达式（请与式\eqref{chccr:eqn_Riemannian13-component}比对）
-\begin{equation}\label{chfb:eqn_R-vector-bundle}
-    R_{\hphantom{\alpha}\alpha i j}^\beta = {\partial_i} \Gamma_{\alpha j}^{\beta} -\partial_j \Gamma_{\alpha i}^{\beta}
-    +\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} -  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta} .   
-\end{equation}
-上式中各分量指标的取值范围是：$ 1\leqslant i,j \leqslant m $，$ 1\leqslant \alpha,\beta,\sigma \leqslant q$．
 
-%若$R$的分量形式为$R_{\hphantom{\alpha}\alpha i j}^\beta$，
-
-\begin{theorem}
+\begin{theorem}\label{chfb:thm_RP}
     有以下性质：
     {\bfseries (1)} $R(X, Y)=-R(Y, X)$；
     {\bfseries (2)} $R(f X, Y)=f \cdot R(X, Y)$；
@@ -1203,6 +1188,9 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．
 \end{align*}
 上式最后一步：$\Omega$是2型式场，$\omega$是1型式场；那么$\Omega \wedge \omega=\omega \wedge \Omega$．
 \end{proof}
+
+
+
 
 
 
@@ -1514,11 +1502,13 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 
 \index[physwords]{切标架丛}
 
-\paragraph{切标架丛}\label{chfb:sec_tangent-frame-bundles}
-取矢量丛$(E,M,\pi)$为切丛$(TM,M,\pi)$，与之相配的标架丛就是切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$．
+\subsection{切标架丛}\label{chfb:sec_tangent-frame-bundles}
+
+取矢量丛$(E,M,\pi)$为切丛$(TM,M,\pi)$，
+与之相配的标架丛就是切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$．
 本节前面的内容自然适用于切标架丛．
-%再次强调：切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$和切丛$(TM,M,\pi)$的纤维型是不同的，
-%切丛是线性空间$\mathbb{R}^m$，切标架丛是$GL(m)$；但是它们却有相同的过渡函数族：$GL(m)$．
+再次强调：切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$和切丛$(TM,M,\pi)$的纤维型是不同的，
+切丛是线性空间$\mathbb{R}^m$，切标架丛是$GL(m)$；但是它们却有相同的过渡函数族：$GL(m)$．
 
 %$\left\{J_{\beta \alpha}: U_\alpha \cap U_\beta \rightarrow GL(m)\right\}$
 
@@ -1541,18 +1531,14 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 这超出了本书的范畴，可参考文献\parencite{chen-li-2004v2}第十章或类似文献．
 
 
-%%本节将主丛的结构群$G$限定在矩阵群$GL(q,\mathbb{C})$的子群，此时的$G$-主丛就是上节叙述的标架丛．
+
 设底流形$M$是$m$维的光滑实流形，$M$上植有$G$-标架丛（$G$是$GL(q,\mathbb{C})$的子群）．
 设群$G$的李代数是$\mathfrak{g}$（李代数的维数是$r$），
-$\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q\times q$维矩阵）．
-%若$\mathfrak{g}$的Killing型退化（定义见\S\ref{chlg:sec_KillingForm}），
-%对物理学来说貌似无用，故要求$\mathfrak{g}$是半单的．
-进一步要求$G$是紧致的、半单的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
-矩阵群$G$的李代数$\mathfrak{g}$诱导出的Killing型是负定的；
-进而可以在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型
-的{\kaishu 负值}（这样，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$便是正定的了）；
-从而可以定义不变积分（见\S\ref{chlg:sec_Integral}）．
-若没有紧致性，那么貌似无法定义群$G$上的不变积分．
+$\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q$维方阵）．
+进一步要求$G$是半单的，那么依定理\ref{chlg:thm_LA-semi-real-compact}可知
+矩阵群$G$的李代数$\mathfrak{g}$诱导出的Killing型是非退化的；
+进而可在丛空间$E$上定义{\heiti 丛度量}$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为Killing型的{\kaishu 负值}
+（这样，对于紧致半单群$G$来说，$\langle \cdot,\cdot\rangle_{\mathfrak{g}}$为正定）．
 
 
 在开子集$U\subset M$、$V\subset M$上分别引入局部坐标$\{x^i\}$、$\{y^i\}$，并假定$U\cap V\neq \varnothing$；
@@ -1610,7 +1596,7 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 \begin{equation}\label{chfb:eqn_GDG}
 	\bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\gamma}^\beta \tilde{\Gamma}_{\alpha j}^\gamma (y)
 	=\left(\frac{\partial \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\beta}{\partial x^i}
-	+\Gamma_{\gamma i}^\beta(x) \bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma
+	+\bigl[g_{VU}(x)  \bigr]_{\hphantom{\alpha}\alpha}^\gamma \Gamma_{\gamma i}^\beta(x) 
 	\right) \times \frac{\partial x^i }{\partial y^j}.
 \end{equation}
 满足变换关系\eqref{chfb:eqn_GDG}的式\eqref{chfb:eqn_GGamma}称为矢量丛的{\heiti $\boldsymbol{G}$型联络}．
@@ -1618,7 +1604,181 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 \index[physwords]{G型联络} 
 
 
-在物理学中，通常将$M$选为平直的四维闵氏流形$(\mathbb{R}^4_1,\eta)$；
+\begin{example}
+	联络系数\eqref{chfb:eqn_GDG}的变换关系可以推广到一般情形．
+\end{example}
+联络系数\eqref{chfb:eqn_GDG}是在自然标架$\{\frac{\partial }{\partial x^i}\}$下的关系式．
+我们将自然标架换成一般的切标架场$\{e_i\}$，
+那么在变换$\tilde{s}_\alpha=a_{\hphantom{\alpha}\alpha}^\gamma s_\gamma$、
+$\tilde{e}_j=\mathcal{C}_{\hphantom{i}j}^i e_i$下，有
+\begin{align*}
+	\tilde{s}_\gamma \tilde{\Gamma}^\gamma_{\alpha j}
+	=&  \nabla_{\tilde{e}_j} \tilde{s}_\alpha 
+	= \mathcal{C}_{\hphantom{i}j}^i \nabla_{e_i} \left(a_{\hphantom{\alpha}\alpha}^\gamma s_\gamma\right)
+	= \mathcal{C}_{\hphantom{i}j}^i \left( \left(\nabla_{e_i} a_{\hphantom{\alpha}\alpha}^\gamma\right) s_\gamma
+	+ a_{\hphantom{\alpha}\alpha}^\gamma  \nabla_{e_i} s_\gamma\right) \\
+	=& \mathcal{C}_{\hphantom{i}j}^i s_\beta \left({e_i}\left( a_{\hphantom{\alpha}\alpha}^\beta\right) 
+	+ a_{\hphantom{\alpha}\alpha}^\gamma \Gamma_{\gamma i}^\beta \right) .
+\end{align*}
+由上式可以得到
+\begin{equation}\label{chfb:eqn_gfGDG}
+	a_{\hphantom{\alpha}\gamma}^\beta \tilde{\Gamma}^\gamma_{\alpha j} = \mathcal{C}_{\hphantom{i}j}^i 
+	\left({e_i}\left( a_{\hphantom{\alpha}\alpha}^\beta\right) 
+	+ a_{\hphantom{\alpha}\alpha}^\gamma \Gamma_{\gamma i}^\beta \right) .
+\end{equation}
+当把$\{e_i\}$取成自然标架$\{\frac{\partial }{\partial x^i}\}$时，
+式\eqref{chfb:eqn_gfGDG}变成了式\eqref{chfb:eqn_GDG}．
+\qed
+
+
+
+
+
+
+
+
+\subsection{曲率相关内容的分量表述}
+
+取$U$的自然标架$\{\frac{\partial }{\partial x^i}\}$、丛空间的标架$\{s_\alpha\}$；
+对于$X=X^i \partial_i$、$Y=Y^j \partial_j$，不难看出$R(X, Y) s_\alpha \in \Gamma(E)$；
+由\eqref{chfb:eqn_CurvatureO}、\eqref{chfb:eqn_RppR}得（其中$\xi = \xi^\alpha(x) s_{\alpha}$）
+\begin{align}
+	\langle s^{*\gamma},\,  R(X, Y) \xi \rangle
+	=\xi^\alpha \Omega_{\hphantom{\alpha}\alpha}^\beta(X, Y) \langle s^{*\gamma},\,  s_{\beta}\rangle 
+	=\xi^\alpha \Omega_{\hphantom{\alpha}\alpha}^\gamma (X, Y) .
+\end{align}
+故有
+\begin{subequations}
+	\begin{align}
+	R_{\hphantom{\alpha}\alpha i j}^\beta \equiv&
+	\Omega_{\hphantom{\alpha}\alpha}^\beta (\partial_i, \partial_j) \equiv
+	\langle s^{*\beta},\,  R(\partial_i, \partial_j) s_\alpha \rangle ,\\
+	R \equiv& R_{\hphantom{\alpha}\alpha i j}^\beta 
+	s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j .
+	\end{align}
+\end{subequations}
+
+\paragraph{坐标变换} 下面导出在变换$\tilde{s}_\alpha=a_{\hphantom{\alpha}\alpha}^\gamma s_\gamma$、
+$x^i\to \tilde{x}^i$下，曲率分量表达式是如何变换的．
+我们从式\eqref{chfb:eqn_TATA}、\eqref{chfb:eqn_CurvatureO}、\eqref{chfb:eqn_RppR}出发进行探讨．
+\begin{align*}
+	\widetilde{\Omega} =A^{-1} \Omega A \quad \Rightarrow \quad 
+	\widetilde{\Omega}_{\hphantom{\alpha}\alpha}^\beta
+	\left( \frac{\partial }{\partial \tilde{x}^i}, \frac{\partial }{\partial \tilde{x}^j} \right) 
+	=\left(a^{-1}\right)_{\hphantom{\alpha}\rho}^\beta a_{\hphantom{\alpha}\alpha}^\sigma 
+	\Omega_{\hphantom{\alpha}\sigma}^\rho
+	\left( \frac{\partial x^k }{\partial \tilde{x}^i} \frac{\partial }{\partial x^k}, 
+	\frac{\partial x^l }{\partial \tilde{x}^j} \frac{\partial }{\partial x^l} \right) .
+\end{align*}
+由此可以得到局部坐标变换下，曲率分量的变换表达式（$a\in G$）：
+\begin{equation}\label{chfb:eqn_Rvb-trans}
+	\widetilde{R}^\beta_{\hphantom{\alpha}\alpha ij}
+	= R^\rho_{\hphantom{\alpha}\sigma kl} 
+	\left(a^{-1}\right)_{\hphantom{\alpha}\rho}^\beta a_{\hphantom{\alpha}\alpha}^\sigma
+	\frac{\partial x^k }{\partial \tilde{x}^i} \frac{\partial x^l }{\partial \tilde{x}^j} .
+\end{equation}
+
+
+\paragraph{曲率分量表达式} 由式\eqref{chfb:eqn_Riemann-Curvature}可以得到
+（请与式\eqref{chccr:eqn_Riemannian13-component}比对）：
+\begin{equation}\label{chfb:eqn_R-vector-bundle}
+	R_{\hphantom{\alpha}\alpha i j}^\beta 
+	= \frac{\partial}{\partial x^i} \Gamma_{\alpha j}^{\beta} 
+	-\frac{\partial}{\partial x^j} \Gamma_{\alpha i}^{\beta}
+	+\Gamma_{\alpha j}^{\sigma} \Gamma_{\sigma i}^{\beta} 
+	-  \Gamma_{\alpha i}^{\sigma}\Gamma_{\sigma j}^{\beta} .   
+\end{equation}
+上式中各分量指标的取值范围是：$ 1\leqslant i,j \leqslant m $，$ 1\leqslant \alpha,\beta,\sigma \leqslant q$．
+
+
+
+\paragraph{曲率协变导数} 先计算局部自然标架上的导数：
+\begin{align*}
+	\nabla_{\partial_k} R = & \nabla_{\partial_k}\left(	R_{\hphantom{\alpha}\alpha i j}^\beta 
+	s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j \right) \\
+	=& \frac{\partial R_{\hphantom{\alpha}\alpha i j}^\beta }{\partial x^k}
+	s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j 
+	+ R_{\hphantom{\alpha}\alpha i j}^\beta \left( \nabla_{\partial_k} s_\beta \right)
+	\otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j \\
+	& + R_{\hphantom{\alpha}\alpha i j}^\beta s_\beta \otimes 
+	\left( \nabla_{\partial_k} s^{*\alpha} \right) \otimes {\rm d}x^i \otimes {\rm d}x^j 
+	+ R_{\hphantom{\alpha}\alpha i j}^\beta s_\beta \otimes s^{*\alpha}\otimes  
+	\left( \nabla_{\partial_k} {\rm d}x^i \right) \otimes  {\rm d}x^j \\
+	&+ R_{\hphantom{\alpha}\alpha i j}^\beta s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i 
+	\otimes \left( \nabla_{\partial_k} {\rm d}x^j \right) \\
+	=&\left( \frac{\partial R_{\alpha i j}^\beta }{\partial x^k}
+	+ R_{\alpha i j}^\rho \Gamma^\beta_{\rho k}
+	- R_{\rho i j}^\beta \Gamma^\rho_{\alpha k}
+	- R_{\alpha l j}^\beta \oversetmy{x}{\Gamma}^l_{i k}
+	- R_{\alpha i l}^\beta \oversetmy{x}{\Gamma}^l_{j k}	\right)
+	s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j .
+\end{align*}
+我们记
+\begin{equation}\label{chfb:eqn_RijDk}
+	 R_{\hphantom{\alpha}\alpha i j ; k}^\beta \equiv 
+	\frac{\partial R_{\hphantom{\alpha}\alpha i j}^\beta }{\partial x^k}
+	+ R_{\hphantom{\alpha}\alpha i j}^\rho \Gamma^\beta_{\rho k}
+	- R_{\hphantom{\alpha}\rho i j}^\beta \Gamma^\rho_{\alpha k}
+	- R_{\hphantom{\alpha}\alpha l j}^\beta \oversetmy{x}{\Gamma}^l_{i k}
+	- R_{\hphantom{\alpha}\alpha i l}^\beta \oversetmy{x}{\Gamma}^l_{j k} .
+\end{equation}
+对于任意的$ Z = Z^k \partial_k \in \mathfrak{X}(U)$，则有
+\begin{equation}\label{chfb:eqn_DZR}
+	\nabla_{Z} R = Z^k R_{\hphantom{\alpha}\alpha i j ; k}^\beta \ 
+	s_\beta \otimes s^{*\alpha}\otimes {\rm d}x^i \otimes {\rm d}x^j .
+\end{equation}
+
+\paragraph{Bianchi微分恒等式分量表达式} 
+需要注意曲率方阵$\Omega\equiv (\Omega_{\hphantom{\alpha}\alpha}^\beta)$中的每个
+矩阵元$\Omega_{\hphantom{\alpha}\alpha}^\beta$都是$U\subset M$上的$2$型式场，
+即$\Omega_{\hphantom{\alpha}\alpha}^\beta= \frac{1}{2}
+R_{\hphantom{\alpha}\alpha ij}^\beta {\rm d}x^i \wedge {\rm d}x^j$，
+其中$R_{\hphantom{\alpha}\alpha i j}^\beta \in C^\infty(U)$．
+将其带入定理\ref{chfb:thm_2ndBianchi}中
+的式子$\mathrm{d} \Omega = \Omega \wedge \omega - \omega \wedge \Omega $，有
+\begin{align*}
+    0 = & 2(\mathrm{d} \Omega - \Omega \wedge \omega + \omega \wedge \Omega )\\
+    =& \frac{\partial R^\beta_{\alpha ij}}{\partial x^k} {\rm d}x^k \wedge {\rm d}x^i \wedge {\rm d}x^j
+    - R^\beta_{\rho ij} {\rm d}x^i \wedge {\rm d}x^j \wedge \omega^\rho_\alpha 
+    + \omega^\beta_\rho \wedge R^\rho_{\alpha ij} {\rm d}x^i \wedge {\rm d}x^j \\
+    =& \left(\partial_k R^\beta_{\alpha ij} 
+    - R^\beta_{\rho ij} \Gamma^\rho_{\alpha k}
+    + \Gamma^\beta_{\rho k} R^\rho_{\alpha ij}
+    \right){\rm d}x^k \wedge {\rm d}x^i \wedge {\rm d}x^j \\
+    \xlongequal{\ref{chfb:eqn_RijDk}} &
+    \left(R^\beta_{\alpha i j ; k} 
+    + R^\beta_{\alpha l j} \oversetmy{x}{\Gamma}^l_{i k}
+    + R^\beta_{\alpha i l} \oversetmy{x}{\Gamma}^l_{j k} 
+    \right){\rm d}x^k \wedge {\rm d}x^i \wedge {\rm d}x^j \\
+    \xlongequal[\ref{chfb:thm_RP}]{\text{定理}} &
+    \left(R^\beta_{\alpha i j ; k} 
+    + R^\beta_{\alpha l j} \oversetmy{x}{\Gamma}^l_{i k}
+    - R^\beta_{\alpha l i} \oversetmy{x}{\Gamma}^l_{j k} 
+    \right){\rm d}x^k \wedge {\rm d}x^i \wedge {\rm d}x^j .
+\end{align*}
+利用外积的全反对称性，有
+\begin{small}
+\begin{align*}
+	0 = R^\beta_{\alpha i j ; k} 
+	+ {\color{red}  R^\beta_{\alpha l j} \oversetmy{x}{\Gamma}^l_{i k} }
+	- {\color{blue} R^\beta_{\alpha l i} \oversetmy{x}{\Gamma}^l_{j k} }
+	+ R^\beta_{\alpha  j k ; i} 
+	+ {\color{blue} R^\beta_{\alpha l i} \oversetmy{x}{\Gamma}^l_{k j} }
+	- {\color{red} R^\beta_{\alpha l j} \oversetmy{x}{\Gamma}^l_{k i} }
+	+ R^\beta_{\alpha k i ; j} 
+	+ {\color{cyan} R^\beta_{\alpha l k} \oversetmy{x}{\Gamma}^l_{j i} }
+	- {\color{cyan} R^\beta_{\alpha l k} \oversetmy{x}{\Gamma}^l_{i j } } .
+\end{align*}\end{small}
+此时，\CJKunderwave{联络需要满足无挠条件（$\oversetmy{x}{\Gamma}^l_{kj}=\oversetmy{x}{\Gamma}^l_{jk}$）}，
+才可以得到Bianchi微分恒等式：
+\begin{equation}\label{chfb:eqn_Bianchi-2nd-VB}
+	R^\beta_{\hphantom{\alpha}\alpha i j ; k} + R^\beta_{\hphantom{\alpha}\alpha  j k ; i}
+	 + R^\beta_{\hphantom{\alpha}\alpha k i ; j} = 0.
+\end{equation}
+
+
+\subsection{规范场}
+在量子场论中，需将$M$选为平直的四维闵氏流形$(\mathbb{R}^4_1,\eta)$；
 并且一般不作坐标变换$x^i\to y^j$，只作变换$s_\alpha\to \tilde{s}_\beta$．
 以下两个例题就在这样的假设来阐述．
 
@@ -1687,11 +1847,16 @@ $G$-主丛理论中有定理表明在它的联络中可以自然地引入结构�
 	所以这种写法是划算的．
 \end{remark}
 
-%\begin{remark}\label{chfb:rem_qft}
-%	笔者的初级观点：物理学者不了解矢量丛或纤维丛并不影响学习、理解平直时空的Yang--Mills理论．
-%	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
-%	如果研究弯曲时空的规范场，那么必须掌握$G$-主丛理论．
-%\end{remark}
+\begin{remark}\label{chfb:rem_qft}
+	笔者初级观点：物理学者不了解纤维丛并不影响学习、理解平直时空的Yang--Mills理论．
+	比如Weinberg三卷本《量子场论》貌似没有涉及纤维丛．
+\end{remark}
+
+
+
+
+
+
 
 
 

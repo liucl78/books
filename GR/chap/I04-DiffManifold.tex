@@ -111,11 +111,9 @@
 
 
 线性空间$V$中指定了度规张量$g_{ab}$后，
-由\pageref{chmla:thm_tonggou-by-gVVS}页
-定理\ref{chmla:thm_tonggou-by-gVVS}可知，度规$g_{ab}$可
-将矢量空间$V${\kaishu 自然同构}于其对偶空间$V^*$；
-即$\forall u^b \in V$，那么必然存在唯一对偶
-矢量$g_{ab}u^b\in V^*$与之相对应；
+由\pageref{chmla:thm_tonggou-by-gVVS}页定理\ref{chmla:thm_tonggou-by-gVVS}可知，
+度规$g_{ab}$可将矢量空间$V${\kaishu 自然同构}于其对偶空间$V^*$；
+即$\forall u^b \in V$，那么必然存在唯一对偶矢量$g_{ab}u^b\in V^*$与之相对应；
 既然是自然同构，那我们就直接将其记为$u_a \equiv g_{ab}u^b$．
 这样$u^a$可以看成矢量$\bf u$的逆变形式，
 而$u_a$可以看成矢量$\bf u$的协变形式；
@@ -140,9 +138,9 @@
 \index[physwords]{度规!升降指标}
 
 对于张量需要注意的是：{\kaishu\CJKunderwave{当可以用度规升降指标时}}，
-协变和逆变指标是{\heiti\CJKunderwave{不}}可以混排的，需要区分前后．
-两个混合型张量$T^{a}_{\cdot b}$和$T^{\cdot a}_{b}$是同
-一张量的不同形式；而$T^{a}_{b}$意义含混不明
+协变和逆变指标是{\heiti\CJKunderwave{不可以}}混排的，需要区分前后．
+两个混合型张量$T^{a}_{\cdot b}$和$T^{\cdot a}_{b}$是同一张量的不同形式；
+而$T^{a}_{b}$意义含混不明
 {\footnote{当没有定义度规时，指标不能升降．协变（或逆变）内部不能混排；
         但协变、逆变是可以混排的，因为此时协变、逆变没有任何关系．
         也就是说在没有指定度规的线性空间中，
@@ -158,10 +156,11 @@
 所以它代表$g T$，即度规协变形式与矩阵$T$的乘积．
 最后，$T^{\cdot a}_{b}=g_{bc}T^{c}_{\cdot d}g^{da}$
 代表$g T g^{-1}$，注意$T^{\cdot a}_{b}$的行指标是在前面的$b$，
-列指标是在后面的$a$．对于二阶张量来说，指标的先后顺序
-决定了度规矩阵是左乘还是右乘，矩阵左右乘法的结果一般是不同的．
-可见在指定度规之后，协变、逆变指标不能混排；在之后的
-叙述中，我们将协变、逆变指标错开排列，给出预留空位．
+列指标是在后面的$a$．对于二阶张量来说，
+指标的先后顺序决定了度规矩阵是左乘还是右乘，
+矩阵左右乘法的结果一般是不同的．
+可见在指定度规之后，协变、逆变指标不能混排；
+在之后的叙述中，我们将协变、逆变指标错开排列，给出预留空位．
 
 在{\kaishu 正定、正交归一}基矢\eqref{chdm:eqn_unitary-bases}下，
 有$g^{\mu\nu}=g_{\mu\nu}=\delta_{\mu\nu}$，以及$u^\mu = u_\mu$，
@@ -178,12 +177,10 @@
 在本小节最后，我们引入两个记号（更详尽的讨论见\S\ref{chrg:sec_form2}）：
 \begin{align}
 	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b 
-	%	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
 	= g_{\mu\rho}(e^\mu)_a
 	\quad \text{对应}\quad 
 	\boldsymbol{e}_\rho ^* \overset{def}{=} g_{\mu\rho} \boldsymbol{e}^{*\mu}, \\
 	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b 
-	%	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
 	= g^{\mu\rho}(e_\mu)^a 
 	\quad \text{对应}\quad 
 	\boldsymbol{e}^\rho \overset{def}{=} g^{\mu\rho} \boldsymbol{e}_{\mu} .
