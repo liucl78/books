@@ -2886,42 +2886,52 @@ $\forall A \in SL(m,\mathbb{F}),  B \in GL(m,\mathbb{F})$有
 \subsection{保度规群}\label{chlg:sec_isometry}
 
 
-任取数域$\mathbb{F}$上的$m\times m$矩阵$S$，
-考虑$GL(m,\mathbb{F})$中的子集
+任取数域$\mathbb{F}$上的$m\times m$矩阵$S$，考虑$GL(m,\mathbb{F})$中的子集
 \begin{equation}\label{chlg:eqn_gsinit}
-    G(S)= \left\{ A \in GL(m,\mathbb{F})\ |\  A S {A}^T =S \right\}.
+    G(S)= \left\{ A \in GL(m,\mathbb{F})\ |\  A^T S {A} =S \right\}.
     \quad  T\ \text{ 表示转置}
 \end{equation}
-%$\bar{A}$是$A$的复共轭，，此时复共轭不起作用
-%我们只在\S\ref{chlg:sec_unitary}中取$\mathbb{F}=\mathbb{C}$；
-%其它节令$\mathbb{F}=\mathbb{R}$．
 $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 所以$G(S)$是$GL(m,\mathbb{F})$的拓扑李子群．
 将$G(S)$的李代数记为$\mathfrak{g}(s)$，
 它自然是$\mathfrak{gl}(m,\mathbb{F})$的李子代数．
 
+\begin{example}
+	解释式\eqref{chlg:eqn_gsinit}为何保度规，即为何等距．
+	
+	在一个实线性空间$V$中给定对称、非退化的矩阵$S$后，可认为$S$是$V$的度规．
+	设$V$中有两个不同矢量$x,y$（列矢量），
+	在经历某个保度规群元素$A$（满足\eqref{chlg:eqn_gsinit}式的矩阵）作用后
+	变成了$x'=Ax$，$y'= Ay$；    那么有
+	\begin{equation*}
+		(x'-y')^T S (x'-y') = (x-y)^T A^T S A (x-y)
+		\xlongequal{\ref{chlg:eqn_gsinit}}  (x-y)^T S (x-y).
+	\end{equation*}
+	可见$x,y$之间的距离在经过保度规群元$A$作用后{\kaishu 距离不变}． \qed
+\end{example}
+
 任取$X\in \mathfrak{gl}(m,\mathbb{F})$，若$\exp tX \in G(S)$，
-即满足$(\exp tX) S (\exp t{X})^T = S, \ \forall t\in \mathbb{R} $；
-对此式等号两侧求$t$的导数，再令$t\to 0$，可以得到$X S + S {X}^T = 0 $．
+即满足$(\exp tX)^T S (\exp t{X}) = S$，$ \forall t\in \mathbb{R} $；
+对此式等号两侧求$t$的导数，再令$t\to 0$，可以得到$X^T S + S {X} = 0 $．
 则可以建立$\mathfrak{gl}(m,\mathbb{F})$（全体$m$阶矩阵，可以是退化的）的子集
 \begin{equation} \label{chlg:eqn_gs}
     \tilde{\mathfrak{g}}(s) = \left\{ X \in \mathfrak{gl}(m,\mathbb{F}) \ |\ 
-       X S + S {X}^T = 0 \right\} .
+       X^T S + S {X} = 0 \right\} .
 \end{equation}
 显然$\tilde{\mathfrak{g}}(s)$是$\mathfrak{gl}(m,\mathbb{F})$的子代数．
 我们还需验证$\exp(tX)\in G(S),\ \forall X \in \tilde{\mathfrak{g}}(s)$．%$\forall X \in \tilde{\mathfrak{g}}(s)$，
 利用式$C_{m + 1}^k = C_m^k + C_m^{k - 1}$可
-证$ \sum_{k=0}^{m}C^k_m X^k S ({X}^T)^{m-k} =0, \ \forall m\geqslant 1 $；
-借用此式可以证明$(\exp tX) S (\exp t{X})^T = S, \ \forall t\in \mathbb{R}$．
+证$ \sum_{k=0}^{m}C^k_m (X^T)^k S {X}^{m-k} =0, \ \forall m\geqslant 1 $；
+借用此式可以证明$(\exp tX)^T S (\exp t{X}) = S, \ \forall t\in \mathbb{R}$．
 证明过程大致如下：首先，
 对有限个矩阵相乘与转置是可交换的，即$(X^T)^2 = (X^2)^T,\ \cdots,\ (X^T)^k = (X^k)^T$；
 忽略无穷个矩阵相乘所带来的（可能存在、可能不存在的）不确定性，
 我们认为无限个矩阵相乘与转置也是可交换的．其次，直接计算
 \begin{align*}
-    (\exp tX) S (\exp t{X})^T = & \left(\sum_{k=0}^{\infty}\frac{t^k}{k!}X^k\right)
-    S\left(\sum_{l=0}^{\infty}\frac{t^l}{l!}({X}^T)^l\right) \\
+    (\exp tX)^T S (\exp t{X}) = & \left(\sum_{k=0}^{\infty}\frac{t^k}{k!}({X}^T)^k\right)
+    S\left(\sum_{l=0}^{\infty}\frac{t^l}{l!}X^l\right) \\
     =& S + \sum_{m=1}^{\infty}\frac{t^m}{m!} \sum_{k=0}^{m}
-    \frac{m!}{k!(m-k)!} X^k S ({X}^T)^{m-k} =S .
+    \frac{m!}{k!(m-k)!} (X^T)^k S {X}^{m-k} =S .
 \end{align*}
 这便说明了$\exp tX \in G(S),\ \forall X\in \tilde{\mathfrak{g}}(s)$．
 对于矩阵群，全部单参数子群都具有指数映射形式（见定理\ref{chlg:thm_GL-expA}）；
@@ -2936,18 +2946,18 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 
 式\eqref{chlg:eqn_gsinit}中的构造还可以变为如下形式：
 \begin{equation}\label{chlg:eqn_invaings}
-    A S {A}^T =S \ \Rightarrow \ S = A^{-1} S {A^{-T}} ; \qquad
+    A^T S {A} =S \ \Rightarrow \ S = A^{-T} S {A^{-1}} ; \qquad
     \text{记}\  A^{-T}\equiv ({A^{-1}})^T .
 \end{equation}
 因此，上式说明：若$A\in G(S)$，则$A^{-1} \in G(S)$．
 
-%由式\eqref{chlg:eqn_invaings}已知：若$A\in G(S)$，则$A^{-1}\in G(S)$．
+
 对于正交群、广义正交群、酉群和辛群来说，$S$是非退化矩阵且$S=S^{-1}$；
 故，我们可以从“若$A, A^{-1}\in G(S)$”出发来进一步推演．
 \begin{equation*} %\label{chlg:eqn_atings}
-    (A^{-1}) S {A^{-T}} =S \ \Rightarrow \ 
-    {A}^T S^{-1} A = S^{-1} \ \Rightarrow \ {A}^T S A = S
-    \ \Rightarrow \  ({A}^T) S \left({({A}^T)}\right)^T = S .
+    (A^{-T}) S {A^{-1}} =S \ \Rightarrow \ 
+    {A} S^{-1} A^T = S^{-1} \ \Rightarrow \ {A} S A^T = S
+    \ \Rightarrow \  \left({({A}^T)}\right)^T S ({A}^T) = S .
 \end{equation*}
 因此，上式说明：当$S=S^{-1}$时，若$A\in G(S)$，则${A}^T \in G(S)$．
 
@@ -2959,23 +2969,10 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 后面我们会通过对单参数子群求导的方式得到这些矩阵及对易关系；
 请读者自行验证这些矩阵满足式\eqref{chlg:eqn_gs}．
 
-\begin{example}
-    解释式\eqref{chlg:eqn_gsinit}为何保度规，即为何等距．
-    
-    在一个实线性空间$V$中给定对称、非退化的矩阵$S$后，可认为$S$是$V$的度规．
-    设$V$中有两个不同矢量$x,y$（列矢量），
-    在经历某个保度规群元素$A$（满足\eqref{chlg:eqn_gsinit}式的矩阵）作用后
-    变成了$x'=Ax$，$y'= Ay$；    那么有
-    \begin{equation*}
-        (x'-y')^T S (x'-y') = (x-y)^T A^T S A (x-y)
-        \xlongequal{\ref{chlg:eqn_gsinit}}  (x-y)^T S (x-y).
-    \end{equation*}
-    可见$x,y$之间的距离在经过保度规群元$A$作用后{\kaishu 距离不变}． \qed
-\end{example}
 
 
 \begin{proposition}
-    设$S'= C S C^T $（$C$非退化，合同关系），则$G(S)$同构于$G(S')$．
+    设$S'= C^T S C $（$C$非退化，合同关系），则$G(S)$同构于$G(S')$．
 \end{proposition}
 \begin{proof}
     我们先建立如下线性同构映射：
@@ -2985,8 +2982,8 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
     因$C^{-1}(S+\lambda \cdot T)C= C^{-1}SC +\lambda \cdot C^{-1}TC $，其中$\lambda\in \mathbb{F}$；
     故可知上述映射是线性的．又因$C$是非退化的，故$F(S)$是线性同构．    
     \begin{align*}
-        AS A^T = S \ \Rightarrow\ A C^{-1}S' C^{-T} A^T = C^{-1}S' C^{-T}
-        \ \Rightarrow\ (CA C^{-1}) S' (C A C^{-1})^{T} = S'  .
+        A^T S A = S \ \Rightarrow\ A^T C^{-T}S' C^{-1} A = C^{-T}S' C^{-1}
+        \ \Rightarrow\ (C^{-1} A C)^{T} S' (C^{-1} A C) = S'  .
     \end{align*}
     由上式可知，$G(S)$线性同构于$G(S')$．
     
@@ -3370,6 +3367,38 @@ $Sp(m,\mathbb{F})$中的元素称为{\heiti 辛矩阵}．
 
 %$Sp(m,\mathbb{F})$是连通的（点集拓扑）；非紧致的．代数拓扑连通属性是：复辛群是单连通，实辛群是$\infty$度连通．
 
+\subsection{古典李群、李代数}\label{chlg:sec_clg}
+\index[physwords]{古典李群}  \index[physwords]{古典李代数}
+
+记$A_m$为$SL(m+1,\mathbb{C})$．记$C_m$为$Sp(m,\mathbb{C})$．
+
+在复数域$\mathbb{C}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为单位矩阵$I$，则
+\begin{equation*}
+	O(m,\mathbb{C}) = \left\{ A \in GL(m,\mathbb{C})\ |\ A A^T =I \right\};
+	\quad SO(m,\mathbb{C}) = O(m,\mathbb{C}) \cap SL(m,\mathbb{C}).
+\end{equation*}
+记$B_m$为$SO(2m+1,\mathbb{C})$．记$D_m$为$SO(2m,\mathbb{C})$．
+
+$A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\heiti 古典李代数}．
+
+复数域上的正交群$O(m,\mathbb{C})$在物理学上几乎无用，同时我们不省略复数域$\mathbb{C}$的标记．
+本书中，所有的$O(m)$均指$O(m,\mathbb{R})$，即省略实数域$\mathbb{R}$的标记．
+
+%\begin{proposition}
+%    {\bfseries (1)}：$\bigl( \mathfrak{so}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{so}(m,\mathbb{C})$．    
+%    {\bfseries (2)}：$\bigl( \mathfrak{sl}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sl}(m,\mathbb{C})$．    
+%    {\bfseries (3)}：$\bigl( \mathfrak{sp}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sp}(m,\mathbb{C})$．    
+%    {\bfseries (4)}：$\mathfrak{su}(m,\mathbb{C})$是$\mathfrak{sl}(m,\mathbb{C})$的实形式．
+%\end{proposition}
+%\begin{proof}
+%    前三条几乎一望而知．下面证明第(4)条，需要提醒一下，$\mathfrak{su}(m)$本来就定义在
+%    复数域上，没有$\mathfrak{su}(m,\mathbb{R})$．
+%\end{proof}
+
+\begin{theorem}\label{chlg:thm_CLA-simple}
+	古典李代数$A_m(m\geqslant 1)$、$B_m(m\geqslant 1)$、$C_m(m\geqslant 1)$、$D_m(m\geqslant 3)$是
+	单纯李代数．（证明见\parencite[p.148]{huangxg-2024}定理6，或\parencite[\S 1.3]{wanzx-2013}定理1.2）
+\end{theorem}
 
 
 \begin{table}[htb]
@@ -3404,38 +3433,6 @@ $Sp(m,\mathbb{F})$中的元素称为{\heiti 辛矩阵}．
 
 
 
-\subsection{古典李群、李代数}\label{chlg:sec_clg}
-\index[physwords]{古典李群}  \index[physwords]{古典李代数}
-
-记$A_m$为$SL(m+1,\mathbb{C})$．记$C_m$为$Sp(m,\mathbb{C})$．
-
-在复数域$\mathbb{C}$中，取式\eqref{chlg:eqn_gsinit}中的$S$为单位矩阵$I$，则
-\begin{equation*}
-    O(m,\mathbb{C}) = \left\{ A \in GL(m,\mathbb{C})\ |\ A A^T =I \right\};
-    \quad SO(m,\mathbb{C}) = O(m,\mathbb{C}) \cap SL(m,\mathbb{C}).
-\end{equation*}
-记$B_m$为$SO(2m+1,\mathbb{C})$．记$D_m$为$SO(2m,\mathbb{C})$．
-
-$A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\heiti 古典李代数}．
-
-复数域上的正交群$O(m,\mathbb{C})$在物理学上几乎无用，同时我们不省略复数域$\mathbb{C}$的标记．
-本书中，所有的$O(m)$均指$O(m,\mathbb{R})$，即省略实数域$\mathbb{R}$的标记．
-
-%\begin{proposition}
-%    {\bfseries (1)}：$\bigl( \mathfrak{so}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{so}(m,\mathbb{C})$．    
-%    {\bfseries (2)}：$\bigl( \mathfrak{sl}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sl}(m,\mathbb{C})$．    
-%    {\bfseries (3)}：$\bigl( \mathfrak{sp}(m,\mathbb{R})\bigr)^{\mathbb{C}}=\mathfrak{sp}(m,\mathbb{C})$．    
-%    {\bfseries (4)}：$\mathfrak{su}(m,\mathbb{C})$是$\mathfrak{sl}(m,\mathbb{C})$的实形式．
-%\end{proposition}
-%\begin{proof}
-%    前三条几乎一望而知．下面证明第(4)条，需要提醒一下，$\mathfrak{su}(m)$本来就定义在
-%    复数域上，没有$\mathfrak{su}(m,\mathbb{R})$．
-%\end{proof}
-
-\begin{theorem}\label{chlg:thm_CLA-simple}
-    古典李代数$A_m(m\geqslant 1)$、$B_m(m\geqslant 1)$、$C_m(m\geqslant 1)$、$D_m(m\geqslant 3)$是
-    单纯李代数．（证明见\parencite[p.148]{huangxg-2024}定理6，或\parencite[\S 1.3]{wanzx-2013}定理1.2）
-\end{theorem}
 
 
 
@@ -3619,7 +3616,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\h
     \hat{T}(m) \bigl(2f(\boldsymbol{x})\bigr) 
     =2\left( f(\boldsymbol{x}) - a^i \frac{\partial f(\boldsymbol{x})}{\partial x^i}
     +\frac{1}{2!} a^i a^j \frac{\partial^2 f(\boldsymbol{x})}{\partial x^i \partial x^j}
-    +\cdots \right) = 2 f(\boldsymbol{x}) .
+    +\cdots \right) = 2 \hat{T}(m) \bigl(f(\boldsymbol{x})\bigr)  .
 \end{equation*}
 
 平移群是连通、单连通、非紧致李群．
@@ -3657,7 +3654,7 @@ $m$维欧几里得空间（正定度规）的对称群是欧几里得群（记�
 上述定义中线性两个字加上引号是因为平移不是线性算符（见\S\ref{chlg:sec_translation-group}），
 纯旋转是线性算符；无穷小平移是线性的．对应的坐标变换是
 \begin{equation}\label{chlg:eqn_trans-rot}
-    x\to x' : x'^{i} = R^i_{\cdot j}x^j + a^i ,\qquad  1 \leqslant i \leqslant m .
+    x\to x' : x'^{i} = R^i_{\hphantom{i} j}x^j + a^i ,\qquad  1 \leqslant i \leqslant m .
 \end{equation}
 用矩阵形式表示为（后面会证明式中$R\in O(m)$）
 \begin{equation}\label{chlg:eqn_Em-max}
@@ -4897,9 +4894,9 @@ $\exp(-\mathbbm{i} \alpha J_1 )$、$\exp(-\mathbbm{i} \theta K_1 )$等等，
 
 
 
-\subsection{伽利略群}\label{chlg:sec_Galileo-group}
+\subsection{Galilei群}\label{chlg:sec_Galilei-group}
 考虑$GL(5, \mathbb{R})$的一个闭子群$G$，它作用在$\mathbb{R}^5$上齐次坐标的具体表达为
-\begin{equation}\label{chlg:eqn_Galileo-max}
+\begin{equation}\label{chlg:eqn_Galilei-max}
     \begin{bmatrix}  \boldsymbol{x}' \\ t'\\ 1 \end{bmatrix} =
     \begin{bmatrix}  R & \boldsymbol{v} & \boldsymbol{b} \\0 & 1 & \tau \\ 0 &0 & 1  \end{bmatrix}
     \begin{bmatrix}  \boldsymbol{x} \\t\\ 1 \end{bmatrix} 
@@ -4907,15 +4904,15 @@ $\exp(-\mathbbm{i} \alpha J_1 )$、$\exp(-\mathbbm{i} \theta K_1 )$等等，
 \end{equation}
 其中$R \in S O(3)$；$\boldsymbol{v}, \boldsymbol{b} \in \mathbb{R}^3$，
 $\boldsymbol{v}$表示速度，$\boldsymbol{b}$表示纯空间平移；
-$\tau \in \mathbb{R}$，表示绝对牛顿时间平移．这个群称为 {\heiti 伽利略群}．
+$\tau \in \mathbb{R}$，表示绝对牛顿时间平移．这个群称为 {\heiti\bfseries Galilei群}．
 上式也可以写成
 \begin{equation}
     (\boldsymbol{x}', t') = (R \boldsymbol{x}+t \boldsymbol{v}+ \boldsymbol{b},\ t+\tau) .
 \end{equation}
-验证伽利略变换构成群的工作留给读者．
-我们将通过In\"on\"u--Wigner{\kaishu 收缩}的方式给出伽利略代数．
+验证Galilei变换构成群的工作留给读者．
+我们将通过In\"on\"u--Wigner{\kaishu 收缩}的方式给出Galilei代数．
 狭义相对论的低速极限便是牛顿力学，
-那么Poincar\'{e}代数的低速极限（相当于光速$c\to \infty$）就应该是伽利略代数．
+那么Poincar\'{e}代数的低速极限（相当于光速$c\to \infty$）就应该是Galilei代数．
 为此，我们需要恢复Poincar\'{e}代数中的光速$c$，即
 \begin{equation}
     \hat{H}^G =c\hat{H}^P = c\mathbbm{i}\frac{\partial }{ \partial ct }
@@ -4939,13 +4936,86 @@ Poincar\'{e}代数\eqref{chlg:eqn_PA-iso13-comm-PJK}变为
         \left[\hat{P}_i, \hat{J}_j \right] =& \mathbbm{i} \epsilon_{ijk} \hat{P}_k .
     \end{align}
 \end{subequations}
-当光速$c\to \infty$时，上式便是伽利略代数．
+当光速$c\to \infty$时，上式便是Galilei代数．
 上式中，所有算符都应标记上标“$G$”；但对易关系发生变化的只有两个．
 
 在李群、李代数理论中，群收缩（李代数收缩）是一个较为小众的课题，
 文献\parencite{Gilmore-1974}第十章对此作了非常全面的总结．
 我们可以使用群论描述各种运动\cite{McRae-2007}（笔者觉得过于数学化了）．
 若读者有兴趣可仔细研读．
+
+\subsubsection{保Galilei变换不变的退型}\label{chlg:sec_Galilei-metric}
+
+我们仿照\S\ref{chlg:sec_isometry}开头的计算方式来寻找保Galilei变换不变的度规是什么．
+忽略平移，将式\eqref{chlg:eqn_Galilei-max}改成$4\times 4$的矩阵
+\begin{equation}
+	\begin{bmatrix}  t' \\ \boldsymbol{x}'   \end{bmatrix} =
+	\begin{bmatrix}  1 & 0  \\ \boldsymbol{v} & R   \end{bmatrix}
+	\begin{bmatrix}  t \\ \boldsymbol{x}  \end{bmatrix} 
+	\  \overset{def}{=} \boldsymbol{A} \begin{bmatrix}  t \\ \boldsymbol{x}  \end{bmatrix} .
+\end{equation}
+假设保Galilei变换不变的度规为$g_{\mu\nu}$（$4\times 4$矩阵），则有
+\begin{equation}
+	A^T g A = g \quad \Leftrightarrow \quad
+	A^{\mu}_{\hphantom{\mu}\rho} g_{\mu\nu} A^{\nu}_{\hphantom{\mu}\sigma} = g_{\rho\sigma}.
+\end{equation}
+将上式展开，有
+\begin{align}
+	g_{00} = & v^j g_{jk} v^k + g_{0k} v^k + v^j g_{0j} + g_{00}, \label{chlg:eqn_gatmp1} \\
+	g_{0i} = & R^{j}_{\hphantom{j}i} g_{jk} v^k + R^j_{\hphantom{j}i} g_{0j}, \label{chlg:eqn_gatmp2} \\
+	g_{il} = & R^j_{\hphantom{j}i} g_{jk} R^k_{\hphantom{j}l} . \label{chlg:eqn_gatmp3}
+\end{align}
+其中$R^{j}_{\hphantom{j}i}$是$3\times 3$的实正交矩阵，
+即$R^{j}_{\hphantom{j}i} R^{j}_{\hphantom{j}k} =\delta_{ik}$．
+Galilei度量$g_{\mu\nu}$的矩阵元不应依赖于$R^{j}_{\hphantom{j}i}$以及速度$v^k$．
+首先，由式\eqref{chlg:eqn_gatmp3}可见$g_{ij}$与$R^{j}_{\hphantom{j}i}$对易；
+因$R^{j}_{\hphantom{j}i}$非常任意，故$g_{ij}$只能是单位矩阵的常数倍或者零矩阵．
+其次，我们将$g_{ij}$的单位矩阵解带入式\eqref{chlg:eqn_gatmp2}后可见：
+$g_{0i}$必然依赖于速度$v^k$以及转动$R^{j}_{\hphantom{j}i}$，这是不允许的；
+所以$g_{ij}$没有单位矩阵解，它只能是零矩阵．
+知道$g_{ij}$是零矩阵后，我们将其再次带入式\eqref{chlg:eqn_gatmp2}，
+可以看到$g_{0i}$依然依赖于转动$R^{j}_{\hphantom{j}i}$，故必有$g_{0i}=0$．
+最后，由式\eqref{chlg:eqn_gatmp1}可知$g_{00}$可取任意值，一般我们取之为：$g_{00}=1$．
+
+由此可见，保Galilei变换不变的度规$g_{\mu\nu}$必然是退化的，
+除$g_{00}=1$外，其余矩阵元都是零．它是与时间相关的度规．
+
+我们再看看$g^{\mu\nu}$的情形．此时需满足
+\begin{equation}
+	A g^{-1} A^T = g^{-1} \quad \Leftrightarrow \quad
+	A^{\mu}_{\hphantom{\mu}\rho} g^{\rho\sigma} A^{\nu}_{\hphantom{\mu}\sigma} = g^{\mu\nu}.
+\end{equation}
+将上式展开，有
+\begin{align}
+    g^{i j}= & v^i v^j g^{00}+ v^{i} R^{j}_{\hphantom{j}k } g^{0 k} + v^{j} R^{i}_{\hphantom{j} k} g^{0 k}  
+     +R^i_{\hphantom{j}k} g^{kl} R^j_{\hphantom{j}l} , \label{chlg:eqn_guptmp1} \\
+	g^{0 j}= & v^j g^{00}+R^j_{\hphantom{j}k} g^{0 k} . \label{chlg:eqn_guptmp2}  
+\end{align}
+为了不让度规$g^{\mu\nu}$依赖于速度$v^i$和转动$R^j_{\hphantom{j}k}$，
+由式\eqref{chlg:eqn_guptmp2}可见必须令$g^{0j}=0=g^{00}$．
+将这个解带入式\eqref{chlg:eqn_guptmp1}可得$g^{ij}=\delta^{ij}$（即单位矩阵）．
+
+由此可见，保Galilei变换不变的度规$g^{\mu\nu}$必然是退化的，
+除$g^{11}=g^{22}=g^{33}=1$外，其余矩阵元都是零．它是与空间相关的度规．
+
+因度规退化（之后称它们为{\kaishu 退型}，见\S\ref{chnull:sec_indef-algebra}），
+我们将保Galilei变换不变的$g_{\mu\nu}$、$g^{\mu\nu}$分别
+记为$\tau_{\mu\nu}$（与时间相关）、$h^{\mu\nu}$（与空间相关），
+它们的显示表述为：
+\begin{align}
+\tau_{\mu \nu}=\left(\begin{array}{cccc}
+	1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{array}\right), \qquad 
+h^{\mu \nu}=\left(\begin{array}{cccc}
+	0 & 0 & 0 & 0 \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+\end{array}\right) .	
+\end{align}
 
 
 \index[physwords]{李群!不变积分}

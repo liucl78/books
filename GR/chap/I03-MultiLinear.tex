@@ -902,13 +902,13 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
 如果线性空间$W$上有基矢$\{\boldsymbol{\xi}_1,\cdots,\boldsymbol{\xi}_l \}$，则
 $f\left( \boldsymbol{\epsilon}_i,  \boldsymbol{\eta}_j\right) $可在
 此基矢下展开；但下面的叙述并不需要这个展开式．
-    
-\begin{definition}
-    式\eqref{chmla:eqn_metricij}称为双线性映射$f(\cdot,\cdot)$在
-    基底$\{\boldsymbol{\epsilon},\boldsymbol{\eta}\}$下
-    的{\heiti 度量}（或{\heiti 度规}）．
-    \index[physwords]{基本度量|see{度规}} \index[physwords]{度规}
-\end{definition}
+
+式\eqref{chmla:eqn_metricij}称为双线性映射$f(\cdot,\cdot)$在
+基底$\{\boldsymbol{\epsilon},\boldsymbol{\eta}\}$下的{\heiti 广义度量}．
+之所以加上“广义”二字，是因为此度量可能不是方阵，也可能是退化的．
+
+%    \index[physwords]{基本度量|see{度规}} \index[physwords]{度规}
+
 式\eqref{chmla:eqn_fxy-expand}和\eqref{chmla:eqn_metricij}是双线性映射
 的一般形式．
 
@@ -3433,14 +3433,16 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 \end{table}
 
 \begin{remark}
-	在很多文献（可能是绝大多数文献）中不引入记号$\{\boldsymbol{e}_j^{*}\}$，
-	而且在基矢上也不增加星号（也不用黑体）以示区别，读者需谨慎区分．
-	在这些文献中只有记号$\{{e}_i\}$和$\{{e}^{i}\}$，
+	{\bfseries(1)}在绝大多数文献中不引入记号$\{\boldsymbol{e}_j^{*}\}$，
+	而且在基矢上也不增加星号（也不用黑体）以示区别，读者需谨慎区分；
+	省略星号仅仅是为了少书写一个记号而已．
+	{\bfseries(2)}在这些文献中只有记号$\{{e}_i\}$和$\{{e}^{i}\}$，
 	这些文献中的$\{{e}_i\}$就是\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}_i\}\cong \{(e_i)^a\}$，
 	而这些文献中的$\{{e}^{i}\}$是指\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}^{*i}\}\cong \{(e^i)_a\}$．
-	有些时候，这些文献还会使用如下记号：
-	$\flat({e}_i) \equiv {e}_i^\flat \equiv {e}_{\flat i} \cong (e_i)_a$以
-	及$\sharp({e}^{i}) \equiv {e}^{\sharp i} \cong (e^i)^a$；
+	{\bfseries(3)}为了表示抽象指标中的$(e_i)_a$、$(e^i)^a$（见式\eqref{chdm:eqn_eiud}），
+	这些文献还会使用如下记号：
+	${e}_i^\flat \equiv {e}_{\flat i} \cong (e_i)_a$以
+	及${e}^{\sharp i} \cong (e^i)^a$；
 	符号“$\flat$”、“$\sharp$”的含义见\S\ref{chrg:sec_music-iso}．
 \end{remark}
 
