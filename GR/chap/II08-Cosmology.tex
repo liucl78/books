@@ -3,10 +3,145 @@
 
 \chapter{宇宙学}\label{chcos}
 
-\section{}
+\section{宇宙学原理}\label{chcos:sec_COSP}
 
-\section{}
+爱因斯坦在得到场方程后很快就将其用到宇宙学．
+其实，只有爱氏发现广义相对论后，宇宙学才成为一门科学．
+由于宇宙的边界条件是未知的，爱因斯坦便提出了{\heiti 宇宙学原理}：
+{\kaishu 宇宙在空间上是均匀且各向同性的}．
+此原理是抽象的，下面从物理、数学角度来解释
+均匀性（见定义\ref{chhss:def_Homogeneous}）、各向同性（见定义\ref{chhss:def_isotropic-space}）．
 
+天文观测上大致支持：在$3\times 10^{8}$光年尺度以上，宇宙物质的质量密度是均匀的．
+
+我们假设宇宙物质可以近似成理想流体，它的能动张量为\eqref{chlh:eqn_perfect-fluid-Tab}式：
+\begin{equation}
+	T^{ab}=\left(\rho  + p \right) U^a U^b +p g^{ab} .
+	\tag{\ref{chlh:eqn_perfect-fluid-Tab}}
+\end{equation}
+
+各向同性是指：在1+3分解后，空间部分是各向同性的．
+
+如果有一个粒子以半光速远离银河系中心，那么在此粒子看来，宇宙并非各向同性的．
+然而，在与流体质团共动的参考系中，宇宙是各向同性的．
+
+由于宇宙的空间（类空超曲面）是三维实流形，
+由定理\ref{chhss:thm_isotropic-manifold}可知：
+此类空超曲面必然是常曲率的，且等距群具有最高的对称性（见\pageref{chhss:sec_fh}页）．
+
+
+{\kaishu 各向同性确保了宇宙学流体的世界线与均匀各向同性类空超曲面相互正交．}证明过程大致如下所述．
+一个“与流体共动”的观察者可以测量他自己相对于该类空超曲面的三维速度，
+如果该三维速度不为零，那么这个三维速度就是一个特殊方向，它将为观察者提供一种区分空间方向的方法；
+他的静止参考系与所有其他参考系不同，这违背了各向同性原则．
+因此，在一个各向同性的宇宙中（在这个宇宙中，“观察者与流体共动”的概念才有意义），
+每一个这样的观察者都必须发现，相对于均匀性表面而言，他处于静止状态．他的世界线与那个均匀类空超曲面正交．
+
+\section{FLRW度规}
+由\S\ref{chcos:sec_COSP}的分析可知，宇宙是均匀、各向同性的；
+那么由式\eqref{chhss:eqn_g-cos-2}可以得到如下
+Friedmann--Lema\^{i}tre--Robertson--Walker度规（局部坐标为$\{t,r,\theta,\phi\}$）：
+\begin{equation}\label{chcos:eqn_FLRW-metric}
+	\mathrm{d} s^2=-\mathrm{d} t^2+a^2(t)\left\{\frac{\mathrm{d} r^2}{1-k r^2}
+	+r^2 \mathrm{d} \theta^2+r^2 \sin ^2 \theta \mathrm{d} \phi^2\right\}    .
+\end{equation}
+其中
+\begin{equation}
+	k= \begin{cases}
+		+1 & \text { 当最大对称子空间的 } K>0,\quad \text{超球面} \\ 
+		-1 & \text { 当最大对称子空间的 } K<0,\quad \text{双曲空间} \\ 
+		0  & \text { 当最大对称子空间的 } K=0,\quad \text{超平面}
+	\end{cases} .
+\end{equation}
+FLRW度规$g_{ab}$行列式为：
+\begin{equation}\label{chcos:eqn_FLRW-detg}
+	g=\det(g_{\alpha\beta})= \frac{r^4 a^6 \sin^2 \theta}{k r^2-1} .
+\end{equation}
+FLRW度规非零克氏符：
+\begin{subequations}\label{chcos:eqn_FLRW-Gamma}
+\begin{align}
+	&\Gamma^{0}_{11} = \frac{a \dot{a}}{1-k r^2},\quad
+	\Gamma^{0}_{22} =  a \dot{a} r^2,\quad
+	\Gamma^{0}_{33} =  a \dot{a} r^2 \sin ^2\theta, \\
+	&\Gamma^{1}_{01} = \Gamma^{1}_{10} = \Gamma^{2}_{02} = \Gamma^{2}_{20} = 
+	\Gamma^{3}_{03} = \Gamma^{3}_{30} = \frac{\dot{a}}{a}, \\
+	&\Gamma^{1}_{11} = \frac{k r}{1-k r^2},\quad
+	\Gamma^{1}_{22} = r \left(k r^2-1\right),\quad
+	\Gamma^{1}_{33} = r \left(k r^2-1\right) \sin ^2 \theta ,\\
+	&\Gamma^{2}_{12} = \Gamma^{2}_{21} = \Gamma^{3}_{13} = \Gamma^{3}_{31} = \frac{1}{r}, \\
+	&\Gamma^{2}_{33} = - \sin \theta \cos \theta ,\quad
+	\Gamma^{3}_{23} = \Gamma^{3}_{32} = \cot \theta .
+\end{align}
+\end{subequations}
+FLRW度规非零黎曼曲率，以及标量曲率：
+\begin{subequations}\label{chcos:eqn_FLRW-Riemann}
+\begin{align}
+	&R_{0101} = \frac{a \ddot{a}}{k r^2-1} ,\quad 
+	R_{0202} = - a \ddot{a} r^2,\quad
+	R_{0303} = - a \ddot{a} r^2 \sin^2 \theta , \\
+	&R_{1212} = \frac{ a^2 \left(\dot{a}^2+k\right)r^2}{1-k r^2}, \quad
+	R_{1313} = \frac{ a^2 \left(\dot{a}^2+k\right) r^2 \sin^2\theta }{1-k r^2},\\
+	&R_{2323} =  a^2 \left(\dot{a}^2+k\right) r^4 \sin^2\theta ,\qquad
+	R = \frac{6 \left(a \ddot{a}+\dot{a}^2+k\right)}{a^2} .
+\end{align}
+\end{subequations}
+FLRW度规非零Ricci曲率：
+\begin{subequations}\label{chcos:eqn_FLRW-Ricci}
+	\begin{align}
+		&R_{00} = -\frac{3 \ddot{a}}{a} ,\quad 
+		R_{11} = \frac{a \ddot{a}+2 \dot{a}^2+2 k}{1-k r^2} , \\
+		&R_{22} = \left(a \ddot{a}+2 \dot{a}^2+2 k\right) r^2 , \quad
+		R_{33} = R_{22} \sin ^2\theta.
+	\end{align}
+\end{subequations}
+FLRW度规非零爱因斯坦张量：
+\begin{subequations}\label{chcos:eqn_FLRW-G}
+	\begin{align}
+		&G_{00} = \frac{3 \left(\dot{a}^2+k\right)}{a^2} ,\quad 
+		G_{11} = \frac{2 a \ddot{a}+\dot{a}^2+k}{k r^2-1} ,\\
+		&G_{22} = - \left(2 a \ddot{a}+\dot{a}^2+k\right) r^2 , \quad
+		G_{33} = G_{22} \sin ^2\theta.
+	\end{align}
+\end{subequations}
+
+
+
+
+
+\section{均匀空间}
+
+一个$m$维、度规正定的黎曼空间$M$，如果它还是均匀空间，
+那么它的等距群$I(M)$至少是$m$维的，即至少要有$m$个Killing切矢量场．
+设有三维实均匀空间$\Sigma$，其度量$h_{ab}$是正定的．
+均匀空间$\Sigma$的等距群$I(\Sigma)$有一个三维子群$G$，
+其李代数为$\mathscr{G}$，它的基矢记为$\{(e_i)^a\}$（$i=1,2,3$）．
+
+由于李群$G$的左不变切矢量场自然也是作为流形$G$的切矢量场，
+故切矢量场的对易公式\eqref{chrg:eqn_EmuEnucommutator}是成立的，即
+\begin{align}
+	\bigl[(e_i), (e_j)\bigr]^a
+	= \bigl(\Gamma^{k}_{ji} - \Gamma^{k}_{ij}\bigr) (e_k)^a
+	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) (e^k)^a .
+	\tag{\ref{chrg:eqn_EmuEnucommutator} }
+\end{align}
+式\eqref{chrg:eqn_EmuEnucommutator}第一个等号适用于一般标架，
+第二个等号只适用于刚性标架（定义见\ref{chrg:def_rigid-frame}）；下面在刚性标架中讨论问题．
+\begin{align*}
+	C^k_{ij} (e_k)^a = \bigl[(e_i), (e_j)\bigr]^a
+	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) (e^k)^a  .
+\end{align*}
+用对偶矢量场$\{(e_l)_a\}$缩并上式，有
+\begin{equation}
+	C^k_{ij} h_{kl}= \omega_{ilj} -\omega_{jli}
+	\xlongequal{\ref{chrg:eqn_Coef-Lambda1}} \Lambda_{ilj} .
+\end{equation}
+其中$\Lambda_{il j}$定义见式\eqref{chrg:eqn_Coef-Lambda1}．
+
+
+
+
+
+\section*{小结}
 
 \printbibliography[heading=subbibliography,title=第\ref{chcos}章参考文献]
 

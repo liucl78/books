@@ -323,7 +323,10 @@ $(A\cdot B)^{j}_{\cdot i} = \sum_{k} a^j_{\cdot k} b^k_{\cdot i}$，这个运算
 \begin{proposition}
     定义\ref{chlg:def_la}中性质(1)等价于$[X,X]=0$．
 \end{proposition}
-证明过程并不难，留给读者当练习．
+\begin{proof}
+	证明过程并不难，留给读者当练习．
+\end{proof}
+
 
 设李代数$\mathfrak{g}$的一组基为$X_1, \cdots ,X_m$，由于李积满足封闭性，
 所以李积一定可以用这个基矢展开，即有
@@ -921,7 +924,8 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
     \begin{equation}\label{chlg:eqn_LgXY}
         L_{g*}[X,Y]=[L_{g*}X, L_{g*}Y]=[X,Y], \qquad \forall X,Y \in \mathscr{G}.
     \end{equation}
-    上式说明矢量场$[X,Y]$也是左移动不变的，即$[X,Y]\in \mathscr{G}$；所以Poisson括号在$\mathscr{G}$上是封闭的；
+    上式说明矢量场$[X,Y]$也是左移动不变的，即$[X,Y]\in \mathscr{G}$；
+    所以Poisson括号在$\mathscr{G}$上是封闭的；
     因此$\mathscr{G}$是一个李代数，称之为{\heiti \bfseries 李群$G$的李代数}．
     
     需要注意李群$G$的李代数$\mathscr{G}$是有限维的；而例\ref{chlg:exm_LAXM}中
@@ -972,7 +976,8 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
     \right] \left. \frac{\partial}{\partial y^\alpha}\right|_{e} . \\
     \text{记}\quad 
     c^\alpha_{ij}=&\left. \frac{\partial^2 \varphi^\alpha (y,x)}{\partial y^i \partial x^j} \right|_{\substack{x=e\\y=e}} -\left. 
-    \frac{\partial^2 \varphi^\alpha (y,x)}{\partial y^j \partial x^i} \right|_{\substack{x=e\\y=e}} . \label{chlg:eqn_struc-const}
+    \frac{\partial^2 \varphi^\alpha (y,x)}{\partial y^j \partial x^i} \right|_{\substack{x=e\\y=e}};
+    \ \text{显然有}\  c^\alpha_{ij} = -c^\alpha_{ji} .\label{chlg:eqn_struc-const}
 \end{align}
 
 
@@ -1120,60 +1125,61 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 这一结论对于$GL(m,\mathbb{C})$和$\mathfrak{gl}(m,\mathbb{C})$也成立．
 \qed
 
-%\index[physwords]{左不变仿射联络}
-%
-%\subsection{左不变仿射联络}\label{chlg:sec_lic}
-%%因李群是微分流形，故我们可以假设其上存在仿射联络$\nabla$．
-%
-%\begin{definition}\label{chlg:def_lic}
-%    设有$m$维李群$G$．$\forall g\in G$，$\forall X,Y\in \mathfrak{X}(G)$，
-%    若$L_{g*}(\nabla_X Y) = \nabla_{L_{g*}X}(L_{g*}Y)$，则称
-%    仿射联络$\nabla$是李群$G$的{\heiti 左不变仿射联络}．
-%\end{definition}
-%
-%\begin{theorem}\label{chlg:thm_lic}
-%    设$\mathfrak{g}$、$\nabla$是李群$G$的李代数和仿射联络；
-%    则$\nabla$是左不变的充分必要条件是：$\forall X,Y \in \mathfrak{g}$都
-%    有$\nabla_X Y\in \mathfrak{g}$．
-%\end{theorem}
-%\begin{proof}
-%    先证“$\Rightarrow$”．$\forall X,Y \in \mathfrak{g}$，
-%    $\forall g\in G$，$L_{g*} X = X$，$L_{g*} Y = Y$．
-%    因$\nabla$是左不变的，故
-%    $    L_{g*}(\nabla_X Y) = \nabla_{L_{g*}X}(L_{g*}Y) = \nabla_{X}Y $．
-%    此式说明$\nabla_X Y$也是左不变矢量场，故$\nabla_X Y\in \mathfrak{g}$．
-%    
-%    再证“$\Leftarrow$”．已知$\forall X,Y \in \mathfrak{g}$都
-%    有$\nabla_X Y\in \mathfrak{g}$．在$\mathfrak{g}$中取定一组
-%    基底$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$，则$\forall Z,W\in \mathfrak{X}(G)$都
-%    存在$z^i,w^j\in C^\infty(G)$使得$Z=z^i \boldsymbol{e}_i$、$W=w^j \boldsymbol{e}_j$成立．    于是有
-%    $L_{g*}Z = (z^i L_{g^{-1}}) L_{g*} \boldsymbol{e}_i$，
-%    $L_{g*}W = (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j$，
-%    $L_{g*}\boldsymbol{e}_i = \boldsymbol{e}_i$，
-%    $\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j = L_{g*}(\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j)$；
-%    由此得 \setlength{\mathindent}{0em}
-%    \begin{align*}
-%        \nabla_{L_{g*}Z} (L_{g*}W)= & \nabla_{(z^i L_{g^{-1}}) L_{g*} \boldsymbol{e}_i }
-%        \bigl( (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j \bigr)
-%        =(z^i L_{g^{-1}}) \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j \bigr) \\
-%        =&(z^i L_{g^{-1}}) (L_{g*} \boldsymbol{e}_j) L_{g*} \boldsymbol{e}_i \bigl( (w^j L_{g^{-1}})  \bigr)
-%        + (z^i L_{g^{-1}}) (w^j L_{g^{-1}})  \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( L_{g*} \boldsymbol{e}_j \bigr) \\
-%        =& \Bigl( \bigl(z^i \boldsymbol{e}_i(w^j) \bigr)L_{g^{-1}}\Bigr) (L_{g*} \boldsymbol{e}_j)
-%        + (z^i w^j L_{g^{-1}}) \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( L_{g*} \boldsymbol{e}_j \bigr)  \\
-%        =& L_{g*}\Bigl( \bigl(z^i \boldsymbol{e}_i(w^j) \bigr) \boldsymbol{e}_j \Bigr)
-%        +L_{g*}\Bigl( (z^i w^j ) \nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j\Bigr)
-%        =L_{g*} (\nabla_Z W ) .
-%    \end{align*}\setlength{\mathindent}{2em}
-%    故$\nabla$是$G$的左不变联络．
-%\end{proof}
-%
-%
-%设$\nabla$是$G$的左不变联络，在$\mathfrak{g}$中取定一组
-%基底$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$．
-%因$\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j \in \mathfrak{g}$，
-%故存在{\kaishu 常数}$\{\Gamma^k_{ij}\}$使得$\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j= \Gamma^k_{ij} \boldsymbol{e}_k$．
-%对一般的联络而言$\{\Gamma^k_{ij}\}$是标量函数场，此处它们是{\kaishu 常数}．
-%
+\index[physwords]{左不变仿射联络} \index[physwords]{李群!左不变仿射联络}
+
+\subsection{左不变仿射联络}\label{chlg:sec_lic}
+%因李群是微分流形，故我们可以假设其上存在仿射联络$\nabla$．
+
+\begin{definition}\label{chlg:def_lic}
+    设有$m$维李群$G$．$\forall g\in G$，$\forall X,Y\in \mathfrak{X}(G)$，
+    若$L_{g*}(\nabla_X Y) = \nabla_{L_{g*}X}(L_{g*}Y)$，则称
+    仿射联络$\nabla$是李群$G$的{\heiti 左不变仿射联络}．
+\end{definition}
+
+\begin{theorem}\label{chlg:thm_lic}
+    设$\mathscr{G}$、$\nabla$是李群$G$的李代数和仿射联络；
+    则$\nabla$是左不变的充分必要条件是：$\forall X,Y \in \mathscr{G}$都
+    有$\nabla_X Y\in \mathscr{G}$．
+\end{theorem}
+\begin{proof}
+    先证“$\Rightarrow$”．$\forall X,Y \in \mathscr{G}$，
+    $\forall g\in G$，$L_{g*} X = X$，$L_{g*} Y = Y$．
+    因$\nabla$是左不变的，故
+    $    L_{g*}(\nabla_X Y) = \nabla_{L_{g*}X}(L_{g*}Y) = \nabla_{X}Y $．
+    此式说明$\nabla_X Y$也是左不变矢量场，故$\nabla_X Y\in \mathscr{G}$．
+    
+    再证“$\Leftarrow$”．已知$\forall X,Y \in \mathscr{G}$都
+    有$\nabla_X Y\in \mathscr{G}$．在$\mathscr{G}$中取定一组
+    基底$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$，则$\forall Z,W\in \mathfrak{X}(G)$都
+    存在$z^i,w^j\in C^\infty(G)$使得$Z=z^i \boldsymbol{e}_i$、$W=w^j \boldsymbol{e}_j$成立．    于是有
+    $L_{g*}Z = (z^i L_{g^{-1}}) L_{g*} \boldsymbol{e}_i$，
+    $L_{g*}W = (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j$，
+    $L_{g*}\boldsymbol{e}_i = \boldsymbol{e}_i$，
+    $\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j = L_{g*}(\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j)$；
+    由此得 \setlength{\mathindent}{0em}
+    \begin{align*}
+        \nabla_{L_{g*}Z} (L_{g*}W)= & \nabla_{(z^i L_{g^{-1}}) L_{g*} \boldsymbol{e}_i }
+        \bigl( (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j \bigr)
+        =(z^i L_{g^{-1}}) \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( (w^j L_{g^{-1}}) L_{g*} \boldsymbol{e}_j \bigr) \\
+        =&(z^i L_{g^{-1}}) (L_{g*} \boldsymbol{e}_j) L_{g*} \boldsymbol{e}_i \bigl( (w^j L_{g^{-1}})  \bigr)
+        + (z^i L_{g^{-1}}) (w^j L_{g^{-1}})  \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( L_{g*} \boldsymbol{e}_j \bigr) \\
+        =& \Bigl( \bigl(z^i \boldsymbol{e}_i(w^j) \bigr)L_{g^{-1}}\Bigr) (L_{g*} \boldsymbol{e}_j)
+        + (z^i w^j L_{g^{-1}}) \nabla_{ L_{g*} \boldsymbol{e}_i }\bigl( L_{g*} \boldsymbol{e}_j \bigr)  \\
+        =& L_{g*}\Bigl( \bigl(z^i \boldsymbol{e}_i(w^j) \bigr) \boldsymbol{e}_j \Bigr)
+        +L_{g*}\Bigl( (z^i w^j ) \nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j\Bigr)
+        =L_{g*} (\nabla_Z W ) .
+    \end{align*}\setlength{\mathindent}{2em}
+    故$\nabla$是$G$的左不变联络．
+\end{proof}
+
+
+设$\nabla$是李群$G$的左不变联络，在其李代数$\mathscr{G}$中取定一组
+基底$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$．
+因$\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j \in \mathscr{G}$，由定理\ref{chlg:thm_lfvls}可
+知存在{\kaishu 常数}$\{\Gamma^k_{ji}\}$使得$\nabla_{\boldsymbol{e}_i} \boldsymbol{e}_j= \Gamma^k_{ji} \boldsymbol{e}_k$．
+对一般的联络而言$\{\Gamma^k_{ji}\}$是标量函数场，此处它们是{\kaishu 常数}．
+%下面阐述这个常数与结构常数的关系．
+
 %有关更多左不变仿射联络知识可参考\parencite[\S 2.1.3]{helgason-2001}．
 
 
@@ -1219,7 +1225,6 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 \end{equation}
 
 
-
 设$\xi_i \in T_e G$．令$X_i$表示由$\xi_i$左移动产生的左不变切矢量场，
 令$Y_i$表示由$\xi_i$右移动产生的右不变切矢量场．
 利用左不变切矢量场$X_i$，我们定义了$T_e G$中矢量的对易关系，
@@ -1236,9 +1241,9 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 在实际使用中要注意这个“负号”的存在．
 
 
-\begin{exercise}
-	直接计算例题\ref{chlg:exam_complex}中的$[X_1,X_2]$．
-\end{exercise}
+%\begin{exercise}
+%	直接计算例题\ref{chlg:exam_complex}中的$[X_1,X_2]$．
+%\end{exercise}
 
 
 
@@ -5188,15 +5193,113 @@ $m$维连通紧致李群$G$上积分具有如下性质：
 或者切空间$T_e G$上的标量积；读者应能记起李代数$\mathfrak{g}$中
 的元素同构于单位元$e$处切空间$T_e G$中的元素．
 若$\left<\cdot,\cdot \right>_e$是$T_e G$上的标量积，那么
-\begin{equation}
+\begin{equation}\label{chlg:eqn_left-invariant-metric}
     \left<X,Y\right>_a \overset{def}{=} 
     \left<L_{a^{-1}*} X,\, L_{a^{-1}*} Y \right>_e, 
     \quad \forall X,Y \in T_a G.
 \end{equation}
-便是一个\CJKunderwave{左不变度规场}．
+便是一个\CJKunderwave{左不变度规场}，
+由此可知李群$G$上一定存在左不变度规场．
+
+\subsection{左不变}
+本小节假定李群$G$上有左不变度规场，
+且李群上的左不变仿射联络（见\S\ref{chlg:sec_lic}）是无挠、与度规相容的；
+笔者参考文献\parencite{Milnor-1976}给出下述结果，
+其主要应用场景是宇宙学中各种类型的Bianchi宇宙的曲率计算．
+
+%\cite{Cacciatori-Kamenshchik-2018}
 
 
 
+
+
+设有李群$G$上的左不变切标架$\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m\}$，
+$X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左不变的．
+李代数$\mathscr{G}$中的任意两个左不变矢量的标量积都是常数，
+故由例\ref{chrg:exam_Koszul}中的Koszul公式可得一个简化版的Koszul公式：
+\begin{equation}\label{chlg:eqn_Koszul-lv}
+	2 \left< \nabla_X Y, Z\right> =  \left<Y, [Z,X]\right> + \left<Z, [X,Y]\right> - \left<X, [Y,Z]\right>.
+\end{equation}
+令$X=\boldsymbol{e}_i$、$Y=\boldsymbol{e}_j$、$Z=\boldsymbol{e}_k$，
+由式\eqref{chlg:eqn_Koszul-lv}得（注$g_{kl}=\left<\boldsymbol{e}_{k}, \boldsymbol{e}_{l} \right>$为常数方阵）
+\begin{align}
+%	&2 \left<\nabla_{\boldsymbol{e}_i}\boldsymbol{e}_j , \boldsymbol{e}_k\right> =  
+%	\left<\boldsymbol{e}_j, [\boldsymbol{e}_k,\boldsymbol{e}_i]\right> 
+%  + \left<\boldsymbol{e}_k, [\boldsymbol{e}_i,\boldsymbol{e}_j]\right> 
+%  - \left<\boldsymbol{e}_i, [\boldsymbol{e}_j,\boldsymbol{e}_k]\right> \quad \Rightarrow \notag \\
+%  &2 \left<\Gamma_{ji}^l \boldsymbol{e}_l, \boldsymbol{e}_k\right> =  
+%  \left<\boldsymbol{e}_j, C_{ki}^l \boldsymbol{e}_l \right> 
+%  + \left<\boldsymbol{e}_k, C_{ij}^l \boldsymbol{e}_l \right> 
+%  - \left<\boldsymbol{e}_i, C_{jk}^l \boldsymbol{e}_l\right> \quad \Rightarrow \notag \\
+%  &2 g_{lk}\Gamma_{ji}^l =   C_{ki}^l g_{jl}  + C_{ij}^l g_{kl}  - C_{jk}^l g_{il} \quad \Rightarrow \notag \\
+  &\Gamma_{ji}^n  = \frac{1}{2} \left(C_{ij}^n + C_{ki}^l g_{jl}g^{nk} + C_{kj}^l g_{il}g^{nk}\right) .
+  \label{chrg:eqn_Gamma-g-C}
+\end{align}
+借用式\eqref{chccr:eqn_tmp1}，可得标架场$\{\boldsymbol{e}_i,\cdots,\boldsymbol{e}_m\}$上的黎曼曲率分量公式：
+\begin{align}
+	R_{\hphantom{n}kij}^n =& {\boldsymbol{e}_i} ( {\Gamma _{kj}^n} ) - {\boldsymbol{e}_j}( {\Gamma _{ki}^n} )
+	+ \Gamma _{kj}^l\Gamma _{li}^n - \Gamma _{ki}^l\Gamma _{lj}^n
+	- \left< \boldsymbol{e}^{*l} ,\ [\boldsymbol{e}_i, \boldsymbol{e}_j] \right> \Gamma _{kl}^n 
+	\tag{\ref{chccr:eqn_tmp1}} \\
+	\xlongequal[\text{为常数}]{\Gamma^k_{ij}}&
+	\Gamma _{kj}^l\Gamma _{li}^n - \Gamma _{ki}^l\Gamma _{lj}^n	- C_{ij}^l \Gamma _{kl}^n.
+	\label{chrg:eqn_R-G-C}
+\end{align}
+虽然在李群$G$上，曲率的每个分量都是常数（每个$R_{\hphantom{n}kij}^n$是常数），
+但是不同分量之间未必相等，故一般情形下此曲率不是常曲率．
+有了式\eqref{chrg:eqn_Gamma-g-C}和\eqref{chrg:eqn_R-G-C}，
+便可编写符号演算程序来计算曲率了．
+
+\index[physwords]{李群!黎曼曲率}
+
+
+%%%%需保留如下推导，不要删除%%%%%%
+%下面，我们给出李群上的黎曼曲率（请读者比对此处与\S\ref{chrg:sec_RCrf}中的知识）．
+%我们自然选择李代数$\mathscr{G}$的左不变切标架场$\{\boldsymbol{e}_i\}$来计算．
+%借用一个很重要的公式
+%\begin{align}
+%	\bigl[\boldsymbol{e}_i, \boldsymbol{e}_j\bigr]
+%	= \bigl(\Gamma^{k}_{ji} - \Gamma^{k}_{ij}\bigr) \boldsymbol{e}_k
+%	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) \boldsymbol{e}^k .
+%	\tag{\ref{chrg:eqn_EmuEnucommutator}}
+%\end{align}
+%式\eqref{chrg:eqn_EmuEnucommutator}第一个等号适用于一般标架，
+%第二个等号只适用于刚性标架（定义见\ref{chrg:def_rigid-frame}）．
+%李代数基矢有如下对易关系$\bigl[\boldsymbol{e}_i, \boldsymbol{e}_j\bigr]=C_{ij}^k \boldsymbol{e}_k$．
+%我们使用对偶矢量场$\boldsymbol{e}^{*l}$缩并掉上式中的基矢，有
+%\begin{equation}\label{chlg:eqn_CG}
+%	C_{ij}^l 
+%	= \Gamma^{l}_{ji} - \Gamma^{l}_{ij}
+%	= \bigl(\omega_{ikj}-\omega_{jki}\bigr) g^{kl} ;
+%	\qquad g^{kl}=\left<\boldsymbol{e}^{k}, \boldsymbol{e}^{*l} \right> 
+%\end{equation}
+%度规与联络相容是指$\nabla g =0$，故有
+%\begin{align*} 
+%	\partial_i g_{jk} = \Gamma_{ji}^l g_{lk} + \Gamma_{ki}^l g_{jl} , \quad
+%	\partial_j g_{ki} = \Gamma_{kj}^l g_{li} + \Gamma_{ij}^l g_{kl}, \quad
+%	-\partial_k g_{ij} = -\Gamma_{ik}^l g_{lj} - \Gamma_{jk}^l g_{il}  .
+%\end{align*}
+%需注意：一般标架场上$\Gamma^{k}_{ji} \neq \Gamma^{k}_{ij}$．
+%上三式相加，再结合式\eqref{chlg:eqn_CG}，有
+%\begin{align*}
+%	\partial_i g_{jk}+\partial_j g_{ki}-\partial_k g_{ij}
+%	=& (\Gamma_{ji}^l + \Gamma_{ij}^l) g_{kl} 
+%	+ (\Gamma_{ki}^l - \Gamma_{ik}^l) g_{lj} 
+%	+ (\Gamma_{kj}^l - \Gamma_{jk}^l) g_{il} \\
+%	=& (C_{ij}^l + 2\Gamma_{ij}^l) g_{kl} 
+%	+ C_{ik}^l g_{lj} + C_{jk}^l g_{il} .
+%\end{align*}
+%由此得到
+%\begin{equation}\label{chrg:eqn_Gamma-g-C}
+%	\Gamma_{ij}^n  = \frac{1}{2}g^{nk}(g_{jk,i}+g_{ki,j}-g_{ij,k})
+%	+ \frac{1}{2} \left(C_{ji}^n + C_{ki}^l g_{lj}g^{nk} + C_{kj}^l g_{il}g^{nk}\right) .
+%\end{equation}
+%虽然李代数$\mathscr{G}$的基矢场是一般标架场，但它可能不是刚性的（定义见\ref{chrg:def_rigid-frame}），
+%故$\partial_i g_{jk}\equiv g_{jk,i}$可能不是零．
+%这点有区别于\S\ref{chrg:sec_RCrf}中公式．
+
+
+\subsection{双不变}
 
 \begin{theorem}\label{chlg:thm_biinmg}
     连通李群$G$上有左不变度规场$\left<\cdot,\cdot\right>$，
@@ -5274,11 +5377,8 @@ $m$维连通紧致李群$G$上积分具有如下性质：
     再证“(4)$\Rightarrow$(2)”．    略麻烦，可参见\parencite{oneill1983}第11章引理3．
     
     \noindent {\color{red} $(4)\Leftrightarrow (5)$．}
-    李代数$\mathfrak{g}$中的任意两个矢量的标量积都是常数，
-    故由例\ref{chrg:exam_Koszul}中的Koszul公式可得
-    $ 2 \left< \nabla_X Y, Z\right> =  \left<Y, [Z,X]\right> + \left<Z, [X,Y]\right> - \left<X, [Y,Z]\right> $．
-    若(4)成立，将其中的$Y$、$Z$互换得$\left<X,[Z,Y]\right>=\left<[X,Z],Y\right>$；
-    则上式中的第一项、第三项相消，便可得到(5)．
+    若(4)成立，将(4)中的$Y$、$Z$互换得$\left<X,[Z,Y]\right>=\left<[X,Z],Y\right>$；
+    则式\eqref{chlg:eqn_Koszul-lv}中的第一项、第三项相消，便可得到(5)．
     
     反之，若(5)成立，经过轮换可得（注意$\left< X,Z\right>$等都是常数）
     \begin{align*}
@@ -5348,6 +5448,16 @@ $m$维连通紧致李群$G$上积分具有如下性质：
     \end{align*}
     这里$K (X, Y)$是一个纯数．
 \end{proof}
+
+
+
+
+
+
+
+
+
+
 
 \index[physwords]{李变换群}
 
@@ -5884,14 +5994,14 @@ $\boldsymbol{e}=\left(\boldsymbol{e}_1, \cdots, \boldsymbol{e}_m\right) \in \mat
 
 %我们参考\parencite{oneill1983}定理9.32、\parencite{Alexandrino-2015}定理2.12给出一个叙述；
 
-\subsection{李变换群与Killing矢量场}\label{chlg:sec_killing}
+\subsection{李变换群与Killing切矢量场}\label{chlg:sec_killing}
 
 \begin{theorem}\label{chlg:thm_comp-kill}
-    完备、广义黎曼流形的任一个Killing矢量场也是完备的．
+    完备、广义黎曼流形的任一个Killing切矢量场是完备的．
 \end{theorem}
 \begin{proof}
-    请参阅\parencite{oneill1983}命题9.30．
-    非完备流形上的Killing矢量场可能是完备的，也可能是不完备的．
+    见\parencite{oneill1983}命题9.30．
+    非完备流形的Killing场可能完备、也可能不完备．
 \end{proof}
 
 
@@ -5931,6 +6041,11 @@ $\forall X\in T_e\bigl(I(M)\bigr)$，$\exp(t X),\ t\in \mathbb{R}$是$I(M)$的�
     第(3)条是定理\ref{chlg:thm_comp-kill}和(2)的推论．
 \end{proof}
 
+\begin{remark}
+	由定理\ref{chrg:thm_killing-MAX}、\ref{chlg:thm_la-killing}可
+	知$m$维广义黎曼流形$(M,g)$的等距群$I(M)$的最高维数是$m(m+1)/2$；
+	$I(M)$最少包含一个元素——恒等变换（此时是零维）．
+\end{remark}
 
 %\begin{proposition}
 %    设$\xi$是广义黎曼流形$M$上的Killing矢量场，$\gamma(t)$是$M$上一条测地线．

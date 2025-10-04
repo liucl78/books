@@ -4,16 +4,15 @@
 \chapter{广义相对论基础}\label{chfd}
 
 本章叙述广义相对论基本原理、方法．
-我们给出三条基本假设，所有广义相对论内容均构建在它们之上．
-然后描述等效原理和广义协变原理；
+首先我们给出四条基本假设，所有广义相对论内容均构建在它们之上．
+然后描述等效原理和广义协变原理．
 源守恒定律一般被当做爱氏场方程推论，不是独立存在的，
-然而这一观点并不正确，笔者给予了纠正；
-然后讲述了规范条件的内容；
+然而这一观点并不正确，笔者给予了纠正．
+继而讲述了规范条件的内容．
 接着叙述观测者和参考系的概念；
-在参考系中定义Fermi--Walker导数后便可清晰描述
-三速度、三加速度等概念．之后建立了固有坐标系，
-这是广义相对论最常用的坐标系；有了这些准备后，
-便可把参考系中一些尚未解决的问题加以进一步描述．
+在参考系中定义Fermi--Walker导数后便可清晰描述三速度、三加速度等概念．
+之后建立了固有坐标系，这是广义相对论最常用的坐标系；
+有了这些准备后，便可把参考系中一些尚未解决的问题加以进一步描述．
 测地偏离是描述广义相对论与牛顿力学本质差别的重要手段．
 
 
@@ -51,22 +50,57 @@
 比如\textcite[\S 6.9]{weinberg_grav-1972}，
 在该书中，张量分析比几何更加重要．
 
+\noindent\fbox{\heiti 乙}：局部因果性．
 
-\noindent\fbox{\heiti  乙}：描述物质运动的方程是
+相对论中，依照曲线的切线切矢量在度规场$g_{ab}$下的属性被分为：类时、类空和类光
+（见第\pageref{chrg:def_vector-property}页定义\ref{chrg:def_vector-property}）．
+若光滑曲线的每点切线切矢量都是类时的（类空的、类光的），则称此线为类时（类空、类光）曲线．
+
+
+时空中有关质点$p$（包括有静质量和无静质量粒子）的全部事件集合称为$p$的{\heiti 世界线}．
+类时、类光世界线合称为{\heiti 因果世界线}（causal world lines）．
+第二条基本假设是：{\bfseries (1)}物理上允许存在的只有（局部）因果世界线．
+{\bfseries (2)}类空曲线的切速度是超光速的，属于非物理；即便非物理，它在相对论中仍有许多应用．
+{\bfseries (3)}若一条连续曲线一段类时（或类光），与其毗邻一段类空曲线，
+则它不属于物理研究的对象；即物理上只研究属性相同的曲线（或类时、或类光、或类空）．
+
+\index[physwords]{时间定向}
+
+下面给出时间定向的初步阐述．
+更详细内容可参见\parencite[\S 6.1]{hawking-ellis1973}或\parencite[p.143]{oneill1983}．
+
+设有类时世界线$\gamma(\tau)$，$\tau$是其弧长参数；
+沿着$\gamma(\tau)$，实参数$\tau$自然有增大或减少的方向．
+$\gamma(\tau)$上某点的切线切矢量$T^a$只有两个方向，如果$T^a$指向$\tau$增大的方向，
+我们称$T^a${\heiti 指向未来}，否则{\heiti 指向过去}．
+
+设$p$点有类时矢量$T^a$、$S^b$；若$g_{ab}T^a S^b <0$，则称$T^a$、$S^b${\heiti 同向}，否则{\heiti 反向}．
+
+
+因类光线的弧长为零，其上没有时间概念；我们采用如下方式定义其指向．
+时空$M$上一点$p\in M$的所有类光矢量集合称为$p$点的{\heiti 光锥}． %（平直时空的例子可见\S\ref{chsr:sec_spacetime}）．
+在狭义或广义相对论中，类时矢量过去与未来的指向是绝对的，不可能通过物理允许的连续变换改变其指向．
+因此，我们将$p$点包裹指向未来类时矢量的光锥定义为{\heiti 指向未来}的，
+将$p$点包裹指向过去类时矢量的光锥定义为{\heiti 指向过去}的．
+也就是说，我们借用类时线上质点速度趋于光速的极限状态的时间定向来定义类光线的指向．
+
+
+\noindent\fbox{\heiti  丙}：描述物质（包括有质量的粒子和无质量的粒子）运动的方程是：
 \begin{equation}\label{chfd:eqn_motion-gr}
     \nabla^a T_{ab} =0.
 \end{equation}
 如果是狭义相对论时空，则将上式中协变导数变成偏导数．
-其中$T_{ab}$是物质的二阶对称能量-动量张量场（Energy-momentum tensor），
+其中$T_{ab}$是物质的二阶对称能量-动量张量场（energy-momentum tensor），
 具体描述见\S\ref{chlh:sec_BR-tensor}．
 
 
 
-\noindent\fbox{\heiti 丙}：物质分布决定时空弯曲，这由下述爱因斯坦引力场方程来描述：
+\noindent\fbox{\heiti 丁}：物质场（$T_{ab}$）分布决定时空弯曲，这由下述爱因斯坦引力场方程来描述：
 \begin{subequations}\label{chfd:eqn_Einstein}
 	\begin{align}
 		G_{ab} \equiv & R_{ab} - \frac{1}{2}g_{ab} R = \frac{8\pi G}{c^4} T_{ab}
-		\label{chfd:eqn_Einstein-A-form} {\qquad \qquad \color{red} \Leftrightarrow} \\
+		\label{chfd:eqn_Einstein-A-form} 
+		{\qquad \qquad \color{red} \text{等价于}} \\
 		& R_{ab} = \frac{8\pi G}{c^4} \left(T_{ab} - \frac{1}{2}g_{ab}T \right)
         \equiv \frac{8\pi G}{c^4} \overline{T}_{ab}. \label{chfd:eqn_Einstein-B-form}
 	\end{align}
@@ -76,11 +110,11 @@ $R_{ab}$是时空的Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率�
 待求度规场$g_{ab}$是广义相对论动力学变量；
 式\eqref{chfd:eqn_Einstein-B-form}的符号$T$是${T}_{ab}$的迹：
 \begin{equation}
-    T \overset{def}{=} g^{ab}T_{ab} = g_{ab}T^{ab} .
+    T \overset{def}{=} g^{ab}T_{ab} = g_{ab}T^{ab} =T^{a}_{\hphantom{a} a}.
 \end{equation}
 式\eqref{chfd:eqn_Einstein-B-form}最后一个等号定义了“反迹能量-动量张量”
 \begin{equation}
-    \overline{T}_{ab}\overset{def}{=}T_{ab} - \frac{1}{2}g_{ab}T ;\quad
+    \overline{T}_{ab}\overset{def}{=}T_{ab} - \frac{1}{2}g_{ab}T ;\qquad
     \overline{T} = g^{ab}\overline{T}_{ab} %=g^{ab}T_{ab} - \frac{1}{2}g_{a}^a T
       = T-\frac{1}{2}\cdot 4\cdot T = -T .
 \end{equation}
@@ -94,65 +128,42 @@ $R_{ab}$是时空的Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率�
     = R^{a}_{\hphantom{a} a} -  \frac{1}{2}g^{a}_{\hphantom{a} a} R
 	=R - \frac{1}{2}\cdot 4 \cdot R =-R,
 \end{equation}
-将上式带回\eqref{chfd:eqn_Einstein-A-form}并移项便可
-得到\eqref{chfd:eqn_Einstein-B-form}．
+将上式带回\eqref{chfd:eqn_Einstein-A-form}并移项便可得到\eqref{chfd:eqn_Einstein-B-form}．
 请读者补齐反向推导．
 
 方程\eqref{chfd:eqn_Einstein}中并未引入宇宙学常数，它只在讨论宇宙学时有用．
 
 爱氏方程\eqref{chfd:eqn_Einstein}右端比例系数$\frac{8\pi G}{c^4}$的推导过程见\S\ref{chle:sec_Newton-limit}．
 
+当没有物质时，即$T_{ab}=0$，进而可得$T=0$；
+由式\eqref{chfd:eqn_R-and-T}可得标量曲率恒零；
+由方程\eqref{chfd:eqn_Einstein}可得{\heiti 真空爱因斯坦引力场方程}：
+$R_{ab}=0$或者$G_{ab}=0$．
+
+
 
 爱因斯坦引力场方程\eqref{chfd:eqn_Einstein}是整个广义相对论最基本的假设；
 我们显示写出了国际单位制中的引力常数$G$和光速$c$；
-之后，将采用$c=1= G$的几何单位制，详见附录\ref{chunit-dim:sec_gravity}．
+之后，将采用$c=1= G$的几何单位制．
+关于单位制详见附录\ref{chunit-dim:sec_gravity}．
+
+在\S\ref{chlh:sec_Gravity}中，我们先假设引力作用量，
+然后使用变分法导出方程\eqref{chfd:eqn_Einstein}．
+当然也有其他方法猜出此方程，比如可参见\parencite[\S 7.1--7.2]{weinberg_grav-1972}．
+
+
+
+
+
+本节只给出了基本假设，后面章节会进一步解释这些假设．
 
 
 \begin{remark}
-    前两条假设为狭义、广义相对论共有，差别是平直与弯曲；第三条假设是广义相对论独有的．    
-    这种描述方式取自\textcite[Ch.3]{hawking-ellis1973}．
-    不过需要特别强调：第二条基本假设独立于爱因斯坦引力场方程\eqref{chfd:eqn_Einstein}，
-    见\S\ref{chfd:sec_liu2018}．
+	前三条假设为狭义、广义相对论共有，差别是平直与弯曲；第四条假设是广义相对论独有的．    
+	这种描述方式取自\textcite[Ch.3]{hawking-ellis1973}．
+	不过需要特别强调：式\eqref{chfd:eqn_motion-gr}独立于爱因斯坦引力场方程\eqref{chfd:eqn_Einstein}，
+	详见\S\ref{chfd:sec_liu2018}．
 \end{remark}
-
-
-%广义相对论是描述引力的理论，同时它为其它理论提供背景时空$g_{ab}$；
-%这个名字并不准确，许多学者（比如J. A. Wheeler）
-%认为{\heiti 几何动力学}（Geometrodynamics）能更准确地描述此理论内容．
-%
-%\index[physwords]{几何动力学}
-
-\index[physwords]{时间定向}
-
-\paragraph{时间定向}
-此处给出时间定向的初步阐述．
-更详尽内容可见\parencite[\S 6.1]{hawking-ellis1973}或\parencite[p.143]{oneill1983}．
-
-广义相对论中，依照曲线的切线切矢量在度规场$g_{ab}$下的属性被分为：类时、类空和类光
-（见第\pageref{chrg:def_vector-property}页定义\ref{chrg:def_vector-property}）．
-若光滑曲线的每点切线切矢量都是类时的（类空的、类光的），则称此线为类时（类空、类光）曲线．
-其中类空曲线是超光速的，属于非物理；即便非物理，它在相对论中仍有许多应用．
-
-时空中有关质点$p$（包括有静质量和无静质量粒子）的全部事件集合称为$p$的{\heiti 世界线}．
-世界线自然是时空中的一条光滑曲线，与\S\ref{chsr:sec_stc}相同．
-类时、类光世界线合称为{\heiti 因果世界线}（causal world lines）．
-
-设有类时世界线$\gamma(\tau)$，$\tau$是其弧长参数；
-沿着$\gamma(\tau)$，实参数$\tau$自然有增大或减少的方向．
-$\gamma(\tau)$上某点的切线切矢量$T^a$只有两个方向，如果$T^a$指向$\tau$增大的方向，
-我们称$T^a${\heiti 指向未来}，否则{\heiti 指向过去}．
-
-设$p$点有类时矢量$T^a$、$S^b$；若$g_{ab}T^a S^b <0$，则称$T^a$、$S^b${\heiti 同向}，否则{\heiti 反向}．
-
-
-因类光线的弧长为零，其上没有时间概念；我们采用如下方式定义其指向．
-时空$M$上一点$p\in M$的所有类光矢量集合称为$p$点的{\heiti 光锥}（平直时空的例子可见\S\ref{chsr:sec_spacetime}）．
-在狭义或广义相对论中，类时矢量过去与未来的指向是绝对的，不可能通过物理允许的连续变换改变其指向．
-因此，我们将$p$点包裹指向未来类时矢量的光锥定义为{\heiti 指向未来}的，
-将$p$点包裹指向过去类时矢量的光锥定义为{\heiti 指向过去}的．
-也就是说，我们借用类时线上质点速度趋于光速的极限状态的时间定向来定义类光线的指向．
-
-
 
 
 \section{等效原理与广义协变原理}
@@ -425,8 +436,14 @@ EEP的内容显得更哲学．结合广义相对论基本假设\fbox{甲}，
 可参见\parencite[\S 15(c)]{Pais-1982}．
 \textcite[\S 17.1-17.2]{mtw1973}更是支持此观点；
 甚至，他们\cite[\S 20.6]{mtw1973}还从爱氏方程组导出了麦克斯韦方程组和测地线方程．
-较新的文献\textcite[\S 6.6]{schutz-2022}、\textcite[\S 5.4]{poisson-will-2014}、
-\textcite[\S 9.3]{witten-2024}和\textcite[p.44]{Choquet-Bruhat-2009}也支持此观点．
+除此以外，还有如下文献也支持此观点，
+\textcite[p.44]{Choquet-Bruhat-2009}，
+\textcite{hawking-1966}第二章公式(5)，
+\textcite[\S 95]{landau_2-classical-fields}中式(95.10)下面的自然段，
+\textcite[\S 5.4]{poisson-will-2014}，
+\textcite[\S 6.6]{schutz-2022}，
+\textcite[\S 1.5]{weinberg_cos-2008}中紧接着式(1.5.20)的自然段，
+\textcite[\S 9.3]{witten-2024}．
 
 然而，上述观点是错误的\cite{liu2018}，他们/她们忽略了偏微分方程组解存在性需求．
 
@@ -894,7 +911,7 @@ $z$是初始点，通常并不大关心点$z$和$Z^a$，故
 
 我们把随着质点$p$（或流体质团）一起运动的观测者$Z^a$称为{\heiti 共动观测者}（co-moving）．
 观测者$Z^a$相对于$p$是静止不动的，但从其他观测者来看$Z^a$随着$p$一起运动．
-同样要求共动观测者$Z^a$的四速度归一化到光速．
+同样要求共动观测者的四速度是归一化的，即$Z^a Z_a=-1$．
 设流形$(U,g)$局部有共动坐标系$\{t,x^i\}$，
 度规在此局部坐标系下为$g_{ab}=g_{\mu\nu}({\rm d}x^\mu)_a ({\rm d}x^\nu)_b$．
 则共动观测者$Z^a$正比于$(\frac{\partial}{\partial t})^a$，

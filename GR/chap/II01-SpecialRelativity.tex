@@ -178,7 +178,8 @@
 
 
 
-\subsection{牛顿万有引力}
+\subsection{牛顿引力论}\label{chsr:sec_Newton-Gravity}
+
 设有物体$A$，总质量是$M$，其密度分布是$\rho(y)$；物体$B$总质量是$m$，
 处于空间中$\boldsymbol{x}$位置．牛顿万有引力公式为：
 \begin{equation}\label{chsr:eqn_Newton-gravity}
@@ -1554,7 +1555,10 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 变完之后的坐标$x^{\prime 0}$仍称为“时间”，其它三个坐标称为“空间”．
 
 
-狭义相对论中的闵氏时空是平直的，它的切空间就是自身．洛伦兹度规在坐标系$\{x^\mu\}$中可表示为
+下面我们给出两个例子，它们不显示表出时间．
+
+第一个例子．狭义相对论中的闵氏时空是平直的，它的切空间就是自身．
+洛伦兹度规在坐标系$\{x^\mu\}$中可表示为
 \begin{equation}\label{chsr:eqn_Lorentz-metric}
 	\eta_{ab} = -({\rm d}x^0)_a ({\rm d}x^0)_b+({\rm d}x^1)_a({\rm d}x^1)_b
 	+({\rm d}x^2)_a ({\rm d}x^2)_b+({\rm d}x^3)_a({\rm d}x^3)_b .
@@ -1573,11 +1577,31 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 那么从表面上来看，新的坐标系$\{u,v,x^1,x^2\}$没有显示“时间”的概念；
 而是隐藏在$\{u,v\}$之中．
 
-
-
-
-
-
+第二个例子．在闵氏时空中，甚至所有坐标基矢都可以是类空的．我们以二维时空为例，设有
+$\eta_{ab} = -({\rm d}t)_a ({\rm d}t)_b+({\rm d}x)_a({\rm d}x)_b$，作变换
+\begin{equation*}
+	4u= 2t + x, \quad 4v= 2t-x
+	\quad \Leftrightarrow \quad
+	t= u+v,\quad x= 2(u-v).
+\end{equation*}
+我们不难求得新坐标$\{u,v\}$的时空属性
+\begin{align*}
+	\eta_{ab} \left(\frac{\partial}{\partial u}\right)^a \left(\frac{\partial}{\partial u}\right)^b 
+%	=&\eta_{ab} \left[\left(\frac{\partial}{\partial t}\right)^a \frac{\partial t}{\partial u} +
+%	\left(\frac{\partial}{\partial x}\right)^a \frac{\partial x}{\partial u} \right]
+%	\left[\left(\frac{\partial}{\partial t}\right)^b \frac{\partial t}{\partial u} +
+%	\left(\frac{\partial}{\partial x}\right)^b \frac{\partial x}{\partial u} \right] \\
+	=& -\left(\frac{\partial t}{\partial u}\right)^2 +	\left( \frac{\partial x}{\partial u}\right)^2
+	= -1 + (+2)^2 =3. \\
+	\eta_{ab} \left(\frac{\partial}{\partial v}\right)^a \left(\frac{\partial}{\partial v}\right)^b 
+%	=&\eta_{ab} \left[\left(\frac{\partial}{\partial t}\right)^a \frac{\partial t}{\partial v} +
+%	\left(\frac{\partial}{\partial x}\right)^a \frac{\partial x}{\partial v} \right]
+%	\left[\left(\frac{\partial}{\partial t}\right)^b \frac{\partial t}{\partial v} +
+%	\left(\frac{\partial}{\partial x}\right)^b \frac{\partial x}{\partial v} \right] \\
+	=& -\left(\frac{\partial t}{\partial v}\right)^2 +	\left( \frac{\partial x}{\partial v}\right)^2
+	= -1 + (-2)^2 =3. 
+\end{align*}
+由上式可见新坐标$\{u,v\}$是类空的，不显含时间．
 
 
 \subsection{时空图}\label{chsr:sec_spacetime}

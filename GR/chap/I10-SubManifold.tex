@@ -2432,7 +2432,7 @@ $\mathbb{R}^{m+1}_1$度规为广义Lorentz度规，即
 
 \section{超曲面四：相对论时空}\label{chsm:sec_3+1decomposition}
 本节将光滑流形$(M,g)$的维数限定在四维，则超曲面$\Sigma$是三维的，度规$g$是Lorentz类型的（$(-+++)$）．
-本小节拉丁字母表示$1,2,3$；希腊字母表示$0,1,2,3$．
+为与相对论内容匹配，本小节拉丁字母表示$1,2,3$，希腊字母表示$0,1,2,3$．
 
 
 流形$M$的切丛$TM$上存在一类时矢量场$(\frac{\partial }{\partial t})^a$，这一类时场将
@@ -2455,10 +2455,10 @@ $\mathbb{R}^{m+1}_1$度规为广义Lorentz度规，即
 
 \subsection{ADM分解}\label{chsm:sec_ADM}
 
-类时场$(\frac{\partial }{\partial t})^a$自然是单参数的，参数是$t$；
-我们约定它指向未来，即指向参数$t$增大的方向．
+设有类时切矢量场$(\frac{\partial }{\partial t})^a$，
+约定它指向未来，即指向参数$t$增大的方向．
 一般情形下，$(\frac{\partial }{\partial t})^a$未必与超曲面$\Sigma_t$处处正交；
-假设类时矢量场$(\frac{\partial }{\partial t})^a$可分解为两个矢量场：
+假设$(\frac{\partial }{\partial t})^a$可分解为两个矢量场：
 \begin{equation}\label{chsm:eqn_ADM}
     \left(\frac{\partial }{\partial t}\right)^a = N n^a + S^a .
 \end{equation}
@@ -2692,8 +2692,7 @@ $\widetilde{\Lie}_X$表示增加数次投影的${\Lie}_X$．
 %式\eqref{chsm:eqn_Lie-t-T}可以推广到任意$\Tpq{p}{q}$型张量场．
 
 
-我们来计算超曲面上两个最基本张量的时间导数．
-首先是诱导度规$h_{ab}$
+我们来计算超曲面上两个最基本张量的时间导数．首先是诱导度规$h_{ab}$：
 \begin{equation}\label{chsm:eqn_Lie-t-hab}
     \dot{h}_{ab} = N \widetilde{\Lie}_{n}{h}_{ab}
     +\widetilde{\Lie}_{\vec{S}}{h}_{ab}
@@ -2783,6 +2782,91 @@ $\widetilde{\Lie}_X$表示增加数次投影的${\Lie}_X$．
 %     + {}^{4}{R}_{decf} {n}^{e} {n}^{f} h^c_a h^d_b
 %     - K_{ab}K + K_{b}^e K_{ea}
 %\end{align*}
+
+
+
+\index[physwords]{同步参考系}
+
+\subsection{同步参考系}\label{chsm:sec_synchronous-reference}
+
+在ADM分解中，当$N=1$且$S^a\equiv 0$时，被称为{\heiti 同步参考系}；此时情形略显简单．
+类空超曲面$\Sigma_t$的度规分量$h_{ij}$是参数$\{t,x^i\}$的函数，我们记
+\begin{equation}
+	\dot{h}_{ij} = \frac{\partial h_{ij}}{\partial t}, \quad
+	\dot{h}_{i}^j = g^{jk} \partial_t h_{ki} = h^{jk} \partial_t h_{ki},\quad
+	\dot{h}_{i}^i = h^{ik} \partial_t h_{ki} .
+\end{equation}
+容易求得克氏符：
+\begin{align}
+	&\Gamma_{00}^0=\Gamma_{0i}^0=\Gamma_{i0}^0=\Gamma_{00}^i=0, \quad 
+	\Gamma_{ij}^0=\frac{1}{2} \dot{h}_{ij}, \quad 
+	\Gamma_{j0}^i=\Gamma_{0j}^i=\frac{1}{2} \dot{h}_j^i . \label{chsm:eqn_SF-Gamma0} \\
+	&\Gamma_{ij}^k \quad  \text{只由}\, h_{ij},h^{ij}\, \text{决定，}
+	\text{与} \{g_{00}=-1=g^{00}, g_{0i}=0=g^{0i}\} \text{无关} \notag
+\end{align}
+对于同步参考系而言，不难看出：
+\begin{equation}
+	\Lie_{\partial_t} \left(\frac{\partial}{\partial x^i}\right)^a 
+	=\left[\frac{\partial}{\partial t},\ \frac{\partial}{\partial x^i}\right]^a = 0,\qquad
+	\Lie_{\partial_t} \left({\rm d }x^i\right)_a =0  .
+\end{equation}
+由式\eqref{chsm:eqn_Lie-t-hab}可得$\Sigma_t$的外曲率为：
+\begin{equation}\label{chsm:eqn_SF-Kab}
+	K_{ab} = -\frac{1}{2}\dot{h}_{ab}
+	\quad \Leftrightarrow \quad
+	K_{ij} = -\frac{1}{2}\dot{h}_{ij}. 
+\end{equation}
+外曲率$K_{ab}$的时间导数\eqref{chsm:eqn_Lie-t-Kab}变为：
+\begin{equation}\label{chsm:eqn_SF-dtKab}
+	-\frac{1}{2}\ddot{h}_{ab}=\dot{K}_{ab} = -{}^4 R_{cd} h^c_a h^d_b + {}^3 R_{ab} - 2 K^c_a K_{cb} + K K_{ab}.
+\end{equation}
+
+
+%\begin{align}
+%	R_{\mu\beta} = \partial_\nu \Gamma_{\mu\beta}^{\nu} -\partial_\beta \Gamma_{\mu\nu}^{\nu}
+%	   + \Gamma_{\mu\beta}^{\pi} \Gamma_{\pi\nu}^{\nu} - \Gamma_{\mu\nu}^{\pi} \Gamma_{\pi\beta}^{\nu} .
+%	   \tag{\ref{chccr:eqn_Ricci-component}}
+%\end{align}
+
+下面导出同步参考系中的Ricci曲率．
+由式\eqref{chccr:eqn_Ricci-component}得（注意用式\eqref{chsm:eqn_SF-Gamma0}）
+\begin{align}
+	R_{00} =& \partial_\nu \Gamma_{00}^{\nu} -\partial_0 \Gamma_{0\nu}^{\nu}
+	+ \Gamma_{00}^{\pi} \Gamma_{\pi\nu}^{\nu} - \Gamma_{0\nu}^{\pi} \Gamma_{\pi 0}^{\nu} 
+%	=  -\partial_0 \Gamma_{0i}^{i} - \Gamma_{0j}^{k} \Gamma_{k 0}^{j} \notag \\
+	=  -\frac{1}{2} \frac{\partial \dot{h}_i^i }{\partial t}   
+	-\frac{1}{4} \dot{h}_j^i \dot{h}^j_i.  \label{chsm:eqn_SF-R00} \\
+	R_{0i} 
+%	=&\partial_\nu \Gamma_{0i}^{\nu} -\partial_i \Gamma_{0\nu}^{\nu}
+%	+ \Gamma_{0i}^{\pi} \Gamma_{\pi\nu}^{\nu} - \Gamma_{0\nu}^{\pi} \Gamma_{\pi i}^{\nu} 
+%	=\partial_j \Gamma_{0i}^{j} -\partial_i \Gamma_{0j}^{j}
+%	+ \Gamma_{0i}^{k} \Gamma_{kj}^{j} - \Gamma_{0j}^{k} \Gamma_{ki}^{j} \notag\\
+	=&\frac{1}{2}\left[\partial_j \dot{h}^j_i + \dot{h}^k_i \Gamma_{kj}^{j} 
+	-\partial_i \dot{h}^j_j - \dot{h}^k_j \Gamma_{ki}^{j} \right]
+	=\frac{1}{2}\left[\left(\dot{h}^j_i\right)_{;j} - \left(\dot{h}^j_j\right)_{;i}\right].
+	\label{chsm:eqn_SF-R0i}
+\end{align}
+用$(\partial_i)^a$、$(\partial_j)^b$缩并式\eqref{chsm:eqn_SF-dtKab}，有
+\begin{equation}\label{chsm:eqn_SF-Rij}
+	{}^4 R_{ij}=  {}^3 R_{ij} +\frac{1}{2}\ddot{h}_{ij} 
+	- \frac{1}{2} \dot{h}_{i}^{l} \dot{h}_{lj} 
+	+ \frac{1}{4} \left(\dot{h}_{l}^l \right) \dot{h}_{ij}  .
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
