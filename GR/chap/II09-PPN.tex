@@ -2,126 +2,115 @@
 % !TeX encoding = UTF-8
 % 此文件从2022.3.04开始写作
 
-\chapter{后牛顿近似} \label{chppn}
+\chapter{参数化后牛顿近似} \label{chppn}
 爱因斯坦引力场方程是非线性的，很难严格求解．
-由爱因斯坦本人提出并发展的后牛顿近似方法是处理引力束缚系统
-的常用方法．
-为了便于比较量级以及使用，本章以及下一章使用国际单位制；
-并且基本用分量语言来描述；坐标系则需要根据要处理的问题
-进行选取，如无特殊要求，我们选取固有坐标系（见\S\ref{chfd:sec_proper-coord}）．
+由爱因斯坦本人参与并发展的后牛顿近似方法是处理引力束缚系统的常用方法．
+为了便于比较量级以及使用，本章使用国际单位制；
+并且基本用分量语言来描述；坐标系则需要根据要处理的问题进行选取．
+%如无特殊要求，我们选取固有坐标系（见\S\ref{chfd:sec_proper-coord}）．
 
-需要强调：所有张量场（除$g_{\mu\nu},\, g^{\mu\nu}$外）都
-需用洛伦兹度规$\eta_{\mu\nu},\, \eta^{\mu\nu}$来升降指标．
-由于我们采用的度规号差是$(-+++)$，故在三维纯空间部分，
-当用$\eta_{\mu\nu}$（或$\delta_{ij}$）升降指标时，只有象征意义，
-不会产生额外的正负号．正是这个原因，在纯空间部分本章很多公式等号两端
-的上下指标不匹配．
 
-本章主要参考了文献\parencite[Ch. 9]{weinberg_grav-1972}．
-%\parencite[Ch. 7-8]{xu-wu-1999}，
-%\parencite{poisson-will-2014}．
 
-\section{量级估算}
+\section{量级估算}\label{chppn:sec_OM}
+
 只有清楚了各物理量的数量级，才能作可靠的近似．
-考虑一个由引力束缚在一起的质点系统（如太阳系）
+考虑一个由引力束缚在一起的质点系统（如太阳系），
 $M$、$r$、$v$分别代表质点的质量、平均距离和速度．
-根据位力定理
+根据位力定理，有
 \begin{equation}
     v^2 \approx \frac{GM}{r} \equiv U .
 \end{equation}
-其中$U$是引力势函数，
+其中$U$是引力势函数：
 \begin{equation}
     U = -\phi = +\int \frac{G \rho(\boldsymbol{y})}{|\boldsymbol{x}-\boldsymbol{y}|} {\rm d}^3y
       = +\frac{G M }{r} .
 \end{equation}
 后牛顿近似中更喜欢用$U$，而不是$\phi$．
-对于太阳表面而言
+对于太阳表面、地球表面，有
 \begin{equation}
-    \frac{v^2}{c^2}=\frac{G M_{\odot} }{c^2 R_{\odot}} \approx 2 \times 10^{-6} .
+    \frac{v^2}{c^2}\approx\frac{G M_{\odot} }{c^2 R_{\odot}} \approx 2 \times 10^{-6} ;\qquad
+    \frac{v^2}{c^2}\approx\frac{G M_{\oplus} }{c^2 R_{\oplus}} \approx 7 \times 10^{-10} .
 \end{equation}
-对于地球表面而言
-\begin{equation}
-    \frac{v^2}{c^2}=\frac{G M_{\oplus} }{c^2 R_{\oplus}} \approx 7 \times 10^{-10} .
-\end{equation}
-可见不论太阳还是地球表面都可看成弱引力场，
-在此区域飞行的质点速度$v/c$都不高．令
+可见不论太阳附近还是地球附近都可看成弱引力场，
+在此区域飞行的质点速度$v/c$都不高．
+为了令后面公式简洁一些，我们命
 \begin{equation}\label{chppn:eqn_vdc}
-    \bar{v}\equiv \frac{v}{c}.
+    \varepsilon\equiv \frac{v}{c}.
 \end{equation}
-我们将借助参量$\bar{v}$将各种物理量展开．
+我们将借助参量$\varepsilon$将各种物理量展开．
 
-物质内能可通过压强来表述，单位质量内能与引力势处于同一量级，
+在天体物理中，通常用理想流体力学来近似各种天文系统；
+在此种近似方法中单位质量内能$\Pi$与引力势$U$处于同一量级，
+而单位质量内能可通过压强与质量密度比值来表述，故有
 \begin{equation}
-    \frac{E_{\text{内能}}}{c^2} \sim \frac{p}{c^2 \rho}\sim
-    \frac{\phi}{c^2} \sim \bar{v}^2
+    \frac{\Pi}{c^2} \sim \frac{p}{c^2 \rho}\sim
+    \frac{U}{c^2} \sim \varepsilon^2 .
 \end{equation}
 
-系统中的距离和时间尺度分别$r$和$r/v$，故导数量级大约是
+系统中的距离和时间尺度分别$r$和$r/v$，故导数量级大约是：
 \begin{equation}
     \frac{\partial}{\partial x^i}\sim \frac{1}{r},\qquad
     \frac{\partial}{\partial x^0}\sim \frac{\partial}{c \partial t}
-    \sim \frac{v}{cr} \sim  \bar{v} \frac{\partial}{\partial x^i}.
+    \sim \frac{v}{cr} \sim  \varepsilon \frac{\partial}{\partial x^i}.
 \end{equation}
 
 
-后牛顿近似本质上是对$\bar{v}$（式\eqref{chppn:eqn_vdc}）的近似展开，
-也经常说成是对光速$c^{-1}$展开．展开后精确到不同量级，
-比如$O(\bar{v}),\, O(\bar{v}^2),\, O(\bar{v}^4),\cdots$，
-这些量级会在公式中有显示表示；通常我们会把上述量级简记
-为$O(1),\, O(2),\, O(4),\cdots$．
+后牛顿近似本质上是对光速的逆（即$c^{-1}$）的展开，
+也说成对$\varepsilon$（\eqref{chppn:eqn_vdc}式）的展开．精确到不同量级，
+如$O(c^{-1})$（或$O(\varepsilon)$）、$O(c^{-2})$（或$O(\varepsilon^2)$）等．
 
 
-\section{基本方法}
-基本出发点是引力场方程和自由质点运动方程（即测地线方程）．
-先讨论测地线方程
+\section{后牛顿近似}
+后牛顿近似的基本出发点是爱因斯坦引力场方程和自由质点运动方程（即测地线方程）．
+我们先讨论有质量自由质点的测地线方程
 \begin{equation}
     \frac{{\rm d}^2 x^\mu}{{\rm d}\tau ^2}+ {\Gamma}_{\nu\lambda}^{\mu}
       \frac{{\rm d} x^\nu}{{\rm d}\tau} \frac{{\rm d} x^\lambda}{{\rm d}\tau} =0,
 \end{equation}
-其中$\tau$是固有时．由此出发可以算出空间的三维加速度是（注$x^0=ct$）
+其中$\tau$是固有时．由此出发可以算出空间的三维加速度是（注$x^0=ct$）：
 \begin{align}
     \frac{{\rm d}^2 x^i}{{\rm d} t^2} =& \frac{{\rm d} \tau}{{\rm d}t}
        \frac{{\rm d} }{{\rm d}\tau} \left( \frac{{\rm d} \tau}{{\rm d}t}
        \frac{{\rm d} x^i}{{\rm d} \tau} \right)
-    =\left(\frac{{\rm d} t}{{\rm d}\tau} \right)^{-2} \frac{{\rm d}^2 x^i}{{\rm d} \tau^2}
-     -\left(\frac{{\rm d} t}{{\rm d}\tau} \right)^{-3}
+    =\left(\frac{{\rm d} \tau}{{\rm d}t} \right)^{2} \frac{{\rm d}^2 x^i}{{\rm d} \tau^2}
+     -\left(\frac{{\rm d} \tau}{{\rm d}t} \right)^{3}
      \frac{{\rm d}^2 x^0}{c\, {\rm d} \tau^2} \frac{{\rm d} x^i}{{\rm d} \tau}  \notag \\
     =&-{\Gamma}_{\nu\lambda}^{i} \frac{{\rm d} x^\nu}{{\rm d}t} \frac{{\rm d} x^\lambda}{{\rm d}t}
       +\frac{1}{c} {\Gamma}_{\nu\lambda}^{0} \frac{{\rm d} x^i}{{\rm d}t}
        \frac{{\rm d} x^\nu}{{\rm d}t} \frac{{\rm d} x^\lambda}{{\rm d}t} \notag \\
-    =& -c^2 \Gamma_{00}^{i} - 2c \Gamma_{0j}^{i}\frac{{\rm d} x^j}{{\rm d}t}
+    =& -c^2 \Gamma_{00}^{i} - 2c \Gamma_{j0}^{i}\frac{{\rm d} x^j}{{\rm d}t}
        -\Gamma_{jk}^{i} \frac{{\rm d} x^j}{{\rm d}t} \frac{{\rm d} x^k}{{\rm d}t} \notag \\
       & +\frac{1}{c}\frac{{\rm d} x^i}{{\rm d}t} \left(
-        c^2 \Gamma_{00}^{0} + 2c \Gamma_{0j}^{0}\frac{{\rm d} x^j}{{\rm d}t}
+        c^2 \Gamma_{00}^{0} + 2c \Gamma_{j0}^{0}\frac{{\rm d} x^j}{{\rm d}t}
        +\Gamma_{jk}^{0} \frac{{\rm d} x^j}{{\rm d}t}
        \frac{{\rm d} x^k}{{\rm d}t}  \right) . \label{chppn:eqn_PN}
 \end{align}
-回顾\S\ref{chle:sec_Newton-limit}，当$\bar{v} \ll 1$时，我们
-只保留一阶项，有$g_{00}=-(1+ 2\phi/c^2)$和$g_{0i}=0,\, g_{ij}=\delta_{ij}$，
+回顾\S\ref{chle:sec_Newton-limit}，当$\varepsilon \ll 1$时，
+我们只保留最低阶项，有$g_{00}=-1 + 2U/c^2$和$g_{0i}=0$、$g_{ij}=\delta_{ij}$，
 那么牛顿第二定律和万有引力公式结合之后是
 \begin{equation}
     \frac{{\rm d}^2 x^i}{{\rm d}t^2}=-c^2{\Gamma}_{00}^i
     =\frac{c^2}{2} \frac{\partial g_{00}}{\partial x^i}
-    =-\frac{\partial \phi}{\partial x^i} .
+    =+\frac{\partial U}{\partial x^i} .
 \end{equation}
-由此可见牛顿近似中$\frac{{\rm d}^2 x^i}{{\rm d}t^2}$准确到量级
-$\frac{G M}{r^2} \sim \frac{v^2}{r}$．
-也就是$\Gamma_{00}^i\sim \frac{G M}{c^2 r^2} \sim \frac{\bar{v}^2}{r} $．
+由此可见牛顿近似中$\frac{{\rm d}^2 x^i}{{\rm d}t^2}$准确到量级$\frac{G M}{r^2} \sim \frac{v^2}{r}$．
+也就是$\Gamma_{00}^i\sim \frac{G M}{c^2 r^2} \sim \frac{\varepsilon^2}{r} $．
+
+
 在我们这个后牛顿近似的初步介绍中，
-只要求式\eqref{chppn:eqn_PN}中其它各项
-准确到$\frac{\bar{v}^4}{r}$量级（忽略更高量级的项），那么
-对Christoffel符号诸分量的要求是
+只要求加速度$\frac{{\rm d}^2 x^i}{{\rm d}t^2}$准确到$\frac{v^2}{r}\varepsilon^2$量级，
+那么对Christoffel符号诸分量的要求是（个别项会保留更高阶小量）
 \begin{subequations}
 \begin{align}
-    & \Gamma_{00}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^4}{r},  \\
-    & \Gamma_{0j}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^3}{r},  \\
-    & \Gamma_{jk}^i {\quad \text{须准确到量级}\quad } \frac{\bar{v}^2}{r},  \\
-    & \Gamma_{00}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}^3}{r},  \\
-    & \Gamma_{0j}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}^2}{r},  \\
-    & \Gamma_{jk}^0 {\quad \text{须准确到量级}\quad } \frac{\bar{v}}{r}.
+    & \Gamma_{00}^i {\quad \text{须准确到量级}\quad } \frac{\varepsilon^4}{r},  \\
+    & \Gamma_{j0}^i {\quad \text{须准确到量级}\quad } \frac{\varepsilon^3}{r},  \\
+    & \Gamma_{jk}^i {\quad \text{须准确到量级}\quad } \frac{\varepsilon^2}{r},  \\
+    & \Gamma_{00}^0 {\quad \text{须准确到量级}\quad } \frac{\varepsilon^3}{r},  \\
+    & \Gamma_{j0}^0 {\quad \text{须准确到量级}\quad } \frac{\varepsilon^2}{r},  \\
+    & \Gamma_{jk}^0 {\quad \text{须准确到量级}\quad } \frac{\varepsilon}{r}.
 \end{align}
 \end{subequations}
-以上只是对有质量粒子的要求，对于光子的后牛顿近似另行讨论．
+%以上只是对有质量粒子的要求，对于电磁波的后牛顿近似另行讨论．
 
 \subsection{度规场近似}
 因为克氏符是由度规来表述的，下面我们来看度规的近似展开．
@@ -129,64 +118,68 @@ $\frac{G M}{r^2} \sim \frac{v^2}{r}$．
     \frac{{\rm d} s^2}{{\rm d}t^2} = c^2 g_{00} + 2 c g_{0i} \frac{{\rm d} x^i}{{\rm d}t}
      + g_{ij} \frac{{\rm d} x^i}{{\rm d}t}  \frac{{\rm d} x^j}{{\rm d}t} .
 \end{equation}
-后牛顿方法是弱场、低速近似，度规场不会偏离洛伦兹度规太远，故假设度规可以展开为
+后牛顿方法是弱场、低速近似，度规场不会偏离Lorentz度规太远，故可假设：
 \begin{subequations}\label{chppn:eqn_gdab}
 \begin{align}
     g_{00} =& -1 + \oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00}+ \cdots,  \\
-    g_{ij} =& \delta_{ij} + \oversetmy{2}{g}_{ij}+\oversetmy{4}{g}_{ij}+ \cdots,  \\
-    g_{i0} =& \oversetmy{3}{g}_{i0}+\oversetmy{5}{g}_{i0}+ \cdots
+    g_{ij} =& \delta_{ij} + \oversetmy{2}{g}_{ij}+ \cdots,  \\
+    g_{i0} =& \oversetmy{3}{g}_{i0}+ \cdots
 \end{align}
 \end{subequations}
 {\kaishu 其中$\oversetmy{N}{g}_{\mu\nu}$表示$g_{\mu\nu}$中
-    量级为$\bar{v}^N$（见式\eqref{chppn:eqn_vdc}）的近似项；
+    量级为$\varepsilon^N$（见式\eqref{chppn:eqn_vdc}）的近似项；
 其它量也采取类似的表述方式．} 因为在时间反演下${\rm d} s^2$必然是个不变量，
 而速度$v^i=\frac{{\rm d} x^i}{{\rm d}t}$是要改变符号的，
-故式\eqref{chppn:eqn_gdab}中$g_{0i}$必须是$\bar{v}$的奇数次幂；
-而$g_{00},\, g_{ij}$只能包含$\bar{v}$的偶数次幂项．
+故式\eqref{chppn:eqn_gdab}中$g_{i0}$必须是$\varepsilon$的奇数次幂；
+而$g_{00}$、$g_{ij}$只能包含$\varepsilon$的偶数次幂项．
+$g_{i0}$中没有一阶项的原因见\S\ref{chppn:sec_PNFE}．
 如果有辐射阻尼之类的作用，那么可能打破上述奇偶规律；遇到该问题时再行讨论．
 
 我们知道度规场有关系式：$g^{\mu\rho}g_{\rho\nu}=\delta^\mu_\nu$；把它展开
-\begin{subequations}
+\begin{subequations}\label{chppn:eqn_gg1}
 \begin{align}
     g^{0\rho}g_{\rho 0}=& g^{00}g_{0 0}+g^{0k}g_{k 0} = 1, \qquad \text{一个方程} \\
     g^{0\rho}g_{\rho j}=& g^{00}g_{0 j}+g^{0k}g_{k j} = 0, \qquad \text{三个方程} \\
     g^{i\rho}g_{\rho j}=& g^{i0}g_{0 j}+g^{ik}g_{k j} =\delta^i_j. \qquad \text{六个方程}
 \end{align}
 \end{subequations}
-我们预估逆变度规有如下形式（为了方便引用，第二个等号是把
-式\eqref{chppn:eqn_gugd}带入后的结果）
+我们预估逆变度规有如下形式（为了方便引用，
+第二个等号是把式\eqref{chppn:eqn_gugd}带入后的结果，预先写在这里）
 \begin{subequations}\label{chppn:eqn_guab}
 \begin{align}
     g^{00} =& -1 + \oversetmy{2}{g}^{00}+\oversetmy{4}{g}^{00}+ \cdots
-      &=& -1 -\oversetmy{2}{g}_{00} -\oversetmy{4}{g}_{00}-(\oversetmy{2}{g}_{00})^2 +\cdots  \\
+      &=& -1 -\oversetmy{2}{g}_{00} -\oversetmy{4}{g}_{00}
+      -\left(\oversetmy{2}{g}_{00}\right)^2 +\cdots  \\
     g^{ij} =& \delta^{ij} + \oversetmy{2}{g}^{ij}+ \cdots
       &=&  \delta_{ij}  -\oversetmy{2}{g}_{ij} + \cdots \\
     g^{i0} =& \oversetmy{3}{g}^{i0}+ \cdots
-      &=& \oversetmy{3}{g}_{0i} + \cdots
+      &=& \oversetmy{3}{g}_{i0} + \cdots
 \end{align}
 \end{subequations}
-利用互逆关系（$g^{\mu\rho}g_{\rho\nu}=\delta^\mu_\nu$），把式\eqref{chppn:eqn_guab}第二个等号前的
-表达式代入式\eqref{chppn:eqn_gdab}，有
+把式\eqref{chppn:eqn_gdab}、\eqref{chppn:eqn_guab}第二个等号前的表达式代入式\eqref{chppn:eqn_gg1}，有
 \begin{equation}\label{chppn:eqn_gugd}
     \oversetmy{2}{g}^{00} = -\oversetmy{2}{g}_{00}, \quad
     \oversetmy{4}{g}^{00} = -\oversetmy{4}{g}_{00}-(\oversetmy{2}{g}_{00})^2, \quad
     \oversetmy{2}{g}^{ij} = -\oversetmy{2}{g}_{ij}, \quad
-%    \oversetmy{4}{g}^{ij} = -\oversetmy{4}{g}_{ij}+ \oversetmy{2}{g}_{ik}\oversetmy{2}{g}_{kj}, \quad
-    \oversetmy{3}{g}^{0i} = +\oversetmy{3}{g}_{0i}, \quad    \cdots
+    \oversetmy{3}{g}^{i0} = +\oversetmy{3}{g}_{i0}, \    \cdots
 \end{equation}
 注意：得到上式后，再代入式\eqref{chppn:eqn_guab}才得到第二个等号后面的公式．
 
-\subsection{Christoffel符号近似}
+
+\begin{remark}
+	张量的指标升降需要用式\eqref{chppn:eqn_gdab}以及\eqref{chppn:eqn_guab}．
+	显示标明的除外．
+\end{remark}
+
+\subsection{Christoffel符号近似}\label{chppn:eqn_CPN}
 克氏符定义为
-%\begin{equation}
 $    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}(
       \frac{\partial g_{\rho\nu}}{\partial x^\lambda}
      +\frac{\partial g_{\lambda\rho}}{\partial x^\nu}
      -\frac{\partial g_{\lambda\nu}}{\partial x^\rho} ) $．
-%\end{equation}
-从而可以求出
+我们以$\Gamma^i_{00}$为例，可求出
 \begin{align*}
-    \Gamma^i_{00}=&\frac{1}{2}g^{i0}\left(
+    \Gamma^i_{00}&=\frac{1}{2}g^{i0}\left(
      \frac{\partial g_{0 0}}{\partial x^0}
     +\frac{\partial g_{0 0}}{\partial x^0}
     -\frac{\partial g_{00}}{\partial x^0} \right)
@@ -194,7 +187,7 @@ $    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}(
     \frac{\partial g_{j 0}}{\partial x^0}
     +\frac{\partial g_{0 j}}{\partial x^0}
     -\frac{\partial g_{00}}{\partial x^j} \right) \\
-%    =&\frac{1}{2} \oversetmy{3}{g}^{i0} \left(
+%    &=\frac{1}{2} \oversetmy{3}{g}^{i0} \left(
 %     \frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0}
 %    +\frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0}
 %    -\frac{\partial (-1+\oversetmy{2}{g}_{00})}{\partial x^0} \right)
@@ -203,55 +196,57 @@ $    \Gamma^\mu_{\lambda\nu}=\frac{1}{2}g^{\mu\rho}(
 %    +\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
 %    -\frac{\partial (-1+\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})}
 %       {\partial x^j} \right) \\
-    =& \frac{1}{2}(\delta_{ij}+\oversetmy{2}{g}^{ij})\left(
+    &= \frac{1}{2}(\delta_{ij}+\oversetmy{2}{g}^{ij})\left(
     2\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
     -\frac{\partial (\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})}
-      {\partial x^j} \right) + O(5)\\
-    =& \frac{1}{2} \left(
+      {\partial x^j} \right) + O(c^{-5})\\
+    &= \frac{1}{2} \left(
     2\frac{\partial \oversetmy{3}{g}_{i0}}{\partial x^0}
     -\frac{\partial (\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})} {\partial x^i}
-    -\oversetmy{2}{g}^{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
-      \right) + O(5)
-\end{align*}
-利用式\eqref{chppn:eqn_gugd}，由上式可得
-\begin{equation}
-    \Gamma^i_{00}= \frac{1}{2} \left(
+    -\oversetmy{2}{g}^{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right) + O(c^{-5}) \\
+    &\xlongequal{\ref{chppn:eqn_gugd}}\frac{1}{2} \left(
     -\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
     +2\frac{\partial \oversetmy{3}{g}_{i0}}{\partial x^0}
     -\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
-    +\oversetmy{2}{g}_{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
-    \right) + O(5)
-\end{equation}
+    +\oversetmy{2}{g}_{ij} \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right) + O(c^{-5}) .
+\end{align*}
 与上述过程类似，可以得到如下各阶克氏符近似表达式
 \begin{subequations}\label{chppn:eqn_Gammag}
 \begin{align}
-    \oversetmy{2}{\Gamma}^i_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} ;\\
-    \oversetmy{4}{\Gamma}^i_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
+    \oversetmy{2}{\Gamma}^i_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} ,\quad
+    \oversetmy{4}{\Gamma}^i_{00} =  -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
        + \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^0}
-       + \frac{1}{2}\oversetmy{2}{g}_{ij}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} ;  \\
-    \oversetmy{3}{\Gamma}^i_{0j} = & \frac{1}{2}\left(
-         \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^j}
+       + \frac{1}{2}\oversetmy{2}{g}_{il}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^l} ;  \\
+    \oversetmy{3}{\Gamma}^i_{j0} = & \frac{1}{2}\left(
+         \frac{\partial \oversetmy{3}{g}_{i0}} {\partial x^j}
        + \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^0}
        - \frac{\partial \oversetmy{3}{g}_{0j}} {\partial x^i} \right) ; \\
     \oversetmy{2}{\Gamma}^i_{jk} = & \frac{1}{2}\left(
       \frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^k}
     + \frac{\partial \oversetmy{2}{g}_{ik}} {\partial x^j}
-    - \frac{\partial \oversetmy{2}{g}_{jk}} {\partial x^i} \right) ; \\
-    \oversetmy{3}{\Gamma}^0_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0} ; \\
-    \oversetmy{2}{\Gamma}^0_{0j} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^j} ; \\
-    \oversetmy{1}{\Gamma}^0_{ij} = & 0 =\oversetmy{2}{\Gamma}^0_{ij}, \qquad
-    \oversetmy{3}{\Gamma}^0_{ij} = -\frac{1}{2} \left(
+    - \frac{\partial \oversetmy{2}{g}_{jk}} {\partial x^i} \right); \\
+    \oversetmy{3}{\Gamma}^0_{00} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0},\quad
+    \oversetmy{5}{\Gamma}^0_{00} =
+    -\frac{1}{2}\left(\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^0}
+    +\oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+    +\oversetmy{3}{g}_{0l}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^l} \right); \\
+    \oversetmy{2}{\Gamma}^0_{j0} = & -\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^j},\quad
+    \oversetmy{4}{\Gamma}^0_{j0} = -\frac{1}{2} \oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+    -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^j}; \\
+    \oversetmy{1}{\Gamma}^0_{jk} = & 0 =\oversetmy{2}{\Gamma}^0_{jk}, \quad
+    \oversetmy{3}{\Gamma}^0_{jk} =  -\frac{1}{2} \left(
     \frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^k}
     +\frac{\partial \oversetmy{3}{g}_{0k}}{\partial x^j}
     -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^0} \right) .
 \end{align}
 \end{subequations}
 
-显然，我们必须知道度规分量$g_{ij}$准确到量级$\bar{v}^2$，
-$g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
-应当把这一点同纯牛顿力学对照一下，在那里我们
-需要$g_{00}$精确到量级$\bar{v}^2$；而$g_{i0}=0$，$g_{ij}=\delta_{ij}$，
-即只需精确到零级．
+由上述克氏符可知，度规分量$g_{ij}$至少要准确到量级$\varepsilon^2$，
+$g_{i0}$至少要准确到量级$\varepsilon^3$，$g_{00}$至少要准确到量级$\varepsilon^4$．
+应当把这一点同纯牛顿力学对照一下，
+在那里我们需要$g_{00}$精确到量级$\varepsilon^2$；
+而$g_{i0}=0$，$g_{ij}=\delta_{ij}$，即只需精确到零级．
+式\eqref{chppn:eqn_Gammag}中的最后三式保留了高一阶的小量，以备后用．
 
 
 %其它各项推导过程
@@ -298,6 +293,10 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %    \frac{\partial \oversetmy{2}{g}_{ik} }{\partial x^j}
 %    +\frac{\partial \oversetmy{2}{g}_{ji} }{\partial x^k}
 %    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^i} \right)
+%    -\frac{1}{2}\oversetmy{2}{g}_{il} \left(
+%    \frac{\partial \oversetmy{2}{g}_{lk} }{\partial x^j}
+%    +\frac{\partial \oversetmy{2}{g}_{jl} }{\partial x^k}
+%    -\frac{\partial \oversetmy{2}{g}_{jk} }{\partial x^l} \right)
 %\end{align*}
 %\begin{align*}
 %    \Gamma^0_{00}=&\frac{1}{2}g^{00}\left(
@@ -308,13 +307,16 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %    \frac{\partial g_{j 0}}{\partial x^0}
 %    +\frac{\partial g_{0 j}}{\partial x^0}
 %    -\frac{\partial g_{00}}{\partial x^j} \right) \\
-%    =&\frac{1}{2}(-1 -\oversetmy{2}{g}_{00})
-%    \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%    =&\frac{1}{2}\left( -1 -\oversetmy{2}{g}_{00}  \right)
+%    \frac{\partial }{\partial x^0} (\oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00})
 %    +\frac{1}{2}\oversetmy{3}{g}_{0j}\left(
 %    \frac{\partial \oversetmy{3}{g}_{j0} }{\partial x^0}
 %    +\frac{\partial \oversetmy{3}{g}_{j0}}{\partial x^0}
-%    -\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right)
-%    =-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%    -\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right) \\
+%    =&-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%    -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^0}
+%    -\frac{1}{2}\oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%    -\frac{1}{2}\oversetmy{3}{g}_{0j}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
 %\end{align*}
 %\begin{align*}
 %    \Gamma^0_{0j}=&\frac{1}{2}g^{00}\left(
@@ -325,13 +327,16 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %    \frac{\partial g_{l 0}}{\partial x^j}
 %    +\frac{\partial g_{j l}}{\partial x^0}
 %    -\frac{\partial g_{0 j}}{\partial x^l} \right) \\
-%    =&\frac{1}{2}(-1 -\oversetmy{2}{g}_{00})
-%    \frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
-%    +\frac{1}{2}\oversetmy{3}{g}_{0l}\left(
+%    =&\frac{1}{2}\left(-1 -\oversetmy{2}{g}_{00} -\oversetmy{4}{g}_{00}
+%    -\left(\oversetmy{2}{g}_{00}\right)^2 \right) 
+%    \frac{\partial }{\partial x^j} \left(-1 + \oversetmy{2}{g}_{00}+\oversetmy{4}{g}_{00} \right)  \\
+%    &+\frac{1}{2}\oversetmy{3}{g}_{0l}\left(
 %    \frac{\partial \oversetmy{3}{g}_{l0} }{\partial x^j}
 %    +\frac{\partial \oversetmy{2}{g}_{lj} }{\partial x^0}
-%    -\frac{\partial \oversetmy{3}{g}_{j0} }{\partial x^l} \right)
-%    =-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%    -\frac{\partial \oversetmy{3}{g}_{j0} }{\partial x^l} \right)\\
+%    =&-\frac{1}{2}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%    -\frac{1}{2} \oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%    -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^j}
 %\end{align*}
 %\begin{align*}
 %    \Gamma^0_{jk}=&\frac{1}{2}g^{00}\left(
@@ -361,7 +366,7 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 
 
 
-\subsection{曲率近似}
+\subsection{Ricci曲率近似}
 下面我们来近似Ricci曲率
 （$ R_{\mu\beta} = \partial_\nu \Gamma_{\mu\beta}^{\nu} -\partial_\beta \Gamma_{\mu\nu}^{\nu}
  + \Gamma_{\mu\beta}^{\pi} \Gamma_{\pi\nu}^{\nu} - \Gamma_{\mu\nu}^{\pi} \Gamma_{\pi\beta}^{\nu} $）．
@@ -373,41 +378,37 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
     R_{ij} =& \oversetmy{2}{R}_{ij} + \cdots
 \end{align}
 \end{subequations}
-%$\oversetmy{4}{R}_{ij}=\oversetmy{2}{\Gamma}^k_{ij}\oversetmy{2}{\Gamma}^l_{kl}
-%+\oversetmy{2}{\Gamma}^k_{ij}\oversetmy{2}{\Gamma}^0_{k0}
-%-\oversetmy{2}{\Gamma}^0_{i0}\oversetmy{2}{\Gamma}^0_{j0}
-%-\oversetmy{2}{\Gamma}^l_{ik}\oversetmy{2}{\Gamma}^k_{lj}$ 四阶项不为零，为何忽略？
-其中
+将式\eqref{chppn:eqn_Gammag}带入后，有
 \begin{subequations}\label{chppn:eqn_ricciijk}
 \begin{align}
     \oversetmy{2}{R}_{00} =& \frac{\partial \oversetmy{2}{\Gamma}^i_{00}}{\partial x^i}
       = -\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^i \partial x^i}
-      = -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00} \\
-    \oversetmy{4}{R}_{00} =& \frac{\partial \oversetmy{4}{\Gamma}^i_{00}}{\partial x^i}
-       -\frac{\partial \oversetmy{3}{\Gamma}^i_{0i}}{\partial x^0}
-       + \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^j_{ij}
-       - \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^0_{0i}   \notag\\
+      = -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00} , \\
+    \oversetmy{4}{R}_{00} %=& \frac{\partial \oversetmy{4}{\Gamma}^i_{00}}{\partial x^i}
+%       -\frac{\partial \oversetmy{3}{\Gamma}^i_{0i}}{\partial x^0}
+%       + \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^j_{ij}
+%       - \oversetmy{2}{\Gamma}^i_{00} \oversetmy{2}{\Gamma}^0_{0i}   \notag\\
 %       =& \frac{\partial }{\partial x^i} \left(
 %       -\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}} {\partial x^i}
 %       + \frac{\partial \oversetmy{3}{g}_{0i}} {\partial x^0}
 %       + \frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}\right)
-%       -\frac{1}{2} \frac{\partial^2 \sum_{i} \oversetmy{2}{g}_{ii}  }{\partial x^0\partial x^0}
+%       -\frac{1}{2} \frac{\partial^2 \sum_{l} \oversetmy{2}{g}_{ll}  }{\partial x^0\partial x^0}
 %       -\frac{1}{4}\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
-%        \left(  \frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^i}
+%        \left(  \frac{\partial \sum_{l}\oversetmy{2}{g}_{ll}} {\partial x^i}
 %        + \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i} \right)  \\
        =& -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
         +\frac{\partial^2 \oversetmy{3}{g}_{0i}} {\partial x^i \partial x^0}
-        -\frac{1}{2} \frac{\partial^2 \sum_{i} \oversetmy{2}{g}_{ii}  }{\partial x^0\partial x^0}
+        -\frac{1}{2} \frac{\partial^2 \sum_{l} \oversetmy{2}{g}_{ll}  }{\partial x^0\partial x^0}
         +\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
          {\partial x^k\partial x^i} \notag \\
         &+\frac{1}{2} \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^k}
          \left(\frac{\partial\oversetmy{2}{g}_{ki}}{\partial x^i}
-        -\frac{1}{2}\frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^k} \right)
-        -\frac{1}{4} \left|\nabla \oversetmy{2}{g}_{00} \right|^2          \\
-    \oversetmy{3}{R}_{0i} =& \frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^0}
-       +\frac{\partial \oversetmy{3}{\Gamma}^j_{0i}}{\partial x^j}
-       -\frac{\partial \oversetmy{3}{\Gamma}^0_{00}}{\partial x^i}
-       -\frac{\partial \oversetmy{3}{\Gamma}^j_{0j}}{\partial x^i} \notag \\
+        -\frac{1}{2}\frac{\partial \sum_{l}\oversetmy{2}{g}_{ll}} {\partial x^k} \right)
+        -\frac{1}{4} \left|\nabla \oversetmy{2}{g}_{00} \right|^2    ,      \\
+    \oversetmy{3}{R}_{i0} %=& \frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^0}
+%       +\frac{\partial \oversetmy{3}{\Gamma}^j_{0i}}{\partial x^j}
+%       -\frac{\partial \oversetmy{3}{\Gamma}^0_{00}}{\partial x^i}
+%       -\frac{\partial \oversetmy{3}{\Gamma}^j_{0j}}{\partial x^i} \notag \\
 %       =& -\cancel{\frac{1}{2} \frac{\partial^2 \oversetmy{2}{g}_{00} }{\partial x^i \partial x^0}}
 %       +\frac{1}{2}\frac{\partial }{\partial x^j}\left(
 %       \frac{\partial \oversetmy{3}{g}_{0j}} {\partial x^i}
@@ -417,16 +418,16 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %       -\frac{1}{2}\frac{\partial^2 \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0\partial x^i} \\
        =&\frac{1}{2}\frac{\partial^2 \oversetmy{3}{g}_{0j}} {\partial x^j\partial x^i}
        + \frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{ij}} {\partial x^j\partial x^0}
-       - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{0i}
-       -\frac{1}{2}\frac{\partial^2 \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0\partial x^i} \\
-    \oversetmy{2}{R}_{ij} =& \frac{\partial \oversetmy{2}{\Gamma}^k_{ij}}{\partial x^k}
-       -\frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^j}
-       -\frac{\partial \oversetmy{2}{\Gamma}^k_{ik}}{\partial x^j} \notag \\
+       - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{i0}
+       -\frac{1}{2}\frac{\partial^2 \sum_{l}\oversetmy{2}{g}_{ll} }{\partial x^0\partial x^i}, \\
+    \oversetmy{2}{R}_{ij} %=& \frac{\partial \oversetmy{2}{\Gamma}^k_{ij}}{\partial x^k}
+%       -\frac{\partial \oversetmy{2}{\Gamma}^0_{0i}}{\partial x^j}
+%       -\frac{\partial \oversetmy{2}{\Gamma}^k_{ik}}{\partial x^j} \notag \\
        =&\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{kj}} {\partial x^k \partial x^i}
        + \frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{ik}} {\partial x^k \partial x^j}
        - \frac{1}{2}\nabla^2 \oversetmy{2}{g}_{ij}
        +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^i\partial x^j}
-       -\frac{1}{2}\frac{\partial^2 \sum_{k}\oversetmy{2}{g}_{kk} }{\partial x^i\partial x^j}
+       -\frac{1}{2}\frac{\partial^2 \sum_{l}\oversetmy{2}{g}_{ll} }{\partial x^i\partial x^j} .
 \end{align}
 \end{subequations}
 
@@ -439,7 +440,7 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 \begin{equation}\label{chppn:eqn_gauge03}
     \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0}
     -2\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^j}
-    +\frac{\partial \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0} =0 .
+    +\frac{\partial \sum_{l}\oversetmy{2}{g}_{ll} }{\partial x^0} =0 .
 \end{equation}
 %\begin{align*}
 %    0  %=g^{\mu\nu}\Gamma^\lambda_{\mu\nu}
@@ -460,7 +461,7 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 \begin{equation}\label{chppn:eqn_gaugei2}
     \frac{\partial \oversetmy{2}{g}_{00}} {\partial x^i}
     + 2\frac{\partial \oversetmy{2}{g}_{ij}} {\partial x^j}
-    - \frac{\partial \sum_{j}\oversetmy{2}{g}_{jj}} {\partial x^i} =0 .
+    - \frac{\partial \sum_{l}\oversetmy{2}{g}_{ll}} {\partial x^i} =0 .
 \end{equation}
 %\begin{align*}
 %    0=&g^{0 0}\Gamma^i_{0 0} +2 g^{j 0}\Gamma^i_{j 0} + g^{j k}\Gamma^i_{j k} \\
@@ -483,10 +484,10 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %    - \frac{\partial \oversetmy{2}{g}_{jj}} {\partial x^i} \right) +O(3)
 %\end{align*}
 利用谐和坐标\eqref{chppn:eqn_gauge03}、\eqref{chppn:eqn_gaugei2}，
-经过一些计算，Ricci曲率\eqref{chppn:eqn_ricciijk}简化为
+经过一些计算，Ricci曲率\eqref{chppn:eqn_ricciijk}简化为：
 \begin{subequations}\label{chppn:eqn_ricci-gauge}
     \begin{align}
-        \oversetmy{2}{R}_{00} =& -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00} \\
+        \oversetmy{2}{R}_{00} =& -\frac{1}{2} \nabla^2 \oversetmy{2}{g}_{00}, \\
         \oversetmy{4}{R}_{00} %=&
 %         -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
 %        +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
@@ -499,131 +500,762 @@ $g_{i0}$准确到量级$\bar{v}^3$，$g_{00}$准确到量级$\bar{v}^4$．
 %        -\frac{1}{4} \left|\nabla \oversetmy{2}{g}_{00} \right|^2          \\
         =& -\frac{1}{2} \nabla^2 \oversetmy{4}{g}_{00}
         +\frac{1}{2}\frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
-        -\frac{1}{2} \left|\nabla \oversetmy{2}{g}_{00} \right|^2 +\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
-        {\partial x^k\partial x^i}  \\
-        \oversetmy{3}{R}_{0i} =& - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{0i} \\
-        \oversetmy{2}{R}_{ij} =& - \frac{1}{2}\nabla^2 \oversetmy{2}{g}_{ij}
+        -\frac{1}{2} \left|\nabla \oversetmy{2}{g}_{00} \right|^2 
+        +\frac{1}{2}\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}
+        {\partial x^k\partial x^i},  \\
+        \oversetmy{3}{R}_{i0} =& - \frac{1}{2} \nabla^2 \oversetmy{3}{g}_{i0}, \\
+        \oversetmy{2}{R}_{ij} =& - \frac{1}{2}\nabla^2 \oversetmy{2}{g}_{ij}.
     \end{align}
 \end{subequations}
 
 
+\subsection{能动张量近似}
+能量-动量张量$T^{ab}$中，$T^{00}$是质量密度，最大量级约为$c^2$；
+$T^{0i}$是动量密度，最大量级约为$c^1$；
+$T^{ij}$是动量流密度，最大量级约为$c^0$．
+在爱因斯坦引力场方程中，能动张量前还有系数$\frac{8\pi G}{c^4}$，
+乘上此系数后上述三个物理量的最大量级分别是：
+$O(\varepsilon^2)$，$O(\varepsilon^3)$，$O(\varepsilon^4)$．
+下面我们写出能动张量的展开表达式；
+为了简洁，我们使用$\mathcal{T}^{ab}$来代替$\frac{8\pi G}{c^4}T^{ab}$；
+具体来说，我们将$\frac{8\pi G}{c^4}\oversetmy{+2}{T}^{00}$（上面的“$+2$”代表$O(c^2)$）
+简记为$\oversetmy{2}{\mathcal{T}}^{00}$（上面的“$2$”代表它的量级是$O(c^{-2})$．
+
+参考上节内容，我们预估能动张量可以展开成
+\begin{subequations}
+    \begin{align}
+        \mathcal{T}^{00} =& \oversetmy{2}{\mathcal{T}}^{00} + \oversetmy{4}{\mathcal{T}}^{00} + \cdots \\
+        \mathcal{T}^{0i} =& \oversetmy{3}{\mathcal{T}}^{0i} + \cdots \\
+        \mathcal{T}^{ij} =& \oversetmy{4}{\mathcal{T}}^{ij} + \cdots
+    \end{align}
+\end{subequations}
+能动张量的迹$\mathcal{T}=g_{\mu\nu}\mathcal{T}^{\mu\nu}$的展开式为：
+\begin{align*}
+    \mathcal{T}= g_{\mu\nu}\mathcal{T}^{\mu\nu}
+    = g_{00}\mathcal{T}^{00}+2g_{0i}\mathcal{T}^{0i}+g_{ij}\mathcal{T}^{ij} 
+%    =&(-1 +\oversetmy{2}{g}_{00} ) (\oversetmy{2}{\mathcal{T}}^{00} 
+%+ \oversetmy{4}{\mathcal{T}}^{00})
+%    +2 \oversetmy{3}{g}_{0i} \oversetmy{3}{\mathcal{T}}^{0i}
+%    +(\delta_{ij}  +\oversetmy{2}{g}_{ij}) \oversetmy{4}{\mathcal{T}}^{ij} \\
+    \approx -\oversetmy{2}{\mathcal{T}}^{00} -\oversetmy{4}{\mathcal{T}}^{00} 
+    +\oversetmy{2}{g}_{00}\oversetmy{2}{\mathcal{T}}^{00}
+     +\sum\nolimits_{k}\oversetmy{4}{\mathcal{T}}^{kk}.
+\end{align*}
+由此可得
+\begin{equation}
+    \oversetmy{2}{\mathcal{T}} = -\oversetmy{2}{\mathcal{T}}^{00}; \qquad
+    \oversetmy{4}{\mathcal{T}} = -\oversetmy{4}{\mathcal{T}}^{00}
+      +\oversetmy{2}{g}_{00}\oversetmy{2}{\mathcal{T}}^{00}
+      +\sum\nolimits_{k=1}^{3}\oversetmy{4}{\mathcal{T}}^{kk}  .
+\end{equation}
+故可求取反迹能动张量
+$\overline{\mathcal{T}}^{ab}=\mathcal{T}^{ab} - \frac{1}{2}g^{ab} \mathcal{T} $
+（见式\eqref{chfd:eqn_Einstein-B-form}）展开式：
+\begin{subequations}
+\begin{align}
+    \oversetmy{2}{\overline{\mathcal{T}}}^{00} =& \oversetmy{2}{\mathcal{T}}^{00}
+      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{2}{\mathcal{T}}
+      = \frac{1}{2}\oversetmy{2}{\mathcal{T}}^{00} , \\
+    \oversetmy{4}{\overline{\mathcal{T}}}^{00} =& \oversetmy{4}{\mathcal{T}}^{00}
+      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{4}{\mathcal{T}}
+      - \frac{1}{2} \oversetmy{2}{g}^{00} \oversetmy{2}{\mathcal{T}}
+      = \frac{1}{2}\left( \oversetmy{4}{\mathcal{T}}^{00} 
+      +\sum\nolimits_{k=1}^3\oversetmy{4}{T}^{kk} \right), \\
+    \oversetmy{3}{\overline{\mathcal{T}}}^{0i} =& \oversetmy{3}{\mathcal{T}}^{0i}  ,\\
+    \oversetmy{2}{\overline{\mathcal{T}}}^{ij} =& - \frac{1}{2}\oversetmy{0}{g}^{ij}
+      \oversetmy{2}{\mathcal{T}} =  \frac{1}{2} \delta^{ij} \oversetmy{2}{\mathcal{T}}^{00}.
+\end{align}
+\end{subequations}
+
+爱氏场方程中同样需要协变张量，把反迹能动张量指标降下来，有
+\begin{equation}
+    \overline{\mathcal{T}}_{\mu\nu}= g_{\mu\rho}g_{\nu\sigma}\overline{\mathcal{T}}^{\rho\sigma}=
+       g_{\mu 0}g_{\nu 0}\overline{\mathcal{T}}^{00}+2g_{\mu 0}g_{\nu i} \overline{\mathcal{T}}^{0i}
+      +g_{\mu i}g_{\nu j} \overline{\mathcal{T}}^{ij} .
+\end{equation}
+把度规展开式和逆变反迹能动张量展开式代入，经过略显啰嗦的推导可得
+\begin{subequations}\label{chppn:eqn_EMT}
+    \begin{align}
+        \oversetmy{2}{\overline{\mathcal{T}}}_{00} =& \frac{1}{2}\oversetmy{2}{\mathcal{T}}^{00} , \\
+        \oversetmy{4}{\overline{\mathcal{T}}}_{00} =& \frac{1}{2}\Bigl( \oversetmy{4}{\mathcal{T}}^{00} 
+        +\sum\nolimits_{k=1}^3\oversetmy{4}{\mathcal{T}}^{kk}
+        -2\oversetmy{2}{g}_{00} \oversetmy{2}{\mathcal{T}}^{00} \Bigr), \\
+        \oversetmy{3}{\overline{\mathcal{T}}}_{i0} =& - \oversetmy{3}{\mathcal{T}}^{i0} , \\
+        \oversetmy{2}{\overline{\mathcal{T}}}_{ij} =& \frac{1}{2} \delta_{ij} \oversetmy{2}{\mathcal{T}}^{00}.
+    \end{align}
+\end{subequations}
 
 
 
 
 
 \section{基本方程}
-本节继续叙述上节未完成的内容．
 
-\subsection{能动张量近似}
-能量--动量张量$T^{ab}$中，$T^{00}$是质量密度，最大量级$\sim  c^2$；
-$T^{0i}$是动量密度，最大量级$\sim  c^1$；
-$T^{ij}$是动量流密度，最大量级$\sim  c^0$．
-在爱因斯坦引力场方程中，能动张量前还有系数$\frac{8\pi G}{c^4}$；
-考虑此点后上述三个物理量的最大量级分别是：
-$O(\bar{v}^2)$，$O(\bar{v}^3)$，$O(\bar{v}^4)$．
-下面我们写出能动张量的展开表达式，
-为了便于使用我们写出的是$\frac{8\pi G}{c^4}T^{ab}$的分量
-表达式；但如果包含系数$\frac{8\pi G}{c^4}$，那公式
-变得十分臃肿、笨重，故我们省略这个系数．
-虽然省略了该系数，但在量级标注上是把它乘上之后的，
-比如$\oversetmy{2}{T}^{00}$表示$O(\bar{v}^2)$量．
 
-参考上节内容，我们预估能动张量可以展开成
-\begin{subequations}
-    \begin{align}
-        T^{00} =& \oversetmy{2}{T}^{00} + \oversetmy{4}{T}^{00} + \cdots \\
-        T^{0i} =& \oversetmy{3}{T}^{0i} + \cdots \\
-        T^{ij} =& \oversetmy{4}{T}^{ij} + \cdots
-    \end{align}
-\end{subequations}
-能动张量的迹$T=g_{\mu\nu}T^{\mu\nu}$的展开式为
-\begin{align*}
-    T=& g_{\mu\nu}T^{\mu\nu}=
-    g_{00}T^{00}+2g_{0i}T^{0i}+g_{ij}T^{ij} \\
-    =&(-1 +\oversetmy{2}{g}_{00} ) (\oversetmy{2}{T}^{00} + \oversetmy{4}{T}^{00})
-    +2 \oversetmy{3}{g}_{0i} \oversetmy{3}{T}^{0i}
-    +(\delta_{ij}  +\oversetmy{2}{g}_{ij}) \oversetmy{4}{T}^{ij} \\
-    =&-\oversetmy{2}{T}^{00} -\oversetmy{4}{T}^{00} +\oversetmy{2}{g}_{00}\oversetmy{2}{T}^{00}
-     +\sum_{k}\oversetmy{4}{T}^{kk}
-\end{align*}
-由此可得
-\begin{equation}
-    \oversetmy{2}{T} = -\oversetmy{2}{T}^{00}; \qquad
-    \oversetmy{4}{T} = -\oversetmy{4}{T}^{00}
-      +\oversetmy{2}{g}_{00}\oversetmy{2}{T}^{00}
-      +\sum_{k}\oversetmy{4}{T}^{kk}  .
-\end{equation}
-
-借助上述展开式，求取反迹能动张量
-$\overline{T}^{ab}=T^{ab} - \frac{1}{2}g^{ab}T$
-（见式\eqref{chfd:eqn_Einstein-B-form}）展开式
-\begin{subequations}
-\begin{align}
-    \oversetmy{2}{\overline{T}}^{00} =& \oversetmy{2}{T}^{00}
-      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{2}{T}
-      = \frac{1}{2}\oversetmy{2}{T}^{00}  \\
-    \oversetmy{4}{\overline{T}}^{00} =& \oversetmy{4}{T}^{00}
-      - \frac{1}{2} \oversetmy{0}{g}^{00} \oversetmy{4}{T}
-      - \frac{1}{2} \oversetmy{2}{g}^{00} \oversetmy{2}{T}
-      = \frac{1}{2}\Bigl( \oversetmy{4}{T}^{00} +\sum_{k=1}^3\oversetmy{4}{T}^{kk} \Bigr) \\
-    \oversetmy{3}{\overline{T}}^{0i} =& \oversetmy{3}{T}^{0i}  \\
-    \oversetmy{2}{\overline{T}}^{ij} =& - \frac{1}{2}\oversetmy{0}{g}^{ij}
-      \oversetmy{2}{T} =  \frac{1}{2} \delta^{ij} \oversetmy{2}{T}^{00}
-\end{align}
-\end{subequations}
-
-爱氏场方程中需要的是协变张量，把反迹能动张量指标降下来，有
-\begin{equation}
-    \overline{T}_{\mu\nu}= g_{\mu\rho}g_{\nu\sigma}\overline{T}^{\rho\sigma}=
-       g_{\mu 0}g_{\nu 0}\overline{T}^{00}+2g_{\mu 0}g_{\nu i} \overline{T}^{0i}
-      +g_{\mu i}g_{\nu j} \overline{T}^{ij} .
-\end{equation}
-把度规展开式和逆变反迹能动张量展开式代入，经过略显啰嗦的推导可得
-\begin{subequations}\label{chppn:eqn_EMT}
-    \begin{align}
-        \oversetmy{2}{\overline{T}}_{00} =& \frac{1}{2}\oversetmy{2}{T}^{00}  \\
-        \oversetmy{4}{\overline{T}}_{00} =& \frac{1}{2}\Bigl( \oversetmy{4}{T}^{00} +\sum_{k=1}^3\oversetmy{4}{T}^{kk}
-        -2\oversetmy{2}{g}_{00} \oversetmy{2}{T}^{00} \Bigr) \\
-        \oversetmy{3}{\overline{T}}_{0i} =& - \oversetmy{3}{T}^{0i}  \\
-        \oversetmy{2}{\overline{T}}_{ij} =& \frac{1}{2} \delta_{ij} \oversetmy{2}{T}^{00}
-    \end{align}
-\end{subequations}
-
-我们以理想流体（见式\eqref{chlh:eqn_perfect-fluid-Tab}）为例，给出上式的具体表达式．
-\begin{equation}
-    T^{ab}=\left(\rho \Bigl(1+ \frac{\Pi}{c^2} \Bigr) + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} .
-    \tag{\ref{chlh:eqn_perfect-fluid-Tab}}
-\end{equation}
-$\rho$是质量密度，$\Pi$是单位质量内能，$p$是压强，$U^a$是质点四速度
-
-\subsection{后牛顿引力场方程式}
-利用Ricci曲率展开式\eqref{chppn:eqn_ricci-gauge}和
-能动张量展开式\eqref{chppn:eqn_EMT}，
-再由爱因斯坦引力场方程\eqref{chfd:eqn_Einstein-B-form}可以
+\subsection{后牛顿引力场方程式}\label{chppn:sec_PNFE}
+利用Ricci曲率展开式\eqref{chppn:eqn_ricci-gauge}和能动张量展开式\eqref{chppn:eqn_EMT}，
+再由爱氏引力场方程\eqref{chfd:eqn_Einstein-B-form}可以
 得到谐和坐标（\eqref{chppn:eqn_gauge03}、\eqref{chppn:eqn_gaugei2}）下
 的后牛顿方程式：
 \begin{subequations}\label{chppn:eqn_Post-Newtonian}
     \begin{align}
-        \nabla^2 \oversetmy{2}{g}_{00} =& -\frac{8\pi G}{c^4} \oversetmy{2}{T}^{00}  \\
+        \nabla^2 \oversetmy{2}{g}_{00} =& -\frac{8\pi G}{c^4} \oversetmy{+2}{T}^{00} , \label{chppn:eqn_Post-Newtonian-R00} \\
         \nabla^2 \oversetmy{4}{g}_{00} =&
-        \frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial x^0\partial x^0}
-        - \left|\nabla \oversetmy{2}{g}_{00} \right|^2 +\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}  {\partial x^k\partial x^i}
-        +\frac{8\pi G}{c^4}\left(2\oversetmy{2}{g}_{00} \oversetmy{2}{T}^{00}
-        -\oversetmy{4}{T}^{00} -\sum_{k=1}^3\oversetmy{4}{T}^{kk}  \right)     \\
-        \nabla^2 \oversetmy{3}{g}_{0i} =& 2\times \frac{8\pi G}{c^4}\oversetmy{3}{T}^{0i}  \\
-        \nabla^2 \oversetmy{2}{g}_{ij} =& - \delta_{ij} \frac{8\pi G}{c^4}\oversetmy{2}{T}^{00}
+        \frac{\partial^2 \oversetmy{2}{g}_{00}} {\partial (x^0)^2}
+        - \left|\nabla \oversetmy{2}{g}_{00} \right|^2 
+        +\oversetmy{2}{g}_{ki}\frac{\partial^2 \oversetmy{2}{g}_{00}}  {\partial x^k\partial x^i}
+        +\frac{8\pi G}{c^4}\left(2\oversetmy{2}{g}_{00} \oversetmy{+2}{T}^{00}
+        -\oversetmy{0}{T}^{00} -\sum\nolimits_{k=1}^3\oversetmy{0}{T}^{kk}  \right)   ,  
+           \label{chppn:eqn_Post-Newtonian-R004} \\
+        \nabla^2 \oversetmy{3}{g}_{i0} =& 2\times \frac{8\pi G}{c^4}\oversetmy{+1}{T}^{i0}  , 
+           \label{chppn:eqn_Post-Newtonian-Ri0}\\
+        \nabla^2 \oversetmy{2}{g}_{ij} =& - \delta_{ij} \frac{8\pi G}{c^4}\oversetmy{+2}{T}^{00}. 
+           \label{chppn:eqn_Post-Newtonian-Rij}
     \end{align}
 \end{subequations}
-我们已将能动张量前的系数$\frac{8\pi G}{c^4}$显示写出；
-$\oversetmy{2}{T}^{00}$上面的量级阶数“2”是指乘上系数$\frac{8\pi G}{c^4}$之后
-的量级为$O(\bar{v}^2)$，其它能动张量项也作同样理解．
+我们已将能动张量前的系数$\frac{8\pi G}{c^4}$显示写出．注$x^0\equiv ct$．
+
+因为$\frac{8\pi G}{c^4} \oversetmy{+1}{T}^{i0}$的最高阶是$O(c^{-3})$，所以根据爱氏场方程，
+度规分量$g_{i0}$的最高阶也是$O(c^{-3})$，没有$O(c^{-1})$阶项；否则不匹配．
+
+
+为了方便使用，下面我们用一些符号参数来代替$\oversetmy{2}{g}_{00}$、$\oversetmy{4}{g}_{00}$等．
+当$|\boldsymbol{x}|\to \infty$时$g_{\mu\nu}$要趋于Lorentz度规$\eta_{\mu\nu}$，
+故在无穷远处$\oversetmy{2}{g}_{00}$、$\oversetmy{4}{g}_{00}$、
+$\oversetmy{3}{g}_{i0}$、$\oversetmy{2}{g}_{ij}$为零；
+我们应用此种边界条件将微分方程\eqref{chppn:eqn_Post-Newtonian}化为积分方程．
+
+在\S\ref{chle:sec_Newton-limit}中，我们知道在牛顿近似中$g_{00}=-1+2 U / c^{2}$ ，即有
+\begin{equation}\label{chppn:eqn_gd002}
+	\oversetmy{2}{g}_{00}=+\frac{2 U}{c^{2}} = - \oversetmy{2}{g}^{00}.
+\end{equation}
+其中$U$是牛顿引力势，由式\eqref{chppn:eqn_Post-Newtonian-R00}可知$U$由Poisson方程决定
+\begin{equation}\label{chppn:eqn_DDU=T}
+	\nabla^{2} U=-\frac{4 \pi G}{c^{2}} \oversetmy{+2}{T} ^{00} .
+\end{equation}
+我们已知$T^{00}$是质能密度，其对应最大量级为$O\left(c^{2}\right)$．
+因$\oversetmy{2}{g}_{00}$（即 $U$ ）必须在无穷远处为零，
+所以式\eqref{chppn:eqn_DDU=T}的解是
+\begin{equation}
+	U(t, \boldsymbol{x}) = \frac{G}{c^{2}} \int \mathrm{d}^{3} y 
+	\frac{\oversetmy{+2}{T} ^{00}\left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|} .
+\end{equation}
+对比式\eqref{chppn:eqn_Post-Newtonian-R00}与式\eqref{chppn:eqn_Post-Newtonian-Rij}，
+由式\eqref{chppn:eqn_DDU=T}可得到$\oversetmy{2}{g}_{ij}$在无限远处为零的解是
+\begin{equation}\label{chppn:eqn_gdij2}
+	\oversetmy{2}{g}_{ij}= \delta_{ij} \frac{2 U}{c^{2}} . 
+\end{equation}
+引入一个新的矢量势$\zeta_{i}$，使得
+\begin{equation}\label{chppn:eqn_zetag0i}
+	\zeta_{i} \equiv \zeta^{i} \overset{def}{=} -\frac{c^{3}}{4}\oversetmy{3}{g}_{i0}  .
+\end{equation}
+则由方程式\eqref{chppn:eqn_Post-Newtonian-Ri0}可得
+\begin{equation}\label{chppn:eqn_zetai}
+	\nabla^{2} \zeta_{i}=-\frac{4 \pi G}{c} \oversetmy{+1}{T}^{i0}, 
+\end{equation}
+当$\zeta_i$在无穷远处为零时，方程式\eqref{chppn:eqn_zetai}的解是
+\begin{equation}
+	\zeta_{i}(t, \boldsymbol{x})=\frac{G}{c} \int \mathrm{d}^{3} y 
+	\frac{\oversetmy{+1}{T}^{i 0}\left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|} .
+\end{equation}
+将\eqref{chppn:eqn_gd002}、\eqref{chppn:eqn_gdij2}、\eqref{chppn:eqn_zetag0i}代入
+谐和规范条件\eqref{chppn:eqn_gauge03}得
+\begin{equation}\label{chppn:eqn_4Uzeta}
+	\frac{\partial U}{\partial t}+\sum\nolimits_{j=1}^{3}\frac{\partial \zeta_j}{\partial x^j}=
+	\frac{\partial U}{\partial t}+\nabla \cdot \boldsymbol{\zeta}=0 .
+\end{equation}
+同理可知谐和规范条件\eqref{chppn:eqn_gaugei2}自动满足．
+%\begin{align*}
+%	0=&\frac{\partial \oversetmy{2}{g}_{00}} {\partial x^0}
+%	-2\frac{\partial \oversetmy{3}{g}_{0j} }{\partial x^j}
+%	+\frac{\partial \sum_{j}\oversetmy{2}{g}_{jj} }{\partial x^0} 
+%	= \frac{\partial 2U} {c^3 \partial t}
+%	-2\frac{\partial \zeta_{j} }{c^3 \partial x^j}
+%	+\frac{\partial 6U }{c^3 \partial t} \quad \Rightarrow \\
+%	0=& \frac{\partial U} { \partial t}
+%	-\frac{\partial \zeta_{j} }{ \partial x^j}
+%	+\frac{\partial 3U }{ \partial t}
+%	=4\frac{\partial U} { \partial t} -\frac{\partial \zeta_{j} }{ \partial x^j} .
+%\end{align*}
+
+
+最后，利用式\eqref{chppn:eqn_gd002}，\eqref{chppn:eqn_DDU=T}和\eqref{chppn:eqn_gdij2}并借助于恒等式
+\begin{equation}\label{chppn:eqn_tmpphi1}
+	(\nabla U) \cdot \nabla U=\tfrac{1}{2} \nabla^{2}\left(U^{2}\right)-U \nabla^{2} U 
+\end{equation}
+可将方程\eqref{chppn:eqn_Post-Newtonian-R004}化简
+\begin{align*}
+	\nabla^{2} \oversetmy{4}{g}_{00}= & \frac{2}{c^{2}} U_{,00}
+	+\frac{4}{c^{4}} U \nabla^{2} U -\frac{4}{c^{4}} (\nabla U) \cdot \nabla U
+	-\frac{8 \pi G}{c^{4}} \oversetmy{0}{T}^{00}
+	+\frac{32 \pi G}{c^{4}} \frac{U}{c^{2}} \oversetmy{+2}{T}^{00}
+	-\frac{8 \pi G}{c^{4}} \oversetmy{0}{T}^{ii} \\
+	\xlongequal{\ref{chppn:eqn_tmpphi1}}
+	& \frac{2}{c^{2}} U_{, 00}+\frac{8}{c^{4}} U \nabla^{2} U
+	-\frac{2}{c^{4}} \nabla^{2}\left(U^{2}\right)-\frac{8 \pi G}{c^{4}} \oversetmy{0}{T}^{00} 
+	+\frac{32 \pi G}{c^{4}} \frac{U}{c^{2}} \oversetmy{+2}{T}^{00}
+	-\frac{8 \pi G}{c^{4}} \oversetmy{0}{T}^{ii} \\
+	\xlongequal{\ref{chppn:eqn_DDU=T}}& 
+	\frac{2}{c^{4}} \frac{\partial^{2} U}{\partial t^{2}} 
+	-\frac{2}{c^{4}} \nabla^{2}\left(U^{2}\right)
+	-\frac{8 \pi G}{c^{4}}\left(\oversetmy{0}{T}^{00}+\oversetmy{0}{T}^{ii}\right) .
+\end{align*}
+令（即定义一个新的势$\Psi$来代替$\oversetmy{4}{g}_{00}$）
+\begin{equation}
+	 \oversetmy{4}{g}_{00} +\frac{2 U^{2}}{c^{4}} \equiv \frac{2 \Psi}{c^{4}}.
+\end{equation}
+则上上式（即方程\eqref{chppn:eqn_Post-Newtonian-R004}）可改写为
+\begin{equation}
+	\nabla^{2} \Psi=\frac{\partial^{2} U}{\partial t^{2}}
+	-4 \pi G \oversetmy{0}{T}^{00} 
+	-4 \pi G \sum\nolimits_{i=1}^3 \oversetmy{0}{T}^{i i} .
+\end{equation}
+因$\oversetmy{4}{g}_{00}$（以及$\Psi$）必须在无限远处为零，故上述方程的解为
+\begin{equation}\label{chppn:eqn_g004-Psi}
+	\Psi(t, \boldsymbol{x})= \int \frac{\mathrm{d}^{3} y}{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	\left[G \oversetmy{0}{T}^{00} \left(t, \boldsymbol{y}\right)
+	+G \oversetmy{0}{T}^{ii} \left(t, \boldsymbol{y}\right)
+	-\frac{1}{4 \pi} \frac{\partial^{2} U\left(t, \boldsymbol{y}\right)}{\partial t^{2}}\right] .
+\end{equation}
+
+
+\subsection{参数化的运动方程}
+
+用\S\ref{chppn:sec_PNFE}中的参数场（$U$、$\Psi$、$\zeta_i$）表示度规及其逆（参考式\eqref{chppn:eqn_guab}），有
+\begin{subequations}\label{chppn:eqn_metric-PN}
+\begin{align}
+	g_{00} =& -1+\frac{2U}{c^2} +\frac{2}{c^4}\left(\Psi-U^2\right)+O\left(c^{-6}\right), \\
+	g_{0j} =& -\frac{4}{c^3} \zeta_j+O\left(c^{-5}\right), \\
+	g_{ij} =& \left(1+{2U}/{c^2}\right) \delta_{ij}+O\left(c^{-4}\right). \\
+	g^{00} =& -1 -\frac{2U}{c^2} -\frac{2}{c^{4}}\left(\Psi+U^2\right) +O\left(c^{-6}\right)  ,\\
+	g^{0j} =& -\frac{4}{c^3} \zeta^j +O\left(c^{-5}\right) , \\
+	g^{ij} =& \left(1-{2U}/{c^2}\right)\delta^{ij} +O\left(c^{-4}\right) . 
+\end{align}
+\end{subequations}
+%可以求出度规行列式（$g=\det(g_{\mu\nu})$）：
+%\begin{equation*}
+%	g =- \left(1+\frac{2U}{c^2}\right)^2 \left(1-2 c^{-4} \left(3 U^2+\Psi \right)
+%	-4 c^{-6} \left(-4 \boldsymbol{\zeta}\cdot\boldsymbol{\zeta}+U^3+U \Psi \right)\right) .
+%\end{equation*}
+度规行列式（$g=\det(g_{\mu\nu})$）的表达式：
+\begin{equation}\label{chppn:eqn_sqrtg}
+	\sqrt{-g} = 1+ 2U/c^2 + O(c^{-4}).
+\end{equation}
+将式\eqref{chppn:eqn_metric-PN}代入\S\ref{chppn:eqn_CPN}中各式可求出克氏符的近似表示
+\begin{subequations}\label{chppn:eqn_Gamma-PN}
+\begin{align}
+	\oversetmy{2}{\Gamma}_{00}^{i}=&-\frac{1}{c^{2}} \frac{\partial U}{\partial x^{i}} ,\quad
+	\oversetmy{4}{\Gamma}_{00}^{i}=\frac{1}{c^{4}}\left[\frac{\partial}{\partial x^{i}}\left(2 U^{2}-\Psi\right)
+	-4\frac{\partial \zeta_{i}}{\partial t}\right] ,\\
+	\oversetmy{3}{\Gamma}_{j0}^{i}=&\frac{1}{c^{3}}\left[2\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+	-\frac{\partial \zeta_{i}}{\partial x^{j}}\right)+\delta_{i j} \frac{\partial U}{\partial t}\right], \\
+	\oversetmy{2}{\Gamma}_{jk}^{i}=&\frac{1}{c^{2}}\left(\delta_{i j} \frac{\partial U}{\partial x^{k}}
+	+\delta_{i k} \frac{\partial U}{\partial x^{j}}-\delta_{k j} \frac{\partial U}{\partial x^{i}}\right), \\
+	\oversetmy{3}{\Gamma}_{00}^{0}=&-\frac{1}{c^{3}} \frac{\partial U}{\partial t}, \qquad 
+	\oversetmy{5}{\Gamma}_{00}^{0} = \frac{1}{c^5} \left(4\zeta_j \frac{\partial U}{\partial x^j}
+	-\frac{\partial \Psi}{\partial t}  \right), \\
+	\oversetmy{2}{\Gamma}_{j0}^{0}=&-\frac{1}{c^{2}} \frac{\partial U}{\partial x^{j}},\qquad
+	\oversetmy{4}{\Gamma}_{j0}^{0} = - \frac{1}{c^4} \frac{\partial \Psi}{\partial x^j}, \\
+	\oversetmy{3}{\Gamma}_{jk}^{0} = & \frac{1}{c^3} \delta_{jk} \frac{\partial U }{\partial t}
+	+\frac{2}{c^3} \left( \frac{\partial \zeta_{j} }{\partial x^k}
+	+\frac{\partial \zeta_{k} }{\partial x^j}	 \right).
+\end{align}
+\end{subequations}
+
+
+%\begin{align*}
+%	\oversetmy{5}{\Gamma}^0_{00} =&
+%	-\frac{1}{2}\left(\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^0}
+%	+\oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^0}
+%	+\oversetmy{3}{g}_{0j}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j} \right)
+%	=-\frac{1}{c^5} \left(\frac{\partial (U^2 + c^4 \oversetmy{4}{g}_{00}/2)}{\partial t} 
+%	+\zeta_j \frac{\partial U}{\partial x^j} \right) \\
+%	=&\frac{1}{c^5} \left(\frac{\partial \Psi}{\partial t} 
+%	-\zeta_j \frac{\partial U}{\partial x^j} \right) \\
+%	\oversetmy{4}{\Gamma}^0_{0j} =& -\frac{1}{2} \oversetmy{2}{g}_{00}\frac{\partial \oversetmy{2}{g}_{00}}{\partial x^j}
+%	-\frac{1}{2}\frac{\partial \oversetmy{4}{g}_{00}}{\partial x^j}
+%	= -\frac{1}{c^4} \left(\frac{\partial U^2 }{\partial x^j}
+%	+\frac{\partial c^4 \oversetmy{4}{g}_{00}/2}{\partial x^j} \right)
+%\end{align*}
+
+把上述结果带入自由质点测地线方程\eqref{chppn:eqn_PN}，
+则可以得到\CJKunderwave{有质量质点后牛顿近似的运动方程}
+（其中$v_i\equiv v^i \equiv \frac{{\rm d} x^i}{{\rm d} t}$、
+$\partial_i \equiv \partial^i \equiv \frac{\partial}{\partial x^i}$、
+$v^2 \equiv v_i v^i$）：
+\begin{align}
+	\frac{{\rm d} v^i}{{\rm d} t}=& +\partial_i U
+	+\frac{1}{c^2}\Bigl[ \left(v^2-4 U\right) \partial_i U
+	-\left(4 v^k \partial_k U+3 \partial_t U\right) v^i \notag \\
+	& -4 v^k\left(\partial_i \zeta_k-\partial_k \zeta_i\right)
+	+4 \partial_t \zeta_i+\partial_i \Psi\Bigr]+O(c^{-4}) . \label{chppn:eqn_PN-ddxdt2}
+\end{align}
+很明显，式\eqref{chppn:eqn_PN-ddxdt2}等号右端第一项（$\partial_i U$）为牛顿引力势的梯度（即牛顿引力）；
+这项称为“0PN”项，“PN”是指Post Newton．
+剩余项是后牛顿近似中精确到$O(c^{-2})$阶的修正项，此项称为“1PN”项．
+如果精确到$O(c^{-3})$阶，则称为“1.5PN”项；
+如果精确到$O(c^{-4})$阶，则称为“2PN”项；等等．
+
+%\begin{align*}
+%	\frac{{\rm d}^2 x^i}{{\rm d} t^2} =& 
+%	-c^2 \Gamma_{00}^{i} - 2c \Gamma_{j0}^{i}\frac{{\rm d} x^j}{{\rm d}t}
+%	-\Gamma_{jk}^{i} \frac{{\rm d} x^j}{{\rm d}t} \frac{{\rm d} x^k}{{\rm d}t} 
+%	+\frac{1}{c}\frac{{\rm d} x^i}{{\rm d}t} \left(
+%	c^2 \Gamma_{00}^{0} + 2c \Gamma_{j0}^{0}\frac{{\rm d} x^j}{{\rm d}t}
+%	+\Gamma_{jk}^{0} \frac{{\rm d} x^j}{{\rm d}t}
+%	\frac{{\rm d} x^k}{{\rm d}t}  \right) \\
+%	=& -c^2  \left\{-\frac{1}{c^{2}} \frac{\partial U}{\partial x^{i}} 
+%	+\frac{1}{c^{4}}\left[\frac{\partial}{\partial x^{i}}\left(2 U^{2}-\Psi\right)
+%	-4\frac{\partial \zeta_{i}}{\partial t}\right] \right\} \\
+%	& - 2c \left\{\frac{1}{c^{3}}\left[2\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+%	-\frac{\partial \zeta_{i}}{\partial x^{j}}\right)+\delta_{i j} \frac{\partial U}{\partial t}\right]\right\} v^j \\
+%	&- \left\{ \frac{1}{c^{2}}\left(\delta_{i j} \frac{\partial U}{\partial x^{k}}
+%	+\delta_{i k} \frac{\partial U}{\partial x^{j}}-\delta_{k j} \frac{\partial U}{\partial x^{i}}\right)\right\}v^j v^k\\
+%	&+ c v^i \left\{ -\frac{1}{c^{3}} \frac{\partial U}{\partial t}
+%	+ \frac{1}{c^5} \left(4\zeta_j \frac{\partial U}{\partial x^j}
+%	-\frac{\partial \Psi}{\partial t}  \right)\right\} \\
+%	& +2v^i v^j \left\{-\frac{1}{c^{2}} \frac{\partial U}{\partial x^{j}}
+%	- \frac{1}{c^4} \frac{\partial \Psi}{\partial x^j}\right\}\\
+%	&+c^{-1}v^i v^j v^k \left\{\frac{1}{c^3} \delta_{jk} \frac{\partial U }{\partial t}
+%	+\frac{2}{c^3} \left( \frac{\partial \zeta_{j} }{\partial x^k}
+%	+\frac{\partial \zeta_{k} }{\partial x^j}	 \right)\right\} \\
+%	=&  \frac{\partial U}{\partial x^{i}} 
+%	-\frac{1}{c^{2}}\left[\frac{\partial}{\partial x^{i}}\left(2 U^{2}-\Psi\right)
+%	-4\frac{\partial \zeta_{i}}{\partial t}\right]  \\
+%	& - \frac{1}{c^2}\left[4 v^j\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+%	-\frac{\partial \zeta_{i}}{\partial x^{j}}\right)
+%	+2 v^i \frac{\partial U}{\partial t}\right] \\
+%	&- \frac{1}{c^{2}}\left( v^i v^k \frac{\partial U}{\partial x^{k}}
+%	+v^j v^i \frac{\partial U}{\partial x^{j}}
+%	-v^2 \frac{\partial U}{\partial x^{i}}\right)\\
+%	& -\frac{v^i}{c^2} \frac{\partial U}{\partial t}
+%	+ \frac{v^i}{c^4} \left(4\zeta_j \frac{\partial U}{\partial x^j}
+%	-\frac{\partial \Psi}{\partial t}  \right) \\
+%	&  -\frac{2v^i v^j}{c^{2}} \frac{\partial U}{\partial x^{j}}
+%	- \frac{2v^i v^j}{c^4} \frac{\partial \Psi}{\partial x^j}\\
+%	&+c^{-4}v^i v^j v^k \left\{\delta_{jk} \frac{\partial U }{\partial t}
+%	+2 \left( \frac{\partial \zeta_{j} }{\partial x^k}
+%	+\frac{\partial \zeta_{k} }{\partial x^j}	 \right)\right\} \\
+%=&  \frac{\partial U}{\partial x^{i}} 
+%-\frac{1}{c^{2}} \Bigl[\frac{\partial}{\partial x^{i}}\left(2 U^{2}-\Psi\right)
+%-4\frac{\partial \zeta_{i}}{\partial t}  
+% +4 v^j\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+%-\frac{\partial \zeta_{i}}{\partial x^{j}}\right)
+%+2 v^i \frac{\partial U}{\partial t} \\
+%&+ v^i v^k \frac{\partial U}{\partial x^{k}}
+%+v^j v^i \frac{\partial U}{\partial x^{j}}
+%-v^2 \frac{\partial U}{\partial x^{i}}
+% +v^i \frac{\partial U}{\partial t}
+%+ 2v^i v^j\frac{\partial U}{\partial x^{j}} \Bigr] \\
+%& + \frac{v^i}{c^4} \left\{  4\zeta_j \frac{\partial U}{\partial x^j}
+%-\frac{\partial \Psi}{\partial t}
+%-  2 v^j \frac{\partial \Psi}{\partial x^j}
+%+   v^2  \frac{\partial U }{\partial t}
+%+2  v^j v^k \left( \frac{\partial \zeta_{j} }{\partial x^k}
+%+\frac{\partial \zeta_{k} }{\partial x^j}	 \right)\right\} \\
+%=&  \frac{\partial U}{\partial x^{i}} 
+%+\frac{1}{c^{2}} \Bigl[ (v^2-4 U) \partial_i U
+%- v^i \left(3\frac{\partial U}{\partial t}+ 4 v^k \frac{\partial U}{\partial x^{k}}\right) \\
+%  &-4 v^k \left(\frac{\partial \zeta_{k}}{\partial x^{i}}
+%-\frac{\partial \zeta_{i}}{\partial x^{k}}\right)
+%+4\frac{\partial \zeta_{i}}{\partial t}  
+%+\partial_i\Psi  \Bigr] \\
+%& + \frac{v^i}{c^4} \left\{  
+%4\zeta_k \frac{\partial U}{\partial x^k} -\frac{\partial \Psi}{\partial t}
+%-2 v^k \frac{\partial \Psi}{\partial x^k}+v^2  \frac{\partial U }{\partial t}
+%+2v^j v^k \left( \frac{\partial \zeta_{j} }{\partial x^k}
+%+\frac{\partial \zeta_{k} }{\partial x^j}	 \right)\right\} 
+%\end{align*}
+
+下面导出谐和坐标系$\{t,x^i\}$中时间$t$与固有时$\tau$的关联．
+由式\eqref{chppn:eqn_metric-PN}得
+\begin{align*}
+	\mathrm{d} s^{2} & =-c^{2} \mathrm{d} \tau^{2}=g_{\mu \nu} \mathrm{d} x^{\mu} \mathrm{d} x^{\nu} 
+	=c^{2} \mathrm{d} t^{2}\left(g_{00}+g_{i j} \frac{1}{c^{2}} 
+	\frac{\mathrm{d} x^{i}}{\mathrm{d} t} \frac{\mathrm{d} x^{j}}{\mathrm{d} t}
+	+2 g_{0 i} \frac{1}{c} \frac{\mathrm{d} x^{i}}{\mathrm{d} t}\right) \\
+	& =-c^{2} \mathrm{d} t^{2}\left(1-\frac{2 U}{c^{2}}-\frac{2}{c^{4}}\left(\Psi-U^2\right)
+	-\frac{v^{2}}{c^{2}}\left(1+\frac{2U}{c^2}\right) 
+	+ \frac{8}{c^{4}} \zeta_i  v^i  +O(c^{-6})\right).
+\end{align*}
+由此可得
+\begin{align}
+	\frac{\mathrm{d} \tau}{\mathrm{d} t} = & 
+	\left(1-\frac{1}{c^{2}}(2 U + v^{2}) + \frac{2}{c^{4}} \left(
+	4\zeta_i  v^i -\Psi+U^2 -Uv^{2} \right)	+O(c^{-6})\right)^{1/2} \notag \\
+	\approx & 1-\frac{1}{c^{2}} \left(U + \frac{v^{2}}{2}\right)
+	+\frac{1}{c^{4}}\left(\frac{U^2}{2} + 4\zeta_i  v^i -\Psi 
+	 -\frac{1}{8} v^4 -\frac{3}{2}  U v^2 \right) .
+	\label{chppn:eqn_dtaudt}
+\end{align}
+上式第二步近似用到了$(1+a x^2+b x^4)^{1/2}\approx 1+\frac{a x^2}{2} + (-\frac{a^2}{8}+\frac{b}{2})x^4$．
+再根据$(1+a x^2+b x^4)^{-1/2}\approx 1-\frac{a x^2}{2} + (\frac{3 a^2}{8}-\frac{b}{2})x^4$，有
+\begin{equation}\label{chppn:eqn_dtdtau}
+	\frac{\mathrm{d} t}{\mathrm{d} \tau}
+	\approx  1+\frac{1}{c^{2}}\left(U+\frac{v^{2}}{2} \right)
+	+\frac{1}{c^{4}}\left( \frac{U^2}{2} -4\zeta_i  v^i +\Psi
+	  + \frac{3}{8}v^4 + \frac{5}{2} U v^2 \right).
+\end{equation}
+式\eqref{chppn:eqn_dtaudt}、\eqref{chppn:eqn_dtdtau}精确到$O(c^{-4})$．
+
+
+\subsection{电磁波运动方程}
+
+电磁波测地线为（式中 $\lambda$ 为仿射参数）：
+\begin{equation}\label{chppn:eqn_EM-geo}
+	\frac{\mathrm{d}^{2} x^{\mu}}{\mathrm{d} \lambda^{2}}
+	+\Gamma_{\nu \sigma}^{\mu} \frac{\mathrm{d} x^{\nu}}{\mathrm{d} \lambda} 
+	\frac{\mathrm{d} x^{\sigma}}{\mathrm{d} \lambda}=0. 
+\end{equation}
+我们用谐和坐标中的时间$t$替换$\lambda$，有
+\begin{equation}\label{chppn:eqn_tlambda}
+	\frac{\mathrm{d} x^{\mu}}{\mathrm{d} \lambda}=\frac{\mathrm{d} x^{\mu}}{\mathrm{d} t}
+	\left(\frac{\mathrm{d} t}{\mathrm{d} \lambda}\right), \quad
+	\frac{\mathrm{d}^{2} x^{\mu}}{\mathrm{d} \lambda^{2}}
+	=\frac{\mathrm{d}^{2} x^{\mu}}{\mathrm{d} t^{2}}
+	\left(\frac{\mathrm{d} t}{\mathrm{d} \lambda}\right)^{2}
+	+\left(\frac{\mathrm{d} x^{\mu}}{\mathrm{d} t}\right) 
+	\frac{\mathrm{d}^{2} t}{\mathrm{d} \lambda^{2}} .
+\end{equation}
+把式\eqref{chppn:eqn_tlambda}中的第二式代入式\eqref{chppn:eqn_EM-geo}，
+并令式\eqref{chppn:eqn_EM-geo}中的$\mu=i$，可得
+\begin{equation}\label{chppn:eqn_vi-photon}
+	\frac{\mathrm{d}^{2} x^{i}}{\mathrm{d} t^{2}}
+	+\left(\Gamma_{\nu \sigma}^{i}-c^{-1} \Gamma_{\nu \sigma}^{0} \frac{\mathrm{d} x^{i}}{\mathrm{d} t}\right) 
+	\frac{\mathrm{d} x^{\nu}}{\mathrm{d} t} \frac{\mathrm{d} x^{\sigma}}{\mathrm{d} t}=0 .
+\end{equation}
+我们将式\eqref{chppn:eqn_Gamma-PN}带入式\eqref{chppn:eqn_vi-photon}可得
+（注$x^0=ct$、$v_i=v^i=\frac{\mathrm{d} x^{i}}{\mathrm{d} t}$）
+\begin{align*}
+	\frac{\mathrm{d}^{2} x^{i}}{\mathrm{d} t^{2}}
+%	=& 
+%	\left(c^{-1} \Gamma_{\nu \sigma}^{0} \frac{\mathrm{d} x^{i}}{\mathrm{d} t} -\Gamma_{\nu \sigma}^{i}\right) 
+%	\frac{\mathrm{d} x^{\nu}}{\mathrm{d} t} \frac{\mathrm{d} x^{\sigma}}{\mathrm{d} t} \\
+%	=& \left(c^{-1} \Gamma_{00}^{0} \frac{\mathrm{d} x^{i}}{\mathrm{d} t} -\Gamma_{00}^{i}\right) 
+%	\frac{\mathrm{d} x^{0}}{\mathrm{d} t} \frac{\mathrm{d} x^{0}}{\mathrm{d} t} 
+%	+2\left(c^{-1} \Gamma_{0 k}^{0} \frac{\mathrm{d} x^{i}}{\mathrm{d} t} -\Gamma_{0 k}^{i}\right) 
+%	\frac{\mathrm{d} x^{0}}{\mathrm{d} t} \frac{\mathrm{d} x^{k}}{\mathrm{d} t} \\
+%	&+\left(c^{-1} \Gamma_{jk}^{0} \frac{\mathrm{d} x^{i}}{\mathrm{d} t} -\Gamma_{jk}^{i}\right) 
+%	\frac{\mathrm{d} x^{j}}{\mathrm{d} t} \frac{\mathrm{d} x^{k}}{\mathrm{d} t} \\
+%	=& -\frac{1}{c^{2}} \frac{\partial U}{\partial t} v^i +\frac{\partial U}{\partial x^{i}}
+%	+ 2\left( -\frac{1}{c^{2}} \frac{\partial U}{\partial x^{j}} v^i 
+%	- \frac{1}{c^{2}}\left[2\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+%	-\frac{\partial \zeta_{i}}{\partial x^{j}}\right)+\delta_{i j} \frac{\partial U}{\partial t}\right] \right) v^j \\
+%	&- \frac{1}{c^{2}}\left(\delta_{i j} \frac{\partial U}{\partial x^{k}}
+%	+\delta_{i k} \frac{\partial U}{\partial x^{j}}-\delta_{k j} \frac{\partial U}{\partial x^{i}}\right)v^j v^k \\
+%	=& \frac{\partial U}{\partial x^{i}} - \frac{1}{c^2} \left[
+%	\frac{\partial U}{\partial t} v^i 
+%	+2\frac{\partial U}{\partial x^{j}} v^i v^j 
+%	+4\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+%	+\frac{\partial \zeta_{i}}{\partial x^{j}}\right)v^j 
+%	+2v^i \frac{\partial U}{\partial t}
+%	+v^i v^k \frac{\partial U}{\partial x^{k}}
+%	+v^i v^j \frac{\partial U}{\partial x^{j}}
+%	-v^2 \frac{\partial U}{\partial x^{i}}	\right] \\
+	=& \left( 1+ \frac{v^2}{c^2}\right)\frac{\partial U}{\partial x^{i}} - \frac{1}{c^2} \left[
+	3\frac{\partial U}{\partial t} v^i 
+	+4\frac{\partial U}{\partial x^{j}} v^i v^j 
+	+4\left(\frac{\partial \zeta_{j}}{\partial x^{i}}
+	+\frac{\partial \zeta_{i}}{\partial x^{j}}\right)v^j 	\right] .
+\end{align*}
+电磁波飞行速度$v^i$自然接近于$c$．而$\partial_t U$、$\partial_i \zeta_j$相对于光速是高阶小量；
+忽略掉这些小量后，上式变为：
+\begin{equation}\label{chppn:eqn_EM-a}
+	\frac{\mathrm{d}^{2} x^{i}}{\mathrm{d} t^{2}} = 
+	\left( 1+ \frac{v^2}{c^2}\right)\frac{\partial U}{\partial x^{i}} 
+	- \frac{4v^i v^j}{c^2} \frac{\partial U}{\partial x^{j}}  + O(c^{-3}).
+\end{equation}
+
+我们知道电磁波线长恒为零．利用式\eqref{chppn:eqn_tlambda}可将线长公式变为：
+\begin{equation}\label{chppn:eqn_EM-len}
+	g_{\mu \nu} \frac{\mathrm{d} x^{\mu}}{\mathrm{d} \lambda} \frac{\mathrm{d} x^{\nu}}{\mathrm{d} \lambda}=0
+	\xRightarrow[\text{仿射参数}\lambda\text{替换为}t]{\text{用}\eqref{chppn:eqn_tlambda}\text{将}}
+	g_{\mu \nu} \frac{\mathrm{d} x^{\mu}}{\mathrm{d} t} \frac{\mathrm{d} x^{\nu}}{\mathrm{d} t}=0 .
+\end{equation}
+把式\eqref{chppn:eqn_metric-PN}代入后可得
+\begin{align*}
+	0=&g_{00}+g_{i j} \frac{1}{c^{2}} 
+	\frac{\mathrm{d} x^{i}}{\mathrm{d} t} \frac{\mathrm{d} x^{j}}{\mathrm{d} t}
+	+2 g_{0 i} \frac{1}{c} \frac{\mathrm{d} x^{i}}{\mathrm{d} t} 
+%	=& -1+\frac{2U}{c^2} 
+%	+ \left(1+{2U}/{c^2}\right) \delta_{ij}  \frac{1}{c^{2}} 
+%	\frac{\mathrm{d} x^{i}}{\mathrm{d} t} \frac{\mathrm{d} x^{j}}{\mathrm{d} t}
+%	-\frac{8}{c^4} \zeta_i \frac{\mathrm{d} x^{i}}{\mathrm{d} t} \\
+	\approx -1+\frac{2U}{c^2} + \left(1+\frac{2U}{c^2}\right)  \frac{v^2}{c^{2}} .
+\end{align*}
+上式已丢掉高阶项．再设电磁波传播方向为$\boldsymbol{n}$（单位矢量），则由上式有
+\begin{equation}\label{chppn:eqn_EM-v}
+	\boldsymbol{v}=c \left(1-\frac{2U}{c^2}\right)\boldsymbol{n} + O(c^{-3}).
+\end{equation}
+式\eqref{chppn:eqn_EM-v}中的$\boldsymbol{v}$为电磁波传播速度；
+很明显，在引力场中此速度小于真空中的光速$c$．
+我们对式\eqref{chppn:eqn_EM-v}求时间导数，有
+\begin{align*}
+	\frac{\mathrm{d} v^{i}}{\mathrm{d} t} = 
+	c\left(1-\frac{2U}{c^2}\right)\frac{\mathrm{d} n^{i}}{\mathrm{d} t}
+	- \frac{2n^i}{c} \left(\frac{\partial U}{\partial t} 
+	+ \frac{\partial U}{\partial x^j} \frac{\mathrm{d} x^j}{\mathrm{d} t}  \right) .
+\end{align*}
+相对于光速来说$\partial_t U$是小量，忽略之；由上式再结合式\eqref{chppn:eqn_EM-a}，有
+\begin{align*}
+	&c\left(1-\frac{2U}{c^2}\right)\frac{\mathrm{d} n^{i}}{\mathrm{d} t} = 
+	\left( 1+ \frac{v^2}{c^2}\right)\frac{\partial U}{\partial x^{i}} 
+	- \frac{4v^i v^j}{c^2} \frac{\partial U}{\partial x^{j}} 
+	+\frac{2n^i}{c} \frac{\partial U}{\partial x^j} v^j \\
+	=& 	\left( 1+ \left(1-\frac{2U}{c^2}\right)^2\right)\frac{\partial U}{\partial x^{i}} 
+	- 4\left(1-\frac{2U}{c^2}\right)^2 n^i n^j \frac{\partial U}{\partial x^{j}} 
+	+2n^i n^j \frac{\partial U}{\partial x^j} \left(1-\frac{2U}{c^2}\right)  . 
+\end{align*}
+忽略高阶小量，由此可得关于电磁波传播方向$\boldsymbol{n}$的方程：
+\begin{equation}\label{chppn:eqn_EM-n}
+	\frac{\mathrm{d} n^{i}}{\mathrm{d} t} = \frac{2}{c} 
+	\left(\delta^{ij}  - n^i n^j \right)
+	\frac{\partial U}{\partial x^{j}} + O(c^{-3}) .
+\end{equation}
+
+
+
+
+
+\section{相对论流体力学}
+\subsection{理想流体后牛顿近似}\label{chppn:sec_PF-PN}
+
+根据式\eqref{chppn:eqn_dtdtau}（精确到$O(c^{-2})$），四维速度的分量近似为
+\begin{align}
+	U^{0}=&\frac{\mathrm{d} x^{0}}{\mathrm{d} \tau}
+	=c \frac{\mathrm{d} t}{\mathrm{d} \tau}
+	=c\left(1+\frac{U}{c^{2}}+\frac{1}{2} \frac{v^{2}}{c^{2}}+\cdots\right) ,\label{chppn:eqn_PF-U0} \\
+	U^{i}=&\frac{\mathrm{d} x^{i}}{\mathrm{d} \tau}
+	=v^{i} \frac{\mathrm{d} t}{\mathrm{d} \tau}
+	=v^{i}\left(1+\frac{U}{c^{2}}+\frac{1}{2} \frac{v^{2}}{c^{2}}+\cdots\right) . \label{chppn:eqn_PF-Ui}
+\end{align}
+
+
+现在对理想流体进行后牛顿近似．其能动张量为式\eqref{chlh:eqn_perfect-fluid-Tab}，即下式
+\begin{equation}\label{chppn:eqn_pfT}
+	T^{\mu\nu}=\rho \left( 1+ \frac{\Pi}{c^2}  + \frac{p}{\rho c^2}  \right) U^\mu U^\nu +p g^{\mu\nu} .
+\end{equation}
+其中$\rho$是静质量密度，$\Pi$是单位质量内能，$p$是压强，$U^\mu$是质点四速度．
+
+
+参考式\eqref{chppn:eqn_metric-PN}，我们将式\eqref{chppn:eqn_pfT}写成分量形式：
+\begin{align}
+	T^{00}= & p g^{00}+\left[\rho\left(1+\frac{\Pi}{c^{2}}\right)+\frac{p}{c^{2}}\right] U^{0} U^{0} \notag \\
+	= & -p\left(1+\frac{2 U}{c^{2}}\right)+\rho c^{2}\left(1+\frac{\Pi}{c^{2}}\right)
+	\left(1+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right) 
+	+p\left(1+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right)+\cdots \notag  \\
+	= & \rho c^{2}\left(1+\frac{\Pi}{c^{2}}+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right)
+	+O(\varepsilon^2),	\label{chppn:eqn_pfT00}  \\
+	T^{0 i}= & p g^{0 i}+\left[\rho\left(1+\frac{\Pi}{c^{2}}\right)+\frac{p}{c^{2}}\right] U^{0} U^{i} \notag\\
+	= & \rho c v^{i}\left(1+\frac{\Pi}{c^{2}}\right)\left(1+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right) 
+	+p \frac{v^{i}}{c}\left(1+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right)+\cdots \notag\\
+	= & \rho c v^{i}\left(1+\frac{\Pi}{c^{2}}+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}+\frac{p}{\rho c^{2}}\right) 
+	+O(\varepsilon^3),	\label{chppn:eqn_pfT0i}	\\
+	T^{i j}= & p g^{i j}+\left[\rho\left(1+\frac{\Pi}{c^{2}}\right)+\frac{p}{c^{2}}\right] U^{i} U^{j} \notag\\
+	=&p \delta^{i j}\left(1-\frac{2 U}{c^{2}}\right)+\rho v^{i} v^{j}\left(1+\frac{\Pi}{c^{2}}\right)
+	\left(1+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}\right) +\frac{p}{c^{2}} v^{i} v^{j}+\cdots \notag\\
+	=& p \delta^{i j}\left(1-\frac{2 U}{c^{2}}\right)
+	+\rho v^{i} v^{j}\left(1+\frac{\Pi}{c^{2}}
+	+\frac{2 U}{c^{2}}+\frac{v^{2}}{c^{2}}+\frac{p}{\rho c^{2}}\right)
+	+O(\varepsilon^4) \label{chppn:eqn_pfTij}
+\end{align}
+可见理想流体中，$T^{00}$的最大量级项$\rho c^{2}$是 $O\left(c^{2}\right)$，
+$T^{0 i}$的最大量级项$\rho c v^{i}$是$O\left(c^{1}\right)$，
+$T^{i j}$的最大量级项$\rho v^{i} v^{j}+p \delta^{i j}$，是$O\left(c^{0}\right)$；
+这与式\eqref{chppn:eqn_EMT}量级一致．
+
+%\begin{example}\label{chppn:exam_rrs}
+%	$\rho^*$与$\rho$的差异．
+%\end{example}
+%在式\eqref{chlh:eqn_rho-star}中，我们引入了$\rho^*$，即
+%\begin{align}
+%	\rho^* =& \sqrt{-g} \gamma \rho= \sqrt{-g} \rho U^0 / c 
+%	\xlongequal[\ref{chppn:eqn_PF-U0}]{\ref{chppn:eqn_sqrtg}}
+%	\left(1+ 2U/c^2 + O(c^{-4})\right) \left(1+\frac{U}{c^{2}}
+%	+\frac{1}{2} \frac{v^{2}}{c^{2}}+ O(c^{-4})\right) \rho \notag \\
+%	= & \rho \left(1+\frac{3U}{c^{2}}+\frac{v^{2}}{2c^{2}} + O(c^{-4})\right). \label{chppn:eqn_rrs}
+%\end{align}
+%由式\eqref{chppn:eqn_rrs}可知$\rho^*$与$\rho$相差$O(c^{-2})$． \qed
+
+\subsection{参数化流体力学方程}
+
+参见\S\ref{chlh:perfect-fluid}的几个参数列在下面：
+\begin{align}
+	\gamma \equiv & \frac{\mathrm{d} t}{\mathrm{d} \tau} 
+	=\frac{1}{c}\frac{\mathrm{d}x^0}{\mathrm{d} \tau}= U^0/c , \tag{\ref{chlh:eqn_gamma}}\\
+	u^i \equiv & v^i \equiv \frac{{\rm d} x^i}{{\rm d}t} 
+	=\frac{{\rm d} x^i}{{\rm d}\tau} \frac{\mathrm{d} \tau}{\mathrm{d} t}  
+	= U^i /\gamma, \tag{\ref{chlh:eqn_ui}} \\
+	\rho^* \overset{def}{=} & \sqrt{-g} \gamma \rho
+	=\sqrt{-g} \rho U^0 / c . \tag{\ref{chlh:eqn_rho-star}}
+\end{align}
+
+
+由式\eqref{chppn:eqn_dtdtau}和\eqref{chlh:eqn_gamma}可知：精确到$O(c^{-4})$时，有
+\begin{equation}\label{chppn:eqn_gamma-c4}
+	\gamma \approx  1+\frac{1}{c^{2}}\left(U+\frac{v^{2}}{2} \right)
+	+\frac{1}{c^{4}}\left( \frac{U^2}{2} -4\zeta_i  v^i +\Psi
+	+ \frac{3}{8}v^4 + \frac{5}{2} U v^2 \right).
+\end{equation}
+同理有（参考式\eqref{chppn:eqn_sqrtg}，即$\sqrt{-g} \approx 1+ 2U/c^2$）
+\begin{equation}\label{chppn:eqn_rho-star}
+	\rho^* = \sqrt{-g} \gamma \rho 
+	\approx \rho \left(1+\frac{3U}{c^2}+\frac{v^{2}}{2 c^2} \right) + O(c^{-4}).
+\end{equation}
+用$\rho^*$重新表述式\eqref{chppn:eqn_pfT00}、\eqref{chppn:eqn_pfT0i}、\eqref{chppn:eqn_pfTij}，有
+\begin{subequations}\label{chppn:eqn_pfT-star}
+\begin{align}
+	T^{00} = & \rho^* c^{2}\left(1+\frac{\Pi}{c^{2}}-\frac{U}{c^{2}}+\frac{v^{2}}{2c^{2}}\right)
+	+O(\varepsilon^2),	\label{chppn:eqn_pfT00-star}  \\
+	T^{0 i}	= & \rho^* c v^{i}\left(1+\frac{\Pi}{c^{2}}-\frac{U}{c^{2}}+\frac{v^{2}}{2c^{2}}
+	+\frac{p}{\rho^* c^{2}}\right) +O(\varepsilon^3),	\label{chppn:eqn_pfT0i-star}	\\
+	T^{i j}	=& p \delta^{i j}\left(1-\tfrac{2 U}{c^{2}}\right)
+	+\rho^* v^{i} v^{j}\left(1+\frac{\Pi}{c^{2}}
+	-\frac{U}{c^{2}}+\frac{v^{2}}{2c^{2}}+\frac{p}{\rho^* c^{2}}\right)
+	+O(\varepsilon^4). \label{chppn:eqn_pfTij-star}
+\end{align}
+\end{subequations}
+
+
+\subsubsection{用$\rho^*$表述参数}
+
+将式\eqref{chppn:eqn_pfT-star}中相应量带入式\eqref{chppn:eqn_DDU=T}，有
+\begin{equation}\label{chppn:eqn_DDU=T-star}
+	U(t, \boldsymbol{x}) = \frac{G}{c^{2}} \int \mathrm{d}^{3} y 
+	\frac{\oversetmy{+2}{T} ^{00}\left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	= G \int \mathrm{d}^{3} y 
+	\frac{\rho^* \left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|} .
+\end{equation}
+将式\eqref{chppn:eqn_pfT-star}中相应量带入式\eqref{chppn:eqn_zetai}，有（注$\zeta_{i}=\zeta^{i}$）
+\begin{equation}\label{chppn:eqn_zetai-star}
+	\zeta_{i}(t, \boldsymbol{x})=\frac{G}{c} \int \mathrm{d}^{3} y 
+	\frac{\oversetmy{+1}{T}^{i 0}\left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	=G \int \mathrm{d}^{3} y 
+	\frac{v^i\left(t, \boldsymbol{y}\right) \rho^*\left(t, \boldsymbol{y}\right)}
+	{\left|\boldsymbol{x}-\boldsymbol{y}\right|} .
+\end{equation}
+将式\eqref{chppn:eqn_pfT-star}中相应量带入式\eqref{chppn:eqn_g004-Psi}，有
+\begin{align*}
+	\Psi(t, \boldsymbol{x})=& \int \frac{\mathrm{d}^{3} y}{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	\left[G \oversetmy{0}{T}^{00} \left(t, \boldsymbol{y}\right)
+	+G \oversetmy{0}{T}^{ii} \left(t, \boldsymbol{y}\right)
+	-\frac{1}{4 \pi} \frac{\partial^{2} U\left(t, \boldsymbol{y}\right)}{\partial t^{2}}\right] \\
+	=& \int \frac{\mathrm{d}^{3} y}{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	\left[G \rho^* \left(\Pi -U +v^{2}/2 \right) 	+G (\rho^* v^2 + 3 p)  
+	-\frac{1}{4 \pi} \partial_{tt} U \right] \\
+	=& \int \frac{\mathrm{d}^{3} y}{\left|\boldsymbol{x}-\boldsymbol{y}\right|}
+	\left[G \rho^* \left(\Pi - U + 3v^{2}/2 + 3 p/\rho^* \right)
+	-\frac{1}{4 \pi} \partial_{tt} U \right] \\
+\end{align*}
 
 
 
 
 
 
+利用的连续性方程\eqref{chlh:eqn_cont-star}（即$\frac{\partial \rho^* }{\partial t}+\frac{\partial  \rho^* v^i }{\partial x^i}=0$），有
+\begin{align*}
+	& \frac{\partial}{\partial t} \int \rho^* \left(t, \boldsymbol{y}\right) f\left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3}y
+	 =\int\left(\frac{\partial_t\rho^*\left(t, \boldsymbol{y}\right)}{\partial t}\right) 
+	 f\left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3} y \\
+	& \quad=- \int \left[\nabla_y \cdot\left(\rho^* \boldsymbol{v} \right) \right] f\left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3}y \\
+	& \quad=-\int \nabla_y \cdot \left[\rho^* \boldsymbol{v} f\left(\boldsymbol{x}, \boldsymbol{y}\right)\right] \mathrm{d}^{3}y
+	+\int \rho^* \boldsymbol{v} \cdot \nabla_y f \left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3} y  \\
+	& \quad=-\oint_{\infty} \rho^* \boldsymbol{v} f\left(\boldsymbol{x}, \boldsymbol{y}\right) \cdot \mathrm{d} S
+	+\int \rho^* \boldsymbol{v} \cdot \nabla_y f \left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3} y  .
+\end{align*}
+因质量$\rho^*$分布在有限区域中，故上式第一项的面积分为零；从而有
+\begin{equation}\label{chppn:eqn_dtrsf=Df}
+	\frac{\partial}{\partial t} \int \rho^* \left(t, \boldsymbol{y}\right) f\left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3}y
+	 =\int \rho^*\left(t, \boldsymbol{y}\right) \boldsymbol{v}\left(\boldsymbol{y}\right) \cdot 
+	 \nabla_y f \left(\boldsymbol{x}, \boldsymbol{y}\right) \mathrm{d}^{3} y .
+\end{equation}
+
+
+我们定义
+\begin{equation}
+	X \left(t, \boldsymbol{x}\right) \overset{def}{=} G \int \rho^* \left(t, \boldsymbol{y}\right)
+	\left|\boldsymbol{x}-\boldsymbol{y}\right| \mathrm{d}^{3} y .
+\end{equation}
+
+
+利用式\eqref{chppn:eqn_dtrsf=Df}可得
+\begin{align*}
+	\partial_{t}X\left(t, \boldsymbol{x}\right) & = G \frac{\partial}{\partial t} 
+	\int \rho^* \left(t, \boldsymbol{y}\right)
+	\left|\boldsymbol{x}-\boldsymbol{y}\right| \mathrm{d}^{3} y
+	=G \int \rho^{*} \boldsymbol{v}\cdot \nabla_y\left|\boldsymbol{x}-\boldsymbol{y}\right| \mathrm{d}^{3} y \\
+	& =-G\int \rho^{*}\left(t, \boldsymbol{y}\right) \frac{\boldsymbol{v}\left(\boldsymbol{y}\right) \cdot\left(\boldsymbol{x}-\boldsymbol{y}\right)}{\left|\boldsymbol{x}-\boldsymbol{y}\right|} 
+	\mathrm{d}^{3}y, \\
+	\chi_{, 0 i} & =\frac{G}{c} \int \frac{\rho^{\prime} v^{\prime i}}{\left|\boldsymbol{x}-\boldsymbol{x}^{\prime}\right|} \mathrm{d}^{3} x^{\prime}-\frac{G}{c} \int \frac{\rho^{\prime} \boldsymbol{v}^{\prime} \cdot\left(\boldsymbol{x}-\boldsymbol{x}^{\prime}\right)\left(x^{i}-x^{\prime i}\right)}{\left|\boldsymbol{x}-\boldsymbol{x}^{\prime}\right|^{3}} \mathrm{~d}^{3} x^{\prime} .
+\end{align*}
+
+
+令
+
+
+\begin{align*}
+	& V_{i}=G \int \frac{\rho^{\prime} v^{\prime i}}{\left|\boldsymbol{x}-\boldsymbol{x}^{\prime}\right|} \mathrm{d}^{3} x^{\prime},  \tag{7.83}\\
+	& W_{i}=G \int \frac{\rho^{\prime} v^{\prime} \cdot\left(\boldsymbol{x}-\boldsymbol{x}^{\prime}\right)\left(\boldsymbol{x}^{i}-x^{\prime i}\right)}{\left|\boldsymbol{x}-\boldsymbol{x}^{\prime}\right|^{3}} \mathrm{~d}^{3} x^{\prime}, \tag{7.84}
+\end{align*}
+
+
+则
+
+
+\begin{equation*}
+	\chi_{, 0 i}=\frac{1}{c}\left(V_{i}-W_{i}\right) \tag{7.85}
+\end{equation*}
+
+
+最后由（7．66）和（7．80）得到
+
+
+\begin{align*}
+	& \zeta_{i}=-4 V_{i}  \tag{7.86}\\
+	& \stackrel{(3)}{3}_{g_{0 i}}=-\frac{1}{c^{3}}\left(\frac{7}{2} V_{i}+\frac{1}{2} W_{i}\right) . \tag{7.87}
+\end{align*}
+
+
+\subsubsection{分量表述}
+流体能动张量$T^{\alpha \beta}$必然满足方程$\nabla_\beta T^{\alpha \beta}=0$，即
+\begin{equation}
+	0=\nabla_\beta T^{\alpha \beta}=\partial_\beta T^{\alpha \beta}
+	+\Gamma_{\mu \beta}^\alpha T^{\mu \beta}
+	+\Gamma_{\mu \beta}^\beta T^{\alpha \mu}.
+\end{equation}
+我们用$\Gamma_{\mu \beta}^\beta=(-g)^{-1 / 2} \partial_\mu (-g)^{1 / 2}$可以将上式改写为
+\begin{equation}\label{chppn:eqn_DT=0}
+	\partial_\beta\left(\sqrt{-g} T^{\alpha \beta}\right)
+	+\Gamma_{\mu\beta}^\alpha\left(\sqrt{-g} T^{\mu\beta}\right) =0.
+\end{equation}
+令式\eqref{chppn:eqn_DT=0}中的$\alpha =0$，有
+\begin{align*}
+	0 =& \partial_\beta\left(\sqrt{-g} T^{0 \beta}\right)
+	+\Gamma_{\mu\beta}^{0}\left(\sqrt{-g} T^{\mu\beta}\right)
+	 =  \frac{1}{c} \partial_t\left(\sqrt{-g} T^{00}\right)+\partial_j\left(\sqrt{-g} T^{0 j}\right) \\
+		& +\Gamma_{00}^0\left(\sqrt{-g} T^{00}\right)+2 \Gamma_{0 j}^0\left(\sqrt{-g} T^{0 j}\right)
+		+\Gamma_{j k}^0\left(\sqrt{-g} T^{j k}\right),
+\end{align*}
+将式\eqref{chppn:eqn_pfT-star}带入上式，有
+\begin{align*}
+	0 =&  \frac{1}{c} \partial_t\left(\sqrt{-g} T^{00}\right)+\partial_j\left(\sqrt{-g} T^{0 j}\right) 
+	 +\Gamma_{00}^0\left(\sqrt{-g} T^{00}\right)+2 \Gamma_{0 j}^0\left(\sqrt{-g} T^{0 j}\right)
+	+\Gamma_{j k}^0\left(\sqrt{-g} T^{j k}\right)\\
+	=& 
+\end{align*}
+
+
+
+\section*{小结}
+
+本章主要参考了文献\parencite[Ch. 9]{weinberg_grav-1972}、
+\parencite[Ch. 7-8]{xu-wu-1999}、\parencite{poisson-will-2014}．
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \printbibliography[heading=subbibliography,title=第\ref{chppn}章参考文献]

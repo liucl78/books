@@ -5,54 +5,122 @@
 
 \section{宇宙学原理}\label{chcos:sec_COSP}
 
-爱因斯坦在得到场方程后很快就将其用到宇宙学．
-其实，只有爱氏发现广义相对论后，宇宙学才成为一门科学．
+\index[physwords]{宇宙学原理}
+
+爱因斯坦在得到场方程后很快将其用到宇宙学
+（只有爱氏发现广义相对论后，宇宙学才成为一门科学）．
 由于宇宙的边界条件是未知的，爱因斯坦便提出了{\heiti 宇宙学原理}：
 {\kaishu 宇宙在空间上是均匀且各向同性的}．
-此原理是抽象的，下面从物理、数学角度来解释
-均匀性（见定义\ref{chhss:def_Homogeneous}）、各向同性（见定义\ref{chhss:def_isotropic-space}）．
+下面从物理角度略作解释．
 
-天文观测上大致支持：在$3\times 10^{8}$光年尺度以上，宇宙物质的质量密度是均匀的．
 
-我们假设宇宙物质可以近似成理想流体，它的能动张量为\eqref{chlh:eqn_perfect-fluid-Tab}式：
+首先，假设整个宇宙是一个四维闵氏时空$(M,g)$．
+其次，时空$M$可被$1+3$分解（参见\S\ref{chsm:sec_3+1decomposition}），
+分解为无穷多个互不相交的三维类空超曲面$\Sigma_t$之并．
+第三，宇宙不是真空，宇宙物质可近似成理想流体，
+它的能动张量为\eqref{chlh:eqn_perfect-fluid-Tab}式：
 \begin{equation}
 	T^{ab}=\left(\rho  + p \right) U^a U^b +p g^{ab} .
 	\tag{\ref{chlh:eqn_perfect-fluid-Tab}}
 \end{equation}
 
-各向同性是指：在1+3分解后，空间部分是各向同性的．
 
-如果有一个粒子以半光速远离银河系中心，那么在此粒子看来，宇宙并非各向同性的．
-然而，在与流体质团共动的参考系中，宇宙是各向同性的．
+在不同空间尺度上，宇宙可能均匀、也可能不均匀．
+比如在太阳系尺度范围内，质量密度明显不是均匀的．
+即便大到银河系尺度（约10万光年），质量密度也不均匀，银心密度比星系边缘密度要高很多．
+然而，天文观测上大致支持：在$3\times 10^{8}$光年尺度以上，宇宙物质的质量密度是均匀的．
+宇宙学就是考虑在这个尺度以上的物理演化（姑且称之为{\kaishu 零级近似}）．
 
-由于宇宙的空间（类空超曲面）是三维实流形，
-由定理\ref{chhss:thm_isotropic-manifold}可知：
-此类空超曲面必然是常曲率的，且等距群具有最高的对称性（见\pageref{chhss:sec_fh}页）．
+
+
+
+如果有一个粒子以半光速远离银河系中心；相对于此粒子，
+物质要么高速奔向它，要么高速远离它，那么在它看来，宇宙物质有特定方向，并非各向同性的．
+由此可见并非任何参考系都是各向同性的．
+任何一个星系团（比如包含银河系的星系团）都可以当成理想流体中的一个流体质团，
+此质团的世界线自然是类时曲线．如果把参考系固定在流体质团上
+（即共动参考系{\footnote{并且要求无自转，参见\S\ref{chfd:sec_FW}．}}），
+那么在三维类空超曲面$\Sigma_t$上宇宙物质是各向同性的．这便是爱氏宇宙学原理的物理解释．
 
 
 {\kaishu 各向同性确保了宇宙学流体的世界线与均匀各向同性类空超曲面相互正交．}证明过程大致如下所述．
-一个“与流体共动”的观察者可以测量他自己相对于该类空超曲面的三维速度，
-如果该三维速度不为零，那么这个三维速度就是一个特殊方向，它将为观察者提供一种区分空间方向的方法；
+一个“与流体共动”的观测者可以测量他自己相对于该类空超曲面的三维速度，
+如果该三维速度不为零，那么这个三维速度就是一个特殊方向，它将为观测者提供一种区分空间方向的方法；
 他的静止参考系与所有其他参考系不同，这违背了各向同性原则．
-因此，在一个各向同性的宇宙中（在这个宇宙中，“观察者与流体共动”的概念才有意义），
-每一个这样的观察者都必须发现，相对于均匀性表面而言，他处于静止状态．他的世界线与那个均匀类空超曲面正交．
+因此，在一个各向同性的宇宙中（在这个宇宙中，“观测者与流体共动”的概念才有意义），
+每一个这样的观测者都必须发现，相对于均匀性表面而言，他处于静止状态（指三速度为零）．
+他的世界线与那个均匀类空超曲面正交．
 
+
+下面用略微严谨的数学定义表述一下．
+空间均匀性定义见\ref{chhss:def_Homogeneous}．
+空间各向同性本质上就是定义\ref{chhss:def_isotropic-space}，
+下面在闵氏时空中再次重复一下．
+
+
+\begin{definition}\label{chcos:def_isotropic-cos}
+	设有四维闵氏时空$\left(M, g\right)$，它被$1+3$分解成一系列类空超曲面$\{\Sigma_t\}$的无交并．
+	若对其中任一观测者{\footnote{观测者就是指向未来的类时世界线，此世界线的四维速是$Z^a$．}}
+	世界线上任一点$p$以及$p$点任意两个非零且等长的
+	空间矢量$w^a$和$v^a$（它们均切于同一个类空超曲面$\Sigma_t$），
+	则存在等距映射$\psi: M \rightarrow M$使得$\psi(p)=p$、$\psi_* Z^a=Z^a$、$\psi_* w^a=v^a$．
+	那么，此参考系被称为{\heiti \bfseries 各向同性参考系（isotropic）}，
+	各向同性参考系内的观测者称为{\heiti 各向同性观者}，
+	存在各向同性参考系的时空称为{\heiti  各向同性时空}．	
+\end{definition} 
+
+上面描述的，与流体质团共动的、无自转参考系便是宇宙中的各向同性参考系．
+由命题\ref{chhss:thm_iso2homo}可知各向同性蕴含均匀性．
+
+各向同性宇宙中还需要增加一条属性：
+定义\ref{chcos:def_isotropic-cos}中的$1+3$分解是唯一的．
+这可能是爱因斯坦提出宇宙学原理时的隐含假设．
+下面略微严格地再次证明各向同性观测者与类空超曲面正交．
+
+\begin{proposition}\label{chcos:thm_ph}
+	设四维闵氏时空$M$被$1+3$分解成一系列类空超曲面$\{\Sigma_t\}$的无交并，
+	$\{\Sigma_t\}$是各向同性的，并且这种分解是{\kaishu 唯一的}；
+	那么类空超曲面必定处处与各向同性观测者世界线正交．
+\end{proposition}
+\begin{proof}
+	用反证法．
+	设$p$ 是各向同性观者 $G$ 世界线上一点，$\Sigma_t$ 是含 $p$ 的各向同性类空超曲面，
+	假设它与$G$在$p$点的四维速$Z^a$不正交．
+	设$V_p$是$p$点的四维切空间，$W_p \subset V_p$是与$Z^a$正交的三维子空间，
+	则$W_p$的元素就是$p$点的空间矢量（对 $G$ 而言）．
+	很明显，$\Sigma_t$的$p$点切空间与$W_p$的交集不可能为空．
+	令非零$w^a \in W_p$为切于$\Sigma_t$的矢量，
+	$v^a \in W_p$为不切于$\Sigma_t$且与$w^a$等长的矢量．
+	
+	设$\psi$是$M$上的{\kaishu 任意}等距映射，
+	则$\Sigma_t$的各向同性属性导致$\psi(\Sigma_t)$是各向同性，
+	$\psi(p)=p$导致$\psi(\Sigma_t)$和$\Sigma_t$都含$p$点，
+	故由各向同性类空超曲面族的唯一性可知$\psi(\Sigma_t)=\Sigma_t$ ．
+	故$w^a$切于$\Sigma_t$导致$\psi_* w^a$切于$\psi(\Sigma_t)$ ，
+	于是$\psi_* w^a$切于$\Sigma_t$；而$v^a$不切于$\Sigma_t$，因而$\psi_* w^a$不等于$v^a$．
+	可见不存在等距映射$\psi$使$\psi(p)=p$且$\psi_* w^a=v^a$，这与$G$为各向同性观测者矛盾．
+\end{proof}
+
+
+\index[physwords]{FLRW度规}
 \section{FLRW度规}
-由\S\ref{chcos:sec_COSP}的分析可知，宇宙是均匀、各向同性的；
-那么由式\eqref{chhss:eqn_g-cos-2}可以得到如下
-Friedmann--Lema\^{i}tre--Robertson--Walker度规（局部坐标为$\{t,r,\theta,\phi\}$）：
-\begin{equation}\label{chcos:eqn_FLRW-metric}
-	\mathrm{d} s^2=-\mathrm{d} t^2+a^2(t)\left\{\frac{\mathrm{d} r^2}{1-k r^2}
-	+r^2 \mathrm{d} \theta^2+r^2 \sin ^2 \theta \mathrm{d} \phi^2\right\}    .
-\end{equation}
-其中
-\begin{equation}
-	k= \begin{cases}
-		+1 & \text { 当最大对称子空间的 } K>0,\quad \text{超球面} \\ 
-		-1 & \text { 当最大对称子空间的 } K<0,\quad \text{双曲空间} \\ 
-		0  & \text { 当最大对称子空间的 } K=0,\quad \text{超平面}
-	\end{cases} .
-\end{equation}
+在\S\ref{chcos:sec_COSP}中，我们将各向同性原理解释为：
+宇宙是一个各向同性时空（见定义\ref{chcos:def_isotropic-cos}）．
+由定理\ref{chhss:thm_isotropic-manifold}可知：
+这个各向同性的类空超曲面族必然是常曲率的，
+且等距群具有最高的对称性（见\pageref{chhss:sec_fh}页）．
+再加上命题\ref{chcos:thm_ph}，那么式\eqref{chhss:eqn_g-cos-2}便可用到各向同性宇宙模型中；
+所得到的度量一般称为{\heiti \bfseries Friedmann--Lema\^{i}tre--Robertson--Walker度规}
+（局部坐标为$\{t,r,\theta,\phi\}$）：
+\begin{align}
+	&\mathrm{d} s^2=-\mathrm{d} t^2+a^2(t)\left\{\frac{\mathrm{d} r^2}{1-k r^2}
+	+r^2 \mathrm{d} \theta^2+r^2 \sin ^2 \theta \mathrm{d} \phi^2\right\} , \label{chcos:eqn_FLRW-metric} \\   
+&\text{其中}\	k= \begin{cases}
+	+1 & \text { 当最大对称子空间的曲率恒正，即超球面或}\mathbb{RP}^3 \\ 
+	-1 & \text { 当最大对称子空间的曲率恒负，即双曲空间} \\ 
+	0  & \text { 当最大对称子空间的曲率恒零，即超平面}
+\end{cases} \  . \notag
+\end{align}
 FLRW度规$g_{ab}$行列式为：
 \begin{equation}\label{chcos:eqn_FLRW-detg}
 	g=\det(g_{\alpha\beta})= \frac{r^4 a^6 \sin^2 \theta}{k r^2-1} .
@@ -81,7 +149,7 @@ FLRW度规非零黎曼曲率，以及标量曲率：
 	R_{0303} = - a \ddot{a} r^2 \sin^2 \theta , \\
 	&R_{1212} = \frac{ a^2 \left(\dot{a}^2+k\right)r^2}{1-k r^2}, \quad
 	R_{1313} = \frac{ a^2 \left(\dot{a}^2+k\right) r^2 \sin^2\theta }{1-k r^2},\\
-	&R_{2323} =  a^2 \left(\dot{a}^2+k\right) r^4 \sin^2\theta ,\qquad
+	&R_{2323} =  a^2 \left(\dot{a}^2+k\right) r^4 \sin^2\theta . \qquad
 	R = \frac{6 \left(a \ddot{a}+\dot{a}^2+k\right)}{a^2} .
 \end{align}
 \end{subequations}
@@ -106,6 +174,112 @@ FLRW度规非零爱因斯坦张量：
 
 
 
+\section{引力红移}
+我们关于宇宙标度因子 $a(t)$ 的最重要的信息，是通过观测遥远光源发出的光线的频率移动而得到的．
+为了计算这种频移，我们将自己置于坐标原点 $r=0$（根据宇宙学原理，这只是一种方便的约定），
+并考虑以固定的 $\theta$ 和 $\varphi$ 沿 $-r$ 方向向我们传来的一列电磁波．一个给定波峰的运动方程是
+\begin{equation*}
+	0=\mathrm{d} \tau^{2}=\mathrm{d} t^{2}-R^{2}(t) \frac{\mathrm{d} r^{2}}{1-k r^{2}} .
+\end{equation*}
+所以，如果这个波峰在时刻 $t_{1}$ 离开一个位于 $r_{1}, \theta_{1}, \phi_{1}$ 的典型星系，
+那么它将在由下式决定的时刻 $t_{0}$ 到达我们这里
+\begin{align}
+	\int_{t_{1}}^{t_{0}} \frac{\mathrm{d} t}{a(t)}
+	=\int^{0}_{r_{1}} \frac{\mathrm{d} (-r)}{\sqrt{1-k (-r)^{2}}}
+	=\int_{0}^{r_{1}} \frac{\mathrm{d} r}{\sqrt{1-k r^{2}}}
+	=f\left(r_{1}\right) 
+\end{align}
+式中
+\begin{equation}
+	f\left(r_{1}\right) \equiv \int_{0}^{r_{1}} \frac{\mathrm{d} r}{\sqrt{1-k r^{2}}}
+	= \begin{cases}\sin ^{-1} r_{1} & k=+1  \\ r_{1} & k=0 \\ \sinh ^{-1} r_{1} & k=-1\end{cases}.
+\end{equation}
+我们在上节中看到，典型星系具有不变的坐标 $r_{1}, \theta_{1}, \phi_{1}$ ，
+故 $f\left(r_{1}\right)$ 与时间无关．
+因此，如果下一个波峰在时刻 $t_{1}+\delta t_{1}$ 离开 $r_{1}$ ，
+它将在时刻 $t_{0}+\delta t_{0}$到达我们这里，
+这个时刻由类似于的如下关系式决定
+\begin{equation}
+	\int_{t_{1}+\delta t_{1}}^{t_{0}+\delta t_{0}} \frac{\mathrm{d} t}{a(t)}=f\left(r_{1}\right) .
+\end{equation}
+从式（14．3．3）中减去（14．3．1），并注意到在一个典型的光信号周期
+$10^{-14} \mathrm{s}$内 $a(t)$ 变化极微，我们得到
+\begin{align}
+	&\int_{t_{1}}^{t_{0}} \frac{\mathrm{d} t}{a(t)}=
+	\int_{t_{1}+\delta t_{1}}^{t_{0}+\delta t_{0}} \frac{\mathrm{d} t}{a(t)}
+	=\left\{ \int_{t_{1}+\delta t_{1}}^{t_{1}}
+	+\int_{t_{1}}^{t_{0}}
+	+\int_{t_{0}}^{t_{0}+\delta t_{0}} 
+	\right\} \frac{\mathrm{d} t}{a(t)} \notag \\
+	& \Rightarrow \quad 
+	\frac{\delta t_{0}}{a\left(t_{0}\right)}=\frac{\delta t_{1}}{a\left(t_{1}\right)}.
+\end{align}
+于是我们观测到的频率 $\nu_{0}$ 同发射频率 $\nu_{1}$ 的关系为
+\begin{equation}
+	\frac{\nu_{0}}{\nu_{1}}=\frac{\delta t_{1}}{\delta t_{0}}=\frac{a\left(t_{1}\right)}{a\left(t_{0}\right)} .
+\end{equation}
+这个关系通常用定义为波长相对增加的红移参量 $z$ 来表示
+\begin{equation*}
+	z \equiv \frac{\lambda_{0}-\lambda_{1}}{\lambda_{1}} .
+\end{equation*}
+因为 $\lambda_{0} / \lambda_{1}$ 等于 $\nu_{1} / \nu_{0}$ ，故由（14．3．4）得
+\begin{equation*}
+	z=\frac{a\left(t_{0}\right)}{a\left(t_{1}\right)}-1 .
+\end{equation*}
+为了避免混淆，应当记住，$\nu_{1}$ 和 $\lambda_{1}$ 是在发射地点和时间附近观测到的光的频率和波长，
+可以假定它们取同样的原子跃迁在地球上发生时测得的值，
+而 $\nu_{0}$ 和 $\lambda_{0}$ 是光在经历漫长旅程后到达我们这里时观测到的频率和波长．
+如果 $z>0$ ，则 $\lambda_{0}>\lambda_{1}$ ，我们就说是红移，
+如果 $z<0$ 则 $\lambda_{0}<\lambda_{1}$ ，我们就说是蓝移．
+
+如果宇宙是膨胀的，则 $a\left(t_{0}\right)>a\left(t_{1}\right)$ ，
+按（14．3．6）就得到红移，若宇宙是收缩的，则 $a\left(t_{0}\right)<a\left(t_{1}\right)$ ，
+按（14．3．6）就得到蓝移．这样的频率移动可利用 2.2 节里讨论过的 Döppler 效应得到自然的解释．
+式（14．2．21）表明一个相当近的星系将以径向速度
+\begin{equation}
+	v_{r} \simeq \dot{a}\left(t_{0}\right) r_{1} .
+\end{equation}
+离开或者向着银河系运动．当 $r_{1} \rightarrow 0$ 和 $t_{0} \rightarrow t_{1}$ 时，由式（14．3．6）和（14．3．1）得到频移为
+\begin{equation}
+	z \rightarrow \frac{\dot{a}\left(t_{0}\right)\left(t_{0}-t_{1}\right)}{a\left(t_{0}\right)} 
+	\rightarrow r_{1} \dot{a}\left(t_{0}\right) \rightarrow v_{r} 
+\end{equation}
+这同式（2．2．2）符合．但是，光的频率还受宇宙引力场的影响，所以只用狭义相对论的 Döppler 效应来解释遥远光源的谱线频移既无益处，也不严
+格．［应当提请读者注意，天文学家们的报道中往往用退行速度来表示大频移，例如说＂红移＂为 $v(\mathrm{~km} / \mathrm{s})$ ，就是说 $z=v /\left(3 \times 10^{5}\right)$ ．］
+大约从1910年到20世纪20年代中期，Vesto Melvin Slipher 用 Lowell天文台 24 in 折射望远镜所进行的观测计划，提供了遥远天体的谱线有系统红移的初步迹象．在 1922 年的总结 ${ }^{[10]}$ 中，他给出了 41 个旋涡星云的资料，其中 36 个有红移量达 $z \simeq 0.006$ 的吸收线，只有 5 个表现出蓝移，仙女座大星云的蓝移最大，$z \simeq-0.001$ ．这些频移一开始就被解释为 Döppler 效应，但起初曾指望可以用太阳系而不是星系本身的运动来说明它们．天空的所有区域都以红移占压倒优势的事实，使这种解释愈来愈站不住脚，到1918年，Wirtz ${ }^{[11]}$ 建议，除太阳运动外还有旋涡星云在所有方向离我们而去的普遍退行（称为＂$K$ 项＂）．当然，其它的解释，例如由非常强的局域引力场引起的引力红移也是可能的．（也许1919年日食考察中广义相对论的胜利使这种解释特别诱人．）然而，Wirtz 和 K．Lundmark在 20 年代所写的一系列论文 ${ }^{[12]}$ 中，指明 Slipher 的红移随旋涡星云距离的增加而变大，因而这个事实用遥远星系的普遍退行最容易理解，最遥远的自然是那些运动得最快的星系．1929 年 Edwin Hubble ${ }^{[13]}$ 宣布＂速度和距离之间大致成线性关系＂，于是在大多数天文学家头脑中确立了红移作为宇宙学的 Döppler 效应解释，这种解释沿用了几十年，一直到今天．
+
+如果不首先加深我们对宇宙学距离是如何确定的，以及它们是如何同坐标距离 $r_{1}$ 相关联的理解，要把这个问题的讨论进行下去是不可能的．所以，我们将在 14.6 节中再接下去讨论红移问题．
+
+
+\subsection{测地线}
+
+
+由式\eqref{chcos:eqn_FLRW-Gamma}可得FLRW度规的测地线方程（其中$\beta$为仿射参数）：
+\begin{subequations}\label{chcos:eqn_FLRW-Geodesics}
+	\begin{align}
+		& \frac{\mathrm{d}^2 t}{\mathrm{d} \beta^2}
+		+\frac{a\dot{a}}{1-kr^2} \left(\frac{\mathrm{d} r}{\mathrm{d} \beta}\right)^2
+		+a\dot{a} r^2 \left(\frac{\mathrm{d} \theta}{\mathrm{d} \beta}\right)^2
+		+a\dot{a} r^2 \sin^2\theta \left(\frac{\mathrm{d} \phi}{\mathrm{d} \beta}\right)^2, 
+		\label{chcos:eqn_FLRW-Geodesics-t} \\
+		& \frac{\mathrm{d}^2 r}{\mathrm{d} \beta^2}
+		+2 \frac{\dot{a}}{a} \frac{\mathrm{d} t}{\mathrm{d} \beta} \frac{\mathrm{d} r}{\mathrm{d} \beta}
+		+\frac{kr}{1-kr^2} \left(\frac{\mathrm{d} r}{\mathrm{d} \beta}\right)^2
+		- r(kr^2-1)\left[ \left(\frac{\mathrm{d} \theta}{\mathrm{d} \beta}\right)^2
+		+\sin^2\theta \left(\frac{\mathrm{d} \phi}{\mathrm{d} \beta}\right)^2\right], 
+		\label{chcos:eqn_FLRW-Geodesics-r} \\
+	    & \frac{\mathrm{d}^2 \theta}{\mathrm{d} \beta^2}
+	    +2 \frac{\dot{a}}{a} \frac{\mathrm{d} t}{\mathrm{d} \beta} \frac{\mathrm{d} \theta}{\mathrm{d} \beta}
+	    +\frac{2}{r} \frac{\mathrm{d} r}{\mathrm{d} \beta} \frac{\mathrm{d} \theta}{\mathrm{d} \beta}
+	    -\sin \theta \cos \theta\left(\frac{\mathrm{d} \phi}{\mathrm{d} \beta}\right)^2=0, \label{chcos:eqn_FLRW-Geodesics-theta} \\
+		&\frac{\mathrm{d}^2 \phi}{\mathrm{d} \beta^2}
+		+2 \frac{\dot{a}}{a} \frac{\mathrm{d} t}{\mathrm{d} \beta} \frac{\mathrm{d} \phi}{\mathrm{d} \beta}
+		+\frac{2}{r} \frac{\mathrm{d} r}{\mathrm{d} \beta} \frac{\mathrm{d} \phi}{\mathrm{d} \beta}
+		+2 \cot \theta \frac{\mathrm{d} \theta}{\mathrm{d} \beta} \frac{\mathrm{d} \phi}{\mathrm{d} \beta}=0 . \label{chcos:eqn_FLRW-Geodesics-phi}
+	\end{align}
+\end{subequations}
+
+
 
 
 \section{均匀空间}
@@ -116,29 +290,122 @@ FLRW度规非零爱因斯坦张量：
 均匀空间$\Sigma$的等距群$I(\Sigma)$有一个三维子群$G$，
 其李代数为$\mathscr{G}$，它的基矢记为$\{(e_i)^a\}$（$i=1,2,3$）．
 
-由于李群$G$的左不变切矢量场自然也是作为流形$G$的切矢量场，
-故切矢量场的对易公式\eqref{chrg:eqn_EmuEnucommutator}是成立的，即
-\begin{align}
-	\bigl[(e_i), (e_j)\bigr]^a
-	= \bigl(\Gamma^{k}_{ji} - \Gamma^{k}_{ij}\bigr) (e_k)^a
-	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) (e^k)^a .
-	\tag{\ref{chrg:eqn_EmuEnucommutator} }
-\end{align}
-式\eqref{chrg:eqn_EmuEnucommutator}第一个等号适用于一般标架，
-第二个等号只适用于刚性标架（定义见\ref{chrg:def_rigid-frame}）；下面在刚性标架中讨论问题．
-\begin{align*}
-	C^k_{ij} (e_k)^a = \bigl[(e_i), (e_j)\bigr]^a
-	= \bigl(-\omega_{jki} + \omega_{ikj}\bigr) (e^k)^a  .
-\end{align*}
-用对偶矢量场$\{(e_l)_a\}$缩并上式，有
+
+
+
+\section{距离测量}
+
+
+\subsection{星等}
+
+在天文学中，{\heiti 光度}（luminosity）是指天体（比如太阳、银河系）每单位时间内
+辐射出电磁波的总能量（包含所有频率电磁波），单位是瓦特（Watt）．
+
+
+
+设想一颗光度为$L$的恒星（比如太阳）被半径为$R$的巨大二维闭球面包围．
+然后，假设恒星发出的电磁波在向外行走到达球面的过程中没有被吸收；
+那么在$R$处测量到的{\heiti 辐射能通量}$F$与恒星的光度之间的关系为：
 \begin{equation}
-	C^k_{ij} h_{kl}= \omega_{ilj} -\omega_{jli}
-	\xlongequal{\ref{chrg:eqn_Coef-Lambda1}} \Lambda_{ilj} .
+	F=\frac{L}{4 \pi R^2} .
 \end{equation}
-其中$\Lambda_{il j}$定义见式\eqref{chrg:eqn_Coef-Lambda1}．
+由于光度$L$并不依赖于$R$，所以辐射能通量其实就是反比于距离的平方．
+
+\begin{example}
+	太阳的光度约为$L_{\odot}=\num{3.846e26}\si{W}$；计算出地球上的辐射能通量．
+\end{example}
+地球位于距离太阳$1 \mathrm{AU}=\num{1.495978707e11}\si{m}$处，
+在地球大气上方接收到的太阳的辐射能通量为：
+$F=\frac{L}{4 \pi \, 1AU^2}=\num{1367} \si{W.m^{-2}} $．
+\qed
+
+
+{\heiti 视星等}（apparent magnitude）是地球上或空间探测器观测到的天体光度的一种量度．
+1850年，Pogson引入如下公式表示之：
+\begin{equation}\label{chcos:eqn_mag-am}
+	\frac{F_1}{F_2}=100^{\frac{m_2-m_1}{5}}
+	\quad \Leftrightarrow \quad
+	m_1-m_2=-2.5 \log_{10}\left(\frac{F_1}{F_2}\right) .
+\end{equation}
+其中 $m_1$、$m_2$ 分别定义为两颗星的视星等，
+$F_1$、$F_2$表示在地球表面接收到的它们的单位面积上的辐射能通量．
+视星等与电磁波频率相关，最常用的裸眼观测得到的视星等称为{\heiti 目视星等}；
+用照相机拍照得到的视星等称为{\heiti 照相星等}；
+包含全部电磁波频段的视星等称为{\heiti 热视星等}；
+以及红外视星等，等等．
+
+
+人为规定：晴朗的夜间用裸眼观测天空恒星，其中最亮的恒星的视星等为$m=1$（大约有22颗）．
+后来根据更精确观测确定：\CJKunderwave{太阳目星等为\num{-26.832}}，
+满月目视星等为\num{-12.74}，织女星目视星等约为\num{0.03}．
+
+
+视星等受到距离影响，比如如果太阳距离地球1光年远，那么远处太阳的视星等并不等于当前太阳的视星等．
+所以天文学家给每颗恒星确定一个绝对星等$M$，
+我们定义位于10pc（10秒差距）距离处的一颗恒星的视星等为{\heiti 绝对星等}．
+由于观测到的辐射能通量与距离的平方成反比，移到10pc后的辐射能通量$F_{10}$与原来的辐射能通量$F$之比为
+\begin{equation}
+	\frac{F_{10}}{F}=\frac{R^2}{10^2},\quad
+	R \text{是以\, 秒差距\,  为单位的实际距离}
+\end{equation}
+根据上式和式\eqref{chcos:eqn_mag-am}立即得到
+\begin{equation}\label{chcos:eqn_mag-aar}
+	m-M=-2.5 \log_{10} \frac{F}{F_{10}}=5 \log_{10} R-5.
+	\quad R \text{单位是\, 秒差距}
+\end{equation}
+这样，只要知道了恒星的距离和视星等，就可以计算出它的绝对星等．
+不难算出\CJKunderwave{太阳绝对星等：$M_{\rm sun}=\num{4.74}$}；
+为了避免与太阳质量$M_{\odot}$混淆，我们使用了$M_{\rm sun}$来标记太阳绝对星等．
+绝对星等的数值越小，恒星的实际亮度就越亮．
+实际上，在天文学和天体物理的研究中，问题往往是反过来，
+即由其他与距离无关的方法求得绝对星等后，再根据式\eqref{chcos:eqn_mag-aar}，
+由绝对星等和视星等求出天体的距离．
+实际观测中还有一个重要因素要考虑，即地球大气的消光改正；我们就不介绍了．
+
+
+与视星等相同，绝对星等自然也与电磁波频率相关．
+
+若已知某天体的光度为$L$，则通过上述内容不难得到它的绝对星等$M$：
+\begin{equation}\label{chcos:eqn_LLsMMs}
+    M=M_{\rm sun}-2.5 \log_{10} \frac{L}{L_{\odot}}.
+\end{equation}
+严格说来，上式只对{\kaishu 绝对热星等}成立；其它绝对星等只是近似．
 
 
 
+
+\subsection{造父变星}
+
+借助造父变星测量天体距离是天文学中一种常用方法．我们先介绍一下造父变星的发现史和翻译渊源．
+1784年，John Goodricke发现一颗位于北天星座仙王座中的变星，
+将其命名为“$\updelta$ Cephei”，中文将其翻译为“造父一”．
+造父是中国西周时期周穆王的御马官，相传他离世后升仙为天上一颗明亮的星星．
+中国天文命名规则习惯使用古代名人命名，遂启用“造父”这个名字．
+
+
+造父变星有两个特点：第一它们十分明亮，容易观测；
+第二它们的绝对星等与亮度变化周期存在函数关系，
+且造父变星的亮度变化周期稳定不变．
+1912年，美国女天文学家H. S. Leavitt（1868--1921）发现
+小麦哲伦云中的造父变星的辐射能通量是周期变化的，
+由此可以得到造父变星光度的周期定标关系（简称{\heiti 周光关系}）．
+当前研究给出的造父变星的可见光绝对星等$M_{\rm V}$与红外线绝对星等$M_{\rm I}$作为
+周期 $P$（以天为单位）的函数形式为：
+\begin{equation}\label{chcos:eqn_Leavitt}
+	M_{\mathrm{V}}=-2.760 \log _{10} P-1.458, \quad M_{\rm I}=-2.962 \log _{10} P-1.942 .
+\end{equation}
+如果有了某造父变星的视星等，以及光度变化周期；
+那么由式\eqref{chcos:eqn_Leavitt}、\eqref{chcos:eqn_mag-aar}便可测量它与地球的距离了．
+这样造父变星就成为“标准烛光”．
+
+
+
+
+
+
+
+
+  
 
 
 \section*{小结}

@@ -21,7 +21,7 @@
 \parencite[Ch.11]{jackson1998}、\parencite{liu_fei2008}等．
 
 本章大体安排：先讨论惯性系定义； 
-接着回顾伽利略变换和牛顿万有引力；
+接着回顾Galilei变换和牛顿万有引力；
 继而回顾爱氏的狭义相对论基本原理；
 然后回顾相对论力学以及匀加速运动；
 之后回顾麦克斯韦方程组；
@@ -106,9 +106,9 @@
 
 \section{牛顿力学回顾}
 
-\index[physwords]{伽利略变换}
+\index[physwords]{伽利略变换} \index[physwords]{Galilei变换}
 
-\subsection{伽利略变换}\label{chsr:sec_Galileo}
+\subsection{Galilei变换}\label{chsr:sec_Galileo}
 在相对论发现之前的经典物理学
 （牛顿力学）认为时间和空间相互独立，没有任何关系；在宇宙深处
 存在一个绝对静止的参考系，这个绝对静止的参考系具有特殊地位．
@@ -134,12 +134,12 @@
 
 当麦克斯韦统一电与磁之后，牛顿的经典时空观与电磁理论、实验都
 产生了明显的不符．
-在牛顿力学中，大家都学过伽利略变换．\index[persons]{伽利略}
+在牛顿力学中，大家都学过Galilei变换．
 设有一个惯性参考系$O$，其中有坐标系$O-xyz$；
 另一个惯性参考系$O'$，其中有坐标系$O'-x'y'z'$，见图\ref{chsr:pic_oop}；
 两参考系有恒定的速度差$\boldsymbol{v}=v \boldsymbol{e}_x$，即方向平行于$x$轴；
 在$t=0=t'$时刻，两个系的原点重合，相应坐标轴分别平行且同向，
-则两个参考系的变换关系就是伽利略变换
+则两个参考系的变换关系就是Galilei变换
 \begin{equation}\label{chsr:eqn_galileo-trans-x}
     x' = x -vt, \quad
     y' = y, \quad
@@ -153,7 +153,7 @@
 	{\rm d}z' = {\rm d}z, \qquad
 	{\rm d}t' \equiv {\rm d}t.
 \end{equation}
-伽利略的速度变换是
+Galilei的速度变换是
 \begin{equation}\label{chsr:eqn_galileo-trans-vel}
     u'_x = u_x -v, \quad
     u'_y = u_y, \quad
@@ -168,12 +168,12 @@
 
 
 
-当把伽利略变换用到光速时会有矛盾．比如某运动员在踢足球，足球从他的脚飞出来后
+当把Galilei变换用到光速时会有矛盾．比如某运动员在踢足球，足球从他的脚飞出来后
 具有速度$v$，那么从他脚上反射的光速是$c$，而从足球上反射的光速是$v+c$；这样
 因足球上出来的光先到你的眼睛里，脚上出来的光后到你的眼睛里，故你先看到足球从
 他的脚上飞出来，再看到他的脚踢球．因果关系颠倒了！
 
-还有很多其它实验与伽利略变换不符，可参阅文献\parencite{jackson1998,liu_fei2008,zhangyz-2023}相应章节．
+还有很多其它实验与Galilei变换不符，可参阅文献\parencite{jackson1998,liu_fei2008,zhangyz-2023}相应章节．
 
 
 
@@ -388,8 +388,8 @@ $    r_{\rm cirt} \approx 14200\ km $；
 
 相对性原理否定了牛顿绝对静止参考系的存在，但仍然假设存在一类特殊的惯性参考系，
 后来爱因斯坦提出了广义相对论，在那里无需这个概念了．在牛顿力学中也存在相对性原理，
-只不过它要求力学理论对伽利略变换不变．
-光速不变原理是一个非常大胆假设，这个假设与伽利略变换直接相悖．
+只不过它要求力学理论对Galilei变换不变．
+光速不变原理是一个非常大胆假设，这个假设与Galilei变换直接相悖．
 
 \index[physwords]{间隔}
 \index[physwords]{间隔!不变性}
@@ -505,15 +505,15 @@ $a(v)\equiv 1$，也就是时空间隔是参考系变换的不变量
 
 \index[physwords]{洛伦兹变换} \index[physwords]{Lorentz变换}
 
-\subsection{洛伦兹变换}\label{chsr:sec_lorentz-transofrm}
-由间隔不变性（式\eqref{chsr:eqn_interval-inv}）出发，容易求得{\heiti 洛伦兹变换}：
+\subsection{Lorentz变换}\label{chsr:sec_lorentz-transofrm}
+由间隔不变性（式\eqref{chsr:eqn_interval-inv}）出发，容易求得{\heiti Lorentz变换}：
 \begin{equation}\label{chsr:eqn_lorentz-transofrm-x}
     t' = \gamma \left({t-\dfrac{v}{c^2}x}\right), \quad
     x' = \gamma \left({x-vt}\right), \quad
     y' = y, \quad
     z' = z.
 \end{equation}
-其中$\gamma$是洛伦兹因子：
+其中$\gamma$是Lorentz因子：
 \begin{equation}
     \gamma^{-1}=\sqrt{1-\dfrac{v^2}{c^2}}.
 \end{equation}
@@ -526,9 +526,9 @@ $a(v)\equiv 1$，也就是时空间隔是参考系变换的不变量
     y = y', \quad
     z = z'.
 \end{equation}
-从洛伦兹变换容易看到，时间和空间不再彼此独立，两者可以相互转化．
+从Lorentz变换容易看到，时间和空间不再彼此独立，两者可以相互转化．
 
-洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}的微分形式为：
+Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}的微分形式为：
 \begin{equation}\label{chsr:eqn_lorentz-transofrm-dx}
 	{\rm d}t' = \gamma \left({{\rm d}t-\dfrac{v}{c^2}{\rm d}x}\right), \
 	{\rm d}x' = \gamma \left({{\rm d}x-v{\rm d}t}\right), \
@@ -538,23 +538,23 @@ $a(v)\equiv 1$，也就是时空间隔是参考系变换的不变量
 狭义相对论要求所有相互作用必须是近距作用（local，或者说是局域作用），不能是超距作用．
 式\eqref{chsr:eqn_lorentz-transofrm-dx}为无穷小的变换，自然是近距的．
 同时容易看到当$v \ll c$时，$\gamma \approx 1$，
-式\eqref{chsr:eqn_lorentz-transofrm-dx}就退化到伽利略变换\eqref{chsr:eqn_galileo-trans-dx}．
-然而，在有限距离的洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}中，当$x$是个大量（比如日地距离）时，
+式\eqref{chsr:eqn_lorentz-transofrm-dx}就退化到Galilei变换\eqref{chsr:eqn_galileo-trans-dx}．
+然而，在有限距离的Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}中，当$x$是个大量（比如日地距离）时，
 变换\eqref{chsr:eqn_lorentz-transofrm-x}中第一式变为$t' \approx t-\frac{v}{c^2}x$，
-不能退化到伽利略变换\eqref{chsr:eqn_galileo-trans-x}．
+不能退化到Galilei变换\eqref{chsr:eqn_galileo-trans-x}．
 其根源无非是光速$c$是个有限大小的量（不是无穷大），长距离的变换（比如日地距离）必须包含推迟效应，
 否则必然导致超距作用．也可以从积分角度来解释之；
 式\eqref{chsr:eqn_lorentz-transofrm-x}无非是\eqref{chsr:eqn_lorentz-transofrm-dx}的积分，
 上述过程是说积分量$\int \frac{v}{c^2}{\rm d}x$是个大量，无法忽略而已．
 
-洛伦兹变换的发现历史十分复杂，读者如有兴趣可参阅相应文献，比如Wikipedia条目
+Lorentz变换的发现历史十分复杂，读者如有兴趣可参阅相应文献，比如Wikipedia条目
 {\footnote{\url{https://en.wikipedia.org/wiki/History\_of\_Lorentz\_transformations}}}．
-洛伦兹本人为了区分自己的理论与爱因斯坦的理论，而将爱氏理论称为“相对论”．
+Lorentz本人为了区分自己的理论与爱因斯坦的理论，而将爱氏理论称为“相对论”．
 
 
 
 
-把前面给出的时空洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}用四维矩阵再表述一次：
+把前面给出的时空Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}用四维矩阵再表述一次：
 \begin{equation}\label{chsr:eqn_lorentz-transofrm-x-MatrixForm}
 \begin{pmatrix}
 ct'\\x'\\y'\\z'
@@ -572,7 +572,7 @@ ct\\x\\y\\z
 ct\\x\\y\\z
 \end{pmatrix}, \qquad \boldsymbol{\beta}=\frac{\boldsymbol{v}}{c}.
 \end{equation}
-用$\Lambda$标记洛伦兹矩阵．
+用$\Lambda$标记Lorentz矩阵．
 
 
 
@@ -591,10 +591,10 @@ ct\\x\\y\\z
     u_z = \dfrac{\gamma^{-1}u'_z}{1+u'_x v/c^2}.
 \end{equation}
 同时容易看到当$v \ll c$、$u \ll c$时，式\eqref{chsr:eqn_lorentz-transofrm-vel}
-就退化到伽利略变换\eqref{chsr:eqn_galileo-trans-vel}．
+就退化到Galilei变换\eqref{chsr:eqn_galileo-trans-vel}．
 
 \begin{example}
-    证明在洛伦兹速度变换\eqref{chsr:eqn_lorentz-transofrm-vel}下，光速不变．
+    证明在Lorentz速度变换\eqref{chsr:eqn_lorentz-transofrm-vel}下，光速不变．
 \end{example}
 如果$O$系中发射一个光信号，即令$u_x=c,u_y=u_z=0$；
 由式\eqref{chsr:eqn_lorentz-transofrm-vel}不难得到，
@@ -605,13 +605,13 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 \begin{equation}
     u_x = \frac{u_x -v}{1-u_x v/c^2} \quad \Rightarrow \quad u_x =c.  
 \end{equation}
-这说明在洛伦兹变换下，若速度是不变量，则必是光速．\qed
+这说明在Lorentz变换下，若速度是不变量，则必是光速．\qed
 
 
 \begin{example}\label{chsr:exam_ucc}
     若质点在惯性系$O$是亚光速的，则它在惯性系$O'$也是亚光速．
 \end{example}
-洛伦兹速度变换不改变时空间隔，
+Lorentz速度变换不改变时空间隔，
 用时空间隔不变性证明，由\eqref{chsr:eqn_interval-inv-ds}得到
 \begin{align}
    & -c^2{\rm d}t^2 +{\rm d}x^2 +{\rm d}y^2 +{\rm d}z^2
@@ -623,8 +623,8 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 同时很显然，如果$u>c$，那么变换后的$u'>c$．\qed
 
 \begin{remark}
-    笔者认为“时空间隔不变性”是比“洛伦兹变换”更基本的内容，间隔不变性是狭义相对论两条基本假设的数学表述．
-    有学者先给出洛伦兹变换，然后用它再导出时空间隔不变；笔者个人认为这种叙述方式逻辑颠倒了．
+    笔者认为“时空间隔不变性”是比“Lorentz变换”更基本的内容，间隔不变性是狭义相对论两条基本假设的数学表述．
+    有学者先给出Lorentz变换，然后用它再导出时空间隔不变；笔者个人认为这种叙述方式逻辑颠倒了．
 \end{remark}
 
 
@@ -656,9 +656,9 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 
 狭义相对论是一个描述时空结构的运动学理论，它本身并不涉及动力学内容．
 在\S\ref{chsr:sec_SR-scope}中我们陈述到：除引力子外，所有具有非零能量、动量的粒子
-都要受到它的约束；数学上来说就是这些粒子的动力学方程要洛伦兹协变．
-在牛顿绝对空间的时空观下，经典力学满足伽利略变换，显然不是洛伦兹协变的；我们需要修改牛顿
-力学使之变成洛伦兹协变，并且在质点运动速度远远小于光速时，它能退化到伽利略变换．
+都要受到它的约束；数学上来说就是这些粒子的动力学方程要Lorentz协变．
+在牛顿绝对空间的时空观下，经典力学满足Galilei变换，显然不是Lorentz协变的；我们需要修改牛顿
+力学使之变成Lorentz协变，并且在质点运动速度远远小于光速时，它能退化到Galilei变换．
 我们先讨论有质量的粒子，再讨论无质量粒子．
 
 \subsection{有质量粒子运动学}
@@ -674,7 +674,7 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 \end{equation}
 四速度是由光速$c$与经典的三维速度$\boldsymbol{u}$组合而成．
 
-\index[physwords]{洛伦兹四速度} \index[physwords]{四速度} \index[physwords]{四加速度}
+\index[physwords]{Lorentz四速度} \index[physwords]{四速度} \index[physwords]{四加速度}
 
 四加速度是指四速度对固有时间的导数，即
 \begin{equation}\label{chsr:eqn_4A}
@@ -683,7 +683,7 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 	c^2\boldsymbol{a} + \gamma_{u}^2 (\boldsymbol{u}\cdot \boldsymbol{a}) \boldsymbol{u}\right)  .
 \end{equation}
 期中3-加速度定义仍旧不变$\boldsymbol{a}={\rm d}\boldsymbol{u}/{{\rm d}t}$．
-加速度洛伦兹变换是
+加速度Lorentz变换是
 \begin{equation}\label{chsr:eqn_3Atrans}
 	\begin{aligned}
 		a'_x &= \dfrac{\gamma^{-3}_v a_x}{(1-u_x v/c^2)^3}, \\
@@ -697,7 +697,7 @@ $u'_x = \frac{u_x -v}{1-u_x v/c^2} = \frac{c -v}{1-  v/c} = c, u'_y=u'_z=0$；
 
 \subsection{有质量粒子四动量及其动力学}
 三维空间{\kaishu 非}相对论动量是$\boldsymbol{p}_{nr} = m \boldsymbol{u}$；其中{\kaishu 常数}$m$是质点静质量，
-为洛伦兹标量；$\boldsymbol{u}$是质点3-速度．
+为Lorentz标量；$\boldsymbol{u}$是质点3-速度．
 质点{\heiti 四动量}可以很自然地推广为
 \begin{equation}\label{chsr:eqn_4momentum}
 	p^\mu \overset{def}{=}  m U^\mu = (\gamma_u mc,\gamma_u m\boldsymbol{u})
@@ -754,14 +754,14 @@ $K^\mu$是四维力．
 \end{equation}
 需要注意，上式只是把$K^\mu$改了一个形式，没有什么本质变化．
 三维力$\boldsymbol{F}$的具体表达式不是牛顿第二定律能给出来的，需要结合其它理论
-才能得到，比如电磁学中带电粒子所受洛伦兹力是$\boldsymbol{F}=q \boldsymbol{E}+q \boldsymbol{u}\times\boldsymbol{B}$．
+才能得到，比如电磁学中带电粒子所受Lorentz力是$\boldsymbol{F}=q \boldsymbol{E}+q \boldsymbol{u}\times\boldsymbol{B}$．
 
 需要注意相对论三维力$\boldsymbol{F}$与非相对论的力$\boldsymbol{F}_{nr}$不同．如果我们把牛顿第二定律理解成
 力的定义，那么力$\boldsymbol{F}$是相对论3-动量$\boldsymbol{p}=\gamma_{u} m \boldsymbol{u}$对坐标时的变化率；
 力$\boldsymbol{F}_{nr}$是非相对论经典动量$\boldsymbol{p}_{nr}= m \boldsymbol{u}$对牛顿绝对时间的变化率．
 
 
-相对论三维力$\boldsymbol{F}=\gamma_{u}^{-1} \boldsymbol{K}$的洛伦兹变换公式
+相对论三维力$\boldsymbol{F}=\gamma_{u}^{-1} \boldsymbol{K}$的Lorentz变换公式
 \begin{equation}
 	F'_x = \dfrac{F_x - (\boldsymbol{F}\cdot \boldsymbol{u})v/c^2}{1-u_x v/c^2}, \quad
 	F'_y = \dfrac{\gamma_v^{-1}F_y}{1-u_x v/c^2}, \quad
@@ -779,7 +779,8 @@ $K^\mu$是四维力．
 
 
 
-设光子（即电磁波量子）的传播方向是单位矢量$\boldsymbol{n}$，其频率是$\nu$，角频率$\omega=2\pi \nu$；
+设光子（即电磁波量子）的传播方向是单位矢量$\boldsymbol{n}$，
+其频率是$\nu$，角频率$\omega=2\pi \nu$；
 光子波长是$\lambda$，波数是$k=2\pi/\lambda$．
 按照爱因斯坦光量子假说，有
 \begin{align}
@@ -795,6 +796,85 @@ $K^\mu$是四维力．
 	=\hbar \left(\frac{\omega}{c},\boldsymbol{k}\right) \equiv \hbar k^\mu.
 \end{equation}
 上式最后一步定义了光子{\heiti 四维波矢量}$k^\mu \equiv p^\mu/\hbar$．
+
+
+下面讨论一下光子四波矢的Lorentz变换．
+设选定惯性系$S$为静系，另选一个惯性系$S'$，它与$S$系的坐标轴相互平行且同向；
+$S'$系相对于$S$系以速度${\boldsymbol{v} }=v {\boldsymbol{e}}_x$沿$x$轴作匀速运动，
+两系波矢量间的Lorentz变换是
+\begin{equation}\label{chsr:eqn_photon-k}
+	\omega' = \gamma \left({\omega-v k_x}\right), \quad
+	k'_x = \gamma \left({k_x-\dfrac{v}{c^2}\omega }\right), \quad
+	k'_y = k_y, \quad
+	k'_z = k_z.
+\end{equation}
+四维波矢量表征光子（也就是电磁波）的传播方向、频率大小、波长等信息．
+
+
+设光波传播方向${\boldsymbol{k}}$与${\boldsymbol{v}}$所在平面为$x-y$平面，
+${\boldsymbol{k}}$与${\boldsymbol{v}}$的夹角为$\theta$，
+${\boldsymbol{k}}'$与${\boldsymbol{v}}$的夹角为$\theta'$；
+因${\boldsymbol{v}}$沿$x(x')$轴，
+故此夹角也是${\boldsymbol{k}}({\boldsymbol{k}}')$与$x(x')$轴的夹角．则有
+\begin{align*}
+	\cos\theta &= \dfrac{{\boldsymbol{k}}\cdot{\boldsymbol{v}}}{k v} 
+	= \dfrac{{\boldsymbol{k}}\cdot{\boldsymbol{e}}_x}{k} = \dfrac{k_x}{k}
+	\quad \xLongrightarrow{\omega=kc}  \quad 
+	c k_x = \omega \cos\theta ,\\
+	\cos\theta' &= \dfrac{{\boldsymbol{k}'}\cdot{\boldsymbol{v}}}{k' v} 
+	= \dfrac{{\boldsymbol{k}'}\cdot{\boldsymbol{e}}_x}{k'} = \dfrac{k'_x}{k'}
+	\quad \xLongrightarrow{\omega'=k'c} \quad 
+	c k'_x = \omega' \cos\theta' . 
+%	k_y & = k\sin\theta =   k'\sin\theta' = k'_y .
+\end{align*}
+将上式带入式\eqref{chsr:eqn_photon-k}可得（求解过程留作习题）：
+\begin{align}
+	\omega' &= \omega \gamma \left( 1- \dfrac{v}{c}\cos\theta\right) . \label{chsr:eqn_doppler} \\
+	\tan\theta' &= \dfrac{\gamma^{-1}\sin\theta}{\cos\theta -v/c} 
+	=\dfrac{ \sqrt{1-v^2/c^2}\ c\sin\theta}{c \cos\theta -v} . \label{chsr:eqn_aberration}
+\end{align}
+式\eqref{chsr:eqn_doppler}称为{\heiti\bfseries Doppler公式}．
+式\eqref{chsr:eqn_aberration}称为{\heiti 光行差公式}．
+
+
+\index[physwords]{Doppler效应} \index[physwords]{多普勒效应} 
+\index[physwords]{光行差公式}
+
+
+下面略微讨论一下Doppler效应．
+设光源相对于$S'$系静止，光源在此系发光的频率记为固有频率$\omega'=\omega_0=2\pi \nu_0$；
+在$S$系来看，光源是运动的，此时看到的频率由Doppler公式\eqref{chsr:eqn_doppler}可得
+\begin{equation}\label{chsr:eqn_doppler-omega}
+	\omega = \dfrac{\omega_0}{ \gamma \left( 1- \beta\cos\theta\right) }
+	=\omega_0 \dfrac{ \sqrt{1-\beta^2}}{  1-\beta\cos\theta }, \qquad \beta = \frac{v}{c}.
+\end{equation}
+有几种特殊情形：
+
+\fbox{甲}如果$\theta=0$，光源朝着观测者飞来，观测者收到的频率大于固有频率，
+电磁波被压缩，波长变短，称为蓝移：
+\begin{equation}\label{chsr:eqn_doppler-blue}
+	\omega %=\dfrac{\omega_0 \sqrt{1-\beta^2}}{  1-\beta }
+	=\omega_0 \sqrt{\frac{1+\beta}{1-\beta}} 
+	\xlongequal[\text{很小}]{\text{当}\, \beta} 
+	\omega_0 \left(1+\beta +\frac{\beta ^2}{2}+O(\beta ^3)\right).
+\end{equation}
+
+\fbox{乙}如果$\theta=\pi$，光源背向观测者飞离，观测者收到的频率小于固有频率，
+电磁波被拉伸，波长变长，称为红移：
+\begin{equation}\label{chsr:eqn_doppler-red}
+	\omega %=\dfrac{\omega_0 \sqrt{1-\beta^2}}{  1+\beta }
+	=\omega_0 \sqrt{\frac{1-\beta}{1+\beta}}
+	\xlongequal[\text{很小}]{\text{当}\, \beta}
+	\omega_0 \left(1-\beta +\frac{\beta ^2}{2}+O(\beta ^3)\right).
+\end{equation}
+
+\fbox{丙}如果$\theta=\pi/2$，光源相对于观测者横向运动，也产生红移：
+\begin{equation}\label{chsr:eqn_doppler-red-perp}
+	\omega =\omega_0 \sqrt{1-\beta^2}
+	\xlongequal[\text{很小}]{\text{当}\, \beta} 
+	\omega_0 \left(1-\frac{\beta ^2}{2}-\frac{\beta ^4}{8}+O\left(\beta ^5\right)\right).
+\end{equation}
+这种横向Doppler现象是相对论特有的，非相对论情形不存在．
 
 
 
@@ -838,7 +918,7 @@ $K^\mu$是四维力．
 %    \left(1-\frac{u^2}{c^2}\right)^{-3/2} \frac{{\rm d}u}{{\rm d}t}
 %    =\left(1-\frac{u'^2}{c^2}\right)^{-3/2} \frac{{\rm d}u'}{{\rm d}t'} .
 %\end{equation}
-%注意，加速度的在洛伦兹变换下不是不变量．
+%注意，加速度的在Lorentz变换下不是不变量．
 
 考虑匀加速运动（$\alpha$是常数），
 由式\eqref{chsr:eqn_a-u}对$t$积分（取$t=0$时$u=0$）有
@@ -1056,7 +1136,7 @@ $R$区式\eqref{chsr:eqn_Rindler-trans}的逆变换是：
     {\rm d}ct \\ {\rm d}x
 \end{pmatrix} .
 \end{equation}
-惯性系间的变换由洛伦兹变换描述．惯性系到匀加速运动参考系间的变换由式\eqref{chsr:eqn_Rindler-trans}、
+惯性系间的变换由Lorentz变换描述．惯性系到匀加速运动参考系间的变换由式\eqref{chsr:eqn_Rindler-trans}、
 \eqref{chsr:eqn_dtx-dTX}来描述；再结合式\eqref{chdm:eqn_tensor-component-trans}可以得到
 两个参考系间张量的变换关系，比如电磁场张量$F_{\mu\nu}$．很明显经过式\eqref{chsr:eqn_dtx-dTX}变换
 后的匀加速度参考系的麦克斯韦方程组与惯性系的麦氏方程组形式上不会相同．
@@ -1132,18 +1212,18 @@ $\boldsymbol{J}$是自由电流密度矢量，$\rho$自由电荷密度．
 
 \index[physwords]{电荷守恒定律}
 
-带电连续物质与电磁场间的相互作用是洛伦兹力密度矢量，
+带电连续物质与电磁场间的相互作用是Lorentz力密度矢量，
 \begin{equation}\label{chsr:eqn_lorenz-force}
 	\boldsymbol{f} = \rho \boldsymbol{E} + \boldsymbol{J}\times\boldsymbol{B}.
 \end{equation}
 它给出了单位体积电荷所受力密度矢量．
-洛伦兹力的表达式是从实验中总结得到的，
+Lorentz力的表达式是从实验中总结得到的，
 这里面包含了库仑力、安培力．这是一个基本方程式，
 好比两个天体间的引力是牛顿万有引力公式一样，
 不能由其它理论推导得到．
 
 麦克斯韦方程组\eqref{chsr:eqn_maxwell-vac}、电荷守恒定律\eqref{chsr:eqn_charge-conservation}和
-洛伦兹力\eqref{chsr:eqn_lorenz-force}（再加上牛顿第二定律）构成了宏观电磁动力学
+Lorentz力\eqref{chsr:eqn_lorenz-force}（再加上牛顿第二定律）构成了宏观电磁动力学
 {\footnote{这门课程英文名称是Electro-Dynamics，直译过来就是{\fangsong 电动力学}．由于中英文的差异，
 		{\kaishu 电动力学}经常被断句成{\kaishu 电动-力学}（包括笔者本人），然而正确的断句是
 		{\kaishu 电-动力学}；英文则没有这种断句错误．如果把它翻译成{\heiti 电磁动力学}，则没有断句
@@ -1171,7 +1251,7 @@ $\boldsymbol{J}$是自由电流密度矢量，$\rho$自由电荷密度．
 	%        \frac{\partial \rho_m}{\partial t} + \nabla \cdot \boldsymbol{J}_m &= 0 \label{chsr:eqn_m-continuity}
 	%    \end{align}
 %\end{subequations}
-%洛伦兹力公式也需要推广，
+%Lorentz力公式也需要推广，
 %\begin{equation}\label{chsr:eqn_lorenz-force-em}
 %    \boldsymbol{f} = \rho_e \boldsymbol{E} + \boldsymbol{J}_e\times\boldsymbol{B} \ + \
 %    \rho_m \boldsymbol{B} - \boldsymbol{J}_m\times\boldsymbol{E}/c^2.
@@ -1402,15 +1482,15 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 
 \index[physwords]{洛伦茨规范} \index[physwords]{Lorenz规范}
 
-\subsubsection{洛伦茨规范}
-丹麦物理学家洛伦茨{\footnote{L. V. Lorenz（洛伦茨）不是荷兰物理学家
-		洛伦兹（H. A. Loren{\textcolor{red}{t}}z），
+\subsubsection{Lorenz规范}
+丹麦物理学家Lorenz{\footnote{L. V. Lorenz（洛伦茨）不是荷兰物理学家
+		Lorentz（H. A. Loren{\textcolor{red}{t}}z），
 		他们俩的姓氏只差一个字母{\textcolor{red}{t}}．}}
 于1867年提出如下方程
 \begin{equation}\label{chsr:eqn_lorenz-gauge}
 	{\nabla  \cdot \boldsymbol{A} + \frac{1}{c^2}\frac{ \partial \phi }{ \partial t}}  = 0,
 \end{equation}
-此方程被称为洛伦茨规范条件．将它带入
+此方程被称为Lorenz规范条件．将它带入
 \eqref{chsr:eqn_maxwell-poetential}后，可得
 \begin{subequations}\label{chsr:eqn_maxwell-lorenz-gauge}
 	\begin{align}
@@ -1420,14 +1500,14 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 		&=  - {\mu _0}\boldsymbol{J}. \label{chsr:eqn_amp-max-lorenz-gauge}
 	\end{align}
 \end{subequations}
-这就是结合洛伦茨规范的麦克斯韦方程组，同样需注意：
+这就是结合Lorenz规范的麦克斯韦方程组，同样需注意：
 \eqref{chsr:eqn_maxwell-lorenz-gauge}一定要与规范\eqref{chsr:eqn_lorenz-gauge}
 结合在一起求解．此时的方程式\eqref{chsr:eqn_maxwell-lorenz-gauge}是波动方程形式．
 
 
-如果规范势$A_\mu$不满足洛伦茨规范，即$\Theta \equiv \partial_\mu A^\mu \neq 0$，
+如果规范势$A_\mu$不满足Lorenz规范，即$\Theta \equiv \partial_\mu A^\mu \neq 0$，
 那么可作规范变换\eqref{chsr:eqn_gauge-trans-covariant}导致新的
-规范势$A^{\prime}_{\mu}$满足洛伦茨规范：
+规范势$A^{\prime}_{\mu}$满足Lorenz规范：
 \begin{equation}
 	A^{\prime}_{\mu} = A_\mu + \partial_\mu f {\quad\color{red}\Rightarrow\quad}
 	\partial^\mu A^{\prime}_{\mu} = \partial^\mu A_\mu + \partial^\mu\partial_\mu f
@@ -1435,8 +1515,8 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 \end{equation}
 依照\ref{chsr:sec_gauge-bc}节所述，对函数$f({x^\mu})$的边界条件没有多少限制，
 那么上述波动方程$\square f = - \Theta$解是一定存在的，也就是说可以找到一个$f$使得
-新的规范势$A^{\prime}_{\mu}$满足洛伦茨规范$\partial^\mu A^{\prime}_{\mu}=0$．
-这也就说明了：我们一定有办法使洛伦茨规范得以满足．
+新的规范势$A^{\prime}_{\mu}$满足Lorenz规范$\partial^\mu A^{\prime}_{\mu}=0$．
+这也就说明了：我们一定有办法使Lorenz规范得以满足．
 
 
 \subsubsection{其它规范}
@@ -1466,16 +1546,16 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 
 
 
-\subsubsection{规范势$A^\mu$是洛伦兹四矢量吗？}\label{chsr:sec_isAvec}
+\subsubsection{规范势$A^\mu$是Lorentz四矢量吗？}\label{chsr:sec_isAvec}
 规范势$A^\mu =(\phi/c,\boldsymbol{A})$在不同规范下会有不同的形式，比如
 在\eqref{chsr:eqn_temporal-gauge}式下，第零分量恒为零．这充分说明
 在此规范下$A^\mu${\heiti 不}是四矢量．其原因是因为$A^\mu$是个物理量，
 它存在规范自由度，可以取各种规范而不影响可观测物理结果．
 
-在不指定规范条件的前提下，规范势$A^\mu$被{\heiti 人为地规定}为洛伦兹四矢量．
-显然，如果选取的规范条件是洛伦兹协变的（比如洛伦茨规范条件），那么
+在不指定规范条件的前提下，规范势$A^\mu$被{\heiti 人为地规定}为Lorentz四矢量．
+显然，如果选取的规范条件是Lorentz协变的（比如Lorenz规范条件），那么
 规范势也是四矢量．
-如果选取的规范条件{\heiti 不}是洛伦兹协变的（比如库仑规范或瞬时规范），
+如果选取的规范条件{\heiti 不}是Lorentz协变的（比如库仑规范或瞬时规范），
 那么一般说来规范势{\heiti 不}是四矢量．
 
 
@@ -1533,7 +1613,7 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 
 
 现今的物理学已经搞清楚：{\bfseries (1)} 狭义相对论的背景时空是四维平直空间（黎曼曲率为零）；
-{\bfseries (2)} 它的度规类型是洛伦兹的，即度规特征值是$(-1,1,1,1)$．
+{\bfseries (2)} 它的度规类型是Lorentz的，即度规特征值是$(-1,1,1,1)$．
 
 
 
@@ -1551,14 +1631,14 @@ $ \boldsymbol{E} + \frac{\partial}{\partial t} \boldsymbol{A}  =- \nabla \phi$�
 我们把对应度规中$-1$那个坐标$x^0$称为“时间”，其它三个坐标$(x^1, x^2, x^3)$构成的子流形称为“空间”．
 如果换另外一套坐标$(x^{\prime 0},x^{\prime 1}, x^{\prime 2}, x^{\prime 3})$来
 描述$\mathbb{R}^4_1$，根据“间隔”不变性可知从$x^\mu$到$x^{\prime \mu}$的变换
-一定是洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}或其逆变换；
+一定是Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}或其逆变换；
 变完之后的坐标$x^{\prime 0}$仍称为“时间”，其它三个坐标称为“空间”．
 
 
 下面我们给出两个例子，它们不显示表出时间．
 
 第一个例子．狭义相对论中的闵氏时空是平直的，它的切空间就是自身．
-洛伦兹度规在坐标系$\{x^\mu\}$中可表示为
+Lorentz度规在坐标系$\{x^\mu\}$中可表示为
 \begin{equation}\label{chsr:eqn_Lorentz-metric}
 	\eta_{ab} = -({\rm d}x^0)_a ({\rm d}x^0)_b+({\rm d}x^1)_a({\rm d}x^1)_b
 	+({\rm d}x^2)_a ({\rm d}x^2)_b+({\rm d}x^3)_a({\rm d}x^3)_b .
@@ -1630,7 +1710,7 @@ $\eta_{ab} = -({\rm d}t)_a ({\rm d}t)_b+({\rm d}x)_a({\rm d}x)_b$，作变换
 \end{figure}
 
 前面介绍过的事件概念就是时空图中的一个点，全部点的集合就是闵氏时空．在狭义相对论范畴内，
-我们仍需假设时空是四维连续的、连通的空间，这个空间的度规是洛伦兹度规．
+我们仍需假设时空是四维连续的、连通的空间，这个空间的度规是Lorentz度规．
 质点（包括有质量和无质量的粒子）在时空中运动（包括静止不动情形），对应为时空图上一条曲线，称为该质点
 的{\heiti 世界线}，它能代表质点的全部历史；例如见图\ref{chsr:pic_spacetime}中红色曲线．
 我们看一些具体问题．
@@ -1674,7 +1754,7 @@ $45^{\circ}$的斜直线的斜率就是1，因已约定光速$c=1$，故它代�
 
 \subsection{时空分类}\label{chsr:sec_stc}
 时空中有两个事件$O$和$Q$，将$O$取为时空图的原点．
-时空间隔是参考系变换的不变量，也就是洛伦兹变换下的不变量．根据时空间隔\eqref{chsr:eqn_interval-inv-ds}，
+时空间隔是参考系变换的不变量，也就是Lorentz变换下的不变量．根据时空间隔\eqref{chsr:eqn_interval-inv-ds}，
 即${\rm d}s^2 = -{\rm d}t^2 +{\rm d}x^2 +{\rm d}y^2 +{\rm d}z^2 =-{\rm d}t^2 (1-u^2)$，
 物理学中约定：
 
@@ -1683,8 +1763,8 @@ $45^{\circ}$的斜直线的斜率就是1，因已约定光速$c=1$，故它代�
 直线$OQ$斜率倒数小于1，说明它的速度是亚光速的，并且从$O$点走到$Q$的过程中，时间$t$一直
 是增加的；I区称为绝对未来．当$Q$点位于II区时，直线$OQ$斜率倒数小于1，说明它的速度是亚光速的；
 但是从$O$点走到$Q$的过程中，时间$t$一直是减少的；II区称为绝对过去．
-由于连续洛伦兹变换不改变
-时间的正负，所以区域I和II是不可能通过洛伦兹变换相联系的；这种划分是绝对的．
+由于连续Lorentz变换不改变
+时间的正负，所以区域I和II是不可能通过Lorentz变换相联系的；这种划分是绝对的．
 有质量粒子世界线必须是类时的，指其切线斜率倒数小于1，即其速度为亚光速．
 
 
@@ -1697,13 +1777,13 @@ $45^{\circ}$的斜直线的斜率就是1，因已约定光速$c=1$，故它代�
 \noindent\fbox{丙} 当${\rm d}s^2 >0 $时，时空为{\heiti 类空}，
 见图\ref{chsr:pic_spacetime}中III区，已标记为空白区．当$Q$点处于这一区域时，
 直线$OQ$斜率倒数大于1，说明它的“速度”是超光速的，不对应自然界中任何粒子或物质．这个
-区域的任何两个事件没有因果关系，可以通过洛伦兹变换改变事件的发生时序．
+区域的任何两个事件没有因果关系，可以通过Lorentz变换改变事件的发生时序．
 如果选择两参考系速度差$v$的范围是$c^2\frac{\Delta t}{\Delta x}<v<c$，
 那么就可以颠倒事件$O$和$Q$的先后顺序；但
 这不违反因果律，因为这两个事件没有因果关系．
 
-在第\ref{chsr:sec_lorentz-transofrm}节末尾曾经讨论过洛伦兹变换把光速变成光速，
-把亚光速变成亚光速，把超光速变成超光速；所以在洛伦兹变换下上述划分是绝对的，
+在第\ref{chsr:sec_lorentz-transofrm}节末尾曾经讨论过Lorentz变换把光速变成光速，
+把亚光速变成亚光速，把超光速变成超光速；所以在Lorentz变换下上述划分是绝对的，
 变换前后不会出现跨区现象．
 
 物理上，我们有间隔不变性，上面根据它把四维闵氏时空作了分类．
@@ -1753,7 +1833,7 @@ ${\rm d}s^2=-{\rm d}t^2 + {\rm d}x^2+{\rm d}y^2+{\rm d}z^2=-(1-u^2){\rm d}t^2$�
 \quad \gamma_u^{-1}= \sqrt{1-u^2}.
 \end{equation}
 其中${\rm d}t$是$S$系坐标时．
-注意这里的$\gamma_u$与洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}中
+注意这里的$\gamma_u$与Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}中
 $\gamma$不同，那里的速度$v$是两个惯性系速度差，这里的$u$是质点自身速率，
 是质点所处瞬时惯性系与$S$系的速度差．
 如果质点世界线是一条闵氏直线，其速度$u$是一个常数$v$．
@@ -1777,11 +1857,11 @@ $\gamma$不同，那里的速度$v$是两个惯性系速度差，这里的$u$是
 常矢量，我们将省略不写出，而使用分量语言讨论问题．
 
 我们看一下动系的时空坐标是什么样子．
-洛伦兹变换\eqref{chsr:eqn_lorentz-transofrm-x}是
+Lorentz变换\eqref{chsr:eqn_lorentz-transofrm-x}是
 $t' = \gamma ({t-v x})$，$  x' = \gamma ({x-vt})$．
-在静系$t-x$中，$t'$轴就是$x'=0$的世界线，也就是原点$O'$的世界线，必然类时；由洛伦兹变换容易得到
+在静系$t-x$中，$t'$轴就是$x'=0$的世界线，也就是原点$O'$的世界线，必然类时；由Lorentz变换容易得到
 它在$t-x$系的方程是$x=vt$，就是斜率倒数是速度$v$的过原点斜直线．
-在静系$t-x$中，$x'$轴就是$t'=0$的世界线，必然类空；由洛伦兹变换容易得到
+在静系$t-x$中，$x'$轴就是$t'=0$的世界线，必然类空；由Lorentz变换容易得到
 它在$t-x$系的方程是$t=vx$，就是斜率是$v$的过原点斜直线．如图\ref{chsr:pic_st1}左图所示红色轴就是动系坐标轴；
 蓝色点划线是光子世界线．
 
@@ -1792,7 +1872,7 @@ $t' = \gamma ({t-v x})$，$  x' = \gamma ({x-vt})$．
 $(1,0,0,0) \eta  (0,1,0,0)^{T}=0$；说明两轴正交．
 动系$t'$轴的切线方向在静系坐标是$(1,v,0,0)$，
 动系$x'$轴的切线方向在静系坐标是$(v,1,0,0)$；
-依闵氏几何（注意洛伦兹度规）有
+依闵氏几何（注意Lorentz度规）有
 $(1,v,0,0) \eta(v,1,0,0)^{T}=({\color{red}{\mathbf{-}}}1,v,0,0)\cdot(v,1,0,0)^{T}=0$；
 这就证明了图\ref{chsr:pic_st1}左图中红色动系时间轴和空间轴是闵氏正交的．
 读者需谨慎注意欧氏与闵氏空间的这种差别．图\ref{chsr:pic_st1}右图将动系画成了
@@ -1917,7 +1997,7 @@ $b$表示若干年后两姐妹再次相遇时刻．地球可以近似看成惯�
 处在地球上的妹妹{\fangsong 红}的世界线．上面我们说了固有时即线长，且$l_{oab}>l_{ocb}$，那么
 也就是说处在地球上的妹妹{\fangsong 红}年纪大，坐飞船旅行姐姐{\fangsong 花}年纪小；
 从而姐姐变妹妹，妹妹变姐姐．这种年龄上的改变是绝对的，不是相对的，原因是
-飞船从地球出发再次返回地球，它不可能做匀速运动，肯定有洛伦兹四加速度．
+飞船从地球出发再次返回地球，它不可能做匀速运动，肯定有Lorentz四加速度．
 \qed
 
 \subsection{同时的相对性}

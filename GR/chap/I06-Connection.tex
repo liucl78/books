@@ -164,7 +164,8 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 \begin{equation}\label{chccr:eqn_deltaac}
     \sum_i \left[({\rm d} x^i)_c \left(\frac{\partial }{\partial x^i}\right) ^b\right] = \delta_c^b .
 \end{equation}
-目前，我们还没有引入度规；在引入度规后（\S \ref{chrg:sec_riemann}），会发现上式与度规相容．
+关于此式的更多讨论可参见例题\ref{chccr:exam_soldering}．
+
 
 \index[physwords]{Christoffel记号}
 \index[physwords]{联络!联络系数|see{Christoffel记号}}
@@ -222,8 +223,7 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 上式是联络系数的基本关系式．
 式\eqref{chccr:eqn_Exchange-Christoffel-a}到\eqref{chccr:eqn_Exchange-Christoffel-b}可以
 这样验证，设坐标$y$是$x$函数，而$x$是$z$函数，求如下导数
-\begin{equation} \label{chccr:eqn_tmp21}
-\begin{aligned}
+\begin{align*}
     &\frac{{{\partial ^2}{y^\rho }\left( {x\left( z \right)} \right)}}{{\partial {z^A}\partial {z^B}}}
      = \frac{\partial }{{\partial {z^A}}}\left( {\frac{{\partial {y^\rho }
                 \left( {x\left( z \right)} \right)}}{{\partial {z^B}}}} \right)
@@ -232,14 +232,22 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
     =& \frac{\partial }{{\partial {z^A}}}\left( {\frac{{\partial {y^\rho }}}
         {{\partial {x^i}}}} \right)\frac{{\partial {x^i}\left( z \right)}}{{\partial {z^B}}}
     + \frac{{\partial {y^\rho }}}{{\partial {x^i}}}\frac{{{\partial ^2}{x^i}
-            \left( z \right)}}{{\partial {z^A}\partial {z^B}}} \\
-    =& \frac{{{\partial ^2}{y^\rho }}}{{\partial {x^i}\partial {x^j}}}
+            \left( z \right)}}{{\partial {z^A}\partial {z^B}}} 
+    = \frac{{{\partial ^2}{y^\rho }}}{{\partial {x^i}\partial {x^j}}}
     \frac{{\partial {x^i}\left( z \right)}}{{\partial {z^A}}}
     \frac{{\partial {x^j}\left( z \right)}}{{\partial {z^B}}}
      + \frac{{\partial {y^\rho }}}{{\partial {x^l}}}\frac{{{\partial ^2}{x^l}
              \left( z \right)}}{{\partial {z^A}\partial {z^B}}} .
-\end{aligned}\end{equation}
-令$z\equiv y$，则上式最左端恒为零，最右端的式子便可证明\eqref{chccr:eqn_Exchange-Christoffel}．
+\end{align*}
+令$z\equiv y$，则上式最左端恒为零；有
+\begin{equation} \label{chccr:eqn_d2ydx2}
+	\frac{{{\partial ^2}{y^\rho }}}{{\partial {x^i}\partial {x^j}}}
+		\frac{{\partial {x^i}\left( y \right)}}{{\partial {y^\alpha}}}
+		\frac{{\partial {x^j}\left( y \right)}}{{\partial {y^\beta}}}
+		+ \frac{{\partial {y^\rho }}}{{\partial {x^l}}}\frac{{{\partial ^2}{x^l}
+				\left( y \right)}}{{\partial {y^\alpha}\partial {y^\beta}}} =0.
+\end{equation}
+利用上式便可证明\eqref{chccr:eqn_Exchange-Christoffel}．
 
 从式\eqref{chccr:eqn_Exchange-Christoffel}可以看到$\Gamma^{k}_{ij}$不满足张量分量
 变换公式\eqref{chdm:eqn_tensor-component-trans}，所以它不是张量场．
@@ -311,7 +319,7 @@ $\forall v^b\in \mathfrak{X}(U\cap V)$，设$v^b|_{U\cap V}
 %     \frac{\partial^2 y^\rho}{\partial x^k \partial x^j}
 %     +v^\mu \Gamma^{\rho}_{\mu\nu}(y) \right)
 %     \Bigl(\frac{\partial}{\partial y^\rho}\Bigr)^b({\rm d}y^\nu)_a    \\
-     \xlongequal[\ref{chccr:eqn_tmp21}]{\ref{chccr:eqn_Exchange-Christoffel-a}} &
+     \xlongequal[\ref{chccr:eqn_d2ydx2}]{\ref{chccr:eqn_Exchange-Christoffel-a}} &
       \left( \frac{\partial v^\rho}{\partial y^\nu}
      +v^\mu \Gamma^{\rho}_{\mu\nu}(y) \right)
      \Bigl(\frac{\partial}{\partial y^\rho}\Bigr)^b({\rm d}y^\nu)_a
@@ -531,7 +539,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
     \end{equation}
 \end{definition}
 用推论\ref{chdm:thm_Tensor-Characterization-Lemma-1}可证明$T_{bc}^a$是一张量场，请读者补齐．
-它关于下标反对称，在局部坐标系的分量表达式为
+\CJKunderwave{很明显挠率下标是反对称的}．在局部坐标系的分量表达式为
 \begin{equation}\label{chccr:eqn_Ttorsion-comp}
     T_{jk}^i=T_{bc}^a{\left(\frac{\partial}{\partial x^j}\right)^b}
     {\left(\frac{\partial}{\partial x^k}\right)^c}
@@ -566,6 +574,37 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 %挠率的几何意义并不是十分明确，用处较少．无挠联络有较好的性质，比如下面的定理，
 %\begin{theorem}
 %\end{theorem}
+
+\subsection{无挠联络的存在性}\label{chccr:sec_no-torsion}
+
+我们可以对仿射联络系数的下标进行对称和反对称分解，有
+\begin{equation}
+	\Gamma^k_{ij} = \frac{1}{2}\left(\Gamma^k_{ij} + \Gamma^k_{ji}\right)
+	+\frac{1}{2}\left(\Gamma^k_{ij} - \Gamma^k_{ji}\right)
+	\overset{def}{=} \oversetmy{s}{\Gamma}^k_{ij} + \oversetmy{a}{\Gamma}^k_{ij}.
+\end{equation}
+其中$\oversetmy{s}{\Gamma}^k_{ij}$是对称部分，$\oversetmy{a}{\Gamma}^k_{ij}$是反对称部分．
+若$\Gamma^k_{ij}$是有挠的，则反对称部分$\oversetmy{a}{\Gamma}^k_{ij}$肯定非零；
+无论$\Gamma^k_{ij}$有挠与否，则对称部分$\oversetmy{s}{\Gamma}^k_{ij}$肯定无挠的．
+只剩下最关键的一步，证明$\oversetmy{s}{\Gamma}^k_{ij}$是仿射联络，见下．
+根据注\ref{chccr:remark_con-Nabla}，我们只需验证$\oversetmy{s}{\Gamma}^k_{ij}$满
+足式\eqref{chccr:eqn_Exchange-Christoffel}即可．
+\begin{align*}
+		0 = & \Gamma^{k}_{ji}(x) \frac{\partial y^\rho}{\partial x^k} -
+		\frac{\partial y^\beta}{\partial x^j} \frac{\partial y^\alpha}{\partial x^i}
+		\Gamma^{\rho}_{\beta\alpha}(y) -2 \frac{\partial^2 y^\rho}{\partial x^j \partial x^i}
+		+\Gamma^{k}_{ij}(x) \frac{\partial y^\rho}{\partial x^k} -
+		\frac{\partial y^\alpha}{\partial x^i} \frac{\partial y^\beta}{\partial x^j}
+		\Gamma^{\rho}_{\alpha\beta}(y)  \\
+		=& 2\oversetmy{s}{\Gamma}^k_{ji}  \frac{\partial y^\rho}{\partial x^k}
+		-2\frac{\partial y^\beta}{\partial x^j} \frac{\partial y^\alpha}{\partial x^i}
+		\oversetmy{s}{\Gamma}^{\rho}_{\beta\alpha}(y) 
+		- 2\frac{\partial^2 y^\rho}{\partial x^j \partial x^i} .
+\end{align*}
+由上式最后一步可见：$\oversetmy{s}{\Gamma}^k_{ij}$满足式\eqref{chccr:eqn_Exchange-Christoffel}，
+故它是无挠的仿射联络．
+
+
 
 
 
@@ -817,12 +856,12 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 
 \section{黎曼曲率张量}\label{chccr:sec_Curvatures}
 
-现代几何学中的黎曼曲率张量似乎是一个神秘的东西．部分地是因为其名称显示它能够对难以捉摸
-的“空间弯曲”性质给出一个精确度量；部分地是因为尽管看上去它很简单，但它似乎控制了黎曼
-几何学的每一方面；又部分地因为虽然从过去到现在，学者们已花费极大努力，但距离完全
-掌握它还相距甚远．文献\parencite[Ch.4]{spivak-dif-2}用了许多篇幅来描述这个定义的历史起源、
-直观内容、不同情形下的种种姿态等等．
-笔者学识所限，无法深入展示黎曼曲率的种种精妙，我们只给出它的定义并叙述它的一些性质．
+现代几何学中的黎曼曲率张量似乎是一个神秘的东西．
+部分地是因为其名称显示它能够对难以捉摸的“空间弯曲”性质给出一个精确度量；
+部分地是因为尽管看上去它很简单，但它似乎控制了黎曼几何学的每一方面；
+又部分地因为虽然从过去到现在，学者们已花费极大努力，但距离完全掌握它还相距甚远．
+笔者学识所限，无法深入展示黎曼曲率的种种精妙，
+我们只给出它的定义并叙述它的一些简单性质．
 
 \begin{definition}\label{chccr:def_tCurvatures}
     设$(M,\nabla_a)$是$m$维仿射空间，定义张量$R^{d}_{\hphantom{a} cab}$如下：
@@ -867,6 +906,19 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 \end{align}
 从式\eqref{chccr:eqn_Riemannian13-Tensor-commutator}，不难将协变导数对易子推广到高维张量，
 需注意系数的正负号；上述双联络对易子公式一般称为Ricci恒等式．
+
+
+由式\eqref{chccr:eqn_Riemannian13-Vec-commutator}易得（注意利用挠率下标反对称性）：
+\begin{align*}
+	R_{cab}^d Z^c =- \left(\nabla_b \nabla_a Z^d -\nabla_a \nabla_b Z^d 
+	+T_{ba}^e \nabla_e Z^d \right)	=-R_{cba}^d Z^c 
+\end{align*}
+因$Z^c$的任意性，从而可知黎曼曲率$R_{cab}^d$关于指标$a$、$b$反对称，即
+\begin{equation}\label{chccr:eqn_Rab=-Rba}
+    R_{cab}^d= -R_{cba}^d . \qquad \text{注意这个反对称性与挠率无关}
+\end{equation}
+
+
 \begin{remark}
     由协变导数对易子公式\eqref{chccr:eqn_scalar-torsion}、\eqref{chccr:eqn_Riemannian13-Vec-commutator}、
     \eqref{chccr:eqn_Riemannian13-CoVec-commutator}和\eqref{chccr:eqn_Riemannian13-Tensor-commutator}
@@ -899,14 +951,20 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
     -{({\rm d}x^i)_d} {\nabla _{\frac{\partial }{\partial x^n}}} \left(\Gamma_{jl}^{k}
     {\Bigl( {\frac{\partial }{{\partial {x^k}}}} \Bigr)^d} \right) \notag\\
     &= {\partial_l} \Gamma_{jn}^{i} -\partial_n \Gamma_{jl}^{i}+ \Gamma_{jn}^{k} \Gamma_{kl}^{i}
-    - \Gamma_{jl}^{k}\Gamma_{kn}^{i} \label{chccr:eqn_Riemannian13-component}
+    - \Gamma_{jl}^{k}\Gamma_{kn}^{i} . \label{chccr:eqn_Riemannian13-component}
 \end{align}
-为了对比黎曼曲率与Ricci曲率，将Ricci曲率写在这里（定义见\eqref{chrg:eqn_RicciCurvatured2}）：
+将黎曼曲率中的两个指标缩并可定义Ricci曲率：
 \begin{equation}\label{chccr:eqn_Ricci-component}
-    R_{jn} = R_{\hphantom{a} jkn}^k = {\partial_k} \Gamma_{jn}^{k} -\partial_n \Gamma_{jk}^{k}
+    R_{jn} \overset{def}{=} R_{\hphantom{a} jkn}^k = {\partial_k} \Gamma_{jn}^{k} -\partial_n \Gamma_{jk}^{k}
     + \Gamma_{jn}^{k} \Gamma_{kl}^{l}- \Gamma_{jl}^{k}\Gamma_{kn}^{l} .
 \end{equation}
 这两个表达式适用于有挠或无挠联络，需注意$\Gamma$下标的顺序．
+
+除了上述Ricci曲率外，我们还可以定义如下曲率（它几乎无用）：
+\begin{equation}
+	R'_{cd} \overset{def}{=} R_{\hphantom{a} acd}^a ;
+	\qquad \text{显然有}\ 	R'_{cd} = - R'_{dc}.
+\end{equation}
 
 %\begin{align*}
 %     R_{cab}^d =& \partial_a \Gamma_{cb}^{d} -\partial_b \Gamma_{ca}^{d}
@@ -1059,11 +1117,6 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 
 \subsection{黎曼曲率对称性}\label{chccr:sec_riemann-sym}
 本节在{\kaishu 无挠联络}情形下证明几个黎曼曲率的对称性．
-由式\eqref{chccr:eqn_Riemannian13-Vec-commutator}易得
-\begin{align}
-    R_{cab}^d Z^c =- (\nabla_b \nabla_a Z^d -\nabla_a \nabla_b Z^d)=-R_{cba}^d Z^c 
-    \ \Rightarrow \ R_{cab}^d= -R_{cba}^d . \label{chccr:eqn_Rab=-Rba}
-\end{align}
 
 \index[physwords]{黎曼曲率!对称性}
 
@@ -1147,7 +1200,7 @@ $\nabla_T Y^a$是切矢量场$Y^a$在邻近两点$\gamma(t)$、$\gamma(t+\Delta 
 既然是切矢量场，自然可以用自然标架场来展开
 \begin{align}\label{chccr:eqn_natural-base_change}
     ({e} _i)^a = \left(\frac{\partial}{\partial x^\alpha}\right)^a C_{\hphantom{a} i}^{\alpha}(x) , \quad
-    ({e} ^i)_a = \left({\rm d} x^\alpha \right)_a \left(C^{-1}\right)^{\hphantom{a} i}_{\alpha}   ;
+    ({e} ^i)_a = \left({\rm d} x^\alpha \right)_a \left(C^{-1}\right)^{i}_{\hphantom{a} \alpha}   ;
     \ C_{\hphantom{a} i}^{\alpha}(x) \in C^{\infty}(U).
 \end{align}
 一般要求变换矩阵$C$的行列式$\det(C)>0$，用以保证$(e_i)^a$与$(\frac{\partial}{\partial x^i})^a$定向相同．
@@ -1312,6 +1365,72 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
       &= \left[{\rm d}_a (T_k^i) -T_l^i (\omega_{\hphantom{a} k}^{l})_a
          +T^l_k (\omega_{\hphantom{a} l}^{i})_a \right] (e^k)_b (e_i)^c  .  \label{chccr:eqn_eTw}
 \end{align}
+
+
+\index[physwords]{Solder form}
+
+\begin{example}\label{chccr:exam_soldering}
+	联接型式（Soldering，或者 Solder form）特例．
+\end{example}
+联接型式是纤维丛中的概念，在切丛$TM$上有一个特简单的例子；命
+\begin{equation}\label{chccr:eqn_soldering}
+	\delta^a_b \overset{def}{=} \sum\nolimits_{i} (e_i)^a (e^i)_b .
+\end{equation}
+对于任意矢量$v^b=v^j (e_j)^b$，有
+\begin{equation*}
+	\delta^a_b v^b = (e_i)^a (e^i)_b v^j (e_j)^b = (e_i)^a v^j \delta^i_j = (e_i)^a v^i = v^a.
+\end{equation*}
+换句话说式\eqref{chccr:eqn_soldering}为切丛上的恒等映射；那么，有
+\begin{equation*}
+	\nabla_c v^a = \nabla_c (\delta^a_b v^b) = v^b \nabla_c \delta^a_b  + \delta^a_b \nabla_c v^b .
+\end{equation*}
+因$v^a$是任意切矢量场，故必然可以得到$\nabla_c \delta^a_b \equiv 0$．
+目前，我们还没有引入度规；在引入度规后（\S \ref{chrg:sec_riemann}），会发现上面几式与度规相容．
+需要注意式\eqref{chccr:eqn_soldering}的定义无需度规；联络$\nabla_c$也可以有挠、也可以无挠． 
+
+我们将联接型式变换一下，可以导出两个公式．
+\begin{align*}
+	0 =& \nabla_c \delta^a_b = \nabla_c \left((\partial_\alpha)^a C_{\hphantom{a} i}^{\alpha} (e^i)_b  \right) \\
+%	=& \frac{\partial C_{\hphantom{a} i}^{\beta} }{\partial x^\sigma} (\partial_\beta)^a (e^i)_b ({\rm d}x^\sigma)_c
+%	+ C_{\hphantom{a} i}^{\alpha} \oversetmy{x}{\Gamma}_{\alpha \sigma}^\beta (\partial_\beta)^a (e^i)_b ({\rm d}x^\sigma)_c
+%	- C_{\hphantom{a} l}^{\beta} \Gamma^l_{ij} (\partial_\beta)^a (e^i)_b (e^j)_c \\
+	=& \left(\frac{\partial C_{\hphantom{a} i}^{\beta} }{\partial x^\sigma}
+	+ C_{\hphantom{a} i}^{\alpha} \oversetmy{x}{\Gamma}_{\alpha \sigma}^\beta
+	- C_{\hphantom{a} l}^{\beta} \Gamma^l_{ij} \left(C^{-1}\right)^{j}_{\hphantom{a} \sigma} 
+	\right) (\partial_\beta)^a (e^i)_b ({\rm d}x^\sigma)_c .
+\end{align*}
+去掉基矢，有
+\begin{subequations}\label{chccr:eqn_tetrad-postulate}
+	\begin{align}
+		\frac{\partial C_{\hphantom{a} i}^{\beta} }{\partial x^\sigma}
+		+ C_{\hphantom{a} i}^{\alpha} \oversetmy{x}{\Gamma}_{\alpha \sigma}^\beta
+		- C_{\hphantom{a} l}^{\beta} \Gamma^l_{ij} \left(C^{-1}\right)^{j}_{\hphantom{a} \sigma} = &0,\\
+		\frac{\partial \left(C^{-1}\right)^{i}_{\hphantom{a} \rho} }{\partial x^\sigma}
+		- \left(C^{-1}\right)^{i}_{\hphantom{a} \mu} \oversetmy{x}{\Gamma}^\mu_{\rho\sigma} 
+		+ \left(C^{-1}\right)^{l}_{\hphantom{a} \rho} \Gamma^{i}_{lj} 
+		\left(C^{-1}\right)^{j}_{\hphantom{a} \sigma} = & 0.
+	\end{align}
+\end{subequations}
+上式无非是\eqref{chccr:eqn_GAMMA-trans}或其变种．
+上式中的第二式是由$0 = \nabla_c ( (e_i)^a ({\rm d}x^\mu)_b 
+(C^{-1})^{i}_{\hphantom{a} \mu} )$推演得到．
+有些文献将上式称为“tetrad postulate”；
+由于上两式为恒等式，不是假设，故这个称呼不准确．\qed
+
+\index[physwords]{tetrad postulate}
+
+%\begin{align*}
+%	0 =& \nabla_c \delta^a_b = \nabla_c \left( (e_i)^a ({\rm d}x^\mu)_b \left(C^{-1}\right)^{i}_{\hphantom{a} \mu}  \right) \\
+%		=& \frac{\partial \left(C^{-1}\right)^{i}_{\hphantom{a} \rho} }{\partial x^\sigma} (e_i)^a ({\rm d}x^\rho)_b ({\rm d}x^\sigma)_c
+%		- \left(C^{-1}\right)^{i}_{\hphantom{a} \mu} \oversetmy{x}{\Gamma}^\mu_{\rho\sigma} (e_i)^a  ({\rm d}x^\rho)_b ({\rm d}x^\sigma)_c
+%		+ \left(C^{-1}\right)^{l}_{\hphantom{a} \rho}  \Gamma^{i}_{lj} (e_i)^a ({\rm d}x^\rho)_b (e^j)_c  \\
+%	=& \left(\frac{\partial \left(C^{-1}\right)^{i}_{\hphantom{a} \rho} }{\partial x^\sigma}
+%	- \left(C^{-1}\right)^{i}_{\hphantom{a} \mu} \oversetmy{x}{\Gamma}^\mu_{\rho\sigma} 
+%	+ \left(C^{-1}\right)^{l}_{\hphantom{a} \rho} \Gamma^{i}_{lj} \left(C^{-1}\right)^{j}_{\hphantom{a} \sigma}
+%	\right) (e_i)^a ({\rm d}x^\rho)_b  ({\rm d}x^\sigma)_c  .
+%\end{align*}
+
+
 
 
 \index[physwords]{Cartan结构方程}

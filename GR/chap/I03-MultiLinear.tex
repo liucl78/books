@@ -395,6 +395,7 @@ $(-\alpha)+W$是$\alpha+W$的{\kaishu 负元}；
 
 
 \section{线性映射}\label{chmla:sec_linear-map}
+
 有了矢量空间，就可以定义空间上的线性映射．
 \begin{definition}\label{chmla:def_linear-fun}
     设$V,W$是数域$\mathbb{F}$上线性空间，若$f:V \to W$有如下线性性质
@@ -1390,63 +1391,50 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 
 双线性映射的定理可以几乎不用任何修改地推广到$r(>2)$重线性映射．
 
-\begin{example}
-    牛顿力学中位矢与力之间的运算$\boldsymbol{r}\cdot \boldsymbol{F}$是$U\times V \to \mathbb{R}$的
-    不同线性空间（分别来自位矢空间和力空间）的双线性函数．
-    {\kaishu 内积}的两个元素必须属于同一线性空间$V$，故上述运算不是内积．
-    {\kaishu 配合}中的两个元素一个来自$V$，另一个来自$V^*$．这两个双线性函数分别赋予了专有名字（内积、配合）；
-    除此以外的双线性函数没有专有名称，比如$\boldsymbol{r}\cdot \boldsymbol{F}$就没有． \qed
-\end{example}
-
-\begin{example}
-    Dirac场$\psi$与电磁规范势$A_\mu$的相互作用项$q A_\mu \bar{\psi}\gamma^\mu \psi$是
-    三重线性函数$U\times V^* \times V\to \mathbb{R}$； 其中$\gamma^\mu$是常数矩阵，$q$是常数． \qed
-\end{example}
-
 \begin{example}\label{chmla:exm_det}
-    $n$阶行列式函数$\det$是从 \index[physwords]{行列式}
-    直积$\overbrace{\mathbb{F}^n \times \cdots \times \mathbb{F}^n}^n$空间到
-    数域$\mathbb{F}$的一个多重线性函数．从行列式定义容易验证，
-    设有矩阵$n$阶$A=\{a_{ij}\}$，则
-    \begin{equation}\label{chmla:eqn_det}
-        \det (A) \equiv |A| = \sum_{j_1 j_2\cdots j_n} (-1)^{\tau(j_1 j_2 \cdots j_n)}
-           a_{1 j_1} a_{2 j_2}\cdots a_{n j_n} , \quad
-           j_1 \neq \cdots \neq j_n .
-    \end{equation}
-    其中$\tau(j_1 j_2\cdots j_n)$是这个$n$个数的排列，偶排列返回偶数，奇排列返回奇数．
-
-    将矩阵的行看成$n$维线性空间，则
-    \begin{align*}
-       &\begin{vmatrix}
-            a_{11} & \cdots & a_{1n} \\
-            \vdots &    & \vdots \\
-            k_1 b_1 + k_2 c_1 &\cdots & k_1 b_n + k_2 c_n \\
-            \vdots &    & \vdots \\
-            a_{n1} & \cdots & a_{nn}
-        \end{vmatrix}
-        = \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
-        a_{1 j_1} \cdots (k_1 b_{j_i} + k_2 c_{j_i}) \cdots a_{n j_n}  \\
-        &= k_1 \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
-           a_{1 j_1} \cdots b_{j_i} \cdots a_{n j_n}
-         + k_2 \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
-          a_{1 j_1} \cdots c_{j_i} \cdots a_{n j_n}  \\
-        &=k_1 \begin{vmatrix}
-            a_{11} & \cdots & a_{1n} \\
-            \vdots &    & \vdots \\
-             b_1 &\cdots & b_n \\
-            \vdots &    & \vdots \\
-            a_{n1} & \cdots & a_{nn}
-        \end{vmatrix} +
-     k_2 \begin{vmatrix}
-        a_{11} & \cdots & a_{1n} \\
-        \vdots &    & \vdots \\
-        c_1 &\cdots & c_n \\
-        \vdots &    & \vdots \\
-        a_{n1} & \cdots & a_{nn}
-    \end{vmatrix}
-    \end{align*}
-    上式说明了将行列式看成映射具有定义\ref{chmla:def_nlinear-fun}中的
-    线性性质，故是$n$重线性函数．
+	$n$阶行列式函数$\det$是从 \index[physwords]{行列式}
+	直积$\overbrace{\mathbb{F}^n \times \cdots \times \mathbb{F}^n}^n$空间到
+	数域$\mathbb{F}$的一个多重线性函数．从行列式定义容易验证，
+	设有矩阵$n$阶$A=\{a_{ij}\}$，则
+	\begin{equation}\label{chmla:eqn_det}
+		\det (A) \equiv |A| = \sum_{j_1 j_2\cdots j_n} (-1)^{\tau(j_1 j_2 \cdots j_n)}
+		a_{1 j_1} a_{2 j_2}\cdots a_{n j_n} , \quad
+		j_1 \neq \cdots \neq j_n .
+	\end{equation}
+	其中$\tau(j_1 j_2\cdots j_n)$是这个$n$个数的排列，偶排列返回偶数，奇排列返回奇数．
+	
+	将矩阵的行看成$n$维线性空间，则
+	\begin{align*}
+		&\begin{vmatrix}
+			a_{11} & \cdots & a_{1n} \\
+			\vdots &    & \vdots \\
+			k_1 b_1 + k_2 c_1 &\cdots & k_1 b_n + k_2 c_n \\
+			\vdots &    & \vdots \\
+			a_{n1} & \cdots & a_{nn}
+		\end{vmatrix}
+		= \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
+		a_{1 j_1} \cdots (k_1 b_{j_i} + k_2 c_{j_i}) \cdots a_{n j_n}  \\
+		&= k_1 \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
+		a_{1 j_1} \cdots b_{j_i} \cdots a_{n j_n}
+		+ k_2 \sum_{j_1 \cdots j_n} (-1)^{\tau(j_1 \cdots j_n)}
+		a_{1 j_1} \cdots c_{j_i} \cdots a_{n j_n}  \\
+		&=k_1 \begin{vmatrix}
+			a_{11} & \cdots & a_{1n} \\
+			\vdots &    & \vdots \\
+			b_1 &\cdots & b_n \\
+			\vdots &    & \vdots \\
+			a_{n1} & \cdots & a_{nn}
+		\end{vmatrix} +
+		k_2 \begin{vmatrix}
+			a_{11} & \cdots & a_{1n} \\
+			\vdots &    & \vdots \\
+			c_1 &\cdots & c_n \\
+			\vdots &    & \vdots \\
+			a_{n1} & \cdots & a_{nn}
+		\end{vmatrix}
+	\end{align*}
+	上式说明了将行列式看成映射具有定义\ref{chmla:def_nlinear-fun}中的
+	线性性质，故是$n$重线性函数．
 \end{example}
 
 %多重线性映射存在如下定理，
@@ -1459,9 +1447,9 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 %    存在从$V_1 \times \cdots \times V_r$到$W$的唯一一个
 %    多重线性映射$f$使得下式成立，
 %    \begin{equation}\label{chmla:eqn_fxi}
-%        f(\boldsymbol{\epsilon}_{1 j_1},\cdots,\boldsymbol{\epsilon}_{r j_r})
-%         = \xi_{j_1\cdots j_r}, \qquad 1\leqslant j_k \leqslant n_k(k=1,\cdots,r) .
-%    \end{equation}
+	%        f(\boldsymbol{\epsilon}_{1 j_1},\cdots,\boldsymbol{\epsilon}_{r j_r})
+	%         = \xi_{j_1\cdots j_r}, \qquad 1\leqslant j_k \leqslant n_k(k=1,\cdots,r) .
+	%    \end{equation}
 %    也就是说再给定$V_\alpha$的基矢后，多重线性映射$f$与$\xi_{j_1\cdots j_r}$相互唯一确定．
 %\end{theorem}
 %\begin{proof}
@@ -1496,6 +1484,62 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 %\end{theorem}
 %对比定理\ref{chmla:thm_lin-fun-basic}和定理\ref{chmla:thm_uvwd}，
 %读者会发现基矢量形式非常类似．
+
+\subsection{物理学中多重线性函数}
+
+在\S\ref{chmla:sec_linear-map}中，我们已指出位矢空间、力空间、动量空间等等是同构的，但可区分；
+出现此种情况的原因是绝大多数物理量都是有量纲的，而数学中的抽象概念是不考虑量纲的．
+下面我们进一步讨论多重线性函数在物理中的使用情况．
+
+\begin{example}\label{chmla:exam_rf}
+	牛顿力学中位矢与力之间的运算$\boldsymbol{r}\cdot \boldsymbol{F}$是$U\times V \to \mathbb{R}$的
+	不同线性空间（分别来自位矢空间和力空间）的双线性函数．
+	{\kaishu 内积}的两个元素必须属于同一线性空间$V$，故上述运算不是内积．
+	{\kaishu 配合}中的两个元素一个来自$V$，另一个来自$V^*$．这两个双线性函数分别赋予了专有名字（内积、配合）；
+	除此以外的双线性函数没有专有名称，比如$\boldsymbol{r}\cdot \boldsymbol{F}$就没有． \qed
+\end{example}
+
+\begin{example}\label{chmla:exam_vf}
+    牛顿力学中速度与力之间的运算$\boldsymbol{v}\cdot \boldsymbol{F}$是$U\times V \to \mathbb{R}$的
+    不同线性空间（分别来自速度空间和力空间）的双线性函数．\qed
+\end{example}
+
+例\ref{chmla:exam_rf}中的$\boldsymbol{r}\cdot \boldsymbol{F}$是功，
+例\ref{chmla:exam_vf}中的$\boldsymbol{v}\cdot \boldsymbol{F}$是功率．
+若把它们改写成$\boldsymbol{r}(\boldsymbol{F})$、
+$\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
+它们貌似也符合线性函数的定义．
+我们知道力空间（$\boldsymbol{F}$）上的全体线性函数构成力的对偶空间，
+那么就有$\boldsymbol{r}$、$\boldsymbol{v}$都是$\boldsymbol{F}$对偶空间中的元素．
+然而对偶空间中的元素是能够相加的，但$\boldsymbol{r}+\boldsymbol{v}$没有物理意义，
+故它们不是力对偶空间中的元素．所以只能把它们看成双线性函数．
+本章中所有数学概念都是抽象的，具有一定的普适性；
+这两个例子也说明，当我们把这些抽象数学概念用到物理中时，这些概念可能需要些许修改．
+比如我们可以把对偶空间定义\ref{chmla:def_dual-space}中对偶基\eqref{chmla:eqn_dual-bases}略作限制，
+以便更符合物理中的情形；我们约定：
+\CJKunderwave{对偶基\eqref{chmla:eqn_dual-bases}中的$\delta_i^j$必须是无量纲的}．
+也就是说，空间$V$和其对偶空间$V^*$的量纲必须互为倒数；
+比如位矢空间（$\boldsymbol{r}$）的量纲是{\kaishu 长度}，
+那么其对偶空间（$\boldsymbol{r}^*$）的量纲必须是{\kaishu 长度}的倒数．
+有了这种约定，便排除了把例\ref{chmla:exam_rf}、\ref{chmla:exam_vf}中的位矢空间、
+速度空间看成力空间的对偶空间的观点．
+
+
+再举几个与物理相关的例子．
+
+\begin{example}
+    Dirac场$\psi$与电磁规范势$A_\mu$的相互作用项$q A_\mu \bar{\psi}\gamma^\mu \psi$是
+    三重线性函数$U\times V^* \times V\to \mathbb{R}$； 其中$\gamma^\mu$是常数矩阵，$q$是常数． \qed
+\end{example}
+
+\begin{example}
+	固体物理中晶格的正格矢是线性空间$V$，它的倒易格矢空间便是$V$的对偶空间$V^*$．
+	由于此时采用的是正定欧几里得度量（即单位矩阵），故可以把$V$等同于$V^*$；
+	从而不引入对偶空间$V^*$，只有$V$，同时无需区分上下标． \qed
+\end{example}
+
+
+
 
 \begin{exercise}
 	请再举一个多重线性映射（或函数）的例子．

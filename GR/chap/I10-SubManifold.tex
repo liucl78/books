@@ -1567,11 +1567,11 @@ $n^a$按照式\eqref{chsm:eqn_unit-normal-Phi}中方式来选取方向．
 有了诱导体积元和诱导定向，我们来探讨一下推广的Gauss散度定理．
 
 \begin{theorem}\label{chsm:thm_Gauss-Divergence}
-设有$m+1$维、已定向、广义黎曼流形$(M,g)$，${\Omega}_{a_0 a_1 \cdots a_{m}}$是$M$上适配体积元，
-为节省空间，简记为${\boldsymbol{\Omega} }$；
-$N$是$M$上带边嵌入子流形，边界是超曲面$\Sigma$．对于任意非零$C^1$切矢量场$\xi^a\in TM$，有
+设有$m+1$维、已定向、广义黎曼流形$(M,g)$，${\Omega}_{a_0 a_1 \cdots a_{m}}$是$M$上适配体积元；
+$N$是$M$上带边嵌入子流形，边界是超曲面$\Sigma$．对于任意非零、
+至少一阶可微的切矢量场$\xi^a\in TM$，有
 \begin{equation}\label{chsm:eqn_Gauss-Divergence}
-    \int_{{\rm i}(N)} (\nabla_a \xi^a) \boldsymbol{\Omega}
+    \int_{{\rm i}(N)} (\nabla_a \xi^a) {\Omega}_{a_0 a_1 \cdots a_{m}}
     =\int_{\Sigma} \xi^b \, \Omega_{b a_1 \cdots a_{m} }
     =\epsilon \int_{\Sigma} \xi^b n_b \, \hat{\Omega}_{a_1 \cdots a_{m} } .
 \end{equation}
@@ -2442,11 +2442,13 @@ $\mathbb{R}^{m+1}_1$度规为广义Lorentz度规，即
 流形$M$中任意一点都位于某张（且只在此张）$\Sigma_t$上，
 即$\{\Sigma_t\}$能覆盖住流形$M$，$M=\bigcup_{t\in\mathbb{R}} \Sigma_t$．
 
-从纯粹数学角度来看任意四维闵氏流形$(M,g)$，未必存在
-这样的分解，或者说需要满足一定条件才存在这样的类时矢量场，然后依据这个
-类时场将空间$M$划分成一族类空超曲面$\Sigma_t$；寻找数学上的这些存在性条件
-（对物理学工作者来说）太过艰深．从物理学角度看，这样的分解一定存在，
-因为我们就生活在这样的一个四维时空中，这个时空然后被$1+3$分解成时间和空间．
+从纯粹数学角度来看任意四维闵氏流形$(M,g)$，未必存在这样的分解，
+或者说需要满足一定条件才存在这样的类时矢量场，
+然后依据这个类时场将空间$M$划分成一族类空超曲面$\Sigma_t$；
+寻找数学上的这些存在性条件（对物理学工作者来说）太过艰深．
+从物理学角度看，这样的分解一定存在，
+因为我们就生活在这样的一个四维时空中，
+这个时空然后被$1+3$分解成时间和空间．
 
 
 

@@ -771,6 +771,415 @@ Lipschitz条件一定独立于“第二层”中所有内容，是“第二层�
 
 
 
+\section{Fermi--Walker导数}\label{chfd:sec_FW}
+
+本节较多参考了文献\parencite[\S 4.1]{hawking-ellis1973}、\parencite[\S 6.5]{mtw1973}．
+
+这是一节依附于物理的数学知识，不宜放在纯数学部分，故放在这里讲述．
+
+研究刚体运动是十分必要的，地球就可以近似看成刚体，我们生活在这个刚体的表面上．
+在牛顿运动学中，质点需要用速度来描述；刚体除了速度之外，还必须引入角速度来描述．
+Fermi--Walker导数是为了研究如何在四维闵氏时空$(M,g)$中定义无自转角速度标架场而引入的；
+转动自然属于刚体的性质，为此先复习经典力学中的刚体运动学．
+
+\subsection{牛顿力学中的刚体运动}
+先回顾一下三维经典力学中的刚体理论，可参阅文献\parencite[Ch. 3]{zhuzx-zy-vI}．
+
+{\bfseries (1)} 角速度$\boldsymbol{\omega}$是用于描述刚体的物理量，它是轴矢量（或赝矢量）；质点
+没有角速度或角动量的概念{\footnote{可能有读者会质疑此点，他会说把
+		绕太阳旋转的地球看成质点，那地球不就有了角速度、角动量了吗？
+		其实这种观点是认为太阳和地球间有一根无质量的刚性杆，这根作为刚体
+		的杆自然可以有角速度；但作为质点的地球没有角速度．}}．
+角速度是描述整个刚体运动的一个物理量，不存在刚体上
+某点角速度的概念，或者说刚体上任意一点的角速度皆相同．
+
+{\bfseries (2)} 轴矢量性质只在坐标系左右手变化时才会体现，
+如果只在右手（或左手）坐标系内研究问题，轴矢量和普通矢量一样．
+角速度除了用一个矢量来表示外，还可以用一个$3\times 3$的反对称矩阵来表示．
+用矩阵表示时，没有轴矢量性质，在左右手坐标系变换时，表述具有不变性，无需
+额外增加负号．刚体角速度$\boldsymbol{\omega}$与$3\times 3$反对称矩阵是
+一一对应的；比如$\boldsymbol{\omega}=(\omega_x,\omega_y,\omega_z)$，那么
+\begin{equation}\label{chfd:eqn_jsd}
+	\Omega=\begin{pmatrix}
+		0 &  \omega_z & -\omega_y \\
+		-\omega_z& 0 & \omega_x \\
+		\omega_y & -\omega_x & 0
+	\end{pmatrix}
+	\ \Leftrightarrow \
+	\Omega_{ij}= \epsilon_{ijk} \omega_k
+	\ \Leftrightarrow \
+	\omega_k = \frac{1}{2}\epsilon_{ijk} \Omega_{ij} .
+\end{equation}
+
+{\bfseries (3)} 研究固连在刚体上的一个三维刚性标架（指三个非共面矢量，且大小和矢量间夹角不随时间变化），
+与研究刚体运动本身是等价的．通常情况下，都是研究这个刚性标架
+如何运动；这个刚性标架角速度自然是刚体角速度．
+
+{\bfseries (4)} 任意矢量$\boldsymbol{G }$在两个参考系（绝对和相对）中变化率公式是
+（见\parencite[\S 3.6]{zhuzx-zy-vI}第218页(3.34)式）
+\begin{equation}\label{chfd:eqn_Grate-rigid}
+	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{绝对}} =
+	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{相对}}
+	+ {\boldsymbol{\omega}} \times \boldsymbol{G} .
+\end{equation}
+本节不考虑物体相对刚体的运动，
+所以等号后面的那个时间导数恒为零，即$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{相对}}=0$；
+只剩下一项$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{绝对}}={\boldsymbol{\omega}} \times \boldsymbol{G}$．
+
+由于我们关心的刚体角速度，所以可忽略刚体的平动，只研究刚体的定点运动．
+将式\eqref{chfd:eqn_Grate-rigid}换成$3\times 3$反对称角速度矩阵形式（省略相对项）
+\begin{equation}\label{chfd:eqn_Grate-rigid-matrix}
+	\left(\frac{{\rm d} \boldsymbol{G }^i}{{\rm d} t}\right)_{\text{绝对}} =
+	- \sum_{j=1}^{3}{\boldsymbol{\Omega}^{ij}}  \boldsymbol{G}^j .
+\end{equation}
+
+{\bfseries (5)} 由上式可以得到一个质点的一般运动公式
+\begin{equation}\label{chfd:eqn_NM-a}
+	\boldsymbol{a}=  \boldsymbol{A}_{O}
+	+2 \boldsymbol{\omega}\times \boldsymbol{u}
+	+ \dot{\boldsymbol{\omega}}\times \boldsymbol{x}
+	+ \boldsymbol{\omega}\times (\boldsymbol{\omega}\times \boldsymbol{x}) .
+\end{equation}
+
+
+{\bfseries (6)} 就像描述质点速度$\boldsymbol{v}$一样，描述刚体的角速度$\boldsymbol{\omega}$只有一个，
+它们都有三个分量，不论哪个分量发生变化都变成了另外一个状态，不再是原来的状态．
+刚体不存在绕$x,y,z$的三个角速度的概念，它们是同一个角速度的三个分量
+（这很容易想明白，一个质点只有一个速度$\boldsymbol{v}$，它有三个分量，
+但绝不能说一个质点有三个速度）．
+可能有的读者认为可以在角速度上叠加一个量不影响物理，比如令
+${\boldsymbol{\omega}}' = {\boldsymbol{\omega}} + \lambda \boldsymbol{G}$，则
+${\boldsymbol{\omega}}' \times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}+
+\lambda \boldsymbol{G}\times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}$，
+我们可以说${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$对应同一
+物理状态吗？显然不可以！上面推导只针对某一个特定矢量$\boldsymbol{G}$是正确的，
+但\eqref{chfd:eqn_Grate-rigid}对任意矢量都正确；同一物理问题中会处理
+很多物理量，除了$\boldsymbol{G}$外，还处理另外多个矢量$\boldsymbol{H}_i$；那么对于$\boldsymbol{H}_i$而言，
+${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$便对应不同物理状态了．
+更不可能给每个$\boldsymbol{H}_i$找个新的${\boldsymbol{\omega}}^{\prime}_{i}$与之对应．
+{\footnote{举个简单的例子，地球的角速度大概是每天1转，如果把地球角速度
+		改成每天10转，或者叠加一个与现在角速度不同向的新角速度（比如方向躺在赤道面上），
+		地球的自转肯定对应新的物理状态了．
+}}
+
+
+\subsection{四维时空刚体运动}
+现在探讨四维时空的刚体运动．
+三维空间的角速度关系很难向四维空间推广
+{\footnote{三维空间角速度${\boldsymbol{\omega}}$不能推广到四维空间，
+		一个直观的原因是“叉乘”只在三维空间有定义（略去七维空间不表），
+		比如三维空间中速度是$\boldsymbol{v}={\boldsymbol{\omega}} \times \boldsymbol{r}$，
+		但它无法推广到四维空间．
+		例如设平直四维欧式空间有四个正交归一基矢$e_\mu$，
+		那么前两个基矢的叉乘（$e_1 \times e_2 =?$）朝着哪个方向呢？
+		$e_3$还是$e_4$？}}；
+而角速度的反对称矩阵表示却容易推广到四维空间，
+此时它是一个反对称二阶张量．
+
+选择固连在刚体上的一个三标架$(e_i)^a, i=1,2,3$（类空），为了方便要求它们
+正交归一，即$g_{ab}(e_i)^a(e_j)^b=\delta_{ij}$．
+刚体的质心在时空中是一条指向未来的类时线$G(\tau)$，其中$\tau$是弧长
+参数，也就是固有时．把这条类时线
+的切线切矢量$Z^a\equiv (e_0)^a = (\partial _\tau)^a$当成第零坐标轴，
+$Z^a$与其它三个标架都正交，这样便构成了一个四标架；
+也即是说在这个四标架场中度规$g_{ab}$分量是${\rm diag}(-1,1,1,1)$．
+因三标架$\{(e_i)^a\}$是固连在刚体上的，故研究
+$\{(e_i)^a\}$的运动行为就相当于研究刚体的运动行为了．
+
+
+这个四标架场是活动标架场；我们只研究刚体定点运动．
+四标架场$(e_\mu)^a$沿类时线$G(\tau)$的变化一定可以展开成
+基矢场\{$(e_\mu)^a\}$的一个组合
+\begin{equation}\label{chfd:eqn_4djsd-mat}
+	\nabla_{\partial _\tau} (e_\mu)^a = - \Omega^{\nu}_{\hphantom{\nu}\mu} (e_\nu)^a
+	= - \Omega^a_{\hphantom{a} b} (e_\mu)^b; \quad\text{其中}\,
+	\Omega^a_{\hphantom{a} b}=\Omega^{\nu}_{\hphantom{\nu}\rho}(e_\nu)^a (e^\rho)_b .
+\end{equation}
+$\Omega^{\nu}_{\hphantom{\nu}\mu}$为展开系数．这是容易理解的，
+因$Z^c \nabla_c (e_\mu)^a$仍是时空$M$上的切矢量场，故
+它一定可以在局部标架场$\{(e_\mu)^a\}$上展开．
+由于考虑的是刚性正交归一标架，
+$g_{\mu\nu}={\rm diag}(-1,1,1,1)$，那么，有
+\begin{align}
+	0&\equiv Z^c \nabla_c \bigl[g_{ab}(e_\mu)^a (e_\nu)^b\bigr]
+	= (e_\mu)_b Z^c \nabla_c \bigl[(e_\nu)^b\bigr]
+	+(e_\nu)_a Z^c \nabla_c \bigl[(e_\mu)^a \bigr] \notag \\
+	&=-(e_\mu)_b \Omega^{\rho}_{\hphantom{\rho}\nu} (e_\rho)^b
+	-(e_\nu)_a \Omega^{\rho}_{\hphantom{\rho}\mu} (e_\rho)^a
+	=-\Omega^{}_{\mu\nu}- \Omega^{}_{\nu\mu} .
+\end{align}
+也就是说$\Omega^{}_{\mu\nu}$关于下标反对称，其对角元全部为零；
+这说明其纯空间部分$\Omega^{}_{ij}(1\leqslant i,j \leqslant 3)$对应
+一个空间转动角速度$\boldsymbol{\omega}$．
+对比牛顿力学中（三维空间）定点运动角速度矩阵公式\eqref{chfd:eqn_Grate-rigid-matrix}，
+可以把式\eqref{chfd:eqn_4djsd-mat}中的$\Omega^a_{\hphantom{a} b}$定义
+成\CJKunderwave{四维}空间中的{\heiti 角速度矩阵}，它由三维空间的推广而来．
+而且，式\eqref{chfd:eqn_4djsd-mat}很明显能退化到
+三维情形\eqref{chfd:eqn_Grate-rigid-matrix}．
+式\eqref{chfd:eqn_4djsd-mat}中的四维闵氏空间刚体角速度
+矩阵$\Omega_{ab}$（已用度规$g_{ab}$将指标降下）与
+三维空间角速度矩阵的属性大体相同；例如刚体只有一个四维角速度，
+它有六个独立分量（四维反对称矩阵）；……
+
+我们来看一下四维角速度矩阵$\Omega^a_{\hphantom{a} b}$的分量是什么．对于第〇基矢，有
+\begin{equation}\label{chfd:eqn_tmp-DZ0}
+	Z^c \nabla_c (e_0)^a =Z^c \nabla_c Z^a= A^a =- \Omega^{\nu}_{\hphantom{\nu} 0} (e_\nu)^a .
+\end{equation}
+其中$A^a$是把刚体质心的四维加速度．
+由于$A^a$一定是空间矢量，那么有$\Omega^{0}_{\hphantom{0} 0}=0$和$\Omega^{i}_{\hphantom{i} 0}=-A^i$；
+由此不难得到$\Omega_{i0}=-A_i=-\Omega_{0i}$和$\Omega^{0}_{\hphantom{0} i}=-A_i$．
+这说明刚体角速度的时空分量（$\Omega^{0}_{\hphantom{0} i}$）由该刚体质心的四加速度完全确定．
+对于第$i$基矢，有
+\begin{equation} \label{chfd:eqn_tmp-Dei}
+	\begin{aligned}
+		Z^c \nabla_c (e_i)^a &= -\Omega^{\nu}_{\hphantom{\nu} i} (e_\nu)^a
+		=-\Omega^{0}_{\hphantom{0} i} (e_0)^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a
+		=A_i Z^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a  \\
+		&=(A^b Z^a - A^a Z^b) (e_i)_b-\Omega^{j}_{\hphantom{j} i} (e_j)^a  .
+	\end{aligned}
+\end{equation}
+上式最后一步利用了$Z^b$只有第零分量这一性质，即$Z^b(e_i)_b=0$．
+
+结合第〇和第$i$基矢的公式，定义{\bfseries \heiti Fermi--Walker导数}为：
+\begin{align}
+	&\frac{{\rm D}_F f}{{\rm D}\tau} \overset{def}{=} \frac{{\rm d} f}{{\rm d}\tau}
+	\equiv\left(\frac{\partial}{\partial \tau}\right)^b \nabla_b f
+	\equiv Z^b \nabla_b f,
+	\qquad \forall f\in C^\infty\bigl(G(\tau)\bigr). \label{chfd:eqn_fermi-walker-fun} \\
+	&\frac{{\rm D}_F v^a}{{\rm D}\tau} \overset{def}{=}
+	Z^c \nabla_c v^a +(A^a Z^b-A^b Z^a) v_b ,\qquad
+	\forall v^a\in \mathfrak{X}\bigl(G(\tau)\bigr). \label{chfd:eqn_fermi-walker-vec}
+\end{align}
+上述定义可简称为Fermi导数．只有上述两个条件是不够的，
+还需要求Fermi导数与缩并可交换，以及满足Leibnitz律和线性性；不再单独列出公式．
+注意：Fermi导数是依赖于类时线$G(\tau)$的．
+
+很明显，如果$G(\tau)$是测地线，那么Fermi导数就是协变导数．
+
+
+
+下面看一下Fermi导数的一些性质，首先计算它对基矢的导数
+\begin{align}
+	\frac{{\rm D}_F Z^a}{{\rm D}\tau} &{=} Z^c \nabla_c Z^a +(A^a Z^b-A^b Z^a) Z_b = 0,
+	\label{chfd:eqn_DF-Z=0}\\
+	\frac{{\rm D}_F (e_i)^a}{{\rm D}\tau} &{=} Z^c \nabla_c (e_i)^a +(A^a Z^b-A^b Z^a) (e_i)_a
+	= -\Omega^{j}_{\hphantom{j} i} (e_j)^a . \label{chfd:eqn_DF-ei}
+\end{align}
+式\eqref{chfd:eqn_DF-Z=0}说明，四速度$Z^a$的Fermi导数是零，
+即第〇基矢沿$G(\tau)$是Fermi移动不变的．
+由式\eqref{chfd:eqn_DF-Z=0}、\eqref{chfd:eqn_DF-ei}不难看出：
+Fermi导数本质是扣除四维角速度矩阵（$4\times 4$反对称矩阵，六个独立分量）的时时（恒零，一个非独立分量）、
+时空分量（三个独立分量），只保留空空分量（$3\times 3$反对称矩阵，三个独立分量）．
+
+
+仿照平行移动矢量场，我们定义
+\begin{definition}
+	若$v^a\in \mathfrak{X}\bigl(G(\tau)\bigr)$满足$\frac{{\rm D}_F v^a}{{\rm D}\tau}=0$，
+	则称$v^a$是沿$G(\tau)${\heiti\bfseries Fermi平行}．
+\end{definition}
+
+请读者注意：刚体（或固连在其上的三标架场$\{(e_i)^a\}$）四维角速度只有一个．
+前面我们已经分解出它的时空分量，这一部分是由于刚体质心四加速度引起的，一般说来不会为零．
+剩余纯空间部分（$\Omega^{j}_{\hphantom{j} i}$）描述三标架场$\{(e_i)^a\}$在三维空间的自转．
+式\eqref{chfd:eqn_DF-ei}表明如果三标架场$\{(e_i)^a\}$的Fermi导数为零，那么
+它的纯空间自转角速度矩阵$\Omega^{j}_{\hphantom{j} i}=0$，即没有自转；将此陈述为如下定理：
+
+\begin{theorem}\label{chfd:thm_FermiD-rotation}
+	在四维闵氏时空$(M,g)$中有一刚体，此刚体质心类时世界线为$G(\tau)$，
+	固连在刚体上的正交归一三标架场是$\{(e_i)^a\}$（类空）．
+	则，刚体（即三标架场$\{(e_i)^a\}$）
+	无自转角速度的充要条件是它沿$G(\tau)$Fermi平行，
+	即$\frac{{\rm D}_F (e_i)^a}{{\rm D}\tau}=0$．
+\end{theorem}
+
+
+下面再列举一些Fermi导数的性质．
+
+设有矢量场$u^a = u^i (e_i)^a$，即它没有$(e_0)^a\equiv Z^a$分量
+（明显有$u^a Z_a =0$），那么借助式\eqref{chfd:eqn_DF-ei}容易得到
+\begin{equation}\label{chfd:eqn_DFuz=0}
+	Z_a \frac{{\rm D}_F u^a}{{\rm D}\tau} =
+	Z_a \left( \frac{{\rm D}_F u^i}{{\rm D}\tau} (e_i)^a
+	-\Omega^{j}_{\hphantom{j} i} u^i (e_j)^a  \right) = 0.
+\end{equation}
+此式说明如果$u^a$与$Z^a$正交，那么它的Fermi导数仍旧与$Z^a$正交．
+
+
+由式\eqref{chfd:eqn_fermi-walker-fun}和Leibnitz律，
+不难得到余切矢量场$\omega_a$的运算规律：
+\begin{equation*}
+	v^a \frac{{\rm D}_F \omega_a}{{\rm D}\tau}
+	+\omega_a \frac{{\rm D}_F v^a }{{\rm D}\tau}
+	=\frac{{\rm D}_F (v^a \omega_a)}{{\rm D}\tau}
+	=v^a \nabla_Z \omega_a + \omega_a\nabla_Z v^a .
+\end{equation*}
+再由式\eqref{chfd:eqn_fermi-walker-vec}可得
+余切矢量场$\omega_a\in \mathfrak{X}^*\bigl(G(\tau)\bigr)$的Fermi导数，
+\begin{equation}\label{chfd:eqn_fermi-walker-covec}
+	\frac{{\rm D}_F \omega_a}{{\rm D}\tau} =  Z^c \nabla_c \omega_a
+	+(A_a Z_b-A_b Z_a) \omega^b = \nabla_Z \omega_a + (A_a\wedge Z_b) \omega^b.
+\end{equation}
+借助上式以及Leibnitz律，可得度规场$g_{ab}$的Fermi导数，
+\begin{equation}\label{chfd:eqn_FD-comp}
+	\frac{{\rm D}_F g_{ab}}{{\rm D}\tau}= \nabla_Z g_{ab}
+	+ (A_a\wedge Z_c) g_{\hphantom{a} b}^c + (A_b\wedge Z_c) g_{a}^{\hphantom{a} c} =0.
+\end{equation}
+此式说明Fermi导数（联络）是和度规相互容许的，这与Levi-Civita联络一样．
+
+因$g_{ab}$与Fermi导数相容，又因度规分量$g_{\mu\nu}$是常数，
+从式\eqref{chfd:eqn_DF-ei}可得
+\begin{equation}
+	\frac{{\rm D}_F (e^i)_a}{{\rm D}\tau} = g_{ab}g^{ij}\frac{{\rm D}_F (e_j)^b}{{\rm D}\tau}
+	= -\Omega^{k}_{\hphantom{k} j} (e_k)^b  g_{ab}g^{ij} =  -\Omega^{\hphantom{k} i}_{k} (e^k)_a .
+\end{equation}
+上式说明如果切矢量场$(e_i)^a$是Fermi移动不变的（即标架无自转），
+那么其对偶基矢场$(e^i)_a$也是Fermi移动不变的（即标架无自转）；
+两者具有完全相同的“自转与否”属性．
+
+通过上面分析可知，在标架$\{(e^\mu)_a\}$下，刚体$G$的四维角速度矩阵为：
+\begin{equation}\label{chfd:eqn_4DJSD}
+	\Omega_{\mu\nu}=\begin{pmatrix}
+		0 & A_1 & A_2 & A_3 \\
+		-A_1 & 0 &  \omega_3 & -\omega_2 \\
+		-A_2 & -\omega_3 & 0 & \omega_1 \\
+		-A_3 & \omega_2 & -\omega_1 & 0
+	\end{pmatrix}.
+\end{equation}
+其中$(A_1,A_2,A_3)$是刚体$G$质心的四维加速度$(A_0,A_1,A_2,A_3)$的纯空间部分；
+此加速度的分量$A_0$未必是零，但不出现在上述角速度矩阵\eqref{chfd:eqn_4DJSD}中．
+
+我们已经学过了很多导数，作一个简单的对比是有教益的，见表\ref{chfd:tab-Derivative-all}．
+
+\begin{table}[htb]
+	\centering
+	\caption{不同导数对比} \label{chfd:tab-Derivative-all}
+	\begin{tabular}{|*3{c|}}
+		\hline
+		导数名称 & 符号 & 属性 \\ \hline
+		外微分 & ${\rm d}_a$ & 只能作用于全反对称张量场；无附加结构 \\ \hline
+		普通导数 & $\partial_a $ & 只适用于局部坐标系，没有全局性；无附加结构     \\ \hline
+		协变导数 & $\nabla_a$ & 预先给定联络系数；与平行移动等价 \\ \hline
+		李导数 & $\Lie_{X}$ & 预先给定矢量场$X^a$，依赖于$X^a$的诱导单参数同胚群 \\ \hline
+		Fermi导数 & $\frac{{\rm D}_F }{{\rm D}\tau}$ &
+		预先给定类时线$G(\tau)$；借助协变导数；只适用于闵氏时空 \\ \hline
+	\end{tabular}
+\end{table}
+
+
+%\subsection{Thomas进动}
+%电子自旋的引入推动了原子物理的发展，但在早期研究中有一个“两倍”因子的困惑；
+%Thomas通过狭义相对论解决了这个问题．
+%本节我们从Fermi导数角度再次解释这个问题，主要参考了\parencite{liang_zhou2009_2}附录G.9.4；
+%也可参考文献\parencite{mtw1973}习题6.9．
+%
+%设\CJKunderwave{平直}闵氏时空（洛伦兹度规$\eta_{ab}$）中有惯性坐标系$\{t,x,y,z\}$，
+%有一绕$z$轴匀速转动的圆盘，其角速度为常数$\omega$，圆盘半径是$R$，圆盘放置在$x-y$平面上．
+%在圆盘边上放置一个有自转的陀螺仪（自转角速度是$ \boldsymbol{S}$），
+%陀螺仪随圆盘转动；所有力都作用在陀螺仪的质心上，
+%它不受额外力矩作用，故陀螺仪质心有加速度，但它的角速度$\boldsymbol{S}$不改变方向．
+%我们把$\boldsymbol{S}$提升为四维闵氏空间的四维矢量$S^a=(S^0,\boldsymbol{S})$，当$t=0$时$S^0=0$．
+%
+%角速度的大小和方向不变是好理解的，
+%例如地球绕太阳旋转，地球自转角速度就是不变的．
+%%在这个模型中，角速度$\boldsymbol{S}$大小、方向不变，可参见例\ref{chfd:exm_proper-earth}．
+%另外一个例子：电子绕原子核近似作匀速圆周运动．
+%电子自旋是内禀角动量，我们把它看成一个经典
+%三维空间的一个矢量$\boldsymbol{S}$，不考虑量子效应．
+%那么电子被模型化成了上述陀螺仪的自转角速度．
+%
+%现在的问题是：陀螺仪（作为质点）绕圆盘一周回到初始点后，陀螺仪角速度$\boldsymbol{S}$的
+%方向是否与初始时刻相重合？答案是否定的，这便是Thomas进动．
+%
+%
+%
+%陀螺仪质心世界线为$G(\tau)$，我们将实验室坐标系的$x$轴选为$t=0$时刻的
+%陀螺仪自转角速度$\boldsymbol{S}$的方向．实验室系是不随时间$t$变化的参考系；
+%从实验室系看来，固连在陀螺仪上的刚性标架$\Sigma$要随圆盘转动，是变化的．
+%在四维闵氏时空中，$\Sigma$不是平行移动不变的，而是Fermi移动不变的；
+%故我们需要用Fermi--Walker移动来处理这个问题．
+%
+%陀螺仪质心世界线在实验室的惯性坐标系$X\equiv\{t,x,y,z\}$中的参数表达式为
+%\begin{equation}
+%    t=\gamma \tau, \quad x=R \cos \omega \gamma \tau, \quad y=R \sin \omega \gamma \tau, \quad z=0,
+%\end{equation}
+%$\tau$是陀螺仪的固有时，
+%洛伦兹因子$\gamma \equiv\left(1-\omega^2 R^2\right)^{-1 / 2}$，
+%$R\omega$是圆盘半径处的线速度．
+%陀螺仪四速度$Z^a \equiv(\partial / \partial \tau)^a|_{G(\tau)}$及其
+%四加速$A^a \equiv Z^b \partial_b Z^a$在实验室系的坐标分量分别为
+%\begin{align}
+%    Z^\mu(\tau)=& \frac{\mathrm{d} x^\mu}{\mathrm{d} \tau}=\left(\gamma,\ 
+%       -R \omega \gamma \sin \gamma \omega \tau,\  R \omega \gamma \cos \gamma \omega \tau,\  0 \right), \\
+%    A^\mu(\tau)=& \frac{\mathrm{d} Z^\mu}{\mathrm{d} \tau}=\left(0,\ 
+%       -R \omega^2 \gamma^2 \cos \gamma \omega \tau,\ -R \omega^2 \gamma^2 \sin \gamma \omega \tau,\ 0\right) .
+%\end{align}
+%由$S^a$ 沿 $G(\tau)$ Fermi移动不变可得
+%\begin{equation*}
+%    0=\frac{\mathrm{D}_{\mathrm{F}} S^a}{\mathrm{D} \tau}= \nabla_Z S^a
+%    +\left(A^a Z^b-A^b Z^a\right) S_b= \nabla_Z S^a +Z^a R \omega^2 \gamma^2
+%    \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right),
+%\end{equation*}
+%其中 $S_1$ 和 $S_2$ 是 $S_a=\eta_{ab}S^b$ 的坐标分量．由上式可得$S^a$满足的常微分方程组
+%\begin{subequations}
+%\begin{align}
+%    & \frac{\mathrm{d} S^0}{\mathrm{d} \tau}=-R \omega^2 \gamma^3
+%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
+%    & \frac{\mathrm{d} S^1}{\mathrm{d} \tau}=+R^2 \omega^3 \gamma^3 \sin \gamma \omega \tau
+%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
+%    & \frac{\mathrm{d} S^2}{\mathrm{d} \tau}=-R^2 \omega^3 \gamma^3 \cos \gamma \omega \tau
+%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
+%    & \frac{\mathrm{d} S^3}{\mathrm{d} \tau}=0 .
+%\end{align}
+%\end{subequations}
+%上列常微分方程组在初始条件 $S^1(0)=1, S^0(0)=S^2(0)=S^3(0)=0$下的解为：
+%\begin{subequations}\label{chfd:eqn_tav}
+%\begin{align}
+%    & S^0(t)=-R \omega \gamma \sin \gamma \omega t, \\
+%    & S^1(t)=\cos \omega t \cos \gamma \omega t+\gamma \sin \omega t \sin \gamma \omega t, \\
+%    & S^2(t)=\sin \omega t \cos \gamma \omega t -\gamma \cos \omega t \sin \gamma \omega t, \\
+%    & S^3(t)=0 .
+%\end{align}
+%\end{subequations}
+%上式中，我们已改用实验室系的时间坐标$t$为自变量．
+%容易验证$\eta_{ab}Z^a S^b=0$；
+%$S^0(t)$ 的存在是为保证 $S^a(t)$ 是 $G(\tau)$ 上的纯空间矢量．
+%
+%为消除非零$S^0(t)$带来的影响，
+%我们将坐标系$X\equiv\{t,x,y,z\}$绝对平移至陀螺仪质心上，
+%记作$\overline{X}\equiv\{\bar{t},\bar{x},\bar{y},\bar{z}\}$；
+%$X$和$\overline{X}$对应坐标轴相互平行、同向；
+%与静止的$X$不同，$\overline{X}$坐标原点是有速度的，就是陀螺仪
+%质心的三速度$\boldsymbol{v}=\left(-R \omega \sin \omega t,\  
+%R \omega \cos \omega t,\  0 \right)$．
+%利用洛伦兹变换\eqref{chlg:eqn_lorentz-matrix-any-v}可将$X$系中的
+%角速度$S^a(t)=(S^0,S^1,S^2,S^3)$（式\eqref{chfd:eqn_tav}）变换到系$\overline{X}$中；
+%变换只需直接进行矩阵计算$\overline{S}^a(t)=B(\boldsymbol{v})\cdot S^a(t)$，计算略显繁琐．
+%一般说来式\eqref{chlg:eqn_lorentz-matrix-any-v}只适用于原点重合的两个坐标系，
+%但角速度是描述刚体的物理量，是与任何点（包括原点）无关的量；故可直接使用该式，
+%而无需平移原点．计算结果是：
+%\begin{equation}
+%    \overline{S}^0(t)=0=\overline{S}^3(t) ,\quad
+%    \overline{S}^1(t)= \cos\bigl((\gamma-1)\omega t\bigr) ,\quad
+%    \overline{S}^2(t)= -\sin\bigl((\gamma-1)\omega t\bigr) .
+%\end{equation}
+%也就是
+%\begin{equation}
+%    \overline{S}^a(t)= \left(\frac{\partial}{\partial \bar{x}}\right)^a \cos\bigl((\gamma-1)\omega t\bigr) 
+%    -\left(\frac{\partial}{\partial \bar{y}}\right)^a \sin\bigl((\gamma-1)\omega t\bigr) .
+%\end{equation}
+%上两式的物理意义十分明确：陀螺仪的角速度$\boldsymbol{S}$是一个转动着的纯空间矢量，
+%这种转动就是{\heiti \bfseries Thomas进动}．
+%从参考系$\overline{X}$来看，转动角速度是：
+%\begin{equation}
+%    \boldsymbol{\omega}_T = (\gamma -1) \omega \boldsymbol{e}_z .
+%\end{equation}
+%当转动速度较低时，$\gamma \approx 1$，$\boldsymbol{\omega}_T \approx 0$，比如地球绕太阳转动．
+%但像电子绕原子核旋转则不然，此时的转动线速度可以与光速相比拟，此时Thomas进动不可忽略．
+%
+%
+%
+%
+%还可以把Thomas进动看成实施无穷多个无穷小洛伦兹变换之积，可参见\parencite[\S 11.8]{jackson1998}．
 
 
 
@@ -964,6 +1373,277 @@ $\Sigma'$是超曲面$\Sigma$的切矢量场．
 
 
 
+%\section{参考系续}\label{chfd:sec_reference-frame}
+
+%我们继续\S\ref{chfd:sec_oberver}的讨论．
+
+\subsection{邻居}
+
+\begin{definition}\label{chfd:def_neighbor}
+	设有参考系$Z^a$，$G(\tau;z,Z^a)$是其中一个观测者．
+	如果\CJKunderwave{存在}$G(\tau;z,Z^a)$上的矢量场$\eta^a \in \mathfrak{X}
+	\bigl(G(\tau;z,Z^a)\bigr)$使得
+	$w^a=h^a_b \eta^b$并且$\Lie_{Z}\eta^a =0$，
+	那么称$w^a$是$G(\tau;z,Z^a)$的{\heiti 邻居}（neighbor）．
+\end{definition}
+
+现在有了类时切矢量场$Z^a$，依照\S\ref{chsm:sec_3+1decomposition}中叙述，
+可以将时空$M$作1+3分解为类空超曲面族$\{\Sigma_{\tau}\}$；
+$h_{ab}=g_{ab}+ Z_a Z_b$便是$\Sigma_{\tau}$上的诱导度规场．
+将$h_{ab}=g_{ab}+ Z_a Z_b$限制在$G(\tau)$上取值，
+那么$h_{ab}$便是积分曲线$G(\tau)$上的投影算符．
+设$\eta^a$是$G(\tau)$上的光滑矢量场，
+即$\eta^a \in \mathfrak{X}\bigl(G(\tau)\bigr)$，
+那么它被$h_{ab}$投影后的矢量为$w^a=h^a_b \eta^b = \eta^a+Z^a Z_b \eta^b$，
+很明显有$w^a Z_a=0$．
+
+
+参考\S\ref{chgd:sec_arc-variation}，我们把$Z^a$看成基准曲线的切线切矢量，
+把$\eta^a$看成横截曲线的切线切实量；那么有$Z^a=(\frac{\partial}{\partial \tau})^a$和
+$\eta^a=(\frac{\partial}{\partial s})^a$，这种看法基本解决了$\eta^a$的存在性问题．
+或忽略“存在性”问题，我们直接假定存在满足定义\ref{chfd:def_neighbor}中各种条件的$\eta^a$．
+虽然有$\Lie_{Z}\eta^a =0$，但一般说来$\Lie_{Z} w^a \neq 0$；
+容易算出$[Z,w]^a = Z^a (\eta^b A_b)$ ，其中$A^a=\nabla_Z Z^a$；
+很明显，对于测地参考系有$\Lie_{Z} w^a =0$．
+
+
+
+%\begin{align*}
+%    \Lie_{Z}w^a =& [Z,w]^a= \nabla_Z(h^a_b \eta^b) - \nabla_w Z^a
+%    =\nabla_Z(\eta^a+Z^a Z_b\eta^b) - \nabla_\eta Z^a - (Z_b \eta^b)\nabla_Z Z^a \\
+%    =& \nabla_Z \eta^a + (Z_b\eta^b)\nabla_Z Z^a +  Z^a \nabla_Z( Z_b\eta^b)
+%     - \nabla_\eta Z^a - (Z_b\eta^b)\nabla_Z Z^a
+%    = Z^a \nabla_Z( Z_b\eta^b) \\
+%    =& Z^a Z_b \nabla_Z \eta^b + Z^a \eta^b\nabla_Z Z_b
+%    = -Z^a Z_b \nabla_\eta Z^b + Z^a (\eta^b A_b)
+%    = Z^a (\eta^b A_b) .
+%\end{align*}
+
+
+
+
+设有观测者$Z^a$和它的类时世界线$G(t)$  %（已将原来的$\tau$换成了$t$），
+借助邻居定义\ref{chfd:def_neighbor}和Fermi导数定义三速度和三加速度
+\begin{align}
+	&u^a \overset{def}{=} \frac{{\rm D}_F w^a}{{\rm D} t}. \label{chfd:eqn_3v} \\
+	&a^a \overset{def}{=} \frac{{\rm D}_F u^a}{{\rm D} t}. \label{chfd:eqn_3a}
+\end{align}
+在邻居定义中，我们已经知道$w^a Z_a=0$，而Fermi导数的属性\eqref{chfd:eqn_DFuz=0}保证了
+$u^a Z_a=0$，$a^a Z_a=0$．这也符合我们通常的认知，
+即三维速度、三维加速度应是空间矢量，不包含时间维度分量．
+
+从平直空间到弯曲空间，推广的导数有着众多定义，见表\ref{chfd:tab-Derivative-all}；
+这些定义退化到平时空间时都与普通偏导数等价，但在弯曲流形上却各不相同，
+需要根据需求来选择哪种导数．
+与此类似，三速度、三加速度是相对量，有着不同的定义，
+只要这些定义在平直空间能退化到牛顿力学中的定义就有合理成分；
+除此以外，这些定义还需满足自洽，比如不能超光速．
+通过不同途径推广的三速度、三加速度可能不会完全相同．
+
+在式\eqref{chfd:eqn_fra}中，我们将
+三速度定义成$u^i\equiv \frac{{\rm d} x^i}{{\rm d} t}$，
+三加速度定义成$a^i\equiv \frac{{\rm d}^2 x^i}{{\rm d} t^2}$．
+在一个给定坐标系内，用分量来定义这些空间矢量自然是合理的．
+
+我们计算出上面利用Fermi导数定义的三速度：
+\begin{align*}
+	u^a=&\frac{{\rm D}_F w^a}{{\rm D} \tau}
+	=\frac{{\rm D}_F h^a_b \eta^b}{{\rm D} \tau}
+	\xlongequal[\ref{chfd:eqn_DF-Z=0}]{\ref{chfd:eqn_FD-comp}}
+	h^a_b \frac{{\rm D}_F  \eta^b}{{\rm D} \tau}
+	=h^a_b\nabla_Z \eta^b + A^a Z^c \eta_c  \\
+	=& (\delta^a_b +Z^a Z_b) \nabla_\eta Z^b
+	+ Z^c \eta_c \nabla_Z Z^a
+	= \nabla_\eta Z^a  + \cancel{Z^a Z_b \nabla_\eta Z^b }
+	+ Z^c \eta_c \nabla_Z Z^a \\
+	=&(\eta^b + Z^c \eta_c Z^b) \nabla_b Z^a
+	=(\delta^b_c + Z_c  Z^b) \eta^c \nabla_b Z^a .
+\end{align*}
+由上式最后一步可以得到，对于任意参考系，式\eqref{chfd:eqn_3v}具体表达式为
+\begin{equation}\label{chfd:eqn_v3-Fermi}
+	u^a = \frac{{\rm D}_F w^a}{{\rm D} \tau} = w^b \nabla_b Z^a.
+\end{equation}
+来计算非测地线的三加速度（注意应用$w^b A_b= (\eta^b + Z^b Z_c\eta^c)A_b = \eta^b A_b$）
+\setlength{\mathindent}{0em}
+\begin{align*}
+	&a^a= \frac{{\rm D}_F u^a}{{\rm D} \tau}=\nabla_Z \nabla_w Z^a - A^b u_b Z^a
+	=\nabla_w \nabla_Z Z^a + \nabla_{[Z,w]} Z^a + R^a_{bcd}Z^c w^d Z^b  - A^b u_b Z^a \\
+	&=\nabla_w A^a + R^a_{00d} w^d + \eta^bA_b A^a -  Z^a A_b  \nabla_w Z^b
+	=\left( \nabla_b A^a + R^a_{00b} + A_b A^a - Z^a A_c\nabla_b Z^c \right)w^b.
+\end{align*}\setlength{\mathindent}{2em}
+由此得到一般参考系的三加速度是（即式\eqref{chfd:eqn_3a}的具体表达式）
+\begin{equation}\label{chfd:eqn_a3-Fermi}
+	a^a = \left( h^a_c \nabla_b A^c + R^a_{cdb}Z^cZ^d + A_b A^a  \right)w^b .
+\end{equation}
+
+
+
+
+%\subsection{测地偏离方程}\label{chfd:sec_geo-dev}
+%%本节对比牛顿力学中的潮汐力与相对论中的测地偏离方程．
+%
+%参考系变换的不变量（不含协变量）是绝对量，一般只能是标量．
+%
+%一阶及以上阶的张量是协变量，都不是绝对量；都需事先选一个坐标系，才能
+%进一步讨论它们．
+%比如讨论$A$的速度$U^a_A$和$B$的速度$U^a_B$，
+%把$A$当参考系，$U^a_B$才可能有意义．
+%可能有读者觉得我的四速度$U^a$不是绝对的吗？这要从固有时定义说起，
+%固有时定义为你手中钟（相对你自己静止不动）的走时，四速度定义
+%为沿你世界线的切矢量（参数必须是固有时）．所以说
+%你先选择你自己当参考系，然后再定义四速度、四加速度；从这个角度来说
+%这些量也是相对的．
+%
+%物理上没有一种特殊的参考系来测量一个物体的加速度，
+%我们能采用最好的方法就是取两个邻近的物体来测量它们的相对加速度；
+%这种方法可用来测量引力场梯度．
+%
+%
+%
+%
+%
+%
+%
+%设有测地参考系$Z^a$，$G(\tau)$是其中一个观测者，$w^a$是观测者的一个邻居；
+%那么邻居$w^a$的三加速度（测地偏离方程）可由式\eqref{chfd:eqn_a3-Fermi}简化而来，
+%只需令其中的四加速为零即可
+%\begin{equation}\label{chfd:eqn_deviation-acceleration}
+%    a^a = R^a_{cdb} Z^d w^b Z^c.
+%\end{equation}
+%这与Jacobi方程\eqref{chgd:eqn_Jacobi-componet}完全相同，它们
+%都可以称为{\heiti 测地偏离方程}：
+%\begin{equation}
+%    \frac{{\rm d}^2 J_i(s)}{{\rm d} s^2} =R_{i00j}\bigl(C(s)\bigr) J^j(s) .
+%    \tag{\ref{chgd:eqn_Jacobi-componet}}
+%\end{equation}
+%两条曲线分离的相对加速度．
+
+
+
+
+
+
+\subsection{类时线汇}\label{chfd:sec_tlc}
+四速度的协变导数（$\nabla_b Z^a$）一般并非空间矢量，我们作其投影
+\begin{equation}
+	B_{ab} \overset{def}{=} h_a^c h_b^d \nabla_d Z_c
+	%    =(\delta^c_a \delta_b^d + Z_a  Z^c\delta_b^d  +\delta^c_a Z_b  Z^d + Z_a  Z^c Z_b  Z^d)\nabla_d Z_c
+	%    =\delta^c_a \delta_b^d \nabla_d Z_c+ Z_a  Z^c\delta_b^d \nabla_d Z_c
+	%      +\delta^c_a Z_b  Z^d \nabla_d Z_c + Z_a Z^c Z_b Z^d\nabla_d Z_c
+	=\nabla_b Z_a + Z_b A_a .
+\end{equation}
+很明显有$Z^a B_{ab}=0=Z^b B_{ab}$，故$B_{ab}$是空间张量场；
+但一般说来它不是对称的．
+
+仿照（牛顿力学中的）连续介质力学，
+我们将其分解为对称和反对称部分，
+\begin{equation}
+	\theta_{ab}\overset{def}{=}  B_{(ab)}; \qquad
+	\omega_{ab}\overset{def}{=}  B_{[ab]}. \qquad
+	B_{ab} = \theta_{ab}+ \omega_{ab} .
+\end{equation}
+其中对称部分$\theta_{ab}$还可以进一步分解为零迹和球对称部分
+\begin{equation}
+	\theta \overset{def}{=} g^{ab} \theta_{ab} = h^{ab} \theta_{ab} . \qquad
+	\sigma_{ab}\overset{def}{=} \theta_{ab} -\frac{1}{3}\theta h_{ab} .
+\end{equation}
+最终，有
+\begin{equation}
+	B_{ab} = \frac{1}{3}\theta h_{ab} + \sigma_{ab}+ \omega_{ab} . \quad
+\end{equation}
+故三速度可以表示成
+\begin{equation}
+	u^a= B_{\hphantom{a} b}^a w^b = \frac{1}{3}\theta w^a + \sigma_{b}^a w^b + \omega_{\hphantom{a} b}^a w^b .
+\end{equation}
+
+与连续介质力学相似，在相对论中
+$\theta$表示体膨胀，$\theta_{ab}$表示膨胀，$\sigma_{ab}$表示剪切，
+$\omega_{ab}$表示（刚体）旋转．
+
+\begin{definition}
+	$\theta_{ab}=0$的参考系称为{\heiti 刚性参考系}．
+\end{definition}
+\begin{definition}
+	$\omega_{ab}=0$的参考系称为{\heiti 无旋参考系}或{\heiti 与超曲面正交参考系}．
+\end{definition}
+证明过程很简单
+\begin{equation}
+	Z_{[c} \nabla_{b} Z_{a]}= Z_{[c}B_{ab]} = Z_{[c}\omega_{ab]}.
+\end{equation}
+如果$\omega_{ab}=0$，则必有$Z_{[c} \nabla_{b} Z_{a]}$．
+反之，如果超曲面正交（$Z_{[c} \nabla_{b} Z_{a]}$），
+则$Z_{[c}\omega_{ab]}$，将之展开有
+\begin{equation}
+	0 = Z_{c}\omega_{ab} + Z_{a}\omega_{bc} + Z_{b}\omega_{ca} \quad \Rightarrow \quad
+	\omega_{ab}=Z_{a} Z^c\omega_{bc} + Z_{b}Z^c\omega_{ca}=0.
+\end{equation}
+
+看一下$B_{ab}$沿线$G(\tau)$（未必是测地线）的导数（$G(\tau)$切矢量是$Z^a$）
+\begin{align*}
+	\nabla_Z  B_{ab} =&  \nabla_Z (\nabla_b Z_a + Z_b A_a)
+	= Z^c\nabla_c\nabla_b Z_a + A_a \nabla_Z Z_b+ Z_b\nabla_Z A_a \\
+	\xlongequal{\ref{chccr:eqn_Riemannian13-CoVec-commutator}}&
+	Z^c\nabla_b\nabla_c Z_a - Z^c R^e_{acb} Z_e
+	+ A_a A_b + Z_b\nabla_Z A_a \\
+	=& \nabla_b(Z^c\nabla_c Z_a) -(\nabla_b Z^c) \nabla_c Z_a - R_{eacb}Z^c Z^e
+	+ A_a A_b + Z_b\nabla_Z A_a .
+\end{align*}
+由最后一式可知
+\begin{equation}\label{chfd:eqn_DBab}
+	\nabla_Z  B_{ab} = \nabla_b A_a + A_a A_b + Z_b\nabla_Z A_a -g^{dc} B_{db} B_{ac} + R_{eabc}Z^c Z^e .
+\end{equation}
+先算几个公式备用
+\begin{align*}
+	-g^{dc} B_{db} B_{ac}= &
+	-g^{dc} \Bigl(\frac{1}{9}\theta^2 h_{db} h_{ac}
+	+ \frac{1}{3}\theta h_{ac}\sigma_{db}+ \frac{1}{3}\theta h_{ac} \omega_{db}
+	+\frac{1}{3}\theta h_{db}\sigma_{ac} + \sigma_{db}\sigma_{ac} \\
+	& + \omega_{db}\sigma_{ac} +\frac{1}{3}\theta h_{db}\omega_{ac}
+	+ \sigma_{db}\omega_{ac}    + \omega_{db}\omega_{ac}\Bigr) \\
+	=&-\frac{1}{9}\theta^2 h_{ab}
+	- \frac{2}{3}\theta\sigma_{ab} - \frac{2}{3}\theta \omega_{ab}
+	- \sigma_{b}^c\sigma_{ac} - \omega_{cb}\sigma_{a}^c
+	- \sigma_{b}^c\omega_{ac} - \omega_{a}^{\hphantom{a} d}\omega_{db}
+\end{align*}
+
+先计算旋转沿测地线变化，需要把式\eqref{chfd:eqn_DBab}中的下标$ab$取反对称操作，
+\begin{equation}\label{chfd:eqn_Domega}
+	\begin{aligned}
+		\nabla_Z \omega_{ab}=& \nabla_{[b} A_{a]} + A_{[a} A_{b]} + Z_{[b}\nabla_Z A_{a]}
+		-g^{dc} B_{d{[b}} B_{{a]}c} + R_{e[ab]c}Z^c Z^e  \\
+		=& - \frac{2}{3}\theta \omega_{ab}
+		- \omega_{cb}\sigma_{a}^c + \sigma_{b}^c\omega_{ca}
+		+ \nabla_{[b} A_{a]} + {\color{red}Z_{[b}\nabla_Z A_{a]} }.
+	\end{aligned}
+\end{equation}
+计算较为简单，直接展开即可相消．
+
+下面计算$\nabla_Z \theta_{ab}$，需要把式\eqref{chfd:eqn_DBab}中的下标$ab$取对称操作，
+\begin{equation}\label{chfd:eqn_Dtheta}
+	\begin{aligned}
+		\nabla_Z \theta_{ab} = & %\nabla_Z B_{(ab)} =
+		\nabla_{(b} A_{a)} + A_{(a} A_{b)} + Z_{(b}\nabla_Z A_{a)}
+		-g^{dc} B_{d(b} B_{a)c} + R_{e(ab)c}Z^c Z^e  \\
+		=& \nabla_{(b} A_{a)} + A_{a} A_{b}  + R_{eabc}Z^c Z^e
+		-\frac{1}{9}\theta^2 h_{ab}  \\
+		&- \frac{2}{3}\theta\sigma_{ab}
+		- \sigma_{b}^c\sigma_{ac} - \omega_{a}^{\hphantom{a} d}\omega_{db}
+		+ {\color{red}Z_{(b}\nabla_Z A_{a)}} .
+	\end{aligned}
+\end{equation} %\setlength{\mathindent}{2em}
+对上式求迹，可得{\bfseries \heiti Raychaudhuri方程}，
+\begin{equation}\label{chfd:eqn_Raychaudhuri}
+	\nabla_Z\theta= \nabla^{a} A_{a}
+	- \frac{1}{3}\theta^2 - \sigma^{ac}\sigma_{ac}
+	+ \omega^{ac}\omega_{ac} - R_{ce}Z^c Z^e .
+\end{equation}
+
+剪切随线导数公式可
+由$\nabla_Z \sigma_{ab}= \nabla_Z \theta_{ab} - \frac{1}{3} \nabla_Z(h_{ab}\theta)$算出，
+计算较为复杂，略．
+
+在本小节中，只要令$A^a=0$即可得到类时测地线的相应公式．
+
 
 
 
@@ -1115,396 +1795,6 @@ A地和B地的两个时钟必须是处在同一个惯性参考系，不能分别
 
 
 
-\section{Fermi--Walker导数}
-本节较多参考了文献\parencite[\S 4.1]{hawking-ellis1973}、\parencite[\S 6.5]{mtw1973}．
-
-研究刚体运动是十分必要的，地球就可以近似看成刚体，我们生活在这个刚体的表面上．
-在牛顿运动学中，质点需要用速度来描述；刚体除了速度之外，还必须引入角速度来描述．
-Fermi--Walker导数是为了研究如何在四维闵氏时空$(M,g)$中定义无自转角速度标架场而引入的；
-转动自然属于刚体的性质，为此先复习经典力学中的刚体运动学．
-
-\subsection{牛顿力学中的刚体运动}
-先回顾一下三维经典力学中的刚体理论，可参阅文献\parencite[Ch. 3]{zhuzx-zy-vI}．
-
-{\bfseries (1)} 角速度$\boldsymbol{\omega}$是用于描述刚体的物理量，它是轴矢量（或赝矢量）；质点
-没有角速度或角动量的概念{\footnote{可能有读者会质疑此点，他会说把
-        绕太阳旋转的地球看成质点，那地球不就有了角速度、角动量了吗？
-        其实这种观点是认为太阳和地球间有一根无质量的刚性杆，这根作为刚体
-        的杆自然可以有角速度；但作为质点的地球没有角速度．}}．
-角速度是描述整个刚体运动的一个物理量，不存在刚体上
-某点角速度的概念，或者说刚体上任意一点的角速度皆相同．
-
-{\bfseries (2)} 轴矢量性质只在坐标系左右手变化时才会体现，
-如果只在右手（或左手）坐标系内研究问题，轴矢量和普通矢量一样．
-角速度除了用一个矢量来表示外，还可以用一个$3\times 3$的反对称矩阵来表示．
-用矩阵表示时，没有轴矢量性质，在左右手坐标系变换时，表述具有不变性，无需
-额外增加负号．刚体角速度$\boldsymbol{\omega}$与$3\times 3$反对称矩阵是
-一一对应的；比如$\boldsymbol{\omega}=(\omega_x,\omega_y,\omega_z)$，那么
-\begin{equation}\label{chfd:eqn_jsd}
-    \Omega=\begin{pmatrix}
-        0 &  \omega_z & -\omega_y \\
-        -\omega_z& 0 & \omega_x \\
-        \omega_y & -\omega_x & 0
-    \end{pmatrix}
-    \ \Leftrightarrow \
-    \Omega_{ij}= \epsilon_{ijk} \omega_k
-    \ \Leftrightarrow \
-    \omega_k = \frac{1}{2}\epsilon_{ijk} \Omega_{ij} .
-\end{equation}
-
-{\bfseries (3)} 研究固连在刚体上的一个三维刚性标架（指三个非共面矢量，且大小和矢量间夹角不随时间变化），
-与研究刚体运动本身是等价的．通常情况下，都是研究这个刚性标架
-如何运动；这个刚性标架角速度自然是刚体角速度．
-
-{\bfseries (4)} 任意矢量$\boldsymbol{G }$在两个参考系（绝对和相对）中变化率公式是
-（见\parencite[\S 3.6]{zhuzx-zy-vI}第218页(3.34)式）
-\begin{equation}\label{chfd:eqn_Grate-rigid}
-    \left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{绝对}} =
-    \left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{相对}}
-    + {\boldsymbol{\omega}} \times \boldsymbol{G} .
-\end{equation}
-本节不考虑物体相对刚体的运动，
-所以等号后面的那个时间导数恒为零，即$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{相对}}=0$；
-只剩下一项$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{绝对}}={\boldsymbol{\omega}} \times \boldsymbol{G}$．
-
-由于我们关心的刚体角速度，所以可忽略刚体的平动，只研究刚体的定点运动．
-将式\eqref{chfd:eqn_Grate-rigid}换成$3\times 3$反对称角速度矩阵形式（省略相对项）
-\begin{equation}\label{chfd:eqn_Grate-rigid-matrix}
-    \left(\frac{{\rm d} \boldsymbol{G }^i}{{\rm d} t}\right)_{\text{绝对}} =
-     - \sum_{j=1}^{3}{\boldsymbol{\Omega}^{ij}}  \boldsymbol{G}^j .
-\end{equation}
-
-{\bfseries (5)} 由上式可以得到一个质点的一般运动公式
-\begin{equation}\label{chfd:eqn_NM-a}
-    \boldsymbol{a}=  \boldsymbol{A}_{O}
-        +2 \boldsymbol{\omega}\times \boldsymbol{u}
-    + \dot{\boldsymbol{\omega}}\times \boldsymbol{x}
-    + \boldsymbol{\omega}\times (\boldsymbol{\omega}\times \boldsymbol{x}) .
-\end{equation}
-
-
-{\bfseries (6)} 就像描述质点速度$\boldsymbol{v}$一样，描述刚体的角速度$\boldsymbol{\omega}$只有一个，
-它们都有三个分量，不论哪个分量发生变化都变成了另外一个状态，不再是原来的状态．
-刚体不存在绕$x,y,z$的三个角速度的概念，它们是同一个角速度的三个分量
-（这很容易想明白，一个质点只有一个速度$\boldsymbol{v}$，它有三个分量，
-但绝不能说一个质点有三个速度）．
-可能有的读者认为可以在角速度上叠加一个量不影响物理，比如令
-${\boldsymbol{\omega}}' = {\boldsymbol{\omega}} + \lambda \boldsymbol{G}$，则
-${\boldsymbol{\omega}}' \times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}+
-\lambda \boldsymbol{G}\times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}$，
-我们可以说${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$对应同一
-物理状态吗？显然不可以！上面推导只针对某一个特定矢量$\boldsymbol{G}$是正确的，
-但\eqref{chfd:eqn_Grate-rigid}对任意矢量都正确；同一物理问题中会处理
-很多物理量，除了$\boldsymbol{G}$外，还处理另外多个矢量$\boldsymbol{H}_i$；那么对于$\boldsymbol{H}_i$而言，
-${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$便对应不同物理状态了．
-更不可能给每个$\boldsymbol{H}_i$找个新的${\boldsymbol{\omega}}^{\prime}_{i}$与之对应．
-{\footnote{举个简单的例子，地球的角速度大概是每天1转，如果把地球角速度
-        改成每天10转，或者叠加一个与现在角速度不同向的新角速度（比如方向躺在赤道面上），
-        地球的自转肯定对应新的物理状态了．
-        }}
-
-
-\subsection{四维时空刚体运动}
-现在探讨四维时空的刚体运动．
-三维空间的角速度关系很难向四维空间推广
-{\footnote{三维空间角速度${\boldsymbol{\omega}}$不能推广到四维空间，
-一个直观的原因是“叉乘”只在三维空间有定义（略去七维空间不表），
-比如三维空间中速度是$\boldsymbol{v}={\boldsymbol{\omega}} \times \boldsymbol{r}$，
-但它无法推广到四维空间．
-例如设平直四维欧式空间有四个正交归一基矢$e_\mu$，
-那么前两个基矢的叉乘（$e_1 \times e_2 =?$）朝着哪个方向呢？
-$e_3$还是$e_4$？}}；
-而角速度的反对称矩阵表示却容易推广到四维空间，
-此时它是一个反对称二阶张量．
-
-选择固连在刚体上的一个三标架$(e_i)^a, i=1,2,3$（类空），为了方便要求它们
-正交归一，即$g_{ab}(e_i)^a(e_j)^b=\delta_{ij}$．
-刚体的质心在时空中是一条指向未来的类时线$G(\tau)$，其中$\tau$是弧长
-参数，也就是固有时．把这条类时线
-的切线切矢量$Z^a\equiv (e_0)^a = (\partial _\tau)^a$当成第零坐标轴，
-$Z^a$与其它三个标架都正交，这样便构成了一个四标架；
-也即是说在这个四标架场中度规$g_{ab}$分量是${\rm diag}(-1,1,1,1)$．
-因三标架$\{(e_i)^a\}$是固连在刚体上的，故研究
-$\{(e_i)^a\}$的运动行为就相当于研究刚体的运动行为了．
-
-
-这个四标架场是活动标架场；我们只研究刚体定点运动．
-四标架场$(e_\mu)^a$沿类时线$G(\tau)$的变化一定可以展开成
-基矢场\{$(e_\mu)^a\}$的一个组合
-\begin{equation}\label{chfd:eqn_4djsd-mat}
-    \nabla_{\partial _\tau} (e_\mu)^a = - \Omega^{\nu}_{\hphantom{\nu}\mu} (e_\nu)^a
-     = - \Omega^a_{\hphantom{a} b} (e_\mu)^b; \qquad\text{其中}\,
-     \Omega^a_{\hphantom{a} b}=\Omega^{\nu}_{\hphantom{\nu}\mu}(e_\nu)^a (e^\mu)_b .
-\end{equation}
-展开系数是$\Omega^{\nu}_{\hphantom{\nu}\mu}$．这是容易理解的，
-因$Z^c \nabla_c (e_\mu)^a$仍是时空$M$上的切矢量场，故
-它一定可以在局部标架场$\{(e_\mu)^a\}$上展开．
-由于考虑的是刚性正交归一标架，
-$g_{\mu\nu}={\rm diag}(-1,1,1,1)$，那么，有
-\begin{align}
-    0&\equiv Z^c \nabla_c \bigl[g_{ab}(e_\mu)^a (e_\nu)^b\bigr]
-    = (e_\mu)_b Z^c \nabla_c \bigl[(e_\nu)^b\bigr]
-    +(e_\nu)_a Z^c \nabla_c \bigl[(e_\mu)^a \bigr] \notag \\
-    &=-(e_\mu)_b \Omega^{\rho}_{\hphantom{\rho}\nu} (e_\rho)^b
-    -(e_\nu)_a \Omega^{\rho}_{\hphantom{\rho}\mu} (e_\rho)^a
-    =-\Omega^{}_{\mu\nu}- \Omega^{}_{\nu\mu} .
-\end{align}
-也就是说$\Omega^{}_{\mu\nu}$关于下标反对称，其对角元全部为零；
-这说明其纯空间部分$\Omega^{}_{ij}(1\leqslant i,j \leqslant 3)$对应
-一个空间转动角速度$\boldsymbol{\omega}$．
-对比牛顿力学中（三维空间）定点运动角速度矩阵公式\eqref{chfd:eqn_Grate-rigid-matrix}，
-可以把式\eqref{chfd:eqn_4djsd-mat}中的$\Omega^a_{\hphantom{a} b}$定义
-成\CJKunderwave{四维}空间中的{\heiti 角速度矩阵}，它由三维空间的推广而来．
-而且，式\eqref{chfd:eqn_4djsd-mat}很明显能退化到
-三维情形\eqref{chfd:eqn_Grate-rigid-matrix}．
-式\eqref{chfd:eqn_4djsd-mat}中的四维闵氏空间刚体角速度
-矩阵$\Omega_{ab}$（已用度规$g_{ab}$将指标降下）与
-三维空间角速度矩阵的属性大体相同；例如刚体只有一个四维角速度，
-它有6个分量（四维反对称矩阵）；……
-
-我们来看一下四维角速度矩阵$\Omega^a_{\hphantom{a} b}$的分量是什么．对于第〇基矢，有
-\begin{equation}\label{chfd:eqn_tmp-DZ0}
-    Z^c \nabla_c (e_0)^a =Z^c \nabla_c Z^a= A^a =- \Omega^{\nu}_{\hphantom{\nu} 0} (e_\nu)^a .
-\end{equation}
-其中$A^a$是把刚体质心的四维加速度．
-由于$A^a$一定是空间矢量，那么有$\Omega^{0}_{\hphantom{0} 0}=0$和$\Omega^{i}_{\hphantom{i} 0}=-A^i$；
-由此不难得到$\Omega_{i0}=-A_i=-\Omega_{0i}$和$\Omega^{0}_{\hphantom{0} i}=-A_i$．
-这说明刚体角速度的时空分量（$\Omega^{0}_{\hphantom{0} i}$）由该刚体质心的四加速度完全确定．
-对于第$i$基矢，有
-\begin{equation} \label{chfd:eqn_tmp-Dei}
-\begin{aligned}
-    Z^c \nabla_c (e_i)^a &= -\Omega^{\nu}_{\hphantom{\nu} i} (e_\nu)^a
-    =-\Omega^{0}_{\hphantom{0} i} (e_0)^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a
-    =A_i Z^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a  \\
-    &=(A^b Z^a - A^a Z^b) (e_i)_b-\Omega^{j}_{\hphantom{j} i} (e_j)^a  .
-\end{aligned}
-\end{equation}
-上式最后一步利用了$Z^b$只有第零分量这一性质，即$Z^b(e_i)_b=0$．
-
-结合第〇和第$i$基矢的公式，定义{\bfseries \heiti Fermi--Walker导数}为：
-\begin{align}
-    &\frac{{\rm D}_F f}{{\rm D}\tau} \overset{def}{=} \frac{{\rm d} f}{{\rm d}\tau}
-      \equiv\left(\frac{\partial}{\partial \tau}\right)^b \nabla_b f
-      \equiv Z^b \nabla_b f,
-      \qquad \forall f\in C^\infty\bigl(G(\tau)\bigr). \label{chfd:eqn_fermi-walker-fun} \\
-    &\frac{{\rm D}_F v^a}{{\rm D}\tau} \overset{def}{=}
-      Z^c \nabla_c v^a +(A^a Z^b-A^b Z^a) v_b ,\qquad
-       \forall v^a\in \mathfrak{X}\bigl(G(\tau)\bigr). \label{chfd:eqn_fermi-walker-vec}
-\end{align}
-上述定义可简称为Fermi导数．只有上述两个条件是不够的，
-还需要求Fermi导数与缩并可交换，以及满足Leibnitz律和线性性；不再单独列出公式．
-注意：Fermi导数是依赖于类时线$G(\tau)$的．
-
-很明显，如果$G(\tau)$是测地线，那么Fermi导数就是协变导数．
-
-我们已经学过了很多导数，做一个简单的对比是有教益的，
-见表\ref{chfd:tab-Derivative-all}．
-
-\begin{table}[htb]
-    \centering
-    \caption{不同导数对比} \label{chfd:tab-Derivative-all}
-    \begin{tabular}{|*3{c|}}
-        \hline
-        导数名称 & 符号 & 属性 \\ \hline
-        普通导数 & $\partial_a $ & 只适用于局部坐标系，没有全局性；无附加结构     \\ \hline
-        协变导数 & $\nabla_a$ & 预先给定联络系数；与平行移动等价 \\ \hline
-        李导数 & $\Lie_{X}$ & 预先给定光滑矢量场$X^a$，依赖于$X^a$的诱导单参数同胚群 \\ \hline
-        Fermi导数 & $\frac{{\rm D}_F }{{\rm D}\tau}$ &
-             预先给定类时线$G(\tau)$；借助于协变导数；只适用于闵氏时空 \\ \hline
-        外微分 & ${\rm d}_a$ & 只能作用于全反对称张量场；无附加结构 \\ \hline
-    \end{tabular}
-\end{table}
-
-
-下面看一下Fermi导数的一些性质，首先计算它对基矢的导数
-\begin{align}
-    \frac{{\rm D}_F Z^a}{{\rm D}\tau} &{=} Z^c \nabla_c Z^a +(A^a Z^b-A^b Z^a) Z_b = 0,
-       \label{chfd:eqn_DF-Z=0}\\
-    \frac{{\rm D}_F (e_i)^a}{{\rm D}\tau} &{=} Z^c \nabla_c (e_i)^a +(A^a Z^b-A^b Z^a) (e_i)_a
-    = -\Omega^{j}_{\hphantom{j} i} (e_j)^a . \label{chfd:eqn_DF-ei}
-\end{align}
-式\eqref{chfd:eqn_DF-Z=0}说明，四速度$Z^a$的Fermi导数是零，
-即第〇基矢沿$G(\tau)$是Fermi移动不变的．
-
-仿照平行移动矢量场，我们定义
-\begin{definition}
-    若$v^a\in \mathfrak{X}\bigl(G(\tau)\bigr)$满足$\frac{{\rm D}_F v^a}{{\rm D}\tau}=0$，
-    则称$v^a$是沿$G(\tau)${\heiti\bfseries Fermi平行}．
-\end{definition}
-
-请读者注意：刚体（或固连在其上的三标架场$\{(e_i)^a\}$）四维角速度只有一个．
-前面我们已经分解出它的时空分量，这一部分是由于刚体质心四加速度引起的，一般说来不会为零．
-剩余纯空间部分（$\Omega^{j}_{\hphantom{j} i}$）描述三标架场$\{(e_i)^a\}$在三维空间的自转．
-式\eqref{chfd:eqn_DF-ei}表明如果三标架场$\{(e_i)^a\}$的Fermi导数为零，那么
-它的纯空间自转角速度矩阵$\Omega^{j}_{\hphantom{j} i}=0$，即没有自转；将此陈述为如下定理：
-
-\begin{theorem}\label{chfd:thm_FermiD-rotation}
-    在四维闵氏时空$(M,g)$中有一刚体，此刚体质心类时世界线为$G(\tau)$，
-    固连在刚体上的正交归一三标架场是$\{(e_i)^a\}$（类空）．
-    则，刚体（即三标架场$\{(e_i)^a\}$）
-    无自转角速度的充要条件是它沿$G(\tau)$Fermi平行，
-    即$\frac{{\rm D}_F (e_i)^a}{{\rm D}\tau}=0$．
-\end{theorem}
-
-
-下面再列举一些Fermi导数的性质．
-
-设有矢量场$u^a = u^i (e_i)^a$，即它没有$(e_0)^a\equiv Z^a$分量
-（明显有$u^a Z_a =0$），那么借助式\eqref{chfd:eqn_DF-ei}容易得到
-\begin{equation}\label{chfd:eqn_DFuz=0}
-    Z_a \frac{{\rm D}_F u^a}{{\rm D}\tau} =
-    Z_a \left( \frac{{\rm D}_F u^i}{{\rm D}\tau} (e_i)^a
-     -\Omega^{j}_{\hphantom{j} i} u^i (e_j)^a  \right) = 0.
-\end{equation}
-此式说明如果$u^a$与$Z^a$正交，那么它的Fermi导数仍旧与$Z^a$正交．
-
-
-由式\eqref{chfd:eqn_fermi-walker-fun}和Leibnitz律，
-不难得到余切矢量场$\omega_a$的运算规律：
-\begin{equation*}
-    v^a \frac{{\rm D}_F \omega_a}{{\rm D}\tau}
-    +\omega_a \frac{{\rm D}_F v^a }{{\rm D}\tau}
-    =\frac{{\rm D}_F (v^a \omega_a)}{{\rm D}\tau}
-    =v^a \nabla_Z \omega_a + \omega_a\nabla_Z v^a .
-\end{equation*}
-再由式\eqref{chfd:eqn_fermi-walker-vec}可得
-余切矢量场$\omega_a\in \mathfrak{X}^*\bigl(G(\tau)\bigr)$的Fermi导数，
-\begin{equation}\label{chfd:eqn_fermi-walker-covec}
-    \frac{{\rm D}_F \omega_a}{{\rm D}\tau} =  Z^c \nabla_c \omega_a
-    +(A_a Z_b-A_b Z_a) \omega^b = \nabla_Z \omega_a + (A_a\wedge Z_b) \omega^b.
-\end{equation}
-借助上式以及Leibnitz律，可得度规场$g_{ab}$的Fermi导数，
-\begin{equation}\label{chfd:eqn_FD-comp}
-    \frac{{\rm D}_F g_{ab}}{{\rm D}\tau}= \nabla_Z g_{ab}
-    + (A_a\wedge Z_c) g_{\hphantom{a} b}^c + (A_b\wedge Z_c) g_{a}^{\hphantom{a} c} =0.
-\end{equation}
-此式说明Fermi导数（联络）是和度规相互容许的，这与Levi-Civita联络一样．
-
-因$g_{ab}$与Fermi导数相容，又因度规分量$g_{\mu\nu}$是常数，
-从式\eqref{chfd:eqn_DF-ei}可得
-\begin{equation}
-    \frac{{\rm D}_F (e^i)_a}{{\rm D}\tau} = g_{ab}g^{ij}\frac{{\rm D}_F (e_j)^b}{{\rm D}\tau}
-    = -\Omega^{k}_{\hphantom{k} j} (e_k)^b  g_{ab}g^{ij} =  -\Omega^{\hphantom{k} i}_{k} (e^k)_a .
-\end{equation}
-上式说明如果切矢量场$(e_i)^a$是Fermi移动不变的（即标架无自转），
-那么其对偶基矢场$(e^i)_a$也是Fermi移动不变的（即标架无自转）；
-两者具有完全相同的“自转与否”属性．
-
-
-%\subsection{Thomas进动}
-%电子自旋的引入推动了原子物理的发展，但在早期研究中有一个“两倍”因子的困惑；
-%Thomas通过狭义相对论解决了这个问题．
-%本节我们从Fermi导数角度再次解释这个问题，主要参考了\parencite{liang_zhou2009_2}附录G.9.4；
-%也可参考文献\parencite{mtw1973}习题6.9．
-%
-%设\CJKunderwave{平直}闵氏时空（洛伦兹度规$\eta_{ab}$）中有惯性坐标系$\{t,x,y,z\}$，
-%有一绕$z$轴匀速转动的圆盘，其角速度为常数$\omega$，圆盘半径是$R$，圆盘放置在$x-y$平面上．
-%在圆盘边上放置一个有自转的陀螺仪（自转角速度是$ \boldsymbol{S}$），
-%陀螺仪随圆盘转动；所有力都作用在陀螺仪的质心上，
-%它不受额外力矩作用，故陀螺仪质心有加速度，但它的角速度$\boldsymbol{S}$不改变方向．
-%我们把$\boldsymbol{S}$提升为四维闵氏空间的四维矢量$S^a=(S^0,\boldsymbol{S})$，当$t=0$时$S^0=0$．
-%
-%角速度的大小和方向不变是好理解的，
-%例如地球绕太阳旋转，地球自转角速度就是不变的．
-%%在这个模型中，角速度$\boldsymbol{S}$大小、方向不变，可参见例\ref{chfd:exm_proper-earth}．
-%另外一个例子：电子绕原子核近似作匀速圆周运动．
-%电子自旋是内禀角动量，我们把它看成一个经典
-%三维空间的一个矢量$\boldsymbol{S}$，不考虑量子效应．
-%那么电子被模型化成了上述陀螺仪的自转角速度．
-%
-%现在的问题是：陀螺仪（作为质点）绕圆盘一周回到初始点后，陀螺仪角速度$\boldsymbol{S}$的
-%方向是否与初始时刻相重合？答案是否定的，这便是Thomas进动．
-%
-%
-%
-%陀螺仪质心世界线为$G(\tau)$，我们将实验室坐标系的$x$轴选为$t=0$时刻的
-%陀螺仪自转角速度$\boldsymbol{S}$的方向．实验室系是不随时间$t$变化的参考系；
-%从实验室系看来，固连在陀螺仪上的刚性标架$\Sigma$要随圆盘转动，是变化的．
-%在四维闵氏时空中，$\Sigma$不是平行移动不变的，而是Fermi移动不变的；
-%故我们需要用Fermi--Walker移动来处理这个问题．
-%
-%陀螺仪质心世界线在实验室的惯性坐标系$X\equiv\{t,x,y,z\}$中的参数表达式为
-%\begin{equation}
-%    t=\gamma \tau, \quad x=R \cos \omega \gamma \tau, \quad y=R \sin \omega \gamma \tau, \quad z=0,
-%\end{equation}
-%$\tau$是陀螺仪的固有时，
-%洛伦兹因子$\gamma \equiv\left(1-\omega^2 R^2\right)^{-1 / 2}$，
-%$R\omega$是圆盘半径处的线速度．
-%陀螺仪四速度$Z^a \equiv(\partial / \partial \tau)^a|_{G(\tau)}$及其
-%四加速$A^a \equiv Z^b \partial_b Z^a$在实验室系的坐标分量分别为
-%\begin{align}
-%    Z^\mu(\tau)=& \frac{\mathrm{d} x^\mu}{\mathrm{d} \tau}=\left(\gamma,\ 
-%       -R \omega \gamma \sin \gamma \omega \tau,\  R \omega \gamma \cos \gamma \omega \tau,\  0 \right), \\
-%    A^\mu(\tau)=& \frac{\mathrm{d} Z^\mu}{\mathrm{d} \tau}=\left(0,\ 
-%       -R \omega^2 \gamma^2 \cos \gamma \omega \tau,\ -R \omega^2 \gamma^2 \sin \gamma \omega \tau,\ 0\right) .
-%\end{align}
-%由$S^a$ 沿 $G(\tau)$ Fermi移动不变可得
-%\begin{equation*}
-%    0=\frac{\mathrm{D}_{\mathrm{F}} S^a}{\mathrm{D} \tau}= \nabla_Z S^a
-%    +\left(A^a Z^b-A^b Z^a\right) S_b= \nabla_Z S^a +Z^a R \omega^2 \gamma^2
-%    \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right),
-%\end{equation*}
-%其中 $S_1$ 和 $S_2$ 是 $S_a=\eta_{ab}S^b$ 的坐标分量．由上式可得$S^a$满足的常微分方程组
-%\begin{subequations}
-%\begin{align}
-%    & \frac{\mathrm{d} S^0}{\mathrm{d} \tau}=-R \omega^2 \gamma^3
-%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
-%    & \frac{\mathrm{d} S^1}{\mathrm{d} \tau}=+R^2 \omega^3 \gamma^3 \sin \gamma \omega \tau
-%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
-%    & \frac{\mathrm{d} S^2}{\mathrm{d} \tau}=-R^2 \omega^3 \gamma^3 \cos \gamma \omega \tau
-%      \left(S_1 \cos \gamma \omega \tau+S_2 \sin \gamma \omega \tau\right), \\
-%    & \frac{\mathrm{d} S^3}{\mathrm{d} \tau}=0 .
-%\end{align}
-%\end{subequations}
-%上列常微分方程组在初始条件 $S^1(0)=1, S^0(0)=S^2(0)=S^3(0)=0$下的解为：
-%\begin{subequations}\label{chfd:eqn_tav}
-%\begin{align}
-%    & S^0(t)=-R \omega \gamma \sin \gamma \omega t, \\
-%    & S^1(t)=\cos \omega t \cos \gamma \omega t+\gamma \sin \omega t \sin \gamma \omega t, \\
-%    & S^2(t)=\sin \omega t \cos \gamma \omega t -\gamma \cos \omega t \sin \gamma \omega t, \\
-%    & S^3(t)=0 .
-%\end{align}
-%\end{subequations}
-%上式中，我们已改用实验室系的时间坐标$t$为自变量．
-%容易验证$\eta_{ab}Z^a S^b=0$；
-%$S^0(t)$ 的存在是为保证 $S^a(t)$ 是 $G(\tau)$ 上的纯空间矢量．
-%
-%为消除非零$S^0(t)$带来的影响，
-%我们将坐标系$X\equiv\{t,x,y,z\}$绝对平移至陀螺仪质心上，
-%记作$\overline{X}\equiv\{\bar{t},\bar{x},\bar{y},\bar{z}\}$；
-%$X$和$\overline{X}$对应坐标轴相互平行、同向；
-%与静止的$X$不同，$\overline{X}$坐标原点是有速度的，就是陀螺仪
-%质心的三速度$\boldsymbol{v}=\left(-R \omega \sin \omega t,\  
-%R \omega \cos \omega t,\  0 \right)$．
-%利用洛伦兹变换\eqref{chlg:eqn_lorentz-matrix-any-v}可将$X$系中的
-%角速度$S^a(t)=(S^0,S^1,S^2,S^3)$（式\eqref{chfd:eqn_tav}）变换到系$\overline{X}$中；
-%变换只需直接进行矩阵计算$\overline{S}^a(t)=B(\boldsymbol{v})\cdot S^a(t)$，计算略显繁琐．
-%一般说来式\eqref{chlg:eqn_lorentz-matrix-any-v}只适用于原点重合的两个坐标系，
-%但角速度是描述刚体的物理量，是与任何点（包括原点）无关的量；故可直接使用该式，
-%而无需平移原点．计算结果是：
-%\begin{equation}
-%    \overline{S}^0(t)=0=\overline{S}^3(t) ,\quad
-%    \overline{S}^1(t)= \cos\bigl((\gamma-1)\omega t\bigr) ,\quad
-%    \overline{S}^2(t)= -\sin\bigl((\gamma-1)\omega t\bigr) .
-%\end{equation}
-%也就是
-%\begin{equation}
-%    \overline{S}^a(t)= \left(\frac{\partial}{\partial \bar{x}}\right)^a \cos\bigl((\gamma-1)\omega t\bigr) 
-%    -\left(\frac{\partial}{\partial \bar{y}}\right)^a \sin\bigl((\gamma-1)\omega t\bigr) .
-%\end{equation}
-%上两式的物理意义十分明确：陀螺仪的角速度$\boldsymbol{S}$是一个转动着的纯空间矢量，
-%这种转动就是{\heiti \bfseries Thomas进动}．
-%从参考系$\overline{X}$来看，转动角速度是：
-%\begin{equation}
-%    \boldsymbol{\omega}_T = (\gamma -1) \omega \boldsymbol{e}_z .
-%\end{equation}
-%当转动速度较低时，$\gamma \approx 1$，$\boldsymbol{\omega}_T \approx 0$，比如地球绕太阳转动．
-%但像电子绕原子核旋转则不然，此时的转动线速度可以与光速相比拟，此时Thomas进动不可忽略．
-%
-%
-%
-%
-%还可以把Thomas进动看成实施无穷多个无穷小洛伦兹变换之积，可参见\parencite[\S 11.8]{jackson1998}．
 
 
 \section{固有坐标系}\label{chfd:sec_proper-coord}
@@ -1632,8 +1922,9 @@ $Z^a$在它自身的参考系里当然只有时间分量，它的分量表达式
 这等价于$\omega_k = -\frac{1}{2} \sum_{ij}\epsilon^{0ijk} \Omega^{ij}$（注意$Z_0=-1, \ Z^0=1$）；
 角速度$\omega_\beta$第〇分量恒为零，即$\omega_0=0$；
 $A_O^a$是三标架场$\{(e_i)^a\}$坐标原点$O$（也是刚体质心）的四维加速度．
-其中$\epsilon_{\alpha\mu\nu\beta}$是体积元\eqref{chrg:eqn_volume-element}在固有坐标系中的分量，
-故$\epsilon_{0123}=1=-\epsilon^{0123}$；记$\epsilon^{ijk}=\epsilon_{ijk}=\epsilon_{0ijk}$．
+其中$\epsilon_{\alpha\mu\nu\beta}$是体积元\eqref{chrg:eqn_volume-element}在固有坐标系的分量，
+故$\epsilon_{0123}=1=-\epsilon^{0123}$（见\eqref{chrg:eqn_RV}）；
+记$\epsilon^{ijk}=\epsilon_{ijk}=\epsilon_{0ijk}$．
 
 需要强调：由法坐标属性可知角速度与联络系数的关系式只在类时线$G(t)$上成立，
 哪怕离开一点也可能不再成立；不过可以用微扰展开来获取近似值．
@@ -2059,275 +2350,6 @@ $\boldsymbol{f}$是曲率的影响，恰好是测地偏离项（见\S\ref{chsch:
 
 
 
-
-\section{参考系续}\label{chfd:sec_reference-frame}
-
-我们继续\S\ref{chfd:sec_oberver}的讨论．
-
-\begin{definition}\label{chfd:def_neighbor}
-    设有参考系$Z^a$，$G(\tau;z,Z^a)$是其中一个观测者．
-    如果\CJKunderwave{存在}$G(\tau;z,Z^a)$上的矢量场$\eta^a \in \mathfrak{X}
-    \bigl(G(\tau;z,Z^a)\bigr)$使得
-    $w^a=h^a_b \eta^b$并且$\Lie_{Z}\eta^a =0$，
-    那么称$w^a$是$G(\tau;z,Z^a)$的{\heiti 邻居}（neighbor）．
-\end{definition}
-
-现在有了类时切矢量场$Z^a$，依照\S\ref{chsm:sec_3+1decomposition}中叙述，
-可以将时空$M$作1+3分解为类空超曲面族$\{\Sigma_{\tau}\}$；
-$h_{ab}=g_{ab}+ Z_a Z_b$便是$\Sigma_{\tau}$上的诱导度规场．
-将$h_{ab}=g_{ab}+ Z_a Z_b$限制在$G(\tau)$上取值，
-那么$h_{ab}$便是积分曲线$G(\tau)$上的投影算符．
-设$\eta^a$是$G(\tau)$上的光滑矢量场，
-即$\eta^a \in \mathfrak{X}\bigl(G(\tau)\bigr)$，
-那么它被$h_{ab}$投影后的矢量为$w^a=h^a_b \eta^b = \eta^a+Z^a Z_b \eta^b$，
-很明显有$w^a Z_a=0$．
-
-
-参考\S\ref{chgd:sec_arc-variation}，我们把$Z^a$看成基准曲线的切线切矢量，
-把$\eta^a$看成横截曲线的切线切实量；那么有$Z^a=(\frac{\partial}{\partial \tau})^a$和
-$\eta^a=(\frac{\partial}{\partial s})^a$，这种看法基本解决了$\eta^a$的存在性问题．
-或忽略“存在性”问题，我们直接假定存在满足定义\ref{chfd:def_neighbor}中各种条件的$\eta^a$．
-虽然有$\Lie_{Z}\eta^a =0$，但一般说来$\Lie_{Z} w^a \neq 0$；
-容易算出$[Z,w]^a = Z^a (\eta^b A_b)$ ，其中$A^a=\nabla_Z Z^a$；
-很明显，对于测地参考系有$\Lie_{Z} w^a =0$．
-
-
-
-%\begin{align*}
-%    \Lie_{Z}w^a =& [Z,w]^a= \nabla_Z(h^a_b \eta^b) - \nabla_w Z^a
-%    =\nabla_Z(\eta^a+Z^a Z_b\eta^b) - \nabla_\eta Z^a - (Z_b \eta^b)\nabla_Z Z^a \\
-%    =& \nabla_Z \eta^a + (Z_b\eta^b)\nabla_Z Z^a +  Z^a \nabla_Z( Z_b\eta^b)
-%     - \nabla_\eta Z^a - (Z_b\eta^b)\nabla_Z Z^a
-%    = Z^a \nabla_Z( Z_b\eta^b) \\
-%    =& Z^a Z_b \nabla_Z \eta^b + Z^a \eta^b\nabla_Z Z_b
-%    = -Z^a Z_b \nabla_\eta Z^b + Z^a (\eta^b A_b)
-%    = Z^a (\eta^b A_b) .
-%\end{align*}
-
-
-
-
-设有观测者$Z^a$和它的类时世界线$G(t)$  %（已将原来的$\tau$换成了$t$），
-借助邻居定义\ref{chfd:def_neighbor}和Fermi导数定义三速度和三加速度
-\begin{align}
-    &u^a \overset{def}{=} \frac{{\rm D}_F w^a}{{\rm D} t}. \label{chfd:eqn_3v} \\
-    &a^a \overset{def}{=} \frac{{\rm D}_F u^a}{{\rm D} t}. \label{chfd:eqn_3a}
-\end{align}
-在邻居定义中，我们已经知道$w^a Z_a=0$，而Fermi导数的属性\eqref{chfd:eqn_DFuz=0}保证了
-$u^a Z_a=0$，$a^a Z_a=0$．这也符合我们通常的认知，
-即三维速度、三维加速度应是空间矢量，不包含时间维度分量．
-
-从平直空间到弯曲空间，推广的导数有着众多定义，见表\ref{chfd:tab-Derivative-all}；
-这些定义退化到平时空间时都与普通偏导数等价，但在弯曲流形上却各不相同，
-需要根据需求来选择哪种导数．
-与此类似，三速度、三加速度是相对量，有着不同的定义，
-只要这些定义在平直空间能退化到牛顿力学中的定义就有合理成分；
-除此以外，这些定义还需满足自洽，比如不能超光速．
-通过不同途径推广的三速度、三加速度可能不会完全相同．
-
-在式\eqref{chfd:eqn_fra}中，我们将
-三速度定义成$u^i\equiv \frac{{\rm d} x^i}{{\rm d} t}$，
-三加速度定义成$a^i\equiv \frac{{\rm d}^2 x^i}{{\rm d} t^2}$．
-在一个给定坐标系内，用分量来定义这些空间矢量自然是合理的．
-
-我们计算出上面利用Fermi导数定义的三速度：
-\begin{align*}
-    u^a=&\frac{{\rm D}_F w^a}{{\rm D} \tau}
-    =\frac{{\rm D}_F h^a_b \eta^b}{{\rm D} \tau}
-    \xlongequal[\ref{chfd:eqn_DF-Z=0}]{\ref{chfd:eqn_FD-comp}}
-    h^a_b \frac{{\rm D}_F  \eta^b}{{\rm D} \tau}
-    =h^a_b\nabla_Z \eta^b + A^a Z^c \eta_c  \\
-    =& (\delta^a_b +Z^a Z_b) \nabla_\eta Z^b
-    + Z^c \eta_c \nabla_Z Z^a
-    = \nabla_\eta Z^a  + \cancel{Z^a Z_b \nabla_\eta Z^b }
-    + Z^c \eta_c \nabla_Z Z^a \\
-    =&(\eta^b + Z^c \eta_c Z^b) \nabla_b Z^a
-    =(\delta^b_c + Z_c  Z^b) \eta^c \nabla_b Z^a .
-\end{align*}
-由上式最后一步可以得到，对于任意参考系，式\eqref{chfd:eqn_3v}具体表达式为
-\begin{equation}\label{chfd:eqn_v3-Fermi}
-    u^a = \frac{{\rm D}_F w^a}{{\rm D} \tau} = w^b \nabla_b Z^a.
-\end{equation}
-来计算非测地线的三加速度（注意应用$w^b A_b= (\eta^b + Z^b Z_c\eta^c)A_b = \eta^b A_b$）
-\setlength{\mathindent}{0em}
-\begin{align*}
-    &a^a= \frac{{\rm D}_F u^a}{{\rm D} \tau}=\nabla_Z \nabla_w Z^a - A^b u_b Z^a
-    =\nabla_w \nabla_Z Z^a + \nabla_{[Z,w]} Z^a + R^a_{bcd}Z^c w^d Z^b  - A^b u_b Z^a \\
-    &=\nabla_w A^a + R^a_{00d} w^d + \eta^bA_b A^a -  Z^a A_b  \nabla_w Z^b
-    =\left( \nabla_b A^a + R^a_{00b} + A_b A^a - Z^a A_c\nabla_b Z^c \right)w^b.
-\end{align*}\setlength{\mathindent}{2em}
-由此得到一般参考系的三加速度是（即式\eqref{chfd:eqn_3a}的具体表达式）
-\begin{equation}\label{chfd:eqn_a3-Fermi}
-    a^a = \left( h^a_c \nabla_b A^c + R^a_{cdb}Z^cZ^d + A_b A^a  \right)w^b .
-\end{equation}
-
-
-
-
-%\subsection{测地偏离方程}\label{chfd:sec_geo-dev}
-%%本节对比牛顿力学中的潮汐力与相对论中的测地偏离方程．
-%
-%参考系变换的不变量（不含协变量）是绝对量，一般只能是标量．
-%
-%一阶及以上阶的张量是协变量，都不是绝对量；都需事先选一个坐标系，才能
-%进一步讨论它们．
-%比如讨论$A$的速度$U^a_A$和$B$的速度$U^a_B$，
-%把$A$当参考系，$U^a_B$才可能有意义．
-%可能有读者觉得我的四速度$U^a$不是绝对的吗？这要从固有时定义说起，
-%固有时定义为你手中钟（相对你自己静止不动）的走时，四速度定义
-%为沿你世界线的切矢量（参数必须是固有时）．所以说
-%你先选择你自己当参考系，然后再定义四速度、四加速度；从这个角度来说
-%这些量也是相对的．
-%
-%物理上没有一种特殊的参考系来测量一个物体的加速度，
-%我们能采用最好的方法就是取两个邻近的物体来测量它们的相对加速度；
-%这种方法可用来测量引力场梯度．
-%
-%
-%
-%
-%
-%
-%
-%设有测地参考系$Z^a$，$G(\tau)$是其中一个观测者，$w^a$是观测者的一个邻居；
-%那么邻居$w^a$的三加速度（测地偏离方程）可由式\eqref{chfd:eqn_a3-Fermi}简化而来，
-%只需令其中的四加速为零即可
-%\begin{equation}\label{chfd:eqn_deviation-acceleration}
-%    a^a = R^a_{cdb} Z^d w^b Z^c.
-%\end{equation}
-%这与Jacobi方程\eqref{chgd:eqn_Jacobi-componet}完全相同，它们
-%都可以称为{\heiti 测地偏离方程}：
-%\begin{equation}
-%    \frac{{\rm d}^2 J_i(s)}{{\rm d} s^2} =R_{i00j}\bigl(C(s)\bigr) J^j(s) .
-%    \tag{\ref{chgd:eqn_Jacobi-componet}}
-%\end{equation}
-%两条曲线分离的相对加速度．
-
-
-
-
-
-
-\subsection{类时线汇}\label{chfd:sec_tlc}
-四速度的协变导数（$\nabla_b Z^a$）一般并非空间矢量，我们作其投影
-\begin{equation}
-    B_{ab} \overset{def}{=} h_a^c h_b^d \nabla_d Z_c
-%    =(\delta^c_a \delta_b^d + Z_a  Z^c\delta_b^d  +\delta^c_a Z_b  Z^d + Z_a  Z^c Z_b  Z^d)\nabla_d Z_c
-%    =\delta^c_a \delta_b^d \nabla_d Z_c+ Z_a  Z^c\delta_b^d \nabla_d Z_c
-%      +\delta^c_a Z_b  Z^d \nabla_d Z_c + Z_a Z^c Z_b Z^d\nabla_d Z_c
-    =\nabla_b Z_a + Z_b A_a .
-\end{equation}
-很明显有$Z^a B_{ab}=0=Z^b B_{ab}$，故$B_{ab}$是空间张量场；
-但一般说来它不是对称的．
-
-仿照（牛顿力学中的）连续介质力学，
-我们将其分解为对称和反对称部分，
-\begin{equation}
-    \theta_{ab}\overset{def}{=}  B_{(ab)}; \qquad
-    \omega_{ab}\overset{def}{=}  B_{[ab]}. \qquad
-    B_{ab} = \theta_{ab}+ \omega_{ab} .
-\end{equation}
-其中对称部分$\theta_{ab}$还可以进一步分解为零迹和球对称部分
-\begin{equation}
-    \theta \overset{def}{=} g^{ab} \theta_{ab} = h^{ab} \theta_{ab} . \qquad
-    \sigma_{ab}\overset{def}{=} \theta_{ab} -\frac{1}{3}\theta h_{ab} .
-\end{equation}
-最终，有
-\begin{equation}
-    B_{ab} = \frac{1}{3}\theta h_{ab} + \sigma_{ab}+ \omega_{ab} . \quad
-\end{equation}
-故三速度可以表示成
-\begin{equation}
-    u^a= B_{\hphantom{a} b}^a w^b = \frac{1}{3}\theta w^a + \sigma_{b}^a w^b + \omega_{\hphantom{a} b}^a w^b .
-\end{equation}
-
-与连续介质力学相似，在相对论中
-$\theta$表示体膨胀，$\theta_{ab}$表示膨胀，$\sigma_{ab}$表示剪切，
-$\omega_{ab}$表示（刚体）旋转．
-
-\begin{definition}
-    $\theta_{ab}=0$的参考系称为{\heiti 刚性参考系}．
-\end{definition}
-\begin{definition}
-    $\omega_{ab}=0$的参考系称为{\heiti 无旋参考系}或{\heiti 与超曲面正交参考系}．
-\end{definition}
-证明过程很简单
-\begin{equation}
-    Z_{[c} \nabla_{b} Z_{a]}= Z_{[c}B_{ab]} = Z_{[c}\omega_{ab]}.
-\end{equation}
-如果$\omega_{ab}=0$，则必有$Z_{[c} \nabla_{b} Z_{a]}$．
-反之，如果超曲面正交（$Z_{[c} \nabla_{b} Z_{a]}$），
-则$Z_{[c}\omega_{ab]}$，将之展开有
-\begin{equation}
-    0 = Z_{c}\omega_{ab} + Z_{a}\omega_{bc} + Z_{b}\omega_{ca} \quad \Rightarrow \quad
-    \omega_{ab}=Z_{a} Z^c\omega_{bc} + Z_{b}Z^c\omega_{ca}=0.
-\end{equation}
-
-看一下$B_{ab}$沿线$G(\tau)$（未必是测地线）的导数（$G(\tau)$切矢量是$Z^a$）
-\begin{align*}
-    \nabla_Z  B_{ab} =&  \nabla_Z (\nabla_b Z_a + Z_b A_a)
-    = Z^c\nabla_c\nabla_b Z_a + A_a \nabla_Z Z_b+ Z_b\nabla_Z A_a \\
-    \xlongequal{\ref{chccr:eqn_Riemannian13-CoVec-commutator}}&
-    Z^c\nabla_b\nabla_c Z_a - Z^c R^e_{acb} Z_e
-    + A_a A_b + Z_b\nabla_Z A_a \\
-    =& \nabla_b(Z^c\nabla_c Z_a) -(\nabla_b Z^c) \nabla_c Z_a - R_{eacb}Z^c Z^e
-      + A_a A_b + Z_b\nabla_Z A_a .
-\end{align*}
-由最后一式可知
-\begin{equation}\label{chfd:eqn_DBab}
-    \nabla_Z  B_{ab} = \nabla_b A_a + A_a A_b + Z_b\nabla_Z A_a -g^{dc} B_{db} B_{ac} + R_{eabc}Z^c Z^e .
-\end{equation}
-先算几个公式备用
-\begin{align*}
-    -g^{dc} B_{db} B_{ac}= &
-    -g^{dc} \Bigl(\frac{1}{9}\theta^2 h_{db} h_{ac}
-    + \frac{1}{3}\theta h_{ac}\sigma_{db}+ \frac{1}{3}\theta h_{ac} \omega_{db}
-    +\frac{1}{3}\theta h_{db}\sigma_{ac} + \sigma_{db}\sigma_{ac} \\
-    & + \omega_{db}\sigma_{ac} +\frac{1}{3}\theta h_{db}\omega_{ac}
-    + \sigma_{db}\omega_{ac}    + \omega_{db}\omega_{ac}\Bigr) \\
-    =&-\frac{1}{9}\theta^2 h_{ab}
-    - \frac{2}{3}\theta\sigma_{ab} - \frac{2}{3}\theta \omega_{ab}
-     - \sigma_{b}^c\sigma_{ac} - \omega_{cb}\sigma_{a}^c
-     - \sigma_{b}^c\omega_{ac} - \omega_{a}^{\hphantom{a} d}\omega_{db}
-\end{align*}
-
-先计算旋转沿测地线变化，需要把式\eqref{chfd:eqn_DBab}中的下标$ab$取反对称操作，
-\begin{equation}\label{chfd:eqn_Domega}
-\begin{aligned}
-    \nabla_Z \omega_{ab}=& \nabla_{[b} A_{a]} + A_{[a} A_{b]} + Z_{[b}\nabla_Z A_{a]}
-      -g^{dc} B_{d{[b}} B_{{a]}c} + R_{e[ab]c}Z^c Z^e  \\
-    =& - \frac{2}{3}\theta \omega_{ab}
-    - \omega_{cb}\sigma_{a}^c + \sigma_{b}^c\omega_{ca}
-    + \nabla_{[b} A_{a]} + {\color{red}Z_{[b}\nabla_Z A_{a]} }.
-\end{aligned}
-\end{equation}
-计算较为简单，直接展开即可相消．
-
-下面计算$\nabla_Z \theta_{ab}$，需要把式\eqref{chfd:eqn_DBab}中的下标$ab$取对称操作，
-\begin{equation}\label{chfd:eqn_Dtheta}
-\begin{aligned}
-    \nabla_Z \theta_{ab} = & %\nabla_Z B_{(ab)} =
-     \nabla_{(b} A_{a)} + A_{(a} A_{b)} + Z_{(b}\nabla_Z A_{a)}
-    -g^{dc} B_{d(b} B_{a)c} + R_{e(ab)c}Z^c Z^e  \\
-    =& \nabla_{(b} A_{a)} + A_{a} A_{b}  + R_{eabc}Z^c Z^e
-     -\frac{1}{9}\theta^2 h_{ab}  \\
-     &- \frac{2}{3}\theta\sigma_{ab}
-      - \sigma_{b}^c\sigma_{ac} - \omega_{a}^{\hphantom{a} d}\omega_{db}
-      + {\color{red}Z_{(b}\nabla_Z A_{a)}} .
-\end{aligned}
-\end{equation} %\setlength{\mathindent}{2em}
-对上式求迹，可得{\bfseries \heiti Raychaudhuri方程}，
-\begin{equation}\label{chfd:eqn_Raychaudhuri}
-    \nabla_Z\theta= \nabla^{a} A_{a}
-    - \frac{1}{3}\theta^2 - \sigma^{ac}\sigma_{ac}
-    + \omega^{ac}\omega_{ac} - R_{ce}Z^c Z^e .
-\end{equation}
-
-剪切随线导数公式可
-由$\nabla_Z \sigma_{ab}= \nabla_Z \theta_{ab} - \frac{1}{3} \nabla_Z(h_{ab}\theta)$算出，
-计算较为复杂，略．
-
-在本小节中，只要令$A^a=0$即可得到类时测地线的相应公式．
 
 
 

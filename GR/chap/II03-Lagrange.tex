@@ -575,42 +575,42 @@ q_i(t) \to  {}^{(i)}\Phi^{a\cdots c}_{b\cdots d}(x), \qquad \dot{q}_i(t)
 最后，把度规场当成动力学变量的情形，见\S\ref{chlh:sec_Gravity}．
 
 
-%\subsection{标量函数变换规则}\label{chlh:sec_symmetry}
-
-
-
-\subsection{流形中拉氏量对度规偏导规则}\label{chlh:sec_rules-DLg}
+\subsection{度规变分规则}\label{chlh:sec_dgab}
 
 我们先给出度规的变分．利用$\delta^a_b = g^{ac} g_{cb}$可得到
 \begin{equation}\label{chlh:eqn_delta-gab}
-    0= g^{ac} \updelta g_{cb} + g_{cb}\updelta  g^{ac}
-    \quad \Leftrightarrow \quad
-    \updelta g_{cb} = -g_{ac} g_{db} \updelta  g^{ad} .
+	0= g^{ac} \updelta g_{cb} + g_{cb}\updelta  g^{ac}
+	\quad \Leftrightarrow \quad
+	\updelta g_{cb} = -g_{ac} g_{db} \updelta  g^{ad} .
 \end{equation}
 由上式不难得到
 \begin{equation}\label{chlh:eqn_dgdg}
-    \frac{\partial g_{\alpha\beta}}{\partial g^{\mu\nu}}
-    =-\frac{1}{2}\left(g_{\alpha\mu}g_{\beta\nu}+g_{\alpha\nu}g_{\beta\mu}\right)
-    \quad \Leftrightarrow \quad
-    \frac{\partial g_{\alpha\beta}}{\partial g_{\mu\nu}}
-    =+\frac{1}{2}\left(\delta_\alpha^\mu \delta_\beta^\nu
-    +\delta_\alpha^\nu \delta_\beta^\mu \right) .
+	\frac{\partial g_{\alpha\beta}}{\partial g^{\mu\nu}}
+	=-\frac{1}{2}\left(g_{\alpha\mu}g_{\beta\nu}+g_{\alpha\nu}g_{\beta\mu}\right)
+	\quad \Leftrightarrow \quad
+	\frac{\partial g_{\alpha\beta}}{\partial g_{\mu\nu}}
+	=+\frac{1}{2}\left(\delta_\alpha^\mu \delta_\beta^\nu
+	+\delta_\alpha^\nu \delta_\beta^\mu \right) .
 \end{equation}
 仿照式\eqref{chrg:eqn_detgijij}（$\frac{1}{g}\frac{\partial g}{\partial x^k}
 = g^{ij} \frac{\partial g_{ij}}{\partial x^k}$）可以证明
 \begin{equation}\label{chlh:eqn_delta-g}
-    \updelta g = g g^{ab} \updelta g_{ab} = - g g_{ab} \updelta g^{ab};
-    \ \updelta \sqrt{-g} = \frac{\sqrt{-g}}{2} g^{ab} \updelta g_{ab}
-    = - \frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab}
+	\updelta g = g g^{ab} \updelta g_{ab} = - g g_{ab} \updelta g^{ab};
+	\ \updelta \sqrt{-g} = \frac{\sqrt{-g}}{2} g^{ab} \updelta g_{ab}
+	= - \frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab} .
 \end{equation}
 需注意$\updelta g_{ab}$和$\updelta g^{ab}$是相互独立的变分，
 它们皆由式\eqref{chlh:eqn_updelta-Phi}定义．
 \begin{equation}
-    \updelta g_{ab} = \left.\frac{\partial g_{ab}(x;u) }{\partial u}\right|_{u=0} ; \qquad
-    \updelta g^{ab} = \left.\frac{\partial g^{ab}(x;u) }{\partial u}\right|_{u=0} .
+	\updelta g_{ab} = \left.\frac{\partial g_{ab}(x;u) }{\partial u}\right|_{u=0} ; \qquad
+	\updelta g^{ab} = \left.\frac{\partial g^{ab}(x;u) }{\partial u}\right|_{u=0} .
 \end{equation}
 由上式容易看出$g_{ab}(x;u)$是不能直接写进$\updelta g^{ab}$的变分号$\updelta$内来升降指标，
-因为$g_{ab}(x;u)$不能随意进出$\partial_u$．
+因为$g_{ab}(x;u)$不能随意进出$\partial_u \left(\bullet \right)$．
+
+
+\subsection{流形中拉氏量对度规偏导规则}\label{chlh:sec_rules-DLg}
+
 
 
 
@@ -1073,11 +1073,17 @@ $x^\mu_p$的抽象指标表示为$x^a_p\equiv x^\mu_p (\partial_\mu)^a$．
 
 
 \subsection{等离子体与电磁场}\label{chlh:sec_plasma}
-为令计算简洁一些，先定义（$J^a(x)$的具体意义见\S\ref{chlh:sec_charge}）
+
+为令计算简洁一些，先给出电流密度表达式（详见\S\ref{chlh:sec_charge}）
 \begin{equation}\label{chlh:eqn_eCurrent}
-    J^a(x) \overset{def}{=} \sum_{p} e_{p} \int  \frac{{\rm d} x^a}{{\rm d} \tau}
+    J^a(x) \equiv \sum_{p} e_{p} \int  \frac{{\rm d} x^a}{{\rm d} \tau}
     \delta^4(x^\alpha-x^\alpha_p)\frac{1}{\sqrt{-g}} {\rm d} \tau .
-%    = \sum_{p} \frac{e_{p}}{\sqrt{-g}} \int  \delta^4(x^\alpha-x^\alpha_p) {\rm d} x^a .
+\end{equation}
+已知$\delta^4(x^\alpha-x^\alpha_p) = \delta^3(\boldsymbol{x}-\boldsymbol{x}_p)
+\delta(t-x^0_p)$；由此我们可以将积分号去掉，得到电流密度的不显示协变的三维形式：
+\begin{equation}\label{chlh:eqn_eCurrent-3j}
+	J^a(x) = \sum_{p} e_{p} \frac{{\rm d} x^a}{{\rm d} t}
+	\delta^3(\boldsymbol{x}-\boldsymbol{x}_p) \frac{1}{\sqrt{-g}}  .
 \end{equation}
 
 
@@ -1105,7 +1111,7 @@ $x^\mu_p$的抽象指标表示为$x^a_p\equiv x^\mu_p (\partial_\mu)^a$．
 带电粒子与电磁场相互作用项以及带电粒子运动项；
 在推导剩余方程过程中，$\delta^4(x-x_p)$会产生不必要的麻烦，
 故将\eqref{chlh:eqn_I-NG}中的$\delta^4(x-x_p)$积分掉，并忽略纯电磁部分，有
-\begin{equation}
+\begin{equation}\label{chlh:eqn_Ipi}
     I_{pi} = \int \sum_{p}\left[ e_{p} A_{a}(x_p^\nu) \frac{{\rm d} x^a_p}{{\rm d} \tau} 
     -  m_p  \sqrt{-g_{ab} \frac{{\rm d} x_p^a}{{\rm d} \tau}
         \frac{{\rm d}x_p^b}{{\rm d} \tau} } \right]  \, {\rm d} \tau 
@@ -1135,7 +1141,8 @@ $x^\mu_p$的抽象指标表示为$x^a_p\equiv x^\mu_p (\partial_\mu)^a$．
     -e_{p} \frac{\partial A_{d}}{\partial x^a_p} \frac{{\rm d} x^a_p}{{\rm d} \tau} 
     -m_p \frac{\partial g_{db}}{\partial x_p^a} \frac{{\rm d} x_p^a}{{\rm d} \tau}\frac{{\rm d} x_p^b}{{\rm d} \tau}
     -m_p g_{dc} \frac{{\rm d}^2 x_p^c}{{\rm d} \tau^2} \\
-   \Rightarrow\, 0 &= {e_p} F_{\hphantom{c}a}^c \frac{{\rm d} x^a_p}{{\rm d} \tau} 
+   \Rightarrow \, 
+   0 &= {e_p} F_{\hphantom{c}a}^c \frac{{\rm d} x^a_p}{{\rm d} \tau} 
     +m_p\frac{1}{2}g^{dc} \left( \frac{\partial g_{ab}}{\partial x_p^d}
     -\frac{\partial g_{db}}{\partial x_p^a} -\frac{\partial g_{da}}{\partial x_p^b}\right)
     \frac{{\rm d} x_p^a}{{\rm d} \tau}\frac{{\rm d} x_p^b}{{\rm d} \tau}
@@ -1173,7 +1180,6 @@ $x^\mu_p$的抽象指标表示为$x^a_p\equiv x^\mu_p (\partial_\mu)^a$．
      \xlongequal{\ref{chrg:eqn_Gamma-KKJ}} \frac{1}{\sqrt{-g}}\partial_b \left(F^{ab} \sqrt{-g} \right) .
 \end{equation*}
 注意使用电磁张量$F^{eb}$的反对称性，以及$\Gamma^a_{eb}$关于下标的对称性．
-
 
 
 
@@ -1463,16 +1469,242 @@ $J^b$的Hodge星对偶是$*J_{abc} = {J^e}\Omega_{eabc}$，
 结合上式，再把纯电磁场的相应部分加上；
 由式\eqref{chlh:eqn_BR-tensor}便可得到电磁场和无碰撞等离子体的对称能动张量：
 \setlength{\mathindent}{0em}
-\begin{equation}\label{chlh:eqn_EM+Plasma-BRtensor}
-%\begin{aligned}
-    T^{ab} = F^{ac} F^{b}_{\hphantom{b} c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
+\begin{subequations}\label{chlh:eqn_EM+Plasma-BRtensor}
+\begin{align}
+    T^{ab} =& F^{ac} F^{b}_{\hphantom{b} c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
      + \int \sum_{p} \frac{m_p}{\sqrt{-g}} \delta^4\bigl(x^\alpha-x^\alpha_p(\tau)\bigr) 
-    \frac{{\rm d} x^a}{{\rm d} \tau} \frac{{\rm d}x^b}{{\rm d} \tau} {\rm d} \tau . %\\
-%    =& F^{ac} F^{b}_{\cdot c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
-%    + \sum_{p} \frac{m_p \, u^a u^b}{u^0 \sqrt{-g}} \delta^3
-%    \bigl(\boldsymbol{x}-\boldsymbol{x}_p(\tau)\bigr)  .
-%\end{aligned}
-\end{equation}\setlength{\mathindent}{2em}
+    \frac{{\rm d} x^a}{{\rm d} \tau} \frac{{\rm d}x^b}{{\rm d} \tau} {\rm d} \tau \\
+    =& F^{ac} F^{b}_{\hphantom{b} c} - \frac{1}{4} g^{ab} F_{cd} F^{cd} 
+    + \sum_{p} \frac{m_p \, U^a U^b}{U^0 \sqrt{-g}} \delta^3
+    \bigl(\boldsymbol{x}-\boldsymbol{x}_p(\tau)\bigr)  .
+\end{align}
+\end{subequations}\setlength{\mathindent}{2em}
+式\eqref{chlh:eqn_EM+Plasma-BRtensor}的第一式为协变形式，第二式为非协变的三维形式；
+其变换用到了：
+\begin{align*}
+	U^0 = \frac{{\rm d}t}{{\rm d}\tau}, \quad
+	U^i = \frac{{\rm d}x^i}{{\rm d}\tau}; \qquad
+	\delta^4(x^\alpha-x^\alpha_p) = \delta^3(\boldsymbol{x}-\boldsymbol{x}_p)\delta(t-x^0_p) .
+\end{align*}
+
+
+\section{理想流体力学}\label{chlh:perfect-fluid}
+
+到目前为止，我们对于非引力物理学的模型一直是基于点粒子（可能带电）及其相关的电磁场的模型．
+对于某些应用来说，这是一个有用的模型；但对于大多数的应用而言，它过于微观了．
+当描述太阳、星系等大片连续物质时，点粒子模型就不适用了。
+此时，我们需要使用理想流体（指粘性、热传导和剪切应力可忽略不计）作为物质的模型，这属于连续介质模型．
+这个模型对物质在一定尺度范围内进行“粗粒化”描述．
+假定在这些尺度范围内物质是电中性的，故电磁场的直接影响可以忽略不计．
+因此，可以在流体内部的某一小块物质（称为{\kaishu 流体质团}）上谈论它的密度、压力和速度等．
+
+下面介绍一点相对论热力学内容\cite[\S 22.2]{mtw1973}．
+我们先给出共动参考系（相对流体质团静止的参考系）的数个物理量：
+{\bfseries (1)} 粒子数密度$n$，指重子数减去反重子数．
+{\bfseries (2)} 总质量密度$\mu$，包括质团的静止质量$\rho$、内能．
+{\bfseries (3)} 各向同性压强$p$．
+{\bfseries (4)} 平衡态的温度$T$．
+{\bfseries (5)} 单个粒子熵$s$，单位体积熵为$n s$．
+{\bfseries (6)} 单位质量内能$\Pi$．
+
+
+在这个初步介绍中，我们只考虑宏观、经典、理想流体，
+不考虑量子效应、核反应、化学反应等；
+也不具体区分流体质团成分；这是相对论流体力学的最简模型．
+在这些假设下，流体的热力学属性只由两个参量来描述，
+我们选为{\kaishu 粒子数密度}和{\kaishu 单个粒子熵}；
+我们进一步假设\CJKunderwave{流动是等熵、无旋的}．
+
+
+
+{\kaishu 粒子数守恒}是一个十分基本的定律，可参见\parencite[\S 3]{landau_5-statistical}；
+在平直时空中，此定律表示为$\partial_\mu (n U^\mu)=0$，其中$U^\mu$是流体质团的四速度．
+我们用最小替换法则，将其过渡到一般流形上：
+\begin{equation}\label{chlh:eqn_particle-cons}
+	\nabla_a (n U^a) = 0.
+\end{equation}
+
+
+我们直接给出热力学第一定律（\parencite[\S 22.2]{mtw1973}式(22.6)）：
+\begin{equation}\label{chlh:eqn_1TDL}
+	{\rm d}\mu = n T {\rm d}s +\frac{\mu+p}{n} {\rm d}n 
+	\xlongequal[\text{成立条件下}]{\text{若等熵假设}} 
+	\frac{\mu+p}{n} {\rm d}n  .
+\end{equation}
+
+
+
+我们采用的理想流体作用量\cite{Ray-1972}是（国际单位制，之后采用自然单位制）：
+\begin{equation}\label{chlh:eqn_perfect-fluid}
+	\begin{aligned}
+		I_{PF}&=\frac{1}{c}\int \Bigl(-\mu c^2
+		+\kappa_1\left(g_{ab}U^a U^b+c^2 \right) 
+		+\kappa_2 \nabla_a (n U^a)  \Bigr)
+		\sqrt{-g}  {\rm d}^4x  \\
+		&\xlongequal[\text{自然单位制}]{\text{分部积分}}
+		\int \Bigl(-\mu  +\kappa_1\left(g_{ab}U^a U^b+1 \right) 
+		-n U^a \nabla_a\kappa_2   \Bigr)
+		\sqrt{-g}  {\rm d}^4x .
+	\end{aligned}
+\end{equation}
+其中$U^a$是流体质团四速度，它必然满足$g_{ab}U^a U^b+c^2=0$．
+拉格朗日乘子$\kappa_1(x)$、$\kappa_2(x)$是时空坐标$\{x\}$的函数；
+$\kappa_1$把约束$g_{ab}U^a U^b+c^2=0$加入拉氏密度；
+$\kappa_2$把粒子数守恒约束加入拉氏密度．
+式\eqref{chlh:eqn_perfect-fluid}中第二行作了关于$\kappa_2 \nabla_a (\mu U^a) $的分部积分，
+并丢掉了边界项．
+把式\eqref{chlh:eqn_perfect-fluid}中第二行积分号内的部分记为$\mathscr{L}_{PF}$，即
+\begin{equation}
+	\mathscr{L}_{PF}\equiv -\mu	+\kappa_1\left(g_{ab}U^a U^b+1 \right) -n U^a \nabla_a\kappa_2.
+\end{equation}
+计算几个关于$\mathscr{L}_{PF}$的导数：
+\begin{align}
+	\frac{\partial \mathscr{L}_{PF}}{\partial n} = &
+	-\frac{\partial\mu }{\partial n} - U^a \nabla_a\kappa_2 .\\
+	\frac{\partial \mathscr{L}_{PF}}{\partial \nabla_a n} = &
+	0 = \frac{\partial \mathscr{L}_{PF}}{\partial \nabla_b U^a} . \\
+	\frac{\partial \mathscr{L}_{PF}}{\partial U^a} = &
+	2\kappa_1 U_a - n \nabla_a \kappa_2 .
+\end{align}
+将上式带入欧拉-拉格朗日方程\eqref{chlh:eqn_euler-lag}可以得到
+\begin{align}
+	-\frac{\partial\mu }{\partial n}  = U^a \nabla_a\kappa_2; \qquad
+	2\kappa_1 U_a = n \nabla_a \kappa_2 .
+\end{align}
+将上式中的第二式两边缩并$U^a$，并利用第一式，有
+\begin{equation}\label{chlh:eqn_tmp-k1}
+	\kappa_1 = \frac{1}{2}n \frac{\partial\mu }{\partial n}
+	\xlongequal{\ref{chlh:eqn_1TDL}} \frac{\mu+p}{2} .
+\end{equation}
+由上两式可得
+\begin{equation}\label{chlh:eqn_tmp-k2}
+	\nabla_a \kappa_2 = \frac{\mu+p}{n} U_a . 
+\end{equation}
+不难计算出：
+\begin{equation}
+	\frac{\partial \mathscr{L}_{PF}}{\partial g_{ab}} = 
+	\kappa_1 U^a U^b = \frac{\mu+p}{2} U^a U^b .
+\end{equation}
+由式\eqref{chlh:eqn_BR-tensor}得
+\begin{equation*}
+	T^{ab}  %= 2\frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}}    +  g^{ab} \mathscr{L}_{NG} 
+	=(\mu + p)U^a U^b + g^{ab} \left( -\mu
+	+\kappa_1\left(g_{ab}U^a U^b+1 \right) 
+	-n U^a \nabla_a\kappa_2 \right) .
+\end{equation*}
+利用$g_{ab}U^a U^b+1\equiv 0$，并将式\eqref{chlh:eqn_tmp-k2}带入上式，可得能动张量（国际制）：
+\begin{equation}\label{chlh:eqn_perfect-fluid-Tab}
+	T^{ab}=\left(\mu  + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} 
+	=\left(\rho +\rho \frac{\Pi}{c^2} + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} .
+\end{equation}
+上式第一个等号后的$\mu$是指相对论能量，包含静质量能、内能；
+在第二个等号中，我们将它分开处理，即$\mu = \rho +\rho\frac{\Pi}{c^2}$，
+其中$\rho$是静质量，$\Pi$是单位质量内能．
+
+
+
+为了保持本章框架的整体性，我们从作用量\eqref{chlh:eqn_perfect-fluid}出发，
+经过变分法得到了理想流体的能动张量\eqref{chlh:eqn_perfect-fluid-Tab}；这种方法并不是很常用．
+读者应能看出作用量\eqref{chlh:eqn_perfect-fluid}有拼凑的痕迹，
+它不像作用量\eqref{chlh:eqn_I-NG}、\eqref{chlh:eqn_I-G}那样精简及物理意义明显．
+更多相对论流体力学内容可参考\parencite[Ch.15]{landau_6-fluid}或\parencite[\S 2.10]{weinberg_grav-1972}．
+
+\paragraph{参数$\rho^*$}
+流体必然遵守粒子数守恒方程\eqref{chlh:eqn_particle-cons}（即$\nabla_a (n U^a) = 0$）；
+设每个流体质团的质量为$m$（常数），乘上这个因子后，此方程变为流体的连续性方程：
+\begin{equation}\label{chlh:eqn_fluid-continum}
+	0=\nabla_\alpha (\rho U^\alpha) 
+	\xlongequal{\ref{chrg:eqn_divergence}} \frac{1}{\sqrt{-g}} 
+	\frac{\partial}{\partial x^\alpha}\left( \sqrt{-g}\rho U^\alpha \right).
+\end{equation}
+注意$\rho$表示不含内能的静质量．我们定义（注$U^\mu = \frac{\mathrm{d}x^\mu}{\mathrm{d} \tau}$）：
+\begin{align}
+	\gamma \equiv & \frac{\mathrm{d} t}{\mathrm{d} \tau} 
+	=\frac{1}{c}\frac{\mathrm{d}x^0}{\mathrm{d} \tau}= U^0/c , \label{chlh:eqn_gamma}\\
+	u^i \equiv & \frac{{\rm d} x^i}{{\rm d}t} 
+	=\frac{{\rm d} x^i}{{\rm d}\tau} \frac{\mathrm{d} \tau}{\mathrm{d} t}  
+	= U^i /\gamma, \label{chlh:eqn_ui}\\
+	\rho^* \overset{def}{=} & \sqrt{-g} \gamma \rho
+	=\sqrt{-g} \rho U^0 / c . \label{chlh:eqn_rho-star}
+\end{align}
+那么，方程\eqref{chlh:eqn_fluid-continum}可以改写为（注$x^0 \equiv c t$）：
+\begin{equation}\label{chlh:eqn_cont-star}
+	0= \frac{\partial}{\partial t}\left( \sqrt{-g}\rho U^0/c \right)
+	+\frac{\partial}{\partial x^i}\left( \sqrt{-g}\rho\gamma u^i \right)
+	= \frac{\partial \rho^* }{\partial t}
+	+\frac{\partial  \rho^* u^i }{\partial x^i}.
+\end{equation}
+用$\rho^*$表示的连续性方程与我们熟悉的流体力学连续性方程形式相同．
+
+在描述辅助参量$\rho^*$的这一段落中我们采用了国际单位制，之后令$c=1$．
+
+\subsection{平直闵氏时空中的相对论流体力学}
+
+有了理想流体的能动张量\eqref{chlh:eqn_perfect-fluid-Tab}，
+便可由$\nabla_b T^{ab}=0$导出其运动方程；
+展开后的方程非常复杂，可参考\parencite{nelson-1981}；
+文献\parencite[\S 39.11]{mtw1973}给出了一阶近似的展开式．
+
+但在平直闵氏时空中，表述很简单．由$\partial^a T_{a b}=0$得
+\begin{equation}\label{chlh:eqn_pfm}
+	0=\partial^a T_{a b}=U_a U_b \partial^a(\mu+p)+(\mu+p)\left(U^a \partial_a U_b+U_b \partial_a U^a\right)+\partial_b p .
+\end{equation}
+式\eqref{chlh:eqn_pfm}可分别在共动观者的时间和空间方向投影．用$U^b$缩并式\eqref{chlh:eqn_pfm}得
+\begin{align*}
+	0=U^b \partial^a T_{a b}=-U_a \partial^a(\mu+p)+(\mu+p)\left(U^b U^a \partial_a U_b-\partial_a U^a\right)+U^b \partial_b p .
+\end{align*}
+由四速度属性可得：
+$U^b U^a \partial_a U_b=\frac{1}{2} U^a \partial_a\left(U^b U_b\right)
+=\frac{1}{2} U^a \partial_a\left(-1\right)=0$．
+便有
+\begin{equation}\label{chlh:eqn_pfm-t}
+	U^a \partial_a \mu+(\mu+p) \partial_a U^a=0.
+\end{equation}
+上此即为式\eqref{chlh:eqn_pfm}在共动观者时间方向的投影，即相对论流体力学时间方向的分方程．
+以空间投影算符$h_c^b \equiv \delta_c^b+U_c U^b$作用在式\eqref{chlh:eqn_pfm}上，
+便可得相对论流体力学空间方向的分方程：
+\begin{align}\label{chlh:eqn_pfm-s}
+	(\mu+p) U^a \partial_a U_c+\partial_c p+U_c U^b \partial_b p=0 .
+\end{align}
+在天体物理或相对论中，压强为零的理想流体叫尘埃（dust）．
+对尘埃而言，式\eqref{chlh:eqn_pfm-s}简化为 $U^a \partial_a U_c=0$，
+可见尘埃的世界线为测地线．
+
+下面给出式\eqref{chlh:eqn_pfm-t}、\eqref{chlh:eqn_pfm-s}的低速、低能的非相对论近似．
+我们选任一惯性参考系$\left\{t, x^i\right\}$，并对四速度$U^a$作$1+3$分解（注Lorentz因子$\gamma \approx 1$）：
+\begin{equation}\label{chlh:eqn_Utu}
+	U^a=\gamma\left[\left(\tfrac{\partial}{\partial t}\right)^a+u^a\right] 
+	\approx \left(\tfrac{\partial}{\partial t}\right)^a+u^a.
+\end{equation}
+其中$u^a$是流体在该系中的三维速度．
+把上式代入式\eqref{chlh:eqn_pfm-t}，得（注 $p \ll \mu$）
+\begin{align}
+	0=\left[ \left(\tfrac{\partial}{\partial t}\right)^a+u^a \right]  \partial_a \mu
+	+\mu \partial_a \left[ \left(\tfrac{\partial}{\partial t}\right)^a+u^a \right] 
+	\xlongequal{\ref{chccr:eqn_dpdd=0}}
+	\frac{\partial \mu}{\partial t}+\partial_a\left(\mu u^a\right).
+\end{align}
+因 $u^a$ 是惯性系$\{t,x^i\}$的空间矢量，且此惯性系的基矢是常矢量，
+故$\partial_a\left(\mu u^a\right)=\partial_i\left(\mu u^i\right)={\nabla} \cdot(\mu \boldsymbol{u})$ ．
+所以上式即为流体力学中的连续性方程．
+
+用$\left(\partial / \partial x^i\right)^c$与式\eqref{chlh:eqn_pfm-s}缩并，
+得（注\eqref{chccr:eqn_dpdd=0}、\eqref{chlh:eqn_Utu}、$p \ll \mu$）
+\begin{align}
+	0 & =\mu\left[\left(\tfrac{\partial}{\partial t}\right)^a +u^a \right]\partial_a u_i 
+	+\left(\tfrac{\partial}{\partial x^i}\right)^c \partial_c p
+	+u_i\left[\left(\tfrac{\partial}{\partial t}\right)^b+u^b\right] \partial_b p \notag \\
+	& =\mu\left(\frac{\partial u_i}{\partial t}+u^j \partial_j u_i\right)
+	+\frac{\partial p}{\partial x^i}+u_i \frac{\partial p}{\partial t}
+	+u_i u^j \frac{\partial p}{\partial x^j}. 
+\end{align}
+在相对论低速（$|u_i| \ll 1$）近似下还有$|u_i \partial p / \partial t| \ll |\partial p / \partial x^i|$ 
+和$|u_i u^j \partial p / \partial x^j| \ll |\partial p / \partial x^i|$，
+所以上式第二行最后两项与$\partial p / \partial x^i$相比可以忽略．
+此式即为流体力学中的欧拉方程（无粘的Navier--Stokes方程）．
+
+请读者将上述低速近似方程与连续性方程\cite[\S 1]{landau_6-fluid}和欧拉方程\cite[\S 2]{landau_6-fluid}作对比．
+
 
 
 
@@ -1745,119 +1977,6 @@ $n^a$是$\partial U$的单位法向量；我们需要假设$\partial U$是非类
 %    （\parencite[p.321]{Lovelock-1989}式(4.36)）
 
 
-\section{Palatini作用量}\label{chlh:sec_Palatini}
-
-设有活动标架$\{(e^\mu)_a\}$、$\{(e_\mu)^a\}$，度规在这个标架上为：
-\begin{equation}
-	g_{ab} = \eta_{\mu\nu} (e^\mu)_a (e^\nu)_b,\quad
-	\eta_{\mu\nu} = {\rm diag}(-+++) .
-\end{equation}
-
-
-\section{理想流体力学}\label{chlh:perfect-fluid}
-
-
-下面介绍一点相对论热力学内容\cite[\S 22.2]{mtw1973}．
-我们先给出固有参考系（相对流体质团静止的参考系）的数个物理量：
-{\bfseries (1)} 粒子数密度$n$，指重子数减去反重子数．
-{\bfseries (2)} 总质量密度$\rho$，包括质团的静止质量、内能等．
-{\bfseries (3)} 各向同性压强$p$．
-{\bfseries (4)} 平衡态的温度$T$．
-{\bfseries (5)} 单个粒子熵$s$，单位体积熵为$n s$．
-%{\bfseries (6)} 单位质量内能$\Pi$．
-
-
-我们只考虑宏观、经典、理想流体，不考虑粘性、热传导、量子效应、核反应、化学反应等；
-也不具体区分流体质团成分；这是相对论流体力学的最简模型．
-在这些假设下，流体的热力学属性只由两个参量来描述，我们选为粒子数密度和单个粒子熵；
-我们进一步假设流动是等熵、无旋的．
-更多相对论流体力学内容可参考\parencite[Ch.15]{landau_6-fluid}或\parencite[\S 2.10]{weinberg_grav-1972}．
-
-
-{\kaishu 粒子数守恒}是一个十分基本的定律，可参见\parencite[\S 3]{landau_5-statistical}；
-在平直时空中，此定律表示为$\partial_\mu (n U^\mu)=0$，其中$U^\mu$是流体质团的四速度．
-我们用最小替换法则，将其过渡到一般流形上：
-\begin{equation}\label{chlh:eqn_particle-cons}
-    \nabla_a (n U^a) = 0.
-\end{equation}
-
-
-我们直接给出热力学第一定律（\parencite[\S 22.2]{mtw1973}式(22.6)）：
-\begin{equation}\label{chlh:eqn_1TDL}
-    {\rm d}\rho = n T {\rm d}s +\frac{\rho+p}{n} {\rm d}n .
-\end{equation}
-
-
-
-理想流体的作用量\cite{Ray-1972}是（国际单位制，之后采用自然单位制）
-\begin{equation}\label{chlh:eqn_perfect-fluid}
-    \begin{aligned}
-    I_{PF}=&\frac{1}{c}\int \Bigl(-\rho c^2
-    +\kappa_1\left(g_{ab}U^a U^b+c^2 \right) 
-    +\kappa_2 \nabla_a (n U^a)  \Bigr)
-    \sqrt{-g}  {\rm d}^4x  \\
-    =&\int \Bigl(-\rho
-    +\kappa_1\left(g_{ab}U^a U^b+1 \right) 
-    -n U^a \nabla_a\kappa_2   \Bigr)
-    \sqrt{-g}  {\rm d}^4x .
-\end{aligned}
-\end{equation}
-其中$U^a$是流体质团四速度，它必然满足$g_{ab}U^a U^b+c^2=0$．
-拉格朗日乘子$\kappa_1(x)$、$\kappa_2(x)$是时空坐标$\{x\}$的函数；
-$\kappa_1$把约束$g_{ab}U^a U^b+c^2=0$加入拉氏密度；
-$\kappa_2$把粒子数守恒约束加入拉氏密度．
-式\eqref{chlh:eqn_perfect-fluid}中第二行作了关于$\kappa_2 \nabla_a (\rho U^a) $的
-分部积分，并丢掉了边界项．
-把式\eqref{chlh:eqn_perfect-fluid}中第二行积分号内的部分记为$\mathscr{L}_{PF}$．
-
-计算几个关于式\eqref{chlh:eqn_perfect-fluid}的导数：
-\begin{align}
-    \frac{\partial \mathscr{L}_{PF}}{\partial n} = &
-    -\frac{\partial\rho }{\partial n} - U^a \nabla_a\kappa_2 .\\
-    \frac{\partial \mathscr{L}_{PF}}{\partial \nabla_a n} = &
-    0 = \frac{\partial \mathscr{L}_{PF}}{\partial \nabla_b U^a} . \\
-    \frac{\partial \mathscr{L}_{PF}}{\partial U^a} = &
-    2\kappa_1 U_a - n \nabla_a \kappa_2 .
-\end{align}
-将上式带入欧拉-拉格朗日方程\eqref{chlh:eqn_euler-lag}可以得到
-\begin{align}
-    -\frac{\partial\rho }{\partial n}  = U^a \nabla_a\kappa_2; \qquad
-    2\kappa_1 U_a = n \nabla_a \kappa_2 .
-\end{align}
-将上式中的第二式两边缩并$U^a$，并利用第一式，有
-\begin{equation}\label{chlh:eqn_tmp-k1}
-    \kappa_1 = \frac{1}{2}n \frac{\partial\rho }{\partial n}
-    \xlongequal{\ref{chlh:eqn_1TDL}} \frac{\rho+p}{2} .
-\end{equation}
-由上两式可得
-\begin{equation}\label{chlh:eqn_tmp-k2}
-    \nabla_a \kappa_2 = \frac{\rho+p}{n} U_a . 
-\end{equation}
-不难计算出：
-\begin{equation}
-    \frac{\partial \mathscr{L}_{PF}}{\partial g_{ab}} = 
-    \kappa_1 U^a U^b = \frac{\rho+p}{2} U^a U^b .
-\end{equation}
-由式\eqref{chlh:eqn_BR-tensor}得
-\begin{equation*}
-    T^{ab}  %= 2\frac{\partial \mathscr{L}_{NG}}{\partial g_{ab}}    +  g^{ab} \mathscr{L}_{NG} 
-    =(\rho + p)U^a U^b + g^{ab} \left( -\rho
-    +\kappa_1\left(g_{ab}U^a U^b+1 \right) 
-    -n U^a \nabla_a\kappa_2 \right) .
-\end{equation*}
-利用$g_{ab}U^a U^b+1\equiv 0$，并将式\eqref{chlh:eqn_tmp-k2}带入上式，可得能动张量（国际制）：
-\begin{equation}\label{chlh:eqn_perfect-fluid-Tab}
-    T^{ab}=\left(\rho  + \frac{p}{c^2}  \right) U^a U^b +p g^{ab} .
-\end{equation}
-
-有了理想流体的能动张量\eqref{chlh:eqn_perfect-fluid-Tab}，
-便可由$\nabla_b T^{ab}=0$导出其运动方程；
-展开后的方程非常复杂，可参考\parencite{nelson-1981}；
-文献\parencite[\S 39.11]{mtw1973}给出了一阶近似的展开式．
-
-
-
-%连续性方程\parencite[\S 1]{landau_6-fluid}欧拉方程\parencite[\S 2]{landau_6-fluid}
 
 
 
@@ -1882,48 +2001,46 @@ $L_a$的Hodge星对偶是：
 \begin{equation}\label{chlh:eqn_dL=nLO}
 	{\rm d}_f (*{L_{abc}}) = \left( {{\nabla _e}{L^e}} \right){\Omega _{fabc}} = 0.
 \end{equation}
-由上式，我们可以证明$L_a$是个守恒量。设$M$上有类空超曲面$\Sigma$，
+由上式，我们可以证明$L_a$是个守恒量．设$M$上有类空超曲面$\Sigma$，
 这个超曲面还需满足一些条件用以保障下述积分存在且有意义（我们暂且忽略这些条件的叙述），
 在$\Sigma$上定义
 \begin{equation}\label{chlh:eqn_Pxi}
 	P_{\xi}\overset{def}{=}\int_{\Sigma} {*L_{abc}} =\int_{\Sigma} T_{a b} n^a \xi^b.
 \end{equation}
-因超曲面$\Sigma$是三维类空的，上述定义是合理的；同时$*L_{abc}$应理解成限制在$\Sigma$上取值。
-下面证明上式第二个等号是成立的。
+因超曲面$\Sigma$是三维类空的，上述定义是合理的；同时$*L_{abc}$应理解成限制在$\Sigma$上取值．
+下面证明上式第二个等号是成立的．
 由于$L^a$是类时切矢量场（如何证明？），故可以设想在四维闵氏流形$M$中，
 由$L^a$的积分曲线构成一个闭合的类时超曲面$\Pi$，
 在这个类时超曲面两端有两个类空超曲面$\Sigma_1$、$\Sigma_2$，
-此三个超曲面围城了一个紧致的四维闵氏时空$D$。则有
+此三个超曲面围城了一个紧致的四维闵氏时空$D$．则有
 \begin{align}
 	0 = &\int_{D}{\rm d}_f ({*L_{abc}})  \xlongequal[\text{定理}]{Stokes}
 	\int_{\Sigma_1} *L_{abc} + \int_{\Sigma_2} *L_{abc} + \cancel{\int_{\Pi} *L_{abc}} \notag \\
 	=& P_{\xi}({\Sigma_1}) - P_{\xi}({\Sigma_2}). 
 \end{align}
-由式\eqref{chlh:eqn_dL=nLO}可知上式积分最左段的等号必然成立。
-因$L^a$不会流出、流进超曲面$\Pi$，故沿它的积分为零。
-根据类空超曲面的定向可知其积分必然是一正一负。
+由式\eqref{chlh:eqn_dL=nLO}可知上式积分最左段的等号必然成立．
+因$L^a$不会流出、流进超曲面$\Pi$，故沿它的积分为零．
+根据类空超曲面的定向可知其积分必然是一正一负．
 由此可知式\eqref{chlh:eqn_Pxi}定义的$P_{\xi}$是守恒量，
-这说明此定义与类空超曲面$\Sigma$的选取无关。
+这说明此定义与类空超曲面$\Sigma$的选取无关．
 
 
 以 $n^a$ 代表 $\Sigma$ 的指向未来单位法矢，则 $\Omega_{a b c d}$在$\Sigma$上的诱导体元为
-$\hat{\Omega}_{a b c}=n^d \Omega_{d a b c}$。
+$\hat{\Omega}_{a b c}=n^d \Omega_{d a b c}$．
 由于类空超曲面是三维流形，而Hodge星对偶$*L_{abc}$也是三维的，
 那么它在$\Sigma$上的限制$\widetilde{*L_{abc}}$必然是三维体积元$\hat{\Omega}_{a b c}$的倍数，
-即可以表示为$\widetilde{*L_{abc}} = \kappa \hat{\Omega}_{abc}$，其中$\kappa\in C^\infty(\Sigma)$。
+即可以表示为$\widetilde{*L_{abc}} = \kappa \hat{\Omega}_{abc}$，其中$\kappa\in C^\infty(\Sigma)$．
 以$\hat{\Omega}^{abc}$缩并此式，此式左端为：
 \begin{align*}
 	\hat{\Omega}^{abc}\widetilde{*L_{abc}}=n_e \Omega^{eabc} L^d \Omega_{dabc}
 	=-n_e L^d\, 3! \delta_d^e = -6 n_d L^d .
 \end{align*}
-该式右端为：$+6 \kappa$。由此得 $\kappa=-L_a n^a$，从而
+该式右端为：$+6 \kappa$．由此得 $\kappa=-L_a n^a$，从而
 \begin{equation}
 	\widetilde{L^d \Omega_{dabc}}=-n^d L_d \hat{\Omega}_{abc}=T_{de} \xi^e n^d \hat{\Omega}_{abc}.
 \end{equation}
-于是便证明了式\eqref{chlh:eqn_Pxi}中第二个等号。
-$P_{\xi}$的物理意义取决于定义$L_a$时所用的$\xi^a$是哪一类Killing切矢量场。
-
-
+于是便证明了式\eqref{chlh:eqn_Pxi}中第二个等号．
+$P_{\xi}$的物理意义取决于定义$L_a$时所用的$\xi^a$是哪一类Killing切矢量场．
 
 
 \subsection{引力场赝能动张量}
@@ -1950,14 +2067,19 @@ $P_{\xi}$的物理意义取决于定义$L_a$时所用的$\xi^a$是哪一类Killi
 也就是说能量、动量只是动力学变量（位矢$\boldsymbol{r}$）的一次导数（$\dot{\boldsymbol{r}}$）．
 
 仿照于此，我们也要求广义相对论中的引力场能量密度也是动力学变量（$g_{ab}$）的一次导数．
-由于Levi Civita联络与度规相容，故有$\nabla_c g_{ab}\equiv 0$，
+由于Levi-Civita联络与度规相容，故有$\nabla_c g_{ab}\equiv 0$，
 因此，能动量只能包含$g_{ab}$的偏导数项了（$\partial_c g_{ab}$）．
 我们已知（见\S\ref{chgd:sec_RNC}）：在黎曼法坐标系中， 
 在$p\in M$点有$\bar{g}_{ij}(p)=\eta_{ij}$，$\bar{\Gamma}_{ij}^k(p)=0$，
 $\frac{\partial \bar{g}_{ij}}{\partial y^k}(p)=0$；见定理\ref{chgd:thm_RNC}．
 因此，在黎曼法坐标系中，引力场能量密度恒为零；在其他坐标系能量密度可以非零．
 
-总之，如果你期待引力场的能动量（stress-energy）满足：引力理论是度规引力理论，等效原理成立（比如GR）只依赖于局域的引力场．即，是度规和度规的偏导数的函数．（别忘了GR里度规的协变导数总是零．）是一个张量．即，在任意坐标变换下transforms as a tensor.满足守恒律．即，协变散度为零．那么，你将无法找到一个合适的能动量的定义，因为唯一同时满足上述四个条件的张量是0．
+总之，如果你期待引力场的能动量（stress-energy）满足：引力理论是度规引力理论，
+等效原理成立（比如GR）只依赖于局域的引力场．
+即，是度规和度规的偏导数的函数．（别忘了GR里度规的协变导数总是零．）是一个张量．
+即，在任意坐标变换下transforms as a tensor.满足守恒律．
+即，协变散度为零．那么，你将无法找到一个合适的能动量的定义，
+因为唯一同时满足上述四个条件的张量是0．
 
 
 

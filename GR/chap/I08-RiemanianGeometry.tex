@@ -127,114 +127,6 @@
     由式\eqref{chrg:eqn_Christoffel-2-naturalbases}定义的联络是无挠、容许、仿射联络．
 \end{proof}
 
-%\subsubsection
-\paragraph{一般仿射联络}\label{chrg:sec_clc}
-在例\ref{chccr:exm_c-c=t}中，我们指出两个仿射联络系数差是张量场；
-现在有了一个特殊的联络——Levi-Civita联络，我们再次讨论此问题．
-设$\nabla_a$是流形$M$的Levi-Civita联络，它与度规场$g_{bc}$相容，即$\nabla_a g_{bc}=0$；
-再设一无挠、仿射联络$\oversetmy{\circ}{\nabla}_a$，它与度规$g_{ab}$不相容．
-设两者关系是：
-\begin{equation}
-    \nabla_{a} v^c = \oversetmy{\circ}{\nabla}_{a} v^c + C^c_{ea} v^e .
-\end{equation}
-由例\ref{chccr:exm_c-c=t}的分析可知$C^c_{ea}$是张量场；与第一类克氏符相似，我们
-约定它的上指标降在第一个位置．
-由两个联络的关系可以得到
-\begin{equation}
-    \oversetmy{\circ}{\nabla}_{a} g_{bc} - C^e_{ba} g_{ec} -C^e_{ca} g_{be}
-    = \nabla_{a} g_{bc} =0 .
-\end{equation}
-仿照定理\ref{chrg:thm_Levi-Civita-Connetion}中导出克氏符的操作，进行指标轮换后相加减，可得
-\begin{equation}
-    {C}^c_{ab}=\frac{1}{2}g^{cf}\left(\oversetmy{\circ}{\nabla}_a g_{fb} + \oversetmy{\circ}{\nabla}_b g_{fa} 
-    - \oversetmy{\circ}{\nabla}_f g_{ab}\right) .    
-\end{equation}
-
-%\begin{align*}
-%    & \oversetmy{\circ}{\nabla}_{a} g_{bc}+\oversetmy{\circ}{\nabla}_{b} g_{ca}-\oversetmy{\circ}{\nabla}_{c} g_{ab} 
-%    =  C^e_{ba} g_{ec} +C^e_{ca} g_{be}
-%    + C^e_{cb} g_{ea} +C^e_{ab} g_{ce}
-%    - C^e_{ac} g_{eb} -C^e_{bc} g_{ae}\\
-%    \Rightarrow \  &\oversetmy{\circ}{\nabla}_{a} g_{bc}+\oversetmy{\circ}{\nabla}_{b} g_{ca}
-%    -\oversetmy{\circ}{\nabla}_{c} g_{ab}  =   2 C^e_{ab} g_{ec} \\
-%    \Rightarrow \  & 
-%    {C}^c_{ab}=\frac{1}{2}g^{cf}\left(\oversetmy{\circ}{\nabla}_a g_{fb} + \oversetmy{\circ}{\nabla}_b g_{fa} 
-%    - \oversetmy{\circ}{\nabla}_f g_{ab}\right) %\\
-%    % \Rightarrow \   &    \oversetmy{\circ}{\nabla}_a g_{bc} = g_{ec} {C}^e_{ab} + g_{be} {C}^e_{ac} .
-%\end{align*}
-
-%    = &  \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
-%    + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
-%    - v^e \left(\nabla_{a}  C^c_{eb} - C^c_{fa} C^f_{eb} + C^f_{ea} C^c_{fb} + C^f_{ba} C^c_{ef} \right) \\
-%    = &  \nabla_{a} \nabla_{b} v^c - C^c_{ea}\nabla_{b} v^e  -  C^c_{eb}\nabla_{a} v^e
-%    + C^f_{ba} \nabla_{f}v^c   
-%    - v^e \nabla_{a}  C^c_{eb} + v^e C^c_{fa} C^f_{eb} - v^e C^f_{ba} C^c_{ef} 
-
-切矢量场$v^c$的两次导数是
-\setlength{\mathindent}{0em}
-\begin{equation}\label{chrg:eqn_DDva}
-    \begin{aligned}
-        &\oversetmy{\circ}{\nabla}_{a} \oversetmy{\circ}{\nabla}_{b}v^c = 
-        \oversetmy{\circ}{\nabla}_{a} \left(\nabla_{b} v^c - C^c_{eb} v^e \right) 
-        =  \oversetmy{\circ}{\nabla}_{a} \nabla_{b} v^c 
-        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} 
-        -  C^c_{eb} \oversetmy{\circ}{\nabla}_{a} v^e \\
-        %        = &  \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f + C^f_{ba} \nabla_{f}v^c
-        %        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} 
-        %        -  C^c_{eb} (\nabla_{a} v^e - C^e_{fa} v^f)  \\
-        &=   \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
-        + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
-        - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb}  \\
-        \Rightarrow &
-        \oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
-        =   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
-        +  C^c_{e[b} C^e_{a]f} v^f - v^e \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e}    .
-    \end{aligned}
-\end{equation}\setlength{\mathindent}{2em}
-上式中“$\Rightarrow$”这一步是
-对下标$ab$取反对称操作，
-并利用了$\oversetmy{\circ}{\nabla}_{a}$的无挠属性（即$C^c_{[ab]}=0$）．
-由上式最后一步，
-参考式\eqref{chccr:eqn_Riemannian13-Vec-commutator}
-（ $\nabla_{[a} \nabla_{b]} Z^d = \frac{1}{2}R_{cab}^d Z^c $，
-${R}_{eab}^c$是${\nabla}_{a}$的黎曼曲率）；
-并注意到$v^c$的任意性，经计算可得两个黎曼曲率间的关系：
-\begin{equation}\label{chrg:eqn_DDR}
-    \oversetmy{\circ}{R}_{eab}^c  
-    ={R}_{eab}^c - 2 \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e} - 2 C^c_{f[a} C^f_{b]e}
-    ={R}_{eab}^c - 2 \nabla_{[a}  C^c_{b]e} + 2 C^c_{f[a} C^f_{b]e} .
-\end{equation}
-其中$\oversetmy{\circ}{R}_{eab}^c$是$\oversetmy{\circ}{\nabla}_{a}$的黎曼曲率，
-即$\oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]} Z^d 
-= \frac{1}{2}\oversetmy{\circ}{\nabla}{R}_{cab}^d Z^c $．
-
-%
-%\begin{align*}
-%%    & \oversetmy{\circ}{\nabla}_{a} \oversetmy{\circ}{\nabla}_{b}v^c 
-%%    =   \nabla_{a} \nabla_{b} v^c - C^c_{fa}\nabla_{b} v^f  -  C^c_{eb}\nabla_{a} v^e
-%%    + C^f_{ba} \nabla_{f}v^c     +  C^c_{eb} C^e_{fa} v^f 
-%%    - v^e \oversetmy{\circ}{\nabla}_{a}  C^c_{eb} \\
-%\Rightarrow &
-%    \oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
-%=   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
-%     +  C^c_{e[b} C^e_{a]f} v^f - v^e \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e}    \\ 
-%     \Rightarrow &
-%     \oversetmy{\circ}{R}_{eab}^c  = {R}_{eab}^c
-%     - 2 \oversetmy{\circ}{\nabla}_{[a}  C^c_{b]e} - 2 C^c_{f[a} C^f_{b]e}
-%\end{align*}
-
-%式\eqref{chrg:eqn_DDR}中关于$\oversetmy{\circ}{\nabla}_{a}$部分的推导如下
-%\begin{align*}
-%    &\oversetmy{\circ}{\nabla}_{[a} \oversetmy{\circ}{\nabla}_{b]}v^c 
-%    =   \nabla_{[a} \nabla_{b]} v^c - C^c_{f[a}\nabla_{b]} v^f  -  C^c_{e[b}\nabla_{a]} v^e
-%    + C^f_{[ba]} \nabla_{f}v^c
-%    - v^e {\nabla}_{[a}  C^c_{b]e} 
-%    + v^e C^c_{f[a} C^f_{b]e} - v^e C^f_{[ba]} C^c_{ef} \\
-%    \Rightarrow&  \oversetmy{\circ}{R}_{eab}^c v^e = {R}_{eab}^c v^e
-%    - 2v^e {\nabla}_{[a}  C^c_{b]e} 
-%    +  2 v^e C^c_{f[a} C^f_{b]e} .
-%\end{align*}
-
 \begin{remark}
     约定：如无特殊声明，在此以后所用联络皆是Levi-Civita联络．
 \end{remark}
@@ -507,9 +399,6 @@ $\forall X_M^a, Y_M^b \in T_p M$和$\forall X_N^a, Y_N^b \in T_q N$；记
 	证明式\eqref{chrg:eqn_Christoffel-2-naturalbases}定义的联络是无挠、容许、仿射联络．
 \end{exercise}
 
-\begin{exercise}
-	证明式\eqref{chrg:eqn_DDR}．
-\end{exercise}
 
 \begin{exercise}
 	详尽给出例题\ref{chrg:exam_Koszul}中略掉的步骤．
@@ -616,17 +505,20 @@ $m(m-1)(m-2)(m-3)/4!$个限制，最终黎曼曲率张量$R_{abcd}$留下的独�
 当维数$m=1$时$C_1=0$，这说明曲线的内秉曲率$R_{1111}$恒为零．当曲线嵌入到
 高维空间中，可以有非零的外曲率，但这不是内蕴性质． %可参考\S．
 
-当维数$m=2$时$C_2=1$，只有一个独立的分量，本质上是高斯曲率． %可参考\S．
+当维数$m=2$时$C_2=1$，只有一个独立的分量，本质上是高斯曲率． 
 
-当维数$m=3$时$C_3=6$；$m=4$时$C_4=20$．
+当维数$m=3$时$C_3=6$．
+
+当维数$m=4$时$C_4=20$．
 
 
-\index[physwords]{Ricci曲率}
-\index[physwords]{标量曲率}
+\index[physwords]{Ricci曲率}  \index[physwords]{标量曲率}
+
 \subsection{Ricci曲率、标量曲率}
 定义Ricci曲率张量$R_{cb}$和标量曲率$R$：
 \begin{align}
-    R_{cb} \overset{def}{=}& R_{\cdot cab}^a \equiv g^{ad}R_{dcab}=-g^{ad}R_{dcba} . \label{chrg:eqn_RicciCurvatured2}\\
+    R_{cb} \overset{def}{=}& R_{\hphantom{a} cab}^a \equiv g^{ad}R_{dcab}
+      =-g^{ad}R_{dcba} . \label{chrg:eqn_RicciCurvatured2}\\
     R \overset{def}{=}& g^{ab} R_{ab}. \label{chrg:eqn_ScalarCurvature}
 \end{align}
 从Ricci曲率张量定义可以看到：它是一个\CJKunderwave{\kaishu 对称张量}．
@@ -1120,7 +1012,7 @@ $V$、$W$有相同的维数，$g$的正（负）特征值个数等于$h$的正�
         \frac{{\partial {y^\rho }}}{{\partial {x^l}}}\frac{{{\partial ^2}{x^l}}}{{\partial {y^\beta }\partial {y^\alpha }}}
          + \frac{{\partial {y^\rho }}}{{\partial {x^k}}}\Gamma _{ij}^k\left( x \right) .
     \end{equation}
-    利用式\eqref{chccr:eqn_tmp21}发现上式是个恒等式，
+    利用式\eqref{chccr:eqn_d2ydx2}发现上式是个恒等式，
     这样便证明了式\eqref{chrg:eqn_isometry-connection-tmp}，
     那么自然可以得到式\eqref{chrg:eqn_isometry-connection-vec2}，
     最终证明了式\eqref{chrg:eqn_isometry-connection-vec}．
@@ -1830,6 +1722,25 @@ $m$阶外积也会产生一个Jacobi行列式；两者刚好互逆，故形式�
 \CJKunderwave{如无特殊声明，我们约定取同向，也就是取式\eqref{chrg:eqn_volume-element}的“$+$”．}
 
 
+\begin{example}\label{chrg:exam_RV}
+	四维闵可夫斯基时空（相对论）中的体积元．
+\end{example}
+由式\eqref{chmla:eqn_xbase-2-ybase}（取变换矩阵$a^{j}_{\hphantom{j}i}=\delta^j_i$）可知相对论中体积元为
+\begin{align*}
+	\Omega_{abcd}=& \sqrt{-g}\, ({\rm d}x^0)_{a} \wedge 
+	({\rm d}x^1)_{b} \wedge ({\rm d}x^2)_{c} \wedge({\rm d}x^3)_{d} \\
+	=& \delta_{\alpha\beta\gamma\delta}^{0123} \sqrt{-g}\, ({\rm d}x^{\alpha})_{a} \wedge 
+	({\rm d}x^{\beta})_{b} \wedge ({\rm d}x^{\gamma})_{c} \wedge({\rm d}x^{\delta})_{d}.
+\end{align*}
+我们已知$\epsilon_{\alpha\beta\gamma\delta} \equiv \delta_{\alpha\beta\gamma\delta}^{0123}$；
+这说明在相对论中，我们需要选择
+\begin{equation}\label{chrg:eqn_RV}
+	\epsilon_{0123} = \delta_{0123}^{0123} = +1,
+\end{equation}
+才能使体积元是右手系（即式\eqref{chrg:eqn_volume-element}取正号）． 
+如果选择$-\epsilon_{0123} = \epsilon^{0123} = +1$，
+则等价于令式\eqref{chrg:eqn_volume-element}取负号．
+正负号的选取只是习惯，与正确与否无关．\qed
 
 
 以后，我们会经常遇到体积元间的缩并运算，下面给出\CJKunderwave{体积元缩并公式}:
@@ -2119,7 +2030,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 \end{equation}
 在行列式理论中，元素$g_{il}$与代数余子式$A^{lj}$有正交关系，即
 \begin{equation}
-    \sum_{l=1}^{n}g_{il} A^{lj} = \delta_i^j \cdot g .
+    \sum\nolimits_{l=1}^{n}g_{il} A^{lj} = \delta_i^j \cdot g .
 \end{equation}
 又因度规$g_{il}$及其共轭量$g^{lj}$互逆，即$g_{il}g^{lj}=\delta_i^j$；由此不难得出
 \begin{equation}
@@ -2150,11 +2061,12 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 \end{equation}
 
 微积分中的Laplace算子，在微分流形中已被推广为{\bfseries Beltrami--Laplace 算子}，
-只需将式\eqref{chrg:eqn_divergence}中$v^k$换成$g^{kj} \frac{ \partial f}{\partial x^j}$即可
+只需将式\eqref{chrg:eqn_divergence}中$v^k$换
+成$g^{kj} \frac{ \partial f}{\partial x^j}$（$\forall f \in C^\infty(M)$）即可
 \begin{equation}\label{chrg:eqn_Beltrami-Laplace}
-    \square f \equiv \nabla_a \nabla^a f = \frac{1}{\sqrt{|g|}}\frac{ \partial }{\partial x^k}
-    \left( \sqrt{|g|}g^{kj} \frac{ \partial f}{\partial x^j}  \right) ,
-    \qquad \forall f \in C^\infty(M) .
+    \square f \equiv g^{ab} \nabla_a \nabla_b f = \nabla_a \nabla^a f 
+    = \frac{1}{\sqrt{|g|}}\frac{ \partial }{\partial x^k}
+    \left( \sqrt{|g|}g^{kj} \frac{ \partial f}{\partial x^j}  \right) .
 \end{equation}
 纯数学上更习惯使用“$\Delta$”来替换上式中的“$\square$”；但在物理学的四维闵氏时空中
 都使用这个方块算符来代表d'Alembert算符，所以在此我们使用方块算符．
@@ -2163,8 +2075,8 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 
 \begin{exercise}
 	我们使用度规定义了矢量场的散度公式．
-	实际上，矢量场散度无需度规；现有公式$\nabla_a v^b$，
-	令其上下指标缩并即可；试给出无度规时的矢量场散度公式（用克氏符表示）．
+	实际上矢量场散度无需度规；设有公式$\nabla_a v^b$，
+	令其上下指标缩并即可；试给出它的公式表述（用克氏符）．
 \end{exercise}
 
 \begin{exercise}
@@ -2174,44 +2086,53 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 
 
 
-\index[physwords]{黎曼曲率!型式}
-\section{黎曼曲率型式}\label{chrg:sec_form2}
-本节介绍广义黎曼流形中的曲率型式\cite[\S 1.7]{chandrasekhar-1983}，
-\S\ref{chccr:sec_form1}中的理论自然适用于本节，
-这里主要讨论度规场对型式理论的影响．
-设有$m$维广义黎曼流形$(M,g)$，以及无挠的Levi-Civita联络$\nabla_a$．
+
+\index[physwords]{自旋仿射联络}
+\section{一般仿射联络}\label{chrg:sec_metric-affine}
+
+设有$m$维广义黎曼流形$(M,g)$．
+现在有了Levi-Civita联络，我们初步阐述一下一般仿射联络与它的关系．
+我们将有挠、与度规不相容的仿射联络记为$\oversetmy{\bullet\circ}{\nabla}_a$；
+将有挠、但与度规相容的仿射联络记为$\oversetmy{\circ}{\nabla}_a$；
+将无挠、但与度规不相容的仿射联络记为$\oversetmy{\bullet}{\nabla}_a$；
+而Levi-Civita联络记为$\nabla_a$；
+相应的联络系数、联络型式也要增加这种小圆圈（小圆点）；这种有区分的记号只适用于本节．
+
+只需把本节公式中的小圆圈（小圆点）去掉即可得到Levi-Civita联络．
 
 
-\subsection{黎曼度规下的型式理论}
+
+在\S\ref{chccr:sec_form1}中，我们定义了联络1型式，
+现在有了度规可以把它的指标进行升降；为此，我们先做如下铺垫．
 在标架场$\{(e_\mu)^a\}$上，度规表示为
 \begin{equation}
-g_{ab}=g_{\mu\nu}(e^\mu)_a (e^\nu)_b, \qquad
-g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
+	g_{ab}=g_{\mu\nu}(e^\mu)_a (e^\nu)_b, \qquad
+	g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 \end{equation}
 再引入两个记号
 \begin{align}
-(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
-= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
-= g_{\mu\rho}(e^\mu)_a, \\
-(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
-= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
-= g^{\mu\rho}(e_\mu)^a .
+	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
+	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
+	= g_{\mu\rho}(e^\mu)_a, \\
+	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
+	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
+	= g^{\mu\rho}(e_\mu)^a .
 \end{align}
 上面两式说明，基矢的内外指标均可用度规相应指标进行升降．
 需要说明，如果没有度规，无法定义$(e_\rho)_a$和$(e^\rho)^a$．
 我们在\S\ref{chdm:sec_metric-abi}曾经引入过这两个记号，在那里是平直空间；
 这里是弯曲空间或平直空间．由此可得：
 \begin{equation}
-  g_{ab}=(e_\mu)_a (e^\mu)_b, \  g^{ab}=(e^\mu)^a (e_\mu)^b ; \
-  g_{\mu\nu}=(e_\mu)_a (e_\nu)^a, \  g^{\mu\nu}=(e^\mu)^a (e^\nu)_a .
+	g_{ab}=(e_\mu)_a (e^\mu)_b, \  g^{ab}=(e^\mu)^a (e_\mu)^b ; \
+	g_{\mu\nu}=(e_\mu)_a (e_\nu)^a, \  g^{\mu\nu}=(e^\mu)^a (e^\nu)_a .
 \end{equation}
 可以再定义
 \begin{equation}
-    (\omega _{\mu\nu})_{a} \overset{def}{=}
-      g_{\mu\sigma} (\omega ^{\sigma}_{\hphantom{\sigma}\nu})_{a}
-    = g_{\mu\sigma} (e^\sigma)_c \nabla _a (e_\nu)^c
-    = (e_\mu)_c \nabla _a (e_\nu)^c
-    = g_{\mu\sigma}\Gamma^{\sigma}_{\nu\tau} (e^\tau)_a .
+	(\oversetmy{\bullet\circ}{\omega} _{\mu\nu})_{a} \overset{def}{=}
+	g_{\mu\sigma} (\oversetmy{\bullet\circ}{\omega}^{\sigma}_{\hphantom{\sigma}\nu})_{a}
+	= g_{\mu\sigma} (e^\sigma)_c \oversetmy{\bullet\circ}{\nabla}_a (e_\nu)^c
+	= (e_\mu)_c \oversetmy{\bullet\circ}{\nabla}_a (e_\nu)^c
+	= g_{\mu\sigma}\oversetmy{\bullet\circ}{\Gamma}^{\sigma}_{\nu\tau} (e^\tau)_a .
 \end{equation}
 上式计算用到了式\eqref{chccr:def_1form}．同样，上式必须在引入度规之后才能定义．
 
@@ -2220,23 +2141,181 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 自然坐标下的相容性条件\eqref{chrg:eqn_Dg=0}在一般标架场下变为
 \setlength{\mathindent}{0em}
 \begin{align*}
-    &0=\nabla_a g_{bc} \quad {\color{red}\Rightarrow}\quad 0=
-    (\nabla_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
-    +g_{\mu\nu} \bigl(\nabla_a (e^\mu)_b\bigr) (e^\nu)_c
-    +g_{\mu\nu}(e^\mu)_b \bigl(\nabla_a (e^\nu)_c \bigr) \\
-    {\color{red}\Rightarrow} &0=
-    ({\rm d}_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
-    -g_{\mu\nu} \bigl( (e^j)_b (\omega_{\hphantom{\sigma} j}^{\mu})_a \bigr) (e^\nu)_c
-    -g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\omega_{\hphantom{\sigma} j}^{\nu})_a \bigr) .
+	&0=\oversetmy{\circ}{\nabla}_a g_{bc} \quad {\color{red}\Rightarrow}\quad 0=
+	(\oversetmy{\circ}{\nabla}_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
+	+g_{\mu\nu} \bigl(\oversetmy{\circ}{\nabla}_a (e^\mu)_b\bigr) (e^\nu)_c
+	+g_{\mu\nu}(e^\mu)_b \bigl(\oversetmy{\circ}{\nabla}_a (e^\nu)_c \bigr) \\
+	&{\color{red}\Rightarrow} \quad 0=
+	({\rm d}_a g_{\mu\nu}) (e^\mu)_b (e^\nu)_c
+	-g_{\mu\nu} \bigl( (e^j)_b (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\mu})_a \bigr) (e^\nu)_c
+	-g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\nu})_a \bigr) .
 \end{align*}\setlength{\mathindent}{2em}
-上式应用了式\eqref{chccr:eqn_D-omega-form}（$\nabla _a (e^\mu)_b=- (e^j)_b (\omega_{\hphantom{\sigma} j}^{\mu})_a$）．
-消去基矢，得到度规在一般标架场下的相容性条件，即$\nabla_a g_{bc}=0$的具体表达式
+上式应用了式\eqref{chccr:eqn_D-omega-form}
+（$\oversetmy{\circ}{\nabla}_a (e^\mu)_b
+=- (e^j)_b (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\mu})_a$）．
+消去基矢，得到度规在一般标架场下的相容性条件，
+即$\oversetmy{\circ}{\nabla}_a g_{bc}=0$的具体表达式
 \begin{equation}\label{chrg:eqn_Dg=0-onframes}
-    {\rm d}_a g_{\mu\nu} 
-     = (\omega_{\nu \mu})_a + (\omega_{\mu \nu})_a
-     = \left(g_{\mu\sigma}\Gamma^{\sigma}_{\nu\tau}
-      + g_{\nu\sigma}\Gamma^{\sigma}_{\mu\tau}\right) (e^\tau)_a .
+	{\rm d}_a g_{\mu\nu} 
+	= (\oversetmy{\circ}{\omega}_{\nu \mu})_a + (\oversetmy{\circ}{\omega}_{\mu \nu})_a
+	= \left(g_{\mu\sigma}\oversetmy{\circ}{\Gamma}^{\sigma}_{\nu\tau}
+	+ g_{\nu\sigma}\oversetmy{\circ}{\Gamma}^{\sigma}_{\mu\tau}\right) (e^\tau)_a .
 \end{equation}
+
+
+\paragraph{仿射联络系数分解}
+
+我们使用第一类克氏符来推演．先列出挠率张量：
+\begin{equation*}
+	T^c_{\hphantom{c}ab} = \oversetmy{\bullet\circ}{\Gamma}^c_{ba}-\oversetmy{\bullet\circ}{\Gamma}^c_{ab},\qquad
+	T_{cab} = \oversetmy{\bullet\circ}{\Gamma}_{cba}- \oversetmy{\bullet\circ}{\Gamma}_{cab}.
+\end{equation*}
+由于仿射联络与度量未必相容，故设
+\begin{align*}
+	L_{cab}=&+\oversetmy{\bullet\circ}{\nabla}_c g_{ab} =
+	+\partial_c g_{ab} - \oversetmy{\bullet\circ}{\Gamma}_{abc} -\oversetmy{\bullet\circ}{\Gamma}_{bac}, \\
+	L_{abc}=&+\oversetmy{\bullet\circ}{\nabla}_a g_{bc} =
+	+\partial_a g_{bc} - \oversetmy{\bullet\circ}{\Gamma}_{bca} -\oversetmy{\bullet\circ}{\Gamma}_{cba}, \\
+	-L_{bca}=&-\oversetmy{\bullet\circ}{\nabla}_b g_{ca} =
+	-\partial_b g_{ca} + \oversetmy{\bullet\circ}{\Gamma}_{cab} +\oversetmy{\bullet\circ}{\Gamma}_{acb}.
+\end{align*}
+显然有$L_{cab}=L_{cba}$．上三式相加，有
+\begin{align*}
+	L_{cab}+L_{abc}-L_{bca}=&2\Gamma_{bac}- \oversetmy{\bullet\circ}{\Gamma}_{abc} -\oversetmy{\bullet\circ}{\Gamma}_{bac}- \oversetmy{\bullet\circ}{\Gamma}_{bca} -\oversetmy{\bullet\circ}{\Gamma}_{cba}+ \oversetmy{\bullet\circ}{\Gamma}_{cab} +\oversetmy{\bullet\circ}{\Gamma}_{acb} \\
+	=&2\Gamma_{bac} + T_{cba} +T_{abc}  -\oversetmy{\bullet\circ}{\Gamma}_{bac}- \oversetmy{\bullet\circ}{\Gamma}_{bca} .
+\end{align*}
+根据\S\ref{chccr:sec_no-torsion}论证已知
+\begin{align*}
+	\oversetmy{\bullet\circ}{\Gamma}_{bac} = \frac{1}{2} \left(\oversetmy{\bullet\circ}{\Gamma}_{bac}
+	+\oversetmy{\bullet\circ}{\Gamma}_{bca} \right) 
+	+\frac{1}{2} \left(\oversetmy{\bullet\circ}{\Gamma}_{bac}-\oversetmy{\bullet\circ}{\Gamma}_{bca} \right)
+	= \frac{1}{2} \left(\oversetmy{\bullet\circ}{\Gamma}_{bac}
+	+\oversetmy{\bullet\circ}{\Gamma}_{bca} \right) +\frac{1}{2}T_{bca} .
+\end{align*}
+结合以上两式，有
+\begin{align*}
+	\oversetmy{\bullet\circ}{\Gamma}_{bac} 
+	=\Gamma_{bac}	+ \frac{1}{2} \left( T_{cba} +T_{abc}-T_{bac}\right)  
+	+ \frac{1}{2}\left(L_{bca}-L_{cab}-L_{abc}\right) .
+\end{align*}
+定义
+\begin{align}
+	K_{bac} \oversetmy{def}{=}& \frac{1}{2}\left(-T_{bac}+ T_{cba} +T_{abc}\right) . \\
+	C_{bac} \oversetmy{def}{=}& \frac{1}{2}\left(L_{bac}-L_{cab}-L_{abc}\right)
+	=\frac{1}{2}\left( \oversetmy{\bullet\circ}{\nabla}_b g_{ac} 
+	-\oversetmy{\bullet\circ}{\nabla}_c g_{ab}
+	-\oversetmy{\bullet\circ}{\nabla}_a g_{bc} \right) .
+\end{align}
+不难看出$K_{bac} = -K_{abc}$，$C_{bac} = C_{bca}$．则有
+\begin{subequations}\label{chrg:eqn_AC-CCT}
+	\begin{align}
+	\oversetmy{\bullet\circ}{\Gamma}_{bac} =&\Gamma_{bac} + K_{bac} + C_{bac}. \\
+	\oversetmy{\bullet\circ}{\Gamma}^b_{ac}=&\Gamma^{b}_{ac}+K^b_{ac}+C^b_{ac}.
+	\end{align}
+\end{subequations}
+第一项$\Gamma^{b}_{ac}$是无挠且与度规相容的克氏符，
+自然坐标基底下的表达式为式\eqref{chrg:eqn_Christoffel-naturalbases}．
+第二项$K^b_{ac}$叫{\heiti 扭曲张量}（contorsion）．      \index[physwords]{扭曲张量}
+第三项$C^b_{ac}$是度规不相容项．由此易得：
+\begin{align}
+	\oversetmy{\bullet\circ}{\nabla}_c v^b = & \partial_c v^b + \oversetmy{\bullet\circ}{\Gamma}^b_{ac} v^a
+	= \nabla_c v^b + (K^b_{ac}+C^b_{ac}) v^a, \\
+	\oversetmy{\bullet\circ}{\nabla}_c \omega_b = & \partial_c \omega_b 
+	- \oversetmy{\bullet\circ}{\Gamma}^a_{bc} \omega_a
+	= \nabla_c \omega_b - (K^a_{bc}+C^a_{bc}) \omega_a .
+\end{align}
+
+
+\paragraph{曲率关系}
+我们知道一般仿射联络的黎曼曲率表示式为\eqref{chccr:eqn_Riemannian13-component}；
+下面把\eqref{chrg:eqn_AC-CCT}式带入之，
+则可以得到一般曲率$\oversetmy{\bullet\circ}{R}_{jln}^i$与
+度规$g_{ij}$决定的曲率${R}_{jln}^i$之间的关系．
+\begin{align*}
+	\oversetmy{\bullet\circ}{R}_{jln}^i 
+	 =& {\partial_l} \oversetmy{\bullet\circ}{\Gamma}_{jn}^{i} 
+	 -\partial_n \oversetmy{\bullet\circ}{\Gamma}_{jl}^{i}
+	 +\oversetmy{\bullet\circ}{\Gamma}_{jn}^{k} \oversetmy{\bullet\circ}{\Gamma}_{kl}^{i}
+	 -\oversetmy{\bullet\circ}{\Gamma}_{jl}^{k} \oversetmy{\bullet\circ}{\Gamma}_{kn}^{i}  \\
+%	 =& \partial_l \left( {\Gamma}_{jn}^{i} + K_{jn}^{i} + C_{jn}^{i} \right)
+%	 - \partial_n \left( {\Gamma}_{jl}^{i} + K_{jl}^{i} + C_{jl}^{i}\right)  \\
+%	 &+ \left({\Gamma}_{jn}^{k} + K_{jn}^{k} + C_{jn}^{k}\right)
+%	 \left( {\Gamma}_{kl}^{i} + K_{kl}^{i} + C_{kl}^{i}\right)  \\
+%	 &-\left({\Gamma}_{jl}^{k}+K_{jl}^{k}+C_{jl}^{k}\right)
+%	 \left({\Gamma}_{kn}^{i}+K_{kn}^{i}+C_{kn}^{i}\right) \\
+	 =& {R}_{jln}^i + \partial_l K_{jn}^{i} + \partial_l C_{jn}^{i} 
+	 -\partial_n  K_{jl}^{i} -\partial_n C_{jl}^{i}  
+	 + \Gamma_{jn}^{k} K_{kl}^{i} + \Gamma_{jn}^{k} C_{kl}^{i}  \\
+	 &+ K_{jn}^{k} \Gamma_{kl}^{i} + K_{jn}^{k} K_{kl}^{i}  
+	 + K_{jn}^{k} C_{kl}^{i} + C_{jn}^{k} \Gamma_{kl}^{i} 
+	  + C_{jn}^{k} K_{kl}^{i} + C_{jn}^{k} C_{kl}^{i}   -\Gamma_{jl}^{k} K_{kn}^{i}  \\
+	 &-\Gamma_{jl}^{k}C_{kn}^{i} -K_{jl}^{k}\Gamma_{kn}^{i} -K_{jl}^{k} K_{kn}^{i}  
+	 -K_{jl}^{k}C_{kn}^{i} -C_{jl}^{k}\Gamma_{kn}^{i}
+	 -C_{jl}^{k}K_{kn}^{i}-C_{jl}^{k}C_{kn}^{i} \\
+	 =& {R}_{jln}^i 
+	 + \partial_l K_{jn}^{i} + \Gamma_{kl}^{i} K_{jn}^{k} -\Gamma_{jl}^{k} K_{kn}^{i}
+	 -\Gamma_{nl}^{k} K_{jk}^{i} +\Gamma_{nl}^{k} K_{jk}^{i}\\
+	 &+\partial_l C_{jn}^{i} + \Gamma_{kl}^{i} C_{jn}^{k} -\Gamma_{jl}^{k} C_{kn}^{i}
+	 -\Gamma_{nl}^{k} C_{jk}^{i} +\Gamma_{nl}^{k} C_{jk}^{i}\\
+	 &-\left(\partial_n K_{jl}^{i} + \Gamma_{kn}^{i} K_{jl}^{k} - \Gamma_{jn}^{k} K_{kl}^{i} 
+	 - \Gamma_{ln}^{k} K_{jk}^{i}  \right) - \Gamma_{ln}^{k} K_{jk}^{i} \\
+	 &-\left(\partial_n C_{jl}^{i} + \Gamma_{kn}^{i} C_{jl}^{k} - \Gamma_{jn}^{k} C_{kl}^{i} 
+	 - \Gamma_{ln}^{k} C_{jk}^{i}   \right) - \Gamma_{ln}^{k} C_{jk}^{i} \\	  
+	 &+ K_{jn}^{k} K_{kl}^{i}  + K_{jn}^{k} C_{kl}^{i} 
+	 + C_{jn}^{k} K_{kl}^{i} + C_{jn}^{k} C_{kl}^{i}     \\
+	  & -K_{jl}^{k} K_{kn}^{i} -K_{jl}^{k}C_{kn}^{i} 
+	 -C_{jl}^{k}K_{kn}^{i}-C_{jl}^{k}C_{kn}^{i} .
+\end{align*}
+利用由度规决定的克氏符的对称性（$\Gamma_{nl}^{k}=\Gamma_{ln}^{k}$），并配上基矢，有：
+\begin{align}
+	\oversetmy{\bullet\circ}{R}_{cab}^e =& {R}_{cab}^e 
+	+ \nabla_a(K_{cb}^{e} + C_{cb}^{e}) - \nabla_b (K_{ca}^{e}  + C_{ca}^{e}) \notag \\
+	&+ (K_{fa}^{e} + C_{fa}^{e}) (K_{cb}^{f}+ C_{cb}^{f}) 
+	 - (K_{fb}^{e} + C_{fb}^{e}) (K_{ca}^{f}+ C_{ca}^{f})  . \label{chrg:eqn_RBC-Riemann}
+\end{align}
+明显有$\oversetmy{\bullet\circ}{R}_{cab}^e=-\oversetmy{\bullet\circ}{R}_{cba}^e$．
+令式\eqref{chrg:eqn_RBC-Riemann}中$e$、$a$缩并（无需度规）可得Ricci曲率：
+\begin{align}
+	\oversetmy{\bullet\circ}{R}_{cb}=&
+	\oversetmy{\bullet\circ}{R}_{cab}^a = {R}_{cb} 
+	+ \nabla_a(K_{cb}^{a} + C_{cb}^{a}) - \nabla_b (K_{ca}^{a}  + C_{ca}^{a}) \notag \\
+	&+ (K_{fa}^{a} + C_{fa}^{a}) (K_{cb}^{f}+ C_{cb}^{f}) 
+	- (K_{fb}^{a} + C_{fb}^{a}) (K_{ca}^{f}+ C_{ca}^{f})  . \label{chrg:eqn_RBC-Ricci}
+\end{align}
+用度规场$g^{cb}$缩并Ricci曲率可得标量曲率
+\begin{align}
+	\oversetmy{\bullet\circ}{R}=&	g^{bc} \oversetmy{\bullet\circ}{R}_{cb} = R
+	+ g^{bc} \nabla_a(K_{cb}^{a} + C_{cb}^{a}) - \nabla^c (K_{ca}^{a}  + C_{ca}^{a}) \notag \\
+	&+ (K_{fa}^{a} + C_{fa}^{a}) (K_{cb}^{f}+ C_{cb}^{f}) g^{bc}
+	- (K_{fb}^{a} + C_{fb}^{a}) (K_{ca}^{f}+ C_{ca}^{f})  g^{bc} . \label{chrg:eqn_RBC-scalar}
+\end{align}
+若记$\Xi_{cb}^{a} \equiv K_{cb}^{a} + C_{cb}^{a} $，则上述诸式可简记为：
+\begin{subequations}\label{chrg:eqn_RBC-Curvature}
+\begin{align}
+	\oversetmy{\bullet\circ}{R}_{cab}^e =& {R}_{cab}^e 
+	+ \nabla_a \Xi_{cb}^{e} - \nabla_b \Xi_{ca}^{e} + \Xi_{fa}^{e} \Xi_{cb}^{f}	
+	- \Xi_{fb}^{e} \Xi_{ca}^{f}  . \label{chrg:eqn_RBC-CurvatureC-Riemann} \\
+	\oversetmy{\bullet\circ}{R}_{cb}=& {R}_{cb} 	+ \nabla_a \Xi_{cb}^{a} - \nabla_b \Xi_{ca}^{a} 
+	+ \Xi_{fa}^{a} \Xi_{cb}^{f}	- \Xi_{fb}^{a} \Xi_{ca}^{f} . \label{chrg:eqn_RBC-Curvature-Ricci} \\
+	\oversetmy{\bullet\circ}{R}=&	R + g^{bc} \nabla_a \Xi_{cb}^{a} - \nabla^c \Xi_{ca}^{a}  
+	+ \Xi_{fa}^{a} \Xi_{cb}^{f} g^{bc} - \Xi_{fb}^{a}  \Xi_{ca}^{f}  g^{bc} . \label{chrg:eqn_RBC-Curvature-scalar}
+\end{align}
+\end{subequations}
+
+
+
+\index[physwords]{黎曼曲率!型式}
+\section{黎曼曲率型式}\label{chrg:sec_form2}
+
+读者需先参考\S\ref{chccr:sec_form1}、\S\ref{chrg:sec_metric-affine}中的理论，
+本节将联络限定为无挠的、且与度规相容的Levi-Civita联络$\nabla_a$；
+这会给型式理论带来一些新的内容．
+
+
+
+\subsection{黎曼度规下的型式理论}
+
+
 
 \index[physwords]{黎曼曲率!型式!Cartan结构方程}
 \paragraph{Cartan结构方程}
@@ -2285,7 +2364,8 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
     (e^\sigma)_c \wedge (\Omega_{\hphantom{\sigma} \sigma} ^{\mu})_{ab} = 0 =
     (e^\sigma)_c \wedge (\Omega_{\mu \sigma} )_{ab}  .
 \end{equation}
-应用式\eqref{chrg:eqn_Dg=0-onframes}容易得到内指标降下来后的第二Bianchi恒等式 %\eqref{chccr:eqn_Bianchi-CII}
+应用式\eqref{chrg:eqn_Dg=0-onframes}，
+由式\eqref{chccr:eqn_Bianchi-CII}容易得到内指标降下来后的第二Bianchi恒等式
 \begin{align}
     {\rm d}_c (\Omega_{\mu\nu} )_{ab} = &
        ( \omega _{\hphantom{\sigma} \nu}^\sigma )_c \wedge (\Omega_{\mu \sigma} )_{ab}
@@ -2296,7 +2376,7 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
      - (\Omega_{\hphantom{\sigma} \nu} ^{\sigma})_{ca}\wedge ( \omega _{\hphantom{\sigma} \sigma}^\mu )_b
        . \tag{\ref{chccr:eqn_Bianchi-CII}}
 \end{align}
-为了比对，保留了式\eqref{chccr:eqn_Bianchi-CII}．
+
 
 %推导过程
 %\begin{align*}
@@ -2325,46 +2405,6 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 
 
 
-\index[physwords]{音乐同构}
-
-\subsection{音乐同构}\label{chrg:sec_music-iso}
-为了读者能更好地阅读其它文献，本小节给出大多数文献中使用的同构表示；
-因这种表示使用了五线谱中的升号“$\sharp$”与降号“$\flat$”，
-故称之为{\heiti 音乐同构}（Musical isomorphism，也称为典范同构 Canonical isomorphism）．
-
-
-降号“$\flat$”是将$TM$中的切矢量场映射成$T^*M$中余切矢量场；
-升号“$\sharp$”是将$T^*M$中的余切矢量场映射成$TM$中切矢量场．
-基矢的具体表示为：
-\begin{align*}
-	&\flat: TM \to T^*M, \quad \flat(\boldsymbol{e}_\mu) 
-	= \boldsymbol{e}_\mu^{*}=g_{\mu \sigma}\boldsymbol{e}^{*\sigma} ;
-	\quad \text{对应}\quad
-	g_{ab} (e_\mu)^b = (e_\mu)_a =  g_{\mu \sigma} (e^\sigma)_a . \\
-	&\sharp: T^*M \to TM, \quad \sharp(\boldsymbol{e}^{*\mu})  
-	= \boldsymbol{e}^\mu=g^{\mu \sigma}\boldsymbol{e}_{\sigma} ;
-	\quad \text{对应}\quad
-	g^{ab} (e^\mu)_b  = (e^\mu)^a=  g^{\mu \sigma} (e_\sigma)^a .
-\end{align*}
-由此易得（下式中$X\in \mathfrak{X}(M)$，$\omega \in \mathfrak{X}^*(M)$）：
-\begin{align*}
-	X^{\flat} \equiv& X_{\flat} \equiv \flat(X) = \flat (X^\mu \boldsymbol{e}_\mu) = X^\mu \,  \flat ( \boldsymbol{e}_\mu)
-	=X^\mu g_{\mu \sigma}\boldsymbol{e}^{*\sigma} = X_\sigma \boldsymbol{e}^{*\sigma}. \\
-	\omega^{\sharp} \equiv& \sharp(\omega) = \sharp(\omega_\mu \boldsymbol{e}^{*\mu})
-	= \omega_\mu \,  \sharp( \boldsymbol{e}^{*\mu}) = \omega_\mu g^{\mu \sigma}\boldsymbol{e}_{\sigma}
-	=\omega^\sigma \boldsymbol{e}_{\sigma}.
-\end{align*}
-高阶张量的音乐升降需要显示指定升降哪个指标，表示起来略繁琐；不再赘述．
-
-上面给出的音乐同构使用了\S\ref{chmla:sec_tensor}记号（与\parencite{cc2001-zh}同），
-其实在\S\ref{chmla:sec_tensor}记号以及抽象指标记号中没有必要引入上述音乐同构．
-但是在{\kaishu 绝大多数}相关文献中（比如\parencite{chen-li-2023-2ed-v1}）并不引入记号$\{\boldsymbol{e}_\mu^{*}\}$，
-这些文献中绝大多数时候只用记号$\{{e}_\mu\}$和$\{{e}^{\mu}\}$，
-这些文献中的$\{{e}_\mu\}$就是\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}_\mu\}\cong \{(e_\mu)^a\}$，
-而这些文献中的$\{{e}^{\mu}\}$是指\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}^{*\mu}\}\cong \{(e^\mu)_a\}$．
-在这些文献中为了表示抽象指标中的$(e_\mu)_a$、$(e^\mu)^a$，便引入了上述音乐同构，
-通常表示为$\flat(e_\mu) \equiv {e}_\mu^\flat \equiv {e}_{\flat \mu} \cong (e_\mu)_a$以
-及$\sharp(e^\mu)\equiv {e}^{\sharp \mu} \cong (e^\mu)^a$．
 
 
 
@@ -2372,8 +2412,7 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
 \index[physwords]{欧几里得空间!局部}
 \subsection{局部广义欧几里得空间}\label{chrg:sec_local-EuclideanSpace}
 
-\index[physwords]{平直}
-\index[physwords]{弯曲}
+\index[physwords]{平直}  \index[physwords]{弯曲}
 
 \begin{definition}\label{chrg:def_flat-curved}
     若广义黎曼流形$(M,g)$上由Levi-Civita联络决定的黎曼曲率恒为零，
@@ -2388,10 +2427,13 @@ g^{ab}=g^{\mu\nu}(e_\mu)^a (e_\nu)^b.
         g_{ab}|_U = \eta_{\alpha\beta} ({\rm d}x^\alpha)_a ({\rm d}x^\beta)_b ,
         \quad     \text{在整个局部坐标系}\ (U;x^\alpha) \ \text{内成立}
     \end{equation}
-    其中$\eta_{\alpha\beta}={\rm diag}(-1,\cdots,-1,+1,\cdots,+1)$，且$\pm 1$个数总和是$m$；
+    其中$p\in U \subset M$，
+    $\eta_{\alpha\beta}={\rm diag}(-1,\cdots,-1,+1,\cdots,+1)$，且$\pm 1$个数总和是$m$；
     则广义黎曼流形$(M,g)$称为{\heiti 局部广义欧几里得空间}．
 \end{definition}
-本节目的就是要证明下述定理\cite[\S 4.2]{chen-li-2023-2ed-v1}．
+
+%本节目的就是要证明下述定理\cite[\S 4.2]{chen-li-2023-2ed-v1}．
+
 \begin{theorem}\label{chrg:thm_local-EuclideanSpace}
     设有$m$维广义黎曼流形$(M,g)$，其黎曼曲率张量为零的充分必要条件是$(M,g)$为局部广义欧几里得空间．
 \end{theorem}
@@ -3903,7 +3945,50 @@ $\theta \rightarrow \pi$意味着$\rho \rightarrow +\infty$，这不是欧式平
 
 
 \section*{小结}
-本章主要参考了\parencite{oneill1983}、\parencite{cc2001-zh}、\parencite{chen-li-2023-2ed-v1}相应章节．
+
+\index[physwords]{音乐同构}
+\paragraph{音乐同构}\label{chrg:sec_music-iso}
+为了读者能更好地阅读其它文献，这里给出大多数文献中使用的同构表示；
+因这种表示使用了五线谱中的升号“$\sharp$”与降号“$\flat$”，
+故称之为{\heiti 音乐同构}（Musical isomorphism，也称为典范同构 Canonical isomorphism）．
+
+
+降号“$\flat$”是将$TM$中的切矢量场映射成$T^*M$中余切矢量场；
+升号“$\sharp$”是将$T^*M$中的余切矢量场映射成$TM$中切矢量场．
+基矢的具体表示为：
+\begin{align*}
+	&\flat: TM \to T^*M, \quad \flat(\boldsymbol{e}_\mu) 
+	= \boldsymbol{e}_\mu^{*}=g_{\mu \sigma}\boldsymbol{e}^{*\sigma} ;
+	\quad \text{对应}\quad
+	g_{ab} (e_\mu)^b = (e_\mu)_a =  g_{\mu \sigma} (e^\sigma)_a . \\
+	&\sharp: T^*M \to TM, \quad \sharp(\boldsymbol{e}^{*\mu})  
+	= \boldsymbol{e}^\mu=g^{\mu \sigma}\boldsymbol{e}_{\sigma} ;
+	\quad \text{对应}\quad
+	g^{ab} (e^\mu)_b  = (e^\mu)^a=  g^{\mu \sigma} (e_\sigma)^a .
+\end{align*}
+由此易得（下式中$X\in \mathfrak{X}(M)$，$\omega \in \mathfrak{X}^*(M)$）：
+\begin{align*}
+	X^{\flat} \equiv& X_{\flat} \equiv \flat(X) = \flat (X^\mu \boldsymbol{e}_\mu) = X^\mu \,  \flat ( \boldsymbol{e}_\mu)
+	=X^\mu g_{\mu \sigma}\boldsymbol{e}^{*\sigma} = X_\sigma \boldsymbol{e}^{*\sigma}. \\
+	\omega^{\sharp} \equiv& \sharp(\omega) = \sharp(\omega_\mu \boldsymbol{e}^{*\mu})
+	= \omega_\mu \,  \sharp( \boldsymbol{e}^{*\mu}) = \omega_\mu g^{\mu \sigma}\boldsymbol{e}_{\sigma}
+	=\omega^\sigma \boldsymbol{e}_{\sigma}.
+\end{align*}
+高阶张量的音乐升降需要显示指定升降哪个指标，表示起来略繁琐；不再赘述．
+
+上面给出的音乐同构使用了\S\ref{chmla:sec_tensor}记号（与\parencite{cc2001-zh}同），
+其实在\S\ref{chmla:sec_tensor}记号以及抽象指标记号中没有必要引入上述音乐同构．
+但是在{\kaishu 绝大多数}相关文献中（比如\parencite{chen-li-2023-2ed-v1}）并不引入记号$\{\boldsymbol{e}_\mu^{*}\}$，
+这些文献中绝大多数时候只用记号$\{{e}_\mu\}$和$\{{e}^{\mu}\}$，
+这些文献中的$\{{e}_\mu\}$就是\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}_\mu\}\cong \{(e_\mu)^a\}$，
+而这些文献中的$\{{e}^{\mu}\}$是指\S\ref{chmla:sec_tensor}中的$\{\boldsymbol{e}^{*\mu}\}\cong \{(e^\mu)_a\}$．
+在这些文献中为了表示抽象指标中的$(e_\mu)_a$、$(e^\mu)^a$，便引入了上述音乐同构，
+通常表示为$\flat(e_\mu) \equiv {e}_\mu^\flat \equiv {e}_{\flat \mu} \cong (e_\mu)_a$以
+及$\sharp(e^\mu)\equiv {e}^{\sharp \mu} \cong (e^\mu)^a$．
+
+
+\paragraph{文献总结}本章主要参考了\parencite{oneill1983}、
+\parencite{cc2001-zh}、\parencite{chen-li-2023-2ed-v1}相应章节．
 
 本章内容（除\S\ref{chrg:sec_E3MF}外）适用于正定、不定度规．
 

@@ -196,13 +196,70 @@ g^{\mu\nu}=& \begin{pmatrix}
 \end{equation}
 通过符号演算程序，容易验证式\eqref{chkerr:eqn_KN}、\eqref{chkerr:eqn_KN-EMA}符合爱氏-麦氏场方程．
 
-当$Q=0$时，Kerr--Newman度规退化为纯粹的Kerr解．笔者认为，不论有无电荷，
-这个解的核心人物只有Roy Kerr（新西兰数学物理学家，1934-）．
+通过符号演算程序，容易得到$g=\det(g_{\mu\nu})$的表达式：
+\begin{equation}
+	g= -\rho^4  \sin ^2\theta = 
+	-\left(r^2 + a^2 \cos^2 \theta \right)^2  \sin ^2\theta.
+\end{equation}
+
+
+当$Q=0$时，Kerr--Newman度规退化为纯粹的Kerr解．
+当$a=0$时，Kerr--Newman解退化为Reissner--Nordstr\"om解（也可称为带电Schwarzschild解）．
+当$a=0=Q$时，带电Kerr解退化为Schwarzschild解．
 
 
 
+笔者认为，不论有无电荷，这个解的核心人物只有Roy Kerr（1934-）．
 
-很明显，当$a=0=Q$时，Kerr解退化为Schwarzschild解．
+
+
+由于非零的克氏符及非零的$R_{\mu\nu\rho\sigma}$太多了，就不在这里列出了．
+手工计算这些量不大现实；由符号演算软件很容易给出这些量．
+
+\begin{example}
+	验证度规\eqref{chkerr:eqn_KN}中的$Q$是星体电荷．
+\end{example}
+我们省略推导过程；星体的总电荷$Q_{star}$是（其中$S$是包含星体的类空闭合二维球面）：
+\begin{align}
+	Q_{star} = \int_{S} *F_{ab} = \frac{1}{2}\int_{S} \Omega_{abcd}F^{cd}.
+\end{align}
+利用符号演算软件，可以得到$\Omega_{abcd}F^{cd}$限制在球面$S$上的表达式为：
+\begin{equation}
+	-\frac{Q \left(a^2+r^2\right) \left(a^2 \cos 2 \theta+a^2-2 r^2\right) \sin \theta }
+	{\pi  \left(a^2 \cos 2 \theta+a^2+2 r^2\right)^2} .
+\end{equation}
+将上式带入$Q_{star}$的表达式并积分可以得到：$Q_{star} = Q$．
+\qed
+
+
+\begin{example}
+	验证度规\eqref{chkerr:eqn_KN}中的$M$是星体质量．
+\end{example}
+Komar质量
+\begin{align*}
+	M_{K} =& -\frac{1}{8\pi}\int_{S} \Omega_{abcd} \nabla^c 
+	\left(\frac{\partial}{\partial t}\right)^d \\
+	=& -\frac{2 \pi}{8 \pi } \int_0^{\pi } \frac{4 M \left(a^2+r^2\right) 
+		\left(a^2 \cos (2 \theta )+a^2-2 r^2\right)\sin \theta}
+		{\left(a^2 \cos 2 \theta +a^2+2 r^2\right)^2} \, {\rm d}\theta 
+	=M.	
+\end{align*}
+证毕．
+\qed
+
+\begin{example}
+	验证度规\eqref{chkerr:eqn_KN}中的$J$是星体角动量．
+\end{example}
+角动量
+\begin{align*}
+	J_{star} =& \frac{1}{16\pi}\int_{S} \Omega_{abcd} \nabla^c 
+	\left(\frac{\partial}{\partial \phi}\right)^d \\
+	=& \frac{2 \pi}{16 \pi } \int _0^{\pi } \frac{4 a M \sin^3\theta \left(a^4+a^2 \left(a^2-r^2\right) \cos 2 \theta -3 a^2 r^2-6 r^4\right)}
+	{-\left(a^2 \cos 2 \theta +a^2+2 r^2\right)^2} {\rm d}\theta
+	=M a.	
+\end{align*}
+证毕．
+\qed
 
 
 \begin{equation}

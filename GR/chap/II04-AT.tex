@@ -1,0 +1,242 @@
+% !TeX encoding = UTF-8
+% 此文件从2025.11开始
+
+\chapter{引力替代理论}\label{chat}
+
+在\S\ref{chlh:sec_Gravity}中，我们从Hilbert作用量导出了爱氏场方程；
+这一框架有如下基本假设：
+{\bfseries (1)} 仿射联络是无挠的；
+{\bfseries (2)} 仿射联络与度规相容；
+{\bfseries (3)} 关于引力的动力学变量只有度规$g_{ab}$；
+{\bfseries (4)} 引力场方程是二阶偏微分方程组．
+在本章中，我们试着放宽上述要求来寻找爱氏引力的{\kaishu 引力替代理论}．
+
+在本章中我们假设$(M,g)$是四维闵氏时空，其上有Levi-Civata联络$\nabla_a$．
+
+为简单起见，我们假设非引力场拉式密度仍然只依赖$(M,g)$上度规场$g_{ab}$，
+不会依赖新引进的与引力有关的动力学变量．
+
+
+
+
+
+
+\section{$f(R)$理论}
+
+我们先叙述$f(R)$理论\cite{Sotiriou-2010a}．
+
+$f(R)$级数展开式为
+\begin{equation}\label{chat:eqn_fR-series} 
+	f(R)=\cdots+\frac{\alpha_2}{R^2} 
+	+\frac{\alpha_1}{R}-2\Lambda+R+\frac{R^2}{\beta_2} 
+	+\frac{R^3}{\beta_3}+\cdots, 
+\end{equation} 
+作用量为
+\begin{equation}\label{chat:eqn_fR-action} 
+I= \frac{1}{16\pi}\int  f(R) \sqrt{-g} {\rm d}^4 x  +I_{NG} .
+\end{equation} 
+其中$I_{NG}$是非引力场作用量\eqref{chlh:eqn_I-NG}．
+由此得到场方程是（其中$\Box \equiv g^{ab} \nabla_a \nabla_b$）：
+\begin{equation}\label{chat:eqn_fR-feq}
+f'(R)R_{ab}-\frac{1}{2} f(R) g_{ab}- \left(\nabla_a\nabla_b -g_{ab}\Box \right) f'(R) = 8\pi \, T_{ab} .
+\end{equation} 
+当$f(R)=R-2\Lambda$时，由上式可以得到广义相对论中的爱氏引力场方程：
+\begin{equation}
+	R_{ab}-\frac{1}{2} (R-2\Lambda) g_{ab}= 8\pi \, T_{ab} .
+\end{equation} 
+
+
+
+%下面叙述式\eqref{chat:eqn_fR-feq}的变分过程．
+%\begin{align*}
+%	0 &= \updelta I = \updelta \left[\frac{1}{16\pi}\int {\rm d}^4 x \sqrt{-g} \, f(R) \right] + \updelta I_{NG} \\
+%	&= \frac{1}{16\pi } \int \left[ \left(\updelta f(R) \right)\sqrt{-g}
+%	-f(R)\frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab} \right]	{\rm d}^{4}x
+%	-\int \frac{1}{2} T_{ab} \sqrt{-g} \updelta g^{ab} \,{\rm d}^{4}x \\
+%	&= \frac{1}{16\pi } \int \left[ f'(R) R_{ab} (\updelta g^{ab}) \sqrt{-g}
+%	-f(R)\frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab} - 8\pi T_{ab} \sqrt{-g} 
+%	\updelta g^{ab}\right]	{\rm d}^{4}x\\
+%	&\quad + \frac{1}{16\pi } \int \left[ f'(R)  \sqrt{-g} g^{ab}\updelta R_{ab} \right]{\rm d}^{4}x \\
+%	&= \frac{1}{16\pi } \int \left[ f'(R) R_{ab} -\frac{1}{2} g_{ab} f(R)
+%	- 8\pi T_{ab} \right] \sqrt{-g} \updelta g^{ab} {\rm d}^{4}x \\
+%	&\quad + \frac{1}{16\pi } \int \left[ f'(R)   
+%	\nabla^d \left(\nabla^b \updelta g_{db} - g^{cb} \nabla_d \updelta g_{cb}
+%	\right) \right] \sqrt{-g} {\rm d}^{4}x \\
+%	&\xlongequal[\text{丢掉边界项}]{\text{分部积分并}}
+%	\frac{1}{16\pi } \int \left[ f'(R) R_{ab} -\frac{1}{2} g_{ab} f(R)
+%	- 8\pi T_{ab} \right] \sqrt{-g} \updelta g^{ab} {\rm d}^{4}x \\
+%	&\quad - \frac{1}{16\pi } \int\left\{ 
+%	\left(\nabla^b \updelta g_{db} - g^{cb} \nabla_d \updelta g_{cb}\right) \nabla^d f'(R)
+%	\right\} \sqrt{-g} {\rm d}^{4}x \\
+%	&\xlongequal[\text{并丢掉边界项}]{\text{再次分部积分}}
+%	\frac{1}{16\pi } \int \left[ f'(R) R_{ab} -\frac{1}{2} g_{ab} f(R)
+%	- 8\pi T_{ab} \right] \sqrt{-g} \updelta g^{ab} {\rm d}^{4}x \\
+%	&\quad - \frac{1}{16\pi } \int\left\{ 
+%	- \left[\nabla^b\nabla^d f'(R)\right] \updelta g_{db} 
+%	+ \nabla_d \left[g^{cb} \nabla^d f'(R) \right]  \updelta g_{cb}
+%	\right\} \sqrt{-g} {\rm d}^{4}x \\
+%	&=\frac{1}{16\pi } \int \left[ f'(R) R_{ab} -\frac{1}{2} g_{ab} f(R)
+%	- 8\pi T_{ab} \right] \sqrt{-g} \updelta g^{ab} {\rm d}^{4}x \\
+%	&\quad - \frac{1}{16\pi } \int\left\{ 
+%	(\nabla^c\nabla^d f'(R)) g_{db} g_{ca}\updelta g^{ba} 
+%	- \left[ \nabla_d \nabla^d f'(R) \right]  g_{ab}\updelta g^{ab}
+%	\right\} \sqrt{-g} {\rm d}^{4}x \\
+%	&=\frac{1}{16\pi } \int \left[ f'(R) R_{ab} -\frac{1}{2} g_{ab} f(R)
+%	- (\nabla_a \nabla_b - g_{ab}\Box) f'(R)
+%	- 8\pi T_{ab} \right] \sqrt{-g} \updelta g^{ab} {\rm d}^{4}x .
+%\end{align*}
+%因度规变分独立，故可得式\eqref{chat:eqn_fR-feq}．
+
+
+\section{度规-仿射联络引力论}
+
+在$(M,g)$上已有Levi-Civata联络$\nabla_a$；
+我们再引入一个一般仿射联络$\oversetmy{\bullet\circ}{\nabla}_a$（采用\S\ref{chrg:sec_metric-affine}记号），
+它可能有挠、也可能与度规不相容．
+这种额外引入一个仿射联络的引力理论被称为{\heiti 度规-仿射联络引力论}
+（Metric-Affine Gravity）．
+相当于引进了$64$个标量场$\oversetmy{\bullet\circ}{\Gamma}^i_{jk}$当作
+新的与引力相关的动力学变量（可能包括、也可能不包括挠率和度规不相容项）．
+也可以进一步假设物质场拉式密度依赖于这些量（$\oversetmy{\bullet\circ}{\Gamma}^i_{jk}$），
+这类理论可以查阅\parencite{Sotiriou-2010a}，就不在此讨论了．
+
+
+作用量为（注$\oversetmy{\bullet\circ}{R}\equiv \oversetmy{\bullet\circ}{R}_{ab} g^{ab}$）：
+\begin{equation}\label{chat:eqn_MAG-action} 
+	I= \frac{1}{16\pi}\int f\left(\oversetmy{\bullet\circ}{R} \right) \sqrt{-g} {\rm d}^4 x  +I_{NG} .
+\end{equation} 
+我们需要对度规$g^{ab}$和$\oversetmy{\bullet\circ}{\Gamma}^i_{jk}$作变分．
+\begin{align*}
+	0=& \updelta I = \updelta \left[\frac{1}{16\pi}\int f\left(\oversetmy{\bullet\circ}{R} \right)
+	\sqrt{-g} {\rm d}^4 x \right]  + \updelta I_{NG} \\
+	=& \frac{1}{16\pi} \int \left[f'\ \oversetmy{\bullet\circ}{R}_{ab} (\updelta g^{ab}) \sqrt{-g} 
+	+f\left(\oversetmy{\bullet\circ}{R}\right) \updelta \sqrt{-g}\right] {\rm d}^4 x   + \updelta I_{NG}\\	  
+	&+ \frac{1}{16\pi}\int f'\ (\updelta\oversetmy{\bullet\circ}{R}_{ab}) g^{ab} \sqrt{-g} {\rm d}^4 x\\
+	=& \frac{1}{16\pi} \int \left[f'\  \oversetmy{\bullet\circ}{R}_{(ab)} 
+	-\frac{1}{2} f\left(\oversetmy{\bullet\circ}{R}\right) g_{ab} - 8\pi T_{ab}  \right] 
+	\sqrt{-g} \updelta g^{ab} {\rm d}^4 x \\
+	&+\frac{1}{16\pi}\int f'\  \left(
+	\oversetmy{\bullet\circ}{\nabla}_e \updelta\oversetmy{\bullet\circ}{\Gamma}_{ab}^{e} 
+	-\oversetmy{\bullet\circ}{\nabla}_b \updelta\oversetmy{\bullet\circ}{\Gamma}_{ae}^{e} \right) 
+	g^{ab} \sqrt{-g} {\rm d}^4 x\\
+	=& \frac{1}{16\pi} \int \left[f'\  \oversetmy{\bullet\circ}{R}_{(ab)} 
+	-\frac{1}{2} f\left(\oversetmy{\bullet\circ}{R}\right) g_{ab} - 8\pi T_{ab} \right] 
+	\sqrt{-g} \updelta g^{ab} {\rm d}^4 x \\
+	&+\frac{1}{16\pi}\int  \left[
+	- \oversetmy{\bullet\circ}{\nabla}_e (f'g^{ab}) 
+	+ \oversetmy{\bullet\circ}{\nabla}_c (f'g^{c(a})  \delta_e^{b)}
+	\right] \updelta\oversetmy{\bullet\circ}{\Gamma}_{ab}^{e} \sqrt{-g} {\rm d}^4 x .
+\end{align*}
+由此可得场方程：
+\begin{align}
+	f'\left(\oversetmy{\bullet\circ}{R}\right)\  \oversetmy{\bullet\circ}{R}_{(ab)} 
+	-\frac{1}{2} f\left(\oversetmy{\bullet\circ}{R}\right) g_{ab} =&  8\pi T_{ab}.\\ 
+	\oversetmy{\bullet\circ}{\nabla}_e \left(f' g^{ab} \right)
+	- \oversetmy{\bullet\circ}{\nabla}_c \left( f' g^{c(a} \right) \delta_e^{b)} = &0.
+\end{align}
+很明显，当一般仿射联络（$\oversetmy{\bullet\circ}{\nabla}_a$）是Levi-Civita联络，
+且$f(R)=R-2\Lambda$时，上式就是广义相对论中的爱氏引力场方程．
+
+
+\section{标量-张量理论}
+
+作用量为
+\begin{equation}
+	I=\frac{1}{16 \pi } \int\left[\phi R-\frac{\omega(\phi)}{\phi} g^{ab} (\nabla_a\phi) \nabla_b\phi
+	-U(\phi)\right] \sqrt{-g} {\rm d}^4 x + I_{NG} .
+\end{equation}
+变分后可得场方程（其中$\Box = g^{ab}\nabla_a \nabla_b$，$T= g^{ab}T_{ab}$）：
+\begin{align}
+	& R_{ab} - \frac{1}{2}g_{ab}R + g_{ab} \frac{U (\phi)}{2 \phi} =  
+	\frac{8 \pi}{\phi} T_{ab}+\frac{1}{\phi}\left(\nabla_a\nabla_b\phi-g_{ab} \Box \phi\right) \notag \\
+	&\qquad\qquad +\frac{\omega(\phi)}{\phi^2}\left((\nabla_a \phi) \nabla_b\phi
+	-\frac{1}{2} g_{ab} (\nabla_c\phi) \nabla^c\phi\right) , \label{chat:eqn_ST-GFE} \\
+	&\Box \phi=  \frac{1}{3+2 \omega(\phi)}\left(8 \pi T-\frac{{\rm d} \omega(\phi)}{{\rm d} \phi} 
+	(\nabla_c\phi) \nabla^c\phi+\phi\frac{{\rm d}U(\phi)}{{\rm d} \phi} 
+	-2U(\phi)\right). \label{chat:eqn_ST-PhiFE}
+\end{align}
+
+%变分过程
+%\begin{align*}
+%	0 =& \updelta I = \updelta \left[\frac{1}{16 \pi } \int\left[\phi R-\frac{\omega(\phi)}{\phi} g^{ab} 
+%	(\nabla_a\phi) \nabla_b\phi	-U(\phi)\right] \sqrt{-g} {\rm d}^4 x \right] + \updelta I_{NG} \\
+%	=& \frac{1}{16\pi } \int \Bigl[ \Bigl( \phi \updelta R + R \updelta\phi
+%	-\frac{\omega}{\phi} g^{ab} (\nabla_a\phi) \nabla_b \updelta \phi	
+%	-\frac{\omega}{\phi} g^{ab} (\nabla_a \updelta \phi) \nabla_b\phi	\\
+%	&-\frac{\omega}{\phi} (\updelta g^{ab}) (\nabla_a\phi) \nabla_b\phi	
+%	-\left(\frac{\omega'}{\phi} \updelta \phi - \frac{\omega}{\phi^2} \updelta \phi \right)
+%	g^{ab} (\nabla_a\phi) \nabla_b\phi	-U' \updelta \phi\Bigr) \sqrt{-g} \\
+%	&-\left(\phi R-\frac{\omega(\phi)}{\phi} g^{ab} 
+%	(\nabla_a\phi) \nabla_b\phi	-U(\phi)\right) \frac{\sqrt{-g}}{2} g_{ab} \updelta g^{ab} \Bigr]	{\rm d}^{4}x
+%	-\int \frac{1}{2} T_{ab} \sqrt{-g} \updelta g^{ab} \,{\rm d}^{4}x \\
+%	=&\frac{1}{16\pi } \int  \phi \sqrt{-g} \left( 
+%	\nabla^d\nabla^b \updelta g_{db} - g^{cb} \nabla^d\nabla_d \updelta g_{cb}
+%	+ R_{ab} (\updelta g^{ab}) \right) {\rm d}^{4}x \\
+%	&-\int \frac{1}{32\pi} \left[ g_{ab}  \left(\phi R-\tfrac{\omega}{\phi} g^{ab} 
+%(\nabla_a\phi) \nabla_b\phi	-U(\phi)\right) 
+%+\frac{2\omega}{\phi} (\nabla_a\phi) \nabla_b\phi 
+%+ 16 \pi T_{ab}\right] \sqrt{-g} \updelta g^{ab} \,{\rm d}^{4}x \\
+%	&+ \frac{1}{16\pi } \int \Bigl[ 
+%	-\frac{2\omega}{\phi} g^{ab} (\nabla_a\phi) \nabla_b \updelta \phi	\\
+%	&+\Bigl( R -\left(\frac{\omega'}{\phi}  - \frac{\omega}{\phi^2} \right)
+%	g^{ab} (\nabla_a\phi) \nabla_b\phi -U' \Bigr)\updelta\phi
+%	  \Bigr] \sqrt{-g}{\rm d}^{4}x \\
+%	 =&\frac{1}{16\pi } \int  \left( 
+%	 - \nabla_a \nabla_b\phi + g_{ab} (\nabla_d \nabla^d\phi)  \right) 
+%	 \sqrt{-g} \updelta g^{ab}  {\rm d}^{4}x \\
+%	 &-\int \frac{1}{32\pi} \left[ g_{ab}  \left(\phi R-\tfrac{\omega}{\phi} g^{ab} 
+%	 (\nabla_a\phi) \nabla_b\phi	-U(\phi)\right) 
+%	 +\frac{2\omega}{\phi} (\nabla_a\phi) \nabla_b\phi - 2\phi R_{ab}
+%	 + 16 \pi T_{ab}\right] \sqrt{-g} \updelta g^{ab} \,{\rm d}^{4}x \\
+%	 &+ \frac{1}{16\pi } \int \Bigl[ 
+%	 -\nabla_b \left(\tfrac{2\omega}{\phi} g^{ab} (\nabla_a\phi)  \updelta \phi\right) 
+%	 + \nabla_b \left(\tfrac{2\omega}{\phi} g^{ab} (\nabla_a\phi)  \right) \updelta \phi\\
+%	 &+\Bigl( R -\left(\tfrac{\omega'}{\phi}  - \tfrac{\omega}{\phi^2} \right)
+%	 g^{ab} (\nabla_a\phi) \nabla_b\phi -U' \Bigr)\updelta\phi
+%	  \Bigr] \sqrt{-g} {\rm d}^{4}x .
+%\end{align*}
+%可得场方程
+%\begin{align*}
+%	0 = & \nabla_a \nabla_b\phi -  g_{ab} \Box \phi + \frac{1}{2}g_{ab}  \left(\phi R-\tfrac{\omega}{\phi} 
+%	(\nabla^c\phi) \nabla_c\phi	-U(\phi)\right) \\
+%	&+\frac{\omega}{\phi} (\nabla_a\phi) \nabla_b\phi - \phi R_{ab}+ 8 \pi T_{ab}, \\
+%	0=& \nabla_b \left(\tfrac{2\omega}{\phi} g^{ab} (\nabla_a\phi)  \right)
+%	+R -\left(\tfrac{\omega'}{\phi}  - \tfrac{\omega}{\phi^2} \right)
+%	g^{ab} (\nabla_a\phi) \nabla_b\phi -U' .
+%\end{align*}
+%对第一式求迹
+%\begin{align*}
+%	0 = & - 3 \Box \phi + \phi R - 2 U 
+%	-\frac{\omega}{\phi} (\nabla^c\phi) \nabla_c\phi + 8 \pi T .
+%\end{align*}
+%带入$\phi$的动力学方程，将$R$消掉，有
+%\begin{align*}
+%	0=& \frac{2\omega}{\phi} \nabla_b \nabla^b \phi 
+%	+ 2(\nabla^b \phi) \left( \frac{ \nabla_b\omega}{\phi} - \frac{\omega}{\phi^2}\nabla_b\phi \right)
+%	-\left(\frac{\omega'}{\phi}  - \frac{\omega}{\phi^2} \right)
+%	(\nabla^b\phi) \nabla_b\phi -U'  +R  \\
+%	0=& 2\omega \Box \phi  
+%	+\left(\omega'  - \frac{\omega}{\phi} \right)(\nabla^b\phi) \nabla_b\phi -\phi U' 
+%	+ 3 \Box \phi + 2 U +\frac{\omega}{\phi} (\nabla^c\phi) \nabla_c\phi - 8 \pi T \\
+%	=& (2\omega +3) \Box \phi  
+%	+ \omega'  (\nabla^b\phi) \nabla_b\phi -\phi U'  + 2 U  - 8 \pi T 
+%\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{小结}
+本章主要参考了\parencite{will_tegp-2018}第五章，以及那里列出的原始文献．
+
+
+\printbibliography[heading=subbibliography,title=第\ref{chat}章参考文献]
+
+\endinput
