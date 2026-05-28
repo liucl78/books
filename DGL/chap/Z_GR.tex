@@ -1,0 +1,587 @@
+% !TeX encoding = UTF-8
+
+
+\chapter{Fermi--Walker导数}\label{chFW}
+
+此附录较多参考了文献\parencite[\S 4.1]{hawking-ellis1973}、\parencite[\S 6.5]{mtw1973}．
+
+此附录是依附于物理的数学知识，对相对论很重要；故将其放在这里讲述．
+
+
+研究刚体运动是十分必要的，地球就可以近似看成刚体，我们生活在这个刚体的表面上．
+在牛顿运动学中，质点需要用速度来描述；刚体除了速度之外，还必须引入角速度来描述．
+Fermi--Walker导数是为了研究如何在四维闵氏时空$(M,g)$中定义无自转角速度标架场而引入的；
+转动自然属于刚体的性质，为此先复习经典力学中的刚体运动学．
+
+\section{牛顿力学中的刚体运动}
+先回顾一下三维经典力学中的刚体理论，可参阅文献\parencite[Ch. 3]{zhuzx-zy-vI}．
+
+{\bfseries (1)} 角速度$\boldsymbol{\omega}$是用于描述刚体的物理量，它是轴矢量（或赝矢量）；质点
+没有角速度或角动量的概念{\footnote{可能有读者会质疑此点，他会说把
+		绕太阳旋转的地球看成质点，那地球不就有了角速度、角动量了吗？
+		其实这种观点是认为太阳和地球间有一根无质量的刚性杆，这根作为刚体
+		的杆自然可以有角速度；但作为质点的地球没有角速度．}}．
+角速度是描述整个刚体运动的一个物理量，不存在刚体上
+某点角速度的概念，或者说刚体上任意一点的角速度皆相同．
+
+{\bfseries (2)} 轴矢量性质只在坐标系左右手变化时才会体现，
+如果只在右手（或左手）坐标系内研究问题，轴矢量和普通矢量一样．
+角速度除了用一个矢量来表示外，还可以用一个$3\times 3$的反对称矩阵来表示．
+用矩阵表示时，没有轴矢量性质，在左右手坐标系变换时，表述具有不变性，无需
+额外增加负号．刚体角速度$\boldsymbol{\omega}$与$3\times 3$反对称矩阵是
+一一对应的；比如$\boldsymbol{\omega}=(\omega_x,\omega_y,\omega_z)$，那么
+\begin{equation}\label{chsm:eqn_jsd}
+	\Omega=\begin{pmatrix}
+		0 &  \omega_z & -\omega_y \\
+		-\omega_z& 0 & \omega_x \\
+		\omega_y & -\omega_x & 0
+	\end{pmatrix}
+	\ \Leftrightarrow \
+	\Omega_{ij}= \epsilon_{ijk} \omega_k
+	\ \Leftrightarrow \
+	\omega_k = \frac{1}{2}\epsilon_{ijk} \Omega_{ij} .
+\end{equation}
+
+{\bfseries (3)} 研究固连在刚体上的一个三维刚性标架（指三个非共面矢量，且大小和矢量间夹角不随时间变化），
+与研究刚体运动本身是等价的．通常情况下，都是研究这个刚性标架
+如何运动；这个刚性标架角速度自然是刚体角速度．
+
+{\bfseries (4)} 任意矢量$\boldsymbol{G }$在两个参考系（绝对和相对）中变化率公式是
+（见\parencite[\S 3.6]{zhuzx-zy-vI}第218页(3.34)式）：
+\begin{equation}\label{chsm:eqn_Grate-rigid}
+	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{绝对}} =
+	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{相对}}
+	+ {\boldsymbol{\omega}} \times \boldsymbol{G} .
+\end{equation}
+本节不考虑物体相对刚体的运动，
+所以等号后面的那个时间导数恒为零，即$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{相对}}=0$；
+只剩下一项$(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t})_{\text{绝对}}={\boldsymbol{\omega}} \times \boldsymbol{G}$．
+
+由于我们关心的刚体角速度，所以可忽略刚体的平动，只研究刚体的定点运动．
+将式\eqref{chsm:eqn_Grate-rigid}换成$3\times 3$反对称角速度矩阵形式（省略相对项）
+\begin{equation}\label{chsm:eqn_Grate-rigid-matrix}
+	\left(\frac{{\rm d} \boldsymbol{G }^i}{{\rm d} t}\right)_{\text{绝对}} =
+	- \sum\nolimits_{j=1}^{3}{\boldsymbol{\Omega}^{ij}}  \boldsymbol{G}^j .
+\end{equation}
+
+%{\bfseries (5)} 由上式可以得到一个质点的一般运动公式：
+%\begin{equation}\label{chsm:eqn_NM-a}
+%	\boldsymbol{a}=  \boldsymbol{A}_{O}
+%	+2 \boldsymbol{\omega}\times \boldsymbol{u}
+%	+ \dot{\boldsymbol{\omega}}\times \boldsymbol{x}
+%	+ \boldsymbol{\omega}\times (\boldsymbol{\omega}\times \boldsymbol{x}) .
+%\end{equation}
+
+
+{\bfseries (5)} 就像描述质点速度$\boldsymbol{v}$一样，描述刚体的角速度$\boldsymbol{\omega}$只有一个，
+它们都有三个分量，不论哪个分量发生变化都变成了另外一个状态，不再是原来的状态．
+刚体不存在绕$x,y,z$轴三个角速度的概念，它们是同一个角速度的三个分量
+（这很容易想明白，一个质点只有一个速度$\boldsymbol{v}$，它有三个分量，
+但绝不能说一个质点有三个速度）．
+可能有的读者认为可以在角速度上叠加一个量不影响物理，比如令
+${\boldsymbol{\omega}}' = {\boldsymbol{\omega}} + \lambda \boldsymbol{G}$，则
+${\boldsymbol{\omega}}' \times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}+
+\lambda \boldsymbol{G}\times \boldsymbol{G}={\boldsymbol{\omega}} \times \boldsymbol{G}$，
+我们可以说${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$对应同一
+物理状态吗？显然不可以！上面推导只针对某一个特定矢量$\boldsymbol{G}$是正确的，
+但\eqref{chsm:eqn_Grate-rigid}对任意矢量都正确；同一物理问题中会处理
+很多物理量，除了$\boldsymbol{G}$外，还处理另外多个矢量$\boldsymbol{H}_i$；那么对于$\boldsymbol{H}_i$而言，
+${\boldsymbol{\omega}}'$ 和 ${\boldsymbol{\omega}}$便对应不同物理状态了．
+更不可能给每个$\boldsymbol{H}_i$找个新的${\boldsymbol{\omega}}^{\prime}_{i}$与之对应．
+{\footnote{举个简单的例子，地球的角速度大概是每天1转，如果把地球角速度
+		改成每天10转，或者叠加一个与现在角速度不同向的新角速度（比如方向躺在赤道面上），
+		地球的自转肯定对应新的物理状态了．
+}}
+
+
+\section{四维时空刚体运动}
+现在探讨四维时空的刚体运动．
+三维空间的角速度关系很难向四维空间推广
+{\footnote{三维空间角速度${\boldsymbol{\omega}}$不能推广到四维空间，
+		一个直观的原因是“叉乘”只在三维空间有定义（略去七维空间不表），
+		比如三维空间中速度是$\boldsymbol{v}={\boldsymbol{\omega}} \times \boldsymbol{r}$，
+		但它无法推广到四维空间．
+		例如设平直四维欧式空间有四个正交归一基矢$e_\mu$，
+		那么前两个基矢的叉乘（$e_1 \times e_2 =?$）朝着哪个方向呢？
+		$e_3$还是$e_4$？{\kaishu 无法确定！}}}；
+而角速度的反对称矩阵表示却容易推广到四维空间．
+%此时它是一个反对称二阶张量．
+
+选择固连在刚体上的一个三标架$(e_i)^a, i=1,2,3$（类空），为了方便要求它们
+正交归一，即$g_{ab}(e_i)^a(e_j)^b=\delta_{ij}$．
+刚体的质心在时空中是一条指向未来的类时线$G(\tau)$，其中$\tau$是弧长
+参数，也就是固有时．把这条类时线
+的切线切矢量$Z^a\equiv (e_0)^a = (\partial _\tau)^a$当成第零坐标轴，
+$Z^a$与其它三个标架都正交，这样便构成了一个四标架；
+也即是说在这个四标架场中度规$g_{ab}$分量是${\rm diag}(-1,1,1,1)$．
+因三标架$\{(e_i)^a\}$是固连在刚体上的，故研究
+$\{(e_i)^a\}$的运动行为就相当于研究刚体的运动行为了．
+
+
+这个四标架场是活动标架场；我们只研究刚体定点运动．
+四标架场$(e_\mu)^a$沿类时线$G(\tau)$的变化一定可以展开成
+基矢场\{$(e_\mu)^a\}$的一个组合
+\begin{equation}\label{chsm:eqn_4djsd-mat}
+	\nabla_{\partial _\tau} (e_\mu)^a = - \Omega^{\nu}_{\hphantom{\nu}\mu} (e_\nu)^a
+	= - \Omega^a_{\hphantom{a} b} (e_\mu)^b; \quad\text{其中}\,
+	\Omega^a_{\hphantom{a} b}=\Omega^{\nu}_{\hphantom{\nu}\rho}(e_\nu)^a (e^\rho)_b .
+\end{equation}
+$\Omega^{\nu}_{\hphantom{\nu}\mu}$为展开系数．这是容易理解的，
+因$Z^c \nabla_c (e_\mu)^a$仍是时空$M$上的切矢量场，故
+它一定可以在局部标架场$\{(e_\mu)^a\}$上展开．
+由于考虑的是刚性正交归一标架，
+$g_{\mu\nu}={\rm diag}(-1,1,1,1)$，那么，有
+\begin{align}
+	0&\equiv Z^c \nabla_c \bigl[g_{ab}(e_\mu)^a (e_\nu)^b\bigr]
+	= (e_\mu)_b Z^c \nabla_c \bigl[(e_\nu)^b\bigr]
+	+(e_\nu)_a Z^c \nabla_c \bigl[(e_\mu)^a \bigr] \notag \\
+	&=-(e_\mu)_b \Omega^{\rho}_{\hphantom{\rho}\nu} (e_\rho)^b
+	-(e_\nu)_a \Omega^{\rho}_{\hphantom{\rho}\mu} (e_\rho)^a
+	=-\Omega^{}_{\mu\nu}- \Omega^{}_{\nu\mu} .
+\end{align}
+也就是说$\Omega^{}_{\mu\nu}$关于下标反对称，其对角元全部为零；
+这说明其纯空间部分$\Omega^{}_{ij}(1\leqslant i,j \leqslant 3)$对应
+一个空间转动角速度$\boldsymbol{\omega}$．
+对比牛顿力学中（三维空间）定点运动角速度矩阵公式\eqref{chsm:eqn_Grate-rigid-matrix}，
+可以把式\eqref{chsm:eqn_4djsd-mat}中的$\Omega^a_{\hphantom{a} b}$定义
+成\CJKunderwave{四维}空间中的{\heiti 角速度矩阵}，它由三维空间的推广而来．
+而且，式\eqref{chsm:eqn_4djsd-mat}很明显能退化到
+三维情形\eqref{chsm:eqn_Grate-rigid-matrix}．
+式\eqref{chsm:eqn_4djsd-mat}中的四维闵氏空间刚体角速度
+矩阵$\Omega_{ab}$（已用度规$g_{ab}$将指标降下）与
+三维空间角速度矩阵的属性大体相同；例如刚体只有一个四维角速度，
+它有六个独立分量（四维反对称矩阵）；……
+
+我们来看一下四维角速度矩阵$\Omega^a_{\hphantom{a} b}$的分量是什么．对于第〇基矢，有
+\begin{equation}\label{chsm:eqn_tmp-DZ0}
+	Z^c \nabla_c (e_0)^a =Z^c \nabla_c Z^a= A^a =- \Omega^{\nu}_{\hphantom{\nu} 0} (e_\nu)^a .
+\end{equation}
+其中$A^a$是把刚体质心的四维加速度．
+由于$A^a$一定是空间矢量，那么有$\Omega^{0}_{\hphantom{0} 0}=0$和$\Omega^{i}_{\hphantom{i} 0}=-A^i$；
+由此不难得到$\Omega_{i0}=-A_i=-\Omega_{0i}$和$\Omega^{0}_{\hphantom{0} i}=-A_i$．
+这说明刚体角速度的时空分量（$\Omega^{0}_{\hphantom{0} i}$）由该刚体质心的四加速度完全确定．
+对于第$i$基矢，有
+\begin{equation} \label{chsm:eqn_tmp-Dei}
+	\begin{aligned}
+		Z^c \nabla_c (e_i)^a &= -\Omega^{\nu}_{\hphantom{\nu} i} (e_\nu)^a
+		=-\Omega^{0}_{\hphantom{0} i} (e_0)^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a
+		=A_i Z^a -\Omega^{j}_{\hphantom{j} i} (e_j)^a  \\
+		&=(A^b Z^a - A^a Z^b) (e_i)_b-\Omega^{j}_{\hphantom{j} i} (e_j)^a  .
+	\end{aligned}
+\end{equation}
+上式最后一步利用了$Z^b$只有第零分量这一性质，即$Z^b(e_i)_b=0$．
+
+结合第〇和第$i$基矢的公式，定义{\bfseries \heiti Fermi--Walker导数}为：
+\begin{align}
+	\frac{{\rm D}_F f}{{\rm D}\tau} \overset{def}{=} & \frac{{\rm d} f}{{\rm d}\tau}
+	\equiv\left(\frac{\partial}{\partial \tau}\right)^b \nabla_b f
+	\equiv Z^b \nabla_b f,
+	\qquad \forall f\in C^\infty\bigl(G(\tau)\bigr). \label{chsm:eqn_fermi-walker-fun} \\
+	\frac{{\rm D}_F v^a}{{\rm D}\tau} \overset{def}{=} &
+	Z^c \nabla_c v^a +(A^a Z^b-A^b Z^a) v_b ,\qquad
+	\forall v^a\in \mathfrak{X}\bigl(G(\tau)\bigr). \label{chsm:eqn_fermi-walker-vec}
+\end{align}
+上述定义可简称为Fermi导数．只有上述两个条件是不够的，
+还需要求Fermi导数与缩并可交换，以及满足Leibnitz律和线性性；不再单独列出公式．
+注意：Fermi导数是依赖于类时线$G(\tau)$的．
+
+很明显，如果$G(\tau)$是测地线，那么Fermi导数就是协变导数．
+
+
+
+下面看一下Fermi导数的一些性质，首先计算它对基矢的导数
+\begin{align}
+	\frac{{\rm D}_F Z^a}{{\rm D}\tau} &{=} Z^c \nabla_c Z^a +(A^a Z^b-A^b Z^a) Z_b = 0,
+	\label{chsm:eqn_DF-Z=0}\\
+	\frac{{\rm D}_F (e_i)^a}{{\rm D}\tau} &{=} Z^c \nabla_c (e_i)^a +(A^a Z^b-A^b Z^a) (e_i)_a
+	= -\Omega^{j}_{\hphantom{j} i} (e_j)^a . \label{chsm:eqn_DF-ei}
+\end{align}
+式\eqref{chsm:eqn_DF-Z=0}说明，四速度$Z^a$的Fermi导数是零，
+即第〇基矢沿$G(\tau)$是Fermi移动不变的．
+由式\eqref{chsm:eqn_DF-Z=0}、\eqref{chsm:eqn_DF-ei}不难看出：
+Fermi导数本质是扣除四维角速度矩阵（$4\times 4$反对称矩阵，六个独立分量）的时时（恒零，一个非独立分量）、
+时空分量（三个独立分量），只保留空空分量（$3\times 3$反对称矩阵，三个独立分量）．
+
+
+仿照平行移动矢量场，我们定义
+\begin{definition}
+	若$v^a\in \mathfrak{X}\bigl(G(\tau)\bigr)$满足$\frac{{\rm D}_F v^a}{{\rm D}\tau}=0$，
+	则称$v^a$是沿$G(\tau)${\heiti\bfseries Fermi平行}．
+\end{definition}
+
+请读者注意：刚体（或固连在其上的三标架场$\{(e_i)^a\}$）四维角速度只有一个．
+前面我们已经分解出它的时空分量，这一部分是由于刚体质心四加速度引起的，一般说来不会为零．
+剩余纯空间部分（$\Omega^{j}_{\hphantom{j} i}$）描述三标架场$\{(e_i)^a\}$在三维空间的自转．
+式\eqref{chsm:eqn_DF-ei}表明如果三标架场$\{(e_i)^a\}$的Fermi导数为零，那么
+它的纯空间自转角速度矩阵$\Omega^{j}_{\hphantom{j} i}=0$，即没有自转；将此陈述为如下定理：
+
+\begin{theorem}\label{chsm:thm_FermiD-rotation}
+	在四维闵氏时空$(M,g)$中有一刚体，此刚体质心类时世界线为$G(\tau)$，
+	固连在刚体上的正交归一三标架场是$\{(e_i)^a\}$（类空）．
+	则，刚体（即三标架场$\{(e_i)^a\}$）
+	无自转角速度的充要条件是它沿$G(\tau)$Fermi平行，
+	即$\frac{{\rm D}_F (e_i)^a}{{\rm D}\tau}=0$．
+\end{theorem}
+
+
+
+
+设有矢量场$u^a = u^i (e_i)^a$，即它没有$(e_0)^a\equiv Z^a$分量
+（明显有$u^a Z_a =0$），那么借助式\eqref{chsm:eqn_DF-ei}容易得到
+\begin{equation}\label{chsm:eqn_DFuz=0}
+	Z_a \frac{{\rm D}_F u^a}{{\rm D}\tau} =
+	Z_a \left( \frac{{\rm D}_F u^i}{{\rm D}\tau} (e_i)^a
+	-\Omega^{j}_{\hphantom{j} i} u^i (e_j)^a  \right) = 0.
+\end{equation}
+此式说明如果$u^a$与$Z^a$正交，那么它的Fermi导数仍旧与$Z^a$正交．
+
+
+由式\eqref{chsm:eqn_fermi-walker-fun}和Leibnitz律，
+不难得到余切矢量场$\omega_a$的运算规律：
+\begin{equation*}
+	v^a \frac{{\rm D}_F \omega_a}{{\rm D}\tau}
+	+\omega_a \frac{{\rm D}_F v^a }{{\rm D}\tau}
+	=\frac{{\rm D}_F (v^a \omega_a)}{{\rm D}\tau}
+	=v^a \nabla_Z \omega_a + \omega_a\nabla_Z v^a .
+\end{equation*}
+再由式\eqref{chsm:eqn_fermi-walker-vec}可得
+余切矢量场$\omega_a\in \mathfrak{X}^*\bigl(G(\tau)\bigr)$的Fermi导数，
+\begin{equation}\label{chsm:eqn_fermi-walker-covec}
+	\frac{{\rm D}_F \omega_a}{{\rm D}\tau} =  Z^c \nabla_c \omega_a
+	+(A_a Z_b-A_b Z_a) \omega^b = \nabla_Z \omega_a + (A_a\wedge Z_b) \omega^b.
+\end{equation}
+借助上式以及Leibnitz律，可得度规场$g_{ab}$的Fermi导数，
+\begin{equation}\label{chsm:eqn_FD-comp}
+	\frac{{\rm D}_F g_{ab}}{{\rm D}\tau}= \nabla_Z g_{ab}
+	+ (A_a\wedge Z_c) g_{\hphantom{a} b}^c + (A_b\wedge Z_c) g_{a}^{\hphantom{a} c} =0.
+\end{equation}
+此式说明Fermi导数（联络）是和度规相互容许的，这与Levi-Civita联络一样．
+
+因$g_{ab}$与Fermi导数相容，又因度规分量$g_{\mu\nu}$是常数，
+从式\eqref{chsm:eqn_DF-ei}可得
+\begin{equation}
+	\frac{{\rm D}_F (e^i)_a}{{\rm D}\tau} = g_{ab}g^{ij}\frac{{\rm D}_F (e_j)^b}{{\rm D}\tau}
+	= -\Omega^{k}_{\hphantom{k} j} (e_k)^b  g_{ab}g^{ij} =  -\Omega^{\hphantom{k} i}_{k} (e^k)_a .
+\end{equation}
+上式说明如果切矢量场$(e_i)^a$是Fermi移动不变的（即标架无自转），
+那么其对偶基矢场$(e^i)_a$也是Fermi移动不变的（即标架无自转）；
+两者具有完全相同的“自转与否”属性．
+
+通过上面分析可知，在标架$\{(e^\mu)_a\}$下，刚体$G$的四维角速度矩阵为：
+\begin{equation}\label{chsm:eqn_4DJSD}
+	\Omega_{\mu\nu}=\begin{pmatrix}
+		0 & A_1 & A_2 & A_3 \\
+		-A_1 & 0 &  \omega_3 & -\omega_2 \\
+		-A_2 & -\omega_3 & 0 & \omega_1 \\
+		-A_3 & \omega_2 & -\omega_1 & 0
+	\end{pmatrix}.
+\end{equation}
+其中$(A_1,A_2,A_3)$是刚体$G$质心的四维加速度$(A_0,A_1,A_2,A_3)$的纯空间部分；
+此加速度的分量$A_0$未必是零，但不出现在上述角速度矩阵\eqref{chsm:eqn_4DJSD}中．
+
+我们已经学过了很多导数，作一个简单的对比是有教益的，见表\ref{chsm:tab-Derivative-all}．
+
+\begin{table}[htb]
+	\centering
+	\caption{不同导数对比} \label{chsm:tab-Derivative-all}
+	\begin{tabular}{|*3{c|}}
+		\hline
+		导数名称 & 符号 & 属性 \\ \hline
+		外微分 & ${\rm d}_a$ & 只能作用于全反对称张量场；无附加结构 \\ \hline
+		普通导数 & $\partial_a $ & 只适用于局部坐标系，没有全局性；无附加结构     \\ \hline
+		一般仿射联络 & $\nabla_a$ & 预先给定联络系数；与平行移动等价；无穷多个 \\ \hline
+		Levi-Civita联络 & $\nabla_a$ & 预先给定度量；无挠、与度量相容、唯一 \\ \hline
+		李导数 & $\Lie_{X}$ & 预先给定矢量场$X^a$，依赖$X^a$诱导的单参同胚群 \\ \hline
+		Fermi--Walker导数 & $\frac{{\rm D}_F }{{\rm D}\tau}$ &
+		预先给定类时线$G(\tau)$；只适用于闵氏时空 \\ \hline
+	\end{tabular}
+\end{table}
+
+
+%%\printbibliography[heading=subbibliography,title=附录\ref{chFW}参考文献]
+
+
+\chapter{源守恒定律独立于场方程}\label{chfd-liu}
+
+
+%本附录目的是叙述下文中的循环逻辑错误．
+
+%\section*{相对论基本假设}\label{chfd-liu:sec_Fundamental-Postulate}
+%
+%\noindent\fbox{\heiti 甲}：
+%描述时空（即全部事件的集合）的数学工具是四维闵氏流形$(M,g)$，
+%对于广义相对论来说，三维空间的牛顿引力本质上是四维时空的弯曲．
+%当考虑引力时，时空不再是平直的，而是某种弯曲（黎曼曲率非零）的四维闵氏时空．
+%
+%\noindent\fbox{\heiti  乙}：描述物质运动的方程是（$T_{ab}$是物质场能动张量）：
+%\begin{equation}\label{chfd-liu:eqn_motion-gr}
+%    \nabla^a T_{ab} =0.
+%\end{equation}
+%
+%
+%\noindent\fbox{\heiti 丙}：物质分布决定时空弯曲，这由下述爱因斯坦引力场方程来描述：
+%\begin{equation}\label{chfd-liu:eqn_Einstein}
+%   G_{ab} \equiv R_{ab} - \frac{1}{2}g_{ab} R = 8\pi T_{ab}
+%\end{equation}
+%其中$G_{ab}$是爱因斯坦张量；
+%$R_{ab}$是Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率．
+
+
+
+
+
+
+\section{当前文献观点}  %\label{chfd:sec_liu2018}
+先叙述当前理论物理文献是如何看待源守恒定律与场方程之间的关系．
+
+对于电磁场，电荷守恒定律被看作是麦克斯韦方程组的一个推论，是不独立的．
+推导过程很简单，假设麦克斯韦方程组成立，然后
+\begin{equation}
+	\partial_\mu F^{\mu\nu} = -J^\nu \quad \Rightarrow \quad
+	0=\partial_\nu\partial_\mu F^{\mu\nu} = -\partial_\nu J^\nu
+	\quad \Rightarrow \quad \partial_\nu J^\nu =0.
+\end{equation}
+上式推导过程中用到了电磁场张量的反对称性质．
+
+支持此观点的较早的文献有\textcite[\S 30]{landau_2-classical-fields}，
+\textcite[\S 18.1-18.3]{feynman-2006-v2}，
+\textcite[\S 24]{pauli-1973-ED}；
+较新的书籍有\textcite[p.3]{jackson1998}，
+\textcite[\S 8.1]{griffiths-2023}．
+同时，麦氏散度方程（$\nabla\cdot \boldsymbol{D}=\rho,\ \nabla \cdot \boldsymbol{B}=0$）
+也被认为麦氏旋度方程的初始条件，不独立于麦氏旋度方程；
+此观点可见\textcite[p.6]{stratton1941}和\textcite[p.603]{courant_hilbert-v2}或计算电磁学书籍．
+
+
+
+
+对于引力场，源运动方程（$\nabla_a T^{ab}=0$）
+被看作爱因斯坦引力场方程（$G_{ab}=8\pi T_{ab}$）的推论，
+是不独立的．推导过程同样不难，
+\begin{equation}
+	G_{ab}=8\pi T_{ab} \quad \Rightarrow \quad
+	\nabla^a G_{ab}=8\pi \nabla^a T_{ab}
+	\quad \xLongrightarrow{\nabla^a G_{ab}=0} \quad
+	\nabla^a T_{ab}=0 .
+\end{equation}
+
+最早提出此观点是爱因斯坦\cite{einstein_infeld_1949}本人以及希尔伯特，
+可参见\parencite[\S 15(c)]{Pais-1982}．
+\textcite[\S 17.1-17.2]{mtw1973}更是支持此观点；
+甚至，他们\cite[\S 20.6]{mtw1973}还从爱氏场方程组导出了麦克斯韦方程组和测地线方程．
+除此以外，还有如下文献也支持此观点：
+\textcite[p.44]{Choquet-Bruhat-2009}；
+\textcite{hawking-1966}第二章公式(5)；
+\textcite[\S 95]{landau_2-classical-fields}中式(95.10)下面的自然段；
+\textcite[\S 5.4]{poisson-will-2014}；
+\textcite[\S 6.6]{schutz-2022}；
+\textcite[\S 1.5]{weinberg_cos-2008}中紧接着式(1.5.20)的自然段；
+\textcite[\S 9.3]{witten-2024}．
+
+然而，上述观点是错误的\cite{liu2018}，他/她们忽略了微分方程组解存在性需求．
+
+\section{微分方程的公理体系}
+
+我们先粗略地建立微分方程的公理体系，见表\ref{chfd:tab-diff-axiom}．
+
+\begin{table}[htb]
+	\centering
+	\caption{微分方程的公理体系} \label{chfd:tab-diff-axiom}
+	\begin{tabular}{|*2{c|}}
+		\hline
+		层级 & 内容 \\ \hline
+		第{\heiti 二}层 & 除解存在性定理之外的所有由微分方程得到的定理  \\ \hline
+		第{\heiti 一}层 & 微分方程解存在性定理 \\ \hline
+		第{\heiti 〇}层 & 微分方程本身   \\ \hline
+	\end{tabular}
+\end{table}
+
+
+
+第〇层属于公理层，是无法证明的一些假设．在这里只有微分方程本身，比如一阶常微分方程，
+麦克斯韦方程组，爱因斯坦引力场方程组，等等．
+
+第一层，只有一条内容：微分方程（组）解存在性定理；
+这里是指弱化到最一般情形的解存在性定理．
+这是一条需要证明的定理，不是公理．对于微分方程来说，解存在性需要数个条件，
+比如初边值条件，相容性条件，拓扑条件等等；所有这些都是解存在的充分条件，
+既然是充分条件，那么这些条件一定\CJKunderwave{独立}于微分方程本身．
+请读者一定注意：解存在的充分条件独立于微分方程本身是一个正常的逻辑，
+不是什么新的发现，是一个至少从Peano(1858-1932)时代就知道的逻辑关系．
+显然必须先有第〇层，才能有第一层．
+
+第二层，是指那些（除了解存在性定理之外的）所有由微分方程得到的定理、命题、推论、断言、……．
+第二层次的所有内容都需要证明，第二层次是构建在第〇层和第一层之上的；
+没有前两层，第二层是不存在的．比如微分方程没有解，
+我们从一个无解方程不可能得到任何有意义的“定理”．
+
+我们以常微分方程为例来说明一下上述三个层次．
+Peano于1890年完全证明了常微分方程（组）解的存在性定理（满足稳定性、唯一性，即有适定性），
+比如参见文献\parencite[\S 31]{arnold-2001-ode}．
+此定理指出Lipschitz条件是常微分方程解存在的充分条件，
+那么我们可以断定Lipschitz条件一定独立于常微分方程．
+既然独立，那么Lipschitz条件一定是额外需要满足的一个条件；
+尤其Lipschitz条件一定独立于“第二层”中所有内容，是“第二层”中所有内容的基础之一．
+
+再例，可见文献\parencite[p.16]{courant_hilbert-v2}，也可见
+本书的例\ref{chdf:exm_Fij2d}或例\ref{chdf:exm_Fij2d-2}；上述三条内容相同．
+在例\ref{chdf:exm_Fij2d-2}中的微分方程是$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} $，
+解存在性条件是$\sum_{i} \partial_i J_i = 0$．
+同样解存在性条件（相容性条件$\sum_{i} \partial_i J_i = 0$）独立于
+偏微分方程组（$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} $）．
+
+
+我们将上述二维平面的例子拓展到三维空间，见例\ref{chdf:exm_Fij2d-3}（本质上就是旋度方程）．
+同样解存在性条件（相容性条件$\sum_{i} \partial_i J_i =\nabla \cdot \boldsymbol{J}= 0 $）独立于
+偏微分方程组（$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} {\ \Leftrightarrow \ }
+\nabla\times \boldsymbol{u} = \boldsymbol{J} $）．
+关于div--curl方程组的解存在性定理可参见文献\parencite{aramaki-2014}
+（笔者没有仔细查询最早是谁证明了此定理）．
+
+\index[physwords]{循环逻辑}
+
+\section{麦克斯韦方程组}
+笔者没有查到严格证明麦克斯韦方程组解存在性定理的文献，
+不过我们可以用思辨的方式来判断电荷守恒定律是不是它的存在性充分条件．
+我们只需麦氏方程组的一半，即
+\begin{equation}\label{chfd:eqn_FJ}
+	\partial_{\alpha} F^{\alpha\beta} = - J^{\beta} .
+\end{equation}
+表面上来看，这个方程并没有指定维数．在前面我们已经指出当维数$n$是2和3时，
+已经严格证明$\sum_{i} \partial_i J_i =0$是
+方程组$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i}$解存在性充分条件之一；
+故当$n=2$或$n=3$时，$\sum_{i} \partial_i J_i =0$独立于$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i}$！
+
+我们可以用这样思辨的方式来探求答案：
+$\partial_{\beta} J^{\beta}=0$是方程组\eqref{chfd:eqn_FJ}解存在性条件之一吗？
+答案只能有两个，一个“是”，另一个“不是”；不存在模棱两可的回答．
+首先，试着回答不是；既然不是，
+那么就是在说“$\partial_{\beta} J^{\beta}=\text{什么？}$”都与方程组解是否存在无关了．
+比如令$\partial_{\beta} J^{\beta}=1$，
+很明显此时方程组\eqref{chfd:eqn_FJ}解不可能存在！
+故答案只能为“是”！既然“是”，那$\partial_{\beta} J^{\beta}=0$就独立于方程组\eqref{chfd:eqn_FJ}之外！
+需要注意：(1)在这个思辨过程中根本不涉及方程的维数；
+(2)整个过程只涉及第〇层和第一层，从未涉及第二层，
+因为解存在性还未解决的情况下，第二层的结论是不可靠的！
+
+
+非常多的人持这样的观点：假设麦氏方程组解存在，那么自然能从麦氏方程组推出电荷守恒，
+从而电荷守恒不独立于麦氏方程组．
+这个命题表面上看是正确的，但是“假设麦氏方程组解存在”就已经假设了$\partial_{\beta} J^{\beta}=0$成立！
+故里面存在循环逻辑，因此此种观点不正确．
+这种只强调电荷守恒是推论，不强调独立的陈述必然错误．
+请读者仔细理解这个循环论证．
+
+
+可能有读者误认为：即使解不存在，也可以从麦氏方程得到电荷守恒．
+我们需要忽略由初边值条件、拓扑条件等引起的解不存在情形，
+只考虑相容性条件（$\partial_{\beta} J^{\beta}=0$）．
+此时，“解不存在”是指将任意可微函数带入方程\eqref{chfd:eqn_FJ}左端都不能使得该方程成立，
+也就是说带入任何可微函数得到都是$\partial_{\alpha} F^{\alpha\beta} \neq - J^{\beta}$．
+这是对“解不存在”准确理解．
+这种情形下由$\partial_{\alpha} F^{\alpha\beta} \neq - J^{\beta}$无法得到
+$\partial_{\beta} J^{\beta}=0$．
+
+
+可以这样陈述两者关系：假设麦氏方程组解存在，那么自然能从麦氏方程组推出电荷守恒，
+但不代表电荷守恒不独立于麦氏方程组．
+因为“假设麦氏方程组解存在”就已假设电荷守恒成立（它是麦氏方程组解存在充分条件之一），
+所以电荷守恒必然独立于麦氏方程组．
+
+
+对于偏微分方程组来说，$\partial_{\beta} J^{\beta}=0$只是麦氏方程组解存在性充分条件之一，
+还需补充初边值条件、拓扑条件等等；所有这些存在性充分条件构成的集合只能是“充分条件”，
+不可能是“充分必要”条件！
+
+
+此处的循环逻辑类似于惯性定律中的循环逻辑\cite[p.58]{Einstein-2014}，
+但需注意惯性系中的循环逻辑还没有办法克服，即惯性系的任何定义都涉及循环定义．
+麦氏方程组中的循环逻辑与之不同，这里的循环逻辑是可以剔除的；
+只要认为电荷守恒定律独立于麦氏方程组就没有循环逻辑！
+
+\section{无源麦氏方程组}
+下面考虑没有电流、电荷源的麦克斯韦方程组：
+\begin{subequations}\label{chfd:eqn_maxwell-nosource}
+	\begin{align}
+		\nabla \cdot  \boldsymbol{E} =& 0, \qquad\quad
+		\nabla \cdot  \boldsymbol{B} = 0  \label{chfd:eqn_gauss-nosource}\\
+		\nabla \times \boldsymbol{E} =& -\frac{\partial \boldsymbol{B}}{\partial t} , \quad
+		\nabla \times \boldsymbol{B} = \frac{\partial \boldsymbol{E}}{\partial t}.
+		\label{chfd:eqn_fam-nosource}
+	\end{align}
+\end{subequations}
+对式\eqref{chfd:eqn_fam-nosource}两边求散度，得
+\begin{equation}\label{chfd:eqn_mxe}
+	0 = \frac{\partial \nabla \cdot\boldsymbol{B}}{\partial t} , \qquad
+	0 = \frac{\partial \nabla \cdot\boldsymbol{E}}{\partial t}.
+\end{equation}
+有一种观点认为（几乎所有计算电磁学书籍）：
+只须要求式\eqref{chfd:eqn_gauss-nosource}在初始时刻（$t=0$）满足，
+那么由式\eqref{chfd:eqn_mxe}就能得到式\eqref{chfd:eqn_gauss-nosource}在任意时刻（$t>0$）都成立；
+这相当于把式\eqref{chfd:eqn_gauss-nosource}看成式\eqref{chfd:eqn_fam-nosource}的初始条件．
+
+这种观点也是不正确的，同样忽略了解存在性需求．
+式\eqref{chfd:eqn_mxe}是麦克斯韦旋度方程组\eqref{chfd:eqn_fam-nosource}解存在的充分条件之一．
+文献\parencite{aramaki-2014}已证明“相容性条件”是旋度方程解存在的充分条件之一；
+而式\eqref{chfd:eqn_mxe}正是相容性条件．用同样的思辨过程也可看出这个论断．
+只有式\eqref{chfd:eqn_gauss-nosource}在任意时刻成立才能保证相容性条件\eqref{chfd:eqn_mxe}成立，
+进而保证式\eqref{chfd:eqn_fam-nosource}解的存在；
+故式\eqref{chfd:eqn_gauss-nosource}必须在任意时刻成立，
+不能只在初始时刻成立．否则，必然包含循环论证！
+
+
+同样，只要认为式\eqref{chfd:eqn_gauss-nosource}独立于式\eqref{chfd:eqn_fam-nosource}，那么便没有循环逻辑．
+这样必须同时考虑全部八个麦氏方程，不能将任何一个方程分离．
+对于电磁理论而言，现有理论已不再支持将式\eqref{chfd:eqn_gauss-nosource}和\eqref{chfd:eqn_fam-nosource}分开处理．
+{\kaishu 这对计算电磁学是一个很强的限制，那种只求旋度方程不解散度方程的方式被{\heiti 否定}了；
+	必须同时处理八个方程，不能拆开求解，比如先解旋度方程再解散度方程也是不合理的．}
+
+然而麦克斯韦方程组是超定的（在定义\ref{chmla:def_linear-dependence}意义下），
+需要用\pageref{chmla:def_diff-linear-dependence}页中的
+定义\ref{chmla:def_diff-linear-dependence}来解释；
+在此定义下麦克斯韦微分方程组是{\kaishu 确定}的（well-determined）．
+
+虽然麦氏微分方程组在定义\ref{chmla:def_diff-linear-dependence}下是{\kaishu 确定}的，
+但当它离散成代数方程组后，代数形式的麦氏方程组必然是超定的．
+这便使得计算电磁学必然需要采用某些特殊办法（比如最小二乘法）去求解超定代数方程组．
+
+
+
+
+
+
+
+
+\section{爱因斯坦引力场方程组}
+
+有了前面两节的叙述，相信读者已经能直接看出源运动方程组（$\nabla^a T_{ab}=0$）
+独立于爱氏场方程（$G_{ab}=8\pi T_{ab}$）；认为不独立的观点中必然存在循环逻辑．
+
+正确的逻辑是：源运动方程组（$\nabla^a T_{ab}=0$）独立于爱因斯坦引力场方程组（$G_{ab}=8\pi T_{ab}$），
+且是爱氏场方程组解存在性条件之一．若假设爱氏场方程组解存在，则可导出源运动方程，
+但不代表源运动方程不独立于爱氏场方程．
+
+
+
+虽然无源麦氏方程组在1+3分解后（见式\eqref{chfd:eqn_maxwell-nosource}）
+可能依旧存在循环逻辑（若处理不当）；
+但无源爱氏场方程组在1+3分解后貌似不存在潜在的微分恒等式了（笔者初步审查得到的结论），
+故1+3分解后的无源爱氏场方程组不会有循环逻辑问题．
+这样，数值相对论便不会出现类似于计算电磁学中的原理性谬误．
+
+\paragraph{小结}
+如果偏微分方程组中含有潜在的微分恒等式，比如单旋度方程、麦氏方程、爱氏场方程、……；
+那么一定要将它们的“相容性条件”看成解存在性条件之一，从而独立于方程组本身．
+否则，很可能陷入循环逻辑．
+
+
+\paragraph{反思}
+{\kaishu 此循环逻辑在理论物理最底层存在了一个多世纪！}
+纠正与否几乎不影响整个理论物理框架的正确性；
+这可能是它一直没有被发现的原因，
+即使发现了，诸多学者也不愿接受的原因．
+但它对计算电磁学还是产生了无法忽略的影响．
+
+%%\printbibliography[heading=subbibliography,title=附录\ref{chfd-liu}参考文献]
+
+\endinput
