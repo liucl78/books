@@ -1889,7 +1889,7 @@ $\eta_{\mu \mu}=\pm 1$，这说明$c_{\mu \mu}=0$，也就是Killing场分量$\x
 下面考虑$\eta$中“$+1$”部分；可取$\mu=j,\,\nu=i$，
 式\eqref{chrg:eqn_killing-coef-eta-cc}变为
 \begin{equation}
-    0=c_{ji} \eta_{ii}+c_{ij} \eta_{jj} =c_{ji} + c_{ij},  \qquad i>j>0.
+    0=c_{ji} \eta_{ii}+c_{ij} \eta_{jj} =c_{ji} + c_{ij},  \qquad j>i>0.
 \end{equation}
 由上式可以得到平直闵氏空间的第三组Killing切矢量场
 \begin{equation}\label{chrg:eqn_Killing-Minkowski-3}
@@ -2371,18 +2371,18 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 
 \paragraph{标架上的引力场拉式密度型式}
 我们给出$m$维流形$(M,g)$上的一个由曲率型式构成的型式场．
-先将一般标架$({e} ^i)_a$用自然标架场来展开（参见式\eqref{chccr:eqn_natural-base_change}）：
-\begin{align*}
-	({e} _i)^a = \left(\partial_\alpha\right)^a \left(C^{-T}\right)_{\hphantom{\alpha} i}^{\alpha} , \quad
-	({e} ^i)_a = \left({\rm d} x^\alpha \right)_a C^{\hphantom{\alpha}i}_{\alpha}  .
-\end{align*}
-为了令下面公式简单，上式中交换了$C$、$C^{-T}$位置．
+先将一般标架$({e}^\beta)_a$用自然标架场来展开（参见式\eqref{chccr:eqn_natural-base_change}）：
+\begin{align}
+	({e}_\alpha)^a = \left(\partial_i\right)^a C_{\hphantom{i}\alpha}^{i} (x), \qquad
+	({e}^\beta)_a  = \left({\rm d} x^j \right)_a \left(C^{-T}\right)^{\hphantom{j}\beta}_{j}  .
+	\tag{\ref{chccr:eqn_natural-base_change}}
+\end{align}
 参考式\eqref{chrg:eqn_dx1r-Hodge}，有
 \begin{align*}
 	&\star \left[ (e^\mu)_{\circ} \wedge (e^\nu)_{\circ}\right]_{a_3 \cdots a_m} =  
-	C^{\hphantom{a}\mu}_{i} C^{\hphantom{a}\nu}_{j} 
+	\left(C^{-T}\right)^{\hphantom{a}\mu}_{i} \left(C^{-T}\right)^{\hphantom{a}\nu}_{j} 
 	\star \left[\left({\rm d} x^i \right)_{\circ} \wedge \left({\rm d} x^j \right)_{\circ}\right]_{a_3 \cdots a_m} \\
-	=& C^{\hphantom{a}\mu}_{i} C^{\hphantom{a}\nu}_{j} 
+	=& \left(C^{-T}\right)^{\hphantom{a}\mu}_{i} \left(C^{-T}\right)^{\hphantom{a}\nu}_{j} 
 	\sqrt{|g|} \sum_{\substack {k_1<k_2 \\ k_{3}<\cdots<k_m}}
 	\delta_{k_1 \cdots k_m}^{1 \cdots m}
 	({\rm d}x^{k_{3}})_{a_{3}} \wedge \cdots \wedge ({\rm d}x^{k_m})_{a_m}
@@ -2398,8 +2398,8 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 	\mathscr{L}_{G} \equiv& (\Omega_{\mu\nu} )_{a_1 a_2}\wedge 
 	\star \left[ (e^\mu)_{\circ} \wedge (e^\nu)_{\circ}\right]_{a_3 \cdots a_m} \\
 	=& \frac{1}{2} R_{\mu\nu\rho\sigma}
-	C^{\hphantom{a}\mu}_{i} C^{\hphantom{a}\nu}_{j} 
-	C^{\hphantom{a}\rho}_{l} C^{\hphantom{a}\sigma}_{n} \sqrt{|g|} \times \\
+	\left(C^{-T}\right)^{\hphantom{a}\mu}_{i} \left(C^{-T}\right)^{\hphantom{a}\nu}_{j} 
+	\left(C^{-T}\right)^{\hphantom{a}\rho}_{l} \left(C^{-T}\right)^{\hphantom{a}\sigma}_{n} \sqrt{|g|} \times \\
 	&\times \sum_{\substack {k_1<k_2 \\ k_{3}<\cdots<k_m}}
 	\delta_{k_1 \cdots k_m}^{1 \cdots m}
 	({\rm d}x^{l})_{a_1} \wedge ({\rm d}x^{n})_{a_2} \wedge 
@@ -2425,8 +2425,8 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 上式中，我们已令
 \begin{equation}
 	\oversetmy{x}{R}_{ijln}  \equiv R_{\mu\nu\rho\sigma}
-	C^{\hphantom{a}\mu}_{i} C^{\hphantom{a}\nu}_{j} 
-	C^{\hphantom{a}\rho}_{l} C^{\hphantom{a}\sigma}_{n}.
+	\left(C^{-T}\right)^{\hphantom{a}\mu}_{i} \left(C^{-T}\right)^{\hphantom{a}\nu}_{j} 
+	\left(C^{-T}\right)^{\hphantom{a}\rho}_{l} \left(C^{-T}\right)^{\hphantom{a}\sigma}_{n}.
 \end{equation}
 上上式中最后的求和过程较为繁琐．
 因求和中存在$\delta_{k_1 \cdots k_m}^{1 \cdots m}$项，
@@ -2467,7 +2467,7 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 	\end{align}
 \end{subequations}
 式\eqref{chrg:eqn_LRPF}中的$\left(\Omega_{\mu\nu}\right)_{a_1 a_2} \wedge \star \left[ (e^\mu)_{\circ} 
-\wedge (e^\nu)_{\circ} \right]_{a_3 \cdots a_m}$可以当作引力场的拉式密度场，它对广义相对论很重要．
+\wedge (e^\nu)_{\circ} \right]_{a_3 \cdots a_m}$可以当作引力场的拉式密度场（四维空间），它对广义相对论很重要．
 式\eqref{chrg:eqn_LRPF-a}为一般标架场上引力拉式密度的表述形式；
 经过一些计算，我们证明了式\eqref{chrg:eqn_LRPF-a}可以化成式\eqref{chrg:eqn_LRPF-b}的形式．
 需要强调的是：式\eqref{chrg:eqn_LRPF}中曲率可以由一般仿射联络生成，不一定由度量生成．
@@ -2624,7 +2624,8 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 \begin{subequations}\label{chrg:eqn_Maxwell-ext-diff}
 	\begin{align}
 		{\rm d}_a \bigl((\star F)_{bc} \bigr)&= (\star J)_{abc}  \quad \Leftrightarrow \quad
-		\bigl(\star {\rm d}(\star F) \bigr)_a = J_a , \label{chrg:eqn_Maxwell-ext-diff-1} \\
+		({\rm d}^\dagger F)_a = \bigl(\star {\rm d}(\star F) \bigr)_a = J_a , 
+		\label{chrg:eqn_Maxwell-ext-diff-1} \\
 		({\rm d} F)_{abc} &= 0.      \label{chrg:eqn_Maxwell-ext-diff-2}
 	\end{align}
 \end{subequations}
@@ -2734,8 +2735,8 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 
 \begin{exercise}
 证明：当式\eqref{chrg:eqn_HL}中$F$为标量函数场时，
-式\eqref{chrg:eqn_HL}与式\eqref{chrg:eqn_Beltrami-Laplace}差一负号，
-即$\nabla^2_H F = -\square F$．
+式\eqref{chrg:eqn_HL}与式\eqref{chrg:eqn_Beltrami-Laplace}关系是：
+$\nabla^2_H F = (-)^{s+1}\square F$．
 $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.19)．
 \end{exercise}
 
