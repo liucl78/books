@@ -1122,7 +1122,7 @@ $\hat{C}_2 = \hat{L}^2= \hat{L}_x^2+\hat{L}_y^2+\hat{L}_z^2$．
 
 
 \subsection{角动量}\label{chlar:sec_J}
-$SU(2)$群的表示是幺正的，可以作用在粒子的希尔伯特空间上（即波函数）．
+$SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即波函数）．
 下面我们寻找这些表示的基矢（式\eqref{chlar:eqn_SU2Base}）的物理意义，
 我们把$\boldsymbol{B}^j_m\bigl(\xi,\zeta\bigr)$记成$|jm\rangle$．
 我们采用式\eqref{chlar:eqn_so3-comm-J}的记号，但作替换$J\to \hat{J}$．
@@ -1482,8 +1482,7 @@ $h$本身是厄米矩阵；容易看到$h'=ShS^\dagger$也是厄米矩阵，我�
 这样，通过$h$（式\eqref{chlar:eqn_hslso}），我们找到了一个从$SL(2,\mathbb{C})$到
 Lorentz变换$SO^{+}(1,3)$（$L^{\uparrow}_{+}$分片就是$SO^{+}(1,3)$）的映射，记为$h$．
 我们还需验证此映射保持群乘法不变．
-每一个$x^\mu \in \mathbb{R}^4$与厄米矩阵$h$（式\eqref{chlar:eqn_hslso}）间
-存在双射关系．
+每一个$x^\mu \in \mathbb{R}^4$与厄米矩阵$h$（式\eqref{chlar:eqn_hslso}）间存在双射关系．
 由式\eqref{chlar:eqn_LT}有如下变换，
 $x'=\Lambda_{A_1} x$，以及$x''=\Lambda_{A_2} x'=\Lambda_{A_2} \Lambda_{A_1}x$．
 令$h''=x''^\mu \sigma_\mu$，$h'=x'^\mu \sigma_\mu$．
@@ -2727,7 +2726,7 @@ $\epsilon^\rho$是描述平移的四个无穷小实变数，$\hat{P}_{\rho}$是�
 	\widehat{M}^{\rho\sigma}=-\widehat{M}^{\sigma\rho};\qquad
 	\text{其中}\    \widehat{M}^{\rho\sigma}=\eta^{\rho\pi} \widehat{M}^{\hphantom{\rho}\sigma}_{\pi}.
 \end{equation}
-为了保证$\hat{U}(\Lambda,a)$的幺正性，我们要求$\widehat{M}_{\rho\sigma}$、$\hat{P}_{\rho}$是厄米的，即
+为了保证$\hat{U}(\Lambda,a)$的幺正性，我们要求$\widehat{M}_{\rho\sigma}$、$\hat{P}_{\rho}$是自伴的，即
 \begin{equation}
 	\widehat{M}_{\rho\sigma} = \widehat{M}^\dagger_{\rho\sigma},\qquad
 	\hat{P}_{\rho}=\hat{P}^\dagger_{\rho}.
@@ -3012,7 +3011,7 @@ Poincar\'{e}代数不是半单的，故不能仿照式\eqref{chlg:eqn_Casimir}�
 {\bfseries (5)}通过小群对单粒子态进行分类．
 
 下面具体讨论Wigner分类．
-目前，物理学认为粒子状态由Hilbert空间（见\ref{chcx:def_Hilbert-Space}）中的矢量来描述．
+目前，物理学认为粒子状态由Hilbert空间（定义见\ref{chhs:def_Hilbert-Space}）中的矢量来描述．
 我们只需要单粒子态就够了，单粒子态是指无相互作用的自由粒子状态，比如单个电子、质子、光子的状态；
 质子和束缚电子（即氢原子）的整体也是自由的，故也是单粒子态；氢原子核外的束缚电子则不是单粒子态．
 单粒子态$|p\sigma\rangle$（其中$p$代表四动量量子数；$\sigma$代表其它量子数，后面会具体指出）
@@ -3562,7 +3561,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 当实参数$\omega$趋于无穷小时，可将$\hat{U}(\omega)$在单位元附近展开为（只保留线性项）：
 \begin{equation}\label{chlar:eqn_UG}
 	\hat{U}(\updelta\omega) = 1 - \mathbbm{i} \hat{G}(\updelta\omega) ;\qquad  
-	\text{其中}\hat{G}(\updelta\omega)\text{是厄米算符}.
+	\text{其中}\hat{G}(\updelta\omega)\text{是自伴算符}.
 \end{equation}
 将上式带入式\eqref{chlar:eqn_Phi-qTransform}，有（忽略高于一阶的小量）
 \begin{align*}

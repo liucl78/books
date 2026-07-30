@@ -2232,7 +2232,8 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 \begin{align}
 	(\star f)_{a_1 \cdots a_m} = & \frac{1}{0!} f \Omega_{a_1 \cdots a_m} 
 	  = f \Omega_{a_1 \cdots a_m}, \label{chrg:eqn_fHs} \\
-	\star (f \Omega_{\circ \cdots \circ}) = & \frac{1}{m!} f \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m} = (-)^s f.
+	\star (f \Omega_{\circ \cdots \circ}) = & \frac{1}{m!} f \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m} 
+	= (-)^s f.  \label{chrg:eqn_fOsf}
 \end{align}
 
 \paragraph{双对偶}
@@ -2497,17 +2498,23 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 %\end{equation}
 
 
-\paragraph{三维空间的对偶}
+\paragraph{三维欧式空间的对偶}
 三维笛卡尔空间$(\mathbb{R}^3,\delta)$的坐标系为$\{x,y,z\}$；
 因标架场正交归一，$\delta={\rm diag}(1,1,1)$，
 我们给出式\eqref{chrg:eqn_dx1r-Hodge}的具体表示（省略抽象指标）
 \begin{equation}\label{chrg:eqn_Cartesian-Hodge}
     \star  {\rm d}x = {\rm d}y \wedge {\rm d}z, \quad
     \star  {\rm d}y = {\rm d}z \wedge {\rm d}x, \quad
-    \star  {\rm d}z = {\rm d}x \wedge {\rm d}z .
+    \star  {\rm d}z = {\rm d}x \wedge {\rm d}y.
 \end{equation}
-
-
+\fbox{甲}由双对偶公式\eqref{chrg:eqn_double-star-Hodge}和式\eqref{chrg:eqn_Cartesian-Hodge}易得：
+欧式空间叉乘$\boldsymbol{a}\times \boldsymbol{b}$同构于$\star (\boldsymbol{a}\wedge \boldsymbol{b})$．
+\fbox{乙}因三维欧式空间的度规场是正定的单位矩阵，故此时无需区分切矢量和余切矢量，也无需区分上下标．
+由式\eqref{chrg:eqn_Cartesian-Hodge}和式\eqref{chrg:eqn_fOsf}可知三维欧式空间只需引入
+标量函数场和矢量场即可，无需引入$\boldsymbol{a}\wedge \boldsymbol{b}$和
+$\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c}$．
+\fbox{丙}不过需要提醒读者的是：$\star (\boldsymbol{a}\wedge \boldsymbol{b})$是赝矢量，
+$\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量．
 
 \begin{remark}
 	Hodge星对偶这节中没有完全贯彻抽象指标记号，
@@ -2718,9 +2725,9 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 \end{exercise}
 
 
-\begin{exercise}
-	用Hodge星算子表示三维欧式空间的叉乘、散度、旋度公式．
-\end{exercise}
+%\begin{exercise}
+%	用Hodge星算子表示三维欧式空间的叉乘、散度、旋度公式．
+%\end{exercise}
 
 %\begin{exercise}
 %	利用式\eqref{chrg:eqn_double-star-Hodge}以及${\rm d}\circ {\rm d}\equiv 0$证
@@ -3587,7 +3594,7 @@ $L(u)$、$\beta(u)$是$u$ 的两个任意的光滑函数．
 \end{exercise}
 
 \begin{exercise}
-	请自己编写符号演算程序来计算式\eqref{chrg:eqn_Riemann_rr}．
+	请自己编写符号演算程序来计算式\eqref{chrg:eqn_Riemann_rr}、\eqref{chrg:eqn_Riemann_rr-Lambda}．
 \end{exercise}
 
 \begin{exercise}

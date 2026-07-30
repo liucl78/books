@@ -75,7 +75,7 @@
 \end{equation}
 同时与$z,\bar{z}$有关．
 
-%复变函数在区域$D$中一阶可微，则无穷阶可微．
+
 
 \section{复线性空间}\label{chcx:sec_cls}
 \S\ref{chmla:sec_linear-space}至\S\ref{chmla:sec_double-linear-map}中的内容是建立在一般数域$\mathbb{F}$上的，
@@ -165,17 +165,18 @@ $\sum_{j=1}^{m}\bigl(a_j (\epsilon_1 \boldsymbol{e}_j )+ b_j (\epsilon_2 \boldsy
 
 Hermite{\footnote{Charles Hermite(1822-1901)法国数学家，译为厄尔米特，简称厄米．}}
 克服了此种困难；我们先叙述厄米双线性函数概念．
+
 \begin{definition}
-    $m$维复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 厄米双线性函数}，
+    复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 厄米双线性函数}，
     是指它满足如下条件（下式中$\forall c\in \mathbb{C},\  \forall \alpha,\beta,\gamma\in V$，
-    $\bar{c}$是$c$的共轭复数）：
+    $\bar{c}$是$c$的复共轭，可以是无穷维）：
     \begin{equation*}
         h(c\cdot \alpha+\beta,\gamma) = \bar{c}\cdot h(\alpha,\gamma)+ h(\beta,\gamma),\quad
         h(\gamma,c\cdot \alpha+\beta) = c\cdot h(\gamma,\alpha)+ h(\gamma,\beta).
     \end{equation*}
 \end{definition}
 可见厄米{\kaishu 双线性}函数对于第一个位置矢量不是线性的，
-此性质称为\CJKunderwave{反线性}或{\heiti 共轭线性}；第二个位置矢量是线性的．
+此性质称为{\heiti 反线性}或{\heiti 共轭线性}；第二个位置矢量是线性的．
 这种对称性可称为{\heiti 厄米对称}．
 
 \index[physwords]{厄米线性}
@@ -198,7 +199,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     \overset{def}{=} \bar{x}^T A y, \qquad \forall \alpha,\beta\in V
 \end{equation}
 定义了复空间$V$上的一个厄米双线性函数$h(\cdot,\cdot)$．
-因此厄米双线性函数与$m\times m$复数矩阵之间有\CJKunderwave{双射}关系．
+因此厄米双线性函数与$m$维复数矩阵之间有\CJKunderwave{双射}关系．
 %需要注意的是：我们还未要求{\kaishu 度量矩阵}是非退化的．
 
 %\begin{definition}
@@ -232,15 +233,15 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     在$m$维复线性空间$V$中取定两组基矢$\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$和
     $\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m$；
     存在非奇异复数矩阵$C$使得$(\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m)
-    =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上厄米双线性函数，则有
+    =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上厄米双线性函数，
+    则有（下式中$B\equiv h(\boldsymbol{e}_k, \boldsymbol{e}_l)$）：
     \begin{align*}
         A\equiv h(\boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j)
         =h\left(\sum\nolimits_k \boldsymbol{e}_k C_{ki},\ \sum\nolimits_l \boldsymbol{e}_l C_{lj}\right)
         =\sum\nolimits_{kl} \bar{C}_{ki} C_{lj} h(\boldsymbol{e}_k, \boldsymbol{e}_l)
         =C^\dagger B C. 
     \end{align*}
-    其中$B\equiv h(\boldsymbol{e}_k, \boldsymbol{e}_l)$．    
-    
+        
     若两个不同复矩阵（$A$、$B$）变换关系是$A= C^\dagger B C$（$C$非奇异），则称
     $A$、$B$是{\heiti 复相似的}．
     
@@ -251,6 +252,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
 
 
 \subsection{酉空间}\label{chcx:sec_unitary}
+
 \begin{definition} \label{chcx:def_unitary-space}
     设$V$是复数域$\mathbb{C}$上的矢量空间，在$V$上定义一个二元运算，有复数$c$与之对应，
     称为{\heiti 酉（内）积}；或{\heiti 幺正内积}；
@@ -266,7 +268,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     {\bfseries (4)} $\left<\alpha,\alpha\right>$是非负实数，当且仅当$\alpha=0$时，$\left<\alpha,\alpha\right> = 0$．
     
     \noindent 其中$\forall\alpha,\beta,\gamma \in V$，$\forall k\in \mathbb{C}$．
-    这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}． \qed
+    这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}． 
 \end{definition}
 
 \index[physwords]{酉空间} \index[physwords]{幺正空间|see{酉空间}}
@@ -274,14 +276,17 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
 \index[physwords]{厄米内积}  
 
 
-这个定义适用于有限维和无限维线性空间；
+定义\ref{chcx:def_unitary-space}适用于有限维和无限维线性空间．
 当把复数域$\mathbb{C}$换成实数域$\mathbb{R}$时，它就退化为欧氏内积．
 代数学上习惯称为酉内积，几何学上习惯称为Hermite内积，物理学上习惯称为幺正内积．
-由酉空间定义容易得到
-$\left<k\alpha,\beta\right>=\overline{\left<\beta,k\alpha\right>}
-=\overline{\left<\beta,\alpha\right>} \bar{k} = \left<\alpha,\beta\right>\bar{k}$；
+由酉空间定义容易得到：
+\begin{equation}
+	\left<k\alpha,\beta\right>=\overline{\left<\beta,k\alpha\right>}
+	=\overline{\left<\beta,\alpha\right>} \bar{k} = \left<\alpha,\beta\right>\bar{k}.
+\end{equation}
 容易看出酉内积是正定、厄米双线性函数．
-可见酉内积\ref{chcx:def_unitary-space}不是对称的；是厄米对称的．
+与实数域上的欧几里得内积不同；
+酉内积\ref{chcx:def_unitary-space}不是对称的，而是厄米对称的．
 
 给定任意$m$维复线性空间$V$，再给定一组基矢量$\{{e}_i\}$；
 $V$中任意两个矢量$\alpha,\beta$可表示
@@ -323,19 +328,56 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 
 
 \begin{definition}
-    设有$m$维酉空间$V$，$\forall \alpha \in V$，
-    $|\alpha|\equiv\sqrt{\left<\alpha,\alpha\right>}$称为矢量$\alpha$的{\heiti 长度}．
+    设有酉空间$V$；$\forall \alpha \in V$，
+    $\|\alpha \|\equiv\sqrt{\left<\alpha,\alpha\right>}$称为矢量$\alpha$的{\heiti 长度}．
 \end{definition}
 
+\index[physwords]{Cauchy--Schwarz不等式}  
+
+\begin{theorem}\label{chcx:thm_CS}
+	设$(V,\langle\cdot, \cdot\rangle)$是酉内积空间（有限维或无穷维）；则有
+	\begin{equation}\label{chcx:eqn_CS}
+		|\langle x,y \rangle| \leqslant \|x\| \cdot\|y\|,
+		\qquad \text{对于任意但非零的} \ x, y \in V .
+	\end{equation}
+	且上式中的等号当且仅当$x$与$y$线性相关时成立．
+\end{theorem}
+\begin{proof}
+    设$z$是酉空间$V$中的任意矢量，根据酉内积定义必有$\langle z,z \rangle \geqslant 0$；
+    我们利用此式来证明{\heiti \bfseries Cauchy--Schwarz不等式}\eqref{chcx:eqn_CS}．假设有
+    \begin{equation*}
+    	z = x + \lambda y; \qquad \forall x, y \in V, \quad \forall\lambda \in \mathbb{C}.
+    \end{equation*}
+    式中$\lambda$是一个任意参量．不论 $\lambda$ 如何，都有
+    \begin{equation}\label{chcx:eqn_zxy}
+    	0 \leqslant \langle z,z \rangle =
+    	\langle x,x \rangle + \lambda \langle x,y \rangle
+    	+\bar{\lambda} \langle y,x \rangle 
+    	+ \lambda \bar{\lambda} \langle y,y \rangle .
+    \end{equation}
+    我们给$\lambda$选择一个数值：
+    $\lambda=-{\langle y , x \rangle}/{ \langle y,y\rangle}$．
+    于是在式\eqref{chcx:eqn_zxy}右端，第二、三两项相等并且与第四项异号，故该式变为：
+    \begin{equation*}
+    	\langle x,x \rangle - \frac{\langle x,y \rangle\langle y,x \rangle}{\langle y,y \rangle} \geqslant 0.
+    \end{equation*}
+    由于$\langle y,y\rangle >0$，我们可以用它去乘上列不等式而得到：
+    $|\langle x,y \rangle| \leqslant \|x\| \cdot\|y\|$．
+    这正是式\eqref{chcx:eqn_CS}．
+    仅当$\langle z,z \rangle=0$时（即$z=0$），式\eqref{chcx:eqn_CS}中等号才成立；
+    此时意味着$x + \lambda y=0$，即两个矢量（$x$、$y$）线性相关．
+\end{proof}
+
+
 \begin{definition}
-    若酉空间$V$上线性变换$\hat{U}$满足
+    若$m$维酉空间$V$上线性变换$\hat{U}$满足
     $\left<\hat{U}\alpha,\hat{U}\beta\right>=\left<\alpha,\beta\right>$，$\forall \alpha,\beta \in V$；
-    则称$\hat{U}$为酉空间$V$上的{\heiti 幺正变换}．
+    则称$\hat{U}$为酉空间$V$上的{\heiti 幺正变换}或{\heiti 酉变换}．
 \end{definition}
 
 
 \begin{theorem}
-    设$V$是酉空间，幺正变换$\hat{U}$在正交归一基底下对应幺正矩阵$U$．
+    设$V$是$m$维酉空间，酉变换$\hat{U}$在正交归一基底下对应酉矩阵$U$．
 \end{theorem}
 \begin{proof}
     $\forall \alpha,\beta \in V$，
@@ -361,22 +403,13 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 
 
 \begin{definition}
-    酉空间$V$上线性变换$\hat{A}$称为{\heiti 厄米变换}是
+    $m$维酉空间上线性变换$\hat{A}$称为{\heiti 厄米变换}是
     指$\left<\hat{A}\alpha,\beta\right>=\left<\alpha,\hat{A}\beta\right>$．
-%    $\forall \alpha,\beta\in V$．
 \end{definition}
 厄米变换$\hat{A}$在正交归一基底下对应的矩阵是厄米矩阵（证明留给读者）．
 
 
 
-\begin{definition}\label{chcx:def_Hilbert-Space}
-	完备的酉空间称为Hilbert空间．
-\end{definition}
-完备性是指第\pageref{chtop:def_complete-metric}页的定义\ref{chtop:def_complete-metric}（距离由酉积定义）．
-大多数情形下，物理中的Hilbert空间是指$L^2(\mathbb{R}^3)$：定义在$\mathbb{R}^4_1$上，且平方可积的复函数集，
-即$\{f(t,\boldsymbol{x}) \mid \int_{-\infty}^{\infty} 
-\bar{f}(t,\boldsymbol{x}) f(t,\boldsymbol{x}) {\rm d}^3x  < +\infty \}$．
-可以证明$L^2(\mathbb{R}^3)$是完备的酉空间（略）．
 
 
 

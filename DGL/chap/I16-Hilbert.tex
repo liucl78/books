@@ -1,0 +1,757 @@
+% !TeX encoding = UTF-8
+% 此文件从2026.7.13开始写作
+
+
+\chapter{Hilbert空间简引} \label{chhs}
+
+量子引力中会用到Hilbert空间，故予以简单概述．
+请先了解第\ref{chtop}、\ref{chmla}、\ref{chcx}章知识，
+本章内容与其它章节几乎无关．
+
+
+\index[physwords]{赋范空间}  \index[physwords]{范数} 
+\index[physwords]{赋范线性空间} \index[physwords]{Banach空间} \index[physwords]{巴拿赫空间}
+
+
+\section{赋范空间}\label{chhs:sec_norm}
+
+\begin{definition}
+	数域$\mathbb{F}$上的线性空间$X$的{\heiti 范数}$\|\cdot\|$是一个非负值函数：
+	$X \rightarrow \mathbb{R}$ 满足
+	{\bfseries (1)} $\|x\| \geqslant 0 \ (\forall x \in {X})$；
+	{\bfseries (2)} $\|x\|=0 \Longleftrightarrow x=\bf{0}$；
+	{\bfseries (3)} $\|x+y\| \leqslant\|x\|+\|y\| \  (\forall x, y \in {X})$；
+	{\bfseries (4)} $\|\alpha x\|=|\alpha| \cdot\|x\| \  (\forall \alpha \in \mathbb{F},\ \forall x \in {X})$．
+\end{definition}
+	
+线性空间$X$上的范数在$X$上可诱导出度量$d$：
+\begin{equation}\label{chhs:eqn_nd}
+	d(x, y)= \|x-y\|, \qquad  \forall x, y \in X .
+\end{equation}
+线性空间有了度量后，便可诱导出拓扑，从而成为{\heiti 拓扑线性空间}．
+需要指出的是：线性空间上的任意度量不一定都可由范数诱导得到．
+
+\begin{definition}	
+	定义了范数的线性空间称为{\heiti 赋范线性空间}，简称{\heiti 赋范空间}．
+	完备的（度量为式\eqref{chhs:eqn_nd}）赋范线性空间叫作{\heiti\bfseries Banach空间}．
+\end{definition}
+
+完备性定义见\ref{chtop:def_complete-metric}．
+可见，Banach空间是度量空间．
+
+\begin{example}\label{chhs:exam_NCm}
+	若指定$\mathbb{C}^m$上度量为\eqref{chcx:eqn_Hermite-Product}式（
+	$\left<x,y\right>= \sum\nolimits_{i=1}^{m}\bar{x}^i y^i$），
+	则由此式可诱导出线性空间$\mathbb{C}^m$上的范数为：
+	\begin{equation}\label{chhs:eqn_NCm}
+		\| x \| = \sqrt{\sum\nolimits_{i=1}^{m}  |x^i|^2 }
+		= \sqrt{|x^1|^2 +\cdots +|x^m|^2 } .
+	\end{equation}
+	由此可知$\mathbb{C}^m$是Banach空间． 
+\end{example}
+
+\begin{example}\label{chhs:exam_lpB}
+	仿照例\ref{chmla:exm-cab}，可看到$l^p$空间是无穷维线性空间．
+	将$l^p$空间的范数定义为
+	$\|\xi\|=\left(\sum_{i=1}^{\infty}\left|\xi_i\right|^p\right)^{1 / p}$．
+	由例\ref{chtop:exam_lp}可证此空间是完备的，故$l^p$是Banach空间．
+\end{example}
+
+
+\begin{proposition}
+	赋范线性空间中的范数是连续映射．
+\end{proposition}
+
+\begin{proof}
+	设有赋范空间$(X,\|\cdot\|)$．
+	根据范数定义中的条件(3)、(4)，有
+	\begin{align*}
+		& \|y\|=\|y-x+x\| \leqslant\|y-x\|+\|x\|, \\
+		& \|x\|=\|x-y+y\| \leqslant\|y-x\|+\|y\| .
+	\end{align*}
+	由此可得：$\|y\|-\|x\| \leqslant\|y-x\|$、$\|y\|-\|x\| \geqslant-\|y-x\|$．	进而得到
+	\begin{equation}
+		\left| \|y\|-\|x\| \right| \leqslant\|y-x\| .
+	\end{equation}
+	上式意味着范数是从$(X,\|\cdot\|)$到$\mathbb{R}$的连续映射（定义见\ref{chtop:def_continuity}）．
+\end{proof}
+
+\begin{theorem}\label{chhs:thm_iso-NS}
+	若$(X,\|\cdot\|)$是赋范空间，
+	则一定存在Banach空间$\hat{X}$和$X$到$\hat{X}$的稠密子空间$\widehat{W}$上的等距映射$\phi$．
+	若不区分等距空间，则空间$\hat{X}$是唯一的．
+\end{theorem}
+\begin{proof}
+	可参见\parencite{Kreyszig-1991}\S 2.3-2；或类似文献．
+\end{proof}
+
+
+
+\begin{definition}
+	对于线性空间$X$上的范数$\|\cdot\|_{1}$和$\|\cdot\|_{2}$，
+	如果存在正实数$a$、$b$使得$\forall x\in X$都
+	有$a\|x\|_{1} \leqslant\|x\|_2 \leqslant b\|x\|_{1}$成立；
+	则称$\|\cdot\|_{1}$与$\|\cdot\|_{2}${\heiti 等价}．
+\end{definition}
+
+
+
+\begin{theorem}\label{chhs:thm_Nequiv}
+	在\CJKunderwave{有限维}线性空间$X$上，任意两种范数$\|\cdot\|_{1}$和$\|\cdot\|_{2}$是等价的．
+\end{theorem}
+
+\begin{proof}
+	可参见\parencite{zhang-lin-2021}定理1.4.18；或类似文献．
+	本定理对无穷维空间不正确．
+\end{proof}
+
+\begin{proposition}\label{chhs:thm_FSB}
+	任意有限维赋范空间必是Banach空间．（证明见\parencite{zhang-lin-2021}推论1.4.19）
+\end{proposition}
+
+由定理\ref{chhs:thm_Nequiv}可知：
+{\bfseries (1)} $X$上序列的收敛与发散与具体选用的范数无关．
+{\bfseries (2)} 由等价范数诱导得到$X$上的拓扑是同胚的（例如参见定理\ref{chtop:thm_bcb}）．
+
+
+\index[physwords]{线性算符}  \index[physwords]{线性算子} 
+\index[physwords]{算符!线性} \index[physwords]{算符}
+
+
+
+赋范空间上的线性算符是初等代数中线性变换概念的推广．
+
+\begin{definition}
+赋范空间上的{\heiti 线性算符}（或{\heiti 线性算子}）$T$需满足下述性质：
+{\bfseries (1)} $T$的定义域$\mathscr{D}(T)$是$\mathbb{F}$上的线性空间，
+$T$的值域$\mathscr{R}(T)$落在同一个数域$\mathbb{F}$上的线性空间中；
+{\bfseries (2)} $\forall x, y \in \mathscr{D}(T)$和$\alpha\in \mathbb{F}$有
+$T(\alpha x+y) = \alpha (T x)+T y $．
+\end{definition}
+
+\begin{remark}
+	在赋范空间中，算符$T$的定义域$\mathscr{D}(T)$是极其重要的．
+\end{remark}
+
+若赋范空间$X$上的算符$T_{1}$和$T_{2}$有相同的定义域
+$\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
+且$\forall x \in \mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)$
+有$T_{1} x=T_{2} x$，则称$T_{1}$ 和 $T_{2}$是{\heiti 相等的}，记为$T_{1}=T_{2}$．
+
+虽然$T_{1}$和$T_{2}$都是$X$上的算符，若它们的定义域不同，即便有$T_{1} x=T_{2} x$，
+其中$x \in \mathscr{D}\left(T_{1}\right)\cap \mathscr{D}\left(T_{2}\right)$；
+我们也不认为在$X$上$T_{1}=T_{2}$．
+
+算符$T:\mathscr{D}(T) \longrightarrow Y$在$\mathscr{D}(T)$的子集$B$上的{\heiti 限制}记为$T|_{B}$．
+它是一个算符，定义为$T |_{B}: B \longrightarrow Y, \forall x \in B$有$T|_{B} x=T x$．
+
+与限制相反，可定义延拓．
+算符$T$到集合$M \supset \mathscr{D}(T)$的{\heiti 延拓}（或{\heiti 扩张}）是一个算符：
+定义为$\tilde{T}: M \longrightarrow Y$使得$\tilde{T}|_{\mathscr{D}(T)}=T$；
+也就是说，$\forall x \in \mathscr{D}(T)$ 有 $\tilde{T} x=T x$ ．
+很显然，$T$是$\tilde{T}$在$\mathscr{D}(T)$上的限制．
+
+
+\index[physwords]{有界算符} \index[physwords]{无界算符}
+\index[physwords]{算符!有界} \index[physwords]{算符!无界}
+
+
+\begin{definition}\label{chhs:def_bound}
+	设$X$和$Y$是赋范空间，$T: \mathscr{D}(T) \longrightarrow Y$是线性算符，其中$\mathscr{D}(T) \subset X$．
+	若存在正的实常数$c$使得$\forall x \in \mathscr{D}(T)$有$\|T x\|_{Y} \leqslant c\|x\|_{X}$，
+	则称算符$T$是{\heiti 有界的}，否则是{\heiti 无界的}．
+	我们还可以给算符$T$定义一个范数：$\|T\|=\sup \frac{\|T x\|}{\|x\|}$，
+	其中$\sup$指上确界，非零矢量$x$需要遍历整个定义域$\mathscr{D}(T)$．
+\end{definition}
+
+\index[physwords]{线性泛函} \index[physwords]{线性泛函!有界} \index[physwords]{线性泛函!连续}
+
+
+
+我们将定义\ref{chmla:def_linear-fun}中给出的{\kaishu 线性泛函}的定义略作推广．
+即{\heiti 线性泛函}$f$是定义域落在赋范空间$X$中、值域落在$X$的基域$\mathbb{F}$中的线性算符．
+如果对于任意$x \in \mathscr{D}(f)$，存在实常数$c$使得$|f(x)| \leqslant c\|x\|$，
+则称$f$是{\heiti 有界线性泛函}．
+
+
+
+\begin{proposition}\label{chhs:thm_fBC}
+	若$f$是$\mathscr{D}(f)\subset X$中的线性泛函，
+	则$f$是连续泛函等价于$f$是有界泛函．
+	（本命题对赋范空间$X$的维数没有限定．证明可见\parencite{zhang-lin-2021}命题2.1.11）
+\end{proposition}
+
+%\begin{example}
+%	赋范空间 $(X,\|\cdot\|)$ 上的范数 $\|\cdot\|: X \longrightarrow \mathbb{R}$是$X$上的一个泛函，
+%	但不是线性泛函．
+%\end{example}
+
+
+\section{Hilbert空间}
+
+
+\index[physwords]{内积空间} \index[physwords]{Hilbert空间} \index[physwords]{希尔伯特空间}
+
+定义了内积的线性空间称为{\heiti 内积空间}，
+比如实数域上的欧几里得空间（见定义\ref{chmla:def_Euclidean-space}），
+复数域上的酉空间（见定义\ref{chcx:def_unitary-space}）．
+
+\begin{definition}\label{chhs:def_Hilbert-Space}
+	完备的内积空间称为Hilbert空间，记为$\mathcal{H}$．
+\end{definition}
+
+不难看出：\CJKunderwave{内积空间是赋范空间，Hilbert空间是Banach空间．}
+
+由命题\ref{chhs:thm_FSB}可知：有限维内积空间必是Hilbert空间．
+
+本章余下内容主要讨论量子物理关心的复Hilbert空间．
+
+
+\begin{definition}\label{chhs:def_IPN}
+	设内积空间$X$的内积为$\langle x,y \rangle$（此处指酉空间的酉积\ref{chcx:def_unitary-space}），
+	其中$x,y \in X$；则自然地定义$X$的范数为$\|x\| \equiv \sqrt{\langle x,x \rangle}$．
+\end{definition}
+
+\begin{proposition}\label{chhs:thm_Hp4}
+	设有赋范空间$(X,\|\cdot\|)$；在$X$上可以引入一个内积$\langle\cdot, \cdot\rangle$的
+	充分必要条件是：范数$\|\cdot\|$满足如下{\kaishu 平行四边形等式}：
+\begin{equation}\label{chhs:eqn_Hp4}
+	\|x+y\|^{2}+\|x-y\|^{2}=2\left(\|x\|^{2}+\|y\|^{2}\right) . 
+\end{equation}
+\end{proposition}
+\begin{proof}
+	“$\Rightarrow$”．直接计算，有
+	\begin{align*}
+		&\|x+y\|^{2}+\|x-y\|^{2}= \langle x + y, x + y \rangle + \langle x - y, x - y \rangle \\
+		= & \langle x , x  \rangle +\langle x , y \rangle 
+		+ \langle y, x \rangle +\langle y, y \rangle 
+		+ \langle x , x  \rangle -\langle x , y \rangle 
+		- \langle y, x \rangle +\langle y, y \rangle .
+	\end{align*}
+	消去相应项，便得到命题中的公式．
+	
+	“$\Leftarrow$”．命
+	\begin{align*}
+	\langle y,x \rangle = \begin{cases}
+		\frac{1}{4}\left(\|x+y\|^2-\|x-y\|^2\right), & \text { 当 }\ \mathbb{F}=\mathbb{R}, \\
+		\frac{1}{4}\left(\|x+y\|^2-\|x-y\|^2
+		+\mathbbm{i}\|x+\mathbbm{i} y\|^2 
+		-\mathbbm{i}\|x-\mathbbm{i} y\|^2\right), & 
+		\text { 当 }\ \mathbb{F}=\mathbb{C} .\end{cases}
+	\end{align*}
+	可以验证它是一个满足定义\ref{chhs:def_IPN}的内积．
+\end{proof}
+
+\subsection{完备化}
+
+
+\begin{example}
+	当$p \neq 2$时，序列空间$l^{p}$不是内积空间，更不是Hilbert空间．
+\end{example}
+用命题\ref{chhs:thm_Hp4}中的公式\eqref{chhs:eqn_Hp4}即可证明．
+我们取$x=(1,1,0,0, \cdots) \in l^{p}$、$y=(1,-1,0,0, \cdots) \in l^{p}$，可以算出
+$$
+\|x\|=\|y\|={2}^{1/p}, \qquad \|x+y\|=2=\|x-y\|.
+$$
+显然，若 $p \neq 2$，则上式不满足式\eqref{chhs:eqn_Hp4}，故不是内积空间．
+我们已知$l^{p}$是Banach空间（见例\ref{chhs:exam_lpB}），但不是Hilbert空间（$p\neq 2$）．
+\qed
+
+\index[physwords]{l${}^2$空间}
+
+\begin{example}
+	Hilbert空间$l^2$．
+\end{example}
+将序列空间$l^{2}$的内积定义为：
+$\langle \xi, \eta\rangle=\sum\nolimits_{i=1}^{\infty} \bar{\xi}_{i} \eta_{i}$．
+由Cauchy--Schwarz不等式（参见式\eqref{chtop:eqn_Holder}）可证此内积中的级数收敛．
+由此内积诱导得到范数为：
+\begin{equation}
+	\|\xi\|=\langle \xi, \xi \rangle^{1 / 2}
+	=\left(\sum\nolimits_{i=1}^{\infty}\left|\xi_{i}\right|^{2}\right)^{1 / 2} .
+\end{equation}
+此范数的完备性参见例\ref{chhs:exam_lpB}．
+故$l^2$是Hilbert空间．
+\qed
+
+\begin{example}
+	无穷维、连续复值函数空间$C[a,b]$．
+\end{example}
+参见例题\ref{chmla:exm-cab}．其内积定义为：
+\begin{equation}\label{chhs:eqn_InCab}
+	\langle x, y\rangle=\int_{a}^{b} \overline{x(t)} y(t)  \mathrm{d} t ;
+	\qquad \forall x, y \in C[a, b].
+\end{equation}
+由注解\ref{chtop:rem_nc}中的参考文献可知：$C[a,b]$在上述内积下是不完备的．
+粗略地说，连续函数的无穷序列可能收敛于间断函数，间断函数自然不属于$C[a,b]$．
+\qed
+
+\index[physwords]{L${}^2[a,b]$空间}
+
+\begin{example}
+	无穷维、连续复值函数空间$L^2[a,b]$（Lebesgue空间）．
+\end{example}
+$L^2[a,b]$是指平方可积的复函数集，即其内积
+\begin{equation}\label{chhs:eqn_InLab}
+	\langle x, y\rangle=\int_{a}^{b} \overline{x(t)} y(t)  \mathrm{d} t < + \infty;
+	\qquad \forall x, y \in L^2[a, b].
+\end{equation}
+可以证明\cite[例 1.4.11]{zhang-lin-2021}：
+$L^2[a,b]$空间的上述内积\eqref{chhs:eqn_InLab}是完备的；
+因此它是Banach空间，也是Hilbert空间．
+
+量子物理中常见的Bessel、Legendre、Laguerre等多项式（以及很多其它特殊函数）
+在适当的区间上都是（加权）平方可积的．
+\qed
+
+上面两个例子表明：可以将不完备的$C[a,b]$延拓为完备的$L^2[a,b]$．
+与度量空间、赋范空间类似，Hilbert空间也有如下重要定理：
+
+\begin{theorem}\label{chhs:thm_iso-hs}
+	对于任意内积空间$X$，存在Hilbert空间$\mathcal{H}$和$X$到$\mathcal{H}$的
+	稠密子空间$\mathcal{W}$上的等距同构$\phi$．若不区分同构空间，则空间$\mathcal{H}$是唯一的．
+\end{theorem}
+\begin{proof}
+	可参见\parencite{Kreyszig-1991}定理3.2-3；或类似文献．
+\end{proof}
+
+\index[physwords]{L${}^2(\mathbb{R}^3)$空间}
+
+\begin{example}
+	$n$维$L^2(\mathbb{R}^n)$（Lebesgue空间）．
+\end{example}
+函数空间$L^2[a,b]$自然可以推广到$n$维Hilbert空间$L^2(\mathbb{R}^n)$：
+\begin{equation}
+	L^2(\mathbb{R}^n) \equiv \left\{f(t,{x}) \mid \int_{-\infty}^{\infty} 
+	\overline{f(t,{x})} f(t,{x}) {\rm d}^n x  < +\infty \right\}.
+\end{equation}
+上式中$t$为实参数．完备性证明参见\parencite[例 1.4.11]{zhang-lin-2021}．
+{\kaishu 大多数情形下，量子物理中的Hilbert空间就是指上述的$L^2(\mathbb{R}^3)$，
+参数$t$一般理解成时间．}
+\qed
+
+
+\subsection{连续对偶空间}\label{chhs:sec_dual}
+
+有限维线性空间（包括有限维Hilbert空间）的对偶空间相关知识已在\S\ref{chmla:sec_dual}中陈述．
+无穷维赋范空间的对偶空间要复杂许多；要区分代数对偶（即\S\ref{chmla:sec_dual}中的定义）和连续对偶；
+完备或不完备的赋范空间$X$的连续对偶空间$X'$一定是完备的赋范空间（证明见\parencite{Kreyszig-1991}定理2.10-4），
+而且$X$、$X'$两者间可能没有双射关系（不严谨地说$X'$比$X$大）；等等．
+这些内容可参考\parencite{Kreyszig-1991}\S 2.10、\S 4.6；不再赘述．
+
+完备的内积空间（Hilbert空间）则要简单的多．
+
+\index[physwords]{连续对偶空间}
+
+\begin{definition}\label{chhs:def_bld}
+	Hilbert空间$\mathcal{H}$的连续对偶空间$\mathcal{H}'$为$\mathcal{H}$上的连续线性泛函全体．
+\end{definition}
+
+$\mathcal{H}'$中元素的加法和数乘定义与式\eqref{chmla:eqn_dual-pp}相同，
+这样$\mathcal{H}'$也是一个线性空间（通常是无穷维）．
+依照命题\ref{chhs:thm_fBC}，上述定义中的{\kaishu 连续}与{\kaishu 有界}同义．
+由于无穷维Hilbert空间$\mathcal{H}$的代数对偶空间$\mathcal{H}^*$过于复杂（比如包含不连续泛函），
+故不再赘述；本章中通常将连续对偶空间简称为对偶空间，代数对偶则不简称．
+
+在有限维空间中（参见定理\ref{chmla:thm_tonggou-by-gVVS}），
+由$V$上非退化双线性函数$f(\alpha,\beta)$诱导得到代数对偶空间$V^{*}$中的一个元素$\alpha^*$：
+$\alpha^{*}(\beta) \overset{def}{=} f(\alpha,\beta),\ \forall \beta \in V$．
+
+对于有限维或无穷维Hilbert空间$\mathcal{H}$也有类似操作．对于任意但固定的$y\in \mathcal{H}$，
+由$\mathcal{H}$上酉内积$\langle\cdot,\cdot\rangle$可诱导出一个连续线性泛函$y' \in \mathcal{H}'$：
+\begin{equation}\label{chhs:eqn_ypxyx}
+	y'(x) \overset{def}{=} \langle y, x \rangle,\qquad \forall x \in \mathcal{H} .
+\end{equation}
+酉内积可以保证此映射（$\mathcal{H} \ni y \to y' \in \mathcal{H}'$）是单一连续的，
+但无法保证它是满的，即$\mathcal{H}'$的元素可能没有原像．
+实际上$\mathcal{H}$和$\mathcal{H}'$间的映射是双射（即既单又满），
+为此我们先叙述{\heiti \bfseries Riesz表示定理}（Riesz representation theorem）：
+
+\index[physwords]{Riesz表示定理}
+
+\begin{theorem}\label{chhs:thm_riesz-rep}
+	设$y'$是Hilbert空间$\mathcal{H}$上的一个连续线性泛函，即$y'\in \mathcal{H}'$；
+	则必存在唯一的$y \in \mathcal{H}$，
+	使得$y'(x)=\langle y , x \rangle , \ \forall x \in \mathcal{H}$成立．
+\end{theorem}
+\begin{proof}
+	证明可参见\parencite{zhang-lin-2021}定理2.2.1；或类似文献．
+\end{proof}
+
+需注意式\eqref{chhs:eqn_ypxyx}中的内积对第一个位置是共轭线性的，对第二个位置是线性的．
+Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \mathcal{H}'$）是满设，
+进而也是双射．我们可以利用这个双射关系，给$\mathcal{H}'$空间元素引入内积定义：
+\begin{equation}
+	\langle y', x' \rangle_{\mathcal{H}'} \overset{def}{=} \langle x , y \rangle_{\mathcal{H}} , 
+	\qquad \forall y', x' \in \mathcal{H}' . 
+\end{equation}
+至此，我们在$\mathcal{H}$、$\mathcal{H}'$之间建立了线性等距同构映射．
+确切地说，对于实数域是等距同构；对于复数域是等距反同构（或等距共轭同构）．
+完备的线性空间$\mathcal{H}'$有了内积之后便成为了Hilbert空间．
+
+
+
+
+
+\subsection{正交集}
+
+
+
+\begin{definition}
+	内积空间$X$上的两个元素$x$与$y$称为是{\heiti 正交的}是指$\langle x, y \rangle =0$，
+	记作$x \perp y$．又设$M$是$X$的非空子集，$x \in X$．
+	若$\forall y \in M$都有$x \perp y$，
+	则称$x$与$M${\heiti 正交}，记作$x \perp M$．
+	称集合$\{x \in {X} \mid x \perp M\}$	
+	为$M$的{\heiti 正交补}，记作$M^{\perp}$．	
+\end{definition}
+
+\begin{definition}
+	设$X$是一个内积空间，集合$S\equiv\left\{e_\alpha \mid \alpha \in I \right\}$是$X$的一个子集．
+	若$\forall \alpha, \beta \in I$，当$\alpha \neq \beta$时，
+	有$e_\alpha \perp e_\beta$，则称$S$为{\heiti 正交集}．
+	若有$\left\|e_\alpha\right\|=1 (\forall \alpha \in I)$ ，则称$S$为{\heiti 正交规范集}．
+	又如果在$X$中不存在非零元素与$S$正交，即$S^{\perp}=\{0\}$，那么称$S$为{\heiti 完全的}；
+	若同时$S$还是正交集，则称$S$为{\heiti 完全正交规范集}．
+\end{definition}
+
+\begin{remark}
+	在大多数文献中把上面定义中的{\kaishu 完全}（total）称作{\kaishu 完备}（complete）；
+	由于我们在定义\ref{chtop:def_complete-metric}中已占用{\kaishu 完备}这个术语，故在此换一个词儿．
+\end{remark}
+
+\begin{definition}
+	内积空间$X$中的正交规范集$S=\left\{e_\alpha \mid \alpha \in I\right\}$，
+	称为一个{\heiti 基}（或{\heiti 封闭的}）是指 $\forall x \in X$有
+	表达式$x=\sum_{\alpha \in I}\langle x, e_\alpha \rangle e_\alpha$成立．
+    我们称$\left\{\langle x, e_\alpha \rangle \mid \alpha \in I\right\}$为$x$关于
+    基$\left\{e_\alpha \mid \alpha \in I\right\}$ 的{\heiti \bfseries Fourier系数}．
+\end{definition}
+
+%\begin{equation}\label{chhs:eqn_npb}
+%\end{equation}
+
+
+\begin{remark}
+	我们略微解释一下上面定义中的指标集$I$．
+	当$X$是有限集合时，$I$是正整数集合的一个有限子集．
+	当$X$是可数无限集时，$I$是正整数集合．
+	当$X$是不可数无限集时，$I$是某个连续的不可数标记，比如时空坐标．
+\end{remark}
+
+
+%当$X$是可数集时，式\eqref{chhs:eqn_npb}变为$x=\sum_{i=1}^{\infty} \langle x, e_i \rangle e_i$．
+%\begin{equation}\label{chhs:eqn_npbc}	
+%\end{equation}
+
+
+\begin{theorem}
+	Hilbert空间$\mathcal{H}\neq \{0\}$中必存在完全正交规范集．
+\end{theorem}
+\begin{proof}
+	参见\parencite{Kreyszig-1991}定理4.1-8；或\parencite{zhang-lin-2021}命题1.6.21．
+\end{proof}
+
+\begin{theorem}
+	设$\mathcal{H}$是一个 Hilbert 空间，
+	其正交规范集$S=\left\{e_\alpha \mid \alpha \in I\right\}$是完全的充分必要条件为
+    下述{\heiti \bfseries Parseval等式}成立：		
+	\begin{equation}\label{chhs:eqn_Parseval}
+		\|x\|^2=\sum_{\alpha \in I}\left| \langle x, e_\alpha \rangle \right|^2
+		= \sum_{\alpha \in I} \langle x, e_\alpha \rangle \langle e_\alpha,x \rangle;
+		\qquad \forall x \in \mathcal{H}. 
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	参见\parencite{Kreyszig-1991}定理3.6-3；或\parencite{zhang-lin-2021}命题1.6.25．
+\end{proof}
+
+
+
+\begin{theorem}
+	设有Hilbert空间$\mathcal{H}$．那么
+	{\bfseries (1)} 若 $\mathcal{H}$ 是可分的，则 $\mathcal{H}$ 中的每一个规范正交集都是可数的．
+	{\bfseries (2)} 若 $\mathcal{H}$ 包含完全规范正交序列，则 $\mathcal{H}$ 是可分的．
+\end{theorem}
+\begin{proof}
+	参见\parencite{Kreyszig-1991}定理3.6-4．
+\end{proof}
+
+
+
+\subsection{Hilbert空间上的有界线性算符}
+
+\index[physwords]{有界线性算符}
+
+\begin{definition}\label{chhs:def_adjoint}
+	设$\mathcal{H}$和$\mathcal{K}$是Hilbert空间，
+	$T: \mathcal{H} \longrightarrow \mathcal{K}$是有界线性算符，
+	则使得对于所有$x \in \mathcal{H}$和$y \in \mathcal{K}$ 满足
+	\begin{equation}\label{chhs:eqn_adjoint}
+		\langle T x, y\rangle_{\mathcal{K}} = \left\langle x, T^{\dagger} y\right\rangle_{\mathcal{H}} ,
+		\qquad T^{\dagger}: \mathcal{K} \longrightarrow \mathcal{H}
+	\end{equation}
+	的算符$T^{\dagger}$叫作$T$的{\heiti \bfseries Hilbert伴随算符}． 
+\end{definition}
+
+\begin{remark}
+	数学上可以证明定义\ref{chhs:def_adjoint}中的$T^{\dagger}$是存在的．
+\end{remark}
+
+
+
+
+\begin{theorem}
+设$\mathcal{H}$和$\mathcal{K}$是Hilbert空间，
+$S:\mathcal{H} \longrightarrow \mathcal{K}$和
+$T:\mathcal{H} \longrightarrow \mathcal{K}$是有界线性算符，
+$\alpha \in \mathbb{C}$，
+则（下式及证明过程中$x \in \mathcal{H}$、$y \in \mathcal{K}$）
+\begin{subequations}\label{chhs:eqn_adjoint-ps}
+\begin{align}
+	\left\langle T^{\dagger} y, x\right\rangle & =\langle y, T x\rangle,  \\
+	(S+T)^{\dagger} & =S^{\dagger}+T^{\dagger},  \label{chhs:eqn_adjoint-ps-b} \\
+	(\alpha T)^{\dagger} & =\bar{\alpha} T^{\dagger},  \label{chhs:eqn_adjoint-ps-c}\\
+	(T^{\dagger})^{\dagger} & =T,  \\
+	(S T)^{\dagger} & =T^{\dagger} S^{\dagger}, \qquad \text { 假设 }\ \mathcal{K}=\mathcal{H} . 
+\end{align}
+\end{subequations}
+\end{theorem}
+
+\begin{proof}
+{\bfseries (a)} 从式\eqref{chhs:eqn_adjoint}可得：
+$ \left\langle T^{\dagger} y, x\right\rangle 
+=\overline{\left\langle x, T^{\dagger} y\right\rangle}
+=\overline{\langle T x, y\rangle}=\langle y, T x\rangle$．
+
+{\bfseries (b)} 根据式\eqref{chhs:eqn_adjoint}，对于所有 $x, y$ 有
+\begin{align*}
+	\left\langle x,(S+T)^{\dagger} y\right\rangle & =\langle(S+T) x, y\rangle 
+	=\langle S x, y\rangle+\langle T x, y\rangle \\
+	& =\left\langle x, S^{\dagger} y\right\rangle+\left\langle x, T^{\dagger} y\right\rangle 
+	=\left\langle x,\left(S^{\dagger}+T^{\dagger}\right) y\right\rangle .
+\end{align*}
+因$x$、$y$的任意性便可证明此公式．
+
+{\bfseries (c)} 注意不要把式\eqref{chhs:eqn_adjoint-ps-c}和
+公式$T^{\dagger}(\alpha x)=\alpha T^{\dagger} x$ 混淆．我们有
+\begin{align*}
+	\left\langle y, (\alpha T)^{\dagger} x\right\rangle
+	=\langle (\alpha T) y, x\rangle= \langle \alpha(T y), x\rangle
+	=\bar{\alpha}\langle T y, x\rangle
+	=\bar{\alpha}\left\langle y, T^{\dagger} x\right\rangle
+	=\left\langle y, \bar{\alpha} T^{\dagger} x\right\rangle .
+\end{align*}
+因$x$、$y$的任意性便可证明此公式．
+
+
+{\bfseries (d)} 由式\eqref{chhs:eqn_adjoint}可知对于所有$x \in \mathcal{H}$ 和 $y \in \mathcal{K}$有
+$$\left\langle(T^{\dagger})^{\dagger} x, y\right\rangle
+=\left\langle x, T^{\dagger} y\right\rangle=\langle T x, y\rangle . $$
+因$x$、$y$的任意性便可证明此公式．
+
+
+{\bfseries (e)} 反复应用式\eqref{chhs:eqn_adjoint}便有
+$$\left\langle x,(S T)^{\dagger} y\right\rangle
+=\langle(S T) x, y\rangle=\left\langle T x, S^{\dagger} y\right\rangle
+=\left\langle x, T^{\dagger} S^{\dagger} y\right\rangle . $$
+因$x$、$y$的任意性便可证明此公式．
+\end{proof}
+
+
+我们借用Hilbert伴随算符来定义一些常用算符．
+下面几个定义中算符$T$是Hilbert空间$\mathcal{H}$（有限维或无穷维）上的有界线性
+算符$T: \mathcal{H} \longrightarrow \mathcal{H}$．
+
+\begin{definition}
+	若$T^{\dagger}=T$，则称$T$是{\heiti 自伴算符}或{\heiti 厄米算符}．
+\end{definition}
+
+\begin{definition}
+	若$T$是单一映射且$T^{\dagger}=T^{-1}$，则称$T$是{\heiti 酉算符}．
+\end{definition}
+
+
+\begin{theorem}
+	设$T$是Hilbert空间$\mathcal{H}$上的有界线性算符，则
+	{\bfseries (1)} 若$T$是自伴的，则$\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数．
+	{\bfseries (2)} $\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数，则$T$是自伴的．
+\end{theorem}
+\begin{proof}
+{\bfseries (1)} 若$T$是自伴算符，则对于所有$x \in \mathcal{H}$有
+$\overline{\langle T x, x\rangle}=\langle x, T x\rangle
+=\langle T^\dagger x, x\rangle =\langle T x, x\rangle$．
+因此 $\langle T x, x\rangle$ 等于其复共轭，所以它是实数．
+
+
+{\bfseries (2)} 若对于所有 $x \in \mathcal{H}$ 有 $\langle T x, x\rangle$ 是实数，则
+\begin{align*}
+ &\langle T x, x\rangle=\overline{\langle T x, x\rangle}
+=\overline{\left\langle x, T^{\dagger} x\right\rangle}
+=\left\langle T^{\dagger} x, x\right\rangle \\
+\Rightarrow\quad & 0
+=\langle T x, x\rangle-\left\langle T^{\dagger} x, x\right\rangle
+=\left\langle\left(T-T^{\dagger}\right) x, x\right\rangle .
+\end{align*}
+因为$\mathcal{H}$是复线性空间，再由$x$的任意性可得 $T-T^{\dagger}=0$．
+\end{proof}
+
+\index[physwords]{Hellinger--Toeplitz定理}
+
+\begin{theorem}\label{chhs:thm_HT}
+	如果线性算符$T$定义在整个复Hilbert空间$\mathcal{H}$上，
+	并且$\forall x, y \in \mathcal{H}$满足$\langle T x, y\rangle=\langle x, T y\rangle$，
+	则$T$是有界线性算符．
+\end{theorem}
+
+\begin{proof}
+	此定理称为{\bfseries \heiti Hellinger--Toeplitz定理}，
+	证明可见\parencite{Kreyszig-1991}定理10.1-1．
+	该定理表明，满足$\langle T x, y\rangle=\langle x, T y\rangle$的无界线性算符$T$不能定义在整个$\mathcal{H}$上．	
+\end{proof}
+
+
+\index[physwords]{算符!无界}
+
+\subsection{Hilbert空间上的无界线性算符}
+
+定义\ref{chhs:def_adjoint}只适用于有界线性算符．
+为了定义无界线性算符，我们先引入：
+
+\index[physwords]{稠定算符}
+
+\begin{definition}
+	$T$在Hilbert空间$\mathcal{H}$中是{\heiti 稠定的}是指$\mathscr{D}(T)$在$\mathcal{H}$中是稠密的．
+\end{definition}
+
+
+\begin{definition}
+	设$T: \mathscr{D}(T) \rightarrow \mathcal{H}$是复Hilbert空间$\mathcal{H}$中的（可能无界的）稠定线性算符，
+	则$T$的Hilbert伴随算符$T^{\dagger}: \mathscr{D}\left(T^{\dagger}\right)\rightarrow \mathcal{H}$定义为：
+	$T^{\dagger}$的定义域$\mathscr{D}\left(T^{\dagger}\right)$由所有这样的$y \in \mathcal{H}$构成，
+	即对于这个 $y$ 存在$y^{\dagger} \in \mathcal{H}$，$\forall x \in \mathscr{D}(T)$ 满足
+	\begin{equation}
+		\langle T x, y\rangle=\left\langle x, y^{\dagger}\right\rangle . 
+	\end{equation}
+	对于每个这样的 $y \in \mathscr{D}\left(T^{\dagger}\right)$ ，通过
+	\begin{equation}
+		y^{\dagger}=T^{\dagger} y
+	\end{equation}
+	来定义Hilbert伴随算符$T^{\dagger}$．
+	算符$T$的稠定属性可保$T^{\dagger}$的唯一性．
+\end{definition}
+
+
+
+Hilbert空间上无界伴随算符的定义之所以需要分两步走，
+根本原因在于无界算符并非定义在整个空间上，
+其定义域通常只是一个稠密的真子空间．
+这导致我们不能像有界算符那样，简单地通过内积等式来直接定义伴随算符．
+第一步定义伴随算符的定义域；它通过有界性条件，
+从整个空间中挑选出那些能够与$T$良好“互动”的矢量，
+构成伴随算符的合法定义域$\mathscr{D}(T^{\dagger})$．第二步定义伴随算符的映射法则，
+为$\mathscr{D}(T^{\dagger})$中的每个矢量唯一地指定了它在伴随算符下的像$T^\dagger y$．
+
+\index[physwords]{对称算符}  \index[physwords]{厄米算符}
+
+\begin{definition}
+	设$T: \mathscr{D}(T) \rightarrow \mathcal{H}$是在复Hilbert空间$\mathcal{H}$中稠定线性算符．
+	如果对于所有$x, y \in \mathscr{D}(T)$有$\langle T x, y\rangle=\langle x, T y\rangle$，
+	则称$T$是{\heiti 对称算符}或{\heiti 厄米算符}．
+\end{definition}
+
+根据定理\ref{chhs:thm_HT}，无界对称线性算符$T$不可能有$\mathscr{D}(T)=\mathcal{H}$，
+从而面临着确定适当的定义域和进行延拓的问题．
+$T$是$S$的一个延拓定义为（见\S\ref{chhs:sec_norm}）：
+\begin{equation}
+	\mathscr{D}(S) \subset \mathscr{D}(T), 
+	\quad \text { 且 } \quad S=\left.T\right|_{\mathscr{D}(S)} .
+\end{equation}
+\CJKunderwave{我们将其简记为$S \subset T$}．
+
+\begin{proposition}
+	在复Hilbert空间$\mathcal{H}$中，
+	$T$是对称算符的充要条件是$T \subset T^{\dagger}$．
+\end{proposition}
+
+\begin{proof}
+$T^{\dagger}$所定义的关系是对于所有$x \in \mathscr{D}(T)$和
+所有$y \in \mathscr{D}\left(T^{\dagger}\right)$有
+\begin{equation}\label{chhs:eqn_h01}
+	\langle T x, y\rangle=\left\langle x, T^{\dagger} y\right\rangle . 
+\end{equation}
+假定$T \subset T^{\dagger}$，则对于 $y \in \mathscr{D}(T)$有$T^{\dagger} y=T y$，
+故对于 $x, y \in \mathscr{D}(T)$，上式变成
+\begin{equation}\label{chhs:eqn_h02}
+	\langle T x, y\rangle=\langle x, T y\rangle . 
+\end{equation}
+因此$T$是对称算符．
+
+反之，假定对于所有 $x, y \in \mathscr{D}(T)$有$\langle T x, y\rangle=\langle x, T y\rangle$成立．
+通过对比式\eqref{chhs:eqn_h01}和\eqref{chhs:eqn_h02}可得
+$\mathscr{D}(T) \subset \mathscr{D}\left(T^{\dagger}\right)$且
+$T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
+根据定义，这意味着 $T^{\dagger}$是$T$的延拓．
+\end{proof}
+
+\index[physwords]{自伴算符} \index[physwords]{算符!自伴}
+
+\begin{definition}
+	设$T: \mathscr{D}(T) \rightarrow \mathcal{H}$是复Hilbert空间$\mathcal{H}$中稠定的线性算符．
+	如果$T=T^{\dagger}$（相等的定义见\S\ref{chhs:sec_norm}），则称$T$是{\heiti 自伴线性算符}．
+\end{definition}
+
+由定义可以看出在无界线性算符中，自伴属性强于厄米属性．
+
+在量子力学中，很多算符都是无界线性算符，比如位置算符$X$，
+动量算符$P=-\mathbbm{i}\hbar \frac{\partial}{\partial x}$，哈密顿算符$H$，等等．
+这些无界线性算符也都是自伴的（注意不是厄米的）．
+具体证明可参考\parencite{Kreyszig-1991}第十、十一章，或类似文献．
+
+其实，写到这里才真正进入量子力学的数学基础．
+要进一步阐述相关内容则需要Hilbert空间谱理论，
+这超出了这份“简引”范畴，故就此打住．
+
+
+\index[physwords]{Dirac左矢空间} \index[physwords]{Dirac右矢空间}
+
+\subsection{Hilbert空间的Dirac记号表示}\label{chhs:sec_dirac}
+
+现在补全例\ref{chmla:exam-DiracBK}中遗漏的部分．
+我们将Hilbert空间$\mathcal{H}$中的元素记为$\{|\phi\rangle\}$，称作Dirac右矢空间；
+将$\mathcal{H}$的连续对偶空间$\mathcal{H}'$中的元素记为$\{\langle \psi|\}$（撇号省略不写），
+称作Dirac左矢空间；两者相互对偶．借用Riesz表示定理，
+我们把Dirac符号下的{\kaishu 配合}$\langle \psi| \phi\rangle_{\rm Dirac}$转换
+为$\mathcal{H}$中两个右矢（$|\phi\rangle$、$|\psi\rangle$）间的内积：
+\begin{equation}
+	\langle \psi| \phi\rangle_{\rm Dirac} \equiv
+	\left < |\psi\rangle, \  |\phi\rangle \right>_{\mathcal{H}} \equiv
+	\langle \psi, \phi\rangle_{\mathcal{H}}.
+\end{equation}
+在上述公式中，相当于借用Riesz表示定理将$\mathcal{H}'$中的左矢$\{\langle \psi|\}$诱导
+成$\mathcal{H}$中的右矢$\{|\psi\rangle\}$，然后再进行内积操作．
+与此类似，我们所定义的算符也只作用在$\mathcal{H}$中的元素，
+不会作用在$\mathcal{H}'$中的元素，比如
+\begin{align}
+	\langle \psi| T |\phi\rangle_{\rm Dirac} = &
+	\langle \psi, T \phi\rangle_{\mathcal{H}} =
+	\langle \psi| T \phi\rangle_{\rm Dirac} . \\
+	\langle \psi| T^\dagger |\phi\rangle_{\rm Dirac} = &
+	\langle \psi, T^\dagger \phi\rangle_{\mathcal{H}} = 
+	\langle T \psi,  \phi\rangle_{\mathcal{H}}=
+	\langle T \psi|\phi\rangle_{\rm Dirac}.
+\end{align}
+在Dirac记号下，仅仅是为了数学公式外在形式的对称才将其
+写成$\langle \psi| \phi\rangle_{\rm Dirac}$，
+并未真正引入作用在$\mathcal{H}'$中元素的线性算符．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{小结}
+
+本章主要取自文献\parencite{Kreyszig-1991}、\parencite{zhang-lin-2021}．
+
+本章只介绍了最基本的初级知识，更详尽的内容请参考上述文献．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

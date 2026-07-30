@@ -550,14 +550,25 @@ $e a = a e  =a, \ \forall a \in R $；
 \end{figure}
 
 
-
+\index[physwords]{邻域}
 \begin{definition}\label{chtop:eqn_neighbor}
     设$(X,\mathscr{T})$为拓扑空间，$\forall x\in N \subset X$，
     如果存在开集$U\in \mathscr{T}$使得$x\in U \subset N $，
     则称$N$为$x$的{\heiti 邻域}．如果$N$本身是开集，则称为{\heiti 开邻域}．
+    我们称$x$为$N$的{\heiti 内点}，所有内点的集合称为$N$的内部，记作$\stackrel{\circ}{N}$．
 \end{definition}
 
-    \index[physwords]{邻域}
+
+\index[physwords]{极限点} \index[physwords]{聚点} \index[physwords]{闭包}
+\begin{definition}
+若$A$是拓扑空间$X$的一个子集，$x$是$X$的一个点，
+如果$x$的任意一个邻域与$A$的交含有异于$x$的点，
+我们称$x$为$A$的一个{\heiti 极限点}（或{\heiti 聚点}）．
+$X$所有极限点的集合与$X$的并集称为它的{\heiti 闭包}，记作$\bar{X}$．
+\end{definition}
+注意：如果$x$属于$A-\{x\}$的闭包，则$x$便是$A$的一个极限点．
+这个点$x$可以在$A$中，也可以不在$A$中，在此定义中$x$是否在$A$中是无关紧要的．
+
     
 \begin{definition}\label{chtop:def_Hausdorff}
     拓扑空间$X$中任意两个不同点$x$和$y$，
@@ -575,6 +586,22 @@ $e a = a e  =a, \ \forall a \in R $；
     设$U$是拓扑空间$X$的子集，若$X-U$是开集，则称$U$为{\heiti 闭集}． 
 \end{definition}
 
+
+\index[physwords]{可数的}  
+\begin{definition}
+	一个拥有无限多个元素的集合$A$，如果其中元素和正整数集合有双射关系，
+	则称$A$是{\heiti 可数的}（countable）；否则称为{\heiti 不可数}．
+\end{definition}
+有限集合自然可以和正整数集合的某个子集建立双射关系，故必然可数．
+
+\index[physwords]{稠密}  \index[physwords]{可分}
+\begin{definition}
+	拓扑空间$X$的子集$A$称为{\heiti 稠密的}（dense）是指$\bar{A}=X$．
+	如果$X$有可数的稠密子集，则称$X$是{\heiti 可分的}（separable）拓扑空间．
+\end{definition}
+
+
+
 \index[physwords]{笛卡尔积}
 \begin{definition}\label{chtop:def_cartensian}
     设有两个非空集合$A$和$B$，所有有序偶对$(a,b)$（其中$a\in A, b\in B$）
@@ -587,9 +614,10 @@ $e a = a e  =a, \ \forall a \in R $；
 
 
 
-%\section{$\mathbb{R}^m$上的拓扑学}\label{chtop:sec_RmTP}
 
-\section{度量空间}
+
+\section{度量空间}\label{chtop:sec_RmTP}
+
 \begin{definition}\label{chtop:def_metric}
     集合$X$的{\heiti 度量}是一个函数：$d:X\times X \to \mathbb{R}$；
     它使得以下性质成立：
@@ -602,11 +630,10 @@ $e a = a e  =a, \ \forall a \in R $；
     集合$X$连同给定的度量$d$称为{\heiti 度量空间}，记为$(X,d)$．
 \end{definition}
 
-定义\ref{chtop:def_metric}中的度量是拓扑学上的度量．
+定义\ref{chtop:def_metric}中的度量是集合$X$上的度量．
 之后，我们还会在线性空间、黎曼流形上引入度量概念；
-如果它们是正定的（比如欧式度量，黎曼度量），则符合定义\ref{chtop:def_metric}；
-如果它们是不定的（比如Lorentz度量），则不符合定义\ref{chtop:def_metric}中的第(3)条，
-不能称为拓扑学上的度量．
+若它们是正定的（比如欧式度量，黎曼度量），则符合定义\ref{chtop:def_metric}；
+若它们是不定的（比如Lorentz度量），则不符合定义\ref{chtop:def_metric}中的第(3)条．
 
 
 
@@ -627,7 +654,7 @@ $B_{d}(x,\varepsilon)$称为{\heiti 以$x$为中心的$\varepsilon$-球}．
         =\max\{|x^1-y^1|,\cdots,|x^m-y^m| \}. \label{chtop:eqn_Rdc}
     \end{align}
 \end{subequations}
-分别称为 欧几里得 度量和确界度量；
+分别称为欧几里得度量和确界度量；
 欧几里得度量的几何意义是以$x$为中心的$\varepsilon$-球$B_{d}(x,\varepsilon)$；
 确界度量的几何意义是以$\boldsymbol{x}$为中心以 $\varepsilon$ 为半边长的开立方体，
 记为$C(\boldsymbol{x} , \varepsilon)$．
@@ -642,6 +669,22 @@ $B_{d}(x,\varepsilon)$称为{\heiti 以$x$为中心的$\varepsilon$-球}．
 为了描述简单起见，我们尽量使用度量诱导出来的拓扑（比如$\mathbb{R}^m$中的拓扑），
 这样更容易想象出几何图像．
 %其实拓扑学中大部分内容都是从$(\mathbb{R}^m,d)$中抽象出来的．
+
+\begin{example}
+仿照$\mathbb{R}^m$中度量\eqref{chtop:eqn_Rdbc}，我们定义$\mathbb{C}^m$中度量：
+\begin{subequations}\label{chtop:eqn_Rdbc-cx}
+	\begin{align}
+		d_b(\boldsymbol{x}, \boldsymbol{y})=& 
+		\sqrt{|x^1-y^1|^2+\cdots +|x^m-y^m|^2}, \label{chhs:eqn_Rdb} \\
+		d_c(\boldsymbol{x}, \boldsymbol{y})=& 
+		\max\{|x^1-y^1|,\cdots,|x^m-y^m| \}. \label{chhs:eqn_Rdc}
+	\end{align}
+\end{subequations}
+当$m=1$时，$|x-y|$就是两个复数$x$、$y$之差的模长． \qed
+\end{example}
+
+
+
 
 \begin{theorem}\label{chtop:thm_RD}
     $B_{d}(x,\varepsilon)$会诱导出$(X,d)$上的一个拓扑．
@@ -757,11 +800,6 @@ $\mathbb{R}$显然是$\mathbb{R}^2$的非空子集；
 由定义可见拓扑基本身就是$X$的一个拓扑，其它开集都可以由基中元素表出；
 这类似于三维欧氏空间中的三个基矢量，其它矢量都可以由三个基矢线性表出．
 
-\begin{definition}
-    一个拥有无限多个元素的集合$A$，如果其中元素和正整数集合有双射关系，
-    则称$A$是{\heiti 可数的}（countable）．
-\end{definition}
-有限集合自然可以和正整数集合的某个子集建立双射关系，故必然可数．
 
 
 
@@ -871,16 +909,36 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
 
 
 \section{拓扑空间的数个重要属性}
-我们不加证明（可参考\parencite{munkres-2000-topology}）地列举一些拓扑空间的重要属性．
+
+我们不加证明（可参考\parencite{munkres-2000-topology}）地列举一些拓扑空间的定理、例题．
 
 
 %\section{紧致性}
+
+\begin{definition}
+	度量空间$(X, d)$上的点列$\left\{x_n\right\}$叫作收敛到$x_0$是指：
+	当$n \rightarrow \infty$时，$d\left(x_n, x_0\right) \rightarrow 0$；
+	记作 $\lim _{n \rightarrow \infty} x_n=x_0$．
+	其中$x_0$可能属于$X$，也可能不属于$X$．
+\end{definition}
+
+\index[physwords]{收敛序列}  \index[physwords]{列紧}  \index[physwords]{自列紧}
+
+\begin{definition}
+	设$(X, d)$是一个度量空间，$A$为其一子集．
+	若$A$中的任意点列在$X$中有一个收敛子列，则称$A$是{\heiti 列紧的}；
+	若收敛子列极限点属于$A$，则称$A$是{\heiti 自列紧的}．
+	若空间$X$是自列紧的，则称$X$为{\heiti 自列紧空间}．
+\end{definition}
+
+
 \begin{definition}\label{chtop:def_covering}
     给定拓扑空间$(X,\mathscr{T})$，设$\{U_\alpha\}, \alpha\in \mathbb{I}$是$X$的一个
     子集族，如果$\{U_\alpha\}$的成员之并等于$X$，则称$\{U_\alpha\}$为$X$的{\heiti 覆盖}．
     若$\{U_\alpha\}$每个成员都是开子集，则称为{\heiti 开覆盖}．
 \end{definition}
-\index[physwords]{开覆盖}
+
+\index[physwords]{开覆盖}   \index[physwords]{紧致}
 
 
 \begin{definition}\label{chtop:def_compact}
@@ -888,7 +946,12 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
     有\CJKunderwave{有限子族}能覆盖$X$，则称$X$为{\heiti 紧致的}．
     注：紧致性是联系无穷与有限的桥梁．
 \end{definition}
-\index[physwords]{紧致}
+
+
+
+\begin{theorem}
+	设$(X,d)$是一个度量空间；$X$是紧致的充要条件是$X$为自列紧的．
+\end{theorem}
 
 
 \begin{proposition}
@@ -981,17 +1044,29 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
 
 %\section{完备性}
 \begin{definition}\label{chtop:def_complete-metric}
-    给定度量空间$(X,d)$，
-    $X$中的序列$\{x_n\}$称为Cauchy序列是指：$\forall \epsilon >0 $，存在正整数$N$使
-    得$d(x_n,x_m)<\epsilon,\ \forall n,m>N$成立．如果$X$中的每个Cauchy序列
-    都是收敛的（极限点属于$X$），则称$X$是{\heiti 度量完备}的，简称{\heiti 完备}．
+    给定度量空间$(X,d)$．
+    $X$中的Cauchy序列$\{x_n\}$是指：$\forall \epsilon >0 $，
+    存在正整数$N$使得$d(x_n,x_m)<\epsilon,\ \forall n,m>N$成立．
+    如果$X$中的每个Cauchy序列都是收敛的（极限点属于$X$），
+    则称$X$是{\heiti 度量完备}的，简称{\heiti 完备}．
 \end{definition}
 
-    \index[physwords]{完备} \index[physwords]{完备!度量完备}
+\index[physwords]{完备} \index[physwords]{完备!度量完备}
     
 \begin{proposition}
-    对于度量\eqref{chtop:eqn_Rdbc}而言，欧氏空间$\mathbb{R}^m$是完备的．
+    对于度量\eqref{chtop:eqn_Rdbc}（\eqref{chtop:eqn_Rdbc-cx}）而言，
+    欧氏空间$\mathbb{R}^m$（$\mathbb{C}^m$）是完备的．
 \end{proposition}
+
+\begin{theorem}
+	紧致度量空间（即自列紧度量空间）必是度量完备空间．
+\end{theorem}
+
+
+\begin{remark}\label{chtop:rem_nc}
+	不同度量下，空间的完备属性可能不同（例如参见\parencite[1.5-5, 1.5-9]{Kreyszig-1991}）．
+\end{remark}
+
 
 \begin{example}
     在度量\eqref{chtop:eqn_Rdc}意义下，有$\mathbb{R}$中开区间$(-1,1)$的序列$\{x_n=1-1/n\}$，
@@ -1000,6 +1075,82 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
     已知$(-1,1)$同胚于实直线$\mathbb{R}$，而$\mathbb{R}$是完备的；
     故{\kaishu 完备不是拓扑属性}．\qed
 \end{example}
+
+虽然上面叙述了很多完备空间，但并不是所有空间都是完备的．
+比如可数的有理数域$\mathbb{Q}$就是不是完备的，
+其中的序列可能收敛于一个无理数．
+但有理数域的闭包$\bar{\mathbb{Q}}=\mathbb{R}$（实数域是完备的）．
+也就是说，不完备的空间可以延拓成完备空间；
+这一结论在更大范围内也是成立的，为此先给出等距定义．
+
+\index[physwords]{度量空间等距同构}
+
+\begin{definition}
+	设$(X,d)$、$(Y, \rho)$是两个度量空间．
+	若存在双射$\phi: X \rightarrow Y$使得
+	\begin{equation*}
+		d(x, x')=\rho\bigl(\phi(x) , \phi (x')\bigr), \qquad \forall x, x' \in X
+	\end{equation*}
+	成立，则称$(X, d)$和$(Y, \rho)$是{\heiti 等距同构的}，并称$\phi$为{\heiti 等距同构映射}．
+\end{definition}
+
+若$(X,d)$等距于$(Y, \rho)$的某个子空间，则称$X$可等距嵌入到$Y$中．
+
+\begin{theorem}\label{chtop:thm_iso-DS}
+	对于任意度量空间$(X, d)$，一定存在一个完备度量空间$(\hat{X}, \hat{d})$，
+	使得它的稠密子空间$\widehat{W} \subset \hat{X}$与$X$等距同构．
+	如果对等距空间不加区分，则空间$\hat{X}$是唯一的；也就是说，
+	若$(\tilde{X},\tilde{d})$是另一个完备度量空间且有稠密子空间$\widetilde{W}$和$X$等距，
+	则$(\tilde{X},\tilde{d})$与$(\hat{X}, \hat{d})$是等距同构的．
+\end{theorem}
+
+
+\index[physwords]{l${}^p$空间}
+
+\begin{example}\label{chtop:exam_lp}
+	$l^p$序列空间；其中$p \geqslant 1$是一个固定的实数．
+\end{example}
+
+$l^p$中每个元素是一个无穷复数列$\left(\xi_1, \xi_2, \cdots\right)$，
+它满足$\sum_{i=1}^{\infty}\left|\xi_i\right|^p<\infty$．
+
+$l^p$上的度量定义为（$(\xi)$、$(\eta)$都是$l^p$中的元素）：
+\begin{equation}
+	d(\xi, \eta)=\left(\sum_{i=1}^{\infty}\left|\xi_i-\eta_i\right|^p\right)^{1 / p} .
+\end{equation}
+可以证明（略）：$l^p$序列空间是度量空间，且可分、完备．
+证明上述属性时会用到如下不等式．
+设$p\geqslant 1$，且是固定不变的实常数．再定义$q$为：
+\begin{equation}
+	\frac{1}{p}+\frac{1}{q}=1 .
+\end{equation}
+H{\"o}lder不等式和Minkowski不等式为（其中$\left(\xi_{j}\right) \in l^{p}$、$\left(\eta_{j}\right) \in l^{p}$）：
+\begin{align}
+	\sum_{j=1}^{\infty}\left|\xi_{j} \eta_{j}\right| \leqslant & 
+	\left(\sum_{k=1}^{\infty}\left|\xi_{k}\right|^{p}\right)^{1 / p}
+	\left(\sum_{i=1}^{\infty}\left|\eta_{i}\right|^{q}\right)^{1 / q}, \label{chtop:eqn_Holder} \\
+	\left(\sum_{j=1}^{\infty}\left|\xi_{j}+\eta_{j}\right|^{p}\right)^{1 / p} \leqslant &
+	\left(\sum_{k=1}^{\infty}\left|\xi_{k}\right|^{p}\right)^{1 / p}
+	+\left(\sum_{i=1}^{\infty}\left|\eta_{i}\right|^{p}\right)^{1 / p}. \label{chtop:eqn_Minkowski} 
+\end{align}
+若$p=2$（则$q=2$），这时式\eqref{chtop:eqn_Holder}给出著名的Cauchy--Schwarz不等式．
+
+
+当$p=2$时，便得到了最为常用的Hilbert序列空间$l^2$．
+\qed
+
+\index[physwords]{H{\"o}lder不等式}
+\index[physwords]{Minkowski不等式}
+\index[physwords]{Cauchy--Schwarz不等式}
+
+
+
+
+
+
+
+
+
 
 代数拓扑完全超出了本书的范畴，请参阅\parencite{munkres-2000-topology}；
 我们只给出一个定义．
@@ -1036,3 +1187,22 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
 
 %%\printbibliography[heading=subbibliography, title=第\ref{chtop}章参考文献]
 \endinput
+
+
+%\begin{example}\label{chtop:exam_cab}
+%	令$X$为定义在闭区间$[a, b]$上的所有连续实函数的集合，用
+%	\begin{equation}
+%		d(x, y)=\max_{a \leqslant t \leqslant b}|x(t)-y(t)| ,
+%		\qquad \forall x(t), y(t) \in X
+%	\end{equation}
+%	作为函数空间$X$上的度量；通常将$X$记为$C[a, b]$．
+%	在上述度量下，$C[a, b]$是完备空间（证明见\parencite{zhang-lin-2021}例1.1.7，或类似文献）．
+%\end{example}
+%
+%
+%\begin{example}\label{chtop:exam_cab-nc}
+%	举例说明上述{注解}．令$X$是$[0,1]$上所有连续实值函数的集合，
+%	且定义度量：$d(x, y)=\int_0^1|x(t)-y(t)| \mathrm{d} t$．
+%	可以证明\parencite[\S 1.5-9]{Kreyszig-1991}：这个度量空间$(X, d)$是不完备的．
+%	请与例\ref{chhs:exam_cab}中完备度量比较．
+%\end{example}

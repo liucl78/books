@@ -91,6 +91,13 @@ $k_1,\cdots,k_r$是数域$\mathbb{F}$中的数，
     也称为$\mathbb{F}$-{\heiti 线性无关}．
     \index[physwords]{线性相关}\index[physwords]{线性独立}\index[physwords]{线性无关|see{线性独立}}
 \end{definition}
+
+\begin{definition}
+	对于无限维空间$V$的任意子集$M$（无限维），若$M$的每一非空有限子集都是线性无关的，
+	则称$M$是线性无关的；否则，则称$M$是线性相关的．
+\end{definition}
+
+
 很多时候会把前缀“$\mathbb{F}$-”去掉；之后我们还会介绍$C^r(M)$-线性
 （见第\pageref{chdm:eqn_functimesv}页及\pageref{chdm:thm_Tensor-Characterization-Lemma}页），
 此时前缀“$C^r(M)$”是不能省略的．
@@ -98,6 +105,7 @@ $k_1,\cdots,k_r$是数域$\mathbb{F}$中的数，
 那么就称空间$V$是$\boldsymbol{n}${\heiti 维}的．如果$V$中可以找到任意多个线性独立的矢量，
 那么就称空间$V$是{\heiti 无限维}的．
 $n$维空间$V$中任意$n$个线性无关的矢量称为这个空间的{\heiti 基矢}或{\heiti 基底}．
+
 
 
 
@@ -213,7 +221,7 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
 %如果是构建在环$R$上的线性空间（即{\kaishu 模}），那么线性独立与此不同，请查阅相关文献．
 
 \begin{example}\label{chmla:exm-cab}
-    实数轴上全体$r$阶连续可微实函数$C^r[a,b]$是无穷维线性空间．
+    实数轴上全体$r$阶连续可微复值函数$C^r[a,b]$是无穷维线性空间．
 \end{example}
 首先，我们验证函数空间是个线性空间．$\forall x\in [a,b]$，
 对于任意函数$f,g\in C^r[a,b]$，给定加法为$(f+g)(x)\overset{def}{=}f(x)+g(x)$，
@@ -378,10 +386,10 @@ $(-\alpha)+W$是$\alpha+W$的{\kaishu 负元}；
 从面$V / W$成为数域$\mathbb{F}$上的一个线性空间；
 我们称$V / W$是$V$对于$W$的{\heiti 商空间}（Quotient Spaces）．
 
-注意：商空间 $V / W$ 的元素是 $V$ 的一个等价类，而不是 $V$ 的一个向量．
+注意：商空间 $V / W$ 的元素是 $V$ 的一个等价类，而不是 $V$ 的一个矢量．
 例如上面列举的三维欧几里得空间$E^3$ 的例子，
 $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个平面或者$W$自身，
-而不是几何空间 $E^3$ 中的向量．
+而不是几何空间 $E^3$ 中的矢量．
 容易直观地看出商空间 $E^3 / W$ 是 1 维的，即 ${\rm dim}E^3 / W={\rm dim} E^3-{\rm dim} W$．
 可以证明（请参考\parencite[p.219]{qiuws-2019-v2}定理1）
 这个结论能推广到数域 $\mathbb{F}$上任一有限维线性空间$V$对子空间$W$的商空间$V / W$ 中．
@@ -509,7 +517,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
 
     再证“$\Leftarrow$”．不论$f$是否单一，必有$f(0)=0$．
     因$f$单一，故$\forall \alpha \neq 0, f(\alpha)\neq f(0)=0$；
-    由此可知$f$只将零向量映射为零值．
+    由此可知$f$只将零矢量映射为零值．
 \end{proof}
 
 
@@ -596,6 +604,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
 在数域$\mathbb{F}$上建立一个$n$维线性空间$V$，
 $V$上全体线性函数组成的集合记为$\mathscr{L}(V,\mathbb{F})$．
 我们用自然的方式定义$\mathscr{L}(V,\mathbb{F})$中的加法和数量乘法如下：
+\begin{subequations}\label{chmla:eqn_dual-pp}
 \begin{align}
     (f+g)(\alpha)  &\overset{def}{=}  f(\alpha)+g(\alpha); \quad
     \text{其中}\ \forall \alpha \in V; \ \forall f,g \in \mathscr{L}(V,\mathbb{F}) .  \\
@@ -603,6 +612,7 @@ $V$上全体线性函数组成的集合记为$\mathscr{L}(V,\mathbb{F})$．
     \text{其中}\ \forall \alpha \in V;\ \forall k \in \mathbb{F}; \
     \forall f \in \mathscr{L}(V,\mathbb{F}) .
 \end{align}
+\end{subequations}
 这样定义的加法和数量乘法符合定义\ref{chmla:def_linear-space}，验证过程留给读者．
 也就是说$\mathscr{L}(V,\mathbb{F})$是数域$\mathbb{F}$上的一个线性空间．
 
@@ -1516,14 +1526,15 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
 
 \begin{example}
 	量子物理中全体态矢量构成的集合是Hilbert空间，它是一种特殊的复线性空间
-	（见\pageref{chcx:def_Hilbert-Space}页定义\ref{chcx:def_Hilbert-Space}）；
+	（见\pageref{chhs:def_Hilbert-Space}页定义\ref{chhs:def_Hilbert-Space}）；
 	它可以是有限维的、也可以是无穷维的．\qed
 \end{example}
 
 \begin{example}\label{chmla:exam-DiracBK}
 	有限维Dirac右矢空间$\{|\psi\rangle\}$是一线性空间（Hilbert空间），
 	它的对偶空间是左矢空间$\{\langle \psi|\}$（有限维），两者相互对偶．
-	无穷维的Dirac左、右矢空间要复杂许多，不是几句话能说清楚的，请参考泛函分析书籍．\qed
+	无穷维的Dirac左、右矢空间要复杂许多，不是几句话能说清楚的，
+	请参考\S \ref{chhs:sec_dirac}．\qed
 \end{example}
 
 \begin{example}
@@ -3455,7 +3466,8 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 然后讲述了外代数．最后引入了抽象指标记号，这种方式比较适合于物理学者．
 
 本章中线性空间限定在有限维（显示标明的除外）；
-无限维理论比有限维情形复杂得多，请参阅泛函分析书籍．
+无限维理论比有限维情形复杂得多，
+初步论述可参阅第\ref{chhs}章，以及该章的参考文献．
 
 需要强调：张量定义不需要度规（度量、内积等附加结构）．
 度规是$\binom{0}{2}$型张量（场）；若在定义张量时用到度规，则多少有些循环定义的感觉．
