@@ -36,9 +36,9 @@ Fermi--Walker导数是为了研究如何在四维闵氏时空$(M,g)$中定义无
 		-\omega_z& 0 & \omega_x \\
 		\omega_y & -\omega_x & 0
 	\end{pmatrix}
-	\ \Leftrightarrow \
+	\ \Longleftrightarrow \
 	\Omega_{ij}= \epsilon_{ijk} \omega_k
-	\ \Leftrightarrow \
+	\ \Longleftrightarrow \
 	\omega_k = \frac{1}{2}\epsilon_{ijk} \Omega_{ij} .
 \end{equation}
 
@@ -46,8 +46,8 @@ Fermi--Walker导数是为了研究如何在四维闵氏时空$(M,g)$中定义无
 与研究刚体运动本身是等价的．通常情况下，都是研究这个刚性标架
 如何运动；这个刚性标架角速度自然是刚体角速度．
 
-{\bfseries (4)} 任意矢量$\boldsymbol{G }$在两个参考系（绝对和相对）中变化率公式是
-（见\parencite[\S 3.6]{zhuzx-zy-vI}第218页(3.34)式）：
+{\bfseries (4)} 任意矢量$\boldsymbol{G }$在两个参考系（绝对和相对）中变化率公式
+是（参见文献\parencite[\S 3.6]{zhuzx-zy-vI}第218页(3.34)式，或类似文献）：
 \begin{equation}\label{chsm:eqn_Grate-rigid}
 	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{绝对}} =
 	\left(\frac{{\rm d} \boldsymbol{G }}{{\rm d} t}\right)_{\text{相对}}
@@ -304,32 +304,6 @@ Fermi导数本质是扣除四维角速度矩阵（$4\times 4$反对称矩阵，�
 \chapter{源守恒定律独立于场方程}\label{chfd-liu}
 
 
-%本附录目的是叙述下文中的循环逻辑错误．
-
-%\section*{相对论基本假设}\label{chfd-liu:sec_Fundamental-Postulate}
-%
-%\noindent\fbox{\heiti 甲}：
-%描述时空（即全部事件的集合）的数学工具是四维闵氏流形$(M,g)$，
-%对于广义相对论来说，三维空间的牛顿引力本质上是四维时空的弯曲．
-%当考虑引力时，时空不再是平直的，而是某种弯曲（黎曼曲率非零）的四维闵氏时空．
-%
-%\noindent\fbox{\heiti  乙}：描述物质运动的方程是（$T_{ab}$是物质场能动张量）：
-%\begin{equation}\label{chfd-liu:eqn_motion-gr}
-%    \nabla^a T_{ab} =0.
-%\end{equation}
-%
-%
-%\noindent\fbox{\heiti 丙}：物质分布决定时空弯曲，这由下述爱因斯坦引力场方程来描述：
-%\begin{equation}\label{chfd-liu:eqn_Einstein}
-%   G_{ab} \equiv R_{ab} - \frac{1}{2}g_{ab} R = 8\pi T_{ab}
-%\end{equation}
-%其中$G_{ab}$是爱因斯坦张量；
-%$R_{ab}$是Ricci曲率张量，$R=R^c_{\hphantom{c} c}$是标量曲率．
-
-
-
-
-
 
 \section{当前文献观点}  %\label{chfd:sec_liu2018}
 先叙述当前理论物理文献是如何看待源守恒定律与场方程之间的关系．
@@ -348,7 +322,7 @@ Fermi导数本质是扣除四维角速度矩阵（$4\times 4$反对称矩阵，�
 \textcite[\S 24]{pauli-1973-ED}；
 较新的书籍有\textcite[p.3]{jackson1998}，
 \textcite[\S 8.1]{griffiths-2023}．
-同时，麦氏散度方程（$\nabla\cdot \boldsymbol{D}=\rho,\ \nabla \cdot \boldsymbol{B}=0$）
+同时，麦氏散度方程（$\nabla\cdot \boldsymbol{E}=\rho,\ \nabla \cdot \boldsymbol{B}=0$）
 也被认为麦氏旋度方程的初始条件，不独立于麦氏旋度方程；
 此观点可见\textcite[p.6]{stratton1941}，
 \textcite[p.603]{courant_hilbert-v2}，
@@ -367,7 +341,7 @@ Fermi导数本质是扣除四维角速度矩阵（$4\times 4$反对称矩阵，�
 	\nabla^a T_{ab}=0 .
 \end{equation}
 
-最早提出此观点是爱因斯坦\cite{einstein_infeld_1949}本人以及希尔伯特，
+最早提出此观点是爱因斯坦\cite{einstein_infeld_1949}本人以及Hilbert，
 可参见\parencite[\S 15(c)]{Pais-1982}．
 \textcite[\S 17.1-17.2]{mtw1973}更是支持此观点；
 甚至，他们\cite[\S 20.6]{mtw1973}还从爱氏场方程组导出了麦克斯韦方程组和测地线方程．
@@ -435,7 +409,7 @@ Peano于1890年完全证明了常微分方程（组）解的存在性定理（�
 
 我们将上述二维平面的例子拓展到三维空间，见例\ref{chdf:exm_Fij2d-3}（本质上就是旋度方程）．
 同样解存在性条件（相容性条件$\sum_{i} \partial_i J_i =\nabla \cdot \boldsymbol{J}= 0 $）独立于
-偏微分方程组（$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} {\ \Leftrightarrow \ }
+偏微分方程组（$\sum_{j}\frac{\partial}{\partial x^j} F_{ji} = J_{i} {\ \Longleftrightarrow \ }
 \nabla\times \boldsymbol{u} = \boldsymbol{J} $）．
 关于div--curl方程组的解存在性定理可参见文献\parencite{aramaki-2014}
 （笔者没有仔细查询最早是谁证明了此定理）．
@@ -506,7 +480,7 @@ $\partial_{\beta} J^{\beta}=0$．
 \begin{subequations}\label{chfd:eqn_maxwell-nosource}
 	\begin{align}
 		\nabla \cdot  \boldsymbol{E} =& 0, \qquad\quad
-		\nabla \cdot  \boldsymbol{B} = 0  \label{chfd:eqn_gauss-nosource}\\
+		\nabla \cdot  \boldsymbol{B} = 0;  \label{chfd:eqn_gauss-nosource}\\
 		\nabla \times \boldsymbol{E} =& -\frac{\partial \boldsymbol{B}}{\partial t} , \quad
 		\nabla \times \boldsymbol{B} = \frac{\partial \boldsymbol{E}}{\partial t}.
 		\label{chfd:eqn_fam-nosource}
@@ -517,9 +491,10 @@ $\partial_{\beta} J^{\beta}=0$．
 	0 = \frac{\partial \nabla \cdot\boldsymbol{B}}{\partial t} , \qquad
 	0 = \frac{\partial \nabla \cdot\boldsymbol{E}}{\partial t}.
 \end{equation}
-有一种观点认为（几乎所有计算电磁学书籍）：
+有一种观点（\textcite[p.6]{stratton1941}，
+\textcite[p.603]{courant_hilbert-v2}，邓煜\cite{deng-2017}等）认为：
 只须要求式\eqref{chfd:eqn_gauss-nosource}在初始时刻（$t=0$）满足，
-那么由式\eqref{chfd:eqn_mxe}就能得到式\eqref{chfd:eqn_gauss-nosource}在任意时刻（$t>0$）都成立；
+则由式\eqref{chfd:eqn_mxe}就能得到\eqref{chfd:eqn_gauss-nosource}式在任意时刻（$t>0$）都成立；
 这相当于把式\eqref{chfd:eqn_gauss-nosource}看成式\eqref{chfd:eqn_fam-nosource}的初始条件．
 
 这种观点也是不正确的，同样忽略了解存在性需求．
@@ -533,8 +508,8 @@ $\partial_{\beta} J^{\beta}=0$．
 
 
 同样，只要认为式\eqref{chfd:eqn_gauss-nosource}独立于式\eqref{chfd:eqn_fam-nosource}，那么便没有循环逻辑．
-这样必须同时考虑全部八个麦氏方程，不能将任何一个方程分离．
-对于电磁理论而言，现有理论已不再支持将式\eqref{chfd:eqn_gauss-nosource}和\eqref{chfd:eqn_fam-nosource}分开处理．
+这样必须同时考虑全部八个麦氏方程，不能将任何一个方程分离．对于电磁理论而言，
+{\fangsong 现有理论已不再支持将式\eqref{chfd:eqn_gauss-nosource}和\eqref{chfd:eqn_fam-nosource}分开处理．}
 {\kaishu 这对计算电磁学是一个很强的限制，那种只求旋度方程不解散度方程的方式被{\heiti 否定}了；
 	必须同时处理八个方程，不能拆开求解，比如先解旋度方程再解散度方程也是不合理的．}
 

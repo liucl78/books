@@ -412,7 +412,7 @@ $SO(3)$群是紧致、道路连通的；但不是单连通的，它是两度连�
     \sigma_y = \begin{pmatrix} 0 & -\mathbbm{i} \\ \mathbbm{i} & 0 \end{pmatrix}, \
     \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
 \end{equation}
-其中$\sigma_0$（偶尔也被记为$\sigma_4$）是二维单位矩阵；三个Pauli矩阵是无迹、厄米的；
+其中$\sigma_0$（偶尔也被记为$\sigma_4$）是二维单位矩阵；Pauli矩阵是无迹、厄米、幺正的；
 很多时候把$\sigma_x$记成$\sigma_1$，$\sigma_y$记成$\sigma_2$，$\sigma_z$记成$\sigma_3$．
 它们有如下关系：
 \begin{align}
@@ -1220,7 +1220,7 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即
 \end{equation}
 上式便是角动量磁量子数的升降算符．
 
-请与任一本量子力学教材（或群论教材，例如\parencite[\S 11.5]{taorb-2011-gt}）比对，
+请与任一本量子力学教材（例如\parencite[\S 22-4]{ka2001}、\parencite[\S 11.5]{taorb-2011-gt}）比对，
 可发现上述给出的$SU(2)$群表示空间基矢量为粒子的角动量，包括轨道角动量和自旋角动量．
 
 
@@ -1922,10 +1922,10 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 当$j_1+j_2$为半奇数时，式\eqref{chlar:eqn_SL2-3rd}对应Lorentz群{\kaishu 双值表示}；
 依照\S\ref{chlar:sec_C2Q}约定，我们不采用双值表示这一术语．
 
-关于$SL(2,\mathbb{C})$群表示，可以证明（参见\parencite{carmeli-rl1976}附录A3）：
+关于$SL(2,\mathbb{C})$群表示，可以证明（参见\parencite{carmeli-rl1976}附录A3，或类似文献）：
 {\bfseries (1)} 所有旋量表示\eqref{chlar:eqn_SL2-3rd}都是不可约的．
 {\bfseries (2)} 所有有限维不可约复表示都等价于旋量表示．
-{\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（也可参见定理\ref{chlar:thm_IFU}）．
+{\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（见定理\ref{chlar:thm_IFU}）．
 
 \index[physwords]{左手旋量} \index[physwords]{右手旋量}
 \index[physwords]{旋量!左手} \index[physwords]{旋量!右手}
@@ -1942,16 +1942,6 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 \begin{equation}
     D^{(\frac{1}{2}0)} = \begin{pmatrix} a & b   \\ c & d   \end{pmatrix},\qquad
     D^{(0\frac{1}{2})} = \begin{pmatrix} \bar{a} & \bar{b}   \\ \bar{c} & \bar{d}   \end{pmatrix}.
-\end{equation}
-我们把以上两个表示的直和记为$D^{(\frac{1}{2}0)} \oplus D^{(0\frac{1}{2})}$，即
-\begin{equation}
-    D^{(\frac{1}{2}0)} \oplus D^{(0\frac{1}{2})}= 
-    \begin{pmatrix}
-        a & b & 0 & 0   \\ 
-        c & d & 0 & 0 \\
-        0 & 0 & \bar{a} & \bar{b}  \\ 
-        0 & 0 & \bar{c} & \bar{d}
-    \end{pmatrix}.
 \end{equation}
 
 当$2j_1=2,\ 2j_2=0$时，有
@@ -2055,15 +2045,15 @@ $\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag
 
 
 
-\subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
+\subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
 
 \S\ref{chlar:sec_sl-LA}只给出了二维表示，本节给出全部有限维复表示．
 
 {\kaishu 非紧致}李群$SL(2,\mathbb{C})$不可能同胚于{\kaishu 紧致}的$SU(2)\times SU(2)$群；
-但是它们的李代数却是同构的，即$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$；下面论证此点．
-由于$SL(2,\mathbb{C})/\{I_2,-I_2\}$微分同胚于$SO^{+}(1,3)$，从定理\ref{chlg:thm_LA2LG-all}可知：
-$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}^{+}(1,3)$．
-已知Lorentz代数$\mathfrak{so}^{+}(1,3)$，即\eqref{chlg:eqn_LA-so13-comm-JK}．
+但是它们的李代数却是同构的，即$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$；
+下面论证此点．由于$SL(2,\mathbb{C})/\{I_2,-I_2\}$微分同胚于正时固有Lorentz群$SO^{+}(1,3)$，
+从定理\ref{chlg:thm_LA2LG-all}可知：$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}^{+}(1,3)$．
+已知Lorentz代数$\mathfrak{so}^{+}(1,3)$（即\eqref{chlg:eqn_LA-so13-comm-JK}）为：
 \begin{equation}
     [J_i, J_j] = \mathbbm{i} \epsilon_{ijk} J_k,\quad
     [J_i, K_j] = \mathbbm{i} \epsilon_{ijk} K_k,\quad
@@ -2083,29 +2073,27 @@ $\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}^{+}(1,3)$．
     [M_k, N_l] = 0.
 \end{equation}
 很明显式\eqref{chlar:eqn_new-LA-so13}中李代数对易关系同构于
-李代数张量积$\mathfrak{su}(2)_M \otimes\mathfrak{su}(2)_N$，
-这也就证明了：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$．
-%由定理\ref{chlg:thm_LA2LG-all}可知在同构意义下李代数$\mathfrak{sl}(2,\mathbb{C})$和$SL(2,\mathbb{C})$相互唯一确定；
-%这个同构表明$SL(2,\mathbb{C})$群表示可由两套相互独立的$SU(2)$表示指标来标记．
+李代数张量积$\mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$，
+这也就证明了：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$．
 
 
 
 \begin{example}\label{chlar:exm_sl2c-Casimir}
-    参考例\ref{chlar:exm_so3-Killing-Casimir}可知$\mathfrak{su}(2)_M \otimes\mathfrak{su}(2)_N$（
+    参考例\ref{chlar:exm_so3-Killing-Casimir}可知$\mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$（
     $\cong\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}(1,3)$）有两个独立的Casimir算子：
-    ${C}_1 = M^2= M_x^2+M_y^2+M_z^2$和${C}_2 = N^2= N_x^2+N_y^2+N_z^2$． \qed
+    ${C}_1 = M^2= M_x^2+M_y^2+M_z^2$和${C}_2 = N^2= N_x^2+N_y^2+N_z^2$． 
 \end{example}
 
 
 我们已得到$\mathfrak{su}(2)$的不可约表示（见\S\ref{chlar:sec_J}）；
-由同构关系$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$可知
-$\mathfrak{su}(2)_M $、$\mathfrak{su}(2)_N$表示的张量积可给出李代数$\mathfrak{sl}(2,\mathbb{C})$的有限维表示．
+由同构关系$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$可
+知$\mathfrak{su}(2)_M $、$\mathfrak{su}(2)_N$表示可给出李代数$\mathfrak{sl}(2,\mathbb{C})$的有限维表示．
 需要说明的是，李代数$\mathfrak{su}(2)$的复共轭表示等价于自身，这与$SL(2,\mathbb{C})$群不同；
 为了与式\eqref{chlar:eqn_SL2-3rd}表观对应，可以将上述同构关系记为
-$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes \overline{\mathfrak{su}(2)}$．
-我们设$\mathfrak{su}(2)_M\otimes{\mathfrak{su}(2)_N}$的表示空间基矢
+$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus \overline{\mathfrak{su}(2)}$．
+我们设$\mathfrak{su}(2)_M\oplus{\mathfrak{su}(2)_N}$的表示空间基矢
 为$|j_M m_M\rangle \otimes {|j_N m_N\rangle}$，
-为了简洁，将其简记为$|m_M {m_N} \rangle$．
+为了简洁起见，将其记为$|m_M {m_N} \rangle$．
 利用式\eqref{chlar:eqn_new-so13}的逆变换容易求得
 \begin{subequations}\label{chlar:eqn_JKMN}
 \begin{align}
@@ -2119,16 +2107,16 @@ $\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\otimes \overline{\mathfrak{s
     K_3 &|m_M {m_N}\rangle  = \mathbbm{i}(N_3-M_3) | m_M {m_N}\rangle
     = \mathbbm{i} (+m_N-m_M)|m_M {m_N}\rangle  . \label{chlar:eqn_K3MN3}
 \end{align}\end{subequations}
-由上式可得李代数$\mathfrak{su}(2)_M\otimes{\mathfrak{su}(2)}_N$（即$\mathfrak{sl}(2,\mathbb{C})$）的
+由上式可得李代数$\mathfrak{su}(2)_M\oplus{\mathfrak{su}(2)}_N$（即$\mathfrak{sl}(2,\mathbb{C})$）的
 表示矩阵，记为$\mathfrak{D}^{(j_M j_N)}$．
 
 式\eqref{chlar:eqn_JKMN}给出的几个低维表示如下（下面的$\sigma_i$是Pauli矩阵）：
 \begin{align}
 \mathfrak{D}^{(00)}&: J_i=(0)=K_i . \\
 \mathfrak{D}^{(\frac{1}{2}0)}&: J_i = \sigma_i/2,\quad K_i =-\mathbbm{i} \sigma_i/2 ;
-\quad Weyl\,\text{左手旋量}. \\
+\quad \text{Weyl\, 左手旋量}. \\
 \mathfrak{D}^{(0\frac{1}{2})}&: J_i = \sigma_i/2,\quad K_i =+\mathbbm{i} \sigma_i/2;
-\quad Weyl\,\text{右手旋量}\\
+\quad \text{Weyl\, 右手旋量}\\
 \mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}&:
 J_i = (I_2\otimes\sigma_i + \sigma_i\otimes I_2)/2, \quad
 K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2 .
@@ -2158,18 +2146,18 @@ K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2 .
 
 式\eqref{chlar:eqn_JKMN}较为清晰地展示了$M$与$N$的地位并不相同．
 下面的表述中，我们略微含混一下$M$与$N$的地位．我们可以利用Clebsch--Gordan系数
-将$\mathfrak{su}(2)\otimes\mathfrak{su}(2)$的表示空间
+将$\mathfrak{su}(2)\oplus\mathfrak{su}(2)$的表示空间
 基矢$|j_M m_M\rangle \otimes|j_N m_N\rangle$转换为$|jm \rangle$（即两个角动量之和）．
-这样，就可以将$\mathfrak{su}(2)\otimes\mathfrak{su}(2)$（即$\mathfrak{sl}(2,\mathbb{C})$）
+这样，就可以将$\mathfrak{su}(2)\oplus\mathfrak{su}(2)$（即$\mathfrak{sl}(2,\mathbb{C})$）
 的可约表示$\mathfrak{D}^{(j_M j_N)}$化为$\mathfrak{su}(2)$不可约
-表示$\mathfrak{D}^{(j)}$的直和\cite[\S 11.6]{taorb-2011-gt}
+表示$\mathfrak{D}^{(j)}$的直和（可参见\parencite{taorb-2011-gt}的\S 11.6，或类似文献）：
 \begin{equation}\label{chlar:eqn_DLDU}
     \mathfrak{D}^{(j_M j_N)} \cong \mathfrak{D}^{(j_M)}\otimes\mathfrak{D}^{(j_N)} \cong
     \mathfrak{D}^{(|j_M- j_N|)}\oplus \mathfrak{D}^{(|j_M- j_N|+1)}
     \oplus \cdots \oplus \mathfrak{D}^{(j_M+ j_N)}.
 \end{equation}
 虽然李群$SL(2,\mathbb{C})$的表示与复共轭表示并不等价，但$SU(2)$群的表示与复共轭表示等价；
-这便导致了在{\kaishu 李代数}$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{su}(2)\otimes\mathfrak{su}(2)$的
+这便导致了在{\kaishu 李代数}$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$的
 表示中有：$\mathfrak{D}^{(j_M j_N)}$表示{\fangsong 等价于}（不是{\kaishu 等于}）$ \mathfrak{D}^{(j_N j_M)}$表示．
 $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 \begin{align}
@@ -2190,8 +2178,8 @@ $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 \end{example}
 有了$\mathfrak{sl}(2,\mathbb{C})$的6个生成元（式\eqref{chlar:eqn_JKMN}），
 再结合6个实变数$\theta_i$、$\phi_i$，
-由指数映射便可得到$SL(2,\mathbb{C})$群的表示，
-这与式\eqref{chlar:eqn_SL2-3rd}相对应．
+由指数映射便可得到$SL(2,\mathbb{C})$群的表示．
+%这与式\eqref{chlar:eqn_SL2-3rd}相对应．
 \begin{equation}\label{chlar:eqn_SL2-exp}
 	D^{(j_1 j_2)}=\exp\left(-\mathbbm{i}\sum\nolimits_{i=1}^{3}(\theta_i J_i + \phi_i K_i)\right).
 \end{equation}
@@ -2217,10 +2205,51 @@ $K_l$前的参数（$\tfrac{\mathbbm{i}}{2} (\alpha_l-\beta_l)$）为纯虚数�
 但由李代数生成群的方式有差异（对比式\eqref{chlar:eqn_SL2-exp}），这导致两个群不同构．
 
 
-\begin{exercise}
-	由式\eqref{chlar:eqn_JKMN}计算出$\mathfrak{D}^{(\frac{1}{2}0)}$、
-	$\mathfrak{D}^{(0\frac{1}{2})}$和$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$．
-\end{exercise}
+\begin{example}
+	由$\mathfrak{D}^{(\frac{1}{2}0)} \oplus \mathfrak{D}^{(0\frac{1}{2})}$生成的可约表示．
+\end{example}
+我们将Weyl左手旋量$\mathfrak{D}^{(\frac{1}{2}0)}$生成的表示矩阵记为（其中$\theta_i,\phi_i \in \mathbb{R}$）：
+\begin{equation}
+	D^{(\frac{1}{2}0)} = \exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i=1}^{3}
+	(\theta_i  - \mathbbm{i} \phi_i  ) \sigma_i \right)
+	=\begin{pmatrix} a & b   \\ c & d   \end{pmatrix}.
+\end{equation}
+上式中变量$a,b,c,d \in \mathbb{C}$且$ad-bc=1$．
+不难验证有：
+\begin{equation}
+	(\overline{\sigma_i})^T = \sigma_i^\dagger = (\sigma_i)^{-1} = \sigma_i, \quad
+	\sigma_2 \sigma_i \sigma_2 = - (\sigma_i)^T , \quad i =1,2,3.
+\end{equation}
+那么Weyl右手旋量$\mathfrak{D}^{(0\frac{1}{2})}$生成的表示矩阵为（注意应用上式）：
+\begin{align}
+	D^{(0\frac{1}{2})} =& \exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i=1}^{3}
+	(\theta_i + \mathbbm{i} \phi_i) \sigma_i\right)
+	= \exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i}
+	(\theta_i + \mathbbm{i} \phi_i) (\overline{\sigma_i})^T\right) \notag  \\
+%	=&\overline{\exp\left( \frac{\mathbbm{i}}{2}\sum\nolimits_{i}
+%	(\theta_i - \mathbbm{i} \phi_i) (\sigma_i)^T\right)} 
+%	=\overline{\exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i}
+%		(\theta_i - \mathbbm{i} \phi_i) \sigma_2 \sigma_i \sigma_2 \right)} \notag  \\
+	=&\overline{\sigma_2 \exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i}
+		(\theta_i - \mathbbm{i} \phi_i) \sigma_i  \right) \sigma_2 }
+	=\begin{pmatrix} \bar{d} & -\bar{c}   \\ -\bar{b} & \bar{a}   \end{pmatrix}.
+\end{align}
+以上两个表示的直和为：
+\begin{equation}
+	D^{(\frac{1}{2}0)} \oplus D^{(0\frac{1}{2})}= 
+	\begin{pmatrix}
+		a & b & 0 & 0   \\ 
+		c & d & 0 & 0 \\
+		0 & 0 & \bar{d} & -\bar{c}  \\ 
+		0 & 0 & -\bar{b} & \bar{a}
+	\end{pmatrix}.
+\end{equation}
+%上式在Dirac方程中有重要应用．
+
+%\begin{exercise}
+%	由式\eqref{chlar:eqn_JKMN}计算出$\mathfrak{D}^{(\frac{1}{2}0)}$、
+%	$\mathfrak{D}^{(0\frac{1}{2})}$和$\mathfrak{D}^{(\frac{1}{2}\frac{1}{2})}$．
+%\end{exercise}
 
 
 
@@ -3237,7 +3266,7 @@ $SU(2)$群及其李代数的具体表示见\S\ref{chlar:sec_SU2SO3}．
 	\left( {\hat{J}}^2 +{\hat{K}}^1 \right)^2\right) .
 \end{equation}
 在此，第二Casimir算子本征值要么恒负，要么为零．
-\qed
+
 
 
 
@@ -3737,9 +3766,18 @@ $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三�
 \qed
 
 
-
-
-
+我们顺带着介绍两个常用公式．
+利用式\eqref{chlar:eqn_eBe}可以证明\cite[\S 2-2]{ka2001}如下公式：
+\begin{subequations}\label{chlar:eqn_eA+B}
+\begin{align}
+	e^{A+B} =& e^A e^B e^{-\frac{1}{2}[A,B]} e^{\frac{1}{6}[A^{(2)},B]-\frac{1}{3}[A,B^{(2)}]} \cdots \\
+	e^{B+A} =& e^B e^A e^{-\frac{1}{2}[B,A]} e^{\frac{1}{6}[B^{(2)},A]-\frac{1}{3}[B,A^{(2)}]} \cdots 
+\end{align}
+\end{subequations}
+注意$e^{A+B} \equiv e^{B+A}$．当$[A,B]=c \mathbbm{1}$（$c$为常数，$\mathbbm{1}$为单位算符）时，由上式得
+\begin{equation}\label{chlar:eqn_eA+Bh}
+	e^A e^B = e^B e^A e^{c \mathbbm{1}} .
+\end{equation}
 
 
 \begin{exercise}

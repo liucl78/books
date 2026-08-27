@@ -254,10 +254,11 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
 \subsection{酉空间}\label{chcx:sec_unitary}
 
 \begin{definition} \label{chcx:def_unitary-space}
-    设$V$是复数域$\mathbb{C}$上的矢量空间，在$V$上定义一个二元运算，有复数$c$与之对应，
-    称为{\heiti 酉（内）积}；或{\heiti 幺正内积}；
+    设$V$是复数域$\mathbb{C}$上的线性空间（有限维或无限维），
+    在$V$上定义一个二元运算，有复数$c$与之对应，
+    称为{\heiti 酉内积}（简称{\heiti 酉积}）；或{\heiti 幺正内积}；
     或{\heiti \bfseries Hermite内积}；
-    记成$c=\left<\alpha,\beta\right>$；它需满足如下性质：
+    记为$c=\left<\alpha,\beta\right>$；它需满足如下性质：
     
     {\bfseries (1)} $\left<\alpha,\beta\right>=\overline{\left<\beta,\alpha\right>}$；
     
@@ -265,7 +266,8 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     
     {\bfseries (3)} $\left<\alpha,\beta+\gamma\right>=\left<\alpha,\beta\right>+\left<\alpha,\gamma\right>$； 
     
-    {\bfseries (4)} $\left<\alpha,\alpha\right>$是非负实数，当且仅当$\alpha=0$时，$\left<\alpha,\alpha\right> = 0$．
+    {\bfseries (4)} $\left<\alpha,\alpha\right>$是非负实数；
+       $\left<\alpha,\alpha\right> = 0 \Longleftrightarrow \alpha={\bf 0}$．
     
     \noindent 其中$\forall\alpha,\beta,\gamma \in V$，$\forall k\in \mathbb{C}$．
     这样的线性空间称为{\heiti 酉空间}或{\heiti 幺正空间}． 
@@ -276,10 +278,9 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
 \index[physwords]{厄米内积}  
 
 
-定义\ref{chcx:def_unitary-space}适用于有限维和无限维线性空间．
-当把复数域$\mathbb{C}$换成实数域$\mathbb{R}$时，它就退化为欧氏内积．
-代数学上习惯称为酉内积，几何学上习惯称为Hermite内积，物理学上习惯称为幺正内积．
-由酉空间定义容易得到：
+当把$\mathbb{C}$换成$\mathbb{R}$时，酉积就退化为欧氏内积．
+代数上习惯称为酉内积，几何上习惯称为Hermite内积，物理上习惯称为幺正内积．
+由酉空间定义易得：
 \begin{equation}
 	\left<k\alpha,\beta\right>=\overline{\left<\beta,k\alpha\right>}
 	=\overline{\left<\beta,\alpha\right>} \bar{k} = \left<\alpha,\beta\right>\bar{k}.
@@ -329,7 +330,8 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 
 \begin{definition}
     设有酉空间$V$；$\forall \alpha \in V$，
-    $\|\alpha \|\equiv\sqrt{\left<\alpha,\alpha\right>}$称为矢量$\alpha$的{\heiti 长度}．
+    $\|\alpha \|\equiv\sqrt{\left<\alpha,\alpha\right>}$称
+    为$\alpha$的{\heiti 模}（或{\heiti 长度}）．
 \end{definition}
 
 \index[physwords]{Cauchy--Schwarz不等式}  
@@ -404,11 +406,11 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
 \begin{theorem}\label{chcx:thm_CD}
 	设$A$是任意$m$维厄米矩阵；则一定存在一个幺正矩阵$P$使得$P^{-1}A P=D$，
 	其中$D={\rm diag}\{\lambda_1,\cdots,\lambda_m\}$，
-	其中$\lambda_j \, (j=1,2,\cdots,m)$为实数．
+	且$\lambda_j \, (j=1,2,\cdots,m)$为实数．
 \end{theorem}
 
 
-上两个定理的证明可参考\parencite[p.522]{qiuws-2019-v2}，或类似文献．
+上面两个定理的证明可参考\parencite[p.522]{qiuws-2019-v2}，或类似文献．
 
 
 

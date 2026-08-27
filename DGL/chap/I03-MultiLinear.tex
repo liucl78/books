@@ -295,7 +295,10 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
 {\footnote{“确定”是指well-determined或proper-determined，偶尔也有人将这个词儿
         翻译成“适定”．这与另外一个词儿well-posed的翻译（通常翻译成“适定”）容易混淆．}}
 
-上述定义在\textcite[p.16]{courant_hilbert-v2}中有类似叙述；
+需要指出的是：用不那么准确的数学语言来说，偏微分方程相当于{\kaishu 不可数}无穷多个常微分方程．
+所以定义\ref{chmla:def_diff-linear-dependence}仅仅是{\kaishu 表观上}把偏微分方程变成确定．
+
+定义\ref{chmla:def_diff-linear-dependence}在\textcite[p.16]{courant_hilbert-v2}中有类似叙述；
 在更早的文献中也应该有类似描述，究竟谁是最早给出的定义，已很难查询．
 虽然Courant给出了类似定义，但在他的书中仍旧称定义\ref{chmla:def_diff-linear-dependence}下
 未知量个数与方程个数相等的方程为{\kaishu 超定}
@@ -304,18 +307,18 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
 这与我们的称呼并不相同．
 
 
-\begin{example}
-    讨论下面方程组中的$Z_1,Z_2$是否线性相关．
-    \begin{equation}\label{chhs:tmp_eqn00}
-        \begin{cases}
-            Z_1 \equiv x = 0  \\
-            Z_2 \equiv x^2 = 0  \\
-        \end{cases}
-    \end{equation}
-\end{example}
-显然有关系式$x Z_1-Z_2=x\cdot x - x^2=0$，但这不能说明两个方程线性相关；
-因$Z_1$前的系数是变量$x$，不是数域$\mathbb{F}$中的常数，
-故$Z_1,Z_2$线性无关．\qed
+%\begin{example}
+%    讨论下面方程组中的$Z_1,Z_2$是否线性相关．
+%    \begin{equation}\label{chhs:tmp_eqn00}
+%        \begin{cases}
+%            Z_1 \equiv x = 0  \\
+%            Z_2 \equiv x^2 = 0  \\
+%        \end{cases}
+%    \end{equation}
+%\end{example}
+%显然有关系式$x Z_1-Z_2=x\cdot x - x^2=0$，但这不能说明两个方程线性相关；
+%因$Z_1$前的系数是变量$x$，不是数域$\mathbb{F}$中的常数，
+%故$Z_1,Z_2$线性无关．\qed
 
 
 \index[physwords]{商空间}
@@ -335,7 +338,7 @@ $\overrightarrow{OA}$与$\overrightarrow{OB}$都属于$\pi$（指点$A$和$B$在
 由此受到启发，为了在数域$\mathbb{F}$的线性空间$V$上建立一个二元关系且使它是一个等价关系，
 可以先取$V$的一个子空间$W$，然后规定：
 \begin{equation}\label{chmla:eqn_abw}
-    \alpha \sim \beta \quad \Leftrightarrow\quad  \alpha-\beta \in W .
+    \alpha \sim \beta \quad \Longleftrightarrow\quad  \alpha-\beta \in W .
 \end{equation}
 这样就建立了$V$上的一个二元关系“$\sim$”．
 由于$\alpha-\alpha=0 \in W$，因此$\alpha \sim \alpha, \forall \alpha \in W$，即“$\sim$”具有反身性．
@@ -353,12 +356,12 @@ $\overrightarrow{OA}$与$\overrightarrow{OB}$都属于$\pi$（指点$A$和$B$在
 \end{align}
 把式\eqref{chmla:eqn_aeqvba}最后一个集合记作$\alpha+W$，称它为$W$的一个{\heiti 陪集}，
 $\alpha$称为这个陪集的{\kaishu 代表}．从而
-$\beta \in \alpha+W \ \Leftrightarrow \ \beta \sim \alpha  \ \Leftrightarrow \ \beta-\alpha \in W $．
+$\beta \in \alpha+W \ \Longleftrightarrow \ \beta \sim \alpha  \ \Longleftrightarrow \ \beta-\alpha \in W $．
 于是$\bar{\alpha}= \alpha+W $．
 据等价类的性质可得
 \begin{equation}\label{chmla:eqn_abwasimbw}
-    \bar{\alpha}=\bar{\beta}\ \Leftrightarrow\  \alpha+W=\beta+W \ \Leftrightarrow\ 
-    \alpha-\beta \in W \ \Leftrightarrow \  \alpha \sim \beta.
+    \bar{\alpha}=\bar{\beta}\ \Longleftrightarrow\  \alpha+W=\beta+W \ \Longleftrightarrow\ 
+    \alpha-\beta \in W \ \Longleftrightarrow \  \alpha \sim \beta.
 \end{equation}
 由式\eqref{chmla:eqn_abwasimbw}看出，一个陪集$\alpha+W$的代表不唯一．
 如果$\alpha-\beta \in W$，那么 $\beta$ 也可以作为这个陪集的代表．
@@ -426,6 +429,10 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
     把$V$到$W$的全体线性映射组成的集合记为${\rm Hom}(V,W)$；
     将$V$上全体线性变换记成${\rm End}(V)$（Endomorphisms）．
 \end{definition}
+
+由例题\ref{chmla:exm_vsF}可知数域$\mathbb{F}$也是线性空间，
+故线性映射概念包含线性函数（线性泛函）概念．
+只不过数域$\mathbb{F}$略显特殊，单起一个名字而已．
 
 \index[physwords]{线性映射}  \index[physwords]{线性函数}
 \index[physwords]{线性变换}  \index[physwords]{线性泛函}
@@ -710,9 +717,9 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
         a^{1}_{\hphantom{a} 1} & \cdots & a^{1}_{\hphantom{a} n} \\
         \vdots & \ddots & \vdots \\
         a^{n}_{\hphantom{a} 1} & \cdots & a^{n}_{\hphantom{a} n} \\
-    \end{pmatrix}  {\quad \color{red}\Leftrightarrow \quad  }
+    \end{pmatrix}  \ \Longleftrightarrow \ 
     \boldsymbol{\eta}_i = \boldsymbol{\epsilon}_j a^{j}_{\hphantom{a} i}
-    {\quad  \color{red}\Leftrightarrow \quad }  
+    \  \Longleftrightarrow \ 
     \boldsymbol{\eta} = \boldsymbol{\epsilon} A   .
 \end{equation*}
 上式最后已用上下指标来表示，显然这个矩阵$A$是可逆的，称为两组基矢间的{\heiti 过渡矩阵}．
@@ -731,7 +738,7 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
     记$A=\{a^{i}_{\hphantom{a} j}\},\ B=\{b^{\hphantom{a} i} _k\}$（见注解\ref{chmla:remark_matrixij}）．
     假设对偶基矢间的变换关系是
     $\boldsymbol{\eta}^{*i} = \boldsymbol{\epsilon}^{*k} b^{\hphantom{a} i} _k 
-    \ \Leftrightarrow \  \boldsymbol{\eta}^{*}=\boldsymbol{\epsilon}^{*} B$；则有
+    \ \Longleftrightarrow \  \boldsymbol{\eta}^{*}=\boldsymbol{\epsilon}^{*} B$；则有
     \begin{equation}\label{chmla:eqn_inv-cov-base}
         \delta^i _j = \boldsymbol{\eta}^{*i}(\boldsymbol{\eta}_j) =
         \left( \boldsymbol{\epsilon}^{*k} b^{\hphantom{a} i} _k \right)
@@ -755,7 +762,7 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
         \sum_{kl} b_{ki}  a_{lj}  \delta_{kl} =
         \sum_{k} b_{ki}  a_{kj}.
     \end{equation*}
-    可见过渡矩阵间的关系是$B^T=A^{-1} \ \Leftrightarrow \ B^{-1} = A^T$．
+    可见过渡矩阵间的关系是$B^T=A^{-1} \ \Longleftrightarrow \ B^{-1} = A^T$．
 
     也可以用$\{\boldsymbol{\eta}\}$表示$\{\boldsymbol{\epsilon}\}$，
     $\boldsymbol{\epsilon}_j=\boldsymbol{\eta}_i b_j ^{\hphantom{a} i}$和
@@ -1014,7 +1021,7 @@ $\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_n$．
 \end{align*}
 从而得到双线性函数在不同基底下度量矩阵关系为：合同关系，即
 \begin{equation}\label{chmla:eqn_congruent}
-    B = C^T A C {\quad \Leftrightarrow \quad}
+    B = C^T A C {\quad \Longleftrightarrow \quad}
     f\left(  \boldsymbol{\eta}, \boldsymbol{\eta}\right) =
     C^T f\left(  \boldsymbol{\epsilon}, \boldsymbol{\epsilon}\right) C.
 \end{equation}
@@ -1552,10 +1559,10 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
 	例\ref{chmla:exam-DiracBK}说有限维和无穷维有差别，此处举一个具体例子来强化此观点．
 	设$A$、$B$、$C$是有限维方阵，则它们的迹有如下关系：$Tr(ABC)=Tr(BCA)$．
 	
-	在量子力学中，有基本对易关系$\hat{q}\hat{p}-\hat{p}\hat{q}=\mathbbm{i}\hbar I$，
-	此式右端的$I$是单位算符（或矩阵）．对此式取迹，如果依照上面的关系式
+	在量子力学中，有基本对易关系$\hat{q}\hat{p}-\hat{p}\hat{q}=\mathbbm{i}\hbar \mathbbm{1}$，
+	此式右端的$\mathbbm{1}$是单位算符（或矩阵）．对此式取迹，如果依照上面的关系式
 	必有$Tr(\hat{q}\hat{p})-Tr(\hat{p}\hat{q})=Tr(\hat{p}\hat{q})-Tr(\hat{p}\hat{q})=0$；
-	而右端的迹（$Tr(I)$）一定不是零．矛盾！
+	而右端的迹（$Tr(\mathbbm{1})$）一定不是零．矛盾！
 	这说明在有限维空间中，量子力学基本对易关系不可能成立！
 	只有在无穷维空间中才可能成立；此时无穷维矩阵的迹没有良定义，
 	关系$Tr(ABC)=Tr(BCA)$也不再成立．\qed
@@ -2154,9 +2161,9 @@ $\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_n$．
 \section{张量定义}\label{chmla:sec_tensor}
 
 量子力学中位形空间波函数与自旋空间波函数的{\kaishu 积}便可由\S\ref{chmla:sec_tensor-product}中的张量积给出，
-所以线性空间张量积概念对物理学是必要的．
+符号$|\psi \rangle \langle \phi |$也是张量积；所以线性空间张量积概念对物理学是必要的．
 更一般化的概念是模的张量积，对物理学来说貌似不必要；如读者有兴趣可查阅抽象代数书籍．
-不过在微分几何上，一般使用来自同一空间$V$及其对偶空间$V^*$的张量积．
+不过在微分几何上，一般使用来自$V$与$V^*$的张量积．
 
 设$V$是数域$\mathbb{F}$上的$m$维线性空间，$V^*$是其对偶空间，记张量积为
 \begin{equation}\label{chmla:eqn_tensor-pq}
@@ -2243,8 +2250,8 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 \begin{align}
 	\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q} = & \widetilde{\Phi}_{k_1 \cdots k_q} ^{l_1 \cdots l_p}
 	A_{\hphantom{i_1} l_1} ^{i_1}\cdots A_{\hphantom{i_p} l_p} ^{i_p}
-	B_{j_1}^{\hphantom{j_1} k_1} \cdots B_{j_q}^{\hphantom{j_q} k_q},
-	\qquad { \Leftrightarrow } \\
+	B_{j_1}^{\hphantom{j_1} k_1} \cdots B_{j_q}^{\hphantom{j_q} k_q}
+	\quad { \Longleftrightarrow } \\
     \widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q} =& \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
       A_{\hphantom{j_1} k_1}^{j_1} \cdots A_{\hphantom{j_q} k_q}^{j_q}  
       B_{i_1}^{\hphantom{i_1} l_1} \cdots B_{i_p}^{\hphantom{i_p} l_p} . 
@@ -2557,7 +2564,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
       \begin{pmatrix} i_1 &\cdots &i_q \\ j_1 &\cdots &j_q \end{pmatrix} \right] \\
     &={\rm sign}\begin{pmatrix} i_1 &\cdots &i_q \\ j_1 &\cdots &j_q \end{pmatrix} \cdot
      {\rm sign}\begin{pmatrix} j_1 &\cdots &j_q \\ k_1 &\cdots &k_q \end{pmatrix} \\
-     {\color{red}\Leftrightarrow}\quad
+     {\Longleftrightarrow}\quad
     \delta_{k_1 \cdots k_q}^{i_1 \cdots i_q} &=
     \delta_{j_1 \cdots j_q}^{i_1 \cdots i_q} \cdot \delta_{k_1 \cdots k_q}^{j_1 \cdots j_q} .
     \qquad \text{重复指标$\{j\}$不求和}

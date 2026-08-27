@@ -19,7 +19,7 @@
 	数域$\mathbb{F}$上的线性空间$X$的{\heiti 范数}$\|\cdot\|$是一个非负值函数：
 	$X \rightarrow \mathbb{R}$ 满足
 	{\bfseries (1)} $\|x\| \geqslant 0 \ (\forall x \in {X})$；
-	{\bfseries (2)} $\|x\|=0 \Longleftrightarrow x=\bf{0}$；
+	{\bfseries (2)} $\|x\|=0 \Longleftrightarrow x={\bf{0}}$；
 	{\bfseries (3)} $\|x+y\| \leqslant\|x\|+\|y\| \  (\forall x, y \in {X})$；
 	{\bfseries (4)} $\|\alpha x\|=|\alpha| \cdot\|x\| \  (\forall \alpha \in \mathbb{F},\ \forall x \in {X})$．
 \end{definition}
@@ -168,18 +168,22 @@ $\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
 
 
 
+\begin{proposition}\label{chhs:thm_fBC}
+	若$T$是$\mathscr{D}(T)\subset X$中的线性算符，
+	则$T$是连续算符等价于$T$是有界算符．
+	（本命题对赋范空间$X$的维数没有限定．证明可见\parencite{zhang-lin-2021}命题2.1.11）
+\end{proposition}
+
+\begin{proposition}
+有限维赋范空间上的线性算符必有界．（证明见\parencite{zhang-lin-2021}命题2.1.14）
+\end{proposition}
+
+
 我们将定义\ref{chmla:def_linear-fun}中给出的{\kaishu 线性泛函}的定义略作推广．
 即{\heiti 线性泛函}$f$是定义域落在赋范空间$X$中、值域落在$X$的基域$\mathbb{F}$中的线性算符．
 如果对于任意$x \in \mathscr{D}(f)$，存在实常数$c$使得$|f(x)| \leqslant c\|x\|$，
 则称$f$是{\heiti 有界线性泛函}．
 
-
-
-\begin{proposition}\label{chhs:thm_fBC}
-	若$f$是$\mathscr{D}(f)\subset X$中的线性泛函，
-	则$f$是连续泛函等价于$f$是有界泛函．
-	（本命题对赋范空间$X$的维数没有限定．证明可见\parencite{zhang-lin-2021}命题2.1.11）
-\end{proposition}
 
 %\begin{example}
 %	赋范空间 $(X,\|\cdot\|)$ 上的范数 $\|\cdot\|: X \longrightarrow \mathbb{R}$是$X$上的一个泛函，
@@ -202,7 +206,7 @@ $\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
 
 不难看出：\CJKunderwave{内积空间是赋范空间，Hilbert空间是Banach空间．}
 
-由命题\ref{chhs:thm_FSB}可知：有限维内积空间必是Hilbert空间．
+由命题\ref{chhs:thm_FSB}可知：\CJKunderwave{有限维内积空间必是Hilbert空间．}
 
 本章余下内容主要讨论量子物理关心的复Hilbert空间．
 
@@ -239,7 +243,7 @@ $\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
 		-\mathbbm{i}\|x-\mathbbm{i} y\|^2\right), & 
 		\text { 当 }\ \mathbb{F}=\mathbb{C} .\end{cases}
 	\end{align*}
-	可以验证它是一个满足定义\ref{chhs:def_IPN}的内积．
+	经过较为繁琐的计算可以验证它是一个内积（略），且满足定义\ref{chhs:def_IPN}．
 \end{proof}
 
 \subsection{完备化}
@@ -291,7 +295,7 @@ $\langle \xi, \eta\rangle=\sum\nolimits_{i=1}^{\infty} \bar{\xi}_{i} \eta_{i}$�
 \begin{example}
 	无穷维、连续复值函数空间$L^2[a,b]$（Lebesgue空间）．
 \end{example}
-$L^2[a,b]$是指平方可积的复函数集，即其内积
+$L^2[a,b]$是指平方可积的复函数集，即其内积为：
 \begin{equation}\label{chhs:eqn_InLab}
 	\langle x, y\rangle=\int_{a}^{b} \overline{x(t)} y(t)  \mathrm{d} t < + \infty;
 	\qquad \forall x, y \in L^2[a, b].
@@ -304,8 +308,9 @@ $L^2[a,b]$空间的上述内积\eqref{chhs:eqn_InLab}是完备的；
 在适当的区间上都是（加权）平方可积的．
 \qed
 
-上面两个例子表明：可以将不完备的$C[a,b]$延拓为完备的$L^2[a,b]$．
-与度量空间、赋范空间类似，Hilbert空间也有如下重要定理：
+上面两个例子表明：可将不完备的$C[a,b]$延拓为完备的$L^2[a,b]$．
+与度量空间（见定理\ref{chtop:thm_iso-DS}）、赋范空间（见定理\ref{chhs:thm_iso-NS}）类似，
+Hilbert空间也有如下定理：
 
 \begin{theorem}\label{chhs:thm_iso-hs}
 	对于任意内积空间$X$，存在Hilbert空间$\mathcal{H}$和$X$到$\mathcal{H}$的
@@ -325,9 +330,10 @@ $L^2[a,b]$空间的上述内积\eqref{chhs:eqn_InLab}是完备的；
 	L^2(\mathbb{R}^n) \equiv \left\{f(t,{x}) \mid \int_{-\infty}^{\infty} 
 	\overline{f(t,{x})} f(t,{x}) {\rm d}^n x  < +\infty \right\}.
 \end{equation}
-上式中$t$为实参数．完备性证明参见\parencite[例 1.4.11]{zhang-lin-2021}．
-{\kaishu 大多数情形下，量子物理中的Hilbert空间就是指上述的$L^2(\mathbb{R}^3)$，
-参数$t$一般理解成时间．}
+上式中$t$为实参数；{\kaishu 完备性证明参见\parencite{zhang-lin-2021}例 1.4.11}．
+{\heiti \bfseries 大多数情形下，
+	量子物理中的Hilbert空间就是指上述的$L^2(\mathbb{R}^3)$，
+	参数$t$一般理解成时间．}
 \qed
 
 
@@ -344,7 +350,7 @@ $L^2[a,b]$空间的上述内积\eqref{chhs:eqn_InLab}是完备的；
 \index[physwords]{连续对偶空间}
 
 \begin{definition}\label{chhs:def_bld}
-	Hilbert空间$\mathcal{H}$的连续对偶空间$\mathcal{H}'$为$\mathcal{H}$上的连续线性泛函全体．
+	Hilbert空间$\mathcal{H}$的连续对偶空间$\mathcal{H}'$为$\mathcal{H}$上的所有连续线性泛函．
 \end{definition}
 
 $\mathcal{H}'$中元素的加法和数乘定义与式\eqref{chmla:eqn_dual-pp}相同，
@@ -371,7 +377,7 @@ $\alpha^{*}(\beta) \overset{def}{=} f(\alpha,\beta),\ \forall \beta \in V$．
 
 \begin{theorem}\label{chhs:thm_riesz-rep}
 	设$y'$是Hilbert空间$\mathcal{H}$上的一个连续线性泛函，即$y'\in \mathcal{H}'$；
-	则必存在唯一的$y \in \mathcal{H}$，
+	那么必然存在唯一的$y \in \mathcal{H}$，
 	使得$y'(x)=\langle y , x \rangle , \ \forall x \in \mathcal{H}$成立．
 \end{theorem}
 \begin{proof}
@@ -387,7 +393,7 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
 \end{equation}
 至此，我们在$\mathcal{H}$、$\mathcal{H}'$之间建立了线性等距同构映射．
 确切地说，对于实数域是等距同构；对于复数域是等距反同构（或等距共轭同构）．
-完备的线性空间$\mathcal{H}'$有了内积之后便成为了Hilbert空间．
+连续对偶空间$\mathcal{H}'$有了内积（自然是完备的）之后便成为了Hilbert空间．
 
 
 
@@ -492,11 +498,12 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
 		\qquad T^{\dagger}: \mathcal{K} \longrightarrow \mathcal{H}
 	\end{equation}
 	的算符$T^{\dagger}$叫作$T$的{\heiti \bfseries Hilbert伴随算符}． 
+	（可以证明$T^{\dagger}$是存在的．）
 \end{definition}
 
-\begin{remark}
-	数学上可以证明定义\ref{chhs:def_adjoint}中的$T^{\dagger}$是存在的．
-\end{remark}
+%\begin{remark}
+%	数学上可以证明定义\ref{chhs:def_adjoint}中的$T^{\dagger}$是存在的．
+%\end{remark}
 
 
 
@@ -568,7 +575,7 @@ $$\left\langle x,(S T)^{\dagger} y\right\rangle
 \end{definition}
 
 \begin{definition}
-	若$T$是单一映射且$T^{\dagger}=T^{-1}$，则称$T$是{\heiti 酉算符}．
+	若$T$是双射且$T^{\dagger}=T^{-1}$，则称$T$是{\heiti 酉算符}．
 \end{definition}
 
 
@@ -702,16 +709,18 @@ $T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
 \end{definition}
 
 由定义可以看出在无界线性算符中，自伴属性强于厄米属性．
-
-在量子力学中，很多算符都是无界线性算符，比如位置算符$X$，
-动量算符$P=-\mathbbm{i}\hbar \frac{\partial}{\partial x}$，哈密顿算符$H$，等等．
-这些无界线性算符也都是自伴的（注意不是厄米的）．
+在量子物理中能充当{\kaishu 物理量}的算符必须是自伴的，不能只是厄米．
+比如位置算符$X$，
+动量算符$P=-\mathbbm{i}\hbar \frac{\partial}{\partial x}$，哈密顿算符$H$，等等；
+这些线性算符都是无界的、自伴的（注意不只是厄米的）．
 具体证明可参考\parencite{Kreyszig-1991}第十、十一章，或类似文献．
+
 
 其实，写到这里才真正进入量子力学的数学基础．
 要进一步阐述相关内容则需要Hilbert空间谱理论，
 这超出了这份“简引”范畴，故就此打住．
 
+\section{量子力学中的Hilbert空间}
 
 \index[physwords]{Dirac左矢空间} \index[physwords]{Dirac右矢空间}
 
@@ -744,6 +753,41 @@ $T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
 在Dirac记号下，仅仅是为了数学公式外在形式的对称才将其
 写成$\langle \psi| \phi\rangle_{\rm Dirac}$，
 并未真正引入作用在$\mathcal{H}'$中元素的线性算符．
+
+
+\subsection{量子力学基本对易关系的Weyl表述}
+
+我们已知量子力学基本对易关系：
+\begin{equation}
+	QP -PQ = \mathbbm{i}\hbar \mathbbm{1} .
+\end{equation}
+然而$Q$、$P$是无界自伴算符，故需要在Hilbert空间中寻找它们共同定义域（不易寻得），这多少有些不便．
+不论自伴算符$X$是有界还是无界，泛函分析中可以证明算符$\exp(\mathbbm{i}X)$是有界的（略）；
+而有界算符的定义域一定可以延拓至整个Hilbert空间，所以使用有界算符$\exp(\mathbbm{i}X)$描述基本对易关系更加便宜．
+我们参考式\eqref{chlar:eqn_eA+Bh}（$e^A e^B = e^B e^A e^{c\mathbbm{1}}$），
+令$A=\mathbbm{i} \alpha Q$、$B=\mathbbm{i} \beta P$（其中$\alpha,\beta \in \mathbb{R}$），
+则$c=-\mathbbm{i}\hbar \alpha \beta $；
+进而可得量力子学基本对易关系的{\heiti \bfseries Weyl表述}：
+\begin{equation}\label{chhs:eqn_Weyl-QP}
+	\exp(\mathbbm{i}\alpha Q) \exp(\mathbbm{i}\beta P) 
+	= \exp(-\mathbbm{i}\hbar \alpha \beta \mathbbm{1}) 
+	\exp(\mathbbm{i}\beta P) \exp(\mathbbm{i}\alpha Q) .
+\end{equation}
+令$\alpha \to 0$、$\beta \to 0$，将上式展开，忽略高于二阶的小量，
+便可得到量力子学中常用的基本对易关系$QP -PQ = \mathbbm{i}\hbar\mathbbm{1}$．
+
+
+
+%我们参考式\eqref{chlg:eqn_BCH-xy-x-y}（$\exp(X) \exp(Y) \exp(-X) \exp(-Y) =  \exp\bigl([X,Y]\bigr)$），
+%令$X=\alpha Q$、$Y=\beta P$（其中$\alpha,\beta \in \mathbb{R}$），
+%可得基本对易关系的{\heiti \bfseries Weyl表述}：
+
+%\begin{align*}
+%	&(1+\alpha Q+\frac{1}{2}\alpha^2 Q^2)(1+\beta P+\frac{1}{2}\beta^2 P^2) 
+%	= (1+\mathbbm{i}\hbar\alpha \beta) (1+\beta P+\frac{1}{2}\beta^2 P^2) (1+\alpha Q+\frac{1}{2}\alpha^2 Q^2) \\  
+%	%	\xLongrightarrow[\text{二阶的小量}]{\text{忽略高于}} \quad
+%	& QP -PQ = \mathbbm{i}\hbar.
+%\end{align*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

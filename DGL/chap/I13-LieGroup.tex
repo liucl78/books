@@ -2142,12 +2142,13 @@ $X(t)$作用在$f$上，有
 
 不加证明地给出Baker--Campbell--Hausdorff公式\cite[\S 3.8]{huangxg-2024}的几个近似表达． 
 \begin{align}
-    &\exp(tX) \exp(tY) = \exp\bigl(t(X+Y)+\frac{t^2}{2} [X,Y]+o(t^3)\bigr), \label{chlg:eqn_BCH-xy} \\
-    &\exp(tX) \exp(tY) \exp(-tX) \exp(-tY) =  \exp\bigl(t^2[X,Y]+o(t^3)\bigr), \label{chlg:eqn_BCH-xy-x-y} \\
-    &\exp(tX) \exp(tY) \exp(-tX) =  \exp\bigl(tY+t^2[X,Y]+o(t^3)\bigr) . \label{chlg:eqn_BCH-xy-x}
+    &\exp(tX) \exp(tY) = \exp\bigl(t(X+Y)+\frac{t^2}{2} [X,Y]+o(t^2)\bigr), \label{chlg:eqn_BCH-xy} \\
+    &\exp(tX) \exp(tY) \exp(-tX) \exp(-tY) =  \exp\bigl(t^2[X,Y]+o(t^2)\bigr), \label{chlg:eqn_BCH-xy-x-y} \\
+    &\exp(tX) \exp(tY) \exp(-tX) =  \exp\bigl(tY+t^2[X,Y]+o(t^2)\bigr) . \label{chlg:eqn_BCH-xy-x}
 \end{align}
 其中$X,Y$是李群$G$的李代数$\mathscr{G}$中的元素，也就是切矢量场；
-$t$是实参数；$o(t^3)$表示它是$t$的3阶小量．
+$t$是实参数；$o(t^2)$表示它是$t$的3阶及以上阶小量，
+且包含更高阶的嵌套对易子（比如$[X,[X,Y]]$、$[Y,[X,Y]]$等）．
 上述三个公式表征了指数映射将李群$G$单位元$e$处切空间的切矢量映入李群$G$的性状．
 
 
@@ -5038,22 +5039,22 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 李群既是流形又是群，有时也将李群$G$上不变积分改用群元形式表示，即上式中最后一个等号的形式，
 其中${\rm d}g$表示体积元．
 
-
+\index[physwords]{李群!Harr测度}
 
 若双不变体积元$\Omega=\lambda \cdot \omega_1 \wedge\cdots\wedge\omega_m,\ 
 (0\neq\lambda\in \mathbb{R})$积分满足$\int_{G}\Omega {=} 1$，
-%（只需取$\lambda^{-1}= \int_{G} \omega_1 \wedge\cdots\wedge\omega_m$即可），
 则称此双不变体积元$\Omega$是连通紧致李群$G$的{\heiti \bfseries Harr测度}．
 以后谈及紧致李群上的积分时都是在Harr测度上讨论，并将其简记为$\Omega$．
+
 如果李群是非紧致的，那么情况要糟糕一些；非紧群的左不变体积元可能不等于
-右不变体积元（见\parencite[\S 6.1]{Miller-1973}），此时不好定义Harr测度．
-可以证明（见\parencite[p.289]{xuyc-2001}定理4.1.6）
-$m$维连通紧致李群$G$上积分具有如下性质：
+右不变体积元（例如参见\parencite[\S 6.1]{Miller-1973}），此时不好定义Harr测度．
+
+可证明（见\parencite[p.289]{xuyc-2001}定理4.1.6）$m$维连通紧致李群$G$上积分有如下性质：
 \begin{align}
     \int_{G} (f+\lambda h) \Omega =& \int_{G} f \Omega +\lambda \int_{G}  h \Omega,
     \qquad \forall \lambda\in \mathbb{R},\  \forall f,h\in C^0(G). \\
     \int_{G} f(g' g) \Omega(g)=& \int_{G} f(g g') \Omega(g)
-    = \int_{G} f(g^{-1}) \Omega(g) = \int_{G} f(g) \Omega(g) .
+    = (-)^m \int_{G} f(g^{-1}) \Omega(g) = \int_{G} f(g) \Omega(g) .
     \label{chlg:eqn_Int-fLRI}
 \end{align}  %%\setlength{\mathindent}{2em}
 第一式表明积分是线性的，证明很容易．
@@ -5063,8 +5064,8 @@ $m$维连通紧致李群$G$上积分具有如下性质：
 
 下面给出几个具体的例子．
 \begin{example}
-    设$G$是有限群．虽然$G$不是连续拓扑群，但因它只包含有限个元素，
-    故必然紧致；可以定义其“积分”如下
+    设$G$是有限群（可以看作连续拓扑群）；因它只包含有限个元素，
+    故必然紧致；可以定义其积分如下：
     \begin{equation}
         I(f)= \frac{1}{|G|} \sum_{g\in G} f(g),\qquad
         \forall f\in C^0(G),\ |G|\text{是指}G\text{的元素个数}.
@@ -5072,11 +5073,11 @@ $m$维连通紧致李群$G$上积分具有如下性质：
 \end{example}
 
 \begin{example}
-    幺模复数群$G=S^1=\{\exp\mathbbm{i}\theta;\ 0\leqslant \theta \leqslant 2\pi\}$上的不变积分
+    幺模复数群$G=S^1=\{\exp\mathbbm{i}\theta \mid 0\leqslant \theta \leqslant 2\pi\}$上的不变积分：
     \begin{equation}
         \int_{G} f \Omega = \frac{1}{2\pi} \int_{0}^{2\pi} f(e^{\mathbbm{i}\theta}) {\rm d}\theta .
     \end{equation}
-    容易验证：双不变性；若$f\equiv 1$则积分为$1$；线性性．\qed
+    容易验证：双不变性；若$f\equiv 1$则积分为$1$；线性性．
 \end{example}
 
 
@@ -5136,7 +5137,7 @@ $m$维连通紧致李群$G$上积分具有如下性质：
 \end{proof}
 
 定理\ref{chlg:thm_U}说明：存在基矢变换，令紧致、线性李群的任意表示等价于幺正表示．
-故对紧致李群，我们可以只讨论幺正表示，而不会失去一般性．
+故对于紧致李群来说，我们可以只讨论幺正表示，而不会失去一般性．
 
 
 

@@ -2227,14 +2227,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 \end{align}
 式\eqref{chrg:eqn_dx1r-Hodge}中的指标$i_1,\cdots,i_r$是自由指标，不参与求和．
 
-\paragraph{标量函数场对偶}
-$\forall f\in C^\infty(M)$，由定义容易得到：
-\begin{align}
-	(\star f)_{a_1 \cdots a_m} = & \frac{1}{0!} f \Omega_{a_1 \cdots a_m} 
-	  = f \Omega_{a_1 \cdots a_m}, \label{chrg:eqn_fHs} \\
-	\star (f \Omega_{\circ \cdots \circ}) = & \frac{1}{m!} f \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m} 
-	= (-)^s f.  \label{chrg:eqn_fOsf}
-\end{align}
+
 
 \paragraph{双对偶}
 下面给出两次Hodge星算子的公式，直接对\eqref{chrg:eqn_Hodge-star-1}取星算子，得
@@ -2450,7 +2443,7 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 \end{align*}
 这样的项共有$\frac{1}{2}m(m-1)$个，求和结果是：
 \begin{align*}
-	\mathscr{L}_{G} = &  \left( \sum_{l,n=1}^{m}
+	\mathscr{L}_{G} = &  \left( \sum\nolimits_{l,n=1}^{m}
 	\oversetmy{x}{R}_{\hphantom{ln}ln}^{ln} \right) \sqrt{|g|}\,
 	({\rm d}x^{1})_{a_1} \wedge ({\rm d}x^{2})_{a_2} \wedge 
 	({\rm d}x^{3})_{a_{3}} \wedge \cdots \wedge ({\rm d}x^{m})_{a_m}.
@@ -2474,7 +2467,14 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 需要强调的是：式\eqref{chrg:eqn_LRPF}中曲率可以由一般仿射联络生成，不一定由度量生成．
 
 
-
+\paragraph{标量函数场对偶}
+$\forall f\in C^\infty(M)$，由定义容易得到：
+\begin{align}
+	(\star f)_{a_1 \cdots a_m} = & \frac{1}{0!} f \Omega_{a_1 \cdots a_m} 
+	= f \Omega_{a_1 \cdots a_m}, \label{chrg:eqn_fHs} \\
+	\star (f \Omega_{\circ \cdots \circ}) = & \frac{1}{m!} f \Omega^{a_1 \cdots a_m} \Omega_{a_1 \cdots a_m} 
+	= (-)^s f.  \label{chrg:eqn_fOsf}
+\end{align}
 
 
 \paragraph{闵氏空间对偶} %\label{chrg:sec_Minkowski-Hodge-1}
@@ -2772,13 +2772,18 @@ $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.
 \index[physwords]{黎曼曲率!型式!Cartan结构方程}
 \paragraph{Cartan结构方程}
 原形式的Cartan结构方程见式\eqref{chccr:eqn_CST}；
-这里采用Levi-Civita联络，挠率恒为零；
-应用式\eqref{chrg:eqn_Dg=0-onframes}易得内指标降下来后的结构方程：
+应用式\eqref{chrg:eqn_Dg=0-onframes}易得内指标降下来后的
+结构方程\eqref{chrg:eqn_CST-down}（为比对，给出了式\eqref{chccr:eqn_CST}）：
 \begin{subequations}\label{chrg:eqn_CST-down}
     \begin{align}
-        {\rm d}_a (e_\mu)_b &=- (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b  , \label{chrg:eqn_CST-down-I} \\
-        {\rm d}_a (\omega _{\mu\nu})_b  &= (\omega_{\sigma \mu})_a \wedge (\omega _{\hphantom{\sigma} \nu} ^\sigma  )_b
-          + (\Omega_{\mu \nu})_{ab}  . \label{chrg:eqn_CST-down-II}
+    	{\rm d}_a (e^\mu)_b =& +(e^\sigma)_a \wedge (\omega _{\hphantom{\mu} \sigma}^\mu)_b +(\Theta ^{\mu})_{ab}, 
+    	   \tag{\ref{chccr:eqn_CST-I}} \\
+        {\rm d}_a (e_\mu)_b =&- (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b  ; \label{chrg:eqn_CST-down-I} \\
+        {\rm d}_a (\omega _{\mu\nu})_b  =& -(\omega _{\hphantom{\sigma} \nu} ^\sigma)_a \wedge (\omega_{\sigma \mu})_b
+          + (\Omega_{\mu \nu})_{ab}  , \label{chrg:eqn_CST-down-II} \\
+        {\rm d}_a ( \omega _{\hphantom{\mu} \nu} ^\mu  )_b  =&  +( \omega _{\hphantom{\mu} \nu}^\sigma )_a
+          \wedge ( \omega _{\hphantom{\mu} \sigma}^\mu )_b + (\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab} . 
+             \tag{\ref{chccr:eqn_CSC-II}}
     \end{align}
 \end{subequations}
 
