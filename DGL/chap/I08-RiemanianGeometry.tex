@@ -1983,12 +1983,11 @@ $m$阶外积也会产生一个Jacobi行列式；两者刚好互逆，故形式�
 \end{example}
 由式\eqref{chmla:eqn_xbase-2-ybase}（取变换矩阵$a^{j}_{\hphantom{j}i}=\delta^j_i$）可知狭义相对论中体积元为
 \begin{align*}
-	&\Omega_{abcd}=
-	({\rm d}x^0)_{a} \wedge ({\rm d}x^1)_{b} \wedge ({\rm d}x^2)_{c} \wedge({\rm d}x^3)_{d} 
-	=\frac{1}{4!}\delta_{\alpha\beta\gamma\delta}^{0123}  ({\rm d}x^{\alpha})_{a} \wedge 
+	\Omega_{abcd}=&+ ({\rm d}x^0)_{a} \wedge\cdots \wedge({\rm d}x^3)_{d} 
+	=+\frac{1}{4!}\delta_{\alpha\beta\gamma\delta}^{0123}  ({\rm d}x^{\alpha})_{a} \wedge 
 	({\rm d}x^{\beta})_{b} \wedge ({\rm d}x^{\gamma})_{c} \wedge({\rm d}x^{\delta})_{d} \\
-	&= -({\rm d}x_0)_{a} \wedge ({\rm d}x_1)_{b} \wedge ({\rm d}x_2)_{c} \wedge({\rm d}x_3)_{d} 
-	=\frac{-1}{4!}\delta^{\alpha\beta\gamma\delta}_{0123}  ({\rm d}x_{\alpha})_{a} \wedge 
+	=& -({\rm d}x_0)_{a} \wedge \cdots \wedge({\rm d}x_3)_{d} 
+	=-\frac{1}{4!}\delta^{\alpha\beta\gamma\delta}_{0123}  ({\rm d}x_{\alpha})_{a} \wedge 
 	({\rm d}x_{\beta})_{b} \wedge ({\rm d}x_{\gamma})_{c} \wedge({\rm d}x_{\delta})_{d}.
 \end{align*}
 可见，我们需要定义
@@ -2389,7 +2388,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 有了上述准备，有（其中$(\Omega_{\mu\nu} )_{a_1 a_2} =
 \frac{1}{2}R_{\mu \nu \rho\sigma} (e^\rho)_{a_1} \wedge (e^\sigma)_{a_2}$）
 \begin{align*}
-	\mathscr{L}_{G} \equiv& (\Omega_{\mu\nu} )_{a_1 a_2}\wedge 
+	\kappa\mathscr{L}_{G} \equiv& (\Omega_{\mu\nu} )_{a_1 a_2}\wedge 
 	\star \left[ (e^\mu)_{\circ} \wedge (e^\nu)_{\circ}\right]_{a_3 \cdots a_m} \\
 	=& \frac{1}{2} R_{\mu\nu\rho\sigma}
 	\left(C^{-T}\right)^{\hphantom{a}\mu}_{i} \left(C^{-T}\right)^{\hphantom{a}\nu}_{j} 
@@ -2416,6 +2415,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 	({\rm d}x^{k_{3}})_{a_{3}} \wedge \cdots \wedge ({\rm d}x^{k_m})_{a_m}
 	\oversetmy{x}{R}_{\hphantom{k_1 k_2}ln}^{k_1 k_2}  .
 \end{align*}
+$\kappa$是引力系数．
 上式中，我们已令
 \begin{equation}
 	\oversetmy{x}{R}_{ijln}  \equiv R_{\mu\nu\rho\sigma}
@@ -2443,7 +2443,7 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 \end{align*}
 这样的项共有$\frac{1}{2}m(m-1)$个，求和结果是：
 \begin{align*}
-	\mathscr{L}_{G} = &  \left( \sum\nolimits_{l,n=1}^{m}
+	\kappa\mathscr{L}_{G} = &  \left( \sum\nolimits_{l,n=1}^{m}
 	\oversetmy{x}{R}_{\hphantom{ln}ln}^{ln} \right) \sqrt{|g|}\,
 	({\rm d}x^{1})_{a_1} \wedge ({\rm d}x^{2})_{a_2} \wedge 
 	({\rm d}x^{3})_{a_{3}} \wedge \cdots \wedge ({\rm d}x^{m})_{a_m}.
@@ -2452,7 +2452,7 @@ $k_1$、$k_2$共有$\frac{1}{2}m(m-1)$种选择，
 于$\oversetmy{x}{R}_{ijln}$的标量曲率$\oversetmy{x}{R}$，故有：
 \begin{subequations}\label{chrg:eqn_LRPF}
 	\begin{align}
-		\mathscr{L}_{G} \equiv &
+		\kappa\mathscr{L}_{G} \equiv &
 		\left(\Omega_{\mu\nu}\right)_{a_1 a_2} \wedge \star \left[ (e^\mu)_{\circ} 
 		\wedge (e^\nu)_{\circ} \right]_{a_3 \cdots a_m} 	 \label{chrg:eqn_LRPF-a} \\
 		=&	\oversetmy{x}{R}\ \sqrt{|g|}\, 
@@ -2735,8 +2735,8 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 %\end{exercise}
 
 \begin{exercise}
-	证明：(1) $\langle A,B\rangle = \langle B, A \rangle$；
-	(2) $\langle A,B\rangle = \langle \star A, \star B \rangle$；
+	证：(1) $\langle A,B\rangle = \langle B, A \rangle$；
+	(2) $(-)^s\langle A,B\rangle = \langle \star A, \star B \rangle$；
 	(3) ${\rm d}^{\dagger} \circ {\rm d}^{\dagger}\equiv 0$．
 \end{exercise}
 
@@ -2783,7 +2783,7 @@ $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.
           + (\Omega_{\mu \nu})_{ab}  , \label{chrg:eqn_CST-down-II} \\
         {\rm d}_a ( \omega _{\hphantom{\mu} \nu} ^\mu  )_b  =&  +( \omega _{\hphantom{\mu} \nu}^\sigma )_a
           \wedge ( \omega _{\hphantom{\mu} \sigma}^\mu )_b + (\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab} . 
-             \tag{\ref{chccr:eqn_CSC-II}}
+             \tag{\ref{chccr:eqn_CST-II}}
     \end{align}
 \end{subequations}
 

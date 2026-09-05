@@ -127,25 +127,24 @@ $\omega_{a_{1}\cdots a_{r}}$和$\omega_{\mu_{1}\cdots \mu_{r}}$的下标是全�
 	\sum_{s=1}^{p} (-)^{p+s} \delta_{j_p}^{i_s} \cdot
 	\delta_{j_1 \cdots  j_{p-1}}^{i_1 \cdots\hat{i}_s \cdots i_{p}}
 	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_p})_{a_p} (e_\kappa)^{a_p} \\
-	=&\sum_{s=1}^{p} (-)^{p+s} \delta_{\kappa}^{i_s} \cdot
-	\delta_{j_1 \cdots  j_{p-1}}^{i_1 \cdots\hat{i}_s \cdots i_{p}} 
-	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_{p-1}})_{a_{p-1}} \\
+%	=&\sum_{s=1}^{p} (-)^{p+s} \delta_{\kappa}^{i_s} \cdot
+%	\delta_{j_1 \cdots  j_{p-1}}^{i_1 \cdots\hat{i}_s \cdots i_{p}} 
+%	(e^{j_1})_{a_1}  \otimes	\cdots \otimes (e^{j_{p-1}})_{a_{p-1}} \\
 	=& \sum_{s=1}^{p} (-)^{p+s} \delta_{\kappa}^{i_s} \cdot
 	(e^{i_1})_{a_1} \wedge\cdots \wedge \widehat{e^{i_s}}
 	\wedge \cdots \wedge (e^{i_p})_{a_{p-1}} .
 \end{align*}
-上式对$s$求和过程中至多有一项非零．给出两个具体的示例．
-\begin{align*}
-	&({\rm d}x^{0})_{a_{0}} \wedge({\rm d}x^{1})_{a_{1}}\wedge({\rm d}x^{2})_{a_{2}}
-	\wedge ({\rm d}x^{3})_{a_{3}} (\partial_\kappa)^{a_3}
+上式对$s$求和过程中至多有一项非零．给出两个具体示例：
+\begin{align}
+	&({\rm d}x^{0})_{a_{0}} \wedge \cdots \wedge ({\rm d}x^{3})_{a_{3}} (\partial_\kappa)^{a_3}
 	=(-)^{3+\kappa} ({\rm d}x^{0})_{a_{0}} \wedge\cdots \wedge \widehat{{\rm d}{x}^{\kappa}}
 	\wedge \cdots \wedge ({\rm d}x^{3})_{a_{2}} . \\
-	& (\partial_\kappa)^{a_0} ({\rm d}x^{0})_{a_{0}} \wedge({\rm d}x^{1})_{a_{1}}
-	\wedge({\rm d}x^{2})_{a_{2}}	\wedge ({\rm d}x^{3})_{a_{3}} 
+	& (\partial_\kappa)^{a_0} ({\rm d}x^{0})_{a_{0}} \wedge \dots \wedge ({\rm d}x^{3})_{a_{3}} 
 	=(-)^{\kappa} ({\rm d}x^{0})_{a_{1}} \wedge\cdots \wedge \widehat{{\rm d}{x}^{\kappa}}
 	\wedge \cdots \wedge ({\rm d}x^{3})_{a_{3}} . 
-\end{align*}  %%\setlength{\mathindent}{2em}
-其中$0\leqslant \kappa \leqslant 3$．在广义相对论中会经常用到上两式中的缩并．
+\end{align}
+其中$0\leqslant \kappa \leqslant 3$．
+在广义相对论中会经常用到上两式中的缩并．
 \qed
 
 %\begin{align*}
@@ -161,9 +160,157 @@ $\omega_{a_{1}\cdots a_{r}}$和$\omega_{\mu_{1}\cdots \mu_{r}}$的下标是全�
 %	\wedge \cdots \wedge (e^{i_p})_{a_{p}} .
 %\end{align*}
 
-\begin{exercise}
-	补全例\ref{chdf:exam_eiapk}中未给出的证明．
-\end{exercise}
+
+\begin{example}\label{chdf:exam_eiapkl}
+	与例\ref{chdf:exam_eiapk}相仿，计算缩并式
+	$(e^{0})_{a} \wedge \cdots \wedge (e^{3})_{d} \left[(e_\tau)^{c}\wedge(e_\kappa)^{d}\right]$．
+\end{example}
+直接展开，有
+\begin{align*}
+	&(e^{0})_{a} \wedge (e^{1})_{b} \wedge (e^{2})_{c} \wedge (e^{3})_{d} 
+	\left[(e_\tau)^{c}\wedge(e_\kappa)^{d}\right] \\
+	=& \delta^{0123}_{\alpha\beta\mu\nu} 
+	(e^{\alpha})_{a} \otimes (e^{\beta})_{b} \otimes (e^{\mu})_{c} \otimes (e^{\nu})_{d} 
+	\left[(e_\tau)^{c}\otimes (e_\kappa)^{d} -(e_\kappa)^{c}\otimes (e_\tau)^{d}\right] \\
+	=& \delta^{0123}_{\alpha\beta\mu\nu} (e^{\alpha})_{a} \otimes (e^{\beta})_{b}  
+	\left[\delta_{\tau}^{\mu} \delta_{\kappa}^{\nu}	- \delta_{\kappa}^{\mu}\delta_{\tau}^{\nu} \right]
+	=\delta^{0123}_{\alpha\beta\tau\kappa}(e^{\alpha})_{a} \otimes (e^{\beta})_{b} 
+	-\delta^{0123}_{\alpha\beta\kappa\tau}(e^{\alpha})_{a} \otimes (e^{\beta})_{b} \\
+	=&\delta^{0123}_{\alpha\beta\tau\kappa}(e^{\alpha})_{a} \otimes (e^{\beta})_{b} 
+	-\delta^{0123}_{\alpha\beta\tau\kappa}(e^{\beta})_{a} \otimes (e^{\alpha})_{b} .
+\end{align*}
+故，有
+\begin{align}
+	(e^{0})_{a} \wedge (e^{1})_{b} \wedge (e^{2})_{c} \wedge (e^{3})_{d} 
+	\left[(e_\tau)^{c}\wedge(e_\kappa)^{d}\right] 
+	=& \delta^{0123}_{\alpha\beta\tau\kappa} (e^{\alpha})_{a} \wedge (e^{\beta})_{b}  . \\
+	\left[(e_\tau)^{a}\wedge(e_\kappa)^{b}\right] 
+	(e^{0})_{a} \wedge (e^{1})_{b} \wedge (e^{2})_{c} \wedge (e^{3})_{d} 
+	=& \delta^{0123}_{\alpha\beta\tau\kappa} (e^{\alpha})_{c} \wedge (e^{\beta})_{d}  .
+\end{align}
+其中$0\leqslant \tau,\kappa \leqslant 3$．
+在广义相对论中会经常用到上两式中的缩并．
+\qed
+
+%$\delta_{j_1 \cdots j_q j_{q+1}\cdots j_m}^{i_1 \cdots i_q i_{q+1}\cdots i_m}
+%\cdot \delta_{k_{q+1} \cdots k_m}^{j_{q+1} \cdots j_m}
+%=(m-q)! \ \delta_{j_1 \cdots j_q k_{q+1}\cdots k_m}^{i_1 \cdots i_q i_{q+1}\cdots i_m} $
+	
+
+
+%\begin{align*}
+%	&(e^{0})_{a_0} \wedge (e^{1})_{a_1} \wedge (e^{2})_{a_2} \wedge (e^{3})_{a_3} 
+%	\left[(e_\tau)^{a_{2}}\wedge(e_\kappa)^{a_3}\right] \\
+%	=& \left[ (e^{0})_{a_0} \otimes (e^{1})_{a_1} \otimes (e^{2})_{a_2} \otimes (e^{3})_{a_3} 
+%	+\cdots\cdots	\right]
+%	\left[(e_\tau)^{a_2}\otimes (e_\kappa)^{a_3}
+%	-(e_\kappa)^{a_2}\otimes (e_\tau)^{a_3}\right] \\
+%	%	=&+(e^{0})_{a_0} \otimes (e^{1})_{a_1} \delta_\tau^2 \delta_\kappa^3 
+%	%	-(e^{0})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^2 \delta_\tau^3 
+%	%	-(e^{0})_{a_0} \otimes (e^{1})_{a_1} \delta_\tau^3   \delta_\kappa^2
+%	%	+(e^{0})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^3 \delta_\tau^2 	\\
+%	%	&+(e^{0})_{a_0}\otimes (e^{2})_{a_1} \delta_\tau^3   \delta_\kappa^1 
+%	%	-(e^{0})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^3 \delta_\tau^1
+%	%	-(e^{0})_{a_0} \otimes (e^{2})_{a_1} \delta_\tau^1   \delta_\kappa^3
+%	%	+(e^{0})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^1 \delta_\tau^3 	\\
+%	%	&+(e^{0})_{a_0}\otimes (e^{3})_{a_1} \delta_\tau^1   \delta_\kappa^2
+%	%	-(e^{0})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^1 \delta_\tau^2
+%	%	-(e^{0})_{a_0} \otimes (e^{3})_{a_1} \delta_\tau^2   \delta_\kappa^1
+%	%	+(e^{0})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^2 \delta_\tau^1 	\\
+%	%	&+(e^{1})_{a_0}\otimes (e^{2})_{a_1} \delta_\tau^0   \delta_\kappa^3
+%	%	-(e^{1})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^0 \delta_\tau^3
+%	%	-(e^{1})_{a_0} \otimes (e^{2})_{a_1} \delta_\tau^3   \delta_\kappa^0
+%	%	+(e^{1})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^3 \delta_\tau^0 	\\
+%	%	&+(e^{1})_{a_0}\otimes (e^{3})_{a_1} \delta_\tau^2   \delta_\kappa^0
+%	%	-(e^{1})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^2 \delta_\tau^0
+%	%	-(e^{1})_{a_0} \otimes (e^{3})_{a_1} \delta_\tau^0   \delta_\kappa^2
+%	%	+(e^{1})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^0 \delta_\tau^2 	\\
+%	%	&+(e^{1})_{a_0}\otimes (e^{0})_{a_1} \delta_\tau^3   \delta_\kappa^2
+%	%	-(e^{1})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^3 \delta_\tau^2
+%	%	-(e^{1})_{a_0} \otimes (e^{0})_{a_1} \delta_\tau^2   \delta_\kappa^3
+%	%	+(e^{1})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^2 \delta_\tau^3 	\\
+%	%	&+(e^{2})_{a_0}\otimes (e^{0})_{a_1} \delta_\tau^1   \delta_\kappa^3
+%	%	-(e^{2})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^1 \delta_\tau^3
+%	%	-(e^{2})_{a_0} \otimes (e^{0})_{a_1} \delta_\tau^3   \delta_\kappa^1
+%	%	+(e^{2})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^3 \delta_\tau^0 	\\
+%	%	&+(e^{2})_{a_0}\otimes (e^{1})_{a_1} \delta_\tau^3   \delta_\kappa^0
+%	%	-(e^{2})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^3 \delta_\tau^0
+%	%	-(e^{2})_{a_0} \otimes (e^{1})_{a_1} \delta_\tau^0   \delta_\kappa^3
+%	%	+(e^{2})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^0 \delta_\tau^3 	\\
+%	%	&+(e^{2})_{a_0}\otimes (e^{3})_{a_1} \delta_\tau^0   \delta_\kappa^1
+%	%	-(e^{2})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^0 \delta_\tau^1
+%	%	-(e^{2})_{a_0} \otimes (e^{3})_{a_1} \delta_\tau^1   \delta_\kappa^0
+%	%	+(e^{2})_{a_0} \otimes (e^{3})_{a_1} \delta_\kappa^1 \delta_\tau^0 	\\
+%	%	&+(e^{3})_{a_0}\otimes (e^{0})_{a_1} \delta_\tau^2   \delta_\kappa^1
+%	%	-(e^{3})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^2 \delta_\tau^1
+%	%	-(e^{3})_{a_0} \otimes (e^{0})_{a_1} \delta_\tau^1   \delta_\kappa^2
+%	%	+(e^{3})_{a_0} \otimes (e^{0})_{a_1} \delta_\kappa^1 \delta_\tau^2 	\\
+%	%	&+(e^{3})_{a_0}\otimes (e^{1})_{a_1} \delta_\tau^0   \delta_\kappa^2
+%	%	-(e^{3})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^0 \delta_\tau^2
+%	%	-(e^{3})_{a_0} \otimes (e^{1})_{a_1} \delta_\tau^2   \delta_\kappa^0
+%	%	+(e^{3})_{a_0} \otimes (e^{1})_{a_1} \delta_\kappa^2 \delta_\tau^0 	\\
+%	%	&+(e^{3})_{a_0}\otimes (e^{2})_{a_1} \delta_\tau^1   \delta_\kappa^0
+%	%	-(e^{3})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^1 \delta_\tau^0
+%	%	-(e^{3})_{a_0} \otimes (e^{2})_{a_1} \delta_\tau^0   \delta_\kappa^1
+%	%	+(e^{3})_{a_0} \otimes (e^{2})_{a_1} \delta_\kappa^0 \delta_\tau^1 	\\
+%	=&+(e^{0})_{a_0} \wedge (e^{1})_{a_1} \delta_{\tau\kappa}^{23}
+%	+(e^{0})_{a_0}   \wedge (e^{2})_{a_1} \delta_{\tau\kappa}^{31}
+%	+(e^{0})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{12} \\
+%	&+(e^{1})_{a_0}  \wedge (e^{2})_{a_1} \delta_{\tau\kappa}^{03}
+%	+(e^{1})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{20} 
+%	+(e^{1})_{a_0}   \wedge (e^{0})_{a_1} \delta_{\tau\kappa}^{32} \\
+%	&+(e^{2})_{a_0}   \wedge (e^{0})_{a_1} \delta_{\tau\kappa}^{13} 
+%	+(e^{2})_{a_0}  \wedge (e^{1})_{a_1} \delta_{\tau\kappa}^{30}
+%	+(e^{2})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{01} \\
+%	&+(e^{3})_{a_0}   \wedge (e^{0})_{a_1} \delta_{\tau\kappa}^{21} 
+%	+(e^{3})_{a_0}  \wedge (e^{1})_{a_1} \delta_{\tau\kappa}^{02}
+%	+(e^{3})_{a_0}   \wedge (e^{2})_{a_1} \delta_{\tau\kappa}^{10}.
+%\end{align*}
+%故，有（下面两个缩并是相等的，证明留给读者当练习）：
+%\begin{align}
+%	&\frac{1}{2} (e^{0})_{a_0} \wedge (e^{1})_{a_1} \wedge (e^{2})_{a_2} \wedge (e^{3})_{a_3} 
+%	\left[(e_\tau)^{a_{2}}\wedge(e_\kappa)^{a_3}\right] \notag \\
+%	=&\frac{1}{2} \left[(e_\tau)^{a_2}\wedge (e_\kappa)^{a_3}\right]
+%	(e^{0})_{a_2} \wedge (e^{1})_{a_3} \wedge (e^{2})_{a_0} \wedge (e^{3})_{a_1}  \notag \\
+%	=&+(e^{0})_{a_0} \wedge (e^{1})_{a_1} \delta_{\tau\kappa}^{23}
+%	+(e^{0})_{a_0}   \wedge (e^{2})_{a_1} \delta_{\tau\kappa}^{31}
+%	+(e^{0})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{12} \notag \\
+%	&+(e^{1})_{a_0}  \wedge (e^{2})_{a_1} \delta_{\tau\kappa}^{03}
+%	+(e^{1})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{20} 
+%	+(e^{2})_{a_0}   \wedge (e^{3})_{a_1} \delta_{\tau\kappa}^{01} . 
+%\end{align}
+
+
+
+\begin{example}\label{chdf:exam_eiapklp}
+	计算缩并式
+	$(e^{0})_{a} \wedge \cdots \wedge (e^{3})_{d} \left[(e_\tau)^{b}
+	\wedge(e_\kappa)^{c}\wedge(e_\sigma)^{d}\right]$．
+\end{example}
+直接展开，有
+\begin{align*}
+	&(e^{0})_{a} \wedge (e^{1})_{b} \wedge (e^{2})_{c} \wedge (e^{3})_{d} 
+	\left[(e_\tau)^{b}\wedge(e_\kappa)^{c}\wedge(e_\sigma)^{d}\right] \\
+	=& \delta^{0123}_{\alpha\beta\mu\nu} 
+	(e^{\alpha})_{a} \otimes (e^{\beta})_{b} \otimes (e^{\mu})_{c} \otimes (e^{\nu})_{d} 
+	\left[\delta^{\zeta\xi\eta}_{\tau\kappa\sigma}  
+	(e_\zeta)^{b}\otimes(e_\xi)^{c}\otimes(e_\eta)^{d} \right] \\
+	=&\delta^{0123}_{\alpha\beta\mu\nu} \delta^{\zeta\xi\eta}_{\tau\kappa\sigma}
+	(e^{\alpha})_{a}  \delta^\beta_\zeta \delta^\mu_\xi \delta^\nu_\eta 
+	=\delta^{0123}_{\alpha\beta\mu\nu} \delta^{\beta\mu\nu}_{\tau\kappa\sigma}(e^{\alpha})_{a} .
+\end{align*}
+利用式\eqref{chmla:eqn_gkd-210}（$\delta_{j_1 \cdots j_q j_{q+1}\cdots j_m}^{i_1 \cdots i_q i_{q+1}\cdots i_m}
+\cdot \delta_{k_{q+1} \cdots k_m}^{j_{q+1} \cdots j_m}
+=(m-q)! \ \delta_{j_1 \cdots j_q k_{q+1}\cdots k_m}^{i_1 \cdots i_q i_{q+1}\cdots i_m} $），有
+\begin{align}
+	(e^{0})_{a} \wedge (e^{1})_{b} \wedge (e^{2})_{c} \wedge (e^{3})_{d} 
+	\left[(e_\tau)^{b}\wedge(e_\kappa)^{c}\wedge(e_\sigma)^{d}\right] 
+	=& 6 \, \delta^{0123}_{\alpha\tau\kappa\sigma} (e^{\alpha})_{a}  . 
+\end{align}
+其中$0\leqslant \tau,\kappa,\sigma \leqslant 3$．
+在广义相对论中会经常用到上式中的缩并．
+\qed
+
 
 
 
