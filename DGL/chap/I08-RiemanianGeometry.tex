@@ -783,7 +783,8 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 	= \frac{1}{2} \oversetmy{\bullet\circ}{R}_{\mu \nu \rho\sigma}  (e^\rho)_a \wedge (e^\sigma)_b
 	= \oversetmy{\bullet\circ}{R}_{\mu \nu \rho\sigma} (e^\rho)_a (e^\sigma)_b . \label{chrg:eqn_Cform-down}
 \end{align}
-式\eqref{chrg:eqn_1form-down}计算用到了式\eqref{chccr:def_1form}．同样，上式必须在引入度规之后才能定义．
+式\eqref{chrg:eqn_1form-down}计算用到了式\eqref{chccr:def_1form}．
+与之相似，可定义$(\oversetmy{\bullet\circ}{\omega} ^{\mu\nu})_{a}$、$(\oversetmy{\bullet\circ}{\Omega}^{\mu\nu} )_{ab}$（略）．
 
 
 
@@ -800,17 +801,22 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 	-g_{\mu\nu} \bigl( (e^j)_b (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\mu})_a \bigr) (e^\nu)_c
 	-g_{\mu\nu}(e^\mu)_b \bigl((e^j)_c (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\nu})_a \bigr) .
 \end{align*}  %%\setlength{\mathindent}{2em}
-上式应用了式\eqref{chccr:eqn_D-omega-form}
-（$\oversetmy{\circ}{\nabla}_a (e^\mu)_b
+上式应用了式\eqref{chccr:eqn_D-omega-form}（$\oversetmy{\circ}{\nabla}_a (e^\mu)_b
 =- (e^j)_b (\oversetmy{\circ}{\omega}_{\hphantom{\sigma} j}^{\mu})_a$）．
 消去基矢，得到度规在一般标架场下的相容性条件，
-即$\oversetmy{\circ}{\nabla}_a g_{bc}=0$的具体表达式
-\begin{equation}\label{chrg:eqn_Dg=0-onframes}
+即$\oversetmy{\circ}{\nabla}_a g_{bc}=0$的具体表达式（另一式子留给读者证明）：
+\begin{subequations}\label{chrg:eqn_Dg=0-onframes}
+	\begin{align}
 	{\rm d}_a g_{\mu\nu} 
-	= (\oversetmy{\circ}{\omega}_{\nu \mu})_a + (\oversetmy{\circ}{\omega}_{\mu \nu})_a
+	=& (\oversetmy{\circ}{\omega}_{\nu \mu})_a + (\oversetmy{\circ}{\omega}_{\mu \nu})_a
 	= \left(g_{\mu\sigma}\oversetmy{\circ}{\Gamma}^{\sigma}_{\nu\tau}
-	+ g_{\nu\sigma}\oversetmy{\circ}{\Gamma}^{\sigma}_{\mu\tau}\right) (e^\tau)_a .
-\end{equation}
+	+ g_{\nu\sigma}\oversetmy{\circ}{\Gamma}^{\sigma}_{\mu\tau}\right) (e^\tau)_a ,\\
+	-{\rm d}_a g^{\mu\nu} 
+	=& (\oversetmy{\circ}{\omega}^{\nu \mu})_a + (\oversetmy{\circ}{\omega}^{\mu \nu})_a
+	= \left(g^{\mu\sigma}\oversetmy{\circ}{\Gamma}^{\nu}_{\sigma\tau}
+	+ g^{\nu\sigma}\oversetmy{\circ}{\Gamma}^{\mu}_{\sigma\tau}\right) (e^\tau)_a .
+	\end{align}
+\end{subequations}
 
 
 \paragraph{仿射联络系数分解}
@@ -1953,10 +1959,15 @@ $-\delta_{k j_1 j_3 \cdots j_m}^{1 2 3\cdots m}g^{2 k}g^{1 j_1} \cdots g^{m j_m}
 接着再作变量替换$k \to j_2$，这样第二项便与第一项完全相同；这样的项共有$m!$个．）．
 由此便可得到$\Omega^2=(-)^s g$，其中$g\equiv \det(g_{ij})$（注$\det(g_{ij})$与$\det(g^{ij})$刚好
 互为倒数）；便可得常用\CJKunderwave{体积元}公式：
-\begin{equation}\label{chrg:eqn_volume-element}
-    \Omega_{a_1 \cdots a_m}= \pm \sqrt{(-)^s g}\, ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m},
-    \qquad g\equiv \det(g_{ij}).
-\end{equation}
+\begin{subequations}\label{chrg:eqn_volume-element}
+	\begin{align}
+    \Omega_{a_1 \cdots a_m}=& \pm \sqrt{(-)^s g}\, ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m}, \\
+    =& \pm \sqrt{(-)^s g}\, (e^1)_{a_1} \wedge \cdots \wedge(e^m)_{a_m}.
+    \end{align}
+\end{subequations}
+上式第一行采用的是自然切标架场$\{(\partial_i)^a,({\rm d}x^i)_a\}$，
+第二行采用的是更为一般的切标架场$\{(e_i)^a,(e^i)_a\}$；
+$g\equiv \det(g_{ij}) = \det (g(e_i,e_j))$，其基矢跟随切标架场变换．
 虽然是在局部坐标系下得到的表达式，但上式在坐标变换下是形式不变的，
 换句话说此式是定义在整个流形$M$上的；验证过程留给读者（即另选一个
 局部坐标系$\{y\}$进行坐标变换，$\sqrt{(-)^s g}$会产生一个Jacobi行列式；
@@ -2003,7 +2014,8 @@ $m$阶外积也会产生一个Jacobi行列式；两者刚好互逆，故形式�
 正负号的选取只是习惯，与正确与否无关；但必须前后一致．\qed
 
 
-以后，我们会经常遇到体积元间的缩并运算，下面给出\CJKunderwave{体积元缩并公式}：
+\paragraph{体积元间的缩并运算} 
+下面给出\CJKunderwave{体积元缩并公式}：
 \begin{equation}\label{chrg:eqn_VE-contract-VE}
     \boxed{
     \Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m}\Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m}
@@ -2072,7 +2084,23 @@ g^{\mu_{1} j_{1}}\cdots g^{\mu_{r} j_{r}}  g^{i_{r+1}j_{r+1}} \cdots g^{i_{m}j_{
 \end{align*}
 上式最后一个等号是式\eqref{chrg:eqn_VE-contract-VE}的分量形式．证毕． 
 
+\paragraph{体积元之逆} 利用上小节中的计算技巧，可以得到体积元的逆．
+\begin{align*}
+	\Omega^{a_1 \cdots a_m} \equiv & g^{a_1 b_1} \cdots g^{a_m b_m} \Omega_{b_1\cdots b_m}
+	=\sqrt{(-)^s g}\, (e^1)^{a_1} \wedge \cdots \wedge(e^m)^{a_m} \\
+%%	=&\sqrt{(-)^s g}\, \frac{1}{m!}\delta^{1\cdots m}_{i_1\cdots i_m} (e^{i_1})^{a_1} \wedge \cdots \wedge(e^{i_m})^{a_m}\\
+	=&\sqrt{(-)^s g}\, \frac{1}{m!} \delta^{1\cdots m}_{i_1\cdots i_m} 
+	g^{i_1 j_1}\cdots g^{i_m j_m} (e_{j_1})^{a_1} \wedge \cdots \wedge(e_{j_m})^{a_m} \\
+	=& \sqrt{(-)^s g} \frac{1}{m!} g^{-1} \delta_{1\cdots m}^{j_1\cdots j_m} 
+	(e_{j_1})^{a_1} \wedge \cdots \wedge(e_{j_m})^{a_m}.
+\end{align*}
+最终有
+\begin{equation}
+	\Omega^{a_1 \cdots a_m} = \frac{(-1)^s}{\sqrt{|g|}} (e_{1})^{a_1} \wedge \cdots \wedge(e_{m})^{a_m} .
+\end{equation}
 
+
+\paragraph{体积元导数}
 $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次外微分型式场．
 由于体元已是$m$维流形$M$中的最高次（$m$次）外微分型式场，故此空间是一维空间，
 必然有$\nabla_X\Omega_{a_1 \cdots a_m} = h\cdot \Omega_{a_1 \cdots a_m}$，其中$h\in C^\infty(M)$．
@@ -2781,6 +2809,8 @@ $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.
         {\rm d}_a (e_\mu)_b =&- (e^\sigma)_a \wedge (\omega_{\sigma \mu})_b  ; \label{chrg:eqn_CST-down-I} \\
         {\rm d}_a (\omega _{\mu\nu})_b  =& -(\omega _{\hphantom{\sigma} \nu} ^\sigma)_a \wedge (\omega_{\sigma \mu})_b
           + (\Omega_{\mu \nu})_{ab}  , \label{chrg:eqn_CST-down-II} \\
+        {\rm d}_a (\omega^{\mu\nu})_b = &  -(\omega^{\nu\sigma})_a\wedge (\omega_{\hphantom{\mu}\sigma}^\mu  )_b
+          + (\Omega^{\mu\nu})_{ab} , \label{chrg:eqn_CST-down-III} \\
         {\rm d}_a ( \omega _{\hphantom{\mu} \nu} ^\mu  )_b  =&  +( \omega _{\hphantom{\mu} \nu}^\sigma )_a
           \wedge ( \omega _{\hphantom{\mu} \sigma}^\mu )_b + (\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab} . 
              \tag{\ref{chccr:eqn_CST-II}}
@@ -2805,6 +2835,18 @@ $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.
 %     + (\omega_{\mu \sigma})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b
 %     + (\omega_{\cdot \nu}^\pi )_a  \wedge ( \omega _{\mu \pi})_b + (\Omega_{\mu \nu})_{ab} \\
 %    =& (\omega_{\sigma \mu})_a \wedge (\omega _{\cdot \nu} ^\sigma  )_b + (\Omega_{\mu \nu})_{ab}
+%\end{align*}
+%\begin{align*}
+%	{\rm d}_a (\omega^{\mu\nu})_b = &{\rm d}_a \bigl( g^{\nu\sigma}(\omega_{\hphantom{\mu}\sigma}^\mu  )_b \bigr)
+%	= \bigl( {\rm d}_a  g^{\nu\sigma}\bigr) \wedge (\omega_{\hphantom{\mu}\sigma}^\mu  )_b  
+%	+g^{\nu\sigma} {\rm d}_a (\omega_{\hphantom{\mu}\sigma}^\mu  )_b \\
+%	=& -\left[(\omega^{\nu\sigma})_a +(\omega^{\sigma\nu})_a\right]\wedge (\omega_{\hphantom{\mu}\sigma}^\mu  )_b  
+%	+g^{\nu\sigma}\left[ ( \omega _{\hphantom{\mu} \sigma}^\rho )_a
+%	\wedge ( \omega _{\hphantom{\mu} \rho}^\mu )_b + (\Omega_{\hphantom{\mu} \sigma} ^{\mu})_{ab} \right]\\
+%	=& -(\omega^{\nu\sigma})_a\wedge (\omega_{\hphantom{\mu}\sigma}^\mu  )_b  
+%	-(\omega^{\rho\nu})_a \wedge (\omega_{\hphantom{\mu}\rho}^\mu )_b  
+%	+( \omega^{\rho\nu} )_a	\wedge (\omega _{\hphantom{\mu} \rho}^\mu )_b + (\Omega^{\mu\nu})_{ab} \\
+%	=& -(\omega^{\nu\sigma})_a\wedge (\omega_{\hphantom{\mu}\sigma}^\mu  )_b  + (\Omega^{\mu\nu})_{ab}
 %\end{align*}
 
 \index[physwords]{黎曼曲率!型式!Bianchi恒等式}
