@@ -294,8 +294,8 @@ $m_i(\rho)$是$\rho$的完全分解中含有的与$\phi_i$等价的不可约表�
 
 \subsection{例：可对易李群}\label{chlar:sec_Abel-Lie}
 
-设$G$为一个可对易李群（可以非紧致），$\phi$是$G$的一个有限维不可约复表示．
-我们要证明如下定理：{\kaishu 可对易李群所有不可约复表示都是复$1$维的．}
+设$G$为一个可对易李群（紧致或非紧致），又设$\phi$是$G$的一个有限维不可约复表示；
+我们要证明如下定理：{\kaishu $G$的线性表示$\phi$一定是复$1$维的．}
 
 
 任意给定$G$中元素$g$，有
@@ -308,12 +308,12 @@ $m_i(\rho)$是$\rho$的完全分解中含有的与$\phi_i$等价的不可约表�
 则可知，存在一个复常数$\lambda\left(g\right)$，
 使得$\phi\left(g\right)=\lambda\left(g\right) \cdot I$，其中$I$是表示空间上的恒等变换．换句话说，
 \begin{equation*}
-	\phi(G)=\left\{\phi\left(g\right) ; g \in G\right\} \subset\{\lambda I ; \lambda \in \mathbb{C}\} .
+	\phi(G)=\left\{\phi\left(g\right) \mid g \in G\right\} \subset\{\lambda I \mid  \lambda \in \mathbb{C}\} .
 \end{equation*}
 
 
-另一方面，显然有：表示空间 $V$ 的任何子空间都是 $\{\lambda I ; \lambda \in \mathbb{C}\}$ 的不变子空间，
-当然也是它的一部分—— $\phi(G)=\left\{\phi\left(g\right) ; g \in G\right\}$——的不变子空间．
+另一方面，显然有：表示空间 $V$ 的任何子空间都是 $\{\lambda I \mid  \lambda \in \mathbb{C}\}$ 的不变子空间，
+当然也是它的一部分—— $\phi(G)=\left\{\phi\left(g\right) \mid  g \in G\right\}$——的不变子空间．
 但已假设$\phi$为复不可约的，所以$V$除了$\{0\}$和本身之外，不能再有其他的不变子空间了．
 这种情形只有一种可能，那就是${\rm dim} \phi={\rm dim}_{\mathbb{C}} V=1$．
 
@@ -321,7 +321,7 @@ $m_i(\rho)$是$\rho$的完全分解中含有的与$\phi_i$等价的不可约表�
 
 \index[physwords]{SO(2)群表示} \index[physwords]{U(1)群表示}
 \begin{example}\label{chlar:exam_U1}
-	紧致李群$U(1)\equiv SO(2)=\left\{\mathrm{e}^{\mathbbm{i} \theta} ; 
+	紧致李群$U(1)\equiv SO(2)=\left\{\mathrm{e}^{\mathbbm{i} \theta} \mid  
 	0 \leqslant \theta \leqslant 2 \pi\right\}$的不可约幺正表示．
 \end{example}
 $U(1)$的一维复表示$\phi$是$U(1)$到乘法群$(\mathbb{C}^*,\times)$（见例\ref{chlg:exam_complex}）的一个映射．
@@ -1141,9 +1141,8 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即
 由于$b=0$，故只有$m'-m+2p=0$的项才有贡献，否则为零．继续计算有
 \begin{align*}
     D^{j}_{m'm}(00\gamma) = 
-    \frac{(-)^{(m-m')/2}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}   } 
-    {\frac{m-m'}{2}!(j+m-\frac{m-m'}{2})! (j-m'-\frac{m-m'}{2})! (m'-m+\frac{m-m'}{2})!}
-    {e}^{-\mathbbm{i}(m+m') \gamma / 2} .
+    \frac{(-)^{(m-m')/2}  \sqrt{(j-m)! (j+m)! (j-m')! (j+m')!}  {e}^{-\mathbbm{i}(m+m') \gamma / 2} } 
+    {\frac{m-m'}{2}!(j+m-\frac{m-m'}{2})! (j-m'-\frac{m-m'}{2})! (m'-m+\frac{m-m'}{2})!}     .
 \end{align*}
 因已规定负数的阶乘是无穷大，故上式只有在$m=m'$时才不为零，所以有
 \begin{equation}\label{chlar:eqn_z-rep}
@@ -1298,7 +1297,7 @@ U=\frac{1}{\sqrt{2}}
 		-\mathbbm{i} & 0 & -\mathbbm{i} \\
 		0 & \sqrt{2} & 0 
 	\end{pmatrix}, 
-	\quad U^{-1} = U^\dagger.
+	\qquad U^{-1} = U^\dagger.
 \end{align}	
 我们将式\eqref{chlar:eqn_so3-J}中矩阵改记为$J_i^s$，则有
 \begin{align}
@@ -1331,10 +1330,10 @@ U=\frac{1}{\sqrt{2}}
 群$SO^{+}(p,q;\mathbb{R})$不是单连通的，它的双重通用覆盖群$Spin(p,q)$是单连通的．
 然而要完整描述$Spin(p,q)$群需要Clifford代数知识\cite{lawson-1990-spin}，这超出了本书范畴．
 
-用不那么确切的语言来说：
-承载$Spin(p,q)$群有限维不可约复表示的线性空间$S$被称为{\heiti 旋量空间}，
+用不那么确切的数学语言来说：$Spin(p,q)$群有一类特殊的表示，
+它们不是来自$SO^{+}(p,q)$的线性表示，而是真正属于自旋群的．
+承载这类特殊表示的空间$S$被称为{\heiti 旋量空间}，
 $S$中的元素被称为$Spin(p,q)$群的{\heiti 旋量}（Spinor）．
-
 
 
 一些低维的$Spin(p,q)$群有同构群，我们只讨论两个：
@@ -1346,9 +1345,9 @@ Lorentz群$SO^{+}(1,3)$的双重通用覆盖群是单连通的$Spin(1,3)\cong SL
 可以通过其它方式予以规避掉．
 
 在量子世界中，描述物理的是复数域$\mathbb{C}$；不论量子力学还是量子场论皆如此．
-量子物理中，描述粒子处于何种状态需用Hilbert空间的态矢量；而Hilbert空间本身
-是一种复数线性空间，所以量子物理从定义伊始就是复数，不是实数．描述物质
-运动的方程，比如薛定谔方程等，也无法避免地引入了虚数单位$\mathbbm{i}$．
+量子物理中，描述粒子处于何种状态需用复Hilbert空间的复态矢量（参见第\ref{chhs}章）；
+所以量子物理从定义伊始就是复数，不是实数．描述物质运动的方程，
+比如薛定谔方程等，也无法避免地引入了虚数单位$\mathbbm{i}$．
 
 在经典物理中，描述转动的是$SO(3)$群；在宏观物理中此群的表示完全够用．
 当我们把$SO(3)$群推广到量子物理时；
@@ -1362,7 +1361,7 @@ $SU(2)$群是$SO(3)$群的双重通用覆盖群，两个$SU(2)$群元同态于�
 根据\textcite[\S 2.7]{weinberg_vol1}文末的评述，
 我们引入一个人为约定：
 {\kaishu 在量子物理中描述转动的是$SU(2)$群，不再是$SO(3)$群．}
-有了这个约定就不用再引入数学上不存在“双值表示”了．
+有此约定就无需引入数学上不存在“双值表示”了．
 
 与此类似还可约定：{\kaishu 在量子物理中描述Lorentz变换的
     是$SL(2,\mathbb{C})$群，不再是$SO^{+}(1,3)$群．}
@@ -1927,15 +1926,8 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 {\bfseries (2)} 所有有限维不可约复表示都等价于旋量表示．
 {\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（见定理\ref{chlar:thm_IFU}）．
 
-\index[physwords]{左手旋量} \index[physwords]{右手旋量}
-\index[physwords]{旋量!左手} \index[physwords]{旋量!右手}
-\begin{definition}
-	设$D^{(j_1 j_2)}$是$SL(2,\mathbb{C})$群的表示，且$j_1>j_2$；
-	称${\rm Span}\{\boldsymbol{B}^{j_1}_{s_1} \overline{\boldsymbol{B}}^{j_2}_{s_2}\}$中的元素是{\heiti 左手旋量}，
-	与其对偶的空间${\rm Span}\{\boldsymbol{B}^{j_2}_{s_2} \overline{\boldsymbol{B}}^{j_1}_{s_1}\}$中的元素被称为{\heiti 右手旋量}．
-\end{definition}
 
-
+给出几个例子．
 当$j_1=0=j_2$时，表示是一维单位矩阵，即$D^{(00)}=(1)$．
 
 当$2j_1=1,\ 2j_2=0$及$2j_1=0,\ 2j_2=1$时，有
@@ -2202,7 +2194,11 @@ $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 可以看出上式中$J_l$前的参数（$\tfrac{1}{2}(\alpha_l+\beta_l)$）为实数，
 $K_l$前的参数（$\tfrac{\mathbbm{i}}{2} (\alpha_l-\beta_l)$）为纯虚数（或为〇）．
 虽然两个群（$SL(2,\mathbb{C})$、$SU(2)\times SU(2)$）的李代数是同构的，
-但由李代数生成群的方式有差异（对比式\eqref{chlar:eqn_SL2-exp}），这导致两个群不同构．
+但由于它们的全局拓扑结构根本不同（一个非紧、一个紧致），
+这导致我们在用指数映射从同一个李代数构造这两个群时，
+必须对生成元的参数施加不同的约束（对比式\eqref{chlar:eqn_SL2-exp}）；
+上述指数映射形式的差异是拓扑差异的数学反映．
+
 
 
 \begin{example}
@@ -2412,7 +2408,7 @@ $\bar{\kappa}^{\dot{A}} , \bar{\omega}^{\dot{A}} , \bar{\tau}^{\dot{A}} \in \mat
 有了式\eqref{chlar:eqn_akobc}中的加法、数乘定义，不难验证$\mathfrak{S}^{\dot{A}}$也是线性空间，
 并且它{\kaishu 反同构}于$\mathfrak{S}^{A}$；
 反同构是指式\eqref{chlar:eqn_akobc}中的复共轭．
-带点的空间$\mathfrak{S}^{\dot{A}}$也有其对偶空间$\mathfrak{S}_{\dot{A}}$．
+%%带点的空间$\mathfrak{S}^{\dot{A}}$也有其对偶空间$\mathfrak{S}_{\dot{A}}$．
 
 有了这些准备，我们开始构建$SL(2,\mathbb{C})$群的{\heiti 旋量系统}，将其
 记为$\chi^{A\cdots D \dot{P}\cdots \dot{R}}_{L\cdots N \dot{U}\cdots \dot{W}}$，
@@ -3035,7 +3031,7 @@ Poincar\'{e}代数不是半单的，故不能仿照式\eqref{chlg:eqn_Casimir}�
 {\bfseries (2)}这些态矢量是四动量算符$\hat{P}^\mu$的本征态．
 {\bfseries (3)}不同惯性系观者之间有一个变换（Poincar\'e变换），
 相应他们观测到的同一个单粒子态之间也会有一个变换（式\eqref{chlar:eqn_L-expMP}中的$\hat{U}(\Lambda,a)$）；
-这构成了一个Hilbert态矢空间上Poincar\'e群的不可约表示．
+这构成了一个Hilbert态矢空间上Poincar\'e群的不可约幺正表示．
 {\bfseries (4)}通过诱导表示法将Poincar\'e群表示化为{\kaishu 小群}（little group）的表示．
 {\bfseries (5)}通过小群对单粒子态进行分类．
 
@@ -3165,7 +3161,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 但这使得式\eqref{chlar:eqn_ULpPsks}中出现一个变换$\hat{U}\bigl(L^{-1}_{\Lambda p}\Lambda L_p\bigr)$，
 现在我们来分析它．其中$L^{-1}_{\Lambda p}\Lambda L_p$是作用到标准动量$k^\nu_s$上的，
 它先令$k^\nu_s$变到$p^\mu$，之后再变到$\Lambda p$，最后由Lorentz变换$L^{-1}_{\Lambda p}$将$\Lambda p$变回$k_s$，
-换句话说$L^{-1}_{\Lambda p}\Lambda L_p$保$k^\nu_s$不变，具体公式为
+即$L^{-1}_{\Lambda p}\Lambda L_p$保$k^\nu_s$不变：
 \begin{equation}
 	(L^{-1}_{\Lambda p})^\sigma_{\hphantom{\sigma}\rho} \Lambda^\rho_{\hphantom{\rho}\mu}
 	(L_p)^\mu_{\hphantom{\mu}\nu} k^\nu_s 
@@ -3240,7 +3236,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 \end{equation}
 也就是说，\CJKunderwave{有质量粒子正能态可依据粒子质量和自旋进行分类．}
 
-$SU(2)$群及其李代数的具体表示见\S\ref{chlar:sec_SU2SO3}．
+%%$SU(2)$群及其李代数的具体表示见\S\ref{chlar:sec_SU2SO3}．
 
 此处，我们不关心单粒子态的变换方式，具体可见\parencite[\S 2.5]{weinberg_vol1}．
 
@@ -3541,7 +3537,13 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 
 %%至少表面上更合理一些
 
-此处，我们不关心单粒子态的变换方式，具体可见\parencite[\S 2.5]{weinberg_vol1}．
+此处，我们不关心单粒子态的变换方式，具体可见\parencite[\S2.5]{weinberg_vol1}．
+
+
+\paragraph{自评} 我们的方法只是将Weinberg教材中的标准动量略作更改，
+整体架构完全相同，新的很有限．
+但可以当作温大师相应内容\cite[\S2.5]{weinberg_vol1}的有益补充．
+
 
 \subsection{量子场}
 

@@ -92,11 +92,6 @@ $k_1,\cdots,k_r$是数域$\mathbb{F}$中的数，
     \index[physwords]{线性相关}\index[physwords]{线性独立}\index[physwords]{线性无关|see{线性独立}}
 \end{definition}
 
-\begin{definition}
-	对于无限维空间$V$的任意子集$M$（无限维），若$M$的每一非空有限子集都是线性无关的，
-	则称$M$是线性无关的；否则，则称$M$是线性相关的．
-\end{definition}
-
 
 很多时候会把前缀“$\mathbb{F}$-”去掉；之后我们还会介绍$C^r(M)$-线性
 （见第\pageref{chdm:eqn_functimesv}页及\pageref{chdm:thm_Tensor-Characterization-Lemma}页），
@@ -105,6 +100,11 @@ $k_1,\cdots,k_r$是数域$\mathbb{F}$中的数，
 那么就称空间$V$是$\boldsymbol{n}${\heiti 维}的．如果$V$中可以找到任意多个线性独立的矢量，
 那么就称空间$V$是{\heiti 无限维}的．
 $n$维空间$V$中任意$n$个线性无关的矢量称为这个空间的{\heiti 基矢}或{\heiti 基底}．
+
+\begin{definition}
+	对于无限维空间$V$的任意子集$M$（无限维），若$M$的每一非空有限子集都是线性无关的，
+	则称$M$是线性无关的；否则，则称$M$是线性相关的．
+\end{definition}
 
 
 
@@ -728,7 +728,7 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
     \boldsymbol{\epsilon}^{*i}(\boldsymbol{\epsilon}_j) = \delta^i _j , \qquad
     \boldsymbol{\eta}^{*i}(\boldsymbol{\eta}_j) = \delta^i _j .
 \end{equation}
-则有如下定理：   \index[physowrds]{$A^{-T}$表示转置逆}
+则有如下定理：   \index[physwords]{$A^{-T}$表示转置逆}
 \begin{theorem}\label{chmla:thm_inv-cov-base}
     如果矢量空间$V$的两组基矢间的过渡矩阵是$A$，
     那么它的对偶空间$V^*$相应对偶基矢间的过渡矩阵是$(A^T)^{-1}$，
@@ -1261,8 +1261,8 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 \subsection{不定对称双线性函数}\label{chmla:sec_indefbif}
 本小节在实数域上讨论．
 非退化、对称、{\heiti 正定}双线性函数是指式\eqref{chmla:eqn_gmetric}中特征值没有$-1$和$0$，
-全部是$+1$；它有许多良好性质．
-若要求它是{\heiti 不定的}，即式\eqref{chmla:eqn_gmetric}中特征值包含$\pm 1$，则情形有些变化．
+全部是$+1$；它有许多良好性质．若要求它是{\heiti 不定的}，
+即式\eqref{chmla:eqn_gmetric}中特征值包含$+1$和$-1$，则情形有些变化．
 
 \begin{example}\label{chmla:exm_po}
     定义$g$为$g(v,w)=v_1 w_1 -v_2 w_2$，其中$v=(v_1,v_2), w=(w_1,w_2)$．

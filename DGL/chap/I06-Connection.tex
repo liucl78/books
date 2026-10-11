@@ -158,7 +158,7 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 \begin{equation}\label{chccr:eqn_deltaac}
 	\sum_i ({\rm d} x^i)_c \left(\frac{\partial }{\partial x^i}\right) ^b = \delta_c^b .
 \end{equation}
-关于此式的进一步解释可参见例题\ref{chccr:exam_soldering}．
+关于此式的进一步解释可参见例题\ref{chccr:exam_identity}．
 利用上式可以证明式\eqref{chccr:eqn_Christoffel2}的等价性；
 由式\eqref{chccr:eqn_Christoffel2}的第一式两边乘以$({\rm d} x^i)_c$，有
 \begin{equation}
@@ -1224,33 +1224,31 @@ Ricci曲率的局部坐标表达式：
 基矢场$(e_\mu)^{a}$和$(\tilde{e} _i)^a$可以是自然坐标基底，也可以是一般基底．
 
 
-\index[physwords]{Solder form}
 
-\begin{example}\label{chccr:exam_soldering}
-	联接型式（Soldering，或者 Solder form）特例．
+\begin{example}\label{chccr:exam_identity}
+	切丛上的恒等映射．
 \end{example}
-联接型式是纤维丛中的概念，在切丛$TM$上有一个特简单的例子；命
-\begin{equation}\label{chccr:eqn_soldering}
-	\delta^a_b \overset{def}{=} \sum\nolimits_{i=1}^{m} (e_i)^a (e^i)_b ;
-	\qquad \delta^a_b \ \text{即为}\ {\rm  Soldering } \ \text{中特例}.
+切丛上的恒等映射定义为：
+\begin{equation}\label{chccr:eqn_identity}
+	\delta^a_b \overset{def}{=} \sum\nolimits_{i=1}^{m} (e_i)^a (e^i)_b.
 \end{equation}
 对于任意切矢量$v^b=v^j (e_j)^b$或余切矢量$\omega_a=\omega_k (e^k)_a$，有
 \begin{align*}
 	\delta^a_b v^b = (e_i)^a (e^i)_b v^j (e_j)^b = (e_i)^a v^j \delta^i_j = (e_i)^a v^i = v^a;
 	\quad \text{类似有}\ \delta^a_b \omega_a = \omega_b.
 \end{align*}
-换句话说式\eqref{chccr:eqn_soldering}为切丛上的恒等映射；那么，有
+故式\eqref{chccr:eqn_identity}为切丛上的恒等映射；那么，有
 \begin{equation*}
 	\nabla_c v^a = \nabla_c (\delta^a_b v^b) 
 	\xlongequal[\text{法则}]{\text{Leibniz}}
 	\left(\nabla_c \delta^a_b\right) v^b + \delta^a_b \nabla_c v^b .
 \end{equation*}
 因$v^a$是任意切矢量场，故必然可以得到
-\begin{equation}\label{chccr:eqn_Dsoldering}
+\begin{equation}\label{chccr:eqn_Didentity}
 	\nabla_c \delta^a_b \equiv 0.
 \end{equation}
 目前，我们还没有引入度规；在引入度规后（\S \ref{chrg:sec_riemann}），会发现上面几式与度规相容．
-需要注意式\eqref{chccr:eqn_soldering}的定义无需度规；联络$\nabla_c$可以有挠、也可以无挠．
+需要注意式\eqref{chccr:eqn_identity}的定义无需度规；联络$\nabla_c$可以有挠、也可以无挠．
 \qed
 
 \index[physwords]{联络!型式}
@@ -1275,7 +1273,7 @@ Ricci曲率的局部坐标表达式：
     \label{chccr:eqn_concoef-b}
 \end{align}
 \end{subequations}
-上式推导中用到了式\eqref{chccr:eqn_soldering}、\eqref{chccr:eqn_Dsoldering}．
+上式推导中用到了式\eqref{chccr:eqn_identity}、\eqref{chccr:eqn_Didentity}．
 自然坐标系$\{x^i\}$基底下的无挠联络系数关于下标是对称的，
 即$\oversetmy{x}{\Gamma}^{k}_{ij}=\oversetmy{x}{\Gamma}^{k}_{ji}$．
 然而，一般基底场$(e_i)^a$的无挠联络系数$\Gamma^{k}_{ij}$通常不具有这种对称性；
@@ -1403,8 +1401,8 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
 	广义相对论中的四标架假设（tetrad postulate）．
 \end{example}
 
-先参见例题\ref{chccr:exam_soldering}．
-我们将联接型式变换一下，可以导出两个公式．
+先参见例题\ref{chccr:exam_identity}．
+我们将恒等映射变换一下，可以导出两个公式．
 \begin{align*}
 	0 =& \nabla_c \delta^a_b = \nabla_c \left((\partial_\alpha)^a C_{\hphantom{a} i}^{\alpha} (e^i)_b  \right) \\
 	%	=& \frac{\partial C_{\hphantom{a} i}^{\beta} }{\partial x^\sigma} (\partial_\beta)^a (e^i)_b ({\rm d}x^\sigma)_c
@@ -1685,7 +1683,7 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
 
 
 %\begin{exercise}
-%	先深入理解例题\ref{chccr:exam_soldering}（它与度规无关、与挠率无关），
+%	先深入理解例题\ref{chccr:exam_identity}（它与度规无关、与挠率无关），
 %	然后审视本章给出的仿射联络框架体系是否存在逻辑缺陷．
 %\end{exercise}
 
