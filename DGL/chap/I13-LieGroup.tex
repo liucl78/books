@@ -2839,8 +2839,8 @@ $SO(m,\mathbb{R})$、$SU(m,\mathbb{C})$等子群．
 作为$GL(m,\mathbb{C})$拓扑李子群的$SL(m,\mathbb{C})$，指数映射自然也适合于它．
 假设$\exp tA \in SL(m,\mathbb{C})$，那么
 必然有$\det e^{tA} =e^{t {\rm Tr}A} =1$；对此式求实数$t$的导数得，
-$({\rm Tr}A) e^{t {\rm Tr}A} =0$，令$t=0$则有${\rm Tr}A=0$；即零点的切矢量是全体${\rm Tr}A=0$的矩阵集合，
-将其记为
+$({\rm Tr}A) e^{t {\rm Tr}A} =0$，令$t=0$则有${\rm Tr}A=0$；
+即零点的切矢量是全体${\rm Tr}A=0$的矩阵集合，将其记为：
 \begin{equation}
     \mathfrak{sl}(m,\mathbb{C})= \left\{A\in\mathfrak{gl}(m,\mathbb{C})\ |\ {\rm Tr} A =0 \right\} .
 \end{equation}
@@ -3295,8 +3295,7 @@ $ \det A \cdot\det\eta\cdot \det A^T = \det \eta \ \Rightarrow \ \det A = \pm 1$
 满足上式的复矩阵称为{\heiti 酉矩阵}或{\heiti 幺正矩阵}．
 由式\eqref{chlg:eqn_gs-cx}得它的李代数是
 \begin{equation}
-    \mathfrak{u}(m)= \left\{ X \in 
-    \mathfrak{gl}(m,\mathbb{C})\ |\ X  + \bar{X}^T =0 \right\}.
+    \mathfrak{u}(m)= \left\{ X \in  \mathfrak{gl}(m,\mathbb{C}) \mid X  + \bar{X}^T =0 \right\}.
 \end{equation}
 通过上式可知$\mathfrak{u}(m)$的\CJKunderwave{实维数}是：$m^2$．
 故酉群的李代数是由反厄米复矩阵组成．
@@ -6123,7 +6122,8 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 
 \index[physwords]{李代数!复化}\index[physwords]{李代数!实形}
 
-\section{复化与实形}
+\section{复化与实形}\label{chlg:sec_lrc}
+
 我们已经定义过复李代数、实李代数，本节叙述它们两者的关系．
 
 在\S\ref{chcx:sec_cr}中，我们通过定义\ref{chcx:def_cxn}将实线性空间复化，
@@ -6133,7 +6133,7 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 作为线性空间，$\mathfrak{g}$复化后的空间记为$\mathfrak{g}^{\mathbb{C}}$；
 在$\mathfrak{g}^{\mathbb{C}}$中，定义李积关系为
 （下式中$1\leqslant i,j\leqslant m$，$a$、$b$、$c$、$d$为实数）：
-\begin{equation}
+\begin{equation}\label{chlg:eqn_rclc}
     \bigl[(a+\mathbbm{i}b) \boldsymbol{e}_i,\ (c+\mathbbm{i}d) \boldsymbol{e}_j \bigr] \overset{def}{=}
     (ac-bd)[\boldsymbol{e}_i,\, \boldsymbol{e}_j] + \mathbbm{i}(ad+bc)[\boldsymbol{e}_i,\, \boldsymbol{e}_j].
 \end{equation}

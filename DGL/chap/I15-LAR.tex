@@ -667,7 +667,8 @@ $\beta=\pi$、$\gamma=2\pi$与否）是无关紧要的．
 在上述参数表述中$S^3$的体积是$2\pi^2$．
 这也说明，用不同参数体系表示紧致李群积分时需要归一化，否则可能会得到不同积分值．
 积分式\eqref{chlar:eqn_Harr-S3-1}参数取值范围：对于$S^3$、$SU(2)$群见\eqref{chlar:eqn_S3-txyz}式，
-对于$SO(3)$群是：$0 \leqslant \psi \leqslant \pi/2$、$ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
+对于$SO(3)$群是：$0 \leqslant \psi \leqslant \pi/2$、
+$ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
 同理，包含积分边界与否不影响最终积分值．
 \qed
 
@@ -721,7 +722,8 @@ $SU(2)$群比$SL(2,\mathbb{C})$少一个幺正条件，故$SU(2)$是$SL(2,\mathb
 
 
 
-一般说来，通过上述方式得到的子群表示未必是不可约的；但这次很幸运，
+一般说来，通过上述方式得到的子群表示未必是不可约的；
+但这次很幸运{\footnote{本质原因是$\mathfrak{su}(2)$是$\mathfrak{sl}(2,\mathbb{C})$的实形式．省略详细讨论．}}，
 利用\S\ref{chlar:sec_lr}中的定理可以证明此表示为$SU(2)$群的全部不等价、不可约、有限维幺正表示．
 由于证明它是全部复表示过程需要用到空间完备性以及Peter--Weyl定理等较多数学知识，
 我们将略去这部分证明，具体可参阅\parencite[\S 6.6.4]{qiuws-2011}．
@@ -934,14 +936,14 @@ $SU(2)$群的偶表示有$D^j(u)=D^j(-u)$（$j$是整数）；
     A= x \, \mathbbm{i} \sigma_x + y \, \mathbbm{i} \sigma_y + z \, \mathbbm{i} \sigma_z 
      = -2 x s_x -2 y s_y -2 z s_z .
 \end{equation}
-最后一步已令$s_i=\sigma_i/2\mathbbm{i}$．$\{s_i\}$的李积关系（此处是矩阵相乘后再相减）是
+最后一步已令$s_i=\sigma_i/(2\mathbbm{i})$．$\{s_i\}$的李积关系（此处是矩阵相乘后再相减）是
 \begin{equation}\label{chlar:eqn_LA-su2}
     [s_x, s_y]=s_z, \qquad
     [s_y, s_z]=s_x, \qquad
     [s_z, s_x]=s_y .
 \end{equation}
 这样，全部二维无迹反厄米矩阵可由基矢量$\{s_i\}$生成，即$A={\rm Span}\{s_i\}$；
-连同对易关系\eqref{chlar:eqn_LA-su2}，$A={\rm Span}\{s_i\}$就是李代数$\mathfrak{su}(2)$．
+连同对易关系\eqref{chlar:eqn_LA-su2}，$A={\rm Span}_{\mathbb{R}}\{s_i\}$就是李代数$\mathfrak{su}(2)$．
 
 再求$SO(3)$群的李代数，由式\eqref{chlg:eqn_LA-om}可知它是
 全体三维反对称矩阵组成的集合．为了让它的几何意义更明显一些，我们通过单参数子群方式来求取．
@@ -1246,7 +1248,7 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即
     \end{pmatrix},\quad
     J_{-}=\begin{pmatrix}
         0 & 0 \\ 1 & 0
-    \end{pmatrix}.
+    \end{pmatrix}.  \label{chlar:eqn_su2-am}
 \end{align}
 由此易得
 \begin{align}
@@ -1675,7 +1677,7 @@ $\beta=0=\gamma$，有
 
 
 
-\subsection{$SL(2,\mathbb{C})$群旋量表示}\label{chlar:sec_sl2rep}
+\subsection{$SL(2,\mathbb{C})$群有限维复表示}\label{chlar:sec_sl2rep}
 
 %李群表示论中有一般性结论：非紧致李群的非平庸幺正表示都是无穷维的；紧致李群的幺正表示是有限维的．
 %因$SL(2,\mathbb{C})$是非紧致的，故非平庸有限维表示不是幺正的（参见定理\ref{chlar:thm_IFU}）；
@@ -1794,7 +1796,7 @@ $    \bar{\phi}^{\dot{0}} \equiv \bar{\phi}^0, \
 引入带点、不带点表示方式的学者是荷兰数学家B. L. Van der Waerden（1903-1996），
 他是最早将群论引入量子物理的知名学者之一．
 为使行文流畅一些，我们把高阶旋量的定义放到\S\ref{chlar:sec_hs}；
-但下面的表示要用到高阶旋量（就是旋量的张量积）
+但下面的表示要用到高阶旋量（就是旋量的张量积）：
 \begin{equation}\label{chlar:pall-p1mn}
     \Phi^{A_1 \cdots A_m \dot{B}_1 \cdots \dot{B}_n} = 
     \phi^{A_1} \cdots \phi^{A_m} \bar{\phi}^{\dot{B}_1} \cdots \bar{\phi}^{\dot{B}_n} , \quad 
@@ -1818,7 +1820,7 @@ $\dot{B}_1 \cdots \dot{B}_n$的独立指标有$n+1$个，故这个空间维数�
 用左手旋量来构造$SL(2,\mathbb{C})$群表示空间，
 但为了表示简洁（省去角标），我们将左手二分量旋量记为$(u,v)$．
 对于矩阵\eqref{chlar:eqn_SSL2C}（矩阵$S$），
-矩阵$S$右作用在$(u,v)$（其中$u$、$v$是复数）上的结果是
+矩阵$S$右作用在$(u,v)$（其中$u$、$v$是复数）上的结果是：
 \begin{equation}
     \begin{pmatrix} u'& v' \end{pmatrix} =
     \begin{pmatrix} u & v \end{pmatrix}
@@ -1922,8 +1924,8 @@ $    \overline{D}^{j_2}_{t s_2 }(\overline{S}) =  \overline{D^{j_2}_{t s_2 }(S)}
 依照\S\ref{chlar:sec_C2Q}约定，我们不采用双值表示这一术语．
 
 关于$SL(2,\mathbb{C})$群表示，可以证明（参见\parencite{carmeli-rl1976}附录A3，或类似文献）：
-{\bfseries (1)} 所有旋量表示\eqref{chlar:eqn_SL2-3rd}都是不可约的．
-{\bfseries (2)} 所有有限维不可约复表示都等价于旋量表示．
+{\bfseries (1)} 复表示\eqref{chlar:eqn_SL2-3rd}都是不可约的．
+{\bfseries (2)} 任意有限维不可约复表示都等价于表示\eqref{chlar:eqn_SL2-3rd}．
 {\bfseries (3)} 所有非平庸的有限维表示都不是幺正的（见定理\ref{chlar:thm_IFU}）．
 
 
@@ -2005,6 +2007,7 @@ Lorentz群还有三个单参数子群分别是沿$x$、$y$、$z$轴的伪转动�
 符号$J$、$K$是借用了Lorentz代数中的生成元的符号．
 
 对上两式求$\psi$的导数并令$\psi=0$，即可得到$\mathfrak{sl}(2,\mathbb{C})$代数及对易关系：
+\begin{subequations}\label{chlg:eqn_LA-sl2c}
 \begin{align}
     &r_1=-\frac{\mathbbm{i}}{2} \begin{pmatrix}  0 & 1  \\ 1 & 0  \end{pmatrix}, \quad 
      r_2=-\frac{\mathbbm{i}}{2} \begin{pmatrix}  0 & -\mathbbm{i} \\ \mathbbm{i} & 0 \end{pmatrix}, \quad
@@ -2018,6 +2021,7 @@ Lorentz群还有三个单参数子群分别是沿$x$、$y$、$z$轴的伪转动�
     [b_i, r_j] = \sum_k \epsilon_{ijk} b_k,\quad
     [b_i, b_j] = -\sum_k \epsilon_{ijk} r_k. \label{chlg:eqn_LA-sl2-comm}
 \end{align}
+\end{subequations}
 其中$i,j,k=1,2,3$；$\epsilon_{ijk}=\delta^{123}_{ijk}$，定义见式\eqref{chmla:eqn_gkd}．
 式\eqref{chlg:eqn_LA-sl2-r}、\eqref{chlg:eqn_LA-sl2-b}连同
 对易关系\eqref{chlg:eqn_LA-sl2-comm}构成了$\mathfrak{sl}(2,\mathbb{C})$代数；
@@ -2035,6 +2039,86 @@ $\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag
 %Casimir算子：$C_2=\frac{1}{4}\left(
 %\begin{smallmatrix}    1 & 0 \\    0 & 1\end{smallmatrix}\right)$．\qed
 
+
+
+
+\subsection{$\left(\mathfrak{su}(2)\right)^{\mathbb{C}} \cong \mathfrak{sl}(2,\mathbb{C}) $} \label{chlar:sec_sucsl}
+
+本小节给出$\mathfrak{su}(2)$复化为$\mathfrak{sl}(2, \mathbb{C})$的具体过程；
+这个过程展示了如何通过扩展李代数基域，将一个实李代数提升为复李代数．
+需先参阅\S\ref{chcx:sec_cr}、\S\ref{chlg:sec_lrc}．
+
+我们已知：
+\begin{align}
+	\mathfrak{su}(m) =& \left\{X\in\mathfrak{gl}(m,\mathbb{C}) \mid X+\bar{X}^T=0
+	\ \text{且} \  {\rm Tr} X =0 \right\} ,\\
+	\mathfrak{sl}(m,\mathbb{C})=& \left\{X \in\mathfrak{gl}(m,\mathbb{C})\ |\ {\rm Tr} X =0 \right\} .
+\end{align}
+虽然$\mathfrak{su}(2)$的基矢矩阵可以包含复数，
+但是$\mathfrak{su}(2)$不能看作复数域$\mathbb{C}$上的李代数，
+它是一个定义在{\kaishu 实数域$\mathbb{R}$}上的李代数．
+以下是具体原因．
+
+如果我们尝试将$\mathfrak{su}(2)$视为复线性空间，
+那么它必须对乘以虚数单位$\mathbbm{i}$封闭．
+然而，对于任意 $X \in \mathfrak{su}(2)$，
+有$(\mathbbm{i} X)^\dagger = -\mathbbm{i} X^\dagger = -\mathbbm{i}(-X) = \mathbbm{i} X $．
+这意味着$\mathbbm{i} X$是{\kaishu 厄米}矩阵，而不是{\kaishu 反厄米}矩阵；
+故$\mathbbm{i} X \notin \mathfrak{su}(2)$．
+
+
+
+下面，我们给出具体的复化过程．
+
+$\mathfrak{su}(2)$ 由反厄米、无迹的 $2\times 2$ 矩阵组成．
+我们选取一组基底：$e_k = \sigma_k /(2 \mathbbm{i})$；
+其中$\sigma_k $是Pauli矩阵．很明显$e_k$是反厄米的．
+计算它们的李括号：
+$[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
+这正是$\mathfrak{su}(2)$的对易关系．
+
+我们构造以下三个元素：
+\begin{subequations}\label{chlar:eqn_lac-sl2c}
+\begin{align}
+	H =& 2\mathbbm{i} e_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\\
+	X =& \mathbbm{i}e_1 - e_2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \\
+	Y =& \mathbbm{i}e_1 + e_2 = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} .
+\end{align}
+\end{subequations}
+因为允许复系数，故$H$、$X$、$Y$都是$\left(\mathfrak{su}(2)\right)^{\mathbb{C}}$中的合法元素．
+对易关系为：
+\begin{equation}\label{chlar:eqn_sl2c-comm}
+	[H, X] = 2X, \quad [H, Y] = -2Y, \quad [X, Y] = H .
+\end{equation}
+请读者验证上述对易关系满足式\eqref{chlg:eqn_rclc}．
+
+
+不难验证：
+{\bfseries(1)}式\eqref{chlar:eqn_lac-sl2c}给出的$H$、$X$、$Y$在复数域上线性无关；
+{\bfseries(2)}它们都是零迹的；
+{\bfseries(3)}任何零迹复二维矩阵都可以由它们的线性组合给出；
+{\bfseries(4)}已知$\mathfrak{sl}(2, \mathbb{C})$是复数域上的三维线性空间．
+故$H$、$X$、$Y$及对易关系\eqref{chlar:eqn_sl2c-comm}可当作$\mathfrak{sl}(2, \mathbb{C})$的基底，
+一般称它们为Chevalley基．
+这正是$\mathfrak{sl}(2, \mathbb{C})$的标准结构关系．
+式\eqref{chlar:eqn_lac-sl2c}为复数域上$\mathfrak{sl}(2, \mathbb{C})$的对易关系；
+式\eqref{chlg:eqn_LA-sl2c}为实数域上$\mathfrak{sl}(2, \mathbb{C})$的对易关系；
+请读者验证，两者可以相互导出．
+
+很明显，式\eqref{chlar:eqn_lac-sl2c}中给出的由$\{e_1,e_2,e_3\}$到$\{H,X,Y\}$的映射是线性的，
+其系数属于复数域；并且此映射有线性逆映射，故它是双射；记之为$\Phi$．
+因此$\Phi$是{\kaishu 复线性的李代数同构映射}，
+即：$\mathfrak{su}(2) \otimes_{\mathbb{R}} \mathbb{C} 
+= \left(\mathfrak{su}(2)\right)^{\mathbb{C}} \cong \mathfrak{sl}(2, \mathbb{C})$．
+
+
+注：量子力学中角动量算符 $J_k = \frac{\hbar}{2}\sigma_k$ 是厄米的，
+不在$\mathfrak{su}(2)$（反厄米）中，
+而在$\mathbbm{i}\mathfrak{su}(2)$（厄米）中．
+升降算符 $J_\pm = J_1 \pm iJ_2$ 本质上就是复化操作，
+对应上面的 $X$、$Y$（参见式\eqref{chlar:eqn_su2-am}）． 
+虽然角动量算符也属于$\mathfrak{sl}(2, \mathbb{C})$，但不够精确；
+原因是$\mathfrak{sl}(2, \mathbb{C})$中包含了太多的非厄米矩阵，对于量子力学来说它太大了．
 
 
 \subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
