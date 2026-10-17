@@ -2054,17 +2054,16 @@ $\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag
 	\ \text{且} \  {\rm Tr} X =0 \right\} ,\\
 	\mathfrak{sl}(m,\mathbb{C})=& \left\{X \in\mathfrak{gl}(m,\mathbb{C})\ |\ {\rm Tr} X =0 \right\} .
 \end{align}
-虽然$\mathfrak{su}(2)$的基矢矩阵可以包含复数，
-但是$\mathfrak{su}(2)$不能看作复数域$\mathbb{C}$上的李代数，
-它是一个定义在{\kaishu 实数域$\mathbb{R}$}上的李代数．
-以下是具体原因．
-
-如果我们尝试将$\mathfrak{su}(2)$视为复线性空间，
+虽然$\mathfrak{su}(m)$的基矢矩阵可以包含复数，
+但是$\mathfrak{su}(m)$不能看作复数域$\mathbb{C}$上的李代数，
+它是一个定义在{\kaishu 实数域$\mathbb{R}$}上的李代数．具体原因如下．
+如果我们尝试将$\mathfrak{u}(m)$（包含$\mathfrak{su}(m)$）视为复线性空间，
 那么它必须对乘以虚数单位$\mathbbm{i}$封闭．
-然而，对于任意 $X \in \mathfrak{su}(2)$，
+然而，对于任意 $X \in \mathfrak{u}(m)$，
 有$(\mathbbm{i} X)^\dagger = -\mathbbm{i} X^\dagger = -\mathbbm{i}(-X) = \mathbbm{i} X $．
 这意味着$\mathbbm{i} X$是{\kaishu 厄米}矩阵，而不是{\kaishu 反厄米}矩阵；
-故$\mathbbm{i} X \notin \mathfrak{su}(2)$．
+故$\mathbbm{i} X \notin \mathfrak{u}(m)$．
+所以$\mathfrak{u}(m)$只能是实李代数．
 
 
 
@@ -2077,7 +2076,10 @@ $\mathfrak{su}(2)$ 由反厄米、无迹的 $2\times 2$ 矩阵组成．
 $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 这正是$\mathfrak{su}(2)$的对易关系．
 
-我们构造以下三个元素：
+从\S\ref{chcx:sec_cr}内容可知，我们只需要将基域由实数域变为复数域，
+就可以得到复化的线性空间$\left(\mathfrak{su}(2)\right)^{\mathbb{C}}$．
+为了更好的与李代数$\mathfrak{sl}(2, \mathbb{C})$比较，
+我们通过如下非退化线性变换构造三个新的元素：
 \begin{subequations}\label{chlar:eqn_lac-sl2c}
 \begin{align}
 	H =& 2\mathbbm{i} e_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} ,\\
@@ -2091,6 +2093,9 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 	[H, X] = 2X, \quad [H, Y] = -2Y, \quad [X, Y] = H .
 \end{equation}
 请读者验证上述对易关系满足式\eqref{chlg:eqn_rclc}．
+由$H$、$X$、$Y$在复数域上张成的空间${\rm Span}_{\mathbb{C}}\{H,X,Y\}$，
+结合对易关系\eqref{chlar:eqn_sl2c-comm}，
+就得到了复化的李代数$\left(\mathfrak{su}(2)\right)^{\mathbb{C}}$．
 
 
 不难验证：
@@ -2111,14 +2116,24 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 即：$\mathfrak{su}(2) \otimes_{\mathbb{R}} \mathbb{C} 
 = \left(\mathfrak{su}(2)\right)^{\mathbb{C}} \cong \mathfrak{sl}(2, \mathbb{C})$．
 
-
-注：量子力学中角动量算符 $J_k = \frac{\hbar}{2}\sigma_k$ 是厄米的，
+\begin{remark}
+量子力学中角动量算符 $J_k = \frac{\hbar}{2}\sigma_k$ 是厄米的，
 不在$\mathfrak{su}(2)$（反厄米）中，
 而在$\mathbbm{i}\mathfrak{su}(2)$（厄米）中．
 升降算符 $J_\pm = J_1 \pm iJ_2$ 本质上就是复化操作，
 对应上面的 $X$、$Y$（参见式\eqref{chlar:eqn_su2-am}）． 
 虽然角动量算符也属于$\mathfrak{sl}(2, \mathbb{C})$，但不够精确；
 原因是$\mathfrak{sl}(2, \mathbb{C})$中包含了太多的非厄米矩阵，对于量子力学来说它太大了．
+\end{remark}
+
+\begin{remark}\label{chlar:rek_rc}
+	复化：无论从基$\{e_1,e_2,e_3\}$出发，
+	还是从基$\{H,X,Y\}$出发，只要组合系数为复数，那么我们就得到$\mathfrak{sl}(2, \mathbb{C})$李代数．
+	反之，若从$\mathfrak{sl}(2, \mathbb{C})$李代数得到实形式，
+	不同的基将给出不同的实形式；基$\{e_1,e_2,e_3\}$给出紧致实李代数$\mathfrak{su}(2)$，
+	基$\{H,X,Y\}$给出非紧致实李代数$\mathfrak{sl}(2, \mathbb{R})$．
+	这回应了\S\ref{chcx:sec_cr}末尾的阐述．
+\end{remark}
 
 
 \subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
