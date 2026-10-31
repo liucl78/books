@@ -80,7 +80,7 @@ Schur引理可以推广至表示方阵为无穷维的情形，但证明超出了
 	
 	若不可约表示 $A$ 和 $B$ 不等价，即不存在非奇异方阵$X$使得$B(g)=X A(g) X^{-1}$；
 	而定理前提中有$B(g) M=M A(g)$；那么必有 $M \equiv 0$．
-	这时 $V_A$ 和 $V_B$ 的维数 $S_A$ 和 $S_B$ 不一定相同，$M$是$S_A \times S_B$维矩阵．
+	这时 $V_A$ 和 $V_B$ 的维数 $S_A$ 和 $S_B$ 不一定相同，$M$是$S_B \times S_A$维矩阵．
 \end{proof}
 
 \begin{theorem}\label{chlar:thm_schur-lemma-2}
@@ -576,7 +576,7 @@ $E^4$中的三维球面$S^3$不容易想像，我们借用如下坐标变换简�
 
 
 
-$S^3$和$SU(2)$间的群同构可表示成如下形式：
+$S^3$和$SU(2)$间的微分同胚可表示成如下形式：
 \begin{align}
 	&S^3 \ni  t\mathbbm{1} + x\mathbbm{i} + y\mathbbm{j} + z\mathbbm{k} \ \cong \
 	\begin{pmatrix}
@@ -636,8 +636,8 @@ $\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、
 	+ \frac{1}{4}\cos\beta \, {\rm d} \alpha {\rm d} \gamma + \frac{1}{4}\cos\beta \, 
 	{\rm d} \gamma {\rm d} \alpha  .  \label{chlar:eqn_S3-metric}
 \end{align}
-通过计算上式的度规行列式，可以得到$S^3$（也就是$SU(2)$）的Harr测度是
-\begin{equation}\label{chlar:eqn_Harr-S3-Euler}
+通过计算上式的度规行列式，可以得到$S^3$（也就是$SU(2)$）的Haar测度是
+\begin{equation}\label{chlar:eqn_Haar-S3-Euler}
 	\Omega_{S^3} =\Omega_{SU(2)} = \frac{1}{2}\Omega_{SO(3)}
 	= \frac{1}{16 \pi^2} \sin\beta \  {\rm d} \alpha \wedge {\rm d} \beta \wedge  {\rm d} \gamma .
 \end{equation}%\setlength{\mathindent}{2em}
@@ -659,14 +659,14 @@ $\beta=\pi$、$\gamma=2\pi$与否）是无关紧要的．
 	\right)\right|_{t^2+x^2+y^2+z^2=1}   \\
 	=& ({\rm d} \psi)^2 + (\sin \psi {\rm d} \theta)^2  + (\sin\psi\sin\theta {\rm d} \phi)^2 .
 \end{align*}
-由上式容易看出$S^3$（也就是$SU(2)$）的Harr测度是
-\begin{equation}\label{chlar:eqn_Harr-S3-1}
+由上式容易看出$S^3$（也就是$SU(2)$）的Haar测度是
+\begin{equation}\label{chlar:eqn_Haar-S3-1}
 	\Omega_{S^3} =\Omega_{SU(2)} = \frac{1}{2}\Omega_{SO(3)}
 	= \frac{1}{2\pi^2} \sin^2\psi \sin\theta \  {\rm d} \psi\wedge {\rm d} \theta \wedge  {\rm d} \phi .
 \end{equation}
 在上述参数表述中$S^3$的体积是$2\pi^2$．
 这也说明，用不同参数体系表示紧致李群积分时需要归一化，否则可能会得到不同积分值．
-积分式\eqref{chlar:eqn_Harr-S3-1}参数取值范围：对于$S^3$、$SU(2)$群见\eqref{chlar:eqn_S3-txyz}式，
+积分式\eqref{chlar:eqn_Haar-S3-1}参数取值范围：对于$S^3$、$SU(2)$群见\eqref{chlar:eqn_S3-txyz}式，
 对于$SO(3)$群是：$0 \leqslant \psi \leqslant \pi/2$、
 $ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
 同理，包含积分边界与否不影响最终积分值．
@@ -857,7 +857,7 @@ ${\rm diag}\{e^{\mathbbm{i}\alpha_1},e^{\mathbbm{i}\alpha_2}\}$．
 	\xlongequal[\psi\, \text{的偶函数}]{\text{特征函数为}}
 	\chi^j\bigl( H(-\psi) \bigr) .
 \end{equation}
-由$SU(2)$的Harr测度\eqref{chlar:eqn_Harr-S3-1}可得（需令式\eqref{chlar:eqn_SU2-chi}中的$\alpha=2\psi$）
+由$SU(2)$的Haar测度\eqref{chlar:eqn_Haar-S3-1}可得（需令式\eqref{chlar:eqn_SU2-chi}中的$\alpha=2\psi$）
 \begin{align*}
 	\int_{g} \overline{\chi^j(g)}\chi^j(g) \Omega_{SU(2)} =&\frac{1}{2\pi^2}
 	\int_{g} \overline{\chi^j\bigl( H(\psi) \bigr)}\chi^j\bigl( H(\psi) \bigr) 
@@ -1746,7 +1746,7 @@ $a^1_{\hphantom{0} 0}=c$、$a^1_{\hphantom{0} 1}=d$；这是一种通用的记�
     \left[S \begin{pmatrix} \xi \\\zeta \end{pmatrix}\right]
     =\left(o'^A,\ \iota'^A\right) \begin{pmatrix} \xi' \\\zeta' \end{pmatrix} .
 \end{equation}
-这其实就是矢量的分量定义方式，见式\eqref{chmla:def_tensor-by-compoents}；
+这其实就是矢量的分量定义方式，见式\eqref{chmla:eqn_tensor-by-compoents}；
 故我们把二分量旋量称为遵循$SL(2,\mathbb{C})$变换的二维复矢量．
 而$SL(2,\mathbb{C})$变换可以看成复Lorentz变换（参见式\eqref{chlar:eqn_LT}），
 故二分量旋量也就是四维Lorentz实矢量；它俩就是一回事儿．
@@ -2527,7 +2527,7 @@ $\mathfrak{S}^{\dot{A}}$、$\mathfrak{S}_{\dot{A}}$分别是
 $\left[\begin{smallmatrix} 0&1 \\ 0&0 \end{smallmatrix}\right]$、
 $\left[\begin{smallmatrix} 0&0 \\ 0&1 \end{smallmatrix}\right]$型带点旋量；简称为一阶旋量．
 为了更好地理解旋量定义，我们用分量语言再叙述一遍，
-其实就是重复式\eqref{chmla:def_tensor-by-compoents}的表述．
+其实就是重复式\eqref{chmla:eqn_tensor-by-compoents}的表述．
 \begin{align}
     \tilde{\chi}^{A'\cdots D' \dot{P}'\cdots \dot{R}'}_{\hphantom{A'\cdots D' \dot{P}'\cdots \dot{R}'}L'\cdots N' \dot{U}'\cdots \dot{W}'}
     =&\chi^{A\cdots D \dot{P}\cdots \dot{R}}_{\hphantom{A\cdots D \dot{P}\cdots \dot{R}}L\cdots N \dot{U}\cdots \dot{W}} 
@@ -3640,8 +3640,8 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 
 
 \paragraph{自评} 我们的方法只是将Weinberg教材中的标准动量略作更改，
-整体架构完全相同，新的很有限．
-但可以当作温大师相应内容\cite[\S2.5]{weinberg_vol1}的有益补充．
+整体架构与温大师书完全相同，乏善可陈．
+但可以当作该节\cite[\S2.5]{weinberg_vol1}的有益补充．
 
 
 \subsection{量子场}

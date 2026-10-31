@@ -80,7 +80,7 @@
 \end{example}
 
 \begin{example}
-	$\mathbb{Z}_{2}\equiv \{+1,-1\}$，规定群乘法为整数乘法．  \index[physwords]{Z${}_2$}
+	$\mathbb{Z}_{2}\equiv \{+1,-1\}$，规定群乘法为整数乘法，它对该乘法构成群．  \index[physwords]{Z${}_2$}
 \end{example}
 
 \begin{example}
@@ -108,7 +108,7 @@
 \end{definition}
 
 \begin{definition}
-    设$H$为$G$的{子群}，由固定的$g\in G$且$g\notin H$可生成子群$H$的{\heiti 左陪集}：
+    设$H$为$G$的{子群}，由固定的$g\in G$可生成子群$H$的{\heiti 左陪集}：
     $g H = \{g h \mid \forall  h \in H \}$；
     同样可生成子群$H$的{\heiti 右陪集}：$ Hg = \{ h g  \mid \forall  h \in H \}$．
 \end{definition}
@@ -155,7 +155,7 @@
     则有从$G/{\rm ker}f$到$K$上的同构映射$\bar{f}$使得$f=\bar{f}\circ \pi$．
     {\bfseries (3)} 若另有$G$的不变子群$N$，并且${\rm ker}f\subset N$，
     则$G/N \cong K/f(N)$（同构）．
-    {\bfseries (4)}  继(3)中记号；$\pi'$是从$G$到$G/N$的自然同构，
+    {\bfseries (4)}  继(3)中记号；$\pi'$是从$G$到$G/N$的自然同态，
     另有$G$的不变子群$H$，并且$H\subset N$；
     则将(3)中的$K$换成$G/H$，$f$换成$\pi'$，有$G/N \cong (G/H)/(N/H)$（同构）．
 \end{theorem}
@@ -177,8 +177,8 @@
 
 \begin{definition}\label{chtop:def_group_representation}
     如果存在从群$G$到一般线性群$GL(n,V)$的同态映射$\phi:G\to GL(V)$，
-    则称$(\phi,V)$为群$G$的一个$n$维{\heiti 线性表示}，
-    简称{\heiti 表示}． 如果$\phi$是同构映射，则称为{\heiti  忠实表示}．
+    则称$(\phi,V)$为群$G$的一个$n$维{\heiti 线性表示}，简称{\heiti 表示}． 
+    如果$\phi$是单同态（${\rm ker} \phi={e}$），则称为{\heiti  忠实表示}．
     非空的$V$是表示空间，其维数称为表示的{\heiti 维数}．
 \end{definition}
     \index[physwords]{群!群表示}
@@ -231,7 +231,7 @@
     \end{smallmatrix} )$
     其中$1, 2, \cdots, n$表示物体所在原来的抽屉，
     $a_1, a_2, \cdots, a_n $表示物体所在新的抽屉编号，且$\{a_i\}$两两不等．
-    这些操作的集合构成$n$阶{\kaishu 置换群}$S_n$．
+    这些操作的集合构成$n$元{\kaishu 置换群}$S_n$．
     下面以三个客体$A,B,C$为例来说明这个操作该过程．
     \begin{equation*}
         \young(ABC) \xrightarrow{\left(\begin{smallmatrix}
@@ -296,7 +296,6 @@ $e a = a e  =a, \ \forall a \in R $；
 两者都可简称为{\heiti 零因子}．元素0也可称为（平凡）零因子．
 任何两个非零元素之积不为零的环称为{\heiti 无零因子环}．
 
-有单位元（且$1\neq 0$）的无零因子环称为{\heiti 整环}（domain）；注意不是整数环．
 
 \begin{example}
     一切数域都是环；且是有幺元的交换环．
@@ -318,9 +317,9 @@ $e a = a e  =a, \ \forall a \in R $；
 此处想声明的是：所有\CJKunderwave{数域}特征为{\kaishu 零}．
 （比如可参阅\parencite[\S 3.1]{mengdj-cxds-1}中叙述，或查阅类似文献）
 
-
-设$f(x)$是非常值一元多项式，其系数属于域$\mathbb{F}$；若$f(x)$在$\mathbb{F}$中至少有一个根，
-则域$\mathbb{F}$称为{\heiti 代数闭域}．容易验证复数域是代数闭的．
+若$\mathbb{F}$上每一个非常值一元多项式在$\mathbb{F}$中都有根（即全部根都属于$\mathbb{F}$），
+则域$\mathbb{F}$称为{\heiti 代数闭域}．
+由代数基本定理，可知复数域是代数闭的．
 多项式$f(x)=x^2+1$在实数域没有根，故实数域不是代数闭的．
 
 \index[physwords]{代数闭域}
@@ -551,7 +550,7 @@ $e a = a e  =a, \ \forall a \in R $；
 
 
 \index[physwords]{邻域}
-\begin{definition}\label{chtop:eqn_neighbor}
+\begin{definition}\label{chtop:def_neighbor}
     设$(X,\mathscr{T})$为拓扑空间，$\forall x\in N \subset X$，
     如果存在开集$U\in \mathscr{T}$使得$x\in U \subset N $，
     则称$N$为$x$的{\heiti 邻域}．如果$N$本身是开集，则称为{\heiti 开邻域}．
@@ -564,7 +563,7 @@ $e a = a e  =a, \ \forall a \in R $；
 若$A$是拓扑空间$X$的一个子集，$x$是$X$的一个点，
 如果$x$的任意一个邻域与$A$的交含有异于$x$的点，
 我们称$x$为$A$的一个{\heiti 极限点}（或{\heiti 聚点}）．
-$X$所有极限点的集合与$X$的并集称为它的{\heiti 闭包}，记作$\bar{X}$．
+$A$所有极限点的集合与$A$的并集称为它的{\heiti 闭包}，记作$\bar{A}$．
 \end{definition}
 注意：如果$x$属于$A-\{x\}$的闭包，则$x$便是$A$的一个极限点．
 这个点$x$可以在$A$中，也可以不在$A$中，在此定义中$x$是否在$A$中是无关紧要的．
@@ -590,7 +589,7 @@ $X$所有极限点的集合与$X$的并集称为它的{\heiti 闭包}，记作$\
 \index[physwords]{可数的}  
 \begin{definition}
 	一个拥有无限多个元素的集合$A$，如果其中元素和正整数集合有双射关系，
-	则称$A$是{\heiti 可数的}（countable）；否则称为{\heiti 不可数}．
+	则称$A$是{\heiti 无穷可数的}（countable）；否则称为{\heiti 不可数}．
 \end{definition}
 有限集合自然可以和正整数集合的某个子集建立双射关系，故必然可数．
 
@@ -632,8 +631,8 @@ $X$所有极限点的集合与$X$的并集称为它的{\heiti 闭包}，记作$\
 
 定义\ref{chtop:def_metric}中的度量是集合$X$上的度量．
 之后，我们还会在线性空间、黎曼流形上引入度量概念；
-若它们是正定的（比如欧式度量，黎曼度量），则符合定义\ref{chtop:def_metric}；
-若它们是不定的（比如Lorentz度量），则不符合定义\ref{chtop:def_metric}中的第(3)条．
+若它们是正定的（比如欧式、黎曼度量），则符合定义\ref{chtop:def_metric}；
+若它们是不定的（比如Lorentz度量），则不符合定义\ref{chtop:def_metric}中的第(1)、(3)条．
 
 
 
@@ -671,9 +670,9 @@ $B_{d}(x,\varepsilon)$称为{\heiti 以$x$为中心的$\varepsilon$-球}．
 \begin{subequations}\label{chtop:eqn_Rdbc-cx}
 	\begin{align}
 		d_b(\boldsymbol{x}, \boldsymbol{y})=& 
-		\sqrt{|x^1-y^1|^2+\cdots +|x^m-y^m|^2}, \label{chhs:eqn_Rdb} \\
+		\sqrt{|x^1-y^1|^2+\cdots +|x^m-y^m|^2}, \label{chtop:eqn_Rdbhs} \\
 		d_c(\boldsymbol{x}, \boldsymbol{y})=& 
-		\max\{|x^1-y^1|,\cdots,|x^m-y^m| \}. \label{chhs:eqn_Rdc}
+		\max\{|x^1-y^1|,\cdots,|x^m-y^m| \}. \label{chtop:eqn_Rdchs}
 	\end{align}
 \end{subequations}
 当$m=1$时，$|x-y|$就是两个复数$x$、$y$之差的模长． \qed
@@ -736,7 +735,7 @@ $B_{d}(x,\varepsilon)$称为{\heiti 以$x$为中心的$\varepsilon$-球}．
 实数轴$\mathbb{R}$中的开区间$(a,b)$是{\kaishu 标准开集}；
 闭区间$[a,b]$和半开半闭区间$[a,b)$、$(a,b]$和单点集都不是标准开集．推而广之，
 以$x$为中心的$\varepsilon$-球\eqref{chtop:eqn_eball}是$\mathbb{R}^m$中的{\kaishu 标准开集}．
-很明显，开球$B_{d}(x,\varepsilon)$是定义\ref{chtop:eqn_neighbor}中所描述的{\kaishu 开邻域}中的一种．
+很明显，开球$B_{d}(x,\varepsilon)$是定义\ref{chtop:def_neighbor}中所描述的{\kaishu 开邻域}中的一种．
 
 $\mathbb{R}^m$上一般开集定义（包括各种非标准开集）可参阅\parencite[\S 12,\S 13]{munkres-2000-topology}．
 由于我们基本不会涉及这些非标准开集，故之后的行文中将省略“标准”二字．
@@ -797,8 +796,6 @@ $\mathbb{R}$显然是$\mathbb{R}^2$的非空子集；
 \end{definition}
 
 不难验证开球$B_d(x,\varepsilon)$是度量空间$(X,d)$的拓扑基．
-由定义可见拓扑基本身就是$X$的一个拓扑，其它开集都可以由基中元素表出；
-这类似于三维欧氏空间中的三个基矢量，其它矢量都可以由三个基矢线性表出．
 
 
 
@@ -826,7 +823,7 @@ $d_Y\bigl(f(x), f(x_0)\bigr)<\varepsilon $成立．
 
 
 注意到对给定的 $x_0 \in X$，也可能恰巧对每个 $\delta>0$，$ x_0$ 的 $\delta$ 邻域只包含 $x_0$ 点．
-在这种情况下， 将 $x_0$ 称为 $X$ 的孤立点， 任何函数 $f: X \rightarrow Y$ 在孤立点自动是连续的!
+在这种情况下， 将 $x_0$ 称为 $X$ 的孤立点， 任何函数 $f: X \rightarrow Y$ 在孤立点自动是连续的．
 
 
 
@@ -918,8 +915,7 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
 \begin{definition}
 	度量空间$(X, d)$上的点列$\left\{x_n\right\}$叫作收敛到$x_0$是指：
 	当$n \rightarrow \infty$时，$d\left(x_n, x_0\right) \rightarrow 0$；
-	记作 $\lim _{n \rightarrow \infty} x_n=x_0$．
-	其中$x_0$可能属于$X$，也可能不属于$X$．
+	记作 $\lim _{n \rightarrow \infty} x_n=x_0$．注$x_0$一定属于$X$．
 \end{definition}
 
 \index[physwords]{收敛序列}  \index[physwords]{列紧}  \index[physwords]{自列紧}
@@ -1077,7 +1073,7 @@ $Y$也选为$\mathbb{R}$，但将拓扑选为所谓的{\kaishu 下限拓扑}，
 \end{example}
 
 虽然上面叙述了很多完备空间，但并不是所有空间都是完备的．
-比如可数的有理数域$\mathbb{Q}$就是不是完备的，
+比如可数的有理数域$\mathbb{Q}$就是不完备的，
 其中的序列可能收敛于一个无理数．
 但有理数域的闭包$\bar{\mathbb{Q}}(=\mathbb{R})$是完备的．
 也就是说，不完备的空间可以延拓成完备空间；
@@ -1124,14 +1120,15 @@ $l^p$上的度量定义为（$(\xi)$、$(\eta)$都是$l^p$中的元素）：
 \begin{equation}
 	\frac{1}{p}+\frac{1}{q}=1 .
 \end{equation}
-H{\"o}lder不等式和Minkowski不等式为（其中$\left(\xi_{j}\right) \in l^{p}$、$\left(\eta_{j}\right) \in l^{p}$）：
+H{\"o}lder不等式和Minkowski不等式为（其中$\left(\xi_{j}\right) \in l^{p}$、
+$\left(\eta_{j}\right) \in l^{q}$、$\left(\zeta_{j}\right) \in l^{p}$）：
 \begin{align}
 	\sum_{j=1}^{\infty}\left|\xi_{j} \eta_{j}\right| \leqslant & 
 	\left(\sum_{k=1}^{\infty}\left|\xi_{k}\right|^{p}\right)^{1 / p}
 	\left(\sum_{i=1}^{\infty}\left|\eta_{i}\right|^{q}\right)^{1 / q}, \label{chtop:eqn_Holder} \\
-	\left(\sum_{j=1}^{\infty}\left|\xi_{j}+\eta_{j}\right|^{p}\right)^{1 / p} \leqslant &
+	\left(\sum_{j=1}^{\infty}\left|\xi_{j}+\zeta_{j}\right|^{p}\right)^{1 / p} \leqslant &
 	\left(\sum_{k=1}^{\infty}\left|\xi_{k}\right|^{p}\right)^{1 / p}
-	+\left(\sum_{i=1}^{\infty}\left|\eta_{i}\right|^{p}\right)^{1 / p}. \label{chtop:eqn_Minkowski} 
+	+\left(\sum_{i=1}^{\infty}\left|\zeta_{i}\right|^{p}\right)^{1 / p}. \label{chtop:eqn_Minkowski} 
 \end{align}
 若$p=2$（则$q=2$），这时式\eqref{chtop:eqn_Holder}给出著名的Cauchy--Schwarz不等式．
 

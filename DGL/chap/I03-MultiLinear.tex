@@ -8,6 +8,9 @@
 具体安排是：先复习线性空间的概念，之后讲述线性函数、
 对偶空间、双线性映射、多重线性映射、张量积、外代数等．
 
+本章中线性空间限定在有限维（显示标明的除外）；
+无限维理论比有限维情形复杂得多，
+初步论述可参阅第\ref{chhs}章，以及该章的参考文献．
 
 
 
@@ -102,7 +105,7 @@ $k_1,\cdots,k_r$是数域$\mathbb{F}$中的数，
 $n$维空间$V$中任意$n$个线性无关的矢量称为这个空间的{\heiti 基矢}或{\heiti 基底}．
 
 \begin{definition}
-	对于无限维空间$V$的任意子集$M$（无限维），若$M$的每一非空有限子集都是线性无关的，
+	对于无限维空间$V$的任意子集$M$，若$M$的每一非空有限子集都是线性无关的，
 	则称$M$是线性无关的；否则，则称$M$是线性相关的．
 \end{definition}
 
@@ -229,9 +232,9 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
 容易验证上述定义符合线性空间定义\ref{chmla:def_linear-space}；其中零矢量是对任意实数$x$取值恒为零的函数．
 
 我们从两个角度来理解空函数间$C^r[a,b]$维数是无穷大这件事情．首先，
-对于任意固定的$x\in [a,b]$来说，函数空间$C^r[a,b]$是一维的；
+对于任意固定的$x\in [a,b]$来说，函数空间$C^r[a,b]$的像空间是一维的；
 我们只需选取此线性空间基矢为“$1$”，
-那么任意函数$f$取值只是基矢“$1$”的$f(x)$倍（注意$x$是固定不变的）．
+那么任意函数$f$取值只是基矢“$1$”的$f(x)$倍．
 然而区间$[a,b]$是连续的，这个区间有无穷多个值，
 当$x$取值连续变化时，函数空间$C^r[a,b]$便是无穷多个一维线性空间之和，
 其维数自然是无穷大．
@@ -341,7 +344,7 @@ $\overrightarrow{OA}$与$\overrightarrow{OB}$都属于$\pi$（指点$A$和$B$在
     \alpha \sim \beta \quad \Longleftrightarrow\quad  \alpha-\beta \in W .
 \end{equation}
 这样就建立了$V$上的一个二元关系“$\sim$”．
-由于$\alpha-\alpha=0 \in W$，因此$\alpha \sim \alpha, \forall \alpha \in W$，即“$\sim$”具有反身性．
+由于$\alpha-\alpha=0 \in W$，因此$\alpha \sim \alpha, \forall \alpha \in V$，即“$\sim$”具有反身性．
 若$\alpha \sim \beta$，即$\alpha-\beta \in W$，从而 $\beta-\alpha=-(\alpha-\beta) \in W$，
 于是 $\beta \sim \alpha$，即“$\sim$”具有对称性．
 若$\alpha \sim \beta$ 且 $\beta\sim \gamma$，则$\alpha-\beta \in W$ 且 $\beta-\gamma \in W$；
@@ -386,7 +389,7 @@ $\beta \in \alpha+W \ \Longleftrightarrow \ \beta \sim \alpha  \ \Longleftrighta
 容易验证上述加法满足交换律和结合律，$0+W$（即$W$）是$V / W$的{\kaishu 零元}，
 $(-\alpha)+W$是$\alpha+W$的{\kaishu 负元}；
 上述数量乘法满足线性空间定义中关于数量乘法的几条运算法则，
-从面$V / W$成为数域$\mathbb{F}$上的一个线性空间；
+从而$V / W$成为数域$\mathbb{F}$上的一个线性空间；
 我们称$V / W$是$V$对于$W$的{\heiti 商空间}（Quotient Spaces）．
 
 注意：商空间 $V / W$ 的元素是 $V$ 的一个等价类，而不是 $V$ 的一个矢量．
@@ -439,7 +442,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
 
 \begin{example}
     由定义\ref{chmla:def_linear-fun}可知
-    $f\bigl((k+1)\alpha \bigr)=f(k \alpha + \alpha)=k\cdot  f(\alpha)+ f(\alpha)=(k+1)\cdot  f(\alpha)$；
+    $f\bigl((k+1)\alpha \bigr)=f(k \alpha + \alpha)=k\cdot  f(\alpha)+ f(\alpha)=(k+1)\cdot  f(\alpha)$．
     再令$k=1$，有$f(\alpha + \beta)=f(\alpha)+ f(\beta)$．
     可见定义\ref{chmla:def_linear-fun}与一般文献上的定义等价．
 \end{example}
@@ -460,7 +463,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
     线性函数有如下几条简单的性质．
     \begin{align}
         f(0) & =f(0 \cdot \alpha)= 0 \cdot f(\alpha) = 0. \\
-        f(-\alpha)&=f\bigl((-1)\cdot\alpha)\bigr) = - f(\alpha).
+        f(-\alpha)&=f\bigl((-1)\cdot\alpha\bigr) = - f(\alpha).
     \end{align}
 从上可以看到，任何线性函数都将零矢量映射为数字零．
 \end{example}
@@ -503,7 +506,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
     用反证法来证明“唯一性”．
     假设有不同于$f$的线性函数$h(\boldsymbol{\epsilon}_i)=a_i$，那么有
     $h(\boldsymbol{\epsilon}_i)=a_i=f(\boldsymbol{\epsilon}_i)
-    {\  \color{red}\Rightarrow \   } (f-h)(\boldsymbol{\epsilon}_i)=0$，
+    {\  \Rightarrow \   } (f-h)(\boldsymbol{\epsilon}_i)=0$，
     这是说$(f-h)$作用在每个基矢（进而也就是$V$中每个矢量）上都为零，
     那么$(f-h)$必为零函数，
     也就是\eqref{chmla:eqn_lin-fun-form}式中$f$是唯一的．
@@ -532,7 +535,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
 \index[physwords]{线性同构}
 \begin{definition}\label{chmla:def_isomorphism}
     数域$\mathbb{F}$上有两个线性空间$V$和$V'$，
-    若存在线性双射$\sigma:V\to V'$，即$\sigma$满足式\eqref{chmla:eqn_linear-fun}；
+    若存在双射$\sigma:V\to V'$，且$\sigma$满足式\eqref{chmla:eqn_linear-fun}；
     则称映射$\sigma$是从$V$到$V'$的{\heiti 线性同构映射}，记为$V \cong V'$．
 \end{definition}
 
@@ -653,8 +656,8 @@ $V$上全体线性函数组成的集合记为$\mathscr{L}(V,\mathbb{F})$．
 定理\ref{chmla:thm_lin-fun-basic}保证了式\eqref{chmla:eqn_dual-bases-f}中$n$个线性函数的存在性、唯一性．
 用反证法证明这$n$个线性函数在空间$\mathscr{L}(V,\mathbb{F})$是线性无关的．
 假设存在数域$\mathbb{F}$中$n$个不全为零的数字$c_1,c_2,\cdots,c_n$使得
-$c_1 f^1 + c_2 f^2 + \cdots + c_n f^n =0$，依次将基矢$\boldsymbol{\epsilon}_j$带入，
-即可看到全部系数$c_i=0$；因此$f^i$在线性函数在空间$\mathscr{L}(V,\mathbb{F})$中是线性无关的．
+$c_1 f^1 + c_2 f^2 + \cdots + c_n f^n =0$，依次将基矢$\boldsymbol{\epsilon}_j$代入，
+即可看到全部系数$c_i=0$；因此$f^i$在线性空间$\mathscr{L}(V,\mathbb{F})$中是线性无关的．
 
 对于$\mathscr{L}(V,\mathbb{F})$中的任意线性函数$g$，我们有
 \begin{align*}
@@ -666,7 +669,7 @@ $c_1 f^1 + c_2 f^2 + \cdots + c_n f^n =0$，依次将基矢$\boldsymbol{\epsilon
         g = g( \boldsymbol{\epsilon}_i)f^i.
     \end{equation}
 提醒一下，$g( \boldsymbol{\epsilon}_i)$是$\mathbb{F}$中数值．
-前面，已经说明$n$个函数$f^i$在线性函数在空间$\mathscr{L}(V,\mathbb{F})$中是线性无关的，
+前面，已经说明$n$个函数$f^i$在线性空间$\mathscr{L}(V,\mathbb{F})$中是线性无关的，
 式\eqref{chmla:eqn_f-expand}又说明任意线性函数$g$皆可由$f^i$展开，
 那么易得下面定理：
 \begin{theorem}
@@ -839,7 +842,7 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
 \begin{definition}\label{chmla:def_bilinear-fun}
     设$V_1, V_2$和$W$是数域$\mathbb{F}$上线性空间，
     如果映射$f:V_1 \times V_2 \to W$具有如下线性性质:
-    $\forall k \in \mathbb{F}; \quad \forall \alpha, \alpha_1 \alpha_2 \in V_1;
+    $\forall k \in \mathbb{F}; \quad \forall \alpha, \alpha_1, \alpha_2 \in V_1;
      \quad \forall \beta , \beta_1, \beta_2 \in V_2 $，
     \begin{align*}
         f(\alpha, k\beta_1+ \beta_2)&= k\cdot f(\alpha, \beta_1) + f(\alpha,\beta_2); \\
@@ -1234,7 +1237,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 \end{corollary}
 \begin{theorem}\label{chmla:thm_pm1num-fix}
     设$V$是实数域$\mathbb{R}$上的$n$维线性空间，对于一个确定的对称双线性函数$f$来说，
-    式\eqref{chmla:eqn_gmetric}中$+1$、$-1$和$0$的个数是确定的，不随基矢改变而变．
+    式\eqref{chmla:eqn_gmetric}中$+1$、$-1$和$0$的个数是确定的，合同变换下不变．
 \end{theorem}
 \begin{proof}
     此定理一般称为“惯性定理”；证明可参阅\parencite[p.432]{qiuws-2019-v2}定理6．
@@ -1269,13 +1272,13 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 \end{example}
 
 不难验证$g$是$\mathbb{R}^2$上对称、双线性的；然而$g$是不定的．
-令$v=(1,0)$和$v=(0,1)$带入定义式后可验证$g$是非退化的．
+令$v=(1,0)$和$u=(0,1)$代入定义式后可验证$g$是非退化的．
 
 在度量矩阵是正定情形下，也就是我们之前接触的平面几何学；
 在二维平面上，两个矢量正交是指它们相互垂直，交角是$90^\circ$．
 然而，这些熟知的知识在本例中不再成立．
 例如，我们取$v=(1,b)$，$w=(b,1)$，
-把它们带入定义式有$g(v,w)=1\cdot b- b\cdot 1 =0$．
+把它们代入定义式有$g(v,w)=1\cdot b- b\cdot 1 =0$．
 只要$b\neq 0$，$v$、$w$便不是正定度量意义上的正交．
 甚至当$b=1$时，$v=w$；非零矢量$v=(1,1)$和自己正交．
 \qed
@@ -1288,7 +1291,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 
 
 在例\ref{chmla:exm_po}中，如果取$W$为$\{(1,1)\}$张成的空间，
-那么依照定义\eqref{chmla:def_oc}可知$W^\perp=W$；
+那么依照定义\ref{chmla:def_oc}可知$W^\perp=W$；
 很明显此时$W+W^\perp \neq V$；
 故在不定双线性函数情形下，不宜称$W^\perp$是$W$的{\kaishu 正交补空间}．
 在这个例子中$W\cap W^\perp \neq \{0\}$，我们再给另外一例．
@@ -1401,7 +1404,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 	$n$阶行列式函数$\det$是从 \index[physwords]{行列式}
 	直积$\overbrace{\mathbb{F}^n \times \cdots \times \mathbb{F}^n}^n$空间到
 	数域$\mathbb{F}$的一个多重线性函数．从行列式定义容易验证，
-	设有矩阵$n$阶$A=\{a_{ij}\}$，则
+	设有$n$阶矩阵$A=\{a_{ij}\}$，则
 	\begin{equation}\label{chmla:eqn_det}
 		\det (A) \equiv |A| = \sum_{j_1 j_2\cdots j_n} (-1)^{\tau(j_1 j_2 \cdots j_n)}
 		a_{1 j_1} a_{2 j_2}\cdots a_{n j_n} , \quad
@@ -1409,7 +1412,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 	\end{equation}
 	其中$\tau(j_1 j_2\cdots j_n)$是这个$n$个数的排列，偶排列返回偶数，奇排列返回奇数．
 	
-	将矩阵的行看成$n$维线性空间，则
+	将每一行看成$n$维空间中的矢量，则
 	\begin{align*}
 		&\begin{vmatrix}
 			a_{11} & \cdots & a_{1n} \\
@@ -1632,7 +1635,7 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
         g\circ \tau(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j) =
         f(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)=
         g_1\circ \tau(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)
-        {\quad \color{red} \Rightarrow \quad }
+        {\quad \Rightarrow \quad }
         g(\boldsymbol{\omega}_{ij})=g_1(\boldsymbol{\omega}_{ij}) ,
     \end{equation*}
     也就是说$g$和$g_1$作用在$Y$的基矢上结果相同，从而$g=g_1$．
@@ -1673,9 +1676,9 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
 对于$\tau_1$存在线性映射$\psi_1$使得$\tau_1=\psi_1 \circ \tau$．
 
 再将交换图换成图\ref{chmla:pic_exchange4}形式，
-同样由定理\ref{chmla:thm_jicunzai}可知对于双线应映射$\tau$和$\tau_1$，
+同样由定理\ref{chmla:thm_jicunzai}可知对于双线性映射$\tau$和$\tau_1$，
 存在线性映射$\psi_2$使得$\tau=\psi_2 \circ \tau_1$．
-由交换图三和四反应的映射间关系可得：
+由交换图三和四反映的映射间关系可得：
 \begin{equation}
     \tau_1 =\psi_1 \circ \tau = \psi_1 \circ \psi_2 \circ \tau_1; \qquad
     \tau =\psi_2 \circ \tau_1 =\psi_2 \circ\psi_1 \circ \tau .
@@ -1805,10 +1808,11 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 
 
 一般情形下，$U\otimes V$中的元素$\omega$是多个不同的$f_i\otimes g_j$线性
-组合的形式（如式\eqref{chmla:eqn_tmpomij}），其中$f_i\in U$、$g_j\in V$；
-此时称$\omega$是{\heiti 纠缠态}（entangled）．    
+组合的形式（如式\eqref{chmla:eqn_tmpomij}），其中$f_i\in U$、$g_j\in V$．
 如果$\omega$可以表示成$\omega=f\otimes g$单项式的形式，
 其中$f\in U$、$g\in V$；则称为{\heiti 非纠缠态}．
+否则，称$\omega$是{\heiti 纠缠态}（entangled）．    
+
 
 \index[physwords]{纠缠态}
 
@@ -1867,7 +1871,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
     \in \mathscr{L}(U^*,V^*;\mathbb{F})$，并且这个映射是双线性的；
     此外还可证明此映射是单一的（证明过程与定理\ref{chmla:thm_vvss_zrtg}中的类似）．
     由命题\ref{chmla:thm_iso_single2full}可知映射\eqref{chmla:eqn_abfg}是自然同构映射．
-    所以空间$U\otimes V$的自然同构于$\mathscr{L}(U^*,V^*;\mathbb{F})$．
+    所以空间$U\otimes V$自然同构于$\mathscr{L}(U^*,V^*;\mathbb{F})$．
 
     与上述论证类似，可证空间$U^*\otimes V^*$的自然同构于$\mathscr{L}(U,V;\mathbb{F})$．
 \end{proof}
@@ -1906,8 +1910,8 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 \begin{proof}
     $(U\otimes V)^*$本来就是$\mathscr{L}(U\otimes V;\mathbb{F})$（见定义\ref{chmla:def_dual-space}），
     而由上面命题\ref{chmla:thm_uvequv}和\ref{chmla:thm_v-vstar}
-    可知$\mathscr{L}(U\otimes V;\mathbb{F}){\color{red}\cong}
-    \mathscr{L}(U,V;\mathbb{F}){\color{red}\cong}U^* \otimes V^*$．
+    可知$\mathscr{L}(U\otimes V;\mathbb{F}){\cong}
+    \mathscr{L}(U,V;\mathbb{F}){\cong}U^* \otimes V^*$．
     且这些同构皆是自然同构．
 \end{proof}
 
@@ -1931,7 +1935,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 \end{theorem}
 
 \begin{proof}
-    从定理\ref{chmla:thm_uvwd}可知$(V_1 \otimes V_2) \otimes V_3$和$V_1 \otimes (V_2 \otimes V_3)$的维数相等，
+    从定理\ref{chmla:thm_tpbases}可知$(V_1 \otimes V_2) \otimes V_3$和$V_1 \otimes (V_2 \otimes V_3)$的维数相等，
     再由基本定理\ref{chmla:thm_vvp-basic}可知本定理中的同构映射是存在的，下面我们给出这个映射．
     设$V_1$、$V_2$和$V_3$的基矢分别是$\boldsymbol{\epsilon}_1, \cdots, \boldsymbol{\epsilon}_m$、
     $\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_n$和$\boldsymbol{\omega}_1, \cdots, \boldsymbol{\omega}_l$．
@@ -1943,7 +1947,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
     \end{equation}
     参考定理\ref{chmla:thm_vvp-basic}“充分性”证明过程中可知映射$\phi$是
     $(V_1 \otimes V_2) \otimes V_3$到$V_1 \otimes (V_2 \otimes V_3)$的一个同构映射．
-    将$\alpha_i$在各自基矢展开，再由定义\eqref{chmla:eqn_tp97}出发
+    将$\alpha_i$在各自基矢展开，再由定义式\eqref{chmla:eqn_tp97}出发
     可直接得到$\phi\bigl((\alpha_1 \otimes \alpha_2) \otimes \alpha_3\bigr)
     = \alpha_1 \otimes (\alpha_2 \otimes \alpha_3)$．
 
@@ -1998,7 +2002,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
     将矢量$(\alpha,\beta)$作用在这个式子上，有
     \begin{align*}
         \mathcal{C}(\alpha,\beta)=(\mathcal{A}\otimes \mathcal{B})\circ \tau(\alpha,\beta)
-        \quad {\color{red}\Rightarrow} \quad
+        \quad {\Rightarrow} \quad
         \mathcal{A}\alpha \otimes \mathcal{B}\beta
         =(\mathcal{A}\otimes \mathcal{B})\circ (\alpha\otimes\beta) .
     \end{align*}
@@ -2059,7 +2063,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
         并且$(\mathcal{A}\otimes\mathcal{B})^{-1}=\mathcal{A}^{-1}\otimes\mathcal{B}^{-1}$ ．
 \end{proposition}
 \begin{proof}
-    由于$U\otimes V$中任一矢量都可以表示称形如$\alpha\otimes\beta$的有限个矢量的线性组合，
+    由于$U\otimes V$中任一矢量都可以表示成形如$\alpha\otimes\beta$的有限个矢量的线性组合，
     所以只要证明$U\otimes V$上两个线性变换在$\alpha\otimes\beta$上的作用相同，
     就可以得出我们要的结论．
 
@@ -2108,7 +2112,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 
 \subsection{矩阵张量积}
 在选定基矢后，线性变换与矩阵一一对应，现在来讨论线性变换张量积的矩阵表示．
-设数域$\mathbb{F}$上有$m$维线性空间$U$，和$n$为线性空间$V$，
+设数域$\mathbb{F}$上有$m$维线性空间$U$，和$n$维线性空间$V$，
 它们的基矢分别是$\boldsymbol{\epsilon}_1, \cdots, \boldsymbol{\epsilon}_m$和
 $\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_n$．
 再设$U$和$V$上分别有线性变换$\mathcal{A}$和$\mathcal{B}$，那么有
@@ -2246,7 +2250,7 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
     \boldsymbol{\epsilon}^{*j_1} \otimes\cdots\otimes \boldsymbol{\epsilon}^{*j_q} .
 \end{align*}
 结合式\eqref{chmla:eqn_tmp201}，利用式\eqref{chmla:eqn_tmp203}消掉上式中的基矢，有
-\begin{subequations}\label{chmla:def_tensor-by-compoents}
+\begin{subequations}\label{chmla:eqn_tensor-by-compoents}
 \begin{align}
 	\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q} = & \widetilde{\Phi}_{k_1 \cdots k_q} ^{l_1 \cdots l_p}
 	A_{\hphantom{i_1} l_1} ^{i_1}\cdots A_{\hphantom{i_p} l_p} ^{i_p}
@@ -2259,13 +2263,13 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 \end{subequations}
 上式是在基矢变换下，张量对应分量之间的变换式．  \index[physwords]{张量!张量变换关系}
 最早，Ricci就是用此式定义张量，也就是张量的分量定义方式．
-虽然式\eqref{chmla:def_tensor-by-compoents}中只有分量，但依照本书习惯，
+虽然式\eqref{chmla:eqn_tensor-by-compoents}中只有分量，但依照本书习惯，
 \CJKunderwave{需分量结合基矢才是张量，即\eqref{chmla:eqn_tmp201}式中的$\Phi$．}
 
 反之，如果对空间$V$的每一个基底$\{\boldsymbol{\epsilon}\otimes\boldsymbol{\epsilon}^{*}\}$都指定一个
 由$m^{p+q}$个$\mathbb{F}$值数构成的数组$\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}$；
 当基底变换时（$\boldsymbol{\eta}_k = \boldsymbol{\epsilon}_i A_{\hphantom{i} k} ^i$），
-相应数按式\eqref{chmla:def_tensor-by-compoents}进行变换，
+相应数按式\eqref{chmla:eqn_tensor-by-compoents}进行变换，
 那么可以定义一个$\Tpq{p}{q}$型张量$\Phi_{new}$，它以$\Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}$为
 它在基底$\{\boldsymbol{\epsilon}\otimes\boldsymbol{\epsilon}^{*}\}$下的分量．
 仿照式\eqref{chmla:eqn_lin-fun-form}或式\eqref{chmla:eqn_bi-fun-form}中的手法，
@@ -2289,12 +2293,12 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 定义\ref{chmla:def_tensor}和定义\ref{chmla:def_tensor2}中没有涉及任何分量信息，
 天生具有这种不变性．
 
-虽然上面用分量语言定义张量的方式（见式\eqref{chmla:def_tensor-by-compoents}）已过时，
+虽然上面用分量语言定义张量的方式（见式\eqref{chmla:eqn_tensor-by-compoents}）已过时，
 但是在物理学中仍旧大有市场，主要原因是这种方式简单、直接、明了．
-式\eqref{chmla:def_tensor-by-compoents}中的系数$A$、$B$是非退化矩阵，
+式\eqref{chmla:eqn_tensor-by-compoents}中的系数$A$、$B$是非退化矩阵，
 故有$A,B\in GL(m,\mathbb{F})$；系数$A$、$B$取任意可逆矩阵是对张量定义最宽泛的要求，
 一般情形下会比这个要求要严格．
-设有子群$G\in GL(m,\mathbb{F})$，若式\eqref{chmla:def_tensor-by-compoents}中
+设有子群$G\subset GL(m,\mathbb{F})$，若式\eqref{chmla:eqn_tensor-by-compoents}中
 系数$A$、$B$是$G$中元素，则称之为{\heiti $\boldsymbol{G}$型张量．}
 {\kaishu 例一}：将$A$、$B$限定在$SO(3)$中，是牛顿力学中常用张量，比如第\ref{chcdg}章中的张量．
 {\kaishu 例二}：将$A$、$B$限定在$SO^{+}(1,3)$中，称为{\heiti \bfseries Lorentz张量}．
@@ -2418,7 +2422,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
         -1, & \text{如果$\sigma$是奇置换}.
     \end{cases}
 \end{equation}
-很明显，有${\rm sign}(\sigma \circ \tau ) = {\rm sign}(\sigma) \circ {\rm sign}(\tau)
+很明显，有${\rm sign}(\sigma \circ \tau ) = {\rm sign}(\sigma) \cdot {\rm sign}(\tau)
 , \ \forall \sigma,\tau \in \mathscr{S}(q)$．
 
 
@@ -2507,9 +2511,9 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 \begin{example}\label{chmla:exm_permanent}
 {\heiti 积和式}（Permanent），定义为：
 \begin{align*}
-    {\rm perm} (A) = \sum_{j_1 j_2\cdots j_m} ({\color{red}+}1)^{\tau(j_1 j_2 \cdots j_m)}
+    {\rm perm} (A) = \sum_{j_1 j_2\cdots j_m} ({+}1)^{\tau(j_1 j_2 \cdots j_m)}
     a_{1 j_1} a_{2 j_2}\cdots a_{m j_m} , \qquad
-    j_1 \neq j_2 \neq \cdots \neq j_m .
+    \{j_1, \cdots , j_m\} \ {\text{两两不同}}.
 \end{align*}
 \end{example}
 例如两个低阶积和式为
@@ -2519,7 +2523,8 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 \end{align*}
 与行列式（见例\ref{chmla:exm_det}）相同，积和式也可看作多重线性函数．
 量子物理中的费米子表示用行列式，玻色子表示则要用{\kaishu 积和式}．
-上面的对称化（即圆括号）也可用积和式． \qed
+上面的对称化（即圆括号）也可用积和式． 
+有关积和式内容就不再叙述了． \qed
 
 \subsection{广义Kronecker记号}\label{chmla:sec_asym}
 
@@ -2719,7 +2724,7 @@ $(j_1 \cdots j_q)$和$(k_1 \cdots k_q)$必须是满足定义\eqref{chmla:eqn_gkd
 
 
 \subsubsection{乘积}
-这小节给出两个个广义Kronecker记号乘积（及缩并）的计算公式． \index[physwords]{Kronecker记号!乘积}
+这小节给出两个广义Kronecker记号乘积（及缩并）的计算公式． \index[physwords]{Kronecker记号!乘积}
 在式\eqref{chmla:eqn_sign-p1}中强调了：{\kaishu 重复指标$\{j\}$不求和}；
 下式是对重复指标求和的公式：
 \begin{equation}\label{chmla:eqn_gkd-205}
@@ -3187,7 +3192,7 @@ $\alpha \in \bigwedge^q (V^*)$，那么对于任意$v_1,\cdots,v_q\in V$有
     w_\alpha = \sum_{\beta=1}^{r} c_{\alpha\beta} v_\beta
        + \sum_{i=r+1}^{n} c_{\alpha i} v_i .
 \end{equation}
-将上式带入式\eqref{chmla:eqn_car010}得
+将上式代入式\eqref{chmla:eqn_car010}得
 \begin{align*}
     0=& \sum_{\alpha=1}^{r} v_\alpha \wedge
       \left(\sum_{\beta=1}^{r} c_{\alpha\beta} v_\beta
@@ -3472,9 +3477,6 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 进而讲解了双线性映射、多重线性映射；有了这些准备之后张量的代数定义水到渠成；
 然后讲述了外代数．最后引入了抽象指标记号，这种方式比较适合于物理学者．
 
-本章中线性空间限定在有限维（显示标明的除外）；
-无限维理论比有限维情形复杂得多，
-初步论述可参阅第\ref{chhs}章，以及该章的参考文献．
 
 需要强调：张量定义不需要度规（度量、内积等附加结构）．
 度规是$\binom{0}{2}$型张量（场）；若在定义张量时用到度规，则多少有些循环定义的感觉．

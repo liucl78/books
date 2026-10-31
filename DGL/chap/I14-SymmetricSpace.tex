@@ -435,7 +435,7 @@ Cartan等距定理的最初叙述形式与定理\ref{chhss:thm_cartan-isometry}�
     点$p\in \mathscr{U}\subset M$、$q\in \mathscr{V}\subset N$的切空间
     分别是$T_p M$和$T_q N$，$\mathscr{U}$、$\mathscr{V}$是法邻域．
     已知切空间的维数相同，给$T_p M$选定正交归一基$e_1,\cdots,e_m$，
-    给$T_p N$选定正交归一基$\epsilon_1,\cdots,\epsilon_m$．
+    给$T_q N$选定正交归一基$\epsilon_1,\cdots,\epsilon_m$．
     由定理\ref{chrg:thm_isometry-VW}可知存在{\kaishu 等距线性同构}${\rm L}:T_p M\to T_q N$．
     
     又因$M$、$N$的黎曼曲率都是常数$K$，故由定理\ref{chhss:thm_cartan-isometry}可知
@@ -1109,7 +1109,7 @@ $U(m+1)$中具有如下形式
 \begin{equation}
     \jmath^{-1} (S^{2m+1})=U(m+1)/U(m)=SU(m+1)/SU(m).
 \end{equation}
-上式在忽略掉幺正群行列式正负号前提下成立．
+上式在忽略掉幺正群行列式位相前提下成立．
 特别地，由于$SU(1)$是$1\times 1$的单位矩阵，故$S^3$光滑同胚于$SU(2)$；
 进而$S^3$具有与$SU(2)$相同的李群结构．
 
@@ -1324,7 +1324,7 @@ $\mathbb{RP}^m$曲率与超球面相同．
 （见例\ref{chlg:exm_incomplete-iso2}，此例的空间曲率恒为零，但空间不完备）．
 故对于$M$而言完备的Killing场和李代数$\mathfrak{I}(M)$都需要研究．
 
-由命题\ref{chsm:thm_SH-complete}可知：伪球面、为双曲空间是测地完备的；
+由命题\ref{chsm:thm_SH-complete}可知：伪球面、伪双曲空间是测地完备的；
 平直的$\mathbb{R}^m_\nu$自然也是测地完备的．
 若$M$是{\kaishu 空间型式}，则$M$是测地完备的；
 命题\ref{chhss:thm_ssh}中的$O(\nu,m+1-\nu)$实维数是$m(m+1)/2$，
@@ -1570,7 +1570,7 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
     F^k_{\hphantom{k}\mathfrak{a}}(U, v) \equiv \bar{g}^{k i}(U, v) g_{i \mathfrak{a}}(U, v)
 \end{equation}
 而 $\bar{g}^{i j}$ 是 $g_{i j}$ 的逆矩阵，即$ \bar{g}^{i j} g_{j k}=\delta_k^i $．
-一横提醒我们， $\bar{g}^{i j}$ 是 $g_{i j}$ 的逆矩阵的 $i j$ 元素，
+一横杠提醒我们， $\bar{g}^{i j}$ 是 $g_{i j}$ 的逆矩阵的 $i j$ 元素，
 它不同于 $g_{\mu \nu}$ 的逆矩阵 $g^{\mu \nu}$中的 $i j$ 元素 $g^{i j}$．
 若$v$ 坐标只有一个（常微分方程），式\eqref{chhss:eqn_UFa}显然
 对任意初始条件都有解（需符合常微分方程解存在性条件：Lipschitz条件．坐标变换都符合这一要求）．

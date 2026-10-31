@@ -55,8 +55,8 @@ $\forall g,h\in G$，映射$g* h^{-1}$是复解析的，自然也是实解析映
 \noindent    其中$\forall X, Y, Z \in \mathscr{G}$，$\forall k \in \mathbb{F}$，
     则称$\mathscr{G}$是一个$m$维{\heiti 李代数}．
     李代数维数是指它作为线性空间的维数．
-    若$\mathbb{F}$是实数域，则称$G$为{\heiti 实李代数}；
-    若$\mathbb{F}$是复数域，则称$G$为{\heiti 复李代数}；
+    若$\mathbb{F}$是实数域，则称$\mathscr{G}$为{\heiti 实李代数}；
+    若$\mathbb{F}$是复数域，则称$\mathscr{G}$为{\heiti 复李代数}；
     我们不考虑其它数域情形．
     
     紧致李群的李群李代数（定义见第\pageref{chlg:eqn_LgXY}页，
@@ -74,7 +74,7 @@ $\forall g,h\in G$，映射$g* h^{-1}$是复解析的，自然也是实解析映
 
 \begin{definition}
     设有两个李群$G$和$H$，且$H\subset G$．如果 {\bfseries (1)} $H$是$G$的子群；
-    {\bfseries (2)} 恒等映射${\rm id}:H\to G$是嵌入子流形．则称$H$为$G$的{\heiti 李子群}．
+    {\bfseries (2)} 恒等映射${\rm id}:H\to G$是浸入子流形．则称$H$为$G$的{\heiti 李子群}．
     
     如果映射${\rm id}:H\to G$是正则嵌入子流形，则称$H$为$G$的{\heiti 拓扑李子群}．
 \end{definition}
@@ -85,7 +85,7 @@ $\forall g,h\in G$，映射$g* h^{-1}$是复解析的，自然也是实解析映
 \end{definition}
 
 \begin{definition}
-    设有李代数$\mathscr{G}$，$\mathscr{H}$是它的子集；
+    设有李代数$\mathscr{G}$，$\mathscr{H}$是它的线性子空间；
     如果$\forall \mathfrak{h}_1,\mathfrak{h}_2\in \mathscr{H}$有
     $[\mathfrak{h}_1,\mathfrak{h}_2]\in \mathscr{H}$，
     那么称$\mathscr{H}$是$\mathscr{G}$的{\heiti 李子代数}．
@@ -93,7 +93,7 @@ $\forall g,h\in G$，映射$g* h^{-1}$是复解析的，自然也是实解析映
 
 \begin{definition}
     设有李代数$\mathscr{G}$及其子代数$\mathscr{H}$，如果
-    $   [\mathfrak{g},\mathfrak{h}]\in  \mathscr{H},\ 
+    $   [\mathfrak{g},\mathfrak{h}]\subset  \mathscr{H},\ 
     \forall \mathfrak{g}\in \mathscr{G}, \ \forall\mathfrak{h}\in\mathscr{H}$；
     则称$\mathscr{H}$是$\mathscr{G}$的{\heiti 理想}（ideal）．
 \end{definition}
@@ -195,7 +195,7 @@ $A$、$B$是这个李代数的两个基，不难验证它们是对易的．
 总之，数域上的二维李代数在同构意义下只有两个；一个是可对易的；
 另一个是不可对易的，且存在一组基矢$\{x,y\}$使得$[x,y]=y$．
 
-容易看出$\{0, y\}$是二维非对易李代数的理想；故它不是半单的．
+容易看出${\mathrm{Span}}\{0, y\}$是二维非对易李代数的理想；故它不是半单的．
 
 
 
@@ -457,7 +457,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 	C^k_{ij} = \sum\nolimits_{l=1}^{3}\epsilon_{ijl} n^{lk} + \delta^k_i a_j - \delta^k_j a_i ; 
 	\quad \epsilon_{123} =1.	
 \end{equation}
-为避免不必要的歧义，本例题显示写出求和号．
+为避免不必要的歧义，本例题显式写出求和号．
 其中$n^{lk}$是三维实对称矩阵，共有六个独立数值；$a_j$是三维列矢量，共有三个独立数值；
 加起来与$C^k_{ij}$的$9$个独立数值相同．
 容易看出式\eqref{chlg:eqn_Cna}等号两端关于下标$\{ij\}$反对称．
@@ -567,11 +567,11 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 
 {VI 型}：$(a,0,1,-1)$．可解．
 
-{$\rm VI_0$ 型}：$(0,1,-1,0)$．可解．同构于$\mathfrak{iso}(2)$．
+{$\rm VI_0$ 型}：$(0,1,-1,0)$．可解．同构于$\mathfrak{iso}(1,1)$．
 
 {VII 型}：$(a,0,1,1)$．可解．
 
-{$\rm VII_0$ 型}：$(0,1,1,0)$．可解．
+{$\rm VII_0$ 型}：$(0,1,1,0)$．可解．同构于$\mathfrak{iso}(2)$．
 
 {VIII 型}：$(0,1,1,-1)$．半单．同构于$\mathfrak{sl}(2,\mathbb{R})$．
 
@@ -629,7 +629,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 \begin{definition}
     如果存在从李群$G$到一般线性群$GL(m,V)$的李群同态映射$\phi:G\to GL(V)$，
     则称$(\phi,V)$为李群$G$的一个$m$维{\heiti 线性表示}，简称{\heiti 表示}．
-    如果$\phi$是李群同构映射，则称为{\heiti  忠实表示}．
+    如果$\phi$是李群单同态映射，则称为{\heiti  忠实表示}．
     $V$是表示空间，${\rm dim}V$是表示{\heiti 维数}．
 \end{definition}
 
@@ -691,12 +691,12 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 \subsection{半直积群}\label{chlg:sec_semi-dir-prod}
 介绍到这里，我们稍微偏离一下主题．例\ref{chlg:exam_dir-prod}中引入了{\kaishu 直积}的概念，
 现在借助自同构映射来引入{\kaishu 半直积}定义．
-设有两个群$G=\{g\}$和$H=\{h\}$，$G$的自同构群是${\rm Aug}(G)$，
-其元素$\nu \in {\rm Aug}(G)$．
-如果\CJKunderwave{存在}一个把群$H$映射为${\rm Aug}(G)$的
-同态映射$\Phi:H\to {\rm Aug}(G)$，其具体表达式为
+设有两个群$G=\{g\}$和$H=\{h\}$，$G$的自同构群是${\rm Aut}(G)$，
+其元素$\nu \in {\rm Aut}(G)$．
+如果\CJKunderwave{存在}一个把群$H$映射为${\rm Aut}(G)$的
+同态映射$\Phi:H\to {\rm Aut}(G)$，其具体表达式为
 \begin{equation}
-    \Phi : h \to \nu_h ,\qquad h\in H,\quad \nu \in {\rm Aug}(G).
+    \Phi : h \to \nu_h ,\qquad h\in H,\quad \nu \in {\rm Aut}(G).
 \end{equation}
 那么，便可定义$G$和$H$的{\heiti 半直积群}$K=G  \rtimes H$，
 其元素可唯一地记为$k\equiv (g,h)$； %，注意两者（即$g$和$h$）顺序\CJKunderwave{不能}改变；
@@ -709,7 +709,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 
 首先，群乘法的封闭性是显然的．
 
-其次，设群$G$、$H$的幺元分别是$I_g$、$I_h$，则由自同构$\nu_h\in {\rm Aug}(G)$可得
+其次，设群$G$、$H$的幺元分别是$I_g$、$I_h$，则由自同构$\nu_h\in {\rm Aut}(G)$可得
 \begin{equation}
     \nu_h (I_g)   =I_g, \quad  \forall h\in H ; \qquad
     \nu_{I_h} (g) = g,  \quad  \forall g\in G .
@@ -723,7 +723,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 \end{align}
 上两式说明$( I_g, I_h) $是$K$的{\kaishu 单位元}．
 
-第三，证明群乘法满足结合律．根据自同构映射$\nu_h\in {\rm Aug}(G)$的属性可知
+第三，证明群乘法满足结合律．根据自同构映射$\nu_h\in {\rm Aut}(G)$的属性可知
 \begin{equation}
     \nu_{h} (g_1 g_2) = \nu_{h}(g_1) \nu_{h}(g_2); \qquad
     \nu_{h_1 h_2} (g) = \nu_{h_1}\bigl(\nu_{h_2}(g)\bigr) .
@@ -2375,7 +2375,7 @@ $F(g)$由左右移动构成，故它是双射；
 \end{equation*}
 上式说明$F(g)$逆元也在$F(G)$中．验证完毕．
 
-\CJKunderwave{内}自同构群$F(G)$是自同构群${\rm Aut}(G)$（见\S\ref{chlg:sec_lieiso}）的一个真子群．
+\CJKunderwave{内}自同构群$F(G)$是自同构群${\rm Aut}(G)$（见\S\ref{chlg:sec_lieiso}）的一个子群．
 
 由定理\ref{chlg:thm_tglie}可知，自同构映射$F(g)$会诱导出李代数$\mathscr{G}$上的自同构映射
 \begin{equation}
@@ -2451,19 +2451,19 @@ $\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，利用式\eqref{chlg:eq
     依照定义\eqref{chlg:eqn_Fghg}，并利用式\eqref{chlg:eqn_BCH-xy-x}，有
     \begin{equation*}
         F(\exp tX) (\exp tY) = (\exp tX)\cdot  (\exp tY) \cdot (\exp tX)^{-1}
-        =\exp\bigl(tY+t^2[X,Y]+o(t^3)\bigr) .
+        =\exp\bigl(tY+t^2[X,Y]+O(t^3)\bigr) .
     \end{equation*}
     再利用定理\ref{chlg:thm_exp-sigma-id}和命题\ref{chlg:thm_exp-sigma-id-cor1}可知
     在包含0的一个小开集内，指数映射$\exp$是局部微分同胚的；并且当$t\to 0$时是恒等映射；
     故从上式和式\eqref{chlg:eqn_tmp98}可以得到
     \begin{equation}
-        {\rm Ad}_{\exp (tX)} Y = Y+t[X,Y]+o(t^2).
+        {\rm Ad}_{\exp (tX)} Y = Y+t[X,Y]+O(t^2).
     \end{equation}
     再次利用定理\ref{chlg:thm_feef}可得
     \begin{equation}
         {\rm Ad}_{\exp (tX)} Y = \bigl(\exp (t\cdot {\rm ad}_X)\bigr) Y
         \xlongequal{\ref{chlg:eqn_exp-pand}}
-        \bigl(e + t \cdot {\rm ad}_X + o(t^2)\bigr) Y .
+        \bigl(e + t \cdot {\rm ad}_X + O(t^2)\bigr) Y .
     \end{equation}
     结合上两式可得（令$t\to 0$）
     \begin{equation}
@@ -2490,7 +2490,7 @@ $\forall A\in GL(m)$、$\forall X\in \mathfrak{gl}(m)$，利用式\eqref{chlg:eq
 
 我们可以从多个角度来看问题，比如$GL(V)$是从矢量空间$V$到矢量空间$V$的全体可逆线性变换的集合；
 $\forall g\in GL(V)$它将$V$中矢量映射为另一矢量，故从多重映射角度（见例\ref{chmla:exm_T11TR}）来看，
-$g$可以看成$\binom{1}{1}$型张量，也就是说$GL(V)$是$V$上全体$\binom{1}{1}$型张量构成的空间$\mathcal{T}^1_1(V)$．
+$g$可以看成$\binom{1}{1}$型张量，也就是说$GL(V)$是$\mathcal{T}^1_1(V)$中可逆$\binom{1}{1}$型张量构成的空间．
 我们用$\binom{1}{1}$型张量观点再次审视一下${\rm Ad}_g$和${\rm ad}_X$．
 ${\rm Ad}_g\in GL(\mathscr{G})$是$\mathscr{G}$上的线性变换，故它是李代数$\mathscr{G}$上的$\binom{1}{1}$型张量．
 ${\rm ad}_X \in \mathfrak{gl}(\mathscr{G})$是$\mathscr{G}$上的线性变换，故它也是李代数$\mathscr{G}$上的$\binom{1}{1}$型张量．
@@ -2824,10 +2824,10 @@ $SL(m,\mathbb{C})$、$U(m,\mathbb{C})$是$GL(m,\mathbb{C})$的拓扑李子群．
 也就是给$GL(m,\mathbb{C})$群元增加一条约束，令其矩阵的行列式为$1$．
 $SL(m,\mathbb{C})$任意两个元素的群乘积得到的元素行列式仍是$1$，故对群乘法
 具有封闭性，也就是说$SL(m,\mathbb{C})$构成子群．
-$GL(m,\mathbb{C})$群元的行列式是非零的，也就是$(-\infty,0)\cup (0,+\infty)$；
+$GL(m,\mathbb{C})$群元的行列式是非零的，也就是$\mathbb{C}\backslash \{0\}$；
 $SL(m,\mathbb{C})$群元的行列式是$1$；
 $GL(m,\mathbb{C})$减掉$SL(m,\mathbb{C})$后剩余元素的行列式
-取值范围是$C\equiv (-\infty,0)\cup (0,1)\cup (1,+\infty)$，显然$C$是开集．
+取值范围是$C\equiv \mathbb{C}\backslash \{0,1\}$，显然$C$是开集．
 行列式映射$\det$是拓扑学上的连续函数，那么它的$\det^{-1}C$构成的逆像集也是开集；
 因此由定义\ref{chtop:def_closedset}可知$\det A =1$所构成的集合是{\kaishu 闭集}，
 也就是说$SL(m,\mathbb{C})$是$GL(m,\mathbb{C})$的拓扑闭子集．
@@ -2955,7 +2955,7 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 因此，上式说明：若$A\in G(S)$，则$A^{-1} \in G(S)$．
 
 
-对于正交群、广义正交群、酉群和辛群来说，$S$是非退化矩阵且$S=S^{-1}$；
+对于正交群、广义正交群、酉群来说，$S$是非退化矩阵且$S=S^{-1}$；
 故，我们可以从“若$A, A^{-1}\in G(S)$”出发来进一步推演．
 \begin{equation*} %\label{chlg:eqn_atings}
     (A^{-T}) S {A^{-1}} =S \ \Rightarrow \ 
@@ -2964,7 +2964,7 @@ $G(S)$是$GL(m,\mathbb{F})$中的普通子群，且为闭子集，
 \end{equation*}
 因此，上式说明：当$S=S^{-1}$时，若$A\in G(S)$，则${A}^T \in G(S)$．
 
-这说明对于正交群、广义正交群、酉群和辛群来说，可以把式\eqref{chlg:eqn_gsinit}（即$G(S)$）
+这说明对于正交群、广义正交群、酉群来说，可以把式\eqref{chlg:eqn_gsinit}（即$G(S)$）
 中条件写成$ A S {A}^T =S$，或$ {A}^T S A =S$，
 或$  A^{-1} S ({A^{-1}})^T =S$，等等．
 
@@ -3036,7 +3036,7 @@ $SO(m)$对应着欧氏空间$R^m$的转动，故通常也称之为{\heiti 转动
 
 
 
-不难验证$SO(m)$是$O(m)$的不变子群，其行列式映射的同态核是$\{+1,-1\}$．
+不难验证$SO(m)$是$O(m)$的不变子群，其行列式映射的像是$\{+1,-1\}$．
 我们将$O(m)$中行列式为$-1$的所有元素记为$R_{\ell}(m)$，显然单位矩阵（幺元）
 不属于$R_{\ell}(m)$，故它不是群；$R_{\ell}(m)$称为{\heiti 反射}，
 且$R_{\ell}(m)\cap SO(m)=\varnothing$．
@@ -3049,7 +3049,7 @@ $SO(m)$对应着欧氏空间$R^m$的转动，故通常也称之为{\heiti 转动
     \qquad R_{\ell}(m)\cap SO(m)=\varnothing . 
 \end{equation*}
 记$C_2=\{I_m,\ r_{\ell}\}$，即二阶循环群$C_2$由$m$维单位矩阵$I_m$和$r_{\ell}$组成．
-我们定义映射$\phi:C_2 \to {\rm Aug}\bigl(SO(m)\bigr)$为$\phi(N)=c\cdot N \cdot c^{-1},
+我们定义映射$\phi:C_2 \to {\rm Aut}\bigl(SO(m)\bigr)$为$\phi(N)=c\cdot N \cdot c^{-1},
 \  c\in C_2, \, N\in SO(m)$；
 不难验证$\phi(N)$是$SO(m)$中的元素．
 由此可以看出$O(m)=SO(m)\rtimes C_2$（半直积定义见\S\ref{chlg:sec_semi-dir-prod}）．
@@ -3354,7 +3354,7 @@ $SU(1)$不是连续群，是单点集（$(1,0)$），平庸无奇．
 \begin{equation}
     Sp(m,\mathbb{F})=G(J)= \left\{ A \in GL(2m,\mathbb{F})\ |\ A J {A}^T =J \right\},
 \end{equation}
-称为{\heiti 辛群}（Sympletic group），
+称为{\heiti 辛群}（Symplectic group），
 $Sp(m,\mathbb{F})$中的元素称为{\heiti 辛矩阵}．
 它的李代数是
 \begin{equation}
@@ -4993,7 +4993,7 @@ $g_{0i}$必然依赖于速度$v^k$以及转动$R^{j}_{\hphantom{j}i}$，这是�
 因度规退化（之后称它们为{\kaishu 退型}，见\S\ref{chnull:sec_indef-algebra}），
 我们将保Galilei变换不变的$g_{\mu\nu}$、$g^{\mu\nu}$分别
 记为$\tau_{\mu\nu}$（与时间相关）、$h^{\mu\nu}$（与空间相关），
-它们的显示表述为：
+它们的显式表述为：
 \begin{align}
 \tau_{\mu \nu}=\left(\begin{array}{cccc}
 	1 & 0 & 0 & 0 \\
@@ -5038,15 +5038,15 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 李群既是流形又是群，有时也将李群$G$上不变积分改用群元形式表示，即上式中最后一个等号的形式，
 其中${\rm d}g$表示体积元．
 
-\index[physwords]{李群!Harr测度}
+\index[physwords]{李群!Haar测度}
 
 若双不变体积元$\Omega=\lambda \cdot \omega_1 \wedge\cdots\wedge\omega_m,\ 
 (0\neq\lambda\in \mathbb{R})$积分满足$\int_{G}\Omega {=} 1$，
-则称此双不变体积元$\Omega$是连通紧致李群$G$的{\heiti \bfseries Harr测度}．
-以后谈及紧致李群上的积分时都是在Harr测度上讨论，并将其简记为$\Omega$．
+则称此双不变体积元$\Omega$是连通紧致李群$G$的{\heiti \bfseries Haar测度}．
+以后谈及紧致李群上的积分时都是在Haar测度上讨论，并将其简记为$\Omega$．
 
 如果李群是非紧致的，那么情况要糟糕一些；非紧群的左不变体积元可能不等于
-右不变体积元（例如参见\parencite[\S 6.1]{Miller-1973}），此时不好定义Harr测度．
+右不变体积元（例如参见\parencite[\S 6.1]{Miller-1973}），此时不好定义Haar测度．
 
 可证明（见\parencite[p.289]{xuyc-2001}定理4.1.6）$m$维连通紧致李群$G$上积分有如下性质：
 \begin{align}
@@ -5091,7 +5091,7 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
     \end{equation}
 \end{theorem}
 \begin{proof}
-    记$\Omega$是紧致李群$G$的Harr测度．在$V$上取标量积$\left<x,y\right>$，
+    记$\Omega$是紧致李群$G$的Haar测度．在$V$上取标量积$\left<x,y\right>$，
     用抽象指标表示就是$\left<x,y\right>=g_{ab}x^a y^b$；也就是我们
     需要预先给$V$指定一个度规；通常情况下，在实数域上我们取正定度规，  %或者广义闵氏度规
     在复数域上取正定的酉度规（见定义\ref{chcx:def_unitary-space}）．令
@@ -5410,7 +5410,7 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     
     {\bfseries (2)} 如果$\mathfrak{g}$中矢量$X$、$Y$张成非退化的二维平面，则
     \begin{equation}
-        K(X,Y)=-\frac{1}{4} \frac{\left<[X,Y],\  [X,Y]\right>}
+        K(X,Y)=+\frac{1}{4} \frac{\left<[X,Y],\  [X,Y]\right>}
         {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2} .
     \end{equation}
 \end{theorem}
@@ -5427,9 +5427,10 @@ $X$、$Y$、$Z$是这些基矢场的常系数线性组合，故它们也是左�
     
     (2) 由截面曲率公式\eqref{chrg:eqn_sectional-curvature}、定理\ref{chlg:thm_biinmg}中的(4)和本定理的(1)可知
     \begin{align*}
-        K(X,Y) %= \frac{R_{abcd} X^a Y^b X^c Y^d} {{X}_a{X}^a \cdot {Y}_b{Y}^b - ({X}_a{Y}^a)^2} 
-        = \frac{\left<R(X,Y)Y,X\right> } {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2} 
-        = -\frac{1}{4} \frac{\left<[X,Y],\  [X,Y]\right>}
+        K(X,Y) %=& \frac{R_{abcd} X^a Y^b X^c Y^d} {{X}_a{X}^a \cdot {Y}_b{Y}^b - ({X}_a{Y}^a)^2} 
+        = \frac{\left<R(X,Y)Y,X\right> } {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2} %\\
+%        =&  -\frac{1}{4} \frac{\left<\bigl[[X,Y],Y\bigr],X\right> } {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2}
+        = \frac{1}{4} \frac{\left<[X,Y],\  [X,Y]\right>}
         {\left<X,X\right>\left<Y,Y\right>-\left<X,Y\right>^2} .
     \end{align*}
     这里$K (X, Y)$是一个纯数．
@@ -5870,54 +5871,15 @@ $\boldsymbol{e}=\left(\boldsymbol{e}_1, \cdots, \boldsymbol{e}_m\right) \in \mat
     \end{equation}
     所以 $g \cdot h \cdot g^{-1} \in K$， 即 $K$ 是 $G$ 的正规子群．
     
-    下面证明$K$是$G$的闭子集． 若$g \in G / K$，则存在点$x \in M$使得$g\cdot x \neq x$．
+    下面证明$K$是$G$的闭子集． 若$g \in G \backslash K$，则存在点$x \in M$使得$g\cdot x \neq x$．
     由于$M$是Hausdorff空间，且$G$在$M$上的作用是光滑的；故有$g$在$G$中的开邻域$U$以及$x$在$M$中的开邻域$V$，
     使得$(U \cdot V) \cap V=\varnothing$，
     其中$U \cdot V=\{h \cdot y \ |\ h \in U, y \in V\}$．
     这意味着，$\forall h \in U$及$\forall y \in V\subset M$，
-    有$h \cdot y \neq y$，故$h \in G / K$．
-    因此$U \subset G / K$，故$G / K$是开子集，$K$是$G$的闭子集．
+    有$h \cdot y \neq y$，故$h \in G \backslash K$．
+    因此$U \subset G \backslash K$，故$G \backslash K$是开子集，$K$是$G$的闭子集．
 \end{proof}
 
-%进一步还可以证明$K$是$G$的闭李子群，并且$G / K$是一个李群，称为李群$G$关于闭正规子群$K$的商群．
-
-%用商群$G / K$代替李群$G$，总是可以把非有效作用的李变换群化为有效作用的李变换群．
-%我们有下面的定理：
-
-%\begin{theorem}\label{chlg:thm_Liefes}
-%    设$G$是左作用在光滑流形$M$上的李变换群．若$G$在$M$上的作用不是有效的，
-%    即式\eqref{chlg:eqn_clinvsub}所定义的$K \neq\{e\}$；
-%    则有商李群$G / K$在光滑流形$M$上的左作用，使得该作用是有效的．
-%\end{theorem}
-%\begin{proof}
-%   前面已知$G / K$是李群．\CJKunderwave{对于$g \in G$用$[g]$记左陪集$g \cdot K$．}
-%   于是有映射$\tilde{\sigma}: G / K \times M \rightarrow M$，使得
-%    \begin{equation}
-    %        \tilde{\sigma}([g], x)=\sigma(g, x)=g \cdot x .
-    %    \end{equation}
-%    很明显，此定义是有意义的，即右端与$[g]$的代表$g$的取法无关．
-%    可以证明这是$C^{\infty}$映射（较难，略）．
-%%实际上, 由 $\S 3$ 定理 3.12 的 (2), 对每一点 $[g] \in G / K$, 存在 $[g]$ 的 开邻域 $W \subset G / K$ 及光滑映射 $\tau: W \rightarrow G$, 使得 $\pi \circ \tau=\mathrm{id}: W \rightarrow W$. 这样, $\left.\tilde{\sigma}\right|_{W \times M}$ 能够表示为
-%%$$
-%%\begin{aligned}
-%%    \tilde{\sigma}(\widetilde{h}, x) & =\sigma(\tau(\widetilde{h}), x) \\
-%%    & =\tau(\widetilde{h}) \cdot x, \quad \forall(\widetilde{h}, x) \in W \times M,
-%%\end{aligned}
-%%$$
-%%所以 $\tilde{\sigma}$ 是光滑的.
-%
-%    显然，$\tilde{\sigma}([e], x)=x, \forall x \in M$．
-%    对于任意的$g, h \in G, x \in M$有
-%\begin{align*}
-%    \tilde{\sigma}([g], \tilde{\sigma}([h], x))=\tilde{\sigma}([g], h \cdot x) 
-%    =  g \cdot(h \cdot x)=(g \cdot h) \cdot x 
-%    =  \tilde{\sigma}([g \cdot h], x)=\tilde{\sigma}([g] \cdot[h], x) .
-%\end{align*}
-%所以$\tilde{\sigma}: G / K \times M \rightarrow M$是左作用在$M$上的李变换群．
-%$G / K$ 在 $M$上的作用显然是有效的．实际上，若设$[g] \in G / K$，
-%使得对任意的$x \in M$有$\tilde{\sigma}([g], x)=x$，
-%即$g \cdot x=x$；故 $g \in K$，即 $[g]=[e]$．
-%\end{proof}
 
 
 
@@ -6355,7 +6317,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$．
     并且$[\mathfrak{h} , \mathfrak{h}^{\perp}]=0$、$\mathfrak{h} \cap \mathfrak{h}^{\perp}=\{0\}$．
     注意$\mathfrak{g}$ 的 Killing 型在理想 $\mathfrak{h}$、$ \mathfrak{h}^{\perp}$ 的限制就是它们的诱导Killing 型，
     并且诱导Killing型也是非退化的（见命题\ref{chlg:thm_Killing-gh}）． %%\parencite[p.17]{xuyc-2001}引理1.2.6
-    如果$\mathfrak{h}$或者$ \mathfrak{h}^{\perp}$仍是半单纯的，那么继续分解；
+    如果$\mathfrak{h}$或者$ \mathfrak{h}^{\perp}$不是单纯的，那么继续分解；
     经过有限步后可知半单纯李代数$\mathfrak{g}$可以分解为有限个的单纯理想的直和：
     $\mathfrak{g}=\mathfrak{h}_1 \oplus \mathfrak{h}_2 \oplus \cdots \oplus \mathfrak{h}_r$．
     

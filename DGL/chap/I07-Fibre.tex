@@ -16,7 +16,7 @@
 \begin{definition}
     {\heiti 丛}（bundle）是一个三元组$(E, B, \pi)$，其中$\pi: E\to B$（或$E\xrightarrow{\pi} B$）是一个连续满射；
     拓扑空间$B$称为{\heiti 底空间}，拓扑空间$E$称为{\heiti 总空间}或 {\heiti 丛空间} ，映射$\pi$称为{\heiti 丛投影}；
-    $\forall b\in B$，空间$\pi^{-1}(b)\in E$称为植于$b$点的{\heiti 纤维}（fibre）．
+    $\forall b\in B$，空间$\pi^{-1}(b)\subset E$称为植于$b$点的{\heiti 纤维}（fibre）．
 \end{definition}
 直观地，我们认为丛是纤维$\pi^{-1}(b)$的并集，并被空间$E$的拓扑“粘在一起”．
 
@@ -372,7 +372,7 @@ $T^*M$是Hausdorff空间；$T^*M$存在开覆盖$\bigcup _{\alpha\in I} \pi^{-1}
 式\eqref{chfb:eqn_ctb_atalas}中的映射便是拓扑同胚的，
 它将$\varphi_\alpha(U_\alpha) \times \mathbb{R}^m $中的（通常）拓扑
 携带到$\pi^{-1} (U_\alpha)$中．
-很明显$(\pi^{-1} (U_\alpha),\psi_\alpha)$是$TM$一个坐标卡，
+很明显$(\pi^{-1} (U_\alpha),\psi_\alpha)$是$T^*M$一个坐标卡，
 这样我们建立了$T^*M$的拓扑结构．
 
 
@@ -582,7 +582,7 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 矢量丛上的联络提供了对矢量丛的任意光滑截面求微分的手段，或者说联络就是截面的协变导数．
 
 
-\begin{definition}\label{chfb:def_vb-conncection}
+\begin{definition}\label{chfb:def_vb-connection}
     设$(E,M,\pi)$是流形$M$上的一个矢量丛，$\Gamma(E)$是该矢量丛光滑截面的集合．
     矢量丛 $E$上的一个 {\heiti 联络} $\nabla$是指存在映射
     $\nabla: \Gamma(E) \times \mathfrak{X}(M) \rightarrow \Gamma(E)$．
@@ -602,12 +602,12 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 \end{definition}
 
 
-定义\ref{chfb:def_vb-conncection}中的条件(2)表明 $\nabla_X \xi$ 关于自变量 $X$ 有张量性质，
+定义\ref{chfb:def_vb-connection}中的条件(2)表明 $\nabla_X \xi$ 关于自变量 $X$ 有张量性质，
 于是可以把联络$\nabla$ 看作映射 $\nabla: \Gamma(E) \rightarrow \Gamma (T^* M \otimes E )$，使得
 $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}(M) $成立．
 
 
-在矢量丛$(E,M,\pi)$上，定义\ref{chfb:def_vb-conncection}所描述的联络是否存在？见下．
+在矢量丛$(E,M,\pi)$上，定义\ref{chfb:def_vb-connection}所描述的联络是否存在？见下．
 
 \begin{theorem}\label{chfb:thm_existence}
     设$(E,M,\pi)$是任意矢量丛，则矢量丛$E$上必定存在一个联络．
@@ -628,9 +628,9 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 \subsection{张量丛联络}
 
 有了矢量丛联络定义，我们先看一下之前给出的仿射联络定义．
-若$(E,M,\pi)$中的$E$是$M$的切丛，则定义\ref{chfb:def_vb-conncection}中
+若$(E,M,\pi)$中的$E$是$M$的切丛，则定义\ref{chfb:def_vb-connection}中
 的$\nabla$是$M$上切矢场的联络\ref{chccr:def_connection}．
-若$(E,M,\pi)$中的$E$是$M$的张量丛，则定义\ref{chfb:def_vb-conncection}中
+若$(E,M,\pi)$中的$E$是$M$的张量丛，则定义\ref{chfb:def_vb-connection}中
 的$\nabla$是$M$上张量场的联络．
 因切丛、张量丛是两个不同的矢量丛，故它们的联络也不相同；这正是我们将仿射联络
 分成两个定义（\ref{chccr:def_connection}、\ref{chccr:def_connection-tb}）的原因．
@@ -654,7 +654,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
     \nabla_X\left(\xi_1 \otimes \xi_2\right)\overset{def}{=}& \left(\nabla_X^{(1)} \xi_1\right) \otimes 
     \xi_2+\xi_1 \otimes \nabla_X^{(2)} \xi_2 . \label{chfb:eqn_otcon}
 \end{align}
-容易验证：上面两个映射满足定义\ref{chfb:def_vb-conncection}中的三个公理，
+容易验证：上面两个映射满足定义\ref{chfb:def_vb-connection}中的三个公理，
 因而是矢量丛 $E_1 \oplus E_2$ 和 $E_1 \otimes E_2$ 上的联络．
 我们\CJKunderwave{规定式\eqref{chfb:eqn_otcon}中$\nabla_X$与缩并运算可对易}．
 
@@ -681,7 +681,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 通过上面操作得到了一个映射$(\alpha^*, X) \to \nabla_X^* \alpha^*$，
 容易看出映射$\nabla^*$是从笛卡尔积$\Gamma(E^*)\times \mathfrak{X}(M)$到
 对偶丛截面$\Gamma (E^*)$的一个联络（请读者验证式\eqref{chfb:eqn_dual-con}中的$\nabla_X^*$满足
-定义\ref{chfb:def_vb-conncection}）；称$\nabla^*$为与矢量丛联络 $\nabla$相互对偶的对偶丛联络．
+定义\ref{chfb:def_vb-connection}）；称$\nabla^*$为与矢量丛联络 $\nabla$相互对偶的对偶丛联络．
 \qed
 
 
@@ -884,7 +884,7 @@ $\forall X \in T_p M$，构造{\heiti 拉回丛上的诱导联络}为：
 于是，得到映射 $\nabla: \Gamma\left(\phi^* T N\right)\times \mathfrak{X}(M) 
 \rightarrow \Gamma\left(\phi^* T N\right)$．
 不难验证，式\eqref{chfb:eqn_pbb-connection}给出的映射$\nabla$满足
-定义\ref{chfb:def_vb-conncection}中的所有条件，
+定义\ref{chfb:def_vb-connection}中的所有条件，
 因而是矢量丛 $\phi^* T N$ 上的一个联络．
 
 
@@ -1178,9 +1178,11 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 \begin{align*}
     \mathrm{d} \Omega & =\mathrm{d} \omega \wedge \omega- \omega \wedge \mathrm{d} \omega 
      =(\Omega-\omega \wedge \omega) \wedge \omega-\omega \wedge(\Omega-\omega \wedge \omega) \\
-    & =\Omega \wedge \omega-\omega \wedge \Omega =\omega \wedge \Omega-\Omega \wedge \omega  .
+    & =\Omega \wedge \omega-\omega \wedge \Omega.
 \end{align*}
-上式最后一步：$\Omega$是2型式场，$\omega$是1型式场；那么$\Omega \wedge \omega=\omega \wedge \Omega$．
+虽然$\Omega$是2型式场、$\omega$是1型式场，
+但式子$\Omega \wedge \omega=\omega \wedge \Omega$只在它们是标量值时成立；
+现在两者是矩阵，故$\Omega \wedge \omega=\omega \wedge \Omega$不成立．
 \end{proof}
 
 
@@ -1287,9 +1289,9 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 
 
 因$G$-主丛的结构群和纤维型是一般的李群，不再是线性变换群$GL(V)$和$\mathbb{R}^q$，
-故类似于定义\ref{chfb:def_vb-conncection}中的三条公理的框架几乎无法推广到$G$-主丛．
+故类似于定义\ref{chfb:def_vb-connection}中的三条公理的框架几乎无法推广到$G$-主丛．
 1950年，Ehresmann 给出了$G$-主丛的联络定义；
-$G$-主丛联络可以导出矢量丛定义\ref{chfb:def_vb-conncection}中的三条公理；
+$G$-主丛联络可以导出矢量丛定义\ref{chfb:def_vb-connection}中的三条公理；
 以上内容可参阅\parencite{chen-li-2026-2ed-v2}第十章或\parencite{spivak-dif-2}第八章．
 
 
@@ -1463,10 +1465,6 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 上式表明定义与局部标架选取无关，故在大范围上有定义．
 \end{proof}
 
-一般说来，光滑流形$M$上不存在整体的标架场．
-由于$M$上一定存在联络（见定理\ref{chfb:thm_existence}）；
-故，根据上述定理，在标架丛$F(E)$上总是存在整体标架场的．
-在这个意义上来说，流形$F(E)$显得比底流形$M$简单．
 
 %\paragraph{对偶标架的联络}
 %已知标架丛$F(E)$的标架场\eqref{chfb:eqn_F-comp}．我们通过
@@ -1508,6 +1506,11 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 与切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$相配的切丛上的切矢量场．
 在那里，我们通过标架变换的方式引入它们；
 并导出了众多内容，比如联络型式、Cartan结构方程、Bianchi恒等式等
+
+一般说来，光滑流形$M$上不存在整体的标架场．
+由于$M$上一定存在联络（见定理\ref{chfb:thm_existence}）；
+故，根据上述定理，在切标架丛$F(TM)$上总是存在整体标架场的．
+在这个意义上来说，流形$F(TM)$显得比底流形$M$简单．
 
 
 切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型是$GL(m)$；
@@ -1560,7 +1563,7 @@ $\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q$维方阵）．
 	我们省略了大量内容（$G$-主丛联络理论）才得到式\eqref{chfb:eqn_Gwform}．
 	$G$-主丛理论中有定理表明在主丛联络中可以自然地引入结构群$G$的李代数$\mathfrak{g}$，
 	见式\eqref{chfb:eqn_Gwform}．若不使用$G$-主丛，只考虑矢量丛，
-	则在矢量丛联络\ref{chfb:def_vb-conncection}中无法自然引入结构群$G$的李代数$\mathfrak{g}$．
+	则在矢量丛联络\ref{chfb:def_vb-connection}中无法自然引入结构群$G$的李代数$\mathfrak{g}$．
 	我们借用$G$-主丛的目的就是要在式\eqref{chfb:eqn_Gwform}中自然引入$G$的李代数$\mathfrak{g}$．}
 
 

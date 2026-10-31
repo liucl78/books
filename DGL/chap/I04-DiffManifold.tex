@@ -295,7 +295,7 @@ $g\bigl(x^1,\cdots, x^m\bigr)$是$g$在给定标架$\{O;(e_i)^a\}$上的$m$元�
 \end{equation}
 其中$c^i$是矢量$\overrightarrow{OO'}$在标架$\{O;(e_i)^a\}$中的坐标；
 $y^i$是标架$\{O';(\epsilon_i)^a\}$中的坐标变量（区别于标架$\{O;(e_i)^a\}$中的坐标$x^i$）；
-$\{y\}$与$\{x\}$关系见式\eqref{chmla:def_tensor-by-compoents}，
+$\{y\}$与$\{x\}$关系见式\eqref{chmla:eqn_tensor-by-compoents}，
 以及\pageref{chmla:thm_inv-cov-base}页定理\ref{chmla:thm_inv-cov-base}，
 $B^{\cdot i}_k$是矩阵$A^j_{\cdot i}$的转置逆．
 于是，运用复合函数求导法则，有
@@ -448,7 +448,7 @@ $E^n$中的坐标是$y^\alpha$，标架是$\{P;(\epsilon_i)^a\}$．
 仿照上节，设有过点$A\in E^m$的曲线$\gamma:\mathbb{R}\to E^m$，且$A=\gamma(0)$，
 曲线在此点的切矢量是$v^a=\frac{{\rm d} x^i\circ\gamma(0)}{{\rm d} t}(e_i)^a$．
 映射$\phi$将$E^m$中的曲线$\gamma(t)$变成$E^n$中的曲线$\tilde{\gamma}(t)$，
-即有$\tilde{\gamma}(t)= \phi\circ\gamma(t)$，且$B=\tilde{\gamma}(A) =\tilde{\gamma}(0)\in E^n$；
+即有$\tilde{\gamma}(t)= \phi\circ\gamma(t)$，且$B=\tilde{\gamma}(0)\in E^n$；
 我们记$E^n$中曲线$\tilde{\gamma}(t)$在$B$点切矢量为$\tilde{v}^a$，
 那么$\tilde{v}^a$与$v^a$有什么关系？
 
@@ -962,7 +962,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 因此，那种想完全摆脱局部坐标去构建微分几何理论的想法是错误的．
 但是，流形论本身不依赖于某套特别的坐标系．
 
-然而，微分几何理论的却是整体性的，
+然而，微分几何理论却是整体性的，
 流形论主要目的是研究在局部坐标变换下而保持不变的性质（如切矢量、外微分式、黎曼曲率等等）．
 微分几何理论不能只对某个特别的坐标系正确，对其它坐标系不正确；
 也就是理论本身必须与坐标系选取无关才可以；
@@ -1073,10 +1073,12 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 
 \index[physwords]{微分流形!函数}
 
+ 
+
 \begin{example}
-    设流形$M$的局部坐标是$(U_\alpha,\varphi_\alpha;x^i)$，在局部坐标系下
-    有$\frac{\partial x^i}{\partial x^j}=\delta^i_j$，这明确说明：
-    当把局部坐标$x^i$看成函数时，它一定是$C^\infty$的．
+    设流形$M$的局部坐标是$(U_\alpha,\varphi_\alpha;x^i)$，
+    函数$x^i$在坐标卡内就是$\mathbb{R}^m$的坐标投影，
+    故它一定是$C^\infty$的．
 \end{example}
 
 \begin{definition}\label{chdm:def_Diff-Homeomorphism}
@@ -1193,7 +1195,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
     流形$M$上的光滑函数$h$满足式\eqref{chdm:eqn_exp1UVM}，令
     \begin{equation}
         \hat{f}(x)=\begin{cases}
-            f(x)\cdot h(x), & \forall x\in V ; \\
+            f(x)\cdot h(x), & \forall x\in U ; \\
             0, & \forall x\notin U .
         \end{cases}
     \end{equation}
@@ -1558,8 +1560,7 @@ $\{x\}$、$\{y\}$是$x_0$点某个小邻域的两套坐标系．
 严格说来，切矢量应该定义在函数芽（germ）的概念上，
 有兴趣读者可参考\parencite[\S 1.2]{cc2001-zh}．
 
-最后，单列一个自然段来再次强调：光滑流形$M$的切空间$T_pM$同构于$\mathbb{R}^m$的一个开子集，
-或者说$T_pM$就是$\mathbb{R}^m$中的开子集．
+最后，单列一个自然段来再次强调：流形$M$的切空间$T_pM$同构于$\mathbb{R}^m$．
 
 
 
@@ -1870,7 +1871,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 
 (1) 若$m=n={\rm rank}_p\phi$，则$\phi$是局部微分同胚的．
 
-(2) 若$m\leqslant n, {\rm rank}_p\phi=m$，也就是映射$\phi$说在$p$点某个邻域内是\CJKunderwave{局部}单一的，
+(2) 若$m\leqslant n, {\rm rank}_p\phi=m$，也就是映射$\phi$在$p$点某个邻域内是\CJKunderwave{局部}单一的，
 则称$\phi$点$p$是{\heiti 局部浸入}的．若
 映射$\phi$在$M$上每一点都浸入，则称为{\heiti 浸入映射}（immerse）．
 
@@ -1986,7 +1987,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 我们再叙述几个定理，省略证明过程，可请参考文献\parencite[\S 1.3]{cc2001-zh}．
 
 \begin{theorem}\label{chdm:thm_embed-1}
-    设$(\phi,M)$是$N$的浸入子流形，若$M$紧致，则$(\phi,M)$是正则嵌入．
+    设$(\phi,M)$是$N$的单浸入子流形，若$M$紧致，则$(\phi,M)$是正则嵌入．
 \end{theorem}
 
 \begin{theorem}\label{chdm:thm_embed-2}
@@ -1998,7 +1999,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 \begin{theorem}\label{chdm:thm_embed-3}
     设$(\phi,M)$是$n$维流形$N$的$m$维浸入子流形．
     $(\phi,M)$是正则嵌入的充要条件是：
-    \CJKunderwave{对任意点}$p\in M$，在$N$中存在$q=\phi(q)$的局部坐标系$(V;y^i)$，
+    \CJKunderwave{对任意点}$p\in M$，在$N$中存在$q=\phi(p)$的局部坐标系$(V;y^i)$，
     其中$y^i(q)=0$；且$\phi(M)\cap V$是由$y^{m+1}=y^{m+2}=\cdots=y^{n}=0$定义的．
 \end{theorem}
 
@@ -2636,7 +2637,7 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作{\heiti 度量}或{\heiti
         \to C^\infty(M)
     \end{equation*}
     是一个$\Tpq{p}{q}$型光滑张量场，等价于，
-    映射$\mathscr{T}$对每个位置都是$C^\infty(M)$-线性的（包含、但不是$\mathbb{R}$-线性），即
+    映射$\mathscr{T}$对每个位置都是$C^\infty(M)$-线性的（蕴含$\mathbb{R}$-线性），即
     \begin{equation}\label{chdm:eqn_Tensor-Characterization-Lemma}
     \begin{aligned}
         &\mathscr{T}^{a_1 \cdots a_p}_{\phantom{a_1 \cdots a_p}b_1\cdots b_q} 
@@ -2985,8 +2986,8 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 
 
 \begin{theorem}\label{chdm:thm_1PDG-diff}
-    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，$v^a$是其所诱导的
-    光滑切矢量场．若$\psi:M\to M$是一个$C^\infty$微分同胚，
+    设$\phi_t$是作用在光滑流形$M$上的单参数可微变换群，
+    $v^a$是其所诱导的光滑切矢量场．若$\psi:M\to M$是一个$C^\infty$微分同胚，
     则$\tilde{\phi}_t \equiv \psi \circ \phi_t \circ \psi^{-1}$也是作用在$M$上的单参数可微变换群，
     并且其诱导的光滑切矢量场是$\psi_{*}v^a$．
 \end{theorem}
@@ -3001,7 +3002,7 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     \begin{align*}
         \tilde{v}(f) & = \left. \frac{{\rm d} \bigl(f \circ \tilde{\phi}(t,q)\bigr)}{{\rm d} t} \right |_{t=0}
         =\left. \frac{{\rm d} \bigl(f \circ \psi \circ \phi_t \circ \psi^{-1} (q)\bigr)}{{\rm d} t} \right |_{t=0}
-        =\left. \frac{{\rm d} \bigl(f \circ \psi \circ \phi(t,p))\bigr)}{{\rm d} t} \right |_{t=0} \\
+        =\left. \frac{{\rm d} \bigl(f \circ \psi \circ \phi(t,p)\bigr)}{{\rm d} t} \right |_{t=0} \\
         &\xlongequal{\ref{chdm:eqn_tmp-vecp}} v(f \circ \psi)
         \xlongequal{\ref{chdm:eqn_pushforward-vector-onfield}} \psi_{*}v(f) .
     \end{align*}

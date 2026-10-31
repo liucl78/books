@@ -535,7 +535,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
     ${\phi ^*} ({\rm d}_b \omega_{a_{1}\cdots a_{r}})={\rm d}_b ({\phi ^*}\omega_{a_{1}\cdots a_{r}})$．
 \end{theorem}
 \begin{proof}
-    定理中对微分型式场阶数的要求保证其外微分不为零．
+    定理中对微分型式场阶数的要求保证其外微分有意义．
     外微分有局部性，其局部坐标表达式为式\eqref{chdf:eqn_exterior-differential}，由于这个式子
     具有坐标变换不变性，可以看成整体上皆有意义的定义式．首先将其看成流形$N$上的外微分
     （有局部坐标系$(V;y)$），再将此式拉回到流形$M$上（有局部坐标系$(U;x)$，且$\phi(U)\subset V$）．
@@ -894,13 +894,9 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 \begin{equation}
     \frac{{\rm d}y}{{\rm d}x}=-\frac{P(x,y)}{Q(x,y)}.
 \end{equation}
-这是通常的常微分方程式．它完全可积条件是（可查阅微积分书籍）
-\begin{equation}
-    \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}
-\end{equation}
-在$U$上处处成立．
-
-
+这是通常的常微分方程式．
+作为 Pfaff 方程，它在二维中总是可积的——这正是Frobenius条件 
+$\mathrm{d}\omega\wedge \omega = 0$在二维自动成立的表现．
 
 
 在光滑流形$M$上开子集$U$的一次微分式\eqref{chdf:eqn_Pfaff}在各点的$\mathbb{R}$-线性无关个数未必相同，
@@ -951,7 +947,8 @@ $r< \mu,\lambda \leqslant m$．其逆记为$b_\lambda^{\mu'}$，
 将逆矩阵乘在式\eqref{chdf:eqn_tmp-v1}上，有
 \begin{align*}
     (u_\lambda)^a \overset{def}{=}&  \sum_{\mu'=r+1}^{m} b_\lambda^{\mu'} (v_{\mu'})^a
-    =\sum_{\alpha=1}^{r} b_\lambda^{\mu'} v_{\mu'}^\alpha \left(\frac{\partial}{\partial x^\alpha}\right)^a
+    =\sum_{\mu'=r+1}^{m} \sum_{\alpha=1}^{r} b_\lambda^{\mu'} v_{\mu'}^\alpha 
+    \left(\frac{\partial}{\partial x^\alpha}\right)^a
     +\sum_{\mu,{\mu'}=r+1}^{m} b_\lambda^{\mu'} v_{\mu'}^\mu
         \left(\frac{\partial}{\partial x^\mu}\right)^a   \\
     =&-\sum_{\alpha=1}^{r} l_\lambda^{\alpha} \left(\frac{\partial}{\partial x^\alpha}\right)^a
@@ -1266,7 +1263,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 所有这样的点构成的集合记为$\partial M$．
 
 \begin{theorem}\label{chdf:thm_induced-orientation}
-    设$M$是$m$为光滑带边流形，且$\partial M\neq \varnothing$．
+    设$M$是$m$维光滑带边流形，且$\partial M\neq \varnothing$．
     那么可由$M$的微分结构$\mathscr{A}$诱导出$\partial M$上的微分结构$\widetilde{\mathscr{A}}$，
     使得$\partial M$成为$m-1$维光滑无边流形．
     此时包含映射$(\imath,\partial M)$是$M$的正则嵌入闭子流形．
@@ -1341,7 +1338,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 且有微分同胚映射$\phi:\Omega'\to \Omega$；
 若标量函数$f$在其定义域是连续的，则有
 \begin{equation}\label{chdf:eqn_multiple-integral}
-    \int_{\Omega} f(x) {\rm d}x^1 \cdots {\rm d}x^m = \int_{\Omega} f\circ\phi(y)
+    \int_{\Omega'} f(x) {\rm d}x^1 \cdots {\rm d}x^m = \int_{\Omega} f\circ\phi(y)
     \left|\frac{\partial (x^1, \cdots, x^m)}{\partial (y^1,\cdots, y^m)}
      \right|{\rm d}y^1 \cdots {\rm d}y^m .
 \end{equation}
@@ -1402,7 +1399,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 从上式可以看出，如果两个坐标卡定向不同，Jacobi行列式会产生一个额外的负号．
 从上式还可以看出，$m$阶外微分型式场的积分定义与式\eqref{chdf:eqn_multiple-integral}相符合．
 如果不是，比如是一个二阶对称张量场，那么积分定义都成问题；当作变量替换时，
-二阶张量场无法由自身变换产上一个Jacobi行列式，
+二阶张量场无法由自身变换产生一个Jacobi行列式，
 也就无法与基本定理\eqref{chdf:eqn_multiple-integral}相符合．
 微分流形中的积分定义（以及其它任何定义、公理等）原则上应能退化到$\mathbb{R}^m$中的积分定义
 （以及相应定义、公理等），除了$m$阶外型式场（标量函数场与其同构），其它张量场都很难给出积分定义．
@@ -1492,7 +1489,7 @@ $m$阶外微分型式场$\omega \in A^m(M)$在$\{V_\lambda\}$中的局部坐标�
     \circ\varphi^{-1}_\alpha\bigr)\cdot  {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha \\
     =&\int_{M} \omega  +k\cdot \int_{M} \eta .
 \end{align*} %\setlength{\mathindent}{2em}
-其中$k\in \mathbb{R}$，$\omega_\alpha$、$\eta_\alpha$分别是$\omega$、$\eta$的分量指标；
+其中$k\in \mathbb{R}$，$\omega_\alpha$、$\eta_\alpha$分别是$\omega$、$\eta$在不同开集上的分量；
 这便验证了积分是线性的．
 
 

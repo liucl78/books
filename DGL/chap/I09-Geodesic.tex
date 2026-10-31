@@ -538,7 +538,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 %所得到的$q$点坐标就线性地依赖于测地线线长$s$了．
 
 
-我们已约定坐标系$\{y\}$中，度规取为$g_{ab}=\bar{g}_{ij}({\rm d}y^i)_a({\rm d}y^j)_a$，
+我们已约定坐标系$\{y\}$中，度规取为$g_{ab}=\bar{g}_{ij}({\rm d}y^i)_a({\rm d}y^j)_b$，
 相应的克氏符号取为$\bar{\Gamma}^k_{ij}$．那么对应的测地线方程变为
 \begin{equation}\label{chgd:eqn_geodesic-formula-RNC}
     \frac{{\rm d}^2 y^i(s)}{{\rm d}s^2} + \bar{\Gamma}_{jk}^i(s)
@@ -768,7 +768,7 @@ $p$点在$\mathbb{R}^3$中的坐标投影是
 可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}完备正定黎曼流形上任意两点都可以用最短测地线相互连接．
 
 等距同胚保紧致性、保子集的（开）闭属性、保子集的有界性，所以
-由Hope--Rinow定理中的(3)可知：等距同胚保持正定黎曼流形完备性不变．
+由Hopf--Rinow定理中的(3)可知：等距同胚保持正定黎曼流形完备性不变．
 
 \begin{definition}\label{chgd:def_extensible}
     设有连通广义黎曼流形$(M,g)$和$(N,h)$，$(\widetilde{M},g)$是$M$的一个真开子流形；
@@ -793,7 +793,7 @@ Hopf--Rinow定理貌似还没有推广到不定度规情形．
     设$C:[r_1,r_2]\to M$是广义黎曼流形$(M,g)$中的一条光滑曲线段，若有$\epsilon > 0$以及
     光滑映射$\sigma:[r_1,r_2]\times (-\epsilon, \epsilon) \to M$使
     得$\sigma(s,0)=C(s),\ \forall s\in [r_1,r_2]$，则称映射$\sigma$是
-    曲线$C$的一个{\heiti 变分}（variantion）；$C(s)$称为变分的{\heiti 基准曲线}（base curve）．
+    曲线$C$的一个{\heiti 变分}（variation）；$C(s)$称为变分的{\heiti 基准曲线}（base curve）．
     对于任意固定的$\tau \in(-\epsilon, \epsilon) $，由$\gamma_\tau(s)\equiv \sigma(s,\tau)$定义
     的参数曲线$\gamma_\tau : [r_1,r_2]\to M$称为{\heiti 变分曲线}（curve in the variation；$s$-曲线）．
     若固定$s$，由$\phi_s(\tau)\equiv \sigma(s,\tau)$定义
@@ -1416,14 +1416,15 @@ $J_i=\eta_{ij} J^j$．
 我们取一个沿测地线$C(s)$平行移动的
 正交归一活动标架场$\{(e_i)^a\}$，并取$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$．
 
-设常曲率空间$M$的曲率为$c$．利用$\{(e_i)^a\}$正交归一性，由式\eqref{chrg:eqn_const-curvature}知
+设常曲率空间$M$的曲率为：$-c$．
+利用$\{(e_i)^a\}$正交归一性，由式\eqref{chrg:eqn_const-curvature}知
 \begin{align*}
     &R_{abcd} (e_i)^a (e_1)^b (e_1)^c (e_j)^d  =
       -c(g_{af}(e_i)^f (e_1)^a  g_{bh}(e_1)^h(e_j)^b
         -g_{bf}(e_i)^f (e_j)^a  g_{bh}(e_1)^h(e_1)^b )  \\
     &\Rightarrow\quad R_{i11j} = -c (\eta_{i1}\eta_{1j}- \eta_{ij}\eta_{11} )
        = c \eta_{ij}\eta_{11}   .
-\end{align*}  %%\setlength{\mathindent}{2em}
+\end{align*}
 设$J^a(s)$是沿$C(s)$定义的法Jacobi场，其展开式为$J^a=J^i (e_i)^a$．
 结合上式，由Jacobi方程\eqref{chgd:eqn_Jacobi-componet}得
 \begin{equation}

@@ -124,7 +124,7 @@
     反过来，给定联络系数\eqref{chrg:eqn_Christoffel-2-naturalbases}，
     经计算不难确定它满足式\eqref{chccr:eqn_Exchange-Christoffel}的变换关系；
     由注解\ref{chccr:remark_con-Nabla}可知，
-    这相当于在流行$M$上定义一个联络$\nabla_a$．通过计算不难确定
+    这相当于在流形$M$上定义一个联络$\nabla_a$．通过计算不难确定
     由式\eqref{chrg:eqn_Christoffel-2-naturalbases}定义的联络是无挠、容许、仿射联络．
     
     注：依照微分几何历史，这个仿射联络称为Christoffel--Levi-Civita联络或许更为准确；
@@ -241,7 +241,7 @@
     给定$m$维广义黎曼流形$(M,g)$，$\forall X^a \in \mathfrak{X}(M)$；
     如果$X^a$在任意坐标下的每个分量都为零，则称为{\heiti 零矢量}（Zero Vector）；
     如果$g_{ab}X^a X^b<0$，则称为{\heiti 类时矢量}（time-like）；
-    如果$g_{ab}X^a X^b>0$，则称为{\heiti 类空矢量}（sapce-like）；
+    如果$g_{ab}X^a X^b>0$，则称为{\heiti 类空矢量}（space-like）；
     如果$g_{ab}X^a X^b=0$且$X^a$不是零矢量，则称为{\heiti 零模矢量}（Null Vector）．
 \end{definition}
 
@@ -374,7 +374,7 @@ $T_p N$的局部坐标系是$\{y^\alpha\}$，对应的自然坐标基矢场是$\
 \begin{equation}
     \beta_{q*} \left. \left(\frac{\partial }{\partial y^\alpha}\right)^a \right|_{q}=
     \frac{\partial x^k}{\partial y^\alpha}\left(\frac{\partial }{\partial x^k}\right)^a
-    +\frac{\partial y^\beta}{\partial y^j}\left(\frac{\partial }{\partial y^\beta}\right)^a
+    +\frac{\partial y^\beta}{\partial y^\alpha}\left(\frac{\partial }{\partial y^\beta}\right)^a
     =\left. \left(\frac{\partial }{\partial y^\alpha}\right)^a \right|_{{(p,q)}}
 \end{equation}
 上式最左端的基矢在流形$N$中取值；最右端基矢在积流形$M\times N$中取值．
@@ -497,7 +497,7 @@ $\frac{\partial g_{kn}} {\partial  x^h}g_{ij}$，$g_{ij}g_{kn}$等项），
         24 \cdot R_{[abcd]}  =& \delta_{abcd}^{ijkl} R_{ijkl}
         =\Bigl(-\delta_{a}^{l} \cdot \delta_{bcd}^{ijk} +\delta_{b}^{l} \cdot \delta_{acd}^{ijk}
          -\delta_{c}^{l} \cdot \delta_{abd}^{ijk}  +\delta_{d}^{l} \cdot \delta_{abc}^{ijk} \Bigr)R_{ijkl} \\
-        =& -R_{[bcd]a} + R_{[acd]b} - R_{[abd]c} + R_{[abc]d} =0 .
+        =& 3! ( -R_{[bcd]a} + R_{[acd]b} - R_{[abd]c} + R_{[abc]d} )=0 .
     \end{align*}
     上式最后一步用到了第一Bianchi恒等式．
 \end{proof}
@@ -602,7 +602,8 @@ Ricci曲率张量定义见式\eqref{chccr:eqn_RicciCurvatured2}（$R_{ab}\equiv 
 \end{equation}
 
 \begin{proposition}
-	$(M,g)$是爱因斯坦流形的充要条件是：$R_{ab} = f \cdot g_{ab}$，$f\in C^{\infty}(M)$．
+	维数大于$2$的广义黎曼流形$(M,g)$是爱因斯坦流形的充分必要条件是：
+	$R_{ab} = f \cdot g_{ab}$，$f\in C^{\infty}(M)$．
 \end{proposition}
 \begin{proof}
 	必要性是显然的．下面证明充分性．对此式两边取散度，有
@@ -2526,7 +2527,7 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 %\end{equation}
 
 
-\paragraph{三维欧式空间的对偶}
+\paragraph{三维欧氏空间的对偶}
 三维笛卡尔空间$(\mathbb{R}^3,\delta)$的坐标系为$\{x,y,z\}$；
 因标架场正交归一，$\delta={\rm diag}(1,1,1)$，
 我们给出式\eqref{chrg:eqn_dx1r-Hodge}的具体表示（省略抽象指标）
@@ -2537,8 +2538,8 @@ $\forall f\in C^\infty(M)$，由定义容易得到：
 \end{equation}
 \fbox{甲}由双对偶公式\eqref{chrg:eqn_double-star-Hodge}和式\eqref{chrg:eqn_Cartesian-Hodge}易得：
 欧式空间叉乘$\boldsymbol{a}\times \boldsymbol{b}$同构于$\star (\boldsymbol{a}\wedge \boldsymbol{b})$．
-\fbox{乙}因三维欧式空间的度规场是正定的单位矩阵，故此时无需区分切矢量和余切矢量，也无需区分上下标．
-由式\eqref{chrg:eqn_Cartesian-Hodge}和式\eqref{chrg:eqn_fOsf}可知三维欧式空间只需引入
+\fbox{乙}因三维欧氏空间的度规场是正定的单位矩阵，故此时无需区分切矢量和余切矢量，也无需区分上下标．
+由式\eqref{chrg:eqn_Cartesian-Hodge}和式\eqref{chrg:eqn_fOsf}可知三维欧氏空间只需引入
 标量函数场和矢量场即可，无需引入$\boldsymbol{a}\wedge \boldsymbol{b}$和
 $\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c}$．
 \fbox{丙}不过需要提醒读者的是：$\star (\boldsymbol{a}\wedge \boldsymbol{b})$是赝矢量，
@@ -2718,7 +2719,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 \end{remark}
 \begin{remark}
 	在四维闵氏时空（即定理中指标$s=1$），
-	矢量$J^a$可以理解成电流四矢量，那么它自然满足电荷守定定律，即$\nabla_a J^a=0$，
+	矢量$J^a$可以理解成电流四矢量，那么它自然满足电荷守恒定律，即$\nabla_a J^a=0$，
 	因此存在2次微分型式场$\star {F_{bc}}$（
 	一般将${G_{bc}}$记成$\star {F_{bc}}$以便和麦克斯韦方程组相匹配）
 	满足式\eqref{chrg:eqn_chenfeng}．
@@ -2730,7 +2731,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 \end{remark}
 \begin{remark}
 	把\S\ref{chdf:sec_exterior-diff}的注解\ref{chdf:rek_poincare-lemma}翻译成陈冯定理中的语言便是，
-	若数学上$J_{abc}=0$（也就是电流四矢量$J_{a}$为零），那么必然有$F_{ab}=0$．
+	若数学上$\star J_{abc}=0$（也就是电流四矢量$J_{a}$为零），那么必然有$F_{ab}=0$．
 	这在物理上显然是不正确的，电流和电磁场是可以相互解耦的；
 	电流四矢量为零的地方电磁场未必为零．
 	所以虽然陈冯定理给出了一个数学结构，但无法与物理完全对应；
@@ -2754,7 +2755,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 
 
 %\begin{exercise}
-%	用Hodge星算子表示三维欧式空间的叉乘、散度、旋度公式．
+%	用Hodge星算子表示三维欧氏空间的叉乘、散度、旋度公式．
 %\end{exercise}
 
 %\begin{exercise}
@@ -4067,7 +4068,7 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 \end{theorem}
 \begin{proof}
     定理中$K(p)$可能是逐点不同的，也就是$K(p)$是$M$上光滑函数场；
-    我们要证明的是：在整个流行$M$上，$K(p)$只能取常数值，不能逐点不同．
+    我们要证明的是：在整个流形$M$上，$K(p)$只能取常数值，不能逐点不同．
 
     由式\eqref{chrg:eqn_const-curvature-inFORM}可知：
     $(\Omega_{ij})_{ab}(p) = K(p) (e_i)_a \wedge (e_j)_b , \quad 1\leqslant i,j \leqslant m$．
@@ -4309,7 +4310,7 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
 \eqref{chrg:eqn_conformal-Ricci}和\eqref{chrg:eqn_conformal-R-scalar}带入
 式\eqref{chrg:eqn_WeylConform-d4}硬算便是；
 注意利用：因联络无挠，故$\nabla_b \nabla_c \ln \Omega =\nabla_c \nabla_b \ln \Omega$．
-在共形映射下，$\Tpq{1}{3}$型Weyl张量是不变的，所它也被称为{\heiti 共形张量}．
+在共形映射下，$\Tpq{1}{3}$型Weyl张量是不变的，故它也被称为{\heiti 共形张量}．
 \index[physwords]{共形变换!共形张量|see{Weyl张量}}
 需要注意其它类型Weyl张量未必是共形不变的，
 比如$\Tpq{0}{4}$型的就不是（$\tilde{C}_{abcd} =\Omega^2 C_{abcd}$）．
