@@ -189,7 +189,8 @@ Schur引理可以推广至表示方阵为无穷维的情形，但证明超出了
 \end{theorem}
 
 \begin{proof}
-	证明过程很简单，直接将特征函数的定义带入定理中的公式，并利用式\eqref{chlar:eqn_pp=0}、\eqref{chlar:eqn_pp=d}即可．
+	证明过程很简单，直接将特征函数的定义代入定理中的公式，
+	并利用式\eqref{chlar:eqn_pp=0}、\eqref{chlar:eqn_pp=d}即可．
 	具体计算过程留给读者当练习．
 \end{proof}
 
@@ -490,7 +491,7 @@ $\forall u,v \in SU(2)$
 同态映射$h$将$SU(2)$中单位矩阵映射为$SO(3)$中的单位矩阵．
 除此以外，$h$还将负的单位矩阵映射为$SO(3)$中的单位矩阵；
 即取$a=-1,b=0$（式\eqref{chlar:eqn_SU2}），
-带入式\eqref{chlar:eqn_Ru}中立即可知．
+代入式\eqref{chlar:eqn_Ru}中立即可知．
 $\{I_2,-I_2\}$是同态核（令$R_u = I_3$即可证明），
 由二维单位矩阵和负单位矩阵组成；
 由定理\ref{chtop:thm_ghk}可知商群$SU(2)/\{\pm I_2\}\cong SO(3)$．
@@ -498,7 +499,7 @@ $\{I_2,-I_2\}$是同态核（令$R_u = I_3$即可证明），
 我们省略了$SU(2)$单连通性的证明，请查阅李群的专门书籍．
 
 取式\eqref{chlar:eqn_SU2}中$a=\cos \frac{\alpha}{2},\ b=-\mathbbm{i}\sin \frac{\alpha}{2}$，
-记为$J_1({\alpha})$；带入式\eqref{chlar:eqn_Ru}，有
+记为$J_1({\alpha})$；代入式\eqref{chlar:eqn_Ru}，有
 \begin{equation}\label{chlar:eqn_su2-x}
     J_1(\alpha)=\begin{pmatrix}
         \cos \frac{\alpha}{2} & -\mathbbm{i}\sin \frac{\alpha}{2} \\
@@ -843,8 +844,8 @@ ${\rm diag}\{e^{\mathbbm{i}\alpha_1},e^{\mathbbm{i}\alpha_2}\}$．
 	\end{vmatrix} = 0  \\
 	\Rightarrow \ & \lambda ^2-2 \lambda  \cos\psi+1 = 0 .
 \end{align*}
-上式的特征值为：$e^{\mathbbm{i}\psi}$、$e^{-\mathbbm{i}\psi}$.
-我们知道相似变换是不改变特征值的；故由定理\ref{chcx:thm_UD}可知$\forall g\in SU(2)$，
+上式的惯性指数为：$e^{\mathbbm{i}\psi}$、$e^{-\mathbbm{i}\psi}$.
+我们知道相似变换是不改变惯性指数的；故由定理\ref{chcx:thm_UD}可知$\forall g\in SU(2)$，
 一定存在一个幺正矩阵$P$使得$g$满足
 \begin{equation}
 	P^{-1} g P = \begin{pmatrix}
@@ -1097,7 +1098,7 @@ $SO(3)$群是连通、紧致李群，根据命题\ref{chlg:thm_exp-compact}可�
         =e^{-\mathbbm{i} \alpha J_z} e^{-\mathbbm{i}\beta J_y} e^{-\mathbbm{i}\gamma J_z}
         =e^{\alpha r_z} e^{\beta r_y} e^{\gamma r_z} .
 \end{equation}
-上式中的$J_i$是矩阵\eqref{chlar:eqn_so3-J}，可以把它们直接带入上式，
+上式中的$J_i$是矩阵\eqref{chlar:eqn_so3-J}，可以把它们直接代入上式，
 经过计算可求矩阵的指数（可借助符号演算软件），
 从而便可验证：式\eqref{chlar:eqn_expSO3}就是式\eqref{chlg:eqn_rotation_euler_y}．
 
@@ -1622,7 +1623,7 @@ $x'=\Lambda_{A_1} x$，以及$x''=\Lambda_{A_2} x'=\Lambda_{A_2} \Lambda_{A_1}x$
 
 我们取式\eqref{chlar:eqn_sl2}中的$\alpha=\cosh \frac{\psi}{2}=\delta$、
 $\beta=-\sinh \frac{\psi}{2}=\gamma$，
-记为$K_1(\psi)$；带入式\eqref{chlar:eqn_LT}，有
+记为$K_1(\psi)$；代入式\eqref{chlar:eqn_LT}，有
 \begin{equation}\label{chlar:eqn_sL2-x}
     K_1(\psi)=\begin{pmatrix}
         \cosh \frac{\psi}{2} & -\sinh \frac{\psi}{2} \\
@@ -3678,7 +3679,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 需要注意：式\eqref{chlar:eqn_qPhi}等号左端中的场算符是$\hat{\Phi}(x')$，不是$\hat{\Phi}'(x')$．
 这是因为态矢量$|\alpha'\rangle$已经带撇号，如果场算符再加上撇号，那么将产生{\kaishu 双重}变换；
 这属于重复变换，是不允许的，故场算符不带撇号．
-将式\eqref{chlar:eqn_apua}带入式\eqref{chlar:eqn_qPhi}，有
+将式\eqref{chlar:eqn_apua}代入式\eqref{chlar:eqn_qPhi}，有
 \begin{equation}
 	\hat{U}^{-1}(\omega) \hat{\Phi}(x') \hat{U}(\omega)  = \mathcal{T}(\omega) \hat{\Phi}(x) .
 \end{equation}
@@ -3693,7 +3694,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 	\hat{U}(\updelta\omega) = 1 - \mathbbm{i} \hat{G}(\updelta\omega) ;\qquad  
 	\text{其中}\hat{G}(\updelta\omega)\text{是自伴算符}.
 \end{equation}
-将上式带入式\eqref{chlar:eqn_Phi-qTransform}，有（忽略高于一阶的小量）
+将上式代入式\eqref{chlar:eqn_Phi-qTransform}，有（忽略高于一阶的小量）
 \begin{align*}
 	\left(1 + \mathbbm{i} \hat{G}(\updelta\omega)\right) \hat{\Phi}(x) 
 	\left(1 - \mathbbm{i} \hat{G}(\updelta\omega)\right)
@@ -3723,7 +3724,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 \paragraph{平移}
 本小节只考虑平移，即$\updelta x^\mu=\epsilon^\mu$且$\updelta \omega =0$．
 时空平移不会改变场$\hat{\Phi}(x)$的分布，故$\mathcal{T}(\updelta\omega)=1$．
-把式\eqref{chlar:eqn_GMP}带入\eqref{chlar:eqn_qPhiG}：
+把式\eqref{chlar:eqn_GMP}代入\eqref{chlar:eqn_qPhiG}：
 \begin{equation}\label{chlar:eqn_Phi-P}
 	\mathbbm{i}\left[ \hat{P}^{\rho},\ \hat{\Phi}(x)\right] =  \partial^{\rho}\hat{\Phi}(x) .
 \end{equation}
@@ -3742,7 +3743,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 根据例\ref{chlg:exam_pm2}，这里的平移算符为：
 $\hat{U}(a) = \exp\left(+\mathbbm{i} a^\mu \hat{P}_\mu  \right) $．
 Lorentz度规号差为$+2$时，请参考式\eqref{chlg:eqn_Texp}．
-将平移算符带入式\eqref{chlar:eqn_Phi-qTransform}左端，有
+将平移算符代入式\eqref{chlar:eqn_Phi-qTransform}左端，有
 \begin{align*}
 	e^{-\mathbbm{i} a^\nu \hat{P}_\nu} \hat{\Phi}(x)& e^{\mathbbm{i} a^\mu \hat{P}_\mu}   
 	\xlongequal{\ref{chlar:eqn_eBe}} \hat{\Phi}(x) - 
@@ -3769,7 +3770,7 @@ $\updelta\omega_{\mu\nu}$是六个实参数，用来描述三个纯转动和三�
 $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三个转动算符生成元和三个伪转动算符生成元．
 每个$\mathcal{S}^{\mu\nu}$算符都是$N\times N$的矩阵表示\eqref{chlar:eqn_JKMN}．
 
-把式\eqref{chlar:eqn_TL}、\eqref{chlar:eqn_GMP}带入\eqref{chlar:eqn_qPhiG}，有
+把式\eqref{chlar:eqn_TL}、\eqref{chlar:eqn_GMP}代入\eqref{chlar:eqn_qPhiG}，有
 \begin{align*}
 	\mathbbm{i}\left[ \frac{1}{2}\updelta\omega_{\rho\sigma} \widehat{M}^{\rho\sigma},\ \hat{\Phi}(x)\right] = 
 	-\frac{\mathbbm{i}}{2} \updelta\omega_{\mu\nu} \mathcal{S}^{\mu\nu} \hat{\Phi}(x)

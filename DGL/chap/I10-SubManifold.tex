@@ -817,7 +817,7 @@ Codazzi方程略显繁琐，计算中需注意外微分定义并不需要联络�
 \begin{equation}
     {}^m R_{\alpha\beta\mu\nu}= \bar{c} ( g_{\alpha\mu}g_{\beta\nu}- g_{\alpha\nu}g_{\beta\mu}  ).
 \end{equation}
-将上式带入式\eqref{chsm:eqn_curvature-Gauss-Frame}、\eqref{chsm:eqn_Codazzi-Frame}和\eqref{chsm:eqn_Ricci-Frame}，
+将上式代入式\eqref{chsm:eqn_curvature-Gauss-Frame}、\eqref{chsm:eqn_Codazzi-Frame}和\eqref{chsm:eqn_Ricci-Frame}，
 可得相应的曲率公式：
 \begin{align}
     {}^{n}_{\top}{R}_{ijkl} =& \bar{c} ( g_{ik}g_{jl}- g_{il}g_{jk}  )
@@ -1020,7 +1020,7 @@ $u^a$和$\phi_{*}u^a$是同一个矢量；故继续计算上式得
 \begin{equation}\label{chsm:eqn_hn}
     h_{ab}{n}^a=0=h_{ab}{n}^b.
 \end{equation}
-证明极易，直接带入即完成．其次$\forall v^a \in T\Sigma$，有${n}_b v^b=0$，进而有
+证明极易，直接代入即完成．其次$\forall v^a \in T\Sigma$，有${n}_b v^b=0$，进而有
 \begin{equation}
     h_{ab}v^b = (g_{ab}-\epsilon {n}_a {n}_b)v^b=g_{ab}v^b.
 \end{equation}
@@ -1506,7 +1506,7 @@ $n^a$按照式\eqref{chsm:eqn_unit-normal-Phi}中方式来选取方向．
 综上，正定度规、广义Lorentz度规下的超曲面$\Sigma$的诱导体积元都可以用式\eqref{chsm:eqn_induced-VE}来表示．
 可以验证超曲面$\Sigma$诱导体积元与诱导度规$h_{ab}$相容（留给读者当练习），
 即满足$h^{a_1b_1}\cdots h^{a_{m}b_{m}} \hat{\Omega}_{a_1 \cdots a_{m}} \hat{\Omega}_{b_1 \cdots b_{m}}
-= (-)^{\hat{s}} m!$；其中$\hat{s}$是$h_{ab}$中特征值负数的个数；
+= (-)^{\hat{s}} m!$；其中$\hat{s}$是$h_{ab}$中惯性指数负数的个数；
 具体来说，类时超曲面$\hat{s}=1$，正定度规和类空超曲面$\hat{s}=0$．
 
 为了与\S\ref{chdf:sec_manifold-boundary}中边界的诱导定向相符合，
@@ -1884,7 +1884,7 @@ $H^m_0(r)$是双曲空间，此空间度规是正定的．
     由命题\ref{chsm:thm_sub-Geodesic}可知$\alpha(t)$是伪球面的测地线．
 %    由\S\ref{chgd:sec_concept}可知这是非仿射参数化的测地线．
     
-    \fbox{乙} $h$非退化，且在$\Pi$上负特征值个数是一．
+    \fbox{乙} $h$非退化，且在$\Pi$上负惯性指数个数是一．
     令$\boldsymbol{e}_0,\boldsymbol{e}_1$是$\Pi$上的一组正交基，
     同时有$p=r\boldsymbol{e}_1$，$\boldsymbol{e}_0$是类时的．
     $\Pi$上的点$a\boldsymbol{e}_0+b\boldsymbol{e}_1$在超曲面$S^m_\nu$上的充要条件是：$-a^2+b^2=r^2$；
@@ -1953,7 +1953,7 @@ $H^m_0(r)$是双曲空间，此空间度规是正定的．
     %= \left(\frac{r r\sin\theta \cos\phi }{r+r\cos\theta},\ \frac{r r\sin\theta \sin\phi}{r+r\cos\theta}\right)
     = \left(\frac{r\sin\theta \cos\phi }{1+\cos\theta},\ \frac{r\sin\theta \sin\phi}{1+\cos\theta}\right) .
 \end{align}
-将上式带入式\eqref{chsm:eqn_Snhab}，经计算，得
+将上式代入式\eqref{chsm:eqn_Snhab}，经计算，得
 \begin{align*}
     h^{+}_{ab}= \frac{4r^4 \delta_{ij}} {(r^2+\sum\nolimits_{k=1}^{2} (y^k)^2)^2}
     ({\rm d}y^i)_a ({\rm d}y^j)_b 

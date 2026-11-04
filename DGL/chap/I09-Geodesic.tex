@@ -408,11 +408,11 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 %    在离开$p$点后，仍有$(\frac{\partial}{\partial y^i})^a = (e_i)^a$．
 
     在$V$中测地线是真正的“直线”；局部恒等映射$\varphi = \exp_{p}^{-1}$也
-    会把它带入到$U$中的法坐标系，因此从$p$点出发的相应测地线方程$\exp_{p}(sv^a)$的分量表达是
+    会把它代入到$U$中的法坐标系，因此从$p$点出发的相应测地线方程$\exp_{p}(sv^a)$的分量表达是
     \begin{equation}\label{chgd:eqn_normal-coord-gedU}
         y^i(s)= y^i\circ \exp_{p}(s v^a) = s v^i,\quad s\text{是弧长},  \qquad 1\leqslant i\leqslant m.
     \end{equation}
-    把式\eqref{chgd:eqn_normal-coord-gedU}带入测地线方程式\eqref{chgd:eqn_geodesic-formula}，立即可得
+    把式\eqref{chgd:eqn_normal-coord-gedU}代入测地线方程式\eqref{chgd:eqn_geodesic-formula}，立即可得
     \begin{equation}\label{chgd:eqn_tmp-Gamma}
         v^i v^j \bar{\Gamma}_{ij}^k(s v^a) = 0 ,\qquad 1\leqslant i,j,k\leqslant m .
     \end{equation}
@@ -491,7 +491,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 \end{equation}
 先由普通的克氏符定义三阶广义克氏符，然后四阶，……，递归定义到$n$阶．
 与三、四阶方程类似，可求得其它高阶方程．
-求完之后，带入式\eqref{chgd:eqn_tmpgeodesic-expand}得
+求完之后，代入式\eqref{chgd:eqn_tmpgeodesic-expand}得
 \begin{equation}\label{chgd:eqn_geodesic-expand}
     x^i = x^i_0 + s v^i  - \frac{s^2}{2!} \Gamma_{jk}^i(p) v^j v^k
         - \frac{s^3}{3!}  \Gamma^{i}_{jkl}(p) v^j v^k v^l
@@ -506,7 +506,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 
 继续式\eqref{chgd:eqn_geodesic-expand}的讨论．
 黎曼本人引入了坐标\eqref{chgd:eqn_normal-coord}和测地线方程\eqref{chgd:eqn_normal-coord-gedU}式，
-即$ y^i = s\cdot v^i$．我们把它带入式\eqref{chgd:eqn_geodesic-expand}得
+即$ y^i = s\cdot v^i$．我们把它代入式\eqref{chgd:eqn_geodesic-expand}得
 \begin{equation}
     x^i = x^i_0 + y^i  - \frac{1}{2!} \Gamma_{jk}^i(p) y^j y^k
     - \frac{1}{3!}  \Gamma^{i}_{jkl}(p) y^j y^k y^l + \cdots
@@ -659,7 +659,7 @@ $\bar{\Gamma}^{i}_{jk,l}(p)+\bar{\Gamma}^{i}_{lj,k}(p)+\bar{\Gamma}^{i}_{kl,j}(p
 %    \partial_l \partial_k \bar{g}_{ij}
 %    = \partial_{(l}(\bar{\Gamma}_{k)j}^p \bar{g}_{pi}) + \partial_{(l}(\bar{\Gamma}_{k)i}^p \bar{g}_{jp}) .
 %\end{equation}
-%带入式\eqref{chgd:eqn_gijkl=dG}易得
+%代入式\eqref{chgd:eqn_gijkl=dG}易得
 
 
 \begin{example}
@@ -975,7 +975,7 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
     \begin{equation}
         T^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a = s\cdot (\exp_{p})_{*s v} w^a .
     \end{equation}
-    将以上两式带入弧长第一变分公式\eqref{chgd:eqn_1st-var-arc}，并注意$\gamma_{\tau}(s)$是测地线，有
+    将以上两式代入弧长第一变分公式\eqref{chgd:eqn_1st-var-arc}，并注意$\gamma_{\tau}(s)$是测地线，有
     \begin{equation}\label{chgd:eqn_gltmp03}
         L'(0)= \left.\left({S}_b  {T}^b\right)\right|_{0}^{1}
         =g_{ab} \, (\exp_{p})_{*v}(v^a) \, (\exp_{p})_{*v}(w^b) .
@@ -1004,7 +1004,7 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
     $\exp_{p}$把$T_pM$中正交切矢量$v^a$和$w^a$映射到$M$中正交切矢量．
 \end{lemma}
 \begin{proof}
-    只需将$v_aw^a=0$带入定理\ref{chgd:thm_Gauss-lemma}即可得到本引理．本引理才是
+    只需将$v_aw^a=0$代入定理\ref{chgd:thm_Gauss-lemma}即可得到本引理．本引理才是
     最早由Gauss证明的“Gauss lemma”，定理\ref{chgd:thm_Gauss-lemma}是推广的“Gauss lemma”．
 \end{proof}
 
@@ -1357,7 +1357,7 @@ $J_i=\eta_{ij} J^j$．
     那么$J^a(s)$是法Jacobi场．
 \end{proposition}
 \begin{proof}
-    将式\eqref{chgd:eqn_J1kc}带入\eqref{chgd:eqn_tmp-s1s2}，有
+    将式\eqref{chgd:eqn_J1kc}代入\eqref{chgd:eqn_tmp-s1s2}，有
     \begin{align*}
         0=& (s_1 -r_1)\cdot g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s}+ g_{ab}(e_1)^b|_{r_1} J^a(r_1) , \\
         0=& (s_2 -r_1)\cdot g_{ab}(e_1)^b|_{r_1} \frac{{\rm d}J^a(r_1)}{{\rm d}s}+ g_{ab}(e_1)^b|_{r_1} J^a(r_1) .
@@ -1416,32 +1416,31 @@ $J_i=\eta_{ij} J^j$．
 我们取一个沿测地线$C(s)$平行移动的
 正交归一活动标架场$\{(e_i)^a\}$，并取$(e_1)^a=(\frac{{\rm d}}{{\rm d}s})^a|_{C(s)}$．
 
-设常曲率空间$M$的曲率为：$-c$．
+设常曲率空间$M$的曲率为：$c$．
 利用$\{(e_i)^a\}$正交归一性，由式\eqref{chrg:eqn_const-curvature}知
 \begin{align*}
     &R_{abcd} (e_i)^a (e_1)^b (e_1)^c (e_j)^d  =
-      -c(g_{af}(e_i)^f (e_1)^a  g_{bh}(e_1)^h(e_j)^b
+      c(g_{af}(e_i)^f (e_1)^a  g_{bh}(e_1)^h(e_j)^b
         -g_{bf}(e_i)^f (e_j)^a  g_{bh}(e_1)^h(e_1)^b )  \\
-    &\Rightarrow\quad R_{i11j} = -c (\eta_{i1}\eta_{1j}- \eta_{ij}\eta_{11} )
-       = c \eta_{ij}\eta_{11}   .
+    &\Rightarrow\quad R_{i11j} = c (\eta_{i1}\eta_{1j}- \eta_{ij}\eta_{11} )
+       = -c \eta_{ij}\eta_{11} .
 \end{align*}
 设$J^a(s)$是沿$C(s)$定义的法Jacobi场，其展开式为$J^a=J^i (e_i)^a$．
-结合上式，由Jacobi方程\eqref{chgd:eqn_Jacobi-componet}得
+结合上式，由Jacobi方程\eqref{chgd:eqn_Jacobi-componet}得（注：下式中$2 \leqslant i \leqslant m$）
 \begin{equation}
     \frac{{\rm d}^2 J_i(s)}{{\rm d} s^2} =R_{i11j}\bigl(C(s)\bigr) J^j(s)
-      = c \eta_{ij}\eta_{11} J^j(s) =c \eta_{11} J_i(s) ,
-      \ 1 < i \leqslant m.
+      = -c \eta_{ij}\eta_{11} J^j(s) =-c \eta_{11} J_i(s) .
 \end{equation}
 其中$\eta_{11}$是$+1$或$-1$．
 考虑到我们使用的是沿$C(s)$平行移动的标架场，故{\kaishu 法场}$J^a$的第一分量
 恒为零，即$J_1(s)\equiv 0$；故上式中的指标$i$从$2$记起；其通解是
 \begin{equation}\label{chgd:eqn_Jacobi-const-curvature}
     J_i(s) = \begin{cases}
-        \lambda_i \sin(\sqrt{-c \eta_{11}} s)  + \mu_i \cos(\sqrt{-c \eta_{11}} s ),
-            & \text{若 }\ c \eta_{11} <0 ; \\
+        \lambda_i \sin(\sqrt{c \eta_{11}} s)  + \mu_i \cos(\sqrt{c \eta_{11}} s ),
+            & \text{若 }\ c \eta_{11} >0 ; \\
         \lambda_i s  + \mu_i , & \text{若 }\ c \eta_{11} = 0; \\
-        \lambda_i \sinh(\sqrt{ c \eta_{11}} s) + \mu_i \cosh(\sqrt{c \eta_{11}} s) ,
-            & \text{若 }\ c \eta_{11}>0 .
+        \lambda_i \sinh(\sqrt{- c \eta_{11}} s) + \mu_i \cosh(\sqrt{-c \eta_{11}} s) ,
+            & \text{若 }\ c \eta_{11}<0 .
     \end{cases}
 \end{equation}
 其中$\lambda_i, \mu_i$是积分常数．
@@ -1582,7 +1581,7 @@ $J_i=\eta_{ij} J^j$．
 %
 %%$\bigl(v(\xi)\bigr)_{\phi(p)}$应理解为${\phi_* v}(\xi)=v(\xi\circ \phi)$，以及
 %
-%直接带入即可验证式\eqref{chgd:eqn_induced-connection}满足
+%直接代入即可验证式\eqref{chgd:eqn_induced-connection}满足
 %定义\ref{chccr:def_connection}中的前三个条件（将$K$和$L$看成矢量场或标量场）；
 %最后两条看作附加原则；因此式\eqref{chgd:eqn_induced-connection}符合联络定义．
 %

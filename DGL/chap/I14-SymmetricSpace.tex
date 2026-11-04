@@ -85,7 +85,7 @@
     $(4)\Rightarrow (2)$．由(4)可得：沿$\alpha(t)$有$\left<u,\, R (u, v) v \right>= c $，
     其中$c$是非零实常数；因$v$沿$\alpha(t)$平行移动不变，故由前面的内积可知$R (u, v) v$沿$\alpha(t)$平行移动不变，
     即沿$\alpha(t)$是常数．将沿$\alpha(t)$平行移动不变的矢量$v$分解成$v=X+Y$，并要求$X,Y$沿$\alpha(t)$平行移动不变；
-    带入上式有
+    代入上式有
     \begin{equation*}
         c'= R (u, v) v = R (u,X+Y) (X+Y)=R (u,X) X + R (u,X) Y+R (u,Y) X+R (u,Y) Y .
     \end{equation*}
@@ -1194,7 +1194,7 @@ $U(m+1)$中具有如下形式
 \end{proof}
 
 
-因此，在等距同胚意义下，至多存在一个维数为$m$，度规负特征值个数为$\nu$，
+因此，在等距同胚意义下，至多存在一个维数为$m$，度规负惯性指数个数为$\nu$，
 曲率常数为$C$的空间型式$M(m, \nu, C)$．
 在$C = 0$时，广义欧几里德空间$\mathbb{R}^m_\nu$便是我们要寻找的空间型式．
 定理\ref{chhss:thm_SRH-riemann}还说明：
@@ -1385,11 +1385,11 @@ $O(\nu,m+1-\nu)$（或$O(\nu+1,m-\nu)$）的李代数与空间型式的Killing�
         -R_{ol} g_{kj} + R_{ok} g_{lj} = R_{jl} g_{ko}   - R_{jk} g_{lo} .
     \end{equation}
     缩并上式中的$o$、$l$，有$   R_{jk} = \frac{1}{m} R g_{kj} $．
-    将此式带入式\eqref{chhss:eqn_Rojkl}，有
+    将此式代入式\eqref{chhss:eqn_Rojkl}，有
     \begin{equation}
         R_{ijkl} = \frac{1}{m(m-1)} R (g_{jl}  g_{ki}   -  g_{kj} g_{li}) .
     \end{equation}
-    把上式带入式\eqref{chhss:eqn_DR=0}可知$R$是常数，令$R= m(m-1)K$；故最终有
+    把上式代入式\eqref{chhss:eqn_DR=0}可知$R$是常数，令$R= m(m-1)K$；故最终有
     \begin{equation}
         R_{ijkl} = K  (g_{jl}  g_{ki}   -  g_{kj} g_{li}) .
         \qquad K\text{是实常数}
@@ -1623,7 +1623,7 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
     -\frac{\partial \xi^k}{\partial v^{\mathfrak{b}}} \frac{\partial F^l_{\hphantom{l}\mathfrak{a}}}{\partial u^k}
     -\xi^k \frac{\partial^2 F^l_{\hphantom{l}\mathfrak{a}}}{\partial v^{\mathfrak{b}} \partial u^k} .
 \end{equation}
-将式\eqref{chhss:eqn_tmp-xiva}带入上式等号右端，有
+将式\eqref{chhss:eqn_tmp-xiva}代入上式等号右端，有
 \begin{align*}
     \frac{\partial^2 \xi^l}{\partial v^{\mathfrak{b}} \partial v^{\mathfrak{a}}}= & 
     F^j_{\hphantom{j}\mathfrak{a}} F^i_{\hphantom{i}\mathfrak{b}} 
@@ -1793,7 +1793,7 @@ $K$是最大对称子空间的曲率．
 \index[physwords]{球对称空间}
 
 \paragraph{球对称空间}
-假设整个空间的维数是 $m=3$，其度规的所有特征值都是正的，
+假设整个空间的维数是 $m=3$，其度规的所有惯性指数都是正的，
 而且它有最大对称的二维正曲率子空间．于是，$v$ 坐标只有一个， 我们叫它 $r$．
 $u$ 坐标有 2 个，我们用 $\theta, \phi$ 表示它们， 定义是
 \begin{equation}\label{chhss:eqn_u-sphere}
@@ -1811,8 +1811,8 @@ $u$ 坐标有 2 个，我们用 $\theta, \phi$ 表示它们， 定义是
 \index[physwords]{球对称时空}
 
 \paragraph{球对称时空}
-假设整个时空的维数是 $m=4$，其度规的特征值三正一负，它有最大对称的二维子空间，
-子度规有正特征值与正曲率．于是 $v$ 坐标有 2 个，我们称它们为 $r$ 与 $t$．
+假设整个时空的维数是 $m=4$，其度规的惯性指数三正一负，它有最大对称的二维子空间，
+子度规有正惯性指数与正曲率．于是 $v$ 坐标有 2 个，我们称它们为 $r$ 与 $t$．
 $u$ 坐标 2 个， 如同式\eqref{chhss:eqn_u-sphere}那样可把它们换为 $\theta$ 与 $\phi$． 
 则由 $k=1$ 的度规\eqref{chhss:eqn_pg-mss}得出
 \begin{small}
@@ -1821,13 +1821,13 @@ $u$ 坐标 2 个， 如同式\eqref{chhss:eqn_u-sphere}那样可把它们换为 
      +f(r, t)\left\{\mathrm{d} \theta^2+\sin ^2 \theta \mathrm{d} \phi^2\right\} .
 \end{equation}
 \end{small}
-式中 $f(r, t)$ 是正函数；$g_{i j}(r, t)$ 是特征值一正一负的 $2 \times 2$ 矩阵．
+式中 $f(r, t)$ 是正函数；$g_{i j}(r, t)$ 是惯性指数一正一负的 $2 \times 2$ 矩阵．
 
 \index[physwords]{球对称均匀时空}
 
 \paragraph{均匀各向同性时空}
-假设整个时空的维数是 $m=4$，其度规的特征值三正一负，它有最大对称的三维子空间．
-子度规的特征值是正的，而曲率是任意的．于是有一个 $v$ 坐标和三个 $u$ 坐标；
+假设整个时空的维数是 $m=4$，其度规的惯性指数三正一负，它有最大对称的三维子空间．
+子度规的惯性指数是正的，而曲率是任意的．于是有一个 $v$ 坐标和三个 $u$ 坐标；
 由\eqref{chhss:eqn_pg-mss}得
 \begin{equation}\label{chhss:eqn_g-cos}
     \mathrm{d} s^2=g(v) \mathrm{d} v^2  +f(v) \sum_{ij=1}^{3} \left\{\delta_{ij} 

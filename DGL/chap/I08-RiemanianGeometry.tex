@@ -39,8 +39,8 @@
     故不能记$T_pM=T^*_pM$，只能记作$T_pM\cong T^*_pM$．
 \end{remark}
 
-黎曼流形专指正定度规情形．不定度规专指度规特征值既有正、又有负情形．
-广义黎曼流形（Generalized Riemannian）是指度规特征值可能全是正的，可能全是负，也可能有正有负．
+黎曼流形专指正定度规情形．不定度规专指度规惯性指数既有正、又有负情形．
+广义黎曼流形（Generalized Riemannian）是指度规惯性指数可能全是正的，可能全是负，也可能有正有负．
 广义黎曼流形还被称为半黎曼流形（Semi-Riemannian）或伪黎曼流形（Pesudo-Riemannian，也被翻译成“赝”或“准”）．
 需要指出的是有的文献中广义黎曼流形专指非正定度规流形，即不包含正定度规情形；各个文献中此称谓内涵不完全一致．
 之后的行文中，我们将尽量严格区分“黎曼流形”和“广义黎曼流形”；
@@ -220,7 +220,7 @@
 其度规有式\eqref{chmla:eqn_gmetric}的形式且没有非零分量（因非退化）．
 
 \begin{definition}\label{chrg:def_Minkowski-space}
-    给定光滑广义黎曼流形$(M,g)$，如果其每点切空间的度规特征值（即式\eqref{chmla:eqn_gmetric}）只有一个负号，
+    给定光滑广义黎曼流形$(M,g)$，如果其每点切空间的度规惯性指数（即式\eqref{chmla:eqn_gmetric}）只有一个负号，
     其余皆为正号（本书使用度规符号是$(-+\cdots+)$，其它文献可能与此整体差一负号），
     则称$M$为{\heiti 广义Minkowski流形}．此度规称为{\heiti 广义Lorentz度规}或者广义闵氏度规．
     当没有“广义”两个字时，专指\CJKunderwave{四维}Minkowski流形（或其子流形），
@@ -232,10 +232,10 @@
 而定义\ref{chrg:def_Minkowski-space}可以是平直的，也可以是弯曲的．
 从此以后，定义\ref{chrg:def_Minkowski-space}包含定义\ref{chdm:def_MinkowskiSpace}．}
 
-当度规场是非退化时，那么流形$M$度规场特征值的正负号逐点相同．
-如果度规场特征值会改变，比如$M$上有点$p$和$q$，
+当度规场是非退化时，那么流形$M$度规场惯性指数的正负号逐点相同．
+如果度规场惯性指数会改变，比如$M$上有点$p$和$q$，
 其中$p$点度规是正定的，而$q$点度规是$(-+\cdots+)$；
-那么根据度规是连续函数可以肯定存在一点的度规特征值为零（分量$g_{11}$），因而退化，矛盾！
+那么根据度规是连续函数可以肯定存在一点的度规惯性指数为零（分量$g_{11}$），因而退化，矛盾！
 
 \begin{definition}\label{chrg:def_vector-property}
     给定$m$维广义黎曼流形$(M,g)$，$\forall X^a \in \mathfrak{X}(M)$；
@@ -273,7 +273,7 @@
         {{\rm d} t}\right)^a_{\gamma}\left(\frac{{\rm d}  }{{\rm d} t}\right)^b_{\gamma}\right|} {\rm d}t .
 \end{equation}
 因度规可能是不定的，故上式中加了绝对值．
-如果度规是正定的，即\eqref{chmla:eqn_gmetric}式中特征值全部是$+1$，
+如果度规是正定的，即\eqref{chmla:eqn_gmetric}式中惯性指数全部是$+1$，
 则没有必要加这个绝对值．
 
 对于正定度规而言，式\eqref{chrg:eqn_arc-length}是个良定义，对于不定度规而言要复杂一些．
@@ -333,7 +333,7 @@
     \left|\frac{{\rm d} t }{{\rm d} u}\right| \cdot {\rm d}u .
 \end{align*}  %%\setlength{\mathindent}{2em}
 不论$\frac{{\rm d} t }{{\rm d} u}>0$还是$\frac{{\rm d} t }{{\rm d} u}<0$，
-带入上式后都会得到弧长公式在形式上是不变的，即与重参数化无关，
+代入上式后都会得到弧长公式在形式上是不变的，即与重参数化无关，
 或者说在重参数化后曲线线长不变．
 
 如果我们将曲线$\gamma(t)$参数$t$选为线长$s$，那么从上式可以看到必有
@@ -885,7 +885,7 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 
 \paragraph{曲率关系}
 我们知道一般仿射联络的黎曼曲率表示式为\eqref{chccr:eqn_Riemannian13-component}；
-下面把\eqref{chrg:eqn_AC-CCT}式带入之，
+下面把\eqref{chrg:eqn_AC-CCT}式代入之，
 则可以得到一般曲率$\oversetmy{\bullet\circ}{R}_{jln}^i$与
 度规$g_{ij}$决定的曲率${R}_{jln}^i$之间的关系．
 \begin{align*}
@@ -980,27 +980,27 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 \begin{proposition}\label{chrg:thm_isometry-VW}
 设有两个线性空间$V$和$W$，$V$上定义了度规$g$，$W$上定义了度规$h$．
 存在等距映射$T:V\to W$的充分必要条件是：
-$V$、$W$有相同的维数，并且$g$的正（负）特征值个数等于$h$的正（负）特征值个数．    
+$V$、$W$有相同的维数，并且$g$的正（负）惯性指数个数等于$h$的正（负）惯性指数个数．    
 \end{proposition}
 \begin{proof}
         度规定义要求它是非退化的．
     在$V$中选定正交归一基矢$\{(e_i)^a\}$，在$W$中选定正交归一基矢$\{(\epsilon_j)^a\}$．
-    在正交归一基矢下，度规特征值参见式\eqref{chmla:eqn_gmetric}．
+    在正交归一基矢下，度规惯性指数参见式\eqref{chmla:eqn_gmetric}．
     
     “$\Rightarrow$”．$T$等距，则它首先是线性同构，故$V$、$W$的维数相等．
-    将$V$中基矢$\{(e_i)^a\}$带入式\eqref{chrg:eqn_isometry-VW}可
+    将$V$中基矢$\{(e_i)^a\}$代入式\eqref{chrg:eqn_isometry-VW}可
     得（其中$\eta={\rm diag}(-\cdots -+\cdots +)$）
     \begin{equation}
          h_{ab} T\bigl((e_i)^a\bigr) T\bigl((e_j)^b\bigr) = g_{ab} (e_i)^a(e_j)^b = \eta_{ij} .
     \end{equation}
     $\{(e_i)^a\}$在等距、线性同构下的像是$T\bigl((e_i)^a\bigr)$，显然它是$W$中的基底；
-    故在$W$中存在基底使得$h$的正（负）特征值个数等于$g$的正（负）特征值个数．  
+    故在$W$中存在基底使得$h$的正（负）惯性指数个数等于$g$的正（负）惯性指数个数．  
     
     “$\Leftarrow$”．因$V$、$W$有相同的维数，故必然存在线性同构映射$\sigma:V\to W$；
     我们将具体表达式选为$\sigma\bigl((e_i)^a\bigr) = (\epsilon_i)^a$（
     这个线性映射是人为选定的，如果选为其它形式，
     比如$\sigma\bigl((e_i)^a\bigr) =-9.4 (\epsilon_i)^a$，那么会给证明造成困难）．
-    因$g$的正（负）特征值个数等于$h$的正（负）特征值个数，
+    因$g$的正（负）惯性指数个数等于$h$的正（负）惯性指数个数，
     故可令$g_{ab}(e_i)^a(e_j)^b = h_{ab}(\epsilon_i)^a(\epsilon_j)^b$（
     因$(e_i)^a$和$(\epsilon_i)^a$都是正交归一的，故可作此种选择）．
     在上述线性同构映射约定下，以及度规$g$、$h$关系约定下，$\sigma$是等距的，即
@@ -1246,7 +1246,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）特征值个数等于$h$�
        h^{\alpha\beta}(y)=\frac{\partial y^\alpha}{\partial x^i}
         \frac{\partial y^\beta}{\partial x^j} g^{ij}(x) .
     \end{equation}
-    式\eqref{chrg:eqn_isometry-connection-tmp}右端第二项为（注意将上式带入）
+    式\eqref{chrg:eqn_isometry-connection-tmp}右端第二项为（注意将上式代入）
     \begin{align*}
       &\frac{\partial y^\alpha}{\partial x^i}
       \frac{\partial y^\beta}{\partial x^j}
@@ -1269,7 +1269,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）特征值个数等于$h$�
        + \frac{{\partial {y^\rho }}}{{\partial {x^k}}}\Gamma _{ij}^k\left( x \right) .
     \end{align*}  %%\setlength{\mathindent}{2em}
     上式计算冗长，中间省略一些步骤，请读者补齐．
-    将上式带入式\eqref{chrg:eqn_isometry-connection-tmp}，得
+    将上式代入式\eqref{chrg:eqn_isometry-connection-tmp}，得
     \begin{equation}
         \Gamma^{k}_{ji}(x) \frac{\partial y^\rho}{\partial x^k} 
         \xlongequal[?]{?}
@@ -1616,7 +1616,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）特征值个数等于$h$�
        = \Lie_{\xi} (0) -\Lie_{\eta}(0) = 0.
     \end{equation}
     故$[\xi,\eta]^a$也是Killing切矢量场．
-    本例也可直接把$[\xi,\eta]^a$带入Killing方程去证明，
+    本例也可直接把$[\xi,\eta]^a$代入Killing方程去证明，
     但计算过程略繁琐；留作习题．    \qed
 \end{example}
 
@@ -1862,7 +1862,7 @@ $\mathbb{R}$-线性独立的Killing切矢量场．
 下面只讨论$a_\mu=0$情形．
 
 
-将式\eqref{chrg:eqn_killing-coef}带入Killing方程\eqref{chrg:eqn_killing-Minkowski}得
+将式\eqref{chrg:eqn_killing-coef}代入Killing方程\eqref{chrg:eqn_killing-Minkowski}得
 \begin{equation}\label{chrg:eqn_killing-coef-eta}
     0=\sum_{\alpha}\frac{\partial c_{\mu \alpha}x_\alpha}{\partial x^\nu}
     +\sum_{\alpha} \frac{\partial c_{\nu \alpha}x_\alpha}{\partial x^\mu}
@@ -1939,7 +1939,7 @@ $\eta_{\mu \mu}=\pm 1$，这说明$c_{\mu \mu}=0$，也就是Killing场分量$\x
 \begin{equation}
     \Omega_{a_1 \cdots a_m}= \Omega\, ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} .
 \end{equation}
-将此式带入到式\eqref{chrg:eqn_volume-g}中，有
+将此式代入到式\eqref{chrg:eqn_volume-g}中，有
 \begin{align*}
     (-)^s m! =& \Omega^2  \ g^{a_1 b_1}\cdots g^{a_m b_m}  ({\rm d}x^1)_{a_1} \wedge \cdots
     \wedge({\rm d}x^m)_{a_m} ({\rm d}x^1)_{b_1} \wedge \cdots \wedge({\rm d}x^m)_{b_m} \\
@@ -2058,7 +2058,7 @@ g^{\mu_{1} j_{1}}\cdots g^{\mu_{r} j_{r}}  g^{i_{r+1}j_{r+1}} \cdots g^{i_{m}j_{
     \end{vmatrix}
 =g^{-1}\delta^{\mu_1 \cdots\mu_r i_{r+1}\cdots i_m}_{1 \cdots m} .
 \end{equation}
-带入上上式后继续计算，得
+代入上上式后继续计算，得
 \begin{align*}
     &\Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m}
     \Omega^{{b_1 \cdots b_r} a_{r+1} \cdots a_m} \\
@@ -2590,7 +2590,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 \begin{equation}
     A^{ij}=g\cdot g^{ij} .
 \end{equation}
-将上式带入式\eqref{chrg:eqn_detga}，并整理得（考虑到$g$可正可负，故加上绝对值）
+将上式代入式\eqref{chrg:eqn_detga}，并整理得（考虑到$g$可正可负，故加上绝对值）
 \begin{equation}\label{chrg:eqn_detgijij}
     \frac{1}{g}\frac{\partial g}{\partial x^k}= g^{ij} \frac{\partial g_{ij}}{\partial x^k}
     \quad \Rightarrow \quad
@@ -2677,7 +2677,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 	\begin{equation}\label{chrg:eqn_chenfeng}
 		\star J_{abc} = {\rm d}_a G_{bc}  {\quad  \Leftrightarrow \quad} J_a = (-)^{s+1} ( \star {\rm d}G  )_a .
 	\end{equation}
-	其中$s$是度规$g$的特征值中$-1$个数．
+	其中$s$是度规$g$的惯性指数中$-1$个数．
 \end{theorem}
 \begin{proof}
 	四维逆变矢量$J^a$，可以通过度规对其指标升降，其对偶矢量${J_a} = {g_{ab}}{J^b}$．
@@ -2698,7 +2698,7 @@ $\star (\boldsymbol{a}\wedge \boldsymbol{b}\wedge \boldsymbol{c})$是赝标量�
 	\end{align*}
 	由于我们是在四维流形上讨论问题，${\rm d}_f (\star {J_{abc}})$已是最高次的外微分型式场，
 	它同构于一个标量场；    可以假设${\rm d}_f (\star {J_{abc}}) = \kappa {\Omega _{fabc}}$，
-	其中$\kappa$是一个待定标量函数． 带入式上左端，有
+	其中$\kappa$是一个待定标量函数． 代入式上左端，有
 	\begin{equation*}
 		{\Omega ^{fabc}}{\rm d}_f (\star {J_{abc}}) = {\Omega ^{fabc}}\kappa
 		{\Omega _{fabc}} = \kappa 4!{(-)^s} .
@@ -3259,7 +3259,7 @@ $({e}_\mu)^a = (\frac{\partial}{\partial x^\pi})^a C_{\hphantom{\pi} \mu}^{\pi}$
 看作描述基矢{\kaishu 对易关系的系数}（可能是常数、也可能是标量场）．
 
 
-把式\eqref{chrg:eqn_Ricci-Coef}带入式\eqref{chrg:eqn_Riemann_rr}可得：
+把式\eqref{chrg:eqn_Ricci-Coef}代入式\eqref{chrg:eqn_Riemann_rr}可得：
 \begin{align}
 	R_{\rho\sigma\mu\nu} =&
 	+\frac{1}{2} C_{\hphantom{\pi} \mu}^{\pi}(x) \frac{\partial }{\partial x^\pi}
@@ -3594,7 +3594,7 @@ R_{1424} = -\partial^2_{xy}F,\quad
 R_{2424} = -\partial^2_{yy}F. \quad
 R_{44} = -\partial^2_{xx}F -\partial^2_{yy}F .
 \end{align*}
-将$F$的表达式\eqref{chrg:eqn_SWP-F}带入，便可给出基矢$\{(e^\mu)_a\}$下的黎曼曲率非零分量：
+将$F$的表达式\eqref{chrg:eqn_SWP-F}代入，便可给出基矢$\{(e^\mu)_a\}$下的黎曼曲率非零分量：
 \begin{align*}
 	R_{1441}= f(u) = R_{2424},\quad R_{1442} = g(u) .
 	\qquad R_{\mu\nu}\equiv 0 .
@@ -3826,7 +3826,7 @@ $\{u^\alpha\}$是活动标架（例如球坐标）所对应的坐标曲线．
     ({E}_\alpha)^a = L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a ,
     \quad \text{重复指标$\alpha$不求和，} L_{\alpha} \ \text{是Lam\'e系数}
 \end{equation}
-$({E}_\alpha)^a$是归一化后的矢量．带入欧式度规，有
+$({E}_\alpha)^a$是归一化后的矢量．代入欧式度规，有
 \begin{align*}
     \delta_{\alpha \beta} =& g_{ab} ({E}_\alpha)^a ({E}_\beta)^b = g_{ab}
     L_{\alpha}^{-1} \left(\frac{\partial}{\partial u^\alpha}\right)^a 
@@ -4092,7 +4092,7 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
     \begin{equation}
         {\rm d}_c (K)\wedge (e_i)_a \wedge (e_j)_b = 0.
     \end{equation}
-    在标架场$\{(e^i)_a\}$中，可令${\rm d}_c (K) = K_l (e^l)_c$；带入上式，有
+    在标架场$\{(e^i)_a\}$中，可令${\rm d}_c (K) = K_l (e^l)_c$；代入上式，有
     \begin{equation}\label{chrg:eqn_tmpschur}
        \sum_{l } K_l (e^l)_c \wedge (e_i)_a \wedge (e_j)_b = 0, \qquad \forall i,j .
     \end{equation}
@@ -4307,7 +4307,7 @@ $\Tpq{1}{3}$型Weyl张量（可由式\eqref{chrg:eqn_WeylConform-d4}将指标升
     \tilde{C}_{\hphantom{a} bcd}^a = C_{\hphantom{a} bcd}^a .
 \end{equation}
 上式计算较为繁琐，但无需任何技巧，直接把式\eqref{chrg:eqn_conformal-Riemann}、
-\eqref{chrg:eqn_conformal-Ricci}和\eqref{chrg:eqn_conformal-R-scalar}带入
+\eqref{chrg:eqn_conformal-Ricci}和\eqref{chrg:eqn_conformal-R-scalar}代入
 式\eqref{chrg:eqn_WeylConform-d4}硬算便是；
 注意利用：因联络无挠，故$\nabla_b \nabla_c \ln \Omega =\nabla_c \nabla_b \ln \Omega$．
 在共形映射下，$\Tpq{1}{3}$型Weyl张量是不变的，故它也被称为{\heiti 共形张量}．

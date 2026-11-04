@@ -42,7 +42,7 @@
     记为$(\mathbb{R}^4_1,\eta)$；
     $\eta$称为{\heiti\bfseries Lorentz度规}或闵氏度规．
     {\footnote{{\kaishu 时空}是较物理的称呼，{\kaishu 空间}是偏数学的叫法；两者等价，不必严格区分．
-    $\mathbb{R}^4_1$的上指标表示空间的总维数，下标表示负特征值（见式\eqref{chmla:eqn_gmetric}）个数．}}
+    $\mathbb{R}^4_1$的上指标表示空间的总维数，下标表示负惯性指数（见式\eqref{chmla:eqn_gmetric}）个数．}}
 \end{definition}
     
     \index[physwords]{欧几里得空间!广义}
@@ -1246,7 +1246,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 \begin{equation}\label{chdm:eqn_f-cdot-g-circo-gamma}
     (f\cdot g)\circ \gamma \overset{def}{=} (f\circ \gamma) \cdot (g\circ \gamma)  .
 \end{equation}
-将上式带入式\eqref{chdm:eqn_DiffCurve}，有
+将上式代入式\eqref{chdm:eqn_DiffCurve}，有
 \begin{align*}
     v(f\cdot g)=& \left. \frac{{\rm d} \Bigl(f \bigl(\gamma (t)\bigr)\cdot 
         g \bigl(\gamma (t)\bigr)\Bigr)}{{\rm d} t} \right |_{t=0} \\
@@ -1274,7 +1274,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 上式中指标$j$是固定不变的，上标$i$是其$m$个坐标分量的指标．
 当$i\neq j$时，坐标就处在$x^i_0$点不动；
 当$i=j$时，（只有这一个）坐标按线性规律（即直线）变化．
-将这样的坐标带入式\eqref{chdm:eqn_DiffCurve}，并将这个切矢量
+将这样的坐标代入式\eqref{chdm:eqn_DiffCurve}，并将这个切矢量
 记为$(\frac{\partial }{\partial x^j})^a$（注意作用到标量函数上后，略去抽象指标）
 \begin{align*}
     \frac{\partial }{\partial x^j} f\bigl(\gamma (0)\bigr) =& \left. 
@@ -1317,7 +1317,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 \begin{equation}
     c^i \frac{\partial f}{\partial x^i}  =0, \qquad \forall f \in C^\infty(U).
 \end{equation}
-将标量函数$f$选为坐标线$x^k$，并将这些坐标线一一带入上式，
+将标量函数$f$选为坐标线$x^k$，并将这些坐标线一一代入上式，
 容易得到$c^k=0,\ k=1,\cdots,m$．与假设矛盾，所以$m$个矢量是线性无关的．
 
 任意给定一个满足定义\ref{chdm:def_tang-vec-inManifold}的矢量$v^a\in T_{x_0}M$，
@@ -1890,7 +1890,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 因此浸入映射的像可能有自交点．
 嵌入映射则要求在整个流形范围内是单一的，没有自交点．
 
-%单纯的嵌入映射$\phi$从$M$带入到$\phi(M)$的拓扑未必与$\phi(M)$从$N$上得到
+%单纯的嵌入映射$\phi$从$M$代入到$\phi(M)$的拓扑未必与$\phi(M)$从$N$上得到
 %的诱导拓扑结构相同，一般说来会细于诱导拓扑．
 
 有了浸入和嵌入便可有了子流形定义：
@@ -1948,7 +1948,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
     但没有到达原点，即$G(t\to \pm \infty)\to (0,0)$；没有自交点．
     所以$(G,\mathbb{R})$是$\mathbb{R}^2$是嵌入子流形，当然它也是浸入子流形．
 
-    由$G$带入$G(\mathbb{R})$的是一条不自相交的曲线，这个拓扑是一维的，同胚于实数轴．
+    由$G$代入$G(\mathbb{R})$的是一条不自相交的曲线，这个拓扑是一维的，同胚于实数轴．
     我们再来看诱导拓扑（参见定义\ref{chtop:def_induced-top}）．
     取二维平面$\mathbb{R}^2$中的通常拓扑：开圆盘．圆心在原点的开圆盘$C$，无论半径取多小
     （必须是个有限小的确定数值，不能是零，也不能取无限趋近于零的极限），首先
@@ -1972,7 +1972,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
     假定$H(t)$在定义区间$[-1,+1]$内是连接$(3,0)$和$(0,1)$两点的光滑曲线，且与上式给出的两个部分无交点．
     映射$(H,\mathbb{R})$是整体单一浸入到$\mathbb{R}^2$的曲线，没有自交点；所以它是浸入的，且是嵌入的．
     
-    带入拓扑是由$H(t)$描述的一维曲线，同胚于实数轴．
+    代入拓扑是由$H(t)$描述的一维曲线，同胚于实数轴．
     下面分析诱导拓扑，不难发现$y$轴的$[-1,+1]$部分是曲线$H(t)$的一部分，
     记为$I_y$；显然$I_y$是诱导拓扑中的一部分，且是一维直线段．
     当$t\to +\infty$时，曲线会围绕着$x$轴上下摆动，从右侧无限接近$I_y$部分．
@@ -1981,7 +1981,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
     但是无论开圆盘半径取得多么小（必须是有限小的确定值），
     当$t\to +\infty$时，曲线$H(t\to +\infty)$都会进入开圆盘$C$；
     所以$H(t\to +\infty)$也是诱导拓扑的一部分，
-    故带入拓扑与诱导拓扑不是同胚的．因此，映射$H$不是正则嵌入的．\qed
+    故代入拓扑与诱导拓扑不是同胚的．因此，映射$H$不是正则嵌入的．\qed
 \end{example}
 
 我们再叙述几个定理，省略证明过程，可请参考文献\parencite[\S 1.3]{cc2001-zh}．
@@ -2013,7 +2013,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 若只在$p$点局部邻域$U$内看问题的话，则浸入和正则嵌入没有差别，
 换句话说：浸入{\kaishu 在局部上}必定是正则嵌入的．
 例\ref{chdm:exm_iec1}、\ref{chdm:exm_iec2}、\ref{chdm:exm_iec3}具体地表明了
-浸入、嵌入、正则嵌入的差别，尤其请参阅后两道例题中带入拓扑和诱导拓扑的分析．
+浸入、嵌入、正则嵌入的差别，尤其请参阅后两道例题中代入拓扑和诱导拓扑的分析．
 
 
 
@@ -2743,7 +2743,7 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作{\heiti 度量}或{\heiti
 
 \begin{example}
     设有一维光滑流形：实直线$\mathbb{R}$，局部坐标取为$\{x\}$．其上有光滑矢量场$k x$（只有一个分量），
-    其中$k$是实常数；求其过$x_0$点的积分曲线．将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
+    其中$k$是实常数；求其过$x_0$点的积分曲线．将上述条件代入式\eqref{chdm:eqn_tmp-va2xit}，有
     \begin{equation}
         \frac{{\rm d} x(t)}{{\rm d} t}= k x 
         \quad {\color{red}\Rightarrow} \quad
@@ -2755,7 +2755,7 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作{\heiti 度量}或{\heiti
 \begin{example}
     设有二维光滑流形：二维实平面$\mathbb{R}^2$，局部坐标取为$\{x,y\}$．
     其上有光滑矢量场$(x,ky)$（有两个分量），其中$k$是实常数；
-    求其过$(x_0,y_0)$点的积分曲线．将上述条件带入式\eqref{chdm:eqn_tmp-va2xit}，有
+    求其过$(x_0,y_0)$点的积分曲线．将上述条件代入式\eqref{chdm:eqn_tmp-va2xit}，有
     \begin{equation}
         \begin{cases}
             \frac{{\rm d} x(t)}{{\rm d} t}& =  x \\

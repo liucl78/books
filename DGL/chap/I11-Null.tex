@@ -43,7 +43,7 @@ $m$维实线性空间$V$上的退化（degenerate）、对称双线性函数$g$�
 \index[physwords]{根空间}
 
 当空间$W$的零度是〇时，空间$W$是非退化的；当零度大于〇时，空间$W$是退化的；反之亦然．
-$g$是否退化就是看式\eqref{chmla:eqn_gmetric}中是否有零特征值．
+$g$是否退化就是看式\eqref{chmla:eqn_gmetric}中是否有零惯性指数．
 
 
 设$(W,g)$是一个$m$维实线性空间，${\rm Rad} W$是它的根空间；
@@ -109,13 +109,13 @@ $g$是否退化就是看式\eqref{chmla:eqn_gmetric}中是否有零特征值．
 
 
 \begin{proposition}\label{chnull:thm_maxnull}
-    设$g$是$m$维实矢量空间$V$上的一个非退化、不定度规，它的负特征值个数是$q$．
+    设$g$是$m$维实矢量空间$V$上的一个非退化、不定度规，它的负惯性指数个数是$q$．
     则存在$V$的子空间$W$，其维数是$\min(q, m - q)$，使得$g|_W=0$；
     并且没有维数更大的子空间$W'$使得$g|_{W'}=0$．
 \end{proposition}
 \begin{proof}
     设$V$有正交归一基矢$\{(e_i)^a\}$，注意$g={\rm diag}(-\cdots -+\cdots +)$在$V$上是非退化的，
-    它的负特征值个数是$q$，正特征值个数是$m-q$．
+    它的负惯性指数个数是$q$，正惯性指数个数是$m-q$．
     
     先设$q<m-q$．我们构建如下空间：
     \begin{equation}
@@ -776,8 +776,8 @@ NP理论只针对四维流形（及其子流形）而言，我们将使用类光
     $R_{1212}=\bar{R}_{1212}$，$R_{1224}=\bar{R}_{1223}$，$R_{3412}=\bar{R}_{4312}$，等等．
 \end{proposition}
 \begin{proof}
-    只需把类光标架的四个基矢量\eqref{chnull:eqn_Newman-Penrose-bases}带入
-    就可证明，因为其第三、四基矢是互为共轭复数．
+    只需把类光标架的四个基矢量\eqref{chnull:eqn_Newman-Penrose-bases}代入就可证明，
+    因为其第三、四基矢是互为共轭复数．
     例如$R_{1234}=R_{abcd}l^a n^b m^c \overline{m}^d $，
     那么$\bar{R}_{1234}=\overline{R_{abcd}l^a n^b m^c \overline{m}^d}
     =R_{abcd}\overline{l^a n^b m^c \overline{m}^d}

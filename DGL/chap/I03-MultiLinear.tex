@@ -1233,7 +1233,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     \end{equation}
     也就是使双线性函数$f$的度量矩阵$f(\boldsymbol{\epsilon}_i,\boldsymbol{\epsilon}_j)$的
     对角元要么是$+1$要么是$-1$要么是$0$．
-    对角元上的$\pm 1$和$0$称为对称双线性函数的\CJKunderwave{特征值}． \index[physwords]{度规!特征值}
+    对角元上的$\pm 1$和$0$称为对称双线性函数的\CJKunderwave{惯性指数}． \index[physwords]{度规!惯性指数}
 \end{corollary}
 \begin{theorem}\label{chmla:thm_pm1num-fix}
     设$V$是实数域$\mathbb{R}$上的$n$维线性空间，对于一个确定的对称双线性函数$f$来说，
@@ -1263,9 +1263,9 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 
 \subsection{不定对称双线性函数}\label{chmla:sec_indefbif}
 本小节在实数域上讨论．
-非退化、对称、{\heiti 正定}双线性函数是指式\eqref{chmla:eqn_gmetric}中特征值没有$-1$和$0$，
+非退化、对称、{\heiti 正定}双线性函数是指式\eqref{chmla:eqn_gmetric}中惯性指数没有$-1$和$0$，
 全部是$+1$；它有许多良好性质．若要求它是{\heiti 不定的}，
-即式\eqref{chmla:eqn_gmetric}中特征值包含$+1$和$-1$，则情形有些变化．
+即式\eqref{chmla:eqn_gmetric}中惯性指数包含$+1$和$-1$，则情形有些变化．
 
 \begin{example}\label{chmla:exm_po}
     定义$g$为$g(v,w)=v_1 w_1 -v_2 w_2$，其中$v=(v_1,v_2), w=(w_1,w_2)$．
@@ -1355,8 +1355,8 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 
 \begin{proposition}
     设有实数域上的线性空间$V$及其上的对称、非退化双线性函数$g$；$W$是$V$的非退化子空间．
-    那么$V$上度量$g$的正（负）特征值个数等于$W$上度量$g|_W$正（负）特征值个数\CJKunderwave{加上}
-    $W^\perp$上度量$g|_{W^\perp}$正（负）特征值个数．
+    那么$V$上度量$g$的正（负）惯性指数个数等于$W$上度量$g|_W$正（负）惯性指数个数\CJKunderwave{加上}
+    $W^\perp$上度量$g|_{W^\perp}$正（负）惯性指数个数．
 \end{proposition}
 \begin{proof}
     由命题可知：$g$、$g|_W$和$g|_{W^\perp}$非退化；且$V=W\oplus W^\perp$，$W\cap W^\perp=\{0\}$．
@@ -1366,7 +1366,7 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
     不难得到$g(\boldsymbol{e}_i,\boldsymbol{e}_j)=0$，$1\leqslant i\leqslant k$、$k+1 \leqslant j \leqslant m $．    
     由于$V=W\oplus W^\perp$，故$V={\rm Span}\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_k,\boldsymbol{e}_{k+1},\cdots,\boldsymbol{e}_m\}$．
     因此，$g$作用在${\rm Span}\{\boldsymbol{e}_1,\cdots,\boldsymbol{e}_k,\boldsymbol{e}_{k+1},\cdots,\boldsymbol{e}_m\}$上的
-    正（负）特征值个数必然是$g|_W$正（负）特征值个数\CJKunderwave{加上}$g|_{W^\perp}$正（负）特征值个数．
+    正（负）惯性指数个数必然是$g|_W$正（负）惯性指数个数\CJKunderwave{加上}$g|_{W^\perp}$正（负）惯性指数个数．
 \end{proof}
 
 
