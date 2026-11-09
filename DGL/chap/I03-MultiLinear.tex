@@ -231,7 +231,7 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
 数量乘法为$(\lambda \cdot g) (x)\overset{def}{=}\lambda \cdot (g (x)), \forall \lambda \in \mathbb{R}$．
 容易验证上述定义符合线性空间定义\ref{chmla:def_linear-space}；其中零矢量是对任意实数$x$取值恒为零的函数．
 
-我们从两个角度来理解空函数间$C^r[a,b]$维数是无穷大这件事情．首先，
+我们从两个角度来理解函数空间$C^r[a,b]$维数是无穷大这件事情．首先，
 对于任意固定的$x\in [a,b]$来说，函数空间$C^r[a,b]$的像空间是一维的；
 我们只需选取此线性空间基矢为“$1$”，
 那么任意函数$f$取值只是基矢“$1$”的$f(x)$倍．
@@ -1873,7 +1873,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
     由命题\ref{chmla:thm_iso_single2full}可知映射\eqref{chmla:eqn_abfg}是自然同构映射．
     所以空间$U\otimes V$自然同构于$\mathscr{L}(U^*,V^*;\mathbb{F})$．
 
-    与上述论证类似，可证空间$U^*\otimes V^*$的自然同构于$\mathscr{L}(U,V;\mathbb{F})$．
+    与上述论证类似，可证空间$U^*\otimes V^*$自然同构于$\mathscr{L}(U,V;\mathbb{F})$．
 \end{proof}
 
 \begin{remark}\label{chmla:rmk_noncom}
@@ -2311,22 +2311,123 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
 \index[physwords]{Lorentz四矢量} 
 \index[physwords]{旋量}
 
-\begin{example}\label{chmla:exm_T11TR}
-    设有数域$\mathbb{F}$上的线性空间$V$与其对偶空间$V^*$．对$(w,\phi)\in V\times V^*$
-    定义线性变换$F_{w,\phi} \in {\rm End} (V)$为$F_{w,\phi}(v)\overset{def}{=}\phi(v) w, \, \forall v \in V$；
-    于是得到双线性映射$F: V\times V^* \to {\rm End}(V)$．
-    这便诱导出从$V\otimes V^*= \mathcal{T}^1_1(V)$到${\rm End}(V)$的线性映射$\Psi$，
-    它满足：
-        $\Psi ( w\otimes \phi ) \overset{def}{=} F_{w,\phi}$，
-        $\forall w\otimes \phi \in \mathcal{T}^1_1(V) $．
-    若$\Psi( w\otimes \phi ) (v)= \phi(v) w =0$，则$\forall v\in V$有：
-    或者$\phi(v)=0$，即$\phi=0$；或者$w=0$；总之$w\otimes \phi =0$．
-    又因为${\rm dim} \mathcal{T}^1_1(V) = ({\rm dim}V)^2 = {\rm dim} {\rm End} (V)$；
-    结合命题\ref{chmla:thm_single}、
-    \ref{chmla:thm_iso_single2full}可知$\Psi$是线性同构映射．
-    因此：\CJKunderwave{$V$上线性变换等同于$\binom{1}{1}$张量}． \qed
-\end{example}
+\begin{proposition}\label{chmla:thm_T11TR}
+	设 $V$ 是数域 $\mathbb{F}$ 上的\CJKunderwave{有限维}线性空间，$V^*$ 为其对偶空间，
+	$\operatorname{End}(V)$ 为 $V$ 上全体线性变换构成的线性空间，
+	$\mathcal{T}^1_1(V)=V\otimes V^*$ 为 $\binom{1}{1}$ 型张量空间．
+	则存在与基的选取无关的（即自然的）线性同构
+	\begin{equation*}
+		\Psi: V\otimes V^* \longrightarrow \operatorname{End}(V),
+		\qquad
+		\Psi(w\otimes\phi)(v)=\phi(v)\,w,
+		\qquad \forall\, w,v\in V,\ \phi\in V^* .
+	\end{equation*}
+	因此 $V$ 上的线性变换与 $\binom{1}{1}$ 型张量可以自然等同．
+\end{proposition}
 
+\begin{proof}
+	\noindent{\heiti 第一步：构造双线性映射．}
+	
+		记 $n=\dim V<\infty$．对任意 $w\in V$、$\phi\in V^*$，定义
+	\begin{equation*}
+		F_{w,\phi}:V\to V,\qquad
+		F_{w,\phi}(v)\equiv\phi(v)\,w .
+	\end{equation*}
+	由 $\phi$ 的线性，对任意 $v_1,v_2\in V$、$k\in\mathbb{F}$ 有
+	\begin{align*}
+		F_{w,\phi}(v_1+v_2)
+		&=\phi(v_1+v_2)\,w
+		=\phi(v_1)w+\phi(v_2)w
+		=F_{w,\phi}(v_1)+F_{w,\phi}(v_2), \\
+		F_{w,\phi}(kv)
+		&=\phi(kv)\,w
+		=k\,\phi(v)w
+		=k\,F_{w,\phi}(v),
+	\end{align*}
+	故 $F_{w,\phi}\in\operatorname{End}(V)$．
+	
+	再定义 $F:V\times V^*\to\operatorname{End}(V)$，$F(w,\phi)=F_{w,\phi}$．
+	对任意 $v\in V$ 有
+	\begin{align*}
+		F_{w_1+w_2,\phi}(v)
+		&=\phi(v)(w_1+w_2)
+		=F_{w_1,\phi}(v)+F_{w_2,\phi}(v), \\
+		F_{kw,\phi}(v)
+		&=k\,\phi(v)w
+		=k\,F_{w,\phi}(v), \\
+		F_{w,\phi_1+\phi_2}(v)
+		&=(\phi_1+\phi_2)(v)w
+		=F_{w,\phi_1}(v)+F_{w,\phi_2}(v), \\
+		F_{w,k\phi}(v)
+		&=k\,\phi(v)w
+		=k\,F_{w,\phi}(v),
+	\end{align*}
+	即 $F$ 对两个变元分别线性，是双线性映射．
+	
+	\noindent{\heiti 第二步：由张量积的泛性质得到线性映射．}
+	
+	张量积 $V\otimes V^*$ 的泛性质表明：从 $V\times V^*$ 到任意线性空间的双线性映射，
+	必唯一地分解为典范双线性映射 $V\times V^*\to V\otimes V^*$ 与一个线性映射的复合．
+	故存在唯一的线性映射
+	\begin{equation*}
+		\Psi:V\otimes V^*\to\operatorname{End}(V),
+		\qquad \Psi(w\otimes\phi)=F_{w,\phi}.
+	\end{equation*}
+	
+	\noindent{\heiti 第三步：$\Psi$ 是满射．}
+	
+	取 $V$ 的一组基 $\{e_i\}_{i=1}^{n}$，其对偶基为 $\{e^{*i}\}_{i=1}^{n}$，
+	满足 $e^{*i}(e_j)=\delta^i_j$．
+	任取 $T\in\operatorname{End}(V)$，记其矩阵为 $(T^i{}_{j})$，即
+	\begin{equation*}
+		T(e_j)=\sum_{i=1}^{n}T^i{}_j\,e_i .
+	\end{equation*}
+	令
+	\begin{equation*}
+		t\equiv\sum_{i=1}^{n}\sum_{j=1}^{n}
+		T^i{}_j\,e_i\otimes e^{*j}\in V\otimes V^* .
+	\end{equation*}
+	对任意 $v=\sum_{k=1}^{n}v^k e_k$，用 $e^{*j}(v)=v^j$ 得
+	\begin{equation*}
+		\Psi(t)(v)
+		=\sum_{i,j}T^i{}_j\,e^{*j}(v)\,e_i
+		=\sum_{i,j}T^i{}_j\,v^j\,e_i
+		=\sum_{i}\Bigl(\sum_{j}T^i{}_j v^j\Bigr)e_i
+		=T(v),
+	\end{equation*}
+	故 $\Psi(t)=T$，即 $\Psi$ 满射．
+	
+	\noindent{\heiti 第四步：$\Psi$ 是单射．}
+	
+	设 $t\in\ker\Psi$．因 $\{\,e_i\otimes e^{*j}\,\}$ 是 $V\otimes V^*$ 的一组基，
+	$t$ 可唯一展开为
+	\begin{equation*}
+		t=\sum_{i,j}a_{ij}\,e_i\otimes e^{*j},
+		\qquad a_{ij}\in\mathbb{F},
+	\end{equation*}
+	于是对任意 $v=\sum_{k}v^k e_k$ 有
+	\begin{equation*}
+		0=\Psi(t)(v)
+		=\sum_{i,j}a_{ij}\,e^{*j}(v)\,e_i
+		=\sum_{i}\Bigl(\sum_{j}a_{ij}v^j\Bigr)e_i .
+	\end{equation*}
+	由 $\{e_i\}$ 线性无关，对每个 $i$ 有
+	\begin{equation*}
+		\sum_{j=1}^{n}a_{ij}\,v^j=0,
+		\qquad \forall\, v\in V .
+	\end{equation*}
+	上式对\CJKunderwave{所有} $v$ 成立，故取 $v=e_k$，
+	得 $a_{ik}=0$；令 $k=1,\cdots,n$ 及 $i=1,\cdots,n$，得全部 $a_{ij}=0$，
+	即 $t=0$．因此 $\ker\Psi=\{0\}$，$\Psi$ 是单射．
+	
+	\noindent{\heiti 第五步：结论．}
+	
+	$\Psi$ 既单又满，故为线性同构．
+	又 $\Psi$ 的定义 $\Psi(w\otimes\phi)(v)=\phi(v)w$ 只用到了 $V$ 与 $V^*$ 的配合，
+	不依赖基的选取；第三、四步中引入的基只用于验证，不改变映射本身．
+	故 $\Psi$ 是\CJKunderwave{自然同构}，据此可把 $V$ 上的线性变换与
+	$\binom{1}{1}$ 型张量等同．
+\end{proof}
 
 
 \subsubsection*{加法、张量积、缩并}
@@ -2389,8 +2490,9 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 
 
 \begin{exercise}
-	给线性空间选定基矢，用矩阵语言从新叙述例题\ref{chmla:exm_T11TR}．
+	给线性空间选定基矢，用矩阵语言从新叙述命题\ref{chmla:thm_T11TR}．
 \end{exercise}
+
 \begin{exercise}
 	证明恒等变换（也就是单位矩阵）是$\binom{1}{1}$型张量．
 \end{exercise}
@@ -3436,7 +3538,7 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
 而分量记号法不包含基矢，这使得此种记号中，比如$v^i$、$T^\alpha_{\hphantom{\alpha}\beta}$，
 既是分量又是张量，容易造成误解；
 一旦造成定义层面的误解，将会在微分几何（或张量分析）的认知中产生无法消除的错误．
-笔者大胆揣测：当初Rodger Penrose就是发现相关从业者对张量定义理解有偏差，
+笔者大胆揣测：当初Roger Penrose就是发现相关从业者对张量定义理解有偏差，
 遂发明抽象指标记号；此种记号完全消除了张量定义层面的误解．
 
 

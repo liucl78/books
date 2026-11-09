@@ -124,9 +124,6 @@ B_m\equiv\{\epsilon_1 \boldsymbol{e}_1,\cdots, \epsilon_1 \boldsymbol{e}_m;\
 \mathbbm{i} \boldsymbol{e}_1,\cdots, \mathbbm{i} \boldsymbol{e}_m\}
 \end{equation*}
 线性表出，且表出系数都是数域$\mathbb{R}$中的常数．
-$B_m$更确切的表述是两个基矢量的张量积，
-即$B_m\equiv\{\epsilon_1 \otimes \boldsymbol{e}_1,\cdots, \epsilon_1 \otimes \boldsymbol{e}_m;\ 
-\epsilon_2 \otimes\boldsymbol{e}_1,\cdots, \epsilon_2 \otimes\boldsymbol{e}_m\}$．
 
 下面用反证法证明集合$B_m$是线性无关的．
 假设存在非零实数$a_{j},b_j,\ j=1,\cdots,m$使得
@@ -148,10 +145,10 @@ $\sum_{j=1}^{m}\bigl(a_j (\epsilon_1 \boldsymbol{e}_j )+ b_j (\epsilon_2 \boldsy
 \end{proof}
 
 
-\index[physwords]{厄米双线性函数}
+\index[physwords]{共轭双线性函数}
 \index[physwords]{Hermite函数}
 
-\subsection{厄米双线性函数}
+\subsection{共轭双线性函数}
 实线性空间中有对称双线性函数及其内积，如果直接将其（见定义\ref{chmla:def_Euclidean-space}）推广到复线性空间中，
 尤其令复空间内积满足定义\ref{chmla:def_Euclidean-space}中的
 第一条：$\left<\alpha,\beta\right>=\left<\beta,\alpha\right>$；
@@ -164,10 +161,10 @@ $\sum_{j=1}^{m}\bigl(a_j (\epsilon_1 \boldsymbol{e}_j )+ b_j (\epsilon_2 \boldsy
 也就是说在复空间中矢量长度无法定义；可见这种内积定义方式必须修改． 
 
 Hermite{\footnote{Charles Hermite(1822-1901)法国数学家，译为厄尔米特，简称厄米．}}
-克服了此种困难；我们先叙述厄米双线性函数概念．
+克服了此种困难；我们先叙述共轭双线性函数概念．
 
 \begin{definition}
-    复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 厄米双线性函数}，
+    复线性空间$V$上的复值函数$h(\cdot,\cdot)$称为{\bfseries\heiti 共轭双线性函数}，
     是指它满足如下条件（下式中$\forall c\in \mathbb{C},\  \forall \alpha,\beta,\gamma\in V$，
     $\bar{c}$是$c$的复共轭，可以是无穷维）：
     \begin{equation*}
@@ -183,14 +180,14 @@ Hermite{\footnote{Charles Hermite(1822-1901)法国数学家，译为厄尔米特
 \index[physwords]{厄米对称}
 
 在复线性空间$V$中取定一组基矢$\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$．
-对任意厄米双线性函数，有
+对任意共轭双线性函数，有
 \begin{equation}
     h(\alpha,\beta)=\bar{x}^i y^j h(\boldsymbol{e}_i,\boldsymbol{e}_j)
      = \bar{x}^T A y;\qquad A \equiv  h(\boldsymbol{e}_i,\boldsymbol{e}_j). 
 \end{equation}
 其中$\alpha=\sum_i x^i \boldsymbol{e}_i$，$\beta=\sum_j y^j \boldsymbol{e}_j$，
 $x=(x^1,\cdots,x^m)^T$，$y=(y^1,\cdots,y^m)^T$；
-$A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩阵}，
+$A$称为共轭双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩阵}，
 显然它是一个复矩阵．
 
 反之，任意给定一个复矩阵$A$，则
@@ -198,8 +195,8 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     h(\alpha,\beta)\equiv h\left(x^i \boldsymbol{e}_i,\ y^j \boldsymbol{e}_j \right)
     \overset{def}{=} \bar{x}^T A y, \qquad \forall \alpha,\beta\in V
 \end{equation}
-定义了复空间$V$上的一个厄米双线性函数$h(\cdot,\cdot)$．
-因此厄米双线性函数与$m$维复数矩阵之间有\CJKunderwave{双射}关系．
+定义了复空间$V$上的一个共轭双线性函数$h(\cdot,\cdot)$．
+因此共轭双线性函数与$m$维复数矩阵之间有\CJKunderwave{双射}关系．
 %需要注意的是：我们还未要求{\kaishu 度量矩阵}是非退化的．
 
 %\begin{definition}
@@ -233,7 +230,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
     在$m$维复线性空间$V$中取定两组基矢$\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$和
     $\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m$；
     存在非奇异复数矩阵$C$使得$(\boldsymbol{\epsilon}_1,\cdots,\boldsymbol{\epsilon}_m)
-    =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上厄米双线性函数，
+    =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m)C$．设$h$是$V$上共轭双线性函数，
     则有（下式中$B\equiv h(\boldsymbol{e}_k, \boldsymbol{e}_l)$）：
     \begin{align*}
         A\equiv h(\boldsymbol{\epsilon}_i, \boldsymbol{\epsilon}_j)
@@ -242,11 +239,10 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
         =C^\dagger B C. 
     \end{align*}
         
-    若两个不同复矩阵（$A$、$B$）变换关系是$A= C^\dagger B C$（$C$非奇异），则称
-    $A$、$B$是{\heiti 复相似的}．
+    若两个不同复矩阵（$A$、$B$）变换关系是$A= C^\dagger B C$（$C$非奇异），
+    则称$A$、$B$是{\heiti 复合同的}．
     
-    本例说明$V$上厄米双线性函数$h$
-    在不同基矢下对应的矩阵是\CJKunderwave{复相似的}．\qed
+    本例说明$V$上共轭双线性函数$h$在不同基矢下对应的矩阵是\CJKunderwave{复合同的}．\qed
 \end{example}
 
 
@@ -285,7 +281,7 @@ $A$称为厄米双线性函数$h$在基矢$\{e_i\}$上的\CJKunderwave{度量矩
 	\left<k\alpha,\beta\right>=\overline{\left<\beta,k\alpha\right>}
 	=\overline{\left<\beta,\alpha\right>} \bar{k} = \left<\alpha,\beta\right>\bar{k}.
 \end{equation}
-容易看出酉内积是正定、厄米双线性函数．
+容易看出酉内积是正定、共轭双线性函数．
 与实数域上的欧几里得内积不同；
 酉内积\ref{chcx:def_unitary-space}不是对称的，而是厄米对称的．
 
@@ -451,7 +447,7 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
     足$\mathbb{J}^2\equiv \mathbb{J}\circ \mathbb{J}=-{\rm id}$，
     那么称$\mathbb{J}$是$W$上的一个{\heiti 复结构}．
 \end{definition}
-由例\ref{chmla:exm_T11TR}容易看出$\mathbb{J}$是实线性空间$W$上的一个$\binom{1}{1}$型张量．
+由命题\ref{chmla:thm_T11TR}易得$\mathbb{J}$是实线性空间$W$上的一个$\binom{1}{1}$型张量．
 
 
 在$V_{\mathbb{R}}$定义\CJKunderwave{实线性变换}$\mathbb{J}:V_{\mathbb{R}}\to V_{\mathbb{R}}$，
@@ -465,9 +461,11 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
     \mathbb{J}\circ \mathbb{J} (\boldsymbol{e}_i) = \mathbb{J} (\mathbbm{i}\boldsymbol{e}_i) = - \boldsymbol{e}_i, \quad
     \mathbb{J}\circ \mathbb{J} (\mathbbm{i}\boldsymbol{e}_i) = - \mathbb{J} \boldsymbol{e}_i = -\mathbbm{i}\boldsymbol{e}_i.
 \end{equation}
-需要注意$\mathbb{J}$是\CJKunderwave{实}线性变换，虚数单位$\mathbbm{i}$不能移进、移出括号，
-即$\mathbb{J} (\mathbbm{i}\boldsymbol{e}_i)\neq \mathbbm{i}\mathbb{J} (\boldsymbol{e}_i)$；
-实数是可以移进、移出的，即$\mathbb{J} (a\boldsymbol{e}_i)=a \mathbb{J} (\boldsymbol{e}_i)$，$\forall a\in \mathbb{R}$．
+需要注意$\mathbb{J}$是\CJKunderwave{实}线性变换，实数是可以移进、移出括号的，
+即$\mathbb{J} (a\boldsymbol{e}_i)=a \mathbb{J} (\boldsymbol{e}_i)$，$\forall a\in \mathbb{R}$．
+但虚数单位$\mathbbm{i}$一般不能移进、移出括号，
+即$\mathbb{J} (\mathbbm{i}\boldsymbol{e}_i)$通常不等于$\mathbbm{i}\mathbb{J} (\boldsymbol{e}_i)$；
+但不排除两者通过其他情形相等，比如\eqref{chcx:eqn_cxstrut1}中第二式．
 变换矩阵如下：
 \begin{equation}\label{chcx:eqn_J-matrix}
     \mathbb{J} \begin{pmatrix}
@@ -499,7 +497,7 @@ $    \left<\boldsymbol{e}_i,\boldsymbol{e}_j\right> = \delta_{ij}$．
    \mathbb{J} v &= \mathbb{J} \left( a^j \boldsymbol{e}_j + b^j \mathbbm{i}\boldsymbol{e}_j \right)
      = a^j \mathbb{J}( \boldsymbol{e}_j) + b^j \mathbb{J} (\mathbbm{i}\boldsymbol{e}_j ) 
      = a^j ( \mathbbm{i} \boldsymbol{e}_j) + b^j (-\boldsymbol{e}_j ) \notag\\
-     &\xlongequal[-1=\mathbbm{i}^2]{\text{令}}
+     &\xlongequal[-1=\mathbbm{i}^2]{\text{利用}}
       a^j  \mathbbm{i} \boldsymbol{e}_j + b^j (\mathbbm{i}\mathbbm{i}\boldsymbol{e}_j ) 
      = \mathbbm{i} \left( a^j \boldsymbol{e}_j + b^j \mathbbm{i}\boldsymbol{e}_j \right)
      = \mathbbm{i} v. \label{chcx:eqn_Jv=iv} \\
@@ -548,7 +546,7 @@ $\mathbb{J}$作用在$V_{\mathbb{R}}$中的元素$v$相当于把$v$看成复空�
     这个基底便可满足定理要求．
 \end{proof}
 
-综和命题\ref{chcx:thm_rc}和定理\ref{chcx:thm_2mm}可得如下定理：
+综合命题\ref{chcx:thm_rc}和定理\ref{chcx:thm_2mm}可得如下定理：
 \begin{theorem}\label{chcx:thm_CRJ}
 $m$维复线性空间$V$等价于有确定复结构的$2m$维实线性空间$V_{\mathbb{R}}$．
 \end{theorem}

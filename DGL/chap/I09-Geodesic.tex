@@ -21,10 +21,10 @@
 流形上的测地线感官上来看，一般不是“直”的．
 测地线是沿自身平行的曲线，可以看作是欧氏空间中直线方向不变的推广．
 
-\S \ref{chccr:sec_pxyd}节中，已经给出仿射空间测地线$\gamma(t)$定义\ref{chccr:def_geodesic}；
+\S \ref{chccr:sec_pxyd}节中，已经给出仿射联络空间测地线$\gamma(t)$定义\ref{chccr:def_geodesic}；
 这个定义也适用于$m$维广义黎曼流形$(M,g)$，此时有度规，内容更丰富．
 该定义中称满足$T^b \nabla _b T^a=0$的参数为仿射参数；
-有时也把满足$T^b \nabla _b T^a =f T^a$（$f$为非零标量场）的曲线称为测地线；
+有时也把满足$T^b \nabla _b T^a =f T^a$（$f$为任意标量场）的曲线称为测地线；
 不过，最好称之为{\kaishu 非仿射参数化的测地线（non-affinely parametrized geodesic）}，
 或者{\kaishu 准测地线}（pre-geodesic）．
 
@@ -143,7 +143,7 @@
 \end{equation}
 这说明$\tilde{\gamma}(u)$是经过$p$点以$\lambda\cdot  v^a$为初始切矢量的测地线，
 由测地线唯一性得：
-\begin{equation}\label{chgd:eqn_geodesic-zoom-transfrom}
+\begin{equation}\label{chgd:eqn_geodesic-zoom-transform}
     \tilde{\gamma}(u) = \gamma(\lambda u;p, v^a) =\gamma(u;p,\lambda v^a)
     \quad \Leftrightarrow \quad
     \gamma(u;p, v^a) = \gamma(\lambda u;p, \frac{v^a}{\lambda} ).
@@ -235,7 +235,7 @@ $\mathbb{R}^m_\nu$是平直空间，所有克氏符都为零．
     二维球面$S^2$上测地线是大圆或其一部分．
 \end{example}
 大圆是指过球心的二维平面与二维球面的交线．
-假设$\sigma$是$\mathbb{R}^3$上关于原点（即$S^2$球心）的反射变换，
+假设$\sigma$是关于过球心的某一平面的反射变换，
 它在$S^2$上的限制是$S^2$到其自身的等距映射；$\sigma$的不动点集合是$S^1$．
 由命题\ref{chgd:thm_iso-geodesic}可知$S^1$是$S^2$的测地线．
 另一方面，在$S^2$上任一点$p$沿任意切方向$v^a$都有一个大圆通过$p$点
@@ -280,14 +280,14 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 
 \section{指数映射与法坐标系}\label{chgd:sec_exp-RNC}
 我们先引入指数映射定义，然后借用指数映射介绍黎曼法坐标
-系（Riemanian Normal Coordinates，也翻译为{\kaishu 黎曼简正坐标系}）．
+系（Riemannian Normal Coordinates，也翻译为{\kaishu 黎曼简正坐标系}）．
 
 \subsection{指数映射}\label{chgd:sec_exp}
 现有满足初始条件\eqref{chgd:eqn_geodesic-init-data}的广义黎曼流形$(M,g)$上的测地线$\gamma(t;p,v)$，
 当参数$t=1$时，赋予它一个新的名称：{\heiti 指数映射}，它是从$TM$上开子集到流形$M$开子集的映射：
 \begin{equation}\label{chgd:eqn_geodesic-exp}
     \exp_p(v^a)\equiv\exp(p,v^a)\overset{def}{=}\gamma(1;p,v^a)
-    \xlongequal{\ref{chgd:eqn_geodesic-zoom-transfrom}}\gamma\left(|v|;p,\frac{v^a}{|v|}\right).
+    \xlongequal{\ref{chgd:eqn_geodesic-zoom-transform}}\gamma\left(|v|;p,\frac{v^a}{|v|}\right).
 \end{equation}
 指数映射的几何意义是沿测地线$\gamma(t)$由点$p\equiv \gamma(0)$到点$\gamma(1)$的测地线弧长
 等于$|v|$．需要注意，如果切矢量$v^a$过大，指数映射可能没有定义；但只要有定义则必然唯一．
@@ -373,7 +373,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 设$U$是$\exp_{p}(0)$点（即$p$点）测地凸邻域．
 由定理\ref{chgd:thm_exp-homeomorphism}可知指数映射是局部微分同胚的．
 因$T_pM \cong \mathbb{R}^m$，其上天然存在正交归一的笛卡尔坐标系；
-那么局部恒等映射$\varphi = \exp_{p}^{-1}:U\to V$便将$V\subset \mathbb{R}^m$中
+那么局部微分同胚$\varphi = \exp_{p}^{-1}:U\to V$便将$V\subset \mathbb{R}^m$中
 笛卡尔坐标携带到$U$中，从而$U$有一个局部坐标系$(U,\varphi;y^i)$，
 称为广义黎曼流形$(M,g)$在$p$点的{\heiti 黎曼法坐标系}，相应开集$U$称为{\heiti 黎曼法坐标邻域}；
 简称为{\heiti 法坐标系（邻域）}．
@@ -392,11 +392,11 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
 
     因点$p$切空间$T_pM$同构于$\mathbb{R}^m$中开子集，
     故我们可以在$T_pM$中取正交归一的标架场$(e_i)^a$；
-    即$g_{ab}(e_i)^a(e_j)^a= \eta_{ij}$，
+    即$g_{ab}(e_i)^a(e_j)^b= \eta_{ij}$，
     其中$\eta_{ij}$是指对角元为$\pm 1$，非对角元全为零的矩阵．
     再任取$V$中一个矢量$v^a$，
     在这个正交归一的标架场$(e_i)^a$上分量为$v=(v^1,\cdots,v^m)\in V$，其中$v^i$是实常数．
-    依据法坐标系定义，局部恒等映射映射$\varphi = \exp_{p}^{-1}$会把这个坐标带到$U$中，
+    依据法坐标系定义，局部微分同胚映射$\varphi = \exp_{p}^{-1}$会把这个坐标带到$U$中，
     矢量$v^a$在$(U;y^i)$中的坐标是
     \begin{equation}\label{chgd:eqn_normal-coord}
         y^i\circ\exp_{p}(v^a) \equiv v^i, \qquad
@@ -407,7 +407,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
     =g_{ab}(e_i)^a(e_j)^b=\eta_{ij}$．
 %    在离开$p$点后，仍有$(\frac{\partial}{\partial y^i})^a = (e_i)^a$．
 
-    在$V$中测地线是真正的“直线”；局部恒等映射$\varphi = \exp_{p}^{-1}$也
+    在$V$中测地线是真正的“直线”；局部微分同胚$\varphi = \exp_{p}^{-1}$也
     会把它代入到$U$中的法坐标系，因此从$p$点出发的相应测地线方程$\exp_{p}(sv^a)$的分量表达是
     \begin{equation}\label{chgd:eqn_normal-coord-gedU}
         y^i(s)= y^i\circ \exp_{p}(s v^a) = s v^i,\quad s\text{是弧长},  \qquad 1\leqslant i\leqslant m.
@@ -733,9 +733,9 @@ $p$点在$\mathbb{R}^3$中的坐标投影是
     我们将$p$、$q$两点间{\heiti 距离$d(p,q)$}定义为$L(\gamma)$的下确界．
 \end{definition}
 
-可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}距离$d$满足正定性、对称性和三角关系不等式．
+可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}距离$d$满足正定性、对称性和三角不等式．
 
-可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}$M$上由上述距离$d$诱导的拓扑与微分拓扑是同胚的．
+可以证明\cite[\S 3.6]{chen-li-2023-2ed-v1}$M$上由上述距离$d$诱导的拓扑与微分拓扑是一致的．
 
 \begin{definition}\label{chgd:def_complete-distance}
     设正定黎曼流形$(M,g)$是连通的，如果作为度量空间$(M,d)$是完备的（见定义\ref{chtop:def_complete-metric}），
@@ -743,8 +743,8 @@ $p$点在$\mathbb{R}^3$中的坐标投影是
 \end{definition}
 
 因不定度规下存在零模曲线，其线长恒为零；
-故定义\eqref{chgd:def_distance}并不适合不定度规情形；
-同理，定义\eqref{chgd:def_complete-distance}也不大适合不定度规情形．
+故定义\ref{chgd:def_distance}并不适合不定度规情形；
+同理，定义\ref{chgd:def_complete-distance}也不大适合不定度规情形．
 
 \begin{definition}\label{chgd:def_complete-geodesic}
     设广义黎曼流形$(M,g)$是连通的，如果任何一条测地线的
@@ -780,8 +780,9 @@ $p$点在$\mathbb{R}^3$中的坐标投影是
 没法再延拓了，所以完备正定黎曼流形是不可延拓的．
 
 
-Hopf--Rinow定理貌似还没有推广到不定度规情形．
-%不定度规情形下的延拓仍未彻底解决．
+
+正定版Hopf--Rinow的等价性在不定黎曼几何中失效，
+比如反例Clifton--Pohl环面就是测地不完备，说明“紧致”推不出“测地完备”．
 
 \index[physwords]{弧长变分}
 \section{弧长变分公式}
@@ -875,7 +876,7 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
 \begin{equation}\label{chgd:eqn_1st-var-arc-fixSE}
     L'(0)= -\int_{r_1}^{r_2} {T}_b  \nabla_{\frac{\partial}{\partial s}} {S}^b {\rm d}s .
 \end{equation}
-当第一变分公式为零时，又因${T}_b=\sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a$不恒为零，
+当第一变分公式为零时，又因${T}^a=\sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a$不恒为零，
 故必有$\nabla_{\frac{\partial}{\partial s}} {S}^b=0$；这是测地线方程，所以曲线$C(s)$是测地线．
 最终，由式\eqref{chgd:eqn_1st-var-arc-fixSE}可得定理：
 \begin{theorem}\label{chgd:thm_geo-1st-var}
@@ -945,6 +946,7 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
 
 \index[physwords]{Gauss引理}
 \subsection{Gauss引理}
+
 \begin{theorem}\label{chgd:thm_Gauss-lemma}
     设有$m$维广义黎曼流形$(M,g)$，$\forall p\in M$，$v^a\in T_p M$．如果指数映射$\exp_p$在$v^a$有定义，
     那么$\forall w^a\in T_p M = T_v(T_p M)$，有
@@ -954,51 +956,53 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
     \end{equation}
 \end{theorem}
 \begin{proof}
-    $T_pM$是线性空间，自然可以看成流形；$v\in T_pM$是这个流形上一点，
-    $T_v(T_p M)$是指流形$T_pM$中点$v$处的切空间．
-    定理中已假设$\exp_{p}$在$v^a$处有定义；我们任取$w^a \in T_pM$，
-    存在充分小的$\epsilon >0$使得下面的映射有定义：
-    \begin{equation}\label{chgd:eqn_gltmp01}
-        \sigma(s,\tau)=\exp_{p}\bigl(s (v^a+\tau w^a)\bigr),
-        \qquad \forall (s,\tau)\in [0,1]\times (-\epsilon,\epsilon) .
-    \end{equation}
-    显然，对于每一个固定的$\tau\in  (-\epsilon,\epsilon)$，$\gamma_\tau(s)=\sigma(s,\tau)$是测地线；
-    依定义\ref{chgd:def_arc-variation}，$\sigma(s,\tau)$是测地线$\gamma_0(s)$的一个测地变分．
-    容易求得$\gamma_0(s)$的切线切矢量场为
-    \begin{equation}
-        S^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial s}\right)^a
-        = (\exp_{p})_{*s v} v^a .
-    \end{equation}
-    由于式\eqref{chgd:eqn_gltmp01}是指数映射，所以得到的曲线是测地线；
-    当$s$固定、$\tau$变化时，将其记为$\alpha(\tau;q,s w^a)$，其中$q=\exp_p(s v^a)$．
-    很明显$\alpha(\tau;q,s w^a)$是横截曲线，它的切线切矢量$T^a(s)$为
-    \begin{equation}
-        T^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a = s\cdot (\exp_{p})_{*s v} w^a .
-    \end{equation}
-    将以上两式代入弧长第一变分公式\eqref{chgd:eqn_1st-var-arc}，并注意$\gamma_{\tau}(s)$是测地线，有
-    \begin{equation}\label{chgd:eqn_gltmp03}
-        L'(0)= \left.\left({S}_b  {T}^b\right)\right|_{0}^{1}
-        =g_{ab} \, (\exp_{p})_{*v}(v^a) \, (\exp_{p})_{*v}(w^b) .
-    \end{equation}
-    上式中的$g_{ab}$自然是在推前后（$(\exp_{p})_{*v}(v^a)$）的点取值．
-
-    我们再以另外一种方法来求$L'(0)$．
-    对于任意固定的$\tau$，$\gamma_\tau(s)$的弧长为
-    \begin{equation}
-        L(\tau)=\int_{0}^{1} \left|\frac{{\rm d}}{{\rm d}s} \gamma_\tau(s;p,v^a+\tau w^a)\right| {\rm d}s
-        =\int_{0}^{1} |v+\tau w| {\rm d}s = |v+\tau w|.
-    \end{equation}
-    对上式求$\tau$的导数，
-    \begin{align*}
-        \left.\frac{{\rm d}L(\tau)}{{\rm d}\tau}\right|_{\tau=0} =& \left.
-        \frac{{\rm d} (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}{{\rm d}\tau}\right|_{\tau=0}  \\
-        =&\left.\frac{v_aw^a+\tau w_a w^a}{ (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}\right|_{\tau=0}
-        =\frac{v_aw^a}{|v|} .
-    \end{align*}
-    因我们采用的是弧长参数，故$|v|=1$．
-    结合上式与式\eqref{chgd:eqn_gltmp03}便可得\eqref{chgd:eqn_Gauss-lemma}式．
-    上式中的$v_aw^a$是切空间$T_p M$上的内积，在$p$点取值．
+	可参见\textcite{oneill1983}第五章The Gauss Lemma一节．
 \end{proof}
+%    $T_pM$是线性空间，自然可以看成流形；$v\in T_pM$是这个流形上一点，
+%    $T_v(T_p M)$是指流形$T_pM$中点$v$处的切空间．
+%    定理中已假设$\exp_{p}$在$v^a$处有定义；我们任取$w^a \in T_pM$，
+%    存在充分小的$\epsilon >0$使得下面的映射有定义：
+%    \begin{equation}\label{chgd:eqn_gltmp01}
+%        \sigma(s,\tau)=\exp_{p}\bigl(s (v^a+\tau w^a)\bigr),
+%        \qquad \forall (s,\tau)\in [0,1]\times (-\epsilon,\epsilon) .
+%    \end{equation}
+%    显然，对于每一个固定的$\tau\in  (-\epsilon,\epsilon)$，$\gamma_\tau(s)=\sigma(s,\tau)$是测地线；
+%    依定义\ref{chgd:def_arc-variation}，$\sigma(s,\tau)$是测地线$\gamma_0(s)$的一个测地变分．
+%    容易求得$\gamma_0(s)$的切线切矢量场为
+%    \begin{equation}
+%        S^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial s}\right)^a
+%        = (\exp_{p})_{*s v} v^a .
+%    \end{equation}
+%    由于式\eqref{chgd:eqn_gltmp01}是指数映射，所以得到的曲线是测地线；
+%    当$s$固定、$\tau$变化时，将其记为$\alpha(\tau;q,s w^a)$，其中$q=\exp_p(s v^a)$．
+%    很明显$\alpha(\tau;q,s w^a)$是横截曲线，它的切线切矢量$T^a(s)$为
+%    \begin{equation}
+%        T^a(s) = \sigma_{*(s,0)}\left(\frac{\partial}{\partial \tau}\right)^a = s\cdot (\exp_{p})_{*s v} w^a .
+%    \end{equation}
+%    将以上两式代入弧长第一变分公式\eqref{chgd:eqn_1st-var-arc}，并注意$\gamma_{\tau}(s)$是测地线，有
+%    \begin{equation}\label{chgd:eqn_gltmp03}
+%        L'(0)= \left.\left({S}_b  {T}^b\right)\right|_{0}^{1}
+%        =g_{ab} \, (\exp_{p})_{*v}(v^a) \, (\exp_{p})_{*v}(w^b) .
+%    \end{equation}
+%    上式中的$g_{ab}$自然是在推前后（$(\exp_{p})_{*v}(v^a)$）的点取值．
+%
+%    我们再以另外一种方法来求$L'(0)$．
+%    对于任意固定的$\tau$，$\gamma_\tau(s)$的弧长为
+%    \begin{equation}
+%        L(\tau)=\int_{0}^{1} \left|\frac{{\rm d}}{{\rm d}s} \gamma_\tau(s;p,v^a+\tau w^a)\right| {\rm d}s
+%        =\int_{0}^{1} |v+\tau w| {\rm d}s = |v+\tau w|.
+%    \end{equation}
+%    对上式求$\tau$的导数，
+%    \begin{align*}
+%        \left.\frac{{\rm d}L(\tau)}{{\rm d}\tau}\right|_{\tau=0} =& \left.
+%        \frac{{\rm d} (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}{{\rm d}\tau}\right|_{\tau=0}  \\
+%        =&\left.\frac{v_aw^a+\tau w_a w^a}{ (v_av^a+2\tau v_aw^a+\tau^2 w_a w^a)^{1/2}}\right|_{\tau=0}
+%        =\frac{v_aw^a}{|v|} .
+%    \end{align*}
+%    因我们采用的是弧长参数，故$|v|=1$．
+%    结合上式与式\eqref{chgd:eqn_gltmp03}便可得\eqref{chgd:eqn_Gauss-lemma}式．
+%    上式中的$v_aw^a$是切空间$T_p M$上的内积，在$p$点取值．
+
 
 \begin{lemma}\label{chgd:thm_Gauss-lemma-old}
     $\exp_{p}$把$T_pM$中正交切矢量$v^a$和$w^a$映射到$M$中正交切矢量．
@@ -1013,16 +1017,16 @@ $T^a(s)$是沿曲线$C(s)$定义的光滑切矢量场，称为变分$\sigma$的{
     切矢量$w^a\in T_pM$，都有$|(\exp_{p})_{*tv}(w)|=|w|$．
 \end{proposition}
 \begin{proof}
-    设$w^a= \lambda v^a$，其中$\lambda$是非零实常数，则由高斯引理可得
+    设$w^a= \lambda v^a$，其中$\lambda$是实常数，则由高斯引理可得
     \begin{equation*}
-        |(\exp_{p})_{*tv}(w)| = g_{ab}(\exp_{p})_{*tv}(\lambda v^a) (\exp_{p})_{*tv}(w^b)
+        |(\exp_{p})_{*tv}(w)|^2 = g_{ab}(\exp_{p})_{*tv}(\lambda v^a) (\exp_{p})_{*tv}(w^b)
         = \lambda v_a w^a = w_a w^a.
     \end{equation*}
     需要提醒读者$v^a$是测地线的切线方向．
 \end{proof}
 
 \begin{remark}\label{chgd:rmk_Gauss-lemma}
-    由此可见指数映射既保长又保角，故它是沿径向测地线局部等距同构．
+	指数映射沿径向测地线保长，且把径向与球面正交关系保持下来．
 \end{remark}
 
 \begin{remark}\label{chgd:rmk_geo-sph}
@@ -1376,8 +1380,8 @@ $J_i=\eta_{ij} J^j$．
     是$2m$维线性空间．从命题\ref{chgd:thm_Jacobi-2mD}证明过程知，
     初始条件$(v^a,w^a)\in T_{C(r_1)}M\oplus T_{C(r_1)}M$使下式
     \begin{equation}
-        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_1)} v^a =0 =
-        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(s_1)} w^a
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(r_1)} v^a =0 =
+        g_{ab}\left.\left(\frac{{\rm d}}{{\rm d}s}\right)^b\right|_{C(r_1)} w^a
     \end{equation}
     成立的子空间是$2m-2$维的；而这个子空间线性同构于$\mathfrak{J}^{\bot}(C)$，
     故$\mathfrak{J}^{\bot}(C)$是$2m-2$维的线性空间．
@@ -1445,41 +1449,18 @@ $J_i=\eta_{ij} J^j$．
 \end{equation}
 其中$\lambda_i, \mu_i$是积分常数．
 
-%        \frac{\lambda_i}{\sqrt{-c \eta_{11}}} \sin (\sqrt{-c \eta_{11}} s)
-%+ \frac{\mu_i}{\sqrt{-c \eta_{11}}} \cos(\sqrt{-c \eta_{11}} s )
-%& \text{如果 }\ c \eta_{11} <0 , \\
-%\lambda_i s  + \mu_i  & \text{如果 }\ c \eta_{11} = 0, \\
-%\frac{\lambda_i}{\sqrt{c \eta_{11}}} \sinh (\sqrt{ c \eta_{11}} s)
-%+ \frac{\mu_i}{\sqrt{c \eta_{11}}} \cosh(\sqrt{c \eta_{11}} s)
-%& \text{如果 }\ c \eta_{11}>0 .
-
-
-%\subsection{共轭点}\label{chgd:sec_conjugate-point}
-%设广义黎曼流形$(M,g)$是完备的，
-%由Hopf--Rinow定理可知指数映射$\exp_p$在切空间$T_pM$上处处由定义，
-%再由定理\ref{chgd:thm_exp-homeomorphism}可知指数映射在原点附近是非退化的；
-%但指数映射未必是处处非退化的．从而引出如下定义：
-%\begin{definition}\label{chgd:def_conjugate-point}
-%    设$m$维广义黎曼流形$(M,g)$是完备的．$p\in M,\ v^a\in T_pM$，如果
-%    指数映射$\exp_{p}$在$v^a$处是退化的，即存在非零切矢量$w^a\in T_pM = T_v(T_pM)$使得
-%    $(\exp_{p})_{*v}(w^a)=0$；那么称$q=\exp_p(v^a)\in M$是点$p$（沿
-%    测地线$\exp_{p}(tv^a)$）的{\heiti 共轭点}．
-%\end{definition}
 
 
 
 \section*{小结}
 本章主要参考了\parencite[Ch.3, Ch.5, Ch.6]{chen-li-2023-2ed-v1}．
 
-%\parencite[Ch.4]{baizg-2004-irg}
 
-本章除了\S\ref{chgd:sec_compelete}外，所有内容适用于正定、不定度规．
+
+本章中凡涉及$\sqrt{g_{ab}T^a T^b}$、$|v|$、曲线弧长之处，默认度规正定．
+除此之外，所有内容适用于正定、不定度规．
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vspace{1em}
-%要了解我们未给出的定理证明过程，或需要学习更多内容的读者，
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%\printbibliography[heading=subbibliography,title=第\ref{chgd}章参考文献]
 

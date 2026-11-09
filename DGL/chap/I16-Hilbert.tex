@@ -112,7 +112,7 @@
 
 由定理\ref{chhs:thm_Nequiv}可知：
 {\bfseries (1)} $X$上序列的收敛与发散与具体选用的范数无关．
-{\bfseries (2)} 由等价范数诱导得到$X$上的拓扑是同胚的（例如参见定理\ref{chtop:thm_bcb}）．
+{\bfseries (2)} 由等价范数诱导得到$X$上的拓扑是相同的（例如参见定理\ref{chtop:thm_bcb}）．
 
 
 \index[physwords]{线性算符}  \index[physwords]{线性算子} 
@@ -218,8 +218,8 @@ $\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
 \end{definition}
 
 \begin{proposition}\label{chhs:thm_Hp4}
-	设有赋范空间$(X,\|\cdot\|)$；在$X$上可以引入一个内积$\langle\cdot, \cdot\rangle$的
-	充分必要条件是：范数$\|\cdot\|$满足如下{\kaishu 平行四边形等式}：
+	设有赋范空间$(X,\|\cdot\|)$；在$X$上可以引入一个内积$\langle\cdot, \cdot\rangle$的充分必要条件是：
+	范数$\|\cdot\|$（并且使 $\|x\|=\sqrt{\langle x,x\rangle}$）满足如下{\kaishu 平行四边形等式}：
 \begin{equation}\label{chhs:eqn_Hp4}
 	\|x+y\|^{2}+\|x-y\|^{2}=2\left(\|x\|^{2}+\|y\|^{2}\right) . 
 \end{equation}
@@ -294,16 +294,19 @@ $\langle \xi, \eta\rangle=\sum\nolimits_{i=1}^{\infty} \bar{\xi}_{i} \eta_{i}$�
 \index[physwords]{L${}^2[a,b]$空间}
 
 \begin{example}
-	无穷维、连续复值函数空间$L^2[a,b]$（Lebesgue空间）．
+	无穷维、平方可积复值函数空间$L^2[a,b]$（Lebesgue空间）．
 \end{example}
-$L^2[a,b]$是指平方可积的复函数集，即其内积为：
+$L^2[a,b]$是指平方可积的复函数集，其内积为：
 \begin{equation}\label{chhs:eqn_InLab}
-	\langle x, y\rangle=\int_{a}^{b} \overline{x(t)} y(t)  \mathrm{d} t < + \infty;
+	\langle x, y\rangle=\int_{a}^{b} \overline{x(t)} y(t)  \mathrm{d} t ;
 	\qquad \forall x, y \in L^2[a, b].
 \end{equation}
+其中$\{x\mid \int_a^b |x(t)|^2{\rm d}t<+\infty\}$．
 可以证明\cite[例 1.4.11]{zhang-lin-2021}：
-$L^2[a,b]$空间的上述内积\eqref{chhs:eqn_InLab}是完备的；
-因此它是Banach空间，也是Hilbert空间．
+$L^2[a,b]$空间在内积诱导的范数下完备；
+因此$L^2[a,b]$是Banach空间，也是Hilbert空间．
+
+
 
 量子物理中常见的Bessel、Legendre、Laguerre等多项式（以及很多其它特殊函数）
 在适当的区间上都是（加权）平方可积的．
@@ -343,8 +346,8 @@ Hilbert空间也有如下定理：
 有限维线性空间（包括有限维Hilbert空间）的对偶空间相关知识已在\S\ref{chmla:sec_dual}中陈述．
 无穷维赋范空间的对偶空间要复杂许多；要区分代数对偶（即\S\ref{chmla:sec_dual}中的定义）和连续对偶；
 完备或不完备的赋范空间$X$的连续对偶空间$X'$一定是完备的赋范空间（证明见\parencite{Kreyszig-1991}定理2.10-4），
-而且$X$、$X'$两者间可能没有双射关系（不严谨地说$X'$比$X$大）；等等．
-这些内容可参考\parencite{Kreyszig-1991}\S 2.10、\S 4.6；不再赘述．
+而且$X$、$X'$间不一定存在自然的线性同构（不严谨地说$X'$比$X$大）；等等．
+这些内容可参考\parencite{Kreyszig-1991}；不再赘述．
 
 完备的内积空间（Hilbert空间）则要简单的多．
 
@@ -392,7 +395,7 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
 	\langle y', x' \rangle_{\mathcal{H}'} \overset{def}{=} \langle x , y \rangle_{\mathcal{H}} , 
 	\qquad \forall y', x' \in \mathcal{H}' . 
 \end{equation}
-至此，我们在$\mathcal{H}$、$\mathcal{H}'$之间建立了线性等距同构映射．
+至此，我们在$\mathcal{H}$、$\mathcal{H}'$之间建立了等距同构映射．
 确切地说，对于实数域是等距同构；对于复数域是等距反同构（或等距共轭同构）．
 连续对偶空间$\mathcal{H}'$有了内积（自然是完备的）之后便成为了Hilbert空间．
 
@@ -419,7 +422,7 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
 	有$e_\alpha \perp e_\beta$，则称$S$为{\heiti 正交集}．
 	若有$\left\|e_\alpha\right\|=1 (\forall \alpha \in I)$ ，则称$S$为{\heiti 正交规范集}．
 	又如果在$X$中不存在非零元素与$S$正交，即$S^{\perp}=\{0\}$，那么称$S$为{\heiti 完全的}；
-	若同时$S$还是正交集，则称$S$为{\heiti 完全正交规范集}．
+	若同时 $S$ 还是正交规范集，则称$S$为{\heiti 完全正交规范集}．
 \end{definition}
 
 \begin{remark}
@@ -434,22 +437,6 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
     我们称$\left\{\langle x, e_\alpha \rangle \mid \alpha \in I\right\}$为$x$关于
     基$\left\{e_\alpha \mid \alpha \in I\right\}$ 的{\heiti \bfseries Fourier系数}．
 \end{definition}
-
-%\begin{equation}\label{chhs:eqn_npb}
-%\end{equation}
-
-
-\begin{remark}
-	我们略微解释一下上面定义中的指标集$I$．
-	当$X$是有限集合时，$I$是正整数集合的一个有限子集．
-	当$X$是可数无限集时，$I$是正整数集合．
-	当$X$是不可数无限集时，$I$是某个连续的不可数标记，比如时空坐标．
-\end{remark}
-
-
-%当$X$是可数集时，式\eqref{chhs:eqn_npb}变为$x=\sum_{i=1}^{\infty} \langle x, e_i \rangle e_i$．
-%\begin{equation}\label{chhs:eqn_npbc}	
-%\end{equation}
 
 
 \begin{theorem}
@@ -542,13 +529,14 @@ $ \left\langle T^{\dagger} y, x\right\rangle
 因$x$、$y$的任意性便可证明此公式．
 
 {\bfseries (c)} 注意不要把式\eqref{chhs:eqn_adjoint-ps-c}和
-公式$T^{\dagger}(\alpha x)=\alpha T^{\dagger} x$ 混淆．我们有
+公式$T^{\dagger}(\alpha y)=\alpha T^{\dagger} y$ 混淆．我们有
 \begin{align*}
-	\left\langle y, (\alpha T)^{\dagger} x\right\rangle
-	=\langle (\alpha T) y, x\rangle= \langle \alpha(T y), x\rangle
-	=\bar{\alpha}\langle T y, x\rangle
-	=\bar{\alpha}\left\langle y, T^{\dagger} x\right\rangle
-	=\left\langle y, \bar{\alpha} T^{\dagger} x\right\rangle .
+	\left\langle x, (\alpha T)^{\dagger} y\right\rangle
+	=\langle (\alpha T) x, y\rangle
+	=\langle \alpha(T x), y\rangle
+	=\bar{\alpha}\langle T x, y\rangle
+	=\bar{\alpha}\left\langle x, T^{\dagger} y\right\rangle
+	=\left\langle x, \bar{\alpha} T^{\dagger} y\right\rangle .
 \end{align*}
 因$x$、$y$的任意性便可证明此公式．
 
@@ -581,7 +569,7 @@ $$\left\langle x,(S T)^{\dagger} y\right\rangle
 
 
 \begin{theorem}
-	设$T$是Hilbert空间$\mathcal{H}$上的有界线性算符，则
+	设$T$是复Hilbert空间$\mathcal{H}$上的有界线性算符，则
 	{\bfseries (1)} 若$T$是自伴的，则$\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数．
 	{\bfseries (2)} $\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数，则$T$是自伴的．
 \end{theorem}

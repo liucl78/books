@@ -57,11 +57,10 @@ $\omega_{a_{1}\cdots a_{r}}$和$\omega_{\mu_{1}\cdots \mu_{r}}$的下标是全�
 所拉回的映射是同阶的外型式场．
 \begin{theorem}\label{chdf:thm_dfs-fsd}
     设有光滑流形$M$和$N$，维数分别是$m$和$n$；流形间存在光滑映射$\phi:M\to N$，
-    拉回映射$\phi^*: A^r(N) \to A^r(M)$（ $0\leqslant r \leqslant \min(m,n)$）是线性的，
-    且与外积可交换，即
+    拉回映射$\phi^*: A^r(N) \to A^r(M)$是线性的且与外积可交换，即
     \begin{align*}
         \phi^{*} (\alpha \wedge \beta ) = (\phi^{*}\alpha) \wedge \phi^{*}\beta,
-        \quad \forall \alpha \in A^p(N), \ \beta \in A^q(N), \quad 0\leqslant p+q \leqslant \min(m,n) .
+        \quad \forall \alpha \in A^p(N), \ \beta \in A^q(N).
     \end{align*}
 \end{theorem}
 \begin{proof}
@@ -273,7 +272,7 @@ $\omega_{a_{1}\cdots a_{r}}$和$\omega_{\mu_{1}\cdots \mu_{r}}$的下标是全�
 我们稍后证明此定理，先叙述一些必要信息．为令公式表述简洁，叙述此定理时未使用抽象指标记号．
 这个定理是流形$M$的整体描述，我们需要一个\CJKunderwave{局部性定理}，才能得到局部坐标系中的外微分表达式．
 
-\begin{lemma}\label{chdm:thm_d-exiterior-local}
+\begin{lemma}\label{chdf:thm_d-exterior-local}
     假设满足定理\ref{chdf:thm_exterior-differential}中四个条件的外微分${\rm d}$存在；
     如果$\alpha, \beta \in A(M)$，
     并且在开子集$U\subset M$上有$\alpha|_U = \beta|_U$，
@@ -527,10 +526,10 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 
 之前，我们证明了公式\eqref{chdm:eqn_dfphi}
 （即${\phi ^*} ({\rm d} f)_a={\rm d}_a ({\phi ^*}f)={\rm d}_a (f \circ \phi)$）；
-此公式说明外微分与拉回映射可交换，这个结论是以推广至一般情形．
+此公式说明外微分与拉回映射可交换，这个结论可以推广至一般情形．
 \begin{theorem}\label{chdf:thm_Dphis-phisD}
     设光滑流形$M$和$N$的维数分别是$m$和$n$，两者间存在光滑映射$\phi:M\to N$，
-    其诱导映射是$\phi^{*}: A^r(N)\to A^r(M)$，其中$0\leqslant r < \min(m,n)$．
+    其诱导映射是$\phi^{*}: A^r(N)\to A^r(M)$．
     则$\forall \omega_{a_{1}\cdots a_{r}} \in A^r(N)$有
     ${\phi ^*} ({\rm d}_b \omega_{a_{1}\cdots a_{r}})={\rm d}_b ({\phi ^*}\omega_{a_{1}\cdots a_{r}})$．
 \end{theorem}
@@ -605,7 +604,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
     其中脱字符$\widehat{}$表示没有这个基矢$(\widehat{{\rm d}x^{\mu_i}})$；
     脱字符下的基矢不再占用抽象指标记号．
     需要证明此映射有如下性质：
-    \begin{equation}\label{chdm:eqn_dIpId}
+    \begin{equation}\label{chdf:eqn_dIpId}
         {\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr)
         + I_{r+1}({\rm d}\omega )_{ba_{1}\cdots a_{r-1}} = \omega_{ba_{1}\cdots a_{r-1}} .
     \end{equation}
@@ -648,8 +647,8 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
          ({\rm d}x^{\mu_1})_{b}\wedge ({\rm d}x^{\mu_2})_{a_{1}} \wedge\cdots\wedge
          ({\rm d}x^{\mu_r})_{a_{r-1}} = \omega_{b a_{1} \cdots a_{r-1}}.
     \end{align*}
-    这便证明了式\eqref{chdm:eqn_dIpId}．当$\omega$为闭型式时，也就是${\rm d}\omega=0$时，
-    由式\eqref{chdm:eqn_dIpId}可得$\omega_{b a_{1} \cdots a_{r-1}}=
+    这便证明了式\eqref{chdf:eqn_dIpId}．当$\omega$为闭型式时，也就是${\rm d}\omega=0$时，
+    由式\eqref{chdf:eqn_dIpId}可得$\omega_{b a_{1} \cdots a_{r-1}}=
     {\rm d}_{b}\bigl( I_r (\omega)_{a_{1}\cdots a_{r-1}} \bigr) $，这说明$\omega$是恰当的；
     其中$\sigma = I_r (\omega)$．
 \end{proof}
@@ -799,7 +798,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 反过来，$U$上存在一个$h$维光滑分布，那么在$M$上未必存在$h$个处处线性无关的光滑切矢量场．
 典型的例子便是二维球面$S^2$上的光滑切矢量场必有奇点，
 因此$S^2$整体上不可能存在两个处处线性无关的非零切矢量场；
-然而$S^2$的局部上的切矢量场显然是个2维分布．
+然而$S^2$的局部切矢量场显然是个2维分布．
 虽然在整个流形（或者称之为大范围情形）两者并不等价，但在局部开子集$U$上，两者是等价的，
 即一个$h$维光滑分布等价于存在$h$个处处线性无关的非零光滑切矢量场．
 
@@ -1030,7 +1029,7 @@ $(\omega^\alpha)_a \in \mathfrak{X}^*(V)$作用．$\forall u^a\in TN \cong L^h|_
 本节开头说过，Pfaff方程组是在寻找一个子流形$(\imath,N)$使得$\imath^*(\omega^\alpha)_a=0$成立，
 从上式可以看到：命题\ref{chdf:thm_dwwd}中描述的、
 与Pfaff方程组\eqref{chdf:eqn_Pfaff}伴随的光滑分布$L^h$的积分流形$(\imath,N)$就满足此要求．
-$\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$外的空间不是恒零元．
+$\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒为零，在$N$外的空间不是恒为零．
 
 我们再大致叙述一下这一过程：
 \textcircled{1} 给定$m$维光滑流形$M$的一个开子集$U$（根据需要可适当将其缩小至$V$）；
@@ -1042,7 +1041,7 @@ $\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$�
 同时我们也把这个积分流形称为Pfaff方程组\eqref{chdf:eqn_Pfaff}的积分流形；
 \textcircled{5} 积分流形$(\imath,N)$的存在性条件就是下面叙述的Frobenius定理．
 
-在叙述Frobenius定理之前，先看一下Pfaff方程组与一般偏微分微分方程组的关系．
+在叙述Frobenius定理之前，先看一下Pfaff方程组与一般偏微分方程组的关系．
 给定一般的一阶偏微分方程组
 \begin{equation}\label{chdf:eqn_pde1d}
     \frac{\partial y^\alpha(x)}{\partial x^i} = f_i ^\alpha (x^1,\cdots, x^m;y^1,\cdots,y^n),
@@ -1081,7 +1080,7 @@ $\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$�
            \label{chdf:eqn_frobenius-Diff-Form-a} \\
         0 =& ({\rm d} \omega^\alpha)_{ab} \wedge (\omega^1)_{c_1} \wedge (\omega^2)_{c_2}
            \cdots \wedge (\omega^r)_{c_r}, \label{chdf:eqn_frobenius-Diff-Form-b} \\
-        (\omega^\alpha)_{a} =& \sum_{\beta=1}^{r} g^\alpha_\beta(x^1,\cdots,x^r) \cdot ({\rm d} x^\beta)_a,
+        (\omega^\alpha)_{a} =& \sum_{\beta=1}^{r} g^\alpha_\beta(x^1,\cdots,x^m) \cdot ({\rm d} x^\beta)_a,
         \quad \text{存在}\  g^\alpha_\beta \in C^\infty(V).
         \label{chdf:eqn_frobenius-Diff-Form-c}
     \end{align}
@@ -1105,14 +1104,16 @@ $\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$�
     对条件\eqref{chdf:eqn_frobenius-Diff-Form-c}取外微分可得到
     条件\eqref{chdf:eqn_frobenius-Diff-Form-a}；
     这是说如果条件\eqref{chdf:eqn_frobenius-Diff-Form-c}成立，那么Pfaff方程组完全可积．
-    反之，如果那么Pfaff方程组完全可积，从定理\ref{chdf:thm_frobenius}可知
-    存在开子集$V$中的坐标面$\{(x^1,\cdots,x^m) \mid x^{r+1}=const,\cdots,x^{m}=const\}$是
+    反之，如果Pfaff方程组完全可积，从定理\ref{chdf:thm_frobenius}可知
+    存在开子集$V$中的坐标面$\{(x^1,\cdots,x^r,x^{r+1},\cdots x^m) \mid x^{r+1}=const,\cdots,x^{m}=const\}$是
     分布$L^h$的$h$维积分流形．在此坐标系下，Pfaff方程中的一次外微分型式场只能表示为
     \begin{equation}
         (\omega^\alpha)_{a} = \sum_{\beta=1}^{r} g^\alpha_\beta(x^1,\cdots,x^r) \cdot ({\rm d} x^\beta)_a,
-        \qquad g^\alpha_\beta(x^1,\cdots,x^r) \in C^\infty(V).
+        \quad g^\alpha_\beta(x^1,\cdots,x^r) \in C^\infty(V).
     \end{equation}
     这就是条件\eqref{chdf:eqn_frobenius-Diff-Form-c}．
+    因$x^{r+1}$至$x^{m}$为常数，
+    故$g^\alpha_\beta$自变量是$\{x^1,\cdots,x^r\}$．
 \end{proof}
 
 
@@ -1171,8 +1172,8 @@ $\imath^*(\omega^\alpha)_a$在子流形$N$的切空间上式恒零元，在$N$�
 \begin{definition}\label{chdf:def_orientation}
     设$M$是$m$维光滑流形，其微分结构$\{(U,\varphi;x^i), (V,\psi;y^i), \cdots \}$是$M$的开覆盖；
     当$U \cap V\neq \varnothing$时，\CJKunderwave{如果}坐标
-    变换$\psi \circ \varphi^{-1}: \varphi(U \cap V )\to \psi(U \cap V)$的Jacobi行列
-    式$\det(\frac{\partial y^i }{\partial x^j}) >0$，
+    变换$\psi \circ \varphi^{-1}: \varphi(U \cap V )\to \psi(U \cap V)$的Jacobi行列式
+    $\det(\frac{\partial y^i }{\partial x^j}) >0$，
     则称$M$是{\heiti 可定向}的光滑流形；满足Jacobi行列式大于零的两个坐标
     卡$(U,\varphi)$和$(V,\psi)$称为{\heiti 定向相符的}或{\heiti 同向的}；
     由定向相符的坐标卡组成的极大坐标卡集合（也就是微分结构）称为流形$M$的一个{\heiti 定向}．
@@ -1223,7 +1224,7 @@ $J'$是定义\ref{chdf:def_orientation}中Jacobi行列式$J$的转置逆，即$J
 这便说明了两个定义是等价的．
 
 
-我们要求$\omega$是$m$阶的，而流形$M$也是$m$阶的；
+我们要求$\omega$是$m$阶的，而流形$M$也是$m$维的；
 由此可知流形$M$上任意两个连续且处处非零的$m$阶外微分型式场$\omega$和$\omega'$只相差一个非零倍数，
 即$\omega'=c\cdot \omega$，其中$c\in C^0(M)$．
 因$c$连续，故要么$c>0$要么$c<0$，在任何点都有$c\neq 0$．
@@ -1296,7 +1297,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 \begin{definition}
     设光滑流形$M$上存在实函数$f:M\to \mathbb{R}$，
     函数$f$的{\heiti 支撑集}（support set）是指使$f$取非零值的点集的闭包，
-    记作${\rm supp} f \equiv \overline{\{p\mid f(p)\neq 0, \forall p\in M \}}$．
+    记作${\rm supp} f \equiv \overline{\{p\mid f(p)\neq 0 \}}$．
 \end{definition}
 
 %如果$x\notin {\rm supp} f$，那么$x$必然有一开邻域使得函数$f$在该邻域内恒为零．
@@ -1428,7 +1429,7 @@ $\sum_{\alpha}h_\alpha =1$，$1 \geqslant h_\alpha \geqslant 0$，所以有
     \bigl( (h_\alpha \cdot f_\alpha )\circ\varphi^{-1}_\alpha\bigr)
     {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha .
 \end{equation}
-自然需要验证这个定义与局坐标系选取无关，以及与单位分解选取无关．
+自然需要验证这个定义与局部坐标系选取无关，以及与单位分解选取无关．
 设$(V_\lambda,\psi_\lambda;y^i_\lambda)$是$M$的另一个定向相符的坐标卡，
 同时它也是$M$的局部有限开覆盖，再设$\{g_\lambda\}$是从属于$\{V_\lambda\}$的单位分解；
 同时假定$\{U_\alpha\}$与$\{V_\lambda\}$的定向相符合．
@@ -1505,7 +1506,7 @@ $m$阶外微分型式场$\omega \in A^m(M)$在$\{V_\lambda\}$中的局部坐标�
 \begin{equation}\label{chdf:eqn_IonSM}
 	\int_{\phi(N)} \omega \overset{def}{=} \int_N \phi^* \omega .
 \end{equation}
-%%容易判断上式为良定义．\qed
+%%容易判断上式为良定义．
 
 
 
@@ -1546,6 +1547,8 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
 可以初步感性认知单位分解定理下的积分．
 
 
+
+
 \index[physwords]{Stokes--Cartan定理}
 \section{Stokes--Cartan定理}\label{chdf:sec_stokes-cartan}
 
@@ -1574,32 +1577,32 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
     设$\left\{\left(U_\alpha, \varphi_\alpha\right)\right\}$是$M$的定向相符的坐标卡集，
     使得局部坐标卡集$\left\{U_\alpha\right\}$成为$M$的开覆盖；
     $\left\{h_\alpha\right\}$是从属于$\left\{U_\alpha\right\}$的单位分解，则
-    $$
+    \[
     \omega=\left(\sum\nolimits_\alpha h_\alpha\right) \cdot \omega
     =\sum\nolimits_\alpha \left(h_\alpha \cdot \omega\right) .
-    $$ 
+    \] 
     因为支撑集${\rm supp} \omega$ 是紧致的，
     故${\rm supp}\omega$只与$\left\{U_\alpha\right\}$中有限多个成员相交，
     因此上式最右端为平凡收敛．于是
-    $$
+    \[
     \int_M \mathrm{d} \omega=\sum_\alpha \int_M \mathrm{d}\left(h_\alpha \cdot \omega\right),
-    $$  
+    \]  
     并且
-    $$
+    \[
     \int_{\partial M} \imath^* \omega=\sum_\alpha \int_{\partial M} \imath^*\left(h_\alpha \cdot \omega\right) .
-    $$
+    \]
     所以，只要对于每一个指标$\alpha$证明下式成立就可以了：
     \begin{equation}
     	\int_M \mathrm{d}\left(h_\alpha \cdot \omega\right)=\int_{\partial M} \imath^*\left(h_\alpha \cdot \omega\right) .
     \end{equation}
     注意到此时外微分式$h_\alpha \cdot \omega$的特性是
-    $$
+    \[
     {\rm supp} \left(h_\alpha \cdot \omega\right) \subset {\rm supp} h_\alpha \cap {\rm supp} \omega \subset U_\alpha,
-    $$
+    \]
     即支撑集 ${\rm supp} \left(h_\alpha \cdot \omega\right)$是紧致的，并且包含在坐标域$U_\alpha$内．
     这样，我们已经把问题归结为对于具有如下性质的$m$次外微分式$\omega$证明式\eqref{chdf:eqn_stokes-cartan}成立：
     ${\rm supp}\omega$是紧致的，并且存在$M$的、与定向相符的坐标卡$(U, \varphi)$，
-    使得${\rm supp} \omega \subset U$．也就是说，不显示写出单位分解$\{h_\alpha\}$，以令证明过程简洁一些．
+    使得${\rm supp} \omega \subset U$．也就是说，不显式写出单位分解$\{h_\alpha\}$，以令证明过程简洁一些．
     
     $\forall p \in U$，令$x^i(p)=(\varphi(p))^i$．假定$\omega$的局部坐标表达式为：
     \begin{equation}
@@ -1660,7 +1663,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
     
     \fbox{丙}
     $U \cap \partial M \neq \varnothing$．此时$(U, \varphi)$是$M$的、与定向相符的坐标卡，并且
-    \begin{equation}\label{chdm:eqn_sc-UM}
+    \begin{equation}\label{chdf:eqn_sc-UM}
     	U \cap \partial M=\left\{p \in U \mid \left(\varphi(p)\right)^0=0\right\} .
     \end{equation}    
     如在情形\fbox{乙}所述，可取充分大的正实数$K$使得$\varphi(U) \subset \mathbb{R}_{-}^{m+1} \cap C$，
@@ -1687,7 +1690,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
     			1 \leqslant i \leqslant m}} a_0 \circ \varphi^{-1}\left(0,x^1, \cdots, x^{m}\right) 
     		\mathrm{d} x^1 \cdots \mathrm{d} x^{m} .
     \end{align*}
-    对于边界流形$\partial M$来说，式\eqref{chdm:eqn_sc-UM}表明$U \cap \partial M$是$\partial M$的坐标域，
+    对于边界流形$\partial M$来说，式\eqref{chdf:eqn_sc-UM}表明$U \cap \partial M$是$\partial M$的坐标域，
     它的诱导定向见\S\ref{chdf:sec_manifold-boundary}末尾．
     因为${\rm supp}\left(\left.\imath^* \omega\right|_{\partial M}\right) \subset U \cap \partial M$，
     所以
@@ -1720,7 +1723,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
         -\frac{\partial f}{\partial y}\right) ({\rm d}x)_a \wedge ({\rm d}y)_b
         =  \int_{\partial M} \left(f {\rm d}x + g {\rm d}y \right).
     \end{equation}
-    这是经典的Green公式． \qed
+    这是经典的Green公式． 
 \end{example}
 
 \begin{example}
@@ -1742,7 +1745,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
         =  \oiint_{S} \left(P {\rm d}y {\rm d}z +
         Q {\rm d}z {\rm d}x + R {\rm d}x {\rm d}y \right).
     \end{equation*}
-    这是经典的高斯散度公式． \qed
+    这是经典的高斯散度公式． 
 \end{example}
 
 \begin{example}
@@ -1764,7 +1767,7 @@ $U$至多与集合$\{S_i\}$中的三个相交；容易验证$\sum_i \phi_i =1$�
         \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right) {\rm d}z {\rm d}x \\
         &+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) {\rm d}x {\rm d}y .
     \end{align*} %\setlength{\mathindent}{2em}
-    上式正好是经典的Stokes公式． \qed
+    上式正好是经典的Stokes公式． 
 \end{example}
 
 \begin{exercise}

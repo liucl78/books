@@ -6,7 +6,7 @@
 在引入度规后，可研究的子流形内容更加丰富．
 我们先给出子流形的一般理论，然后再把这些理论应用到超曲面上；
 超曲面在广义相对论中有重要应用．
-需要声明的是：除非显示标注“零模”，否则所有内容只适用于非零模理论，
+需要声明的是：除非显式标注“零模”，否则所有内容只适用于非零模理论，
 包括曲线、曲面、子流形等等．
 
 
@@ -293,7 +293,7 @@ $\forall \xi^a \in \mathfrak{X}^\bot(N),
 式\eqref{chsm:eqn_riemann-M}中的辅助切矢量场$X^a$、$Y^a$、$Z^a$可随意换成法空间的
 矢量场$\xi^a\in \mathfrak{X}^\bot(N)$，并仍有意义；其它两个式子则不可以．
 ${}^{n}_{\top}R^d_{cab}$表示$n$维流形$N$\CJKunderwave{切丛}$T N$的黎曼张量，
-并在公式中显示标记了“$\top$”，为了给指标升降留下空间，“$\top$”标在了左下角．
+并在公式中显式标记了“$\top$”，为了给指标升降留下空间，“$\top$”标在了左下角．
 ${}^{n}_{\bot}R^d_{cab}$是\CJKunderwave{法丛}$T^\bot N$的黎曼张量．
 式\eqref{chsm:eqn_riemann-N-tan}给出的定义本就是流形$N$中的黎曼曲率，
 本来无需在左下角增加记号“$\top$”，
@@ -357,7 +357,7 @@ ${}^{n}_{\bot}R^d_{cab}$是\CJKunderwave{法丛}$T^\bot N$的黎曼张量．
 %     -Y^b  S^a_{e_\alpha\,d}X^d \right) .\quad \text{此行为切向，上两行为法向}
 %\end{aligned}
 %\end{equation}
-%而式\eqref{chsm:eqn_curvature-Gauss-0}中的$W^a\in \mathfrak{X}(N)$，无需显示作此标记
+%而式\eqref{chsm:eqn_curvature-Gauss-0}中的$W^a\in \mathfrak{X}(N)$，无需显式作此标记
 %式\eqref{chsm:eqn_gwcr}是黎曼曲率的重要公式，由它可以导出诸多重要式子．
 用${g}$将式\eqref{chsm:eqn_gwcr}的上指标“$a$”降下来，
 再与$W^a\in \mathfrak{X}(N)$缩并，有
@@ -900,19 +900,19 @@ $\left. \frac{\partial}{\partial s}\right|_{\alpha(a)} \in T_{\alpha(a)}N$，
 希腊字母$0 \leqslant \alpha,\beta,\cdots \leqslant m$；
 法空间一般用指标“$0$”来标记． }
 这种约定是为了匹配广义相对论部分．
-用求和符号显示写出求和范围的除外．
+用求和符号显式写出求和范围的除外．
 
 在超曲面几节中，只考虑\CJKunderwave{正定}或\CJKunderwave{广义Lorentz度规}．
 因为超曲面的法空间是一维的，可从法空间任选一个\CJKunderwave{非零}矢
 量$\xi^a\in \mathfrak{X}^\bot{\Sigma}$作为基矢．
-\begin{definition}\label{chrg:def_hypersurface-property}
+\begin{definition}\label{chsm:def_hypersurface-property}
     若$g_{ab} \xi^a \xi^b<0$处处成立，则称$\Sigma$为{\heiti 类空超曲面}；
     若$g_{ab} \xi^a \xi^b>0$处处成立，则称$\Sigma$为{\heiti 类时超曲面}；
     若$g_{ab} \xi^a \xi^b=0$处处成立，则称$\Sigma$为{\heiti 零模超曲面}．
 \end{definition}
 
 若度规正定，则必有$g_{ab} \xi^a \xi^b>0$，
-那么便没必要作定义\ref{chrg:def_hypersurface-property}式的划分．
+那么便没必要作定义\ref{chsm:def_hypersurface-property}式的划分．
 
 
 对比第\pageref{chrg:def_vector-property}页定义\ref{chrg:def_vector-property}可知
@@ -950,7 +950,7 @@ $\left. \frac{\partial}{\partial s}\right|_{\alpha(a)} \in T_{\alpha(a)}N$，
 一步是因为沿$\gamma(t)$标量函数$\Phi$为常数．
 因为$u^a$是任取的，这说明$\nabla^a \Phi$与$\Sigma$上所有切矢量都正交，
 故它一定是超曲面$\Sigma$的法矢量．
-定义\ref{chrg:def_hypersurface-property}中所用的$\xi^a$一定正比于$\nabla^a \Phi$，
+定义\ref{chsm:def_hypersurface-property}中所用的$\xi^a$一定正比于$\nabla^a \Phi$，
 不妨取$\xi^a=\nabla^a\Phi$．
 我们用${n}^a$来表示$\xi^a$归一化后的法矢量，即有
 \begin{equation}\label{chsm:eqn_unit-normal}
@@ -1202,7 +1202,7 @@ $X^a,Y^a\in \mathfrak{X}(\Sigma)$的主要作用就是将$K_{bc}$限制在
      = -\nabla_{a} n_b + \epsilon n_a n^c \nabla_{c} n_b .
 %     = -\nabla_{a} n_b + \epsilon n_a A_b .
 \end{equation}
-%虽然上式没有显示表明$K_{ba}=K_{ab}$，但命题\ref{chsm:thm_hII}已说明此点．
+%虽然上式没有显式表明$K_{ba}=K_{ab}$，但命题\ref{chsm:thm_hII}已说明此点．
 增加投影算符$h_a^c h_b^d$后，即使对于单张超曲面，
 导数$h_a^c h_b^d \nabla_{c} {n}_d$也有意义；
 否则（对单张超曲面而言）$\nabla_{c} {n}_d$的定义可能有缺陷．
@@ -1315,18 +1315,18 @@ $M$上有局部坐标系$(U;x^\alpha),\ 0\leqslant \alpha \leqslant m$．
     \cdots,\left(\frac{\partial }{\partial x^m} \right)^a \right\},
     \tag{\ref{chdf:eqn_frobenius-h}}
 \end{equation}
-的充分必要条件是：$\xi^a$满足Frobenius条件\eqref{chdf:eqn_HOF}，即
-\begin{subequations}\label{chdf:eqn_HOF}
+的充分必要条件是：$\xi^a$满足Frobenius条件\eqref{chsm:eqn_HOF}，即
+\begin{subequations}\label{chsm:eqn_HOF}
 \begin{align}
     ({\rm d} \xi)_{ab} =& \phi_a \wedge \xi_b , \quad \text{存在}\ \phi_a\in \mathfrak{X}^*(V^\bot),
-       \quad \xi_a = g_{ab}\xi^b;  \label{chdf:eqn_HOF-1} \\
-    0 =& ({\rm d} \xi)_{ab} \wedge \xi_{c} ; \label{chdf:eqn_HOF-2} \\
+       \quad \xi_a = g_{ab}\xi^b;  \label{chsm:eqn_HOF-1} \\
+    0 =& ({\rm d} \xi)_{ab} \wedge \xi_{c} ; \label{chsm:eqn_HOF-2} \\
     \xi_{a} =& f(x^0)({\rm d} x^0)_a= f(x^0) \nabla_a x^0 , \quad 
-    \text{存在}\ f(x^0) \in C^\infty(V^\bot); \label{chdf:eqn_HOF-3} \\
-    0=& \xi_{[a}\nabla_{b} \xi_{c]} . \label{chdf:eqn_HOF-4}
+    \text{存在}\ f(x^0) \in C^\infty(V^\bot); \label{chsm:eqn_HOF-3} \\
+    0=& \xi_{[a}\nabla_{b} \xi_{c]} . \label{chsm:eqn_HOF-4}
 \end{align}
 \end{subequations}
-其中式\eqref{chdf:eqn_HOF-4}是一个新的条件，它与式\eqref{chdf:eqn_HOF-2}等价，
+其中式\eqref{chsm:eqn_HOF-4}是一个新的条件，它与式\eqref{chsm:eqn_HOF-2}等价，
 \begin{equation}
     0 = ({\rm d} \xi)_{ab} \wedge \xi_{c}
     = 3 \bigl(({\rm d} \xi)_{[ab} \bigr) \xi_{c]}
@@ -1335,17 +1335,17 @@ $M$上有局部坐标系$(U;x^\alpha),\ 0\leqslant \alpha \leqslant m$．
 \end{equation}
 
 对于非零切矢量场$\xi^a \in \mathfrak{X}(M)$而言，
-如果它满足Frobenius条件\eqref{chdf:eqn_HOF-4}，那么存在$m$维积分流形$\Sigma$（$M$的超曲面）使得
+如果它满足Frobenius条件\eqref{chsm:eqn_HOF-4}，那么存在$m$维积分流形$\Sigma$（$M$的超曲面）使得
 在局部上$\Sigma$仅由$\{x^1,\cdots,x^m\}$描述（见式\eqref{chdf:eqn_frobenius-h}），
-而$\xi_a= f(x^0)({\rm d} x^0)_a$（见式\eqref{chdf:eqn_HOF-3}）仅由第〇坐标描述．
+而$\xi_a= f(x^0)({\rm d} x^0)_a$（见式\eqref{chsm:eqn_HOF-3}）仅由第〇坐标描述．
 此时，$\xi^a$与$\Sigma$是超曲面正交的．
 
 %需要注意$\xi^a$是超曲面$\Sigma$的法矢量，可以是逐点不同的，也就是说$\xi^a$仍然
-%可能是$\{x^1,\cdots,x^m\}$的函数；式\eqref{chdf:eqn_HOF-3}只是在$p$点取值，
-%所以未显示写出坐标$\{x^1,\cdots,x^m\}$．
+%可能是$\{x^1,\cdots,x^m\}$的函数；式\eqref{chsm:eqn_HOF-3}只是在$p$点取值，
+%所以未显式写出坐标$\{x^1,\cdots,x^m\}$．
 %通过坐标变换，每张超曲面$\Sigma$上的$x^0$却是固定不变的．
 
-因此式\eqref{chdf:eqn_HOF}（尤其是\eqref{chdf:eqn_HOF-4}）是$\xi^a$与$\Sigma$是超曲面正交的充要条件．
+因此式\eqref{chsm:eqn_HOF}（尤其是\eqref{chsm:eqn_HOF-4}）是$\xi^a$与$\Sigma$是超曲面正交的充要条件．
 
 
 Frobenius定理只是说存在这样的坐标系$\{x^0;x^1,\cdots,x^m\}$，但未必容易找到．
@@ -1361,7 +1361,7 @@ Frobenius定理只是说存在这样的坐标系$\{x^0;x^1,\cdots,x^m\}$，但�
 于局部标架场$\{(\frac{\partial }{\partial x^i} )^a\}$．
 令$\xi^a=(\frac{\partial }{\partial x^0} )^a$，
 则易得$\xi_a= g_{ab}\xi^b = g_{00}({\rm d}x^0)_a$；
-由条件\eqref{chdf:eqn_HOF}可知在局部上$\xi^a$正交于由$\{x^1,\cdots,x^m\}$描述的超曲面．
+由条件\eqref{chsm:eqn_HOF}可知在局部上$\xi^a$正交于由$\{x^1,\cdots,x^m\}$描述的超曲面．
 这也解释了定义\ref{chsm:def_hypersurface-orthogonal}就是三维欧氏空间中
 法线（比如$z$轴）垂直于平面（比如$x-y$平面）的推广．
 
@@ -1374,7 +1374,7 @@ Frobenius定理只是说存在这样的坐标系$\{x^0;x^1,\cdots,x^m\}$，但�
 	{\rm d}_b \xi_a = & \frac{\partial \xi_1}{\partial y} ({\rm d}y)_b\wedge ({\rm d}x)_a
 	+\frac{\partial \xi_2}{\partial x} ({\rm d}x)_b\wedge ({\rm d}y)_a .
 \end{align*}
-很明显${\rm d}_b \xi_a \wedge \xi_c =0$，符合条件\eqref{chdf:eqn_HOF-2}；
+很明显${\rm d}_b \xi_a \wedge \xi_c =0$，符合条件\eqref{chsm:eqn_HOF-2}；
 故超曲面正交． \qed
 
 
@@ -1397,7 +1397,7 @@ $n^a$按照式\eqref{chsm:eqn_unit-normal-Phi}中方式来选取方向．
 \begin{equation}
     n^a = \sum_{\alpha=0}^{m} n^\alpha \left(\frac{\partial }{\partial x^\alpha}\right)^a.
 \end{equation}
-根据假设，有（为避免误解，显示写出求和范围）
+根据假设，有（为避免误解，显式写出求和范围）
 \begin{equation}\label{chsm:eqn_tmp20}
     g_{ab}n^a \left(\frac{\partial }{\partial x^i}\right)^b =
       \sum_{\alpha=0}^{m} g_{\alpha i}  n^\alpha =0, \qquad 1 \leqslant i \leqslant m.
@@ -2173,7 +2173,7 @@ $\forall u^a,v^a\in \mathfrak{X}(H^m_\nu(r))$，法线$n^a$与切空间正交，
         %        -(K_{bc} u^b v^c) (K_{ed} v^e u^d) }
     %    {{u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 }  \\
     =&-\frac{1}{r^2}
-    \frac{ ({u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 }
+    \frac{ {u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 }
     {{u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 }
     =-\frac{1}{r^2} .
 \end{align*}
@@ -2233,7 +2233,7 @@ $\forall u^a,v^a\in \mathfrak{X}(H^m_\nu(r))$，法线$n^a$与切空间正交，
     (x^{0},& x^1,\cdots,x^m) = \psi_{+}^{-1}(\xi^1,\cdots,\xi^m) \notag \\
     =&\frac{r}{r^2-\sum\nolimits_k(\xi^k)^2}
     \left(+r^2+\sum_{k=1}^m(\xi^k)^2, \ 2 r \xi^1, \cdots, \ 2 r \xi^m \right),
-    \label{chdm:eqn_hybxi2x} \\
+    \label{chsm:eqn_hybxi2x} \\
     (x^{0},& x^1,\cdots,x^m) = \psi_{-}^{-1}(\eta^1,\cdots,\eta^m) \notag \\
     =&\frac{r}{r^2-\sum\nolimits_k(\eta^k)^2}
     \left(- r^2-\sum_{k=1}^m (\eta^k)^2 , \ 2 r \eta^1, \cdots, \ 2 r \eta^m \right).
@@ -2284,7 +2284,7 @@ $\mathbb{R}^{m+1}_1$度规为广义Lorentz度规，即
         \frac{\partial x^0}{\partial x^j} \right)    ({\rm d} x^i)_a ({\rm d} x^j)_b  \notag \\
         =& \sum_{i,j=1}^{m}\left(\delta_{ij}-\frac{x^i x^j}{r^2+\sum_{k=1}^{m}(x^k)^2}\right)
         ({\rm d} x^i)_a ({\rm d} x^j)_b \notag \\
-        \xlongequal{\ref{chdm:eqn_hybxi2x}}&
+        \xlongequal{\ref{chsm:eqn_hybxi2x}}&
         \frac{4r^4 \sum\nolimits_{i=1}^{m} ({\rm d}\xi^i)_a ({\rm d}\xi^i)_b} 
         {(r^2-\sum\nolimits_{k=1}^{m} (\xi^k)^2)^2}.       \label{chsm:eqn_gphihabb}
 \end{align}
@@ -2820,6 +2820,10 @@ $\widetilde{\Lie}_X$表示增加数次投影的${\Lie}_X$．
 \end{subequations}
 其中式\eqref{chsm:eqn_SF-Rij}采用$(\partial_i)^a$、$(\partial_j)^b$缩并式\eqref{chsm:eqn_SF-dtKab}得到．
 
+%\begin{align*}
+%	-\frac{1}{2}\ddot{h}_{ab}=&\dot{K}_{ab} = -{}^4 R_{cd} h^c_a h^d_b + {}^3 R_{ab} - 2 K^c_a K_{cb} + K K_{ab} \\
+%	-\frac{1}{2}\ddot{h}_{ij}=&\dot{K}_{ij} = -{}^4 R_{ij}  + {}^3 R_{ij} - 2 K^l_i K_{lj} + K K_{ij}
+%\end{align*}
 
 
 %\begin{align*}

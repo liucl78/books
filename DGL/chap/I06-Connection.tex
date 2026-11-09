@@ -26,8 +26,9 @@
     {\bfseries (1)}  $\mathbb{R}$-线性：$\nabla_X (Y^a +\lambda\cdot Z^a)
        \overset{def}{=}\nabla_X Y^a +\nabla_X (\lambda\cdot Z^a) \equiv  \nabla_X Y^a +\lambda\cdot\nabla_X Z^a$；
 
-    {\bfseries (2)} 加法：$(f\cdot X^b+Y^b)\nabla_{b} Z^a \equiv \nabla_{f\cdot X+Y} Z^a
-    \overset{def}{=} \nabla_{f\cdot X} Z^a + \nabla_{Y} Z^a $；
+    {\bfseries (2)} 加法：$\nabla_{f\cdot X+Y} Z^a 
+    \overset{def}{=} \nabla_{f\cdot X} Z^a + \nabla_{Y} Z^a
+    \equiv f \cdot \nabla_{X} Z^a + \nabla_{Y} Z^a $；
 
     {\bfseries (3)} $\nabla_{X} (f\cdot Y^a) \overset{def}{=} (\nabla_{X} f) Y^a + f\cdot \nabla_{X} Y^a
      \equiv X(f) Y^a + f\cdot \nabla_{X} Y^a$．
@@ -37,6 +38,7 @@
     称$\nabla_X$为{\heiti 协变导数}．仿射联络专指切丛上的联络．
     定义了仿射联络的光滑流形$(M,\nabla_a)$被称为{\heiti 仿射联络空间}．
 \end{definition}
+
 
 定义\ref{chccr:def_connection}只给出了矢量场上的联络；下面把它拓展成张量场上的联络．
 
@@ -106,7 +108,7 @@ $C^\times_\times(\nabla_X K_{\cdots}^{\cdots}) \overset{def}{=} \nabla_X(C^\time
     $\nabla_{X_1} Y_1 |_U=\nabla_{X_2} Y_1 |_U$便能证明命题了；而且两者证明非常相似，只需证明其一即可．
 
     因流形$M$有局部紧致性，所以$\forall p\in U$都存在开子集$V$和紧致集$\overline{V}$使得
-    $\forall p \in V \subset \overline{V} \subset U$．依命题\ref{chdm:thm_exp1UVM}，
+    $p \in V \subset \overline{V} \subset U$．依命题\ref{chdm:thm_exp1UVM}，
     存在$C^\infty$函数$h:M \to \mathbb{R}$使得$0\leqslant h \leqslant 1$，
     且$h|_V=1$，$h|_{M-U}=0$；因此有$h\cdot(Y_1-Y_2)\equiv 0$在整个流形$M$上成立；
     由定义\ref{chccr:def_connection}中Leibniz律可得联络$\nabla_a$作用在此式的结果为
@@ -412,7 +414,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 \end{equation}
 在坐标域$(U;x^i)$内，算符$\partial_a$满足仿射联络\ref{chccr:def_connection}的各条性质．
 联络不能只在一个坐标域内成立，在进行坐标变换时，
-联络形式必须是协变的（不同坐标系下，数学表达式“长得一样”才行）．
+联络型式必须是协变的（不同坐标系下，数学表达式“长得一样”才行）．
 再给$M$的另一个局部坐标系$(V;y^\alpha)$，且$U\cap V \neq \varnothing$，
 那么对$V$中自然坐标基矢的偏导数是：
 \begin{align*}
@@ -422,28 +424,34 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
     = ({\rm d }x^j)_a \left(\frac{\partial }{\partial x^k}\right) ^b \times
       \frac{\partial}{\partial x^j}\frac{\partial x^k}{\partial y^\alpha} \\
     =& ({\rm d }x^j)_a \left(\frac{\partial }{\partial x^k}\right) ^b\times
-     \frac{\partial \delta^k_j}{\partial y^\alpha}  =0 .
+     \frac{\partial^2 x^k}{\partial y^\alpha\partial y^\beta}
+     \frac{\partial y^\beta}{\partial x^j} .
 \end{align*}
-最后一步用到了常数的偏导数为零这一性质．$\forall v^b \in \mathfrak{X}(U\cap V)$，计算其偏导数
+下面的计算会用到上面的偏导数．$\forall v^b \in \mathfrak{X}(U\cap V)$，计算其偏导数
     \begin{align*}
         \partial_a (v^b|_V ) =&    ({\rm d }x^j)_a\frac{\partial }{\partial x^j} \left[v^\alpha
         \left(\frac{\partial }{\partial y^\alpha}\right) ^b \right]
-        = \left(\frac{\partial }{\partial y^\alpha}\right) ^b ({\rm d }x^j)_a
-          \frac{\partial }{\partial x^j}\left(v^i \frac{\partial y^\alpha}{\partial x^i}\right) \\
-%        =& \left(\frac{\partial }{\partial y^\alpha}\right) ^b ({\rm d }x^j)_a
-%          \left(\frac{\partial v^i}{\partial x^j} \frac{\partial y^\alpha}{\partial x^i}
-%          +v^i \frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}\right) \\
+        = ({\rm d }x^j)_a \frac{\partial }{\partial x^j}
+        \left(v^i \frac{\partial y^\alpha}{\partial x^i}\left(\frac{\partial }{\partial y^\alpha}\right) ^b\right) \\
         =& \left(\frac{\partial }{\partial x^i}\right) ^b ({\rm d }x^j)_a
         \frac{\partial v^i}{\partial x^j}
         +\left(\frac{\partial }{\partial y^\alpha}\right) ^b ({\rm d }x^j)_a
-        \times v^i \frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}   \\
+        \times v^i \frac{\partial^2 y^\alpha}{\partial x^j\partial x^i} 
+        +v^\alpha \partial_a \left[ \left(\frac{\partial }{\partial y^\alpha}\right) ^b \right] \\
         =& \partial_a (v^b|_U ) +\left(\frac{\partial }{\partial y^\alpha}\right) ^b ({\rm d }x^j)_a
-        \times v^i \frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}   .
+        v^i \frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}
+        +({\rm d }x^j)_a \left(\frac{\partial }{\partial x^k}\right) ^b 
+        \frac{\partial^2 x^k}{\partial y^\alpha\partial y^\beta}
+        \frac{\partial y^\beta}{\partial x^j} v^\alpha  .
     \end{align*}
-上面给出了详尽的计算过程．一般说
-来$\frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}\neq 0$，
+上面给出了详尽的计算过程．一般说来
+$\frac{\partial^2 y^\alpha}{\partial x^j\partial x^i}\neq 0$、
+$\frac{\partial^2 x^k}{\partial y^\alpha\partial y^\beta}\neq 0$，
 所以$\partial_a v^b$在坐标变换时不具有协变属性．
 因此可以得到结论：\CJKunderwave{$\partial_a$不是联络}．
+
+
+
 
 联络定义\ref{chccr:def_connection}隐藏了局部坐标卡，但隐含着：
 在任意局部坐标卡中，联络必须满足定义中的三条公理．
@@ -529,7 +537,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 
 \subsection{挠率}\label{chccr:sec_torsion}
 \begin{definition}
-    设$(M,\nabla_a)$是$m$维仿射空间，定义挠率张量$T_{bc}^a$：
+    设$(M,\nabla_a)$是$m$维仿射联络空间，定义挠率张量$T_{bc}^a$：
     \begin{equation}\label{chccr:eqn_Ttorsion}
         T_{bc}^a{X^b}{Y^c} \overset{def}{=} {\nabla _X}{Y^a} - {\nabla _Y}{X^a} - {\left[ {X,Y} \right]^a} ,
         \qquad \forall X^a, Y^a \in \mathfrak{X}(M) .
@@ -545,7 +553,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 当$\Gamma^{i}_{kj}$下标对称时，挠率恒为零．
 反之，若$T_{bc}^a\equiv 0$，则$\Gamma^{i}_{kj}$下标对称．
 \begin{definition}
-    设$(M,\nabla_a)$是仿射空间，若挠率$T_{bc}^a$恒为零，
+    设$(M,\nabla_a)$是仿射联络空间，若$T_{bc}^a$恒为零，
     则称$\nabla_a$为{\heiti 无挠联络}．
 \end{definition}
 
@@ -611,7 +619,7 @@ $T_{ij}^k$表示张量$T_{ab}^c$在自然坐标基底下的分量，
 
 
 \subsection{无挠联络的优点}\label{chccr:sec_eqn-Nalba}
-给定仿射空间$(M,\nabla_a)$，其联络无挠，则其联络系数的下指标是对称的，会给表达式带来诸多好处．
+给定仿射联络空间$(M,\nabla_a)$，其联络无挠，则其联络系数的下指标是对称的，会给表达式带来诸多好处．
 本节中，$f\in C^\infty(M)$，$X^a,Y^a\in \mathfrak{X}(M)$，$\omega \in A^r(M)$，
 $T_{ab} \in \mathfrak{T}^0_2(M)$．所有证明留给读者当练习．
 
@@ -655,12 +663,12 @@ $T_{ab} \in \mathfrak{T}^0_2(M)$．所有证明留给读者当练习．
 上面第二式为$\Tpq{1}{2}$型张量场的李导数；易将这个表达式推广到高阶张量．
 
 %由于李导数很重要，下面再给出几个关于李导数的公式．
-下面几式通常称为Henri Cartan（\'Elie Cartan 儿子）公式．
+下面几式通常称为Cartan公式．
 \begin{align}
     &\Lie_{X}  ( \omega_{ba_2 \cdots a_r} Y^b)
     -  ( \Lie_{X}  \omega_{ba_2 \cdots a_r}  ) Y^b
     =  \omega_{ba_2 \cdots a_r} [X,Y]^b . \label{chccr:eqn_Lie-iiLie=ixy} \\
-    &\Lie_{X} \omega_{a_1 \cdots a_r} = {\rm d}_{a_1}( \omega_{ba_2 \cdots a_r} X^b )
+    &\Lie_{X} \omega_{a_1 \cdots a_r} = r\,\nabla_{[a_1}\bigl(\omega_{|b|a_2\cdots a_r]}X^b\bigr)
     +( {\rm d}\omega)_{ba_1 \cdots a_r} X^b. \label{chccr:eqn_Lie-i(X)-d} \\
     &\Lie_{X} ({\rm d} \omega)_{b a_1 \cdots a_r} = {\rm d}_b
     \Lie_{X} \omega_{a_1 \cdots a_r} . \label{chccr:eqn_Lie-d=d-Lie} \\
@@ -670,6 +678,7 @@ $T_{ab} \in \mathfrak{T}^0_2(M)$．所有证明留给读者当练习．
        + \omega \wedge \Lie_{X}\psi, \quad \forall
        \omega\in A^r(M),\ \psi\in A^s(M). \label{chccr:eqn_Lie-OPPO}
 \end{align}
+
 
 \index[physwords]{李导数!无挠联络}
 
@@ -714,7 +723,7 @@ $T_{ab} \in \mathfrak{T}^0_2(M)$．所有证明留给读者当练习．
 虽然图像不是十分清晰，我们仍然给出相应描述；先从定义开始．
 
 \begin{definition}\label{chccr:def_px}
-    给定$m$维仿射空间$(M,\nabla_a)$，$\gamma:[r,s]\to M$是$M$中
+    给定$m$维仿射联络空间$(M,\nabla_a)$，$\gamma:[r,s]\to M$是$M$中
     的一条光滑曲线，$T^b=(\frac{\partial}{\partial t})^b|_{\gamma(t)}$是$\gamma(t)$的切线切矢量．
     $\forall Y^a \in \mathfrak{X}(\gamma(t))$，若沿曲线$\gamma(t)$上有
     \begin{equation}\label{chccr:eqn_px}
@@ -744,8 +753,8 @@ $T_{ab} \in \mathfrak{T}^0_2(M)$．所有证明留给读者当练习．
 测地线定义为（我们会在第\ref{chgd}章专门讨论这个问题，在此就不展开了）：
 
 \begin{definition}\label{chccr:def_geodesic}
-如果仿射空间$(M,\nabla_a)$中曲线$\gamma(t)$沿自身切线平行，即$T^b \nabla _b T^a=0$；
-则称其为仿射空间$M$的{\heiti 测地线}．  \index[physwords]{测地线}
+如果仿射联络空间$(M,\nabla_a)$中曲线$\gamma(t)$沿自身切线平行，即$T^b \nabla _b T^a=0$；
+则称其为仿射联络空间$M$的{\heiti 测地线}．  \index[physwords]{测地线}
 参数$t$为该曲线的{\heiti 仿射参数}．
 \end{definition}
 
@@ -857,7 +866,7 @@ $\gamma(t+\Delta t)$的值之差与$\Delta t$的商的极限；
 若读者有兴趣，可参阅更专业书籍．
 
 \begin{definition}\label{chccr:def_tCurvatures}
-    设$(M,\nabla_a)$是$m$维仿射空间，定义张量$R^{d}_{\hphantom{a} cab}$如下：
+    设$(M,\nabla_a)$是$m$维仿射联络空间，定义张量$R^{d}_{\hphantom{a} cab}$如下：
     \begin{equation}\label{chccr:eqn_RiemannianCurvature-13}
         R_{\hphantom{a} cab}^d{X^a}{Y^b}{Z^c} \overset{def}{=} {\nabla _X}{\nabla _Y}{Z^d} -
         {\nabla _Y}{\nabla _X}{Z^d} - {\nabla _{[X,Y]}}{Z^d}.
@@ -1015,7 +1024,7 @@ Ricci曲率的局部坐标表达式：
 鉴于这个张量的重要性，我们从局部坐标的分量语言再次
 证明它与局部坐标图选取无关，即在坐标变换时按四重线性变换规律变换．
 
-设仿射空间$(M,\nabla_a)$中有两个相互容许的坐标图$(U;x^i)$和$(V;y^\alpha)$，
+设仿射联络空间$(M,\nabla_a)$中有两个相互容许的坐标图$(U;x^i)$和$(V;y^\alpha)$，
 且$U\cap V \neq \varnothing$；那么在$U\cap V$上
 有式\eqref{chccr:eqn_Exchange-Christoffel-a}成立，
 我们将利用此式来证明命题．首先将此式两边求导，得
@@ -1028,7 +1037,7 @@ Ricci曲率的局部坐标表达式：
     &\qquad +\frac{\partial y^\beta}{\partial x^j} \frac{\partial^2 y^\alpha}{\partial x^i\partial x^n}
       \Gamma^{\rho}_{\beta\alpha}(y)
     +\frac{\partial y^\beta}{\partial x^j} \frac{\partial y^\alpha}{\partial x^i}
-    \frac{\partial y^\gamma}{\partial x^n} \frac{\Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma} .
+    \frac{\partial y^\gamma}{\partial x^n} \frac{\partial \Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma} .
 \end{align*}
 将上式中的指标$i$和$n$互换得到新式子，并用上式减新式得
 \begin{align}
@@ -1042,8 +1051,8 @@ Ricci曲率的局部坐标表达式：
        \frac{\partial y^\alpha}{\partial x^n} \Gamma^{\rho}_{\beta\alpha}(y)
      +\frac{\partial y^\beta}{\partial x^j} \frac{\partial y^\alpha}
       {\partial x^i} \frac{\partial y^\gamma}{\partial x^n}
-      \left( \frac{\Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma}
-    - \frac{\Gamma^{\rho}_{\beta\gamma}(y)}{\partial y^\alpha} \right) . \notag
+      \left( \frac{\partial\Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma}
+    - \frac{\partial\Gamma^{\rho}_{\beta\gamma}(y)}{\partial y^\alpha} \right) . \notag
 \end{align}
 将式\eqref{chccr:eqn_tmprgg}中等号左端的后两项用式\eqref{chccr:eqn_Exchange-Christoffel-a}代换，经运算得
 \begin{align*}
@@ -1097,16 +1106,18 @@ Ricci曲率的局部坐标表达式：
     -\Gamma^{\rho}_{\beta\alpha}(y) \Gamma^{\beta}_{\xi\zeta}(y)\right)
     +\frac{\partial y^\beta}{\partial x^j} \frac{\partial y^\alpha}
     {\partial x^i} \frac{\partial y^\gamma}{\partial x^n}
-    \left( \frac{\Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma}
-    - \frac{\Gamma^{\rho}_{\beta\gamma}(y)}{\partial y^\alpha} \right) .
+    \left( \frac{\partial\Gamma^{\rho}_{\beta\alpha}(y)}{\partial y^\gamma}
+    - \frac{\partial\Gamma^{\rho}_{\beta\gamma}(y)}{\partial y^\alpha} \right) .
 \end{align*}  %$\setlength{\mathindent}{2em}
 将此式整理后即有（参考式\eqref{chccr:eqn_Riemannian13-component}）
 \begin{equation}
-     \frac{\partial y^\rho}{\partial x^k} \cdot R^{k}_{jin}(x) =
-     \frac{\partial y^\alpha}{\partial x^i} \frac{\partial y^\xi}{\partial x^j}
-     \frac{\partial y^\zeta}{\partial x^n} \cdot R^{\rho}_{\alpha\xi\zeta}(y)     .
+    \dfrac{\partial y^\rho}{\partial x^k}R^k_{jni}(x)=
+    \dfrac{\partial y^\xi}{\partial x^j}\dfrac{\partial y^\alpha}{\partial x^i}
+    \dfrac{\partial y^\zeta}{\partial x^n}R^\rho_{\xi\alpha\zeta}(y) .
 \end{equation}
 这便证明了黎曼曲率分量在坐标卡变换下具有协变性．
+
+
 
 \subsection{黎曼曲率对称性}\label{chccr:sec_riemann-sym}
 本节在{\kaishu 无挠联络}情形下证明几个黎曼曲率的对称性．
@@ -1552,7 +1563,7 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
 
 下两式分别称为联络的\CJKunderwave{第一、第二Bianchi恒等式}．
 \begin{theorem}
-    挠率形式和曲率形式满足下式（有挠、无挠联络均适用）：
+    挠率型式和曲率型式满足下式（有挠、无挠联络均适用）：
     \begin{subequations}\label{chccr:eqn_Bianchi-C}
     \begin{align}
         {\rm d}_c (\Theta ^{i})_{ab}   &=(e^j)_c \wedge (\Omega_{\hphantom{a} j} ^{i})_{ab}
@@ -1698,7 +1709,7 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
 \section{平直与弯曲}\label{chccr:sec_flat-curved}
 
 
-本小节内容在无挠仿射空间$(M,\nabla_a)$的局部开集$(U;x^i)$上讨论．
+本小节内容在无挠仿射联络空间$(M,\nabla_a)$的局部开集$(U;x^i)$上讨论．
 
 由测地线定义\ref{chccr:def_geodesic}以及式\eqref{chccr:eqn_px-formula}可知$U$中测地线方程为：
 \begin{equation}\label{chccr:eqn_geodesic}
@@ -1729,7 +1740,7 @@ $U$中测地线必然可以表示成上述直线形式\eqref{chccr:eqn_gd-line}�
 那么$U$上黎曼曲率恒为零．此命题的逆命题也成立，即有
 
 \begin{theorem}\label{chccr:thm_local-EuclideanSpace}
-	设有无挠仿射空间$(M,\nabla_a)$，$M$为平直（测地线全为直线形式）
+	设有无挠仿射联络空间$(M,\nabla_a)$，$M$为平直（测地线全为直线形式）
 	的充分必要条件是：其切矢量丛上黎曼曲率张量为零．
 \end{theorem}
 
@@ -1805,7 +1816,7 @@ $ (\tilde{e}^\mu)_a = {\rm d}_a x^\mu = ({\rm d} x^\mu)_a, \ (1\leqslant \mu \le
 在定义度量后，还有后续描述，见\S\ref{chrg:sec_localEuclideanSpace}．
 有了上述论证，可定义：
 \begin{definition}\label{chccr:def_flat-curved}
-	设仿射空间$M$上有无挠联络$\nabla_a$．若其切丛上的黎曼曲率恒为零，
+	设仿射联络空间$M$上有无挠联络$\nabla_a$．若其切丛上的黎曼曲率恒为零，
 	则称$M$为{\heiti 平直的}（或{\heiti 平坦的}，flat）；  否则称$M$为{\heiti 弯曲的}（curved）．
 \end{definition}
 

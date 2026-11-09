@@ -313,13 +313,15 @@ $M$的局部坐标为$\{x\}$取为
     \end{array} \right.
     \qquad \text{其中} 0<\epsilon<\frac{\pi}{2}
 \end{equation*}
-当$U\cap V\neq \varnothing$时，两个坐标有$C^\infty$相容性关系：$\phi=\theta + \pi$．
+当$U\cap V\neq \varnothing$时，在两个交叠分支上分别有 $\phi=\theta$ 与 $\phi=\theta+2\pi$．
 容易算出此时的过渡函数族是$g_{UV}=g_{VU}=1$．
 圆周上任一点的切矢量是$c'(x)=(-\sin x,\ \cos x)$．
 $\forall p=(\cos x,\ \sin x)\in M$，令$v_p=(-\sin x,\ \cos x)_p$．
 那么我们可以定义单位圆周切丛的丛映射为$\pi \bigl( (p,v_p) \bigr)=p$，
 此切丛的局部平凡化是$\psi\bigl(\pi^{-1}(p) \bigr)=(p,v_p)$．
 \qed
+
+
 
 
 \begin{example}\label{chfb:exm_ctb}
@@ -506,7 +508,7 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 \begin{equation*}
     h_{\alpha \beta} \cdot (y_\beta \oplus \tilde{y}_\beta)
     =h_{\alpha \beta} \cdot \begin{pmatrix}
-        y_{\beta} & 0 \\ 0 & \tilde{y}_{\beta}
+        y_{\beta} \\ \tilde{y}_{\beta}
     \end{pmatrix}
     =\begin{pmatrix}
         g_{\alpha \beta}\cdot  y_{\beta} & 0 \\ 0 & \tilde{g}_{\alpha \beta}\cdot  \tilde{y}_{\beta}
@@ -520,6 +522,9 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 因此，根据定理\ref{chfb:thm_vector-existence}在$M$上存在以$\left\{h_{\alpha \beta}\right\}$为过渡函数族、
 以$V\oplus \tilde{V}$为纤维型的矢量丛，记作$E\oplus\widetilde{E}$，称为矢量丛$E$和$\widetilde{E}$的直和．
 \qed
+
+
+
 
 \begin{example}\label{chfb:exm_otimes}
     矢量丛的张量积．
@@ -613,8 +618,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
     设$(E,M,\pi)$是任意矢量丛，则矢量丛$E$上必定存在一个联络．
 \end{theorem}
 \begin{proof}
-    请参考\parencite[p.104]{cc2001-zh}定理1.1．由此可知矢量丛联络必然存在，且不止一个．
-    这个定理证明过程会用到式\eqref{chfb:eqn_wform-trans}，这是该式重要的原因之一．
+    请参考\parencite[p.104]{cc2001-zh}定理1.1．由此可知矢量丛联络必存在，且不止一个．
 \end{proof}
 
 与命题\ref{chccr:thm_local}类似，矢量丛上的联络也有局部性定理（证明也类似，略）；见下．
@@ -687,7 +691,7 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 
 有了张量积上联络定义\eqref{chfb:eqn_otcon}以及对偶丛上的联络\eqref{chfb:eqn_dual-con}，
 我们再来看看张量丛上联络与切丛联络的关系．
-注意到切丛、余切从相互对偶，故从联络\eqref{chfb:eqn_dual-con}可得余切丛的联络．
+注意到切丛、余切丛相互对偶，故从联络\eqref{chfb:eqn_dual-con}可得余切丛的联络．
 现在有了切矢量场的联络，以及余切矢量场的联络，我们利用式\eqref{chfb:eqn_otcon}可以
 得到任意张量丛 $T_q^p(M)$上的联络．
 张量丛$T_q^p(M)$是$p$个$TM$与$q$个$T^* M$构成的张量积矢量丛，
@@ -1072,7 +1076,7 @@ $A=(a_{\hphantom{\alpha}\gamma}^\beta)$，则有
 
 设$X$、$Y$是$M$上任意两个切矢量场，则由曲率型式$\Omega$定义了从$\Gamma(E)$到$\Gamma(E)$的线性变换$R(X, Y)$．
 $\forall p \in U\subset M$ 任取两个切矢量 $X, Y \in$ $T_p(M)$，则用曲率型式$\Omega$可定义从纤维$\pi^{-1}(p)$到
-自身的线性变換$R(X, Y)$．它的定义如下：设 $\xi \in \pi^{-1}(p)$，它用矢量丛$E$在$U$上
+自身的线性变换$R(X, Y)$．它的定义如下：设 $\xi \in \pi^{-1}(p)$，它用矢量丛$E$在$U$上
 的局部标架场$s_\alpha=\left(s_1, \cdots, s_q\right)$可表成
 $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 \begin{equation}\label{chfb:eqn_CurvatureO}
@@ -1497,7 +1501,7 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 与之相配的标架丛就是切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$．
 本节前面的内容自然适用于切标架丛．
 再次强调：切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$和切丛$(TM,M,\pi)$的纤维型是不同的，
-切丛是线性空间$\mathbb{R}^m$，切标架丛是$GL(m)$；但是它们却有相同的过渡函数族：$GL(m)$．
+切丛是线性空间$\mathbb{R}^m$，切标架丛是$GL(m)$；但是它们却有相同的过渡函数族（取值于 $GL(m)$）．
 
 %$\left\{J_{\beta \alpha}: U_\alpha \cap U_\beta \rightarrow GL(m)\right\}$
 
@@ -1508,16 +1512,17 @@ $\left(\tilde{\pi}^{-1}\left(U_{\beta}\right) ; x_{\beta}^{i}, B_{\hphantom{a}a}
 并导出了众多内容，比如联络型式、Cartan结构方程、Bianchi恒等式等
 
 一般说来，光滑流形$M$上不存在整体的标架场．
-由于$M$上一定存在联络（见定理\ref{chfb:thm_existence}）；
-故，根据上述定理，在切标架丛$F(TM)$上总是存在整体标架场的．
-在这个意义上来说，流形$F(TM)$显得比底流形$M$简单．
+根据定理\ref{chfb:thm_ltg}，$\theta^b_{\ a}$给出$F(TM)$上的整体标架场．
+在这个意义上来说，$F(TM)$显得比$M$简单．
 
 
 切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型是$GL(m)$；
-若把纤维型限定为它的子群$O(m)$，则得到它的子丛{\heiti 正交切标架丛}，
+若把纤维型限定为它的子群$O(m)$，同时指定$M$的度规场为正定度规，
+则得到它的子丛{\heiti 正交切标架丛}，
 记为$\mathcal{O}(TM)$．当底流形已定向时，则纤维型与结构群变为$SO(m)$．
 
-对狭义、广义相对论而言，切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型与结构群是$O(1,3)$．
+对相对论而言（已指定Lorentz型度规），
+切标架丛$\bigl(F(TM),M,\tilde{\pi}\bigr)$的纤维型与结构群是$O(1,3)$．
 当底流形已定向时，则纤维型与结构群变为$SO^{+}(1,3)$．
 
 
@@ -1608,7 +1613,7 @@ $\mathfrak{g}$的基为$\{T_a\mid a=1,\cdots,r\}$（$T_a$是$q$维方阵）．
 
 \begin{remark}
 从上面得到$G$型联络的过程来看，貌似我们只需将矢量丛的结构群$GL(q)$直接限定在其子群$G$上即可．
-实际情况要复杂的多．首先，需要验证子群$G$满足{\kaishu 约化定理}（\parencite[\S 10.3]{chen-li-2026-2ed-v2}定理3.5）；
+实际情况要复杂得多．首先，需要验证子群$G$满足{\kaishu 约化定理}（\parencite[\S 10.3]{chen-li-2026-2ed-v2}定理3.5）；
 其次，再去探讨联络的约化．
 \end{remark}
 
@@ -1917,7 +1922,7 @@ R_{\hphantom{\alpha}\alpha ij}^\beta {\rm d}x^i \wedge {\rm d}x^j$，
 	_{\hphantom{i_1 \cdots i_{n-1} l i_{n+1} \cdots i_r}k_1\cdots k_s}\right)_{a_1 \cdots a_p} \notag  \\
 	&-\sum_{n=1}^{s} (\omega^{l}_{\hphantom{l}k_n})_b \wedge
 	\left(T^{i_1 \cdots i_r}_{\hphantom{i_1 \cdots i_r}
-		k_1\cdots k_{n-1} l k_{n+1} k_s}\right)_{a_1 \cdots a_p} . \label{chfb:eqn_Dpform}
+		k_1\cdots k_{n-1} l k_{n+1}\cdots k_s}\right)_{a_1 \cdots a_p} . \label{chfb:eqn_Dpform}
 \end{align}
 从式\eqref{chfb:eqn_Dpform}右端的构造可以看出：$\mathcal{D}_b \left(T^{i_1 \cdots i_r}
 _{\hphantom{i_1 \cdots i_r}k_1\cdots k_s}\right)_{a_1 \cdots a_p}$是$\binom{r}{s}$型张量值的$(p+1)$-型式．
@@ -1959,6 +1964,8 @@ Cartan第一结构方程\eqref{chccr:eqn_CST-I}可改写为：
 		{\rm d}_a ( \omega _{\hphantom{\mu} \nu}^\mu )_b  +  (\omega _{\hphantom{\mu} \rho}^\mu)_a
 		\wedge ( \omega _{\hphantom{\mu} \nu}^\rho )_b = (\Omega_{\hphantom{\mu} \nu} ^{\mu})_{ab} .  
 	\end{align}
+	虽然上面已指出$( \omega _{\hphantom{\mu} \nu}^\mu )_b$不是张量值型式，
+	但记号“$\mathcal{D}_a ( \omega _{\hphantom{\mu} \nu}^\mu )_b$”是约定俗成的．
 \end{example}
 
 
@@ -1999,7 +2006,7 @@ Cartan第一结构方程\eqref{chccr:eqn_CST-I}可改写为：
 
 
 从\S\ref{chdm:sec_differentiable-manifold}到本页，我们没有实质使用度量（除\S\ref{chdm:sec_tmpdmcon}、
-\S\ref{chfb:sec_pull-back-bundle}、\S\ref{chfb:sec_G-connection}）；
+\S\ref{chfb:sec_pull-back-bundle}、\S\ref{chfb:sec_tangent-frame-bundles}、\S\ref{chfb:sec_G-connection}）；
 故，所有内容适用于正定度量、不定度量．从下章开始引入度量（度规，metric）．
 
 笔者这样安排度规的原因有两个：首先，是参考了\parencite{cc2001-zh}的结构，

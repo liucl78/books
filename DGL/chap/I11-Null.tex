@@ -169,10 +169,10 @@ $g$是否退化就是看式\eqref{chmla:eqn_gmetric}中是否有零惯性指数�
 及$g_{ab}(l_i)^a (n_j)^b=-\delta_{ij}$；其中$i,j=1,\cdots,m-q$．
 因此可以看出类光矢量$(l_1)^a,\cdots,(l_{m-q})^a$、$ (n_1)^a,\cdots,(n_{m-q})^a$和
 类空矢量$(e_{2(m-q)+1})^a,\cdots,(e_m)^a$的组合是
-空间$\mathbb{R}^m_q$的一组基矢量，它包含$2(m-q)$个零模矢量，以及$2q-m$个类时矢量．
+空间$\mathbb{R}^m_q$的一组基矢量，它包含$2(m-q)$个零模矢量，以及$2q-m$个类时/类空矢量．
 
 \fbox{丙}$2q= m$．可为空间$V$构建
-$\{(l_1)^a,\cdots,(l_q)^a,(n_1)^a,\cdots,(n_q)^a\}$个零模矢量组成的基矢组，
+$\{(l_1)^a,\cdots,(l_q)^a,(n_1)^a,\cdots,(n_q)^a\}$组成基矢组（全部是零模矢量），
 可参见式\eqref{chnull:eqn_I-nulls}．
 
 虽然上述三类基矢均包含零模矢量，但度规在这些基矢下是非退化的．
@@ -199,7 +199,7 @@ ${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．
 
 (ii) $W={\rm Span}\{l^a,u^a\}$．$W^\perp ={\rm Span}\{l^a,v^a\}$．
 ${\rm Rad}W={\rm Span}\{l^a\}$，$SW={\rm Span}\{u^a\}$．
-可将此种情下的$l^a$换成$n^a$；以及$u^a$换成$v^a$．
+可将此种情况下的$l^a$换成$n^a$；以及$u^a$换成$v^a$．
 
 {\noindent\heiti \bfseries (3)} 设$W$是3维的．
 那么$W$的基矢可能是$l^a$、$n^a$两者之一，再加上$u^a$、$v^a$；
@@ -231,7 +231,7 @@ ${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．
 
 首先，类光超曲面的$\Sigma$法矢量${n}^{a}$自然是法丛$T^\bot\Sigma$中的矢量；
 其次它还是零模的，即${n}^{a}{n}_{a}=0$，这说明$n^a$还属于切丛$T\Sigma$．
-这种双重身份，使得矢量场$n^a$即切于又法于超曲面$\Sigma$；这在非零模情形是不可能的！
+这种双重身份，使得矢量场$n^a$既切于又法于超曲面$\Sigma$；这在非零模情形是不可能的！
 
 \subsection{法矢量}
 在\S\ref{chsm:sec_Phi-n}中我们用标量函数$\Phi=0$来描述超曲面，这种方式同样适用于类光超曲面．
@@ -332,7 +332,7 @@ ${\rm Rad}W={\rm Span}\{0\}$，$SW=W$．
 下面叙述一下关于退型的一些内容；
 我们着手在四维闵氏流形$(M,g)$的类光超曲面$(\Sigma,h)$上建立活动标架场．
 根据文献\parencite[p.90-92]{Duggal-Bejancu-1996}论述可知，
-在的$M$的局部开邻域$U$上一定存在基矢：
+在$M$的局部开邻域$U$上一定存在基矢：
 \begin{equation}\label{chnull:eqn_bases}
     \mathcal{B} \equiv \left\{ l^a, \  n^a,
     \   (E_1)^a,\  (E_2)^a \right\} , \qquad
@@ -425,7 +425,7 @@ $\Sigma$上的联络用${\rm D}_a$表示．
     \qquad \text{Weingarten方程}  \label{chnull:eqn_Weingarten} 
 \end{align}
 其中$X^a,Y^a, {\rm D}_{X} Y^a, S^a_{l b} X^b \in \mathfrak{X}(\Sigma)$；
-$l^a \in E$；$\tau_a$是$\Sigma$上的余切场；
+$l^a \in \mathfrak{X}(M)$；$\tau_a$是$\Sigma$上的余切场；
 $K_{bc}$是超曲面$\Sigma$的{\heiti 第二基本型式}，
 $S^a_{l b}$是超曲面$\Sigma$的{\heiti 形状因子}．
 得到Gauss方程\eqref{chnull:eqn_Gauss}的方式与得到式\eqref{chsm:eqn_IIbc}过程大体相仿；
@@ -450,7 +450,7 @@ Weingarten方程\eqref{chnull:eqn_Weingarten}自然也就对$l^a$求导了；
 $\forall X^a,Y^a,Z^a \in \mathfrak{X}(\Sigma)$有
 \begin{equation}\label{chnull:eqn_DK}
 \begin{aligned}
-    0=& ({\nabla}_{X}g_{ab}) Y^a Z^b \xlongequal{\ref{chgd:eqn_connection-compatibility}}
+    0=& ({\nabla}_{X}g_{ab}) Y^a Z^b \xlongequal{\ref{chrg:eqn_connection-compatibility}}
     \nabla_{X}(g_{ab}Y^a Z^b)-g_{ab}( \nabla_{X}Y^a) Z^b- g_{ab}Y^a\nabla_{X} Z^b \\
 %    =& X(h_{ab}Y^a Z^b)-g_{ab}\bigl( {\rm D}_{X} Y^a + l^a K_{ec}  X^e Y^c \bigr) Z^b
 %    - g_{ab}Y^a \bigl( {\rm D}_{X} Z^b + l^b K_{ec}  X^e Z^c \bigr) \\
@@ -2156,10 +2156,10 @@ Lorentz变换，可对NP四个类光基矢\eqref{chnull:eqn_Newman-Penrose-bases
     \begin{cases}
         \kappa\to A^{-2} e^{\mathbbm{i}\theta}\kappa,\
         \sigma\to A^{-1} e^{2\mathbbm{i}\theta}\sigma,\
-        \rho \to A^{-1}\rho \
+        \rho \to A^{-1}\rho, \
         \tau \to e^{\mathbbm{i}\theta} \tau, \
         \pi \to e^{-\mathbbm{i}\theta} \pi,\\
-        \lambda \to A e^{\mathbbm{i}\theta} \lambda,\quad
+        \lambda \to A e^{-2\mathbbm{i}\theta} \lambda,\quad
         \nu \to A^2 e^{-\mathbbm{i}\theta} \nu, \quad
         \epsilon\to A^{-1} \epsilon -\frac{1}{2}A^{-2}{\rm D}A
         + \frac{\mathbbm{i}}{2} A^{-1} {\rm D}\theta,       \\
@@ -2254,7 +2254,7 @@ Lorentz群包含六个实参量，上面三种变化同样包含六个实参量�
 再通过\fbox{甲}类旋转（不影响$\Psi_0$）能将$\Psi_4$为零（取
 方程\eqref{chnull:eqn_Weyl-II-w4}根的倒数即可，见式\eqref{chnull:eqn_Weyl-I}）．
 这样使$\Psi_0$和$\Psi_4$为零后，保留$\Psi_1$、$\Psi_2$和$\Psi_3$非零．
-我们注意到在\fbox{丙}类变换下$\Psi_1$、$\Psi_2$和$\Psi_3$保持不变，
+我们注意到在\fbox{丙}类变换下$\Psi_1$、$\Psi_2$和$\Psi_3$不会变为恒零，
 但\fbox{丙}类旋转会改变$\Psi_0$和$\Psi_4$的值．
 
 

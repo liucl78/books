@@ -83,7 +83,7 @@
     即截面曲率沿$\alpha(t)$平行移动不变．
     
     $(4)\Rightarrow (2)$．由(4)可得：沿$\alpha(t)$有$\left<u,\, R (u, v) v \right>= c $，
-    其中$c$是非零实常数；因$v$沿$\alpha(t)$平行移动不变，故由前面的内积可知$R (u, v) v$沿$\alpha(t)$平行移动不变，
+    其中$c$是实常数；因$v$沿$\alpha(t)$平行移动不变，故由前面的内积可知$R (u, v) v$沿$\alpha(t)$平行移动不变，
     即沿$\alpha(t)$是常数．将沿$\alpha(t)$平行移动不变的矢量$v$分解成$v=X+Y$，并要求$X,Y$沿$\alpha(t)$平行移动不变；
     代入上式有
     \begin{equation*}
@@ -321,14 +321,13 @@
 \begin{theorem}\label{chhss:thm_cartan-isometry}
     设有\CJKunderwave{局部对称}的广义黎曼流形$M$、$N$，
     令${\rm L }:T_p(M)\to T_q(N)$是保持黎曼曲率不变的线性同构等距映射．则：    
-    {\bfseries (1)}  若$\mathscr{U}$是$p$足够小的法邻域，那么在$\mathscr{U}$上存在唯一的
-    局部等距映射$\phi:\mathscr{U}\to \mathscr{V}$，
+    {\bfseries (1)}  若$\mathscr{U}$是$p$足够小的法邻域，
+    那么在$\mathscr{U}$上存在局部等距映射$\phi:\mathscr{U}\to \mathscr{V}$，
     它将$\mathscr{U}$映射到$q=\phi(p)$点的法邻域$\mathscr{V}$中，并且$\phi_{p*} = {\rm L}$．    
-    {\bfseries (2)} 若$N$是完备的，则对$p$点任意的法邻域$\mathscr{U}$，都存在唯一的局部
-    等距$\phi:\mathscr{U}\to N$使得$\phi_{p*} = {\rm L}$．
+    {\bfseries (2)} 若$N$是完备的，则对$p$点任意的法邻域$\mathscr{U}$，
+    都存在局部等距$\phi:\mathscr{U}\to N$使得$\phi_{p*} = {\rm L}$．
 \end{theorem}
 \begin{proof}
-    定理中两条内容中的{\kaishu 唯一性}证明可由命题\ref{chlg:thm_isopall}得到．
     本定理主要内容是证明局部等距映射$\phi$的存在性；
     其实极映射$\phi_{\rm L} : \mathscr{U}\to N$就是
     我们要寻找的那个局部等距映射，令$\phi=\phi_{\rm L}$．    
@@ -566,7 +565,7 @@ $ v+ (\sigma_p)_{* p} v \in V^{+}$，$v- (\sigma_p)_{* p} v \in V^{-} $．
 \end{proof}
 
 
-从上面的证明过程不程看出，\CJKunderwave{$\sigma_p$把每一条经过点$p$的测地线反向}，即
+从上面的证明过程不难看出，\CJKunderwave{$\sigma_p$把每一条经过点$p$的测地线反向}，即
 \begin{equation}\label{chhss:eqn_inv-gd-s}
     \sigma_p\bigl(\exp _p(t v)\bigr) \xlongequal[\ref{chlg:thm_feef}]{\text{定理}}
     \exp _p\bigl(t (\sigma_p)_{*p} v\bigr)=\exp_p(-t v) .
@@ -639,7 +638,7 @@ $\forall X, Y, Z \in \mathfrak{X}(M)$有
     \end{aligned}
 \end{equation} %\setlength{\mathindent}{2em}
 
-设$\sigma$等距变换，则由定理\ref{chrg:thm_isometry-Riemann}中
+设$\sigma$是等距变换，则由定理\ref{chrg:thm_isometry-Riemann}中
 式\eqref{chrg:eqn_isometry-Riemann}可得
 \begin{equation}
     \sigma_{*}\bigl(R (X, Y) Z\bigr) = R \bigl((\sigma_{*} X), (\sigma_{*} Y)\bigr) 
@@ -881,8 +880,9 @@ $\varphi(t)=\sigma_{\gamma(\frac{t}{2})} \circ \sigma_{\gamma(0)}$，
 
 \begin{definition}\label{chhss:def_isotropic-space}
     设$(M,g)$是广义黎曼流形，$p\in M$．对于任意非零矢量$v,w \in T_p M$，
-    如果有$\langle v, v \rangle = \langle w, w \rangle$成立，那么就存在等距映射$\phi\in I(M)$使
-    得$\phi_* v = w$；此时，称$p$点是{\heiti 各向同性的}．
+    如果有$\langle v, v \rangle = \langle w, w \rangle$成立，
+    那么就存在等距映射$\phi\in I(M)$使得$\phi(p)=p$且$\phi_* v = w$；
+    此时，称$p$点是{\heiti 各向同性的}．
     若$M$上任意点都是各向同性的，则称$M$是{\heiti 各向同性空间}（isotropic space）．
 \end{definition}
 
@@ -999,9 +999,9 @@ $\boldsymbol{T}$是平移群中的元素．
 \begin{theorem}\label{chhss:thm_coset}
     设$G$为李群，$H$为$G$的闭子群，令$G/H\equiv \{g H \ |\ \forall g\in G \}$是$H$的左陪集空间；
     再设$\pi(g)=g H$是从$G$到$G/H${\heiti 自然投影映射}．那么：    
-    {\bfseries (1)} $G/H$上存在一个唯一的微分结构，使之成为光滑流形，称$G/H$是{\heiti 陪集流形}；    
+    {\bfseries (1)} $G/H$上存在一个微分结构使之成为光滑流形，称$G/H$是{\heiti 陪集流形}；    
     {\bfseries (2)} $\pi$是$C^\infty$的{\kaishu 淹没}映射；    
-    {\bfseries (3)} $G$是$G/H$的李变换群；        
+    {\bfseries (3)} $G$是作用在$G/H$上的李变换群；        
     {\bfseries (4)} ${\rm dim}G = {\rm dim}H + {\rm dim}G/H$．
 \end{theorem}
 \begin{proof}
@@ -1092,7 +1092,7 @@ $O(m+1)$中具有如下形式
 
 \paragraph{复数域}
 与实数域类似，我们讨论复数域上的情形．
-以把$GL(m+1,\mathbb{C})$看成左作用在$\mathbb{C}^{m+1}$上的李变换群．
+可以把$GL(m+1,\mathbb{C})$看成左作用在$\mathbb{C}^{m+1}$上的李变换群．
 而$U(m+1)$是$GL(m+1,\mathbb{C})$的闭李子群，$S^{2m+1}(1)$是$\mathbb{C}^{m+1}$的闭子集；
 经过类似过程可以得到$U(m+1)$是左作用在$S^{2m+1}$上的可迁的等距群．
 
@@ -1183,7 +1183,7 @@ $U(m+1)$中具有如下形式
     我们已知：$\mathbb{R}^m_\nu$曲率恒为零，
     伪球面$S^m_\nu(r)$是曲率大于零（见例\ref{chsm:exm_SK}）的常曲率空间，
     伪双曲面$H^m_\nu(r)$是曲率小于零（见例\ref{chsm:exm_HK}）的常曲率空间．
-    由定理\ref{chhss:thm_CR-iso}可以看出(1)、(2)的等价性．
+    由定理\ref{chhss:thm_const-curvature}可以看出(1)、(2)的等价性．
     
     (3)$\Leftrightarrow $(1)．只需验证式\eqref{chhss:eqn_CK-riemann}中局部坐标$u^i$使得黎曼曲率是常数．
     为使表达式简洁一些，令$\sigma(u) =-\ln \left(1+\tfrac{C}{4} \sum_{i=1}^{m} e_i (u^i)^2\right) $．
@@ -1229,7 +1229,7 @@ $M(m,1,-1/r^2)=\widetilde{H}^m_1(r)$，$\widetilde{H}^m_{1}(r)$是$H^m_{1}(r)$�
 由于$\mathbb{R}^m$是$S^1\times \mathbb{R}^{m-1}$的覆叠流形，上述四种特殊情形
 都微分同胚于$\mathbb{R}^m$．
 
-若流形$M$不是单连通，则常曲率空间分类要复杂的多，请参考\parencite{wolf_SCC-2011}第11章．
+若流形$M$不是单连通，则常曲率空间分类要复杂得多，请参考\parencite{wolf_SCC-2011}第11章．
 
 
 
@@ -1536,7 +1536,7 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
 
 
 为了把包含在\eqref{chhss:eqn_Lieg-2}与\eqref{chhss:eqn_Lieg-3}中的不同信息解开，
-最好是选择最大对称子空间的一组新的坐标 $u^{\prime i}(u, v)$ 使得 $g_{j a}^{\prime}$ 为零．
+最好是选择最大对称子空间的一组新的坐标 $u^{\prime i}(u, v)$ 使得 $g_{j \mathfrak{a}}^{\prime}$ 为零．
 设有新坐标 $u^{\prime i}$ 及 $v^{\prime \mathfrak{a}}$ 为
 \begin{equation}\label{chhss:eqn_newUv}
     u^i=U^i\left(v^{\prime} ; u^{\prime}\right);\qquad
@@ -1672,15 +1672,15 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
 
 既然已经证明了\eqref{chhss:eqn_Frosn}，
 我们知道了 \eqref{chhss:eqn_UFa} 是可积的，故我们可以构造由 \eqref{chhss:eqn_newUv} 定义
-的坐标 $u^{\prime i}$ 与 $v^{\prime a}$ 使得度规分量 $g_{i a}^{\prime}$ 为零．
-做到这点后，我们取消撇号，即
-\begin{equation}
+的坐标 $u^{\prime i}$ 与 $v^{\prime \mathfrak{a}}$ 使得度规分量 $g_{i \mathfrak{a}}^{\prime}$ 为零．
+做到这点后，为令公式简洁一些，我们取消撇号，即
+\begin{equation}\label{chhss:eqn_gia=0}
     g_{i \mathfrak{a}}=0 ; \qquad 1\leqslant i \leqslant n,\quad 
     n+1 \leqslant \mathfrak{a} \leqslant m.
 \end{equation}
 现在 Killing 矢量的条件 \eqref{chhss:eqn_Lieg-2} 与 \eqref{chhss:eqn_Lieg-3} 变为
 \begin{equation}\label{chhss:eqn_xiggu}
-    \frac{\partial \xi^k}{\partial v^{\mathfrak{a}}} g_{i k}=0, \qquad
+    \frac{\partial \xi^k}{\partial v^{\mathfrak{a}}} g_{i k}=0, \quad
     \xi^k \frac{\partial g_{\mathfrak{ab}}}{\partial u^k}=0 ; \quad 
     1\leqslant i,k \leqslant n,\quad  n+1 \leqslant \mathfrak{a},\mathfrak{b} \leqslant m.
 \end{equation}
@@ -1690,7 +1690,7 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
     1\leqslant k \leqslant n,\quad  n+1 \leqslant \mathfrak{a} \leqslant m.
 \end{equation}
 上式说明$\xi^k$与$\{v^\mathfrak{a}\}$无关，只是$\{u\}$的函数．
-此外，我们已经知道，\pageref{chrg:eqn_kvm}页式\eqref{chrg:eqn_kvm}的左端的系数矩阵为满秩；
+此外，我们已经知道，第\pageref{chrg:eqn_kvm}页式\eqref{chrg:eqn_kvm}的左端的系数矩阵为满秩；
 故\eqref{chhss:eqn_xiggu}第二式中 $\xi^k$ 的系数必为零：
 \begin{equation}\label{chhss:eqn_gab-v}
     \frac{\partial g_{\mathfrak{ab}}}{\partial u^k}=0 ; \quad 
@@ -1705,13 +1705,14 @@ Killing 矢量 $\bar{\xi}^i(u)$；这种操作仅在$U$上成立．
 当然对不同的$\alpha$来说，$\{v\}$的常数数值可能不同．
 由定理\ref{chhss:thm_SRH-riemann}第三条可知最大对称子空间度规可以写为
 式\eqref{chhss:eqn_CK-riemann}的形式；这说明最大对称子空间的度规由空间自身决定，
-唯一的参数是空间的曲率；$V$只能以几何不变量的形式影响$U_\alpha$，不能以坐标的形式$U_\alpha$的度规．
+唯一的参数是空间的曲率；$V$只能以几何不变量的形式影响$U_\alpha$，
+不能以坐标的形式影响$U_\alpha$的度规．
 则$M$上度规式\eqref{chhss:eqn_MSSS-gab}可写为：
 \begin{equation}\label{chhss:eqn_g-mss-tmp}
     \mathrm{d} s^2= \sum_{\mathfrak{ab}=n+1}^{m}
     g_{\mathfrak{ab}}(v) \mathrm{d} v^{\mathfrak{a}} \mathrm{d} v^{\mathfrak{b}}
     +f(v)\left\{\frac{\sum_{ij=1}^{n} \eta_{ij} {\rm d}u^i \otimes {\rm d}u^j }
-    {\left(1+\tfrac{K}{4} \sum_{i=1}^{n}\eta_{ij}  u^i u^j\right)^2}\right\} .
+    {\left(1+\tfrac{K}{4} \sum_{ij=1}^{n}\eta_{ij}  u^i u^j\right)^2}\right\} .
 \end{equation}
 其中$\eta_{ij}={\rm diag}(-1,\cdots,-1,+1,\cdots,+1)$，$\pm 1$个数总和是$n$；
 $K$是最大对称子空间的曲率．
@@ -1738,7 +1739,7 @@ $K$是最大对称子空间的曲率．
 
 
 在有实际重要应用的全部情形中，最大对称子空间是度规正定的流形，而不是度规不定的时空．
-此时，定理\ref{chhss:thm_SRH-riemann}可知正定度规的空间型式分别为：
+此时，由定理\ref{chhss:thm_SRH-riemann}可知正定度规的空间型式分别为：
 超球面、平直空间、双曲空间．
 在\S\ref{chsm:sec_hyperbolic}中，计算过双曲空间的度规，
 我们选取式\eqref{chsm:eqn_gphihabb}中间那个式子，即
@@ -1761,7 +1762,7 @@ $K$是最大对称子空间的曲率．
 \begin{equation}\label{chhss:eqn_pg-mss}
     \mathrm{d} s^2=\sum_{\mathfrak{ab}=n+1}^{m} 
     g_{\mathfrak{ab}}(v) {\rm d} v^{\mathfrak{a}} {\rm d} v^{\mathfrak{b}}
-    +f(v) \sum_{ij=1}^{n} \left\{\delta_{ij} + \frac{k \ u^i u^j}{1-k \sum_{k=1}^{n}(u^k)^2}\right\} 
+    +f(v) \sum_{ij=1}^{n} \left\{\delta_{ij} + \frac{k \ u^i u^j}{1-k \sum_{l=1}^{n}(u^l)^2}\right\} 
     {\rm d} u^i {\rm d} u^j.
 \end{equation}
 \end{small}
@@ -1785,7 +1786,7 @@ $K$是最大对称子空间的曲率．
         \hline 球对称空间 & $r$ & $\theta, \phi$ \\
         球对称时空 & $r, t$ & $\theta, \phi$ \\
         均匀各向同性时空 & $t$ & $r, \theta, \phi$ \\
-        定态轴对称时空 & $x^2,x^3 $ & $t,\phi$ \\
+%%%        定态轴对称时空 & $x^2,x^3 $ & $t,\phi$ \\
         \hline
     \end{tabular}
 \end{table}
@@ -1850,6 +1851,9 @@ $R(t) \equiv \sqrt{f(v)}$．于是，有
 
 
 \paragraph{定态轴对称时空}\label{chhss:sec_axis-sym}
+
+最大对称二维子空间需要三个Killing场；
+本小节阐述一个只有两个Killing场且正交可积的情形（式\eqref{chhss:eqn_MSSS-gab}成立）．
 
 设四维闵氏时空$(M,g)$有一个类空Killing场$\psi^a$，
 其积分曲线是$M$中闭合类空曲线（对称群为$SO(2)$）；则称$M$是{\heiti 轴对称的}（axis-symmetric）．

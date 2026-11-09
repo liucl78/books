@@ -151,9 +151,10 @@ Schur引理可以推广至表示方阵为无穷维的情形，但证明超出了
 	
 	利用式\eqref{chlar:eqn_pcpc}和Schur引理\ref{chlar:thm_schur-lemma-1}可知，
 	若$\phi$和$\psi$不等价，则必有$\tilde{c}_{ho}=0$．
-	此时，我们取$c_{jk}=\delta_{jk}$（$j$、$k$是固定不变的），
+	此时取$c_{mn} = \delta_{mj} \delta_{nk}$（$j$、$k$ 为固定指标），
 	由\eqref{chlar:eqn_tcc}便可证明式\eqref{chlar:eqn_pp=0}．
-	
+
+
 	当$\psi=\phi$时，由Schur引理\ref{chlar:thm_schur-lemma-2}可知$\tilde{c}_{ho}$正比于单位矩阵，
 	即$\tilde{c} = \lambda I$，下面我们来确定常数$\lambda$．
 	对式\eqref{chlar:eqn_tcc}两边取迹，有
@@ -581,26 +582,27 @@ $S^3$和$SU(2)$间的微分同胚可表示成如下形式：
 \begin{align}
 	&S^3 \ni  t\mathbbm{1} + x\mathbbm{i} + y\mathbbm{j} + z\mathbbm{k} \ \cong \
 	\begin{pmatrix}
-		t+ z\sqrt{-1} & \sqrt{-1} x+ y \\ \sqrt{-1}x -  y & t- z\sqrt{-1}
+		t+ x\sqrt{-1} & \sqrt{-1} z+ y \\ \sqrt{-1}z -  y & t- x\sqrt{-1}
 	\end{pmatrix} \in SU(2). \label{chlar:eqn_S3-SU2} \\
 	&\text{即}\ 
 	\mathbbm{1} \cong \left(\begin{smallmatrix} 1&0 \\ 0 &1    \end{smallmatrix} \right),  \
-	\mathbbm{i} \cong \left(\begin{smallmatrix} 0&\sqrt{-1} \\ \sqrt{-1} & 0  \end{smallmatrix}\right),  \
+	\mathbbm{i} \cong \left(\begin{smallmatrix} \sqrt{-1}&0 \\ 0 & -\sqrt{-1}  \end{smallmatrix}\right),  \
 	\mathbbm{j} \cong \left(\begin{smallmatrix} 0&1 \\ -1 & 0    \end{smallmatrix}\right) ,  \
-	\mathbbm{k} \cong \left(\begin{smallmatrix} \sqrt{-1}&0 \\ 0 & -\sqrt{-1}  \end{smallmatrix}\right).
+	\mathbbm{k} \cong \left(\begin{smallmatrix} 0&\sqrt{-1} \\ \sqrt{-1} & 0  \end{smallmatrix}\right).
 	\label{chlar:eqn_S3-bases}
 \end{align}
 基矢\eqref{chlar:eqn_S3-bases}与Pauli矩阵关系为：%$\mathbbm{1}\cong  \sigma_0$、
-$\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、$\mathbbm{k}\cong \sqrt{-1} \sigma_z$．
+$\mathbbm{i}\cong \sqrt{-1} \sigma_z$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、
+$\mathbbm{k}\cong \sqrt{-1} \sigma_x$．
 
 我们把上述对应关系用到\eqref{chlar:eqn_S3-txyz}式上，为此，
 先定义三维空间的单位矢量$\boldsymbol{n}=(\sin\theta \cos \phi,\, \sin\theta \sin \phi,\, \cos \theta)$；有
 \begin{align}
-	&\mathbbm{1} \cos\psi + (n_x \mathbbm{i} + n_y \mathbbm{j}+ n_z \mathbbm{k}) \sin\psi \notag \\
+	&\mathbbm{1} \cos\psi + (n_x \mathbbm{i} + n_y \mathbbm{j}+ n_z \mathbbm{k}) \sin\psi \label{chlar:eqn_S3-SU2-1} \\
 	=&\begin{pmatrix}
-		\cos\psi +\sqrt{-1}\cos \theta\sin\psi  & \sin\psi \sin\theta(\sqrt{-1}\cos \phi+ \sin \phi )  \\
-		\sin\psi \sin\theta (\sqrt{-1}\cos \phi-\sin \phi)  & \cos\psi -\sqrt{-1}\cos \theta\sin\psi
-	\end{pmatrix}. \label{chlar:eqn_S3-SU2-1}
+		\cos\psi +\sqrt{-1}\sin\psi  \sin\theta \cos \phi  & \sin\psi (\sqrt{-1}\cos \theta+ \sin\theta \sin \phi )  \\
+		\sin\psi (\sqrt{-1}\cos \theta-\sin\theta  \sin \phi)  & \cos\psi -\sqrt{-1}\sin\psi  \sin\theta \cos \phi
+	\end{pmatrix}. \notag
 \end{align}
 再令$(x,y,z)\equiv \boldsymbol{r} = \boldsymbol{n}\sin\psi  $，那么可以看到$S^3$对应半径为$\boldsymbol{r}$的实心球；
 但需要把$|\boldsymbol{r}|=1$的所有点看成同一点，这样才是$S^3$的拓扑．
@@ -609,7 +611,7 @@ $\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、
 
 我们借用$S^3$的拓扑引入$SU(2)$群上的积分．
 由式\eqref{chlg:eqn_rotation_euler_y}、\eqref{chlar:eqn_su2-y}、\eqref{chlar:eqn_su2-z}可得欧拉角形式的$SU(2)$群元表达式
-\begin{equation}\label{chclif:eqn_SU2-jiao}
+\begin{equation}\label{chlar:eqn_SU2-jiao}
 	u(\alpha\beta\gamma) = \begin{pmatrix}
 		e^{-\mathbbm{i}\frac{\alpha+\gamma}{2} } \cos \frac{\beta}{2} & -e^{-\mathbbm{i} \frac{\alpha-\gamma}{2}}\sin\frac{\beta}{2} \\
 		e^{\mathbbm{i} \frac{\alpha-\gamma}{2}}\sin\frac{\beta}{2} & e^{\mathbbm{i}\frac{\alpha+\gamma}{2} } \cos \frac{\beta}{2} 
@@ -618,13 +620,13 @@ $\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、
 对于$SU(2)$群来说参数取值范围是：$-2\pi\leqslant \alpha < 2\pi$、$0\leqslant \beta < \pi$、$0\leqslant \gamma < 2\pi$．
 对于$SO(3)$群来说参数取值范围是：$0 \leqslant \alpha < 2\pi$、$0\leqslant \beta < \pi$、$0\leqslant \gamma < 2\pi$．
 
-对比式\eqref{chlar:eqn_S3-SU2}，取式\eqref{chclif:eqn_SU2-jiao}中矩阵元的相应部分，有
+对比式\eqref{chlar:eqn_S3-SU2}，取式\eqref{chlar:eqn_SU2-jiao}中矩阵元的相应部分，有
 \begin{equation}
 	\begin{aligned}
 		t=&\cos \frac{\beta }{2} \cos \frac{\alpha +\gamma }{2}, \quad
-		y=-\sin \frac{\beta }{2} \cos \frac{\alpha -\gamma }{2}, \\
-		x=&\sin \frac{\beta }{2} \sin \frac{\alpha -\gamma }{2}, \quad 
-		z=-\cos \frac{\beta }{2} \sin \frac{\alpha +\gamma }{2}.
+		x=-\cos \frac{\beta }{2} \sin \frac{\alpha +\gamma }{2}, \\
+		y=&-\sin \frac{\beta }{2} \cos \frac{\alpha -\gamma }{2}, \quad 
+		z=\sin \frac{\beta }{2} \sin \frac{\alpha -\gamma }{2}.
 	\end{aligned}
 \end{equation}
 
@@ -642,7 +644,7 @@ $\mathbbm{i}\cong \sqrt{-1} \sigma_x$、$\mathbbm{j}\cong \sqrt{-1} \sigma_y$、
 	\Omega_{S^3} =\Omega_{SU(2)} = \frac{1}{2}\Omega_{SO(3)}
 	= \frac{1}{16 \pi^2} \sin\beta \  {\rm d} \alpha \wedge {\rm d} \beta \wedge  {\rm d} \gamma .
 \end{equation}%\setlength{\mathindent}{2em}
-归一化因子$\frac{1}{16 \pi^2}$其实是指$S^3$的体积是$16 \pi^2$．
+归一化因子$\frac{1}{16 \pi^2}$其实是指$S^3$的体积是$16 \pi^2$（欧拉角表述下）．
 $S^3$到$SO(3)$是2对1的同态关系，故$SO(3)$的体积是$8\pi^2$，
 所以$SO(3)$的归一化因子是$\frac{1}{8 \pi^2}$；
 此时$0 \leqslant \alpha < 2\pi$，其它积分元范围不变．
@@ -676,7 +678,7 @@ $ 0\leqslant \theta \leqslant \pi $、$0\leqslant \phi  < 2\pi$．
 
 \subsection{$SU(2)$群表示}
 
-$SU(2)$群比$SL(2,\mathbb{C})$少一个幺正条件，故$SU(2)$是$SL(2,\mathbb{C})$的子群；
+$SU(2)$群比$SL(2,\mathbb{C})$多一个幺正条件，故$SU(2)$是$SL(2,\mathbb{C})$的子群；
 两者的线性表示求解过程类似，所以我们直接借用$SL(2,\mathbb{C})$群表示\eqref{chlar:eqn_SLS}，
 并令其中的$c=-b^*$、$d=a^*$，有
 \begin{equation}\label{chlar:eqn_SU2-representation}
@@ -833,19 +835,18 @@ ${\rm diag}\{e^{\mathbbm{i}\alpha_1},e^{\mathbbm{i}\alpha_2}\}$．
 
 
 
-
 有了特征函数，便可用定理\ref{chlar:thm_GP-chi123}来证明表示的不可约性和不等价性．先证不可约性．
 我们采用式\eqref{chlar:eqn_S3-SU2-1}中的参数$(\psi,\theta,\phi)$来描述$SU(2)$，
 由\eqref{chlar:eqn_S3-SU2-1}式可知$SU(2)$任意群元$g$的特征方程为
 \begin{align*}
 	&\begin{vmatrix}
-		\cos\psi +\sqrt{-1}\cos \theta\sin\psi -\lambda  & \sin\psi \sin\theta(\sqrt{-1}\cos \phi+ \sin \phi )  \\
-		\sin\psi \sin\theta (\sqrt{-1}\cos \phi-\sin \phi)  & \cos\psi -\sqrt{-1}\cos \theta\sin\psi -\lambda
+		\cos\psi +\sqrt{-1}\sin\psi  \sin\theta \cos \phi -\lambda & \sin\psi (\sqrt{-1}\cos \theta+ \sin\theta \sin \phi )  \\
+		\sin\psi (\sqrt{-1}\cos \theta-\sin\theta  \sin \phi)  & \cos\psi -\sqrt{-1}\sin\psi  \sin\theta \cos \phi -\lambda
 	\end{vmatrix} = 0  \\
 	\Rightarrow \ & \lambda ^2-2 \lambda  \cos\psi+1 = 0 .
 \end{align*}
-上式的惯性指数为：$e^{\mathbbm{i}\psi}$、$e^{-\mathbbm{i}\psi}$.
-我们知道相似变换是不改变惯性指数的；故由定理\ref{chcx:thm_UD}可知$\forall g\in SU(2)$，
+上式的特征值为：$e^{\mathbbm{i}\psi}$、$e^{-\mathbbm{i}\psi}$.
+我们知道相似变换是不改变特征值的；故由定理\ref{chcx:thm_UD}可知$\forall g\in SU(2)$，
 一定存在一个幺正矩阵$P$使得$g$满足
 \begin{equation}
 	P^{-1} g P = \begin{pmatrix}
@@ -878,14 +879,15 @@ ${\rm diag}\{e^{\mathbbm{i}\alpha_1},e^{\mathbbm{i}\alpha_2}\}$．
 下面阐述表示\eqref{chlar:eqn_SU2-representation}的不等价性．
 继续采用式\eqref{chlar:eqn_S3-SU2-1}中的参数$(\psi,\theta,\phi)$来描述$SU(2)$，
 同时令式\eqref{chlar:eqn_SU2-chi}中的$\alpha=2\psi$．
-$\forall g \in SU(2)$，当$j\neq j'$时，有
+$\exists g \in SU(2)$，当$j\neq j'$时，有
 \begin{align*}
 	\chi^j(g)= \frac{\sin(2j+1)\psi}{\sin \psi}
 	\neq \frac{\sin(2j'+1)\psi}{\sin \psi} = \chi^{j'}(g).
 \end{align*}
 由定理\ref{chlar:thm_GP-chi123}可知，当$j\neq j'$时，$D^j(g)$不等价于$D^{j'}(g)$；
 当$j= j'$时，$D^j(g)$一定等价于$D^{j'}(g)$．
-这说明$SU(2)$群的$2j+1$维复表示都等价于式\eqref{chlar:eqn_SU2-representation}．
+这说明$SU(2)$群的$2j+1$维复表示\eqref{chlar:eqn_SU2-representation}两两不等价；
+可进一步证明（略）$SU(2)$ 的不可约幺正表示全体由它们给出．
 
 
 
@@ -1103,26 +1105,6 @@ $SO(3)$群是连通、紧致李群，根据命题\ref{chlg:thm_exp-compact}可�
 从而便可验证：式\eqref{chlar:eqn_expSO3}就是式\eqref{chlg:eqn_rotation_euler_y}．
 
 
-\begin{example}\label{chlar:exm_so3-Killing-Casimir}
-    $\mathfrak{so}(3)$的Killing型、Casimir算子．
-\end{example}
-由式\eqref{chlar:eqn_so3-comm}可得$\mathfrak{so}(3)$的Killing型、Casimir算子（矩阵形式）为
-\begin{align*}
-    g_{\alpha\beta}=\begin{pmatrix}
-        -2 & 0 & 0 \\
-        0 & -2 & 0 \\
-        0 & 0 & -2 
-    \end{pmatrix};\qquad
-    C_{2}=-\frac{1}{2}\begin{pmatrix}
-        0 & 1 & 1 \\
-        1 & 0 & 1 \\
-        1 & 1 & 0 
-    \end{pmatrix}.
-\end{align*}
-经过计算，还能得到算符形式的Casimir算子：
-$\hat{C}_2 = \hat{L}^2= \hat{L}_x^2+\hat{L}_y^2+\hat{L}_z^2$． 
-\qed
-
 
 \subsection{角动量}\label{chlar:sec_J}
 $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即波函数）．
@@ -1190,9 +1172,8 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即
 因已规定负数的阶乘是无穷大，故上式分母每项都不能是负的．
 由分母第一项和最后一项给出：$m-1\leqslant m' \leqslant m+1$．
 所以有：或者$m'=m+1$，或者$m'=m-1$，或者$m'=m$．
-当$m'=m$时，分子出现“$(-)^{\frac{3}{2}}$”，这是虚数；因此时的$a$、$b$都是实数，
-故矩阵元也都必须是实数，因此抛弃$m'=m$项．
-只剩下$m'=m+1$和$m'=m-1$项；继续计算有
+当$m'=m$时，由$2 p=m-m'+1$得$p=1/2$；而$p$须为整数，故抛弃$m'=m$项．
+最终剩下$m'=m+1$和$m'=m-1$项；继续计算有
 \begin{align*}
     \partial_\beta D^{j}_{m'm}(u) =&  
     \frac{-1}{2}\frac{ \sqrt{(j-m)! (j+m)! (j-m-1)! (j+m+1)!}   } 
@@ -1228,12 +1209,11 @@ $SU(2)$群的表示是幺正的，可以作用在粒子的Hilbert空间上（即
 
 我们通过求取$SU(2)$群表示\eqref{chlar:eqn_SU2-representation}导数的方式给出了
 李代数$\mathfrak{su}(2)$作用在基矢上的表达式，
-它们为式\eqref{chlar:eqn_Jzpsi}和\eqref{chlar:eqn_Jpmpsi}．
-从例题\ref{chlar:exm_so3-Killing-Casimir}可知Casimir算子在基矢上的作用为：
+它们为式\eqref{chlar:eqn_Jzpsi}和\eqref{chlar:eqn_Jpmpsi}．不难得到
 \begin{equation}\label{chlar:eqn_J2pmpsi}
     \hat{J}^2 |jm\rangle = j(j+1) \  |jm\rangle .
 \end{equation}
-由式式\eqref{chlar:eqn_Jzpsi}、\eqref{chlar:eqn_Jpmpsi}和\eqref{chlar:eqn_J2pmpsi}出发，
+由式\eqref{chlar:eqn_Jzpsi}、\eqref{chlar:eqn_Jpmpsi}和\eqref{chlar:eqn_J2pmpsi}出发，
 左作用对偶基矢$\langle jm'|$，便可得到李代数$\mathfrak{su}(2)$的线性表示矩阵$\mathfrak{D}^{(j)}$．
 
 
@@ -1381,6 +1361,7 @@ $SU(2)$群是$SO(3)$群的双重通用覆盖群，两个$SU(2)$群元同态于�
 
 
 \subsection{$SL(2,\mathbb{C})$与$SO^{+}(1,3)$的同态关系} \label{chlar:sec_slsoh}
+
 单连通的$SL(2,\mathbb{C})$群是行列式为$1$的全体二维复矩阵，可由六个实参数来描述．
 $SL(2,\mathbb{C})$群是固有正时Lorentz群$SO^{+}(1,3)$的双重通用覆盖群，我们来证明这个命题．
 借助式\eqref{chlar:eqn_Pauli-Matrix}，任意二维厄米矩阵$h$可表示成如下形式
@@ -1391,7 +1372,6 @@ $SL(2,\mathbb{C})$群是固有正时Lorentz群$SO^{+}(1,3)$的双重通用覆盖
     \end{pmatrix}; 
     \qquad x^\mu= (t,x,y,z) \in \mathbb{R}^4 .
 \end{equation}
-%我们将$z$和$x$互换了位置，是为了导出$x$和$t$之间的Lorentz变换，而不是导出$z$、$t$间的．
 我们将通过$h$来找到$SL(2,\mathbb{C})$与$SO^{+}(1,3)$的同态关系．
 设$S\in SL(2,\mathbb{C})$，则
 \begin{equation}\label{chlar:eqn_sl2}
@@ -1750,7 +1730,8 @@ $a^1_{\hphantom{0} 0}=c$、$a^1_{\hphantom{0} 1}=d$；这是一种通用的记�
 这其实就是矢量的分量定义方式，见式\eqref{chmla:eqn_tensor-by-compoents}；
 故我们把二分量旋量称为遵循$SL(2,\mathbb{C})$变换的二维复矢量．
 而$SL(2,\mathbb{C})$变换可以看成复Lorentz变换（参见式\eqref{chlar:eqn_LT}），
-故二分量旋量也就是四维Lorentz实矢量；它俩就是一回事儿．
+故二分量旋量也就是四维Lorentz实矢量（旋量
+与其复共轭并起来的$(\frac{1}{2},\frac{1}{2})$表示对应 Lorentz 矢量）．
 遵循$SL(2,\mathbb{C})$变换的二维复线性空间$V$称为旋量空间，
 用下面即将介绍的记号就是$V\cong \mathfrak{S}^A$． \qed
 
@@ -2043,7 +2024,7 @@ $\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag
 
 
 
-\subsection{$\left(\mathfrak{su}(2)\right)^{\mathbb{C}} \cong \mathfrak{sl}(2,\mathbb{C}) $} \label{chlar:sec_sucsl}
+\subsection{$\left(\mathfrak{su}(2)\right)^{\mathbb{C}}$同构于复李代数$\mathfrak{sl}(2,\mathbb{C}) $} \label{chlar:sec_sucsl}
 
 本小节给出$\mathfrak{su}(2)$复化为$\mathfrak{sl}(2, \mathbb{C})$的具体过程；
 这个过程展示了如何通过扩展李代数基域，将一个实李代数提升为复李代数．
@@ -2053,7 +2034,8 @@ $\mathfrak{sl}(2,\mathbb{C})$实形式的Killing型：$g_{\alpha\beta}={\rm diag
 \begin{align}
 	\mathfrak{su}(m) =& \left\{X\in\mathfrak{gl}(m,\mathbb{C}) \mid X+\bar{X}^T=0
 	\ \text{且} \  {\rm Tr} X =0 \right\} ,\\
-	\mathfrak{sl}(m,\mathbb{C})=& \left\{X \in\mathfrak{gl}(m,\mathbb{C})\ |\ {\rm Tr} X =0 \right\} .
+	\mathfrak{sl}(m,\mathbb{C})=& \left\{X \in\mathfrak{gl}(m,\mathbb{C})\ |\ {\rm Tr} X =0 \right\},
+	\qquad \text{复李代数} .
 \end{align}
 虽然$\mathfrak{su}(m)$的基矢矩阵可以包含复数，
 但是$\mathfrak{su}(m)$不能看作复数域$\mathbb{C}$上的李代数，
@@ -2079,7 +2061,7 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 
 从\S\ref{chcx:sec_cr}内容可知，我们只需要将基域由实数域变为复数域，
 就可以得到复化的线性空间$\left(\mathfrak{su}(2)\right)^{\mathbb{C}}$．
-为了更好的与李代数$\mathfrak{sl}(2, \mathbb{C})$比较，
+为了更好的与复李代数$\mathfrak{sl}(2, \mathbb{C})$比较，
 我们通过如下非退化线性变换构造三个新的元素：
 \begin{subequations}\label{chlar:eqn_lac-sl2c}
 \begin{align}
@@ -2129,15 +2111,16 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 
 \begin{remark}\label{chlar:rek_rc}
 	复化：无论从基$\{e_1,e_2,e_3\}$出发，
-	还是从基$\{H,X,Y\}$出发，只要组合系数为复数，那么我们就得到$\mathfrak{sl}(2, \mathbb{C})$李代数．
-	反之，若从$\mathfrak{sl}(2, \mathbb{C})$李代数得到实形式，
+	还是从基$\{H,X,Y\}$出发，只要组合系数为复数，
+	那么就得到复李代数$\mathfrak{sl}(2, \mathbb{C})$．
+	反之，若从复李代数$\mathfrak{sl}(2, \mathbb{C})$得到实形式，
 	不同的基将给出不同的实形式；基$\{e_1,e_2,e_3\}$给出紧致实李代数$\mathfrak{su}(2)$，
 	基$\{H,X,Y\}$给出非紧致实李代数$\mathfrak{sl}(2, \mathbb{R})$．
 	这回应了\S\ref{chcx:sec_cr}末尾的阐述．
 \end{remark}
 
 
-\subsection{$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
+\subsection{实李代数$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$}\label{chlar:sec_sl-LA2}
 
 \S\ref{chlar:sec_sl-LA}只给出了二维表示，本节给出全部有限维复表示．
 
@@ -2165,16 +2148,11 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
     [M_k, N_l] = 0.
 \end{equation}
 很明显式\eqref{chlar:eqn_new-LA-so13}中李代数对易关系同构于
-李代数张量积$\mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$，
-这也就证明了：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$．
+李代数直和$\mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$，这也就证明了：
+实李代数$\mathfrak{sl}(2,\mathbb{C})$同构于实李代数$\mathfrak{su}(2)\oplus\mathfrak{su}(2)$．
 
 
 
-\begin{example}\label{chlar:exm_sl2c-Casimir}
-    参考例\ref{chlar:exm_so3-Killing-Casimir}可知$\mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$（
-    $\cong\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{so}(1,3)$）有两个独立的Casimir算子：
-    ${C}_1 = M^2= M_x^2+M_y^2+M_z^2$和${C}_2 = N^2= N_x^2+N_y^2+N_z^2$． 
-\end{example}
 
 
 我们已得到$\mathfrak{su}(2)$的不可约表示（见\S\ref{chlar:sec_J}）；
@@ -2236,6 +2214,7 @@ K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2 .
 \end{align}
 请读者完成上式中的计算．\qed
 
+\paragraph{直和分解}
 式\eqref{chlar:eqn_JKMN}较为清晰地展示了$M$与$N$的地位并不相同．
 下面的表述中，我们略微含混一下$M$与$N$的地位．我们可以利用Clebsch--Gordan系数
 将$\mathfrak{su}(2)\oplus\mathfrak{su}(2)$的表示空间
@@ -2249,9 +2228,10 @@ K_i =\mathbbm{i} (I_2\otimes\sigma_i - \sigma_i\otimes I_2)/2 .
     \oplus \cdots \oplus \mathfrak{D}^{(j_M+ j_N)}.
 \end{equation}
 虽然李群$SL(2,\mathbb{C})$的表示与复共轭表示并不等价，但$SU(2)$群的表示与复共轭表示等价；
-这便导致了在{\kaishu 李代数}$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$的
-表示中有：$\mathfrak{D}^{(j_M j_N)}$表示{\fangsong 等价于}（不是{\kaishu 等于}）$ \mathfrak{D}^{(j_N j_M)}$表示．
-$\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
+这便导致了在{\kaishu 实李代数}$\mathfrak{sl}(2,\mathbb{C})\cong \mathfrak{su}(2)\oplus\mathfrak{su}(2)$的
+表示中有：$\mathfrak{D}^{(j_M j_N)}$表示{\fangsong 等价于}（不是{\kaishu 等于}）$ \mathfrak{D}^{(j_N j_M)}$表示；
+{\fangsong 等价}是指在式\eqref{chlar:eqn_DLDU}直和分解意义下．
+下面给出$\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 \begin{align}
     \mathfrak{D}^{(00)} {\cong} &\mathfrak{D}^{(0)}= (0) . \label{chlar:eqn_D-scalar} \\
     \mathfrak{D}^{(\frac{1}{2}0)} \cong \mathfrak{D}^{(0\frac{1}{2})} {\cong}& \mathfrak{D}^{(\frac{1}{2})} . 
@@ -2268,8 +2248,8 @@ $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 \begin{example}
 	$SL(2,\mathbb{C})$群表示．
 \end{example}
-有了$\mathfrak{sl}(2,\mathbb{C})$的6个生成元（式\eqref{chlar:eqn_JKMN}），
-再结合6个实变数$\theta_i$、$\phi_i$，
+有了实李代数$\mathfrak{sl}(2,\mathbb{C})$的六个生成元（式\eqref{chlar:eqn_JKMN}），
+再结合六个实变数$\theta_i$、$\phi_i$，
 由指数映射便可得到$SL(2,\mathbb{C})$群的表示．
 %这与式\eqref{chlar:eqn_SL2-3rd}相对应．
 \begin{equation}\label{chlar:eqn_SL2-exp}
@@ -2282,7 +2262,7 @@ $\mathfrak{sl}(2,\mathbb{C})$的几个低维表示的直和分解：
 \begin{example}
 	李群$SO(4,\mathbb{R})$的通用覆盖群$SU(2)\times SU(2)$的群表示．
 \end{example}
-设有6个实变数$\alpha_l$、$\beta_l$，
+设有六个实变数$\alpha_l$、$\beta_l$，
 由指数映射便可得到$SU(2)\times SU(2)$群的表示：
 \begin{align*}
 	D^{(j_1 j_2)}=&\exp\left(-\mathbbm{i}\sum\nolimits_{l=1}^{3}(\alpha_l M_l + \beta_l N_l)\right)\\
@@ -2308,7 +2288,7 @@ $K_l$前的参数（$\tfrac{\mathbbm{i}}{2} (\alpha_l-\beta_l)$）为纯虚数�
 \begin{equation}
 	D^{(\frac{1}{2}0)} = \exp\left( -\frac{\mathbbm{i}}{2}\sum\nolimits_{i=1}^{3}
 	(\theta_i  - \mathbbm{i} \phi_i  ) \sigma_i \right)
-	=\begin{pmatrix} a & b   \\ c & d   \end{pmatrix}.
+	\xlongequal{\text{记为}}\begin{pmatrix} a & b   \\ c & d   \end{pmatrix}.
 \end{equation}
 上式中变量$a,b,c,d \in \mathbb{C}$且$ad-bc=1$．
 不难验证有：
@@ -3251,7 +3231,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 \end{equation}
 其中$N_p$是归一化因子，对于这里的讨论来说并不重要．
 
-我们将一般的洛伦兹变换$\hat{U}(\Lambda)$作用到式\eqref{chlar:eqn_pULk}上，有
+我们将一般的Lorentz变换$\hat{U}(\Lambda)$作用到式\eqref{chlar:eqn_pULk}上，有
 \begin{equation}\label{chlar:eqn_ULpPsks}
 	\hat{U}(\Lambda) |p\sigma\rangle = N_p \hat{U}(\Lambda) \hat{U}\bigl(L_p\bigr) |k\sigma\rangle
 	= N_p \hat{U}(L_{\Lambda p}) \hat{U}\bigl(L^{-1}_{\Lambda p}\Lambda L_p\bigr) |k\sigma\rangle .
@@ -3579,8 +3559,8 @@ $\hat{O}$是某可观测算符；算符本身以及态矢量本身都没有可�
 
 
 
-需要注意的是随着$q\to 1$，也就是粒子质量($m$)趋于0，
-式\eqref{chlar:eqn_gc-40}定义的自旋算符$\hat{J}'^{1,2}$是奇异的；
+需要注意的是随着$q\to 1$，也就是粒子质量趋于〇（$m->0$），
+\eqref{chlar:eqn_gc-40}式定义的自旋算符$\hat{J}'^{1,2}$是奇异的；
 无穷大一般说来是非物理的，我们得想些办法来处理此事．
 从式\eqref{chlar:eqn_gc-32}可以看到算符$\hat{A},\hat{B}$是由自旋和伪转动构成，
 算符本身没有可操作空间，我们只能从态矢量上面来寻找原因．
@@ -3641,7 +3621,7 @@ $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看�
 
 
 \paragraph{自评} 我们的方法只是将Weinberg教材中的标准动量略作更改，
-整体架构与温大师书完全相同，乏善可陈．
+整体架构与温大师书完全相同；乏善可陈．
 但可以当作该节\cite[\S2.5]{weinberg_vol1}的有益补充．
 
 
