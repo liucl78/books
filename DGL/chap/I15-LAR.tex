@@ -2807,6 +2807,8 @@ $T_{\alpha \beta}^{\hphantom{\alpha \beta} \gamma \delta \sigma}$共有5个
 \S\ref{chlg:sec_PA-1}是通过直接计算生成元的对易关系来得到Poincar\'{e}代数的．
 本节采用另一种方法\cite[\S 10.2]{tung-1985}\cite[\S 2.4]{weinberg_vol1}再次得到这组对易关系．
 
+需要事先声明的是：本节采用物理上习惯的矩阵指标记号来阐述公式；
+其实这些指标中有些是不可数连续的，严格说来应该采用测度、积分记号．
 
 
 非紧致半单Lorentz群没有有限维非平庸不可约幺正表示（见定理\ref{chlar:thm_IFU}）；
@@ -3285,7 +3287,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 除了归一化系数，我们已将寻找齐次Lorentz群表示$C_{\tau\sigma}(\Lambda,p)$转化为
 寻找小群$W$的表示$D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr)$．
 这种通过较小子群表示（此处指$W$）而得到较大群（此处指Lorentz群）表示的方法叫做{\kaishu 诱导表示法}．
-1930年代，Wigner正是通过诱导表示法给出了齐次Lorentz群的无穷维幺正表示．
+1930年代，Wigner正是通过诱导表示法给出了齐次Lorentz群的无穷维不可约幺正表示．
 
 
 前面，我们通过第一Casimir算子将单粒子态进行了分类，
@@ -3293,6 +3295,24 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 我们将单粒子态看成齐次Lorentz群的不可约幺正表示$C_{\tau\sigma}(\Lambda,p)$，
 在我们将其转化为其小群$W$的表示$D_{\tau\sigma} \bigl(W(\Lambda,p)\bigr)$后，
 便可用第二Casimir算子继续讨论单粒子态的分类问题了．
+
+
+\begin{remark}
+	此处我们强调几点．
+	{\bfseries (1)} Lorentz群（更准确地说，是其双重通用覆盖群$SL(2,\mathbb{C})$）的无穷维
+	不可约幺正表示没有办法写成式\eqref{chlar:eqn_SL2-3rd}的形式；
+	我们对式\eqref{chlar:eqn_UpWkD}左作用$\langle p' \sigma' |$就可以得到表示矩阵行、列，
+	但这个行列指标是连续动量形式的．
+	{\bfseries (2)} (1)中得到无穷维不可约幺正表示矩阵本质上是算符的分布核/广义函数核，
+	具体写出来会包含一系列Dirac-$\delta$函数（更严谨地说是泛函中的分布）．
+	{\bfseries (3)} Hilbert空间本身是可数无穷维、可分的；但连续动量基下的矩阵指标表现为不可数无穷．
+	然而这并不矛盾，因为$|p\sigma\rangle$不是Hilbert空间中的矢量，而是谱测度的形式本征矢．
+	{\bfseries (4)} 由式\eqref{chlar:eqn_UpWkD}诱导出的小群可能是紧致的（比如下面的$SU(2)$），
+	紧李群的不可约幺正表示是有限维的；
+	但由\eqref{chlar:eqn_UpWkD}式得到的不可约幺正表示是无穷维的，
+	无穷来源于不可数的连续动量指标．
+\end{remark}
+
 
 \paragraph{有质量粒子正能态}
 类时态对应的是有质量粒子，我们只关心正能态．
@@ -3390,7 +3410,7 @@ $	\zeta_w=\left(\alpha^2+\beta^2\right) / 2 $．
 		{\alpha }&1&0&{ - \alpha } \\
 		{\beta }& 0&1&{ - \beta } \\
 		{\zeta_w }& \alpha&\beta&{1 - \zeta_w }
-	\end{pmatrix} .
+	\end{pmatrix} . \label{chlar:eqn_Sab-W}
 \end{align}
 可验证$S^T \eta S = \eta $和$\det(S)=1$．
 这并不意味着$W$等于$S(\alpha, \beta)$，但是它确实意味着$S^{-1}(\alpha, \beta)W$是一个保类时
@@ -3415,7 +3435,6 @@ Weinberg将无质量粒子的标准动量选为$k_{photon}^\mu=(E,0,0,E)$．
 它可以分解成两个矩阵的乘积$W(\alpha,\beta,\theta) = S(\alpha,\beta)R(\theta)$（即式\eqref{chlar:eqn_SWR}），
 $\alpha$、$\beta$、$\theta$是描述小群$W$的三个连续实参量，其中$R(\theta)$是绕$z$轴的
 转动（式\eqref{chlg:eqn_rotation-zy}）．矩阵$S$是一个一般的Lorentz变换，可以表示成如下形式
-\begin{small}
 	\begin{equation}\label{chlar:eqn_Sab}
 		S^\mu_{\hphantom{\mu}\nu}(\alpha,\beta) = \begin{pmatrix}
 			{1 + {q^2}\zeta } &z&r&{ - q\zeta } \\
@@ -3423,14 +3442,8 @@ $\alpha$、$\beta$、$\theta$是描述小群$W$的三个连续实参量，其中
 			{q\beta }& w&s&{ - \beta } \\
 			{q\zeta }& x&y&{1 - \zeta }
 		\end{pmatrix} 
-		\xlongrightarrow[m\to 0]{q\to 1} \begin{pmatrix}
-			{1 + \zeta_w } &\alpha&\beta&{ - \zeta_w } \\
-			{\alpha }&1&0&{ - \alpha } \\
-			{\beta }& 0&1&{ - \beta } \\
-			{\zeta_w }& \alpha&\beta&{1 - \zeta_w }
-		\end{pmatrix} .
+		\xlongrightarrow[m\to 0]{q\to 1} \eqref{chlar:eqn_Sab-W}.
 	\end{equation}
-\end{small}
 其中$q\equiv p/E=\sqrt{1-m^2/E^2}$是一无量纲实参数；
 $q=1(m=0)$表示无质量态，$q\neq 1 (m>0)$表示有质量态．
 并且有（参考例\ref{chlar:exam_weinberg-zero}不难得到下式）
@@ -3552,14 +3565,14 @@ $\hat{O}$是某可观测算符；算符本身以及态矢量本身都没有可�
 如果粒子的自旋量子数是$s$，那么由升降算符，$\hat{J}' _{\pm}=\hat{J}'^1 \pm \mathbbm{i}\hat{J}'^2$，
 可以取遍$\hat{J}'^3$所有自旋态：$s,s-1,\cdots,-s+1,-s$，共$2s+1$个态．
 比如粒子处于$\hat{J}'^3$的本征态$|j,m\rangle$时，
-那就有$\hat{J}'_+|j,m\rangle \propto |j,m+1\rangle$．
+就有$\hat{J}'_{\pm}|j,m\rangle \propto |j,m\pm 1\rangle$．
 
 自然界中的电磁波的量子是无质量粒子——光子——只有两个偏振状态，从未观测到第三个偏振态；
 物理理论自然要与实验相符合；物理理论上认为：宏观的可观测效应——偏振——与光子自旋算符相对应．
 
 
 
-需要注意的是随着$q\to 1$，也就是粒子质量趋于〇（$m->0$），
+需要注意的是随着$q\to 1$，也就是粒子质量趋于〇（$m \to 0$），
 \eqref{chlar:eqn_gc-40}式定义的自旋算符$\hat{J}'^{1,2}$是奇异的；
 无穷大一般说来是非物理的，我们得想些办法来处理此事．
 从式\eqref{chlar:eqn_gc-32}可以看到算符$\hat{A},\hat{B}$是由自旋和伪转动构成，

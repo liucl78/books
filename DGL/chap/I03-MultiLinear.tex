@@ -8,7 +8,7 @@
 具体安排是：先复习线性空间的概念，之后讲述线性函数、
 对偶空间、双线性映射、多重线性映射、张量积、外代数等．
 
-本章中线性空间限定在有限维（显示标明的除外）；
+本章中线性空间限定在有限维（显式标明的除外）；
 无限维理论比有限维情形复杂得多，
 初步论述可参阅第\ref{chhs}章，以及该章的参考文献．
 
@@ -131,8 +131,8 @@ $\forall \alpha ,\beta \in V$，根据定义\ref{chmla:def_linear-space}有
 	k\alpha =& (k\alpha_1) \boldsymbol{\epsilon}_1 +\cdots +(k\alpha_n) \boldsymbol{\epsilon}_n, 
 	\qquad \forall k\in \mathbb{F}.
 \end{align}
-这与欧式空间（指第\ref{chcdg}章）矢量加法、数乘完全一致．
-可见矢量的代数定义\ref{chmla:def_linear-space}保留了欧式空间
+这与欧氏空间（指第\ref{chcdg}章）矢量加法、数乘完全一致．
+可见矢量的代数定义\ref{chmla:def_linear-space}保留了欧氏空间
 矢量（指第\ref{chcdg}章）的诸多属性（加法、数乘）；只祛除了度量．
 
 
@@ -155,7 +155,7 @@ $\forall \alpha ,\beta \in V$，根据定义\ref{chmla:def_linear-space}有
 这样任意一个复数均可表示成这两个基矢的线性组合$z=x\cdot 1+y\mathbbm{i}=x\epsilon_1+y\epsilon_2$，
 其中$x$和$y$是实数域$\mathbb{R}$中的常数．
 这里用到的数量乘法是两个实数相乘．
-复数乘法以及取复数共轭运算都不是定义\ref{chmla:def_linear-space}在实数域中的代数运算，
+复数乘法以及取复数共轭运算都不是定义\ref{chmla:def_linear-space}在实数域中的数量乘法，
 需要另外再定义．$V$中两个矢量$1$和$\mathbbm{i}$在本例中是线性无关的．
 \qed
 
@@ -181,17 +181,17 @@ $V$中两个矢量$1$和$\mathbbm{i}$在本例中是线性相关的．
 \end{example}
 建立在复数域$\mathbb{C}$上的，
 沿$x$和$y$轴的动量算符$\hat{P}_x$和$\hat{P}_y$；
-绕$z$轴的角动量算符是$\hat{L}_\phi \equiv \hat{y}\hat{P}_x - \hat{x} \hat{P}_y$．
+绕$z$轴的角动量算符是$\hat{L}_\phi \equiv \hat{x} \hat{P}_y-\hat{y}\hat{P}_x$．
 写成这种形式时，几乎所有人都能看出三个矢量线性无关；
-因为算符$\hat{y}$和$-\hat{x}$是Hilbert空间（一种线性空间）中的量，
+因为算符$\hat{x}$和$\hat{y}$是Hilbert空间（一种线性空间）中的量，
 不是数域$\mathbb{C}$中的量．
 很多时候，会把位置矢量算符$\hat{x},\hat{y}$上的小尖帽省略，
-记成$\hat{L}_\phi \equiv {y}\hat{P}_x - {x} \hat{P}_y$；
+记成$\hat{L}_\phi \equiv {x} \hat{P}_y-{y}\hat{P}_x$；
 这个时候，有可能会被误认为三者线性相关，但这是不正确的．
-即便系数变成了$y$和$-x$，它们也是线性空间中的量，
+即便系数变成了$x$和$y$，它们也是线性空间中的量，
 不是数域$\mathbb{C}$中的量．或者这样理解：
 依照定义\ref{chmla:def_linear-dependence_base}，
-因为其系数$y$和$-x$是{\CJKunderwave{变量}}，不是数域$\mathbb{C}$中{\CJKunderwave{常数}}，
+因为其系数$x$和$y$是{\CJKunderwave{变量}}，不是数域$\mathbb{C}$中{\CJKunderwave{常数}}，
 所以三个矢量$\hat{P}_x, \hat{P}_y, \hat{L}_\phi$是线性无关的．
 另外一个与此类似的例子是Killing场，见\S \ref{chrg:sec_killing}．
 \qed
@@ -519,7 +519,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
 \end{proposition}
 \begin{proof}
     先证“$\Rightarrow$”，用反证法．
-    假设$f$不单一，则存在$V$中非零且不等的矢量$\alpha,\beta$，
+    假设$f$不单一，则存在$V$中不等的矢量$\alpha,\beta$，
     使得$f(\alpha)=f(\beta)$成立，则自然有$f(\alpha-\beta)=0$，
     但是已知$\alpha \neq \beta$；
     也就是$f$将非零矢量映射为零，与已知条件矛盾，
@@ -642,7 +642,7 @@ $V$上全体线性函数组成的集合记为$\mathscr{L}(V,\mathbb{F})$．
         必须是一上一下两相同指标才表示求和，即$a^i b_i \equiv \sum_{i}a^i b_i$．
         如果存在两个相同上标(或下标)，即$a^i b^i$(或$a_j b_j$)，则是错误表示．
         此后，一律采用求和约定（另有约定除外）．
-        如果显示写出求和符号（$\Sigma$），则求和约定失效．
+        如果显式写出求和符号（$\Sigma$），则求和约定失效．
         \index[physwords]{求和约定}
         \label{chmla:ft_einstein-sum}}}
 它们作用到基矢上，有
@@ -700,7 +700,7 @@ $c_1 f^1 + c_2 f^2 + \cdots + c_n f^n =0$，依次将基矢$\boldsymbol{\epsilon
 上标中的星号“$*$”代表{\kaishu 对偶}．
 因有$\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_2)=0$和
 $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
-故$\boldsymbol{\epsilon}^{*i}$并非单射．
+故$\boldsymbol{\epsilon}^{*i}$并非单射（$n \geqslant 2$时）．
 符号$\langle \cdot,\cdot\rangle$是矢量和对偶矢量的{\heiti 配合}（pair）．
 \end{remark}
 \index[physwords]{配合、配对（pair）}
@@ -1406,11 +1406,11 @@ $\alpha = x^i \boldsymbol{\epsilon}_i$和$\beta = y^j \boldsymbol{\epsilon}_j$�
 	数域$\mathbb{F}$的一个多重线性函数．从行列式定义容易验证，
 	设有$n$阶矩阵$A=\{a_{ij}\}$，则
 	\begin{equation}\label{chmla:eqn_det}
-		\det (A) \equiv |A| = \sum_{j_1 j_2\cdots j_n} (-1)^{\tau(j_1 j_2 \cdots j_n)}
+		\det (A)  = \sum_{j_1 j_2\cdots j_n} (-1)^{\tau(j_1 j_2 \cdots j_n)}
 		a_{1 j_1} a_{2 j_2}\cdots a_{n j_n} , \quad
-		j_1 \neq \cdots \neq j_n .
+		j_1,\cdots,j_n \text{两两不同}.
 	\end{equation}
-	其中$\tau(j_1 j_2\cdots j_n)$是这个$n$个数的排列，偶排列返回偶数，奇排列返回奇数．
+	其中$\tau(j_1 \cdots j_n)$是排列 $j_1\cdots j_n$的逆序数（偶排列为偶数，奇排列为奇数）．
 	
 	将每一行看成$n$维空间中的矢量，则
 	\begin{align*}
@@ -1568,7 +1568,7 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
 	而右端的迹（$Tr(\mathbbm{1})$）一定不是零．矛盾！
 	这说明在有限维空间中，量子力学基本对易关系不可能成立！
 	只有在无穷维空间中才可能成立；此时无穷维矩阵的迹没有良定义，
-	关系$Tr(ABC)=Tr(BCA)$也不再成立．\qed
+	关系$Tr(ABC)=Tr(BCA)$也未必成立．\qed
 \end{example}
 
 
@@ -2490,7 +2490,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 
 
 \begin{exercise}
-	给线性空间选定基矢，用矩阵语言从新叙述命题\ref{chmla:thm_T11TR}．
+	给线性空间选定基矢，用矩阵语言重新叙述命题\ref{chmla:thm_T11TR}．
 \end{exercise}
 
 \begin{exercise}
@@ -2565,7 +2565,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
     则从式\eqref{chmla:eqn_tmp98}和式\eqref{chmla:eqn_tmp101}
     可知$\xi_{i_1 \cdots i_q}=\xi_{i_{\sigma(1)} \cdots i_{\sigma(q)}}$．
     反之，如果有$\xi_{i_1 \cdots i_q}=\xi_{i_{\sigma(1)} \cdots i_{\sigma(q)}}$，
-    那么从从式\eqref{chmla:eqn_tmp98}和\eqref{chmla:eqn_tmp101}也可得到
+    那么从式\eqref{chmla:eqn_tmp98}和\eqref{chmla:eqn_tmp101}也可得到
     $\xi(v_1,\cdots,v_q)=\xi( v_{\sigma(1)},\cdots, v_{\sigma(q)})$．
 
     如果$\xi$是反对称的（等价于$\xi(v_1,\cdots,v_q)=
@@ -2573,7 +2573,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
     则从式 \eqref{chmla:eqn_tmp98} 和 \eqref{chmla:eqn_tmp101}
     可知$\xi_{i_1 \cdots i_q}= {\rm sign}(\sigma) \cdot \xi_{i_{\sigma(1)} \cdots i_{\sigma(q)}}$．
     反之，如果有$\xi_{i_1 \cdots i_q}={\rm sign}(\sigma) \cdot \xi_{i_{\sigma(1)} \cdots i_{\sigma(q)}}$，
-    那么从从式 \eqref{chmla:eqn_tmp98} 和 \eqref{chmla:eqn_tmp101}也可得到
+    那么从式 \eqref{chmla:eqn_tmp98} 和 \eqref{chmla:eqn_tmp101}也可得到
     $\xi(v_1,\cdots,v_q)={\rm sign}(\sigma) \cdot\xi( v_{\sigma(1)},\cdots, v_{\sigma(q)})$．
     此处的表达式与命题中略有差别，读者能识别出两者本质上相同吗？
 \end{proof}
@@ -3195,8 +3195,8 @@ $(j_1 \cdots j_q)$和$(k_1 \cdots k_q)$必须是满足定义\eqref{chmla:eqn_gkd
 \end{equation}
 $V^0 \equiv \mathbb{R}$中的元素是纯数，可看作标量；
 我们生活的空间可看成$V$中的矢量，基矢是$\{\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_3\}$；
-$V^2$同构于$V$，其基矢是$\{\boldsymbol{e}_1\wedge \boldsymbol{e}_2,\boldsymbol{e}_2\wedge\boldsymbol{e}_3
-,\boldsymbol{e}_1\wedge \boldsymbol{e}_3\}$；
+$V^2$同构于$V$，其基矢是$\{\boldsymbol{e}_1\wedge \boldsymbol{e}_2,\boldsymbol{e}_1\wedge\boldsymbol{e}_3
+,\boldsymbol{e}_2\wedge \boldsymbol{e}_3\}$；
 $V^3$同构于$\mathbb{R}$，其基矢是$\{\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\boldsymbol{e}_3\}$．
 有鉴于此，在三维空间中，我们只需要研究标量与矢量就足够了；无需研究$V^2$和$V^3$．
 
@@ -3547,7 +3547,7 @@ $    T^{\mu\nu}_{\rho} = T^{ab}_c (e^\mu)_a (e^\nu)_b (e_{\rho})^c $．
     \caption{抽象指标对比\S\ref{chmla:sec_tensor}记号} \label{chmla:tab-aivscc}
     \begin{tabular}{|*3{c|}}
         \hline
-        导数名称 & 抽象指标 & \S\ref{chmla:sec_tensor}记号 \\ 
+        {} & 抽象指标 & \S\ref{chmla:sec_tensor}记号 \\ 
         \hline
         自然基矢 & $\left(\frac{\partial}{\partial x^i} \right)^a,\  ({\rm d}x^j)_a$ 
                  & $\frac{\partial}{\partial x^i}, \  {\rm d}x^j$    \\ 

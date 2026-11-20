@@ -977,7 +977,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 是前人经过长期研究而作出的选择，基本上是最优的了．
 
 
-举例说明坐标本身没有意义（以下两例中的度量是正定欧式度量）．
+举例说明坐标本身没有意义（以下两例中的度量是正定欧氏度量）．
 \begin{example}
     张三沿直线向东走了一段距离，我们把他走路的起点算作坐标$a$，
     终点坐标记为$b$；但是坐标本身（不论是$a$还是$b$）都没有意义，
@@ -1831,7 +1831,7 @@ $M$中有光滑参数曲线$\gamma(t)$，此线切矢量如式\eqref{chdm:eqn_Di
             (y\circ \tilde{f})^\alpha =x^\alpha+ f^\alpha(x^1,\cdots,x^m), & 1+m \leqslant \alpha \leqslant n .
         \end{cases}
     \end{equation}
-    不失一般性，以设$p$点坐标是原点$0$；如果不是，平移一下原点即可．
+    不失一般性，假设$p$点坐标是原点$0$；如果不是，平移一下原点即可．
     我们将方体$I$的原点和$p$结合在一起，构成$U\times I $的新原点$\tilde{p}\equiv\{0\}$．
     很明显映射$\tilde{f}$在新原点$\tilde{p}$的Jacobi行列式不为零，也就是切映射$\tilde{f}_{*}$是非退化的；
     根据定理\ref{chdm:thm_inv-in-M}可知映射$\tilde{f}$在$\tilde{p}$点充分小邻域内是微分同胚．
@@ -1879,7 +1879,8 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
 
 (4) 设$\phi:M\to N$是嵌入的，若$\phi$从$M$带到$\phi(M)$的拓扑结构与$\phi(M)$从$N$上得到
 的诱导拓扑结构（见定义\ref{chtop:def_induced-top}）相同，
-“相同”是指由$\phi$带来的拓扑和从$N$诱导得到的拓扑相互同胚；
+“相同”是指由$\phi$带来的拓扑和从$N$诱导得到的拓扑相互
+同胚（即恒等映射 $\mathrm{id}:(\phi(M),\phi\text{-拓扑})\to(\phi(M),N\text{-诱导拓扑})$ 是同胚）；
 则称之为{\heiti 正则嵌入映射}（regular embedding）．
 
 (5) 若$m> n, {\rm rank}_p\phi=n$，则称$\phi$点$p$是{\heiti 局部淹没}的（submersion）．
@@ -1908,7 +1909,7 @@ $\phi:M\to N$是光滑映射．将$p\in M$点的Jacobi矩阵（见注解\ref{chd
     映射$\imath: A\to B;\ \imath(x) = x, \ \forall x\in A. $
     那么，称映射$\imath$为{\heiti 包含映射}（inclusion map）．
 \end{definition}
-包含映射一定是嵌入映射；反之未必，因嵌入映射值域未必与定义域有交集．
+包含映射必是嵌入映射；反之未必．
 
 \subsection{浸入与嵌入区别}
 我们先叙述几个例题．
@@ -2166,8 +2167,8 @@ $U$上{\heiti 自然标架场}，任一$U$上切矢量场$v^a(x)$都可以用此
     (u^a+v^a)(x) \overset{def}{=} u^a(x) + v^a(x), \qquad 
     (\lambda \cdot v^a)(x) \overset{def}{=} \lambda\cdot v^a(x).
 \end{equation}
-这样定义后，$\mathfrak{X}(M)$构成了实数域$\mathbb{R}$上的矢量空间；
-由于点$x\in M$是连续的、变动的，所以这个矢量空间是无穷维的（因$x$有无穷多个值）．
+这样定义后，$\mathfrak{X}(M)$构成了实数域$\mathbb{R}$上的矢量空间．
+因$C^\infty(M)$中存在无穷多个线性无关的光滑函数，故 $\mathfrak X(M)$ 是无穷维的．
 除了实数域上的数量乘法，还可以定义$C^\infty(M)$上\CJKunderwave{函数乘法}（也
 称为\CJKunderwave{$C^r(M)$-线性}，也见定理\ref{chdm:thm_Tensor-Characterization-Lemma}；
 注意与数域$\mathbb{F}$-线性的区别）：
@@ -2209,7 +2210,7 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
     $v (g+\lambda h) = v (g)+ \lambda v (h) $；
 
     {\bfseries (2)} Leibniz律：$\forall g,h \in C^\infty(M) $，有
-    $v (g\cdot h) = \bigl(v(g)\bigr)\cdot h(x)+ g(x)\cdot v (h) .$
+    $v(g\cdot h)= \bigl(v(g)\bigr)\cdot h(x)+ g(x)\cdot v (h) .$ 
     
     反之，如果有映射$\alpha:C^\infty(M)\to C^\infty(M) $满足上面两个条件，
     那么存在唯一$v^a\in \mathfrak{X}(M)$使得
@@ -3353,7 +3354,7 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
 \end{example}
 
 由定理\ref{chdm:thm_1PDG-ppy}可知，对于任意在点$p\in M$非零光滑矢量场$X^a$都存在
-{\kaishu 适配坐标系}$(U;x^i)$使得$X^a |_U = (\frac{\partial }{\partial x^1} )^a_p$；
+{\kaishu 适配坐标系}$(U;x^i)$使得$X^a |_U = (\frac{\partial }{\partial x^1} )^a$；
 在适配坐标系上李导数的表达式较为简单，我们以$\Tpq{1}{1}$型张量$T_b^a$为例来求出具体表达式．
 由定义式\eqref{chdm:def_LieD-tensor}可得张量的\CJKunderwave{分量}$T_{j}^{i}$的李导数（其中$t\equiv x^1$）
 \begin{equation}\label{chdm:eqn_LieD-adaptedX}

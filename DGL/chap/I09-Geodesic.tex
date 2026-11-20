@@ -511,7 +511,7 @@ $\gamma(t)$用度规$g_{ab}$衡量是测地线，$t$是仿射参数，
     x^i = x^i_0 + y^i  - \frac{1}{2!} \Gamma_{jk}^i(p) y^j y^k
     - \frac{1}{3!}  \Gamma^{i}_{jkl}(p) y^j y^k y^l + \cdots
 \end{equation}
-这样，在上式中就不再显示出现$v^a|_p$的信息了．
+这样，在上式中就不再显式出现$v^a|_p$的信息了．
 很明显在$p$点处Jacobi矩阵$\frac{\partial x^i}{\partial y^j}$是非退化的，
 而且上式对经过$p$点的所有测地线都成立；因此$\{y^i\}$可以看作一组新的坐标（即法坐标），
 上式可以看作是两组坐标$\{x\}$和$\{y\}$的变换公式．
@@ -676,7 +676,7 @@ $\bar{\Gamma}^{i}_{jk,l}(p)+\bar{\Gamma}^{i}_{lj,k}(p)+\bar{\Gamma}^{i}_{kl,j}(p
 二维球面的测地线是过球心平面所截取的大圆．
 切空间是$x-y$平面，此空间上有坐标系$\{x,y\}$；
 半球面$S$上的指数映射$\exp_O$将坐标$\{x,y\}$带到$S$上；
-为了有显示的区分，我们用$\xi,\eta$两个参量来描述半球面$S$的法坐标系坐标参量．
+为了有显式的区分，我们用$\xi,\eta$两个参量来描述半球面$S$的法坐标系坐标参量．
 在$x-y$平面上显然有$\xi=x, \eta=y$，在半球面$S$上对应的点需要求出．
 点$(\xi,\eta)$在$x-y$平面上的弧长是$\sqrt{\xi^2 +\eta^2}$，
 指数映射$\exp_O$将它映射到大圆上弧长相等的点$p$，
@@ -1394,7 +1394,7 @@ $J_i=\eta_{ij} J^j$．
     R^{a}_{\cdot bcd} s\left(\frac{{\rm d}}{{\rm d}s}\right)^c
     s\left(\frac{{\rm d}}{{\rm d}s}\right)^d s\left(\frac{{\rm d}}{{\rm d}s}\right)^b =0   .
 \end{equation*}
-很明显测地线$C(s)$的切线切矢量$(\frac{{\rm d}}{{\rm d}s})^a$满足
+很明显（非零模）测地线$C(s)$的切线切矢量$(\frac{{\rm d}}{{\rm d}s})^a$满足
 \begin{equation*}
     \nabla_{\frac{\partial}{\partial s}} \nabla_{\frac{\partial}{\partial s}}
       \left(\frac{{\rm d}}{{\rm d}s}\right)^a =0, \qquad
@@ -1407,8 +1407,8 @@ $J_i=\eta_{ij} J^j$．
     \left\{\left(\frac{{\rm d}}{{\rm d}s}\right)^a, \quad
     s\cdot \left(\frac{{\rm d}}{{\rm d}s}\right)^a\right\} .
 \end{equation}
-满足Jacobi方程\eqref{chgd:eqn_Jacobi}，因此
-两维空间$\mathfrak{J}^{\top}(C)$也是Jacobi场；称它们为切Jacobi场．
+满足Jacobi方程\eqref{chgd:eqn_Jacobi}，
+故两维空间$\mathfrak{J}^{\top}(C)$也是Jacobi场；称它们为切Jacobi场．
 很明显$\mathfrak{J}^{\top}(C) \cap \mathfrak{J}^{\bot}(C) = \{{\bf 0}\}$，
 故切Jacobi场与法Jacobi场交集为零．
 

@@ -387,26 +387,26 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 其次，验证式\eqref{chdf:eqn_exterior-differential}满足第(2)条
 \begin{align*}
     & {\rm d}_{c}(\alpha_{a_1\cdots a_r} \wedge \beta_{b_1\cdots b_s}) \\
-   =& \frac{1}{r! s!} {\rm d}_{c}\left(\alpha_{\mu_{1}\cdots \mu_{r}} \beta_{\sigma_1\cdots \sigma_q}
+   =& \frac{1}{r! s!} {\rm d}_{c}\left(\alpha_{\mu_{1}\cdots \mu_{r}} \beta_{\sigma_1\cdots \sigma_s}
       ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \right) \\
-   =& \frac{1}{r! s!} \left( {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_q}
-     +\alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_q})\right) \\
+   =& \frac{1}{r! s!} \left( {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_s}
+     +\alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_s})\right) \\
       &\wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
-   =& \frac{1}{r! s!}  {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_q}
+   =& \frac{1}{r! s!}  {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}}) \beta_{\sigma_1\cdots \sigma_s}
       \wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
-     &+ \frac{1}{r! s!} \alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_q})
+     &+ \frac{1}{r! s!} \alpha_{\mu_{1}\cdots \mu_{r}} {\rm d}_{c}(\beta_{\sigma_1\cdots \sigma_s})
       \wedge \bigl( ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  \bigr) \\
     =& \frac{1}{r!}  {\rm d}_{c}(\alpha_{\mu_{1}\cdots \mu_{r}})
       \wedge  ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}  \wedge
-      \frac{1}{s!} \beta_{\sigma_1\cdots \sigma_q}
+      \frac{1}{s!} \beta_{\sigma_1\cdots \sigma_s}
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}  + \\
       & (-)^r \frac{1}{r!} \alpha_{\mu_{1}\cdots \mu_{r}}
        ({\rm d}x^{\mu_1})_{c} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r-1}}  \wedge
-      \frac{1}{s!} {\rm d}_{a_r}(\beta_{\sigma_1\cdots \sigma_q})\wedge
+      \frac{1}{s!} {\rm d}_{a_r}(\beta_{\sigma_1\cdots \sigma_s})\wedge
       ({\rm d}x^{\sigma_1})_{b_{1}} \wedge\cdots\wedge ({\rm d}x^{\sigma_s})_{b_{s}}.
 \end{align*}
 上式最后一个等号用到了外积的反对称性，产生了$r$个负号；最终，有
@@ -1323,7 +1323,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 \end{theorem}
 条件(2)一般称为{\kaishu 局部有限性}；这说明条件(3)左边的$g_\alpha$只有有限个不为零，
 故和式是平凡收敛的．{\kaishu 函数族$\{g_\alpha\}$称为从属于开覆盖$\Sigma$的单位分解}．
-%这个定理也表明任何光滑流形都是仿紧的．
+
 
 
 
@@ -1339,7 +1339,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 且有微分同胚映射$\phi:\Omega'\to \Omega$；
 若标量函数$f$在其定义域是连续的，则有
 \begin{equation}\label{chdf:eqn_multiple-integral}
-    \int_{\Omega'} f(x) {\rm d}x^1 \cdots {\rm d}x^m = \int_{\Omega} f\circ\phi(y)
+    \int_{\Omega} f(x) {\rm d}x^1 \cdots {\rm d}x^m = \int_{\Omega'} f\circ\phi(y)
     \left|\frac{\partial (x^1, \cdots, x^m)}{\partial (y^1,\cdots, y^m)}
      \right|{\rm d}y^1 \cdots {\rm d}y^m .
 \end{equation}
