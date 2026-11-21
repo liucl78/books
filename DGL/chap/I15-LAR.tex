@@ -2126,11 +2126,11 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 \S\ref{chlar:sec_sl-LA}只给出了二维表示，本节给出全部有限维复表示．
 
 {\kaishu 非紧致}李群 $SL(2,\mathbb{C})$ 不可能同胚于{\kaishu 紧致}的 $SU(2)\times SU(2)$ 群；
-但是，实Lorentz李代数 $\mathfrak{so}(1,3)$ 复化后，同构于两个 $\mathfrak{su}(2)$ 复化的直和；
-下面论证此点．由于 $SL(2,\mathbb{C})/\{I_2,-I_2\}$ 微分同胚于正时固有Lorentz群 $SO^{+}(1,3)$，
-从定理 \ref{chlg:thm_LA2LG-all} 可知：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{so}(1,3)$（此处均视为实李代数）．
-已知Lorentz代数 $\mathfrak{so}(1,3)$ 作为实李代数，由 3 个空间旋转生成元 $J_i$ 和 3 个Lorentz推促生成元 $K_i$ 构成．
-当我们对其进行复化，得到复李代数 $\mathfrak{so}(1,3)_{\mathbb{C}}$ 时，允许生成元进行复系数线性组合．
+但是，实Lorentz李代数 $\mathfrak{so}^{+}(1,3)$ 复化后，同构于两个 $\mathfrak{su}(2)$ 复化的直和；
+下面论证此点．由于 $SL(2,\mathbb{C})/\{I_2,-I_2\}$ 微分同胚于Lorentz群 $SO^{+}(1,3)$，
+从定理 \ref{chlg:thm_LA2LG-all} 可知：$\mathfrak{sl}(2,\mathbb{C}) \cong \mathfrak{so}^{+}(1,3)$（此处均视为实李代数）．
+已知Lorentz代数 $\mathfrak{so}^{+}(1,3)$ 作为实李代数，由 3 个空间旋转生成元 $J_i$ 和 3 个Lorentz伪转动生成元 $K_i$ 构成．
+当我们对其进行复化，得到复李代数 $\mathfrak{so}^{+}(1,3)_{\mathbb{C}}$ 时，允许生成元进行复系数线性组合．
 我们已知实Lorentz代数$\mathfrak{so}^{+}(1,3)$（即\eqref{chlg:eqn_LA-so13-comm-JK}）对易关系为：
 \begin{equation}
 	[J_i, J_j] = \mathbbm{i} \epsilon_{ijk} J_k,\quad
@@ -2150,7 +2150,7 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 	[N_k, N_l] = \mathbbm{i} \epsilon_{kln} N_n, \quad
 	[M_k, N_l] = 0.
 \end{equation}
-很明显，上式中对易关系同构于复化Lorentz代数 $\mathfrak{so}(1,3)_{\mathbb{C}} 
+很明显，上式中对易关系同构于复化Lorentz代数 $\mathfrak{so}^{+}(1,3)_{\mathbb{C}} 
 \cong \mathfrak{su}(2)_M \oplus\mathfrak{su}(2)_N$．
 
 设 $\mathfrak{su}(2)_M\oplus\mathfrak{su}(2)_N$ 的表示空间基矢
@@ -2169,7 +2169,7 @@ $[e_1, e_2] = e_3$、$[e_2, e_3] = e_1$、$[e_3, e_1] = e_2$．
 		K_3 |m_M {m_N}\rangle &= \mathbbm{i}(N_3-M_3) | m_M {m_N}\rangle
 		= \mathbbm{i} (m_N-m_M)|m_M {m_N}\rangle . \label{chlar:eqn_K3MN3}
 \end{align}\end{subequations}
-由上式可得复化Lorentz代数 $\mathfrak{so}(1,3)_{\mathbb{C}} \cong \mathfrak{su}(2)_M \oplus \mathfrak{su}(2)_N$ 的
+由上式可得复化Lorentz代数 $\mathfrak{so}^{+}(1,3)_{\mathbb{C}} \cong \mathfrak{su}(2)_M \oplus \mathfrak{su}(2)_N$ 的
 表示矩阵，记为 $\mathfrak{D}^{(j_M j_N)}$．可以证明（略）：
 \CJKunderwave{复化后的Lorentz代数复表示与原实Lorentz代数的复表示在有限维复表示层面上是一一对应且等价的．}
 
@@ -3286,7 +3286,7 @@ $E$代表粒子能量（正值），$p$代表粒子三动量$\boldsymbol{p}$的�
 	{\bfseries (3)} Hilbert空间本身是可数无穷维、可分的；但连续动量基下的矩阵指标表现为不可数无穷．
 	然而这并不矛盾，因为$|p\sigma\rangle$不是Hilbert空间中的矢量，而是谱测度的形式本征矢．
 	{\bfseries (4)} 由式\eqref{chlar:eqn_UpWkD}诱导出的小群可能是紧致的（比如下面的$SU(2)$），
-	紧李群的不可约幺正表示是有限维的；
+	紧致李群的不可约幺正表示是有限维的；
 	但由\eqref{chlar:eqn_UpWkD}式得到的不可约幺正表示是无穷维的，
 	无穷来源于不可数的连续动量指标．
 \end{remark}
@@ -3590,6 +3590,7 @@ $\hat{O}$是某可观测算符；算符本身以及态矢量本身都没有可�
 至此，我们得到结论：{\kaishu 可以依据$\hat{J}^3$的本征值$\sigma$
 	（螺旋度，即自旋在动量方向上的投影）对无质量粒子正能态进行分类．}
 
+通过上面的论证可知：当粒子质量趋于零时，（从物理角度来看）相当于小群由$ISO(2)$退化为$SO(2)$．
 $SO(2)$群表示见例\ref{chlar:exam_U1}，不过需要注意该表示中的$n$（即上面的$\sigma$）取值范围是：
 $0$、$\pm\frac{1}{2}$、$\pm 1$、……．这是因为我们要把$SO(2)$看成$SO(3)$的子群，
 而描述量子物理的是$SO(3)$的双重通用覆盖群$SU(2)$；
@@ -3875,10 +3876,6 @@ $\mathcal{S}^{\mu\nu}$关于上指标反对称，共有六个，它们包含三�
 更多内容可参考\parencite{carmeli-rl1976,taorb-2011-gt,tung-1985}相应章节或类似书籍．  
 更多旋量知识可参考\parencite{penrose-Rindler1984}．
 
-%、\parencite{tung-1985} %\parencite{stephani-exe-2003} \parencite{carmeli-rl1976}
-%\parencite{chandrasekhar-1983}、
-
-%%\printbibliography[heading=subbibliography,title=第\ref{chlar}章参考文献]
 
 \endinput
 
