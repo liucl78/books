@@ -182,7 +182,7 @@ $\mathscr{D}\left(T_{1}\right)=\mathscr{D}\left(T_{2}\right)\subset X$，
 
 我们将定义\ref{chmla:def_linear-fun}中给出的{\kaishu 线性泛函}的定义略作推广．
 即{\heiti 线性泛函}$f$是定义域落在赋范空间$X$中、值域落在$X$的基域$\mathbb{F}$中的线性算符．
-如果对于任意$x \in \mathscr{D}(f)$，存在实常数$c$使得$|f(x)| \leqslant c\|x\|$，
+若存在实常数 $c$（ $c\geqslant0$），使得对任意 $x\in\mathscr{D}(f)$ 都有 $|f(x)|\leqslant c\|x\|$，
 则称$f$是{\heiti 有界线性泛函}．
 
 
@@ -433,8 +433,8 @@ Riesz表示定理说明映射（$\mathcal{H} \ni y \longleftrightarrow y' \in \m
 \begin{definition}
 	内积空间$X$中的正交规范集$S=\left\{e_\alpha \mid \alpha \in I\right\}$，
 	称为一个{\heiti 基}（或{\heiti 封闭的}）是指 $\forall x \in X$有
-	表达式$x=\sum_{\alpha \in I}\langle x, e_\alpha \rangle e_\alpha$成立．
-    我们称$\left\{\langle x, e_\alpha \rangle \mid \alpha \in I\right\}$为$x$关于
+	表达式$x=\sum_{\alpha \in I}\langle e_\alpha,x \rangle e_\alpha$成立．
+    我们称$\left\{\langle e_\alpha ,x \rangle \mid \alpha \in I\right\}$为$x$关于
     基$\left\{e_\alpha \mid \alpha \in I\right\}$ 的{\heiti \bfseries Fourier系数}．
 \end{definition}
 
