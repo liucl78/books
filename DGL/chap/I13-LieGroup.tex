@@ -215,8 +215,8 @@ $A$、$B$是这个李代数的两个基，不难验证它们是对易的．
 	{\heiti 李群直积}．设有李群$G$、$H$，在积流形$G\times H$
 	（见\S\ref{chdm:sec_cartensian-product}）上定义
 	\begin{equation}
-		(g_1,h_1)\cdot(g_2,h_2)\overset{def}{=}(g_1 g_2, h_1h_2), \qquad
-		(g,h)^{-1}\overset{def}{=}(g^{-1},h^{-1}).
+		(g_1,h_1)\cdot(g_2,h_2)\overset{\mathrm {def}}{=}(g_1 g_2, h_1h_2), \qquad
+		(g,h)^{-1}\overset{\mathrm {def}}{=}(g^{-1},h^{-1}).
 	\end{equation}
 	其中$\forall g,g_1,g_2\in G;\ \forall h,h_1,h_2\in H$．
 	请读者验证$(g,h)$满足群的定义．
@@ -368,7 +368,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 
 \begin{example}
     $\mathbb{R}^3$中的叉乘构成李代数．设有$\mathbb{R}^3$中三个矢量$\boldsymbol{u},\boldsymbol{v},\boldsymbol{w}$，
-    定义李积为$[\boldsymbol{u},\boldsymbol{v}]\overset{def}{=}\boldsymbol{u} \times \boldsymbol{v}$．
+    定义李积为$[\boldsymbol{u},\boldsymbol{v}]\overset{\mathrm {def}}{=}\boldsymbol{u} \times \boldsymbol{v}$．
     显然，叉乘符合定义\ref{chlg:def_la}中性质(1)和(2)．对于性质(3)，有
     \begin{align*}
         &\bigl[\boldsymbol{u},[\boldsymbol{v},\boldsymbol{w}]\bigr]
@@ -386,7 +386,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 \begin{example}\label{chlg:exm_GL-a}
     设$\mathfrak{gl}(m,\mathbb{C})$是\CJKunderwave{复}数域上$m\times m$矩阵全体构成的集合，显然
     这是一个$m^2$维的线性空间．$\forall X,Y\in \mathfrak{gl}(m,\mathbb{C})$，
-    定义李积为$[X,Y]\overset{def}{=}XY-YX$，即两矩阵相乘之差．
+    定义李积为$[X,Y]\overset{\mathrm {def}}{=}XY-YX$，即两矩阵相乘之差．
     容易验证此定义满足李代数定义\ref{chlg:def_la}中的三条性质，
     因此$\mathfrak{gl}(m,\mathbb{C})$是$m^2$维\CJKunderwave{复}李代数．
     注：不要求$\mathfrak{gl}(m,\mathbb{C})$中矩阵非退化．
@@ -707,7 +707,7 @@ $    [Y_i, Y_j] =\tilde{c}^{k}_{ij} Y_k $，则有
 半直积群$K$中元素的群乘法为：
 \begin{equation}\label{chlg:eqn_semi-dir-prod}
     k_1 k_2 \equiv (g_1, h_1) (g_2, h_2)
-    \overset{def}{=} \bigl(g_1 \nu_{h_1}(g_2),\ h_1 h_2 \bigr) .
+    \overset{\mathrm {def}}{=} \bigl(g_1 \nu_{h_1}(g_2),\ h_1 h_2 \bigr) .
 \end{equation}
 下面，我们验证在上述群乘法定义下$K$确实是一个群．
 
@@ -940,7 +940,7 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 
 因$\mathscr{G}$与$T_eG$同构，故在$T_eG$中可以引入如下李积：$\forall A, B \in T_eG$有
 \begin{equation}\label{chlg:eqn_LA-TeG}
-    [A, B] \overset{def}{=} [X,Y](e), \quad 
+    [A, B] \overset{\mathrm {def}}{=} [X,Y](e), \quad 
     X,Y \text{是由}A,B \text{得到的左不变切矢量场}.
 \end{equation}
 即切矢量场$X,Y$在单位元$e$处的对易关系决定了$A, B$的对易关系．
@@ -1235,7 +1235,7 @@ $\forall X_e \in T_eG$，在$U$中都存在一条光滑曲线$\gamma(t),-\epsilo
 即式\eqref{chlg:eqn_LA-TeG}．
 与之类似，用右不变切矢量场$Y_i$也可以定义$T_e G$中矢量的对易关系如下：
 \begin{align}
-    [\xi_i, \xi_j]_{r} \overset{def}{=} & [Y_i, Y_j](e). \qquad \text{右不变切矢量场} \label{chlg:eqn_LA-TeG-r} \\
+    [\xi_i, \xi_j]_{r} \overset{\mathrm {def}}{=} & [Y_i, Y_j](e). \qquad \text{右不变切矢量场} \label{chlg:eqn_LA-TeG-r} \\
     [\xi_i, \xi_j]_{l} = & [X_i, X_j](e). \qquad \text{左不变切矢量场} \tag{\ref{chlg:eqn_LA-TeG}}
 \end{align}
 由式\eqref{chlg:eqn_SC-lr}不难得到：
@@ -1934,7 +1934,7 @@ G^{(1)}=\left\{\left.\left(\begin{array}{ccc}
 这说明$\tilde{\phi}(t,h)$诱导的切矢量场仍是$X(t)$（注意$X(t)$是左不变的）．
 令
 \begin{equation}\label{chlg:eqn_opsi}
-    \sigma(t) \overset{def}{=} \phi(t,e),\qquad \forall t\in \mathbb{R}.
+    \sigma(t) \overset{\mathrm {def}}{=} \phi(t,e),\qquad \forall t\in \mathbb{R}.
 \end{equation}
 映射$\sigma(t)$显然是和$X$相关的，为了简洁起见，没有把它记成$\sigma_X(t)$．
 由$\phi(t)$的性质可知
@@ -1989,7 +1989,7 @@ $\sigma(t)$的唯一性可由常微分方程组解唯一性定理得到．
     李群$G$中由$X_e$确定的单参数子群（见\eqref{chlg:eqn_opsi}）．定义{\heiti 指数映射}为
     $\exp : T_e G \to G$，具体表示为
     \begin{equation}\label{chlg:eqn_exp-map}
-        \exp(X) \overset{def}{=} \sigma_X(1); \qquad \forall X \in T_eG . 
+        \exp(X) \overset{\mathrm {def}}{=} \sigma_X(1); \qquad \forall X \in T_eG . 
     \end{equation}
 \end{definition}
 
@@ -2201,7 +2201,7 @@ $t$是实参数；$o(t^2)$表示它是$t$的3阶及以上阶小量，
 定义映射$F:\mathbb{R}\to GL(m,\mathbb{C})$，
 它的具体表达式为（$\exp$是\eqref{chlg:eqn_exp-X}）
 \begin{equation}\label{chlg:eqn_exp-tX}
-   F(t) \overset{def}{=} \exp(t X),\qquad \text{非零矩阵}\ 
+   F(t) \overset{\mathrm {def}}{=} \exp(t X),\qquad \text{非零矩阵}\ 
       X \in \mathfrak{gl}(m,\mathbb{C}),\quad \forall t\in \mathbb{R} .
 \end{equation}
 由式\eqref{chlg:eqn_tmp34}容易看出：$\forall t,s \in \mathbb{R}$，有
@@ -2342,7 +2342,7 @@ Jordan矩阵对角线上的数是$X$的特征值（也称为本征值），即�
 %\subsection{自同构映射}
 对于李群$G$中任意元素$g$，定义映射$F(g):G\to G$如下：
 \begin{equation}\label{chlg:eqn_Fghg}
-    \bigl(F(g)\bigr) (h) \overset{def}{=} g h g^{-1},\quad \forall h\in G;
+    \bigl(F(g)\bigr) (h) \overset{\mathrm {def}}{=} g h g^{-1},\quad \forall h\in G;
     \ \Leftrightarrow \
     F(g) = L_g \circ R_{g^{-1}} = R_{g^{-1}}\circ L_g .
 \end{equation}
@@ -3537,7 +3537,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\h
 \end{equation*}
 在对称变换$Q$的作用下，新的态矢量$\psi'$可用一个函数变换算符来表示，即
 \begin{equation}\label{chlg:eqn_psip2psi}
-    \psi'(\boldsymbol{r}) \overset{def}{=}\hat{D}(Q)\psi(\boldsymbol{r}).
+    \psi'(\boldsymbol{r}) \overset{\mathrm {def}}{=}\hat{D}(Q)\psi(\boldsymbol{r}).
     \qquad \text{等号两边的宗量$\boldsymbol{r}$是相同的}
 \end{equation}
 那么便有
@@ -3604,7 +3604,7 @@ $A_m$、$B_m$、$C_m$、$D_m$称为{\heiti 古典李群}，其李代数称为{\h
 \begin{equation}\label{chlg:eqn_Texp}
     \hat{T}(m) \equiv \exp\left( -a^j \frac{\partial }{\partial x^j} \right) 
     \equiv\exp\left(-\mathbbm{i} a^j \hat{P}_j  \right) , \qquad
-    \hat{P}_j\overset{def}{=} -\mathbbm{i}\frac{\partial }{\partial x^j} .
+    \hat{P}_j\overset{\mathrm {def}}{=} -\mathbbm{i}\frac{\partial }{\partial x^j} .
 \end{equation}
 上式中顺便给出了平移$\hat{P}_j$的定义；
 并且把平移算符形式地表示成指数形式．
@@ -3663,7 +3663,7 @@ $m$维欧几里得空间（正定度规）的对称群是欧几里得群（记�
     \begin{bmatrix}  \boldsymbol{x}' \\ 1 \end{bmatrix} =
     \begin{bmatrix}  R & \boldsymbol{a} \\ \boldsymbol{0}^T & 1  \end{bmatrix}
     \begin{bmatrix}  \boldsymbol{x} \\ 1 \end{bmatrix} 
-    \  \overset{def}{=} \boldsymbol{T} \begin{bmatrix}  \boldsymbol{x} \\ 1 \end{bmatrix} .
+    \  \overset{\mathrm {def}}{=} \boldsymbol{T} \begin{bmatrix}  \boldsymbol{x} \\ 1 \end{bmatrix} .
     \qquad \boldsymbol{T}^{-1} = 
     \begin{bmatrix}    R^{-1} & -R^{-1} \boldsymbol{a} \\ \boldsymbol{0}^T & 1    \end{bmatrix} .
 \end{equation}
@@ -4701,7 +4701,7 @@ Poincar\'{e}（Jules Henri Poincar\'e，1854--1912，法国数学家 ）
     \begin{bmatrix}  x' \\ 1 \end{bmatrix} =
     \begin{bmatrix}  \Lambda & b \\ \boldsymbol{0}^T & 1  \end{bmatrix}
     \begin{bmatrix}  x \\ 1 \end{bmatrix} 
-    \  \overset{def}{=} \boldsymbol{P} \begin{bmatrix}  x \\ 1 \end{bmatrix} .
+    \  \overset{\mathrm {def}}{=} \boldsymbol{P} \begin{bmatrix}  x \\ 1 \end{bmatrix} .
     \qquad \boldsymbol{P}^{-1} = 
     \begin{bmatrix}    \Lambda^{-1} & -\Lambda^{-1} b \\ \boldsymbol{0}^T & 1    \end{bmatrix} .
 \end{equation}
@@ -4894,7 +4894,7 @@ $\exp(-\mathbbm{i} \alpha J_1 )$、$\exp(-\mathbbm{i} \theta K_1 )$等等，
     \begin{bmatrix}  \boldsymbol{x}' \\ t'\\ 1 \end{bmatrix} =
     \begin{bmatrix}  R & \boldsymbol{v} & \boldsymbol{b} \\0 & 1 & \tau \\ 0 &0 & 1  \end{bmatrix}
     \begin{bmatrix}  \boldsymbol{x} \\t\\ 1 \end{bmatrix} 
-    \  \overset{def}{=} \boldsymbol{G} \begin{bmatrix}  \boldsymbol{x} \\ t\\ 1 \end{bmatrix} .
+    \  \overset{\mathrm {def}}{=} \boldsymbol{G} \begin{bmatrix}  \boldsymbol{x} \\ t\\ 1 \end{bmatrix} .
 \end{equation}
 其中$R \in S O(3)$；$\boldsymbol{v}, \boldsymbol{b} \in \mathbb{R}^3$，
 $\boldsymbol{v}$表示速度，$\boldsymbol{b}$表示纯空间平移；
@@ -4948,7 +4948,7 @@ Poincar\'{e}代数\eqref{chlg:eqn_PA-iso13-comm-PJK}变为
 	\begin{bmatrix}  t' \\ \boldsymbol{x}'   \end{bmatrix} =
 	\begin{bmatrix}  1 & 0  \\ \boldsymbol{v} & R   \end{bmatrix}
 	\begin{bmatrix}  t \\ \boldsymbol{x}  \end{bmatrix} 
-	\  \overset{def}{=} \boldsymbol{A} \begin{bmatrix}  t \\ \boldsymbol{x}  \end{bmatrix} .
+	\  \overset{\mathrm {def}}{=} \boldsymbol{A} \begin{bmatrix}  t \\ \boldsymbol{x}  \end{bmatrix} .
 \end{equation}
 假设保Galilei变换不变的度规为$g_{\mu\nu}$（$4\times 4$矩阵），则有
 \begin{equation}
@@ -5035,7 +5035,7 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 紧致李群$G$上{\heiti 不变积分}的概念；$\forall f\in C^0(G)$以及$G$上任意
 单位分解$\{h_\alpha\}$定义其积分为
 \begin{equation}
-    \int_{G} f \cdot \omega_1 \wedge\cdots\wedge\omega_m \overset{def}{=} 
+    \int_{G} f \cdot \omega_1 \wedge\cdots\wedge\omega_m \overset{\mathrm {def}}{=} 
     \int_{G} \sum_{\alpha}  h_\alpha f \cdot  \omega_1 \wedge\cdots\wedge\omega_m 
     =\int_{G} f(g) {\rm d}g .
 \end{equation}
@@ -5100,7 +5100,7 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
     需要预先给$V$指定一个度规；通常情况下，在实数域上我们取正定度规，  %或者广义闵氏度规
     在复数域上取正定的酉度规（见定义\ref{chcx:def_unitary-space}）．令
     \begin{equation}\label{chlg:eqn_Weyl-sp}
-        (x,y)\overset{def}{=} \int_{G} \left<g(x), g(y)\right>  \Omega(g),
+        (x,y)\overset{\mathrm {def}}{=} \int_{G} \left<g(x), g(y)\right>  \Omega(g),
         \qquad \forall x,y \in V.
     \end{equation}
     因$g\in G \subset GL(V)$，故$g$本身是$V$上的线性变换；$g(x)$自然还是$V$中的矢量．
@@ -5184,7 +5184,7 @@ h^{\mu \nu}=\left(\begin{array}{cccc}
 的元素同构于单位元$e$处切空间$T_e G$中的元素．
 若$\left<\cdot,\cdot \right>_e$是$T_e G$上的标量积，那么
 \begin{equation}\label{chlg:eqn_left-invariant-metric}
-    \left<X,Y\right>_a \overset{def}{=} 
+    \left<X,Y\right>_a \overset{\mathrm {def}}{=} 
     \left<L_{a^{-1}*} X,\, L_{a^{-1}*} Y \right>_e, 
     \quad \forall X,Y \in T_a G.
 \end{equation}
@@ -5523,7 +5523,7 @@ $\{L_g=\sigma(g,\cdot),\ \forall g \in G\}$是 $\mathrm{Diff}(M)$的一个子群
 李群 $G$ 在 $M$ 上的左作用和右作用是可以互相转换的．实际上，若有李群 $G$ 在 $M$ 
 上的右作用 $\theta: M \times G \to M$，定义映射 $\sigma: G \times M \to M$ 如下:
 \begin{equation}
-    \sigma(g, x)\overset{def}{=} \theta(x, g^{-1}), \quad \forall(g, x) \in G \times M,
+    \sigma(g, x)\overset{\mathrm {def}}{=} \theta(x, g^{-1}), \quad \forall(g, x) \in G \times M,
 \end{equation}
 则 $\sigma$ 是光滑的，并且对任意的 $g, h \in G, x \in M$ 有
 \begin{align*}
@@ -5636,7 +5636,7 @@ $\boldsymbol{e}=\left(\boldsymbol{e}_1, \cdots, \boldsymbol{e}_m\right) \in \mat
 
 \begin{definition}
     设$G$是左作用在光滑流形$M$上的李变换群，则$x \in M$点的{\heiti 轨道}（orbit）定义
-    为：$\mathcal{O}(x) \overset{def}{=} \{ g\cdot x \ | \  g\in G \}$．
+    为：$\mathcal{O}(x) \overset{\mathrm {def}}{=} \{ g\cdot x \ | \  g\in G \}$．
 \end{definition}
 
 \index[physwords]{迷向子群}
@@ -5644,7 +5644,7 @@ $\boldsymbol{e}=\left(\boldsymbol{e}_1, \cdots, \boldsymbol{e}_m\right) \in \mat
 \begin{definition}\label{chlg:def_isotropy}
     设$G$是左作用在光滑流形$M$上的李变换群，则$x \in M$点的{\heiti 迷向子群}
     （isotropy，也译成{\kaishu 各向同性}）定义
-    为：$G_x \overset{def}{=} \{ g\in G \ | \  g\cdot x = x \}$．
+    为：$G_x \overset{\mathrm {def}}{=} \{ g\in G \ | \  g\cdot x = x \}$．
 \end{definition}
 
 \begin{example}
@@ -6100,7 +6100,7 @@ $\mathfrak{o}(3)$是（式\eqref{chlar:eqn_so3-L}）
 在$\mathfrak{g}^{\mathbb{C}}$中，定义李积关系为
 （下式中$1\leqslant i,j\leqslant m$，$a$、$b$、$c$、$d$为实数）：
 \begin{equation}\label{chlg:eqn_rclc}
-    \bigl[(a+\mathbbm{i}b) \boldsymbol{e}_i,\ (c+\mathbbm{i}d) \boldsymbol{e}_j \bigr] \overset{def}{=}
+    \bigl[(a+\mathbbm{i}b) \boldsymbol{e}_i,\ (c+\mathbbm{i}d) \boldsymbol{e}_j \bigr] \overset{\mathrm {def}}{=}
     (ac-bd)[\boldsymbol{e}_i,\, \boldsymbol{e}_j] + \mathbbm{i}(ad+bc)[\boldsymbol{e}_i,\, \boldsymbol{e}_j].
 \end{equation}
 满足上述李积关系的$\mathfrak{g}^{\mathbb{C}}$（$m$维）称为实李代数$\mathfrak{g}$（$m$维）的{\heiti 复化}．
@@ -6338,7 +6338,7 @@ $ \forall y \in \mathfrak{h}_{\mathbb{R}}$．
 并且有$g_{\mu\nu}g^{\nu\rho}=\delta^\rho_\mu$．
 设半单李代数$\mathfrak{g}$的结构常数为$C_{ij}^l$，定义
 \begin{equation}
-    C_{ijk} \overset{def}{=} g_{kl} C_{ij}^l .
+    C_{ijk} \overset{\mathrm {def}}{=} g_{kl} C_{ij}^l .
     \qquad \text{人为约定上指标降在最后位置}
 \end{equation}
 这个新定义的结构常数关于下标全反对称，即
@@ -6360,7 +6360,7 @@ C^p_{qk} C^q_{li} C_{jp}^l -C^p_{kq} C^q_{lj} C_{pi}^l $．
 设半单李代数$\mathfrak{g}$的基矢为$\{X_l\}$，其中$1\leqslant l \leqslant m$．
 因$\mathfrak{g}$的Killing型非退化，借助于它可定义$n$阶{\bfseries \heiti Casimir算子}：
 \begin{equation}\label{chlg:eqn_Casimir}
-    C_n \overset{def}{=} \sum_{\{i\}\{j\}\{k\}}
+    C_n \overset{\mathrm {def}}{=} \sum_{\{i\}\{j\}\{k\}}
     C_{i_1 j_1} ^{j_2} C_{i_2 j_2} ^{j_3}\cdots C_{i_n j_n} ^{j_1} 
     \times g^{i_1 k_1} \cdots g^{i_n k_n} X_{k_1} \cdots X_{k_n} .
 \end{equation}

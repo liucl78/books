@@ -197,15 +197,16 @@ $\{P;\boldsymbol{e}_i\}$可在$\{O;\boldsymbol{i},\boldsymbol{j},\boldsymbol{k}\
 \begin{equation}\label{chcdg:eqn_arclength}
     \lim\limits_{\substack{\lambda\to 0\\ n\to\infty}} \sum_{i=0}^{n-1} 
     |\boldsymbol{r}(t_{i+1}) - \boldsymbol{r}(t_{i})| = \int_{a}^{b} |\boldsymbol{r}'(t)|{\rm d}t
-    \overset{def}{=}s .
+    \overset{\mathrm {def}}{=}s .
 \end{equation}
 上式便是曲线的{\heiti 弧长公式}；
 因$\boldsymbol{r}'(t)$ 在 $[a,b]$ 上连续，故 $|\boldsymbol{r}'(t)|$ 可积、有界．
 
-如果用其它参数来描述曲线，比如存在变换$t=t(u)$（$u\in [a,b]$），
+若用其它参数来描述曲线，比如存在变换$t=t(u)$（$u\in [a,b]$），
 则$\boldsymbol{r}(t) \to \boldsymbol{r}\bigl(t(u)\bigr)=\boldsymbol{r}(u) $；
-需对变换$t=t(u)$作如下要求（{\heiti 容许变换}）：函数$t=t(u)$三次连续可微，并且$t'(u)>0$处处成立．
-在这样要求下，这种变换并不改变曲线长度．
+需对变换$t=t(u)$作如下要求（{\heiti 容许变换}）：
+函数$t=t(u)$三次连续可微，并且$t'(u)>0$处处成立．
+在这样要求下，此类变换不改变曲线长度．
 \begin{align*}
     s=\int_{a}^{b} |\boldsymbol{r}'(u)|{\rm d}u
      =\int_{a}^{b} \left|\frac{{\rm d}\boldsymbol{r}\bigl(t(u)\bigr)}{{\rm d}t }
@@ -232,7 +233,7 @@ $\{P;\boldsymbol{e}_i\}$可在$\{O;\boldsymbol{i},\boldsymbol{j},\boldsymbol{k}\
 \subsection{曲率、挠率与Frenet公式}
 从上一节我们知道正则曲线$C$的切矢量满足$|\boldsymbol{r}'(s)|=1$；现定义：
 \begin{align}
-    \boldsymbol{T} (s) \overset{def}{=} \boldsymbol{r}'(s) .
+    \boldsymbol{T} (s) \overset{\mathrm {def}}{=} \boldsymbol{r}'(s) .
 \end{align}
 我们研究一下这个单位长的切矢量$\boldsymbol{T} (s)$．
 设正则曲线$C(s)$上有两个邻近点$s$、$s+\Delta s$，此两点
@@ -268,7 +269,7 @@ $\frac{{\rm d} \boldsymbol{T}}{{\rm d}s}$为{\heiti 曲率矢量}．
 很明显，有$\boxed{\boldsymbol{T}'(s) = \kappa(s) \boldsymbol{N}(s) }$．
 
 由曲线$C(s)$的切矢$\boldsymbol{T}$和主法矢$\boldsymbol{N}$定义{\heiti 副法矢量}：
-$    \boldsymbol{B}(s) \overset{def}{=} \boldsymbol{T}(s) \times \boldsymbol{N}(s)$．
+$    \boldsymbol{B}(s) \overset{\mathrm {def}}{=} \boldsymbol{T}(s) \times \boldsymbol{N}(s)$．
 
 通过以上叙述，不难得到：在$\kappa(s)\neq 0$的点，正则曲线$C(s)$存在一个
 右手单位标架：$\{\boldsymbol{r}(s);\  \boldsymbol{T}(s), \boldsymbol{N}(s), \boldsymbol{B}(s) \}$；
@@ -383,7 +384,7 @@ $\boldsymbol{r}_u|_{(u_0,v_0)},\boldsymbol{r}_v|_{(u_0,v_0)}$是$T_pS$的一组�
 
 由于曲面是正则的，故$T_pS$的法矢量可按如下方式定义
 \begin{equation}\label{chcdg:eqn_Snormal}
-    \boldsymbol{n}(u_0,v_0) \overset{def}{=} \left. \frac{\boldsymbol{r}_u \times \boldsymbol{r}_v}
+    \boldsymbol{n}(u_0,v_0) \overset{\mathrm {def}}{=} \left. \frac{\boldsymbol{r}_u \times \boldsymbol{r}_v}
     {|\boldsymbol{r}_u \times \boldsymbol{r}_v|} \right |_ {(u_0,v_0)}
     = \frac{\boldsymbol{r}_u \times \boldsymbol{r}_v} {\sqrt{EG-F^2}}.
 \end{equation}
@@ -572,7 +573,7 @@ $\boldsymbol{r}_\alpha\equiv \frac{\partial \boldsymbol{r}}{\partial u^\alpha}$�
 经过一些运算可得到
 \begin{equation}
     -\omega^\beta_\gamma =  \sum_{\sigma=1}^{2} g^{\beta \sigma} b_{\sigma\gamma}
-     \overset{def}{=}b^\beta_\gamma .
+     \overset{\mathrm {def}}{=}b^\beta_\gamma .
 \end{equation}
 注意到$g_{\alpha \beta}=\boldsymbol{r}_\alpha\cdot \boldsymbol{r}_\beta$；
 式\eqref{chcdg:eqn_drdn}中第一式$\boldsymbol{r}_{\alpha \beta}$、
@@ -587,7 +588,7 @@ $b_{\alpha \beta}$关于下标$\alpha$、$\beta$是对称的，
     \sum_{\delta=1}^{2} \left(\Gamma_{\alpha \beta}^\delta g_{\delta \sigma}
      + \Gamma_{\sigma \beta}^\delta g_{\delta \alpha} \right) . \label{chcdg:eqn_Gg}
 \end{align}
-轮换角标$\alpha\sigma \beta$，有
+轮换角标$\alpha$、$\sigma $、$\beta$，有
 \begin{equation}
     \frac{\partial g_{\sigma\beta}}{\partial u^\alpha} =   \sum_{\delta=1}^{2} 
     \left(\Gamma_{\sigma\alpha}^\delta g_{\delta \beta} + \Gamma_{\beta\alpha}^\delta g_{\delta \sigma} \right) , \quad
@@ -638,11 +639,11 @@ $\boldsymbol{T}=\frac{{\rm d}\boldsymbol{r}}{{\rm d}s}=
 \end{equation} %\setlength{\mathindent}{2em}
 由式\eqref{chcdg:eqn_kNn}可定义曲线$C(s)$的{\heiti 法曲率}$\kappa_n$：
 \begin{align}
-    \kappa_n \overset{def}{=} & \boldsymbol{n} \cdot (\kappa \boldsymbol{N})
+    \kappa_n \overset{\mathrm {def}}{=} & \boldsymbol{n} \cdot (\kappa \boldsymbol{N})
     =\sum_{\alpha,\beta=1}^{2} b_{\alpha\beta}\frac{{\rm d}u^\alpha}{{\rm d}s}
     \frac{{\rm d}u^\beta}{{\rm d}s}
     =\frac{{\rm II}}{\rm I}.  \label{chcdg:eqn_kn} 
-%    \kappa_g \overset{def}{=} & \sqrt{\kappa^2 -\kappa_n^2} .
+%    \kappa_g \overset{\mathrm {def}}{=} & \sqrt{\kappa^2 -\kappa_n^2} .
 \end{align}
 
 
@@ -654,7 +655,7 @@ $\kappa_2$所对应的曲线的切矢量记为$\boldsymbol{e}_2$，
 可以证明$\boldsymbol{e}_1\cdot \boldsymbol{e}_2=0$（忽略脐点情形）．
 由两个主曲率可以定义{\heiti 总曲率}或称为{\bfseries \heiti Gauss曲率}（高斯曲率）：
 \begin{equation}\label{chcdg:eqn_Gauss-Curvature}
-    K \overset{def}{=}\kappa_1 \kappa_2  
+    K \overset{\mathrm {def}}{=}\kappa_1 \kappa_2  
     %=\det \left(\sum_{\delta=1}^{2}g^{\alpha\delta} b_{\delta\beta} \right)
     =\frac{\det b_{\alpha\beta}}{\det g_{\gamma\delta}} 
     =\frac{b_{11} b_{22} -(b_{12})^2}{g_{11} g_{22} -(g_{12})^2}
@@ -709,7 +710,7 @@ $\kappa_2$所对应的曲线的切矢量记为$\boldsymbol{e}_2$，
 容易看出式\eqref{chcdg:eqn_Gauss}的左边只是由曲面$S$的第一类基本量$g_{\alpha \beta}$（度规）
 的不高于二阶的偏导数构成的量，我们把它记成
 \begin{equation}\label{chcdg:eqn_Riemann}
-    R_{\hphantom{\delta} \alpha \beta \gamma}^\delta \overset{def}{=}
+    R_{\hphantom{\delta} \alpha \beta \gamma}^\delta \overset{\mathrm {def}}{=}
     +\frac{\partial}{\partial u^\beta} \Gamma_{\alpha \gamma}^\delta
     -\frac{\partial}{\partial u^\gamma} \Gamma_{\alpha \beta}^\delta
     +\sum_{\eta=1}^{2}\left( \Gamma_{\alpha \gamma}^\eta \Gamma_{\eta \beta}^\delta
@@ -762,7 +763,7 @@ Gauss绝妙定理推广到一般情形便是定理\ref{chrg:thm_isometry-Riemann
 三维欧氏空间的一个子集；由此他认识到二维曲面的第一基本形式（即今天的黎曼度规）是
 加在二维曲面上的一个附加结构，不是二维曲面（二维光滑流形）自带结构，两者可以分离．
 然后，黎曼把二维曲面中成立的内蕴几何推广到任意有限维空间，
-即今天的{\kaishu 黎曼几何}．
+即今天的{\kaishu 黎曼几何}；再后来被推广为广义黎曼几何．
 
 \begin{example}\label{chcdg:exm_torus}
 	闭合圆环面（torus，即轮胎面）的黎曼曲率．

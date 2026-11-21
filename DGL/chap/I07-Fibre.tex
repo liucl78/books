@@ -65,7 +65,7 @@
     {\bfseries (1)} $\forall \alpha \in I$，映射$\psi_\alpha$是从$\pi^{-1}(U_\alpha)$到
     $U_\alpha \times \mathbb{R}^q$的微分同胚，且$\forall p \in U_\alpha$有
     \begin{align*}
-        \psi_\alpha\left(v\right) \overset{def}{=} \left(p, y \right),
+        \psi_\alpha\left(v\right) \overset{\mathrm {def}}{=} \left(p, y \right),
         \quad \ v\in \pi^{-1} (U_\alpha),\ y \in \mathbb{R}^q ; 
         \quad \text{且}\quad
         \pi \circ \psi_\alpha^{-1} (p,y) = p.
@@ -142,7 +142,7 @@ $U_\alpha \times \mathbb{R}^q (\ \xleftrightarrow[\varphi^{-1}]{\varphi}
 局部平凡化映射．在纤维$\pi^{-1}(p)$中定义加法和数乘法如下：
 对于任意的 $v, w \in \pi^{-1}(p)$ 及 $\lambda \in \mathbb{R}$，令
 \begin{equation}\label{chfb:eqn_tmp-vlwt}
-    v+\lambda \cdot w \overset{def}{=} \psi_{\alpha, p}^{-1} \bigl(\psi_{\alpha, p} (v)
+    v+\lambda \cdot w \overset{\mathrm {def}}{=} \psi_{\alpha, p}^{-1} \bigl(\psi_{\alpha, p} (v)
     +\lambda \cdot \psi_{\alpha, p} (w)\bigr) .
 \end{equation}
 我们已知$\psi_{\alpha, p} (v)\in \mathbb{R}^q$，故$\psi_{\alpha, p} (v)$自身是线性空间$\mathbb{R}^q$中
@@ -246,8 +246,8 @@ $g_{\alpha \beta}^p \cdot g_{\beta \alpha}^p=g_{\alpha\alpha}^p=I$，
     与纤维型$V\equiv \mathbb{R}^q$同构的线性空间；故可以逐点定义截面的加法和
     实值函数的乘法．设$s,t\in \Gamma(E)$，$f$是$M$上的实值光滑函数，则$\forall p\in M$，定义
     \begin{equation}\label{chfb:eqn_spt}
-        (s+t)(p)\overset{def}{=} s(p) + t(p);\qquad
-        (fs)(p) \overset{def}{=} f(p) \cdot s(p) .
+        (s+t)(p)\overset{\mathrm {def}}{=} s(p) + t(p);\qquad
+        (fs)(p) \overset{\mathrm {def}}{=} f(p) \cdot s(p) .
     \end{equation}
     则$s+t$、$fs$仍是矢量丛$E$的光滑截面．这便证明了$\Gamma(E)$ 是 $C^{\infty}(M)$ - 模；
     $\Gamma(E)$自然也是实线性空间，通常是无穷维的．
@@ -362,7 +362,7 @@ $T^*M$是Hausdorff空间；$T^*M$存在开覆盖$\bigcup _{\alpha\in I} \pi^{-1}
 \overset{\varphi_\alpha}{\longrightarrow} \varphi_\alpha(U_\alpha) \times \mathbb{R}^m $（
 其中$\varphi_\alpha(U_\alpha) \subset \mathbb{R}^m$维数是$m$）．
 \begin{equation}\label{chfb:eqn_ctb_atalas}
-    \psi_\alpha\left(\omega_i \left. {\rm d}x^i \right| _p \right) \overset{def}{=} 
+    \psi_\alpha\left(\omega_i \left. {\rm d}x^i \right| _p \right) \overset{\mathrm {def}}{=} 
     \left(x_p^1,\cdots,x_p^m, \omega_1,\cdots,\omega_m\right),
     \ \forall p\in U_\alpha,\ \omega\in \pi^{-1} (p).
 \end{equation}
@@ -434,7 +434,7 @@ $T^*M$坐标是由两者结合得到的$(x^1,\cdots,x^m,\omega_1,\cdots,\omega_m
 使它们成为互相对偶的矢量空间．纤维 $\pi^{-1}(p)$ 和 $\tilde{\pi}^{-1}(p)$ 的配合定义为
 \begin{equation}\label{chfb:eqn_dph}
     \left\langle\psi_\alpha^{-1} (p, y_\alpha),\ \tilde{\psi}_\alpha^{-1} (p, \lambda_\alpha )\right\rangle
-    \overset{def}{=} \left\langle y_\alpha, \lambda_\alpha\right\rangle .
+    \overset{\mathrm {def}}{=} \left\langle y_\alpha, \lambda_\alpha\right\rangle .
 \end{equation}
 这与$U_\alpha$的选取是无关的（验证见后）．这时我们称矢量丛$E^*$为$E$的{\kaishu 对偶丛}．
 
@@ -534,7 +534,7 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
 它左作用在张量积$V \otimes \tilde{V}$上，其定义是：对于 $v \in V$、$ \tilde{v} \in \tilde{V}$，有
 \begin{equation*}
     h_{\alpha \beta} \cdot(v \otimes \tilde{v})
-    \overset{def}{=}\left(g_{\alpha \beta} \cdot v\right) \otimes
+    \overset{\mathrm {def}}{=}\left(g_{\alpha \beta} \cdot v\right) \otimes
     \left(\tilde{g}_{\alpha \beta} \cdot \tilde{v}\right) .
 \end{equation*}
 容易验证，函数族$\{h_{\alpha \beta}: U_\alpha \cap U_\beta \rightarrow GL(V \otimes \tilde{V})\}$满足
@@ -596,13 +596,13 @@ $GL(V^*)$的元素左作用在$V^*$上．则由上式可以得到$E^*$的过渡�
     及 $\forall f \in C^{\infty}(M)$，有如下三条公理成立
     （令$\nabla(\xi,X)\equiv \nabla_X \xi$ ，{\heiti 协变导数}）．
     
-    {\bfseries (1)} $\mathbb{R}$线性： $\nabla_X(\xi+c \eta) \overset{def}{=}
+    {\bfseries (1)} $\mathbb{R}$线性： $\nabla_X(\xi+c \eta) \overset{\mathrm {def}}{=}
      \nabla_X \xi+\nabla_X (c\eta) \equiv  \nabla_X \xi+c \nabla_X \eta$；
     
-    {\bfseries (2)} 加法： $\nabla_{X+f Y} \xi \overset{def}{=} 
+    {\bfseries (2)} 加法： $\nabla_{X+f Y} \xi \overset{\mathrm {def}}{=} 
     \nabla_X \xi+ \nabla_{fY} \xi \equiv \nabla_X \xi+f \nabla_Y \xi$；
     
-    {\bfseries (3)} $\nabla_X(f \xi) \overset{def}{=} (\nabla_X f) \xi+f \nabla_X \xi
+    {\bfseries (3)} $\nabla_X(f \xi) \overset{\mathrm {def}}{=} (\nabla_X f) \xi+f \nabla_X \xi
      \equiv X(f) \xi+f \nabla_X \xi$．
 \end{definition}
 
@@ -653,9 +653,9 @@ $(\nabla \xi)(X)=\nabla_X \xi$，$ \forall \xi \in \Gamma(E), X \in \mathfrak{X}
 对于任意的 $X \in \mathfrak{X}(M)$，和对于任意的 $\xi_i \in \Gamma(E_i)$，
 极其自然地定义：
 \begin{align}
-    \nabla_X\left(\xi_1 \oplus \xi_2\right)\overset{def}{=}&
+    \nabla_X\left(\xi_1 \oplus \xi_2\right)\overset{\mathrm {def}}{=}&
     \left(\nabla_X^{(1)} \xi_1\right) \oplus \nabla_X^{(2)} \xi_2, \label{chfb:eqn_opcon} \\
-    \nabla_X\left(\xi_1 \otimes \xi_2\right)\overset{def}{=}& \left(\nabla_X^{(1)} \xi_1\right) \otimes 
+    \nabla_X\left(\xi_1 \otimes \xi_2\right)\overset{\mathrm {def}}{=}& \left(\nabla_X^{(1)} \xi_1\right) \otimes 
     \xi_2+\xi_1 \otimes \nabla_X^{(2)} \xi_2 . \label{chfb:eqn_otcon}
 \end{align}
 容易验证：上面两个映射满足定义\ref{chfb:def_vb-connection}中的三个公理，
@@ -721,7 +721,7 @@ $s^{*\alpha}$是其对偶标架场；那么对于 $X \in \mathfrak{X}(M)$，$ \x
 \end{equation*}
 可以假定
 \begin{equation}\label{chfb:eqn_con-Gamma}
-    \nabla_{e_i} s_\alpha \overset{def}{=} \Gamma_{\alpha i}^\beta s_\beta,
+    \nabla_{e_i} s_\alpha \overset{\mathrm {def}}{=} \Gamma_{\alpha i}^\beta s_\beta,
     \qquad \text{其中}\  \Gamma_{\alpha i}^\beta \in C^{\infty}(U). 
 \end{equation}
 $\Gamma_{\alpha i}^\beta$称为联络$\nabla$在标架场
@@ -879,7 +879,7 @@ $\xi |_U=\xi^\alpha \cdot e_\alpha$，
 其中$\xi^\alpha \in C^{\infty}(U)(1 \leqslant \alpha \leqslant n)$．
 $\forall X \in T_p M$，构造{\heiti 拉回丛上的诱导联络}为：
 \begin{equation}\label{chfb:eqn_pbb-connection}
-    \nabla_X \xi \overset{def}{=} X(\xi^\alpha ) e_\alpha\bigl(\phi(p)\bigr)+\xi^\alpha(p) 
+    \nabla_X \xi \overset{\mathrm {def}}{=} X(\xi^\alpha ) e_\alpha\bigl(\phi(p)\bigr)+\xi^\alpha(p) 
     \mathrm{D}_{\phi_*(X(p))} e_\alpha\bigl(\phi(p)\bigr) \quad \in \pi^{-1}(p) .
 \end{equation}
 可以证明上式右端与局部标架场 $\left\{e_\alpha\right\}$ 的选取无关（见后）．
@@ -1080,7 +1080,7 @@ $\forall p \in U\subset M$ 任取两个切矢量 $X, Y \in$ $T_p(M)$，则用曲
 的局部标架场$s_\alpha=\left(s_1, \cdots, s_q\right)$可表成
 $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 \begin{equation}\label{chfb:eqn_CurvatureO}
-    R(X, Y) \xi \overset{def}{=}\sum\nolimits_{\alpha, \beta=1}^q \xi^\alpha 
+    R(X, Y) \xi \overset{\mathrm {def}}{=}\sum\nolimits_{\alpha, \beta=1}^q \xi^\alpha 
     \Omega_{\hphantom{\alpha}\alpha}^\beta(X, Y) s_{\beta}|_p .
 \end{equation}
 如果读者不清楚上式的指标记号，请参阅\pageref{chccr:def_TCF}页定义\ref{chccr:def_TCF}．
@@ -1094,7 +1094,7 @@ $\xi = \xi^\alpha s_{\alpha}$，其中$\xi^\alpha \in \mathbb{R}$．则命
 如果$X$、$Y$是光滑流形$M$上的两个光滑切矢量场，则$R(X, Y)$是$\Gamma(E)$上的线性算子，
 它的定义是：对任意的 $\xi \in \Gamma(E)$，及$p \in  M$，
 \begin{equation}\label{chfb:eqn_RppR}
-    \bigl(R(X, Y) \xi \bigr)(p)\overset{def}{=}R\left(X_p, Y_p\right) \xi_p .
+    \bigl(R(X, Y) \xi \bigr)(p)\overset{\mathrm {def}}{=}R\left(X_p, Y_p\right) \xi_p .
 \end{equation}
 
 我们把$R(X, Y)$称为联络$\nabla$的{\heiti 曲率算子}．
@@ -1347,7 +1347,7 @@ $\forall p \in U_{\alpha}$，用$F(p)$（“$F$”是Frame的首字母）表示�
 事实上，$\forall \alpha \in I$，定义映射
 $\varphi_{\alpha}: \tilde{\pi}^{-1}(U_{\alpha})\to U_{\alpha} \times GL(q) $，使得 
 \begin{equation}\label{chfb:eqn_FE-phi}
-    \varphi_{\alpha}^{-1}(p, A) \overset{def}{=} s^{(\alpha)}(p)
+    \varphi_{\alpha}^{-1}(p, A) \overset{\mathrm {def}}{=} s^{(\alpha)}(p)
      \cdot A, \qquad \forall(p, A) \in U_{\alpha} \times GL(q) .
 \end{equation}
 容易看出，这样定义的映射$\varphi_{\alpha}$是从$\tilde{\pi}^{-1}\left(U_{\alpha}\right)$到$U_{\alpha} \times GL(q)$上的双射．
@@ -1417,7 +1417,7 @@ $ \omega_{a}^{(\alpha) b}=\Gamma_{a i}^{(\alpha) b} \mathrm{d} x_{\alpha}^{i} $
 采用式\eqref{chfb:eqn_F-comp}的记号，则活动标架$f=s^{(\alpha)} \cdot A$的联络定义为： 
 \begin{equation}\label{chfb:eqn_Frame-connection}
 \begin{aligned}
-    \nabla^F f & \overset{def}{=}\left(\nabla s^{(\alpha)}\right) \cdot A + s^{(\alpha)} \cdot \mathrm{d} A
+    \nabla^F f & \overset{\mathrm {def}}{=}\left(\nabla s^{(\alpha)}\right) \cdot A + s^{(\alpha)} \cdot \mathrm{d} A
     =s^{(\alpha)} \cdot \left(\omega^{(\alpha)} \cdot A+\mathrm{d} A\right)  \\
     & =f \cdot A^{-1}\left(\mathrm{d} A+\omega^{(\alpha)} \cdot A\right)
     =f \cdot \theta .    
@@ -1914,7 +1914,7 @@ R_{\hphantom{\alpha}\alpha ij}^\beta {\rm d}x^i \wedge {\rm d}x^j$，
 我们定义作用在$\binom{r}{s}$型的张量值$p$-型式上{\heiti 外协变微分}为：
 \begin{align}
 	\mathcal{D}_b \left(T^{i_1 \cdots i_r}_{k_1\cdots k_s}\right)
-	_{a_1 \cdots a_p} \overset{def}{=} & 
+	_{a_1 \cdots a_p} \overset{\mathrm {def}}{=} & 
 	{\rm d}_b \left(T^{i_1 \cdots i_r}_{\hphantom{i_1 \cdots i_r}k_1\cdots k_s}
 		\right)_{a_1 \cdots a_p}  \quad\qquad {\rm d}_b \, \text{为外微分算子} \notag \\
 	&+ \sum_{n=1}^{r} (\omega^{i_n}_{\hphantom{i_n}l})_b \wedge

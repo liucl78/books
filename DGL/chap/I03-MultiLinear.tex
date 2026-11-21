@@ -227,8 +227,8 @@ $\mathbb{F}$值\CJKunderwave{常数}，\CJKunderwave{不能是变数}．
     实数轴上全体$r$阶连续可微复值函数$C^r[a,b]$是无穷维线性空间．
 \end{example}
 首先，我们验证函数空间是个线性空间．$\forall x\in [a,b]$，
-对于任意函数$f,g\in C^r[a,b]$，给定加法为$(f+g)(x)\overset{def}{=}f(x)+g(x)$，
-数量乘法为$(\lambda \cdot g) (x)\overset{def}{=}\lambda \cdot (g (x)), \forall \lambda \in \mathbb{R}$．
+对于任意函数$f,g\in C^r[a,b]$，给定加法为$(f+g)(x)\overset{\mathrm {def}}{=}f(x)+g(x)$，
+数量乘法为$(\lambda \cdot g) (x)\overset{\mathrm {def}}{=}\lambda \cdot (g (x)), \forall \lambda \in \mathbb{R}$．
 容易验证上述定义符合线性空间定义\ref{chmla:def_linear-space}；其中零矢量是对任意实数$x$取值恒为零的函数．
 
 我们从两个角度来理解函数空间$C^r[a,b]$维数是无穷大这件事情．首先，
@@ -375,8 +375,8 @@ $\beta \in \alpha+W \ \Longleftrightarrow \ \beta \sim \alpha  \ \Longleftrighta
 \end{equation}
 如何在商集 $V / W$ 中规定加法与数量乘法运算？容易想到尝试如下规定：
 \begin{equation}\label{chmla:eqn_abwlin}
-    (\alpha+W)+(\beta+W) \stackrel{def}{=}(\alpha+\beta)+W, \quad
-    k(\alpha+W) \stackrel{def}{=} k \alpha+W .
+    (\alpha+W)+(\beta+W) \overset{\mathrm {def}}{=}(\alpha+\beta)+W, \quad
+    k(\alpha+W) \overset{\mathrm {def}}{=} k \alpha+W .
 \end{equation}
 这样规定是否合理？需要证明它们与陪集代表的选择无关．
 设$\alpha_1+W=\alpha+W, \beta_1+W=$ $\beta+W$，则$\alpha_1-\alpha \in W, \beta_1-\beta \in W$．从而
@@ -496,7 +496,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
     仿照式\eqref{chmla:eqn_lin-fun-form-0}形式，我们构造$V$上一个函数$f$：
     \begin{equation}\label{chmla:eqn_lin-fun-form}
         f\left( \sum_{i=1}^{n} x_i \boldsymbol{\epsilon}_i\right)
-        \overset{def}{=} \sum_{i=1}^{n}x_i a_i , \qquad
+        \overset{\mathrm {def}}{=} \sum_{i=1}^{n}x_i a_i , \qquad
         {\text {其中}}\     \forall X = \sum_{i}^n x_i \boldsymbol{\epsilon}_i \in V.
     \end{equation}
     容易验证函数$f$是线性的，且将空间$V$中的矢量$X$映射为数域$\mathbb{F}$中的数值．
@@ -554,7 +554,7 @@ $E^3$对于$W$平面的商空间$E^3 / W$的一个元素是平行于$W$的一个
     \begin{equation}\label{chmla:eqn_tmp12}
         \sigma (\alpha) \equiv
         \sigma \left(\sum_{i=1}^{n} a_i \boldsymbol{\epsilon}_i \right)
-        \overset{def}{=}
+        \overset{\mathrm {def}}{=}
         \sum_{i=1}^{n} a_i \boldsymbol{\eta}_i,
         \qquad \forall \alpha \in V.
     \end{equation}
@@ -616,9 +616,9 @@ $V$上全体线性函数组成的集合记为$\mathscr{L}(V,\mathbb{F})$．
 我们用自然的方式定义$\mathscr{L}(V,\mathbb{F})$中的加法和数量乘法如下：
 \begin{subequations}\label{chmla:eqn_dual-pp}
 \begin{align}
-    (f+g)(\alpha)  &\overset{def}{=}  f(\alpha)+g(\alpha); \quad
+    (f+g)(\alpha)  &\overset{\mathrm {def}}{=}  f(\alpha)+g(\alpha); \quad
     \text{其中}\ \forall \alpha \in V; \ \forall f,g \in \mathscr{L}(V,\mathbb{F}) .  \\
-    (k f) (\alpha) &\overset{def}{=}  k \bigl( f(\alpha)\bigr); \quad
+    (k f) (\alpha) &\overset{\mathrm {def}}{=}  k \bigl( f(\alpha)\bigr); \quad
     \text{其中}\ \forall \alpha \in V;\ \forall k \in \mathbb{F}; \
     \forall f \in \mathscr{L}(V,\mathbb{F}) .
 \end{align}
@@ -779,7 +779,7 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
 我们在数域$\mathbb{F}$上建立线性空间$V$，然后再建立其对偶空间$V^*$．
 取定$V$中的一个{\kaishu 确定}矢量$x$，定义$V^*$上的一个函数$x^{**}$如下
 \begin{equation}\label{chmla:eqn_x-dualdual}
-    x^{**}(f)\overset{def}{=}f(x), \qquad \forall f \in V^*.
+    x^{**}(f)\overset{\mathrm {def}}{=}f(x), \qquad \forall f \in V^*.
 \end{equation}
 显然映射$x^{**}$对于自变量是线性的，即
 \begin{equation*}
@@ -857,9 +857,9 @@ $\boldsymbol{\epsilon}^{*1}(\boldsymbol{\epsilon}_3)=0$等等，
 
 用自然的方式定义$\mathscr{L}(U,V;W)$中的加法和数量乘法如下：
 \begin{align*}
-    (f+g)(\alpha,\beta)  &\overset{def}{=}  f(\alpha,\beta)+g(\alpha,\beta); \quad
+    (f+g)(\alpha,\beta)  &\overset{\mathrm {def}}{=}  f(\alpha,\beta)+g(\alpha,\beta); \quad
     \forall \alpha \in U, \beta \in V; \ \forall f,g \in \mathscr{L}(U,V;W) .  \\
-    (k f) (\alpha,\beta) &\overset{def}{=}  k \bigl( f(\alpha,\beta)\bigr); \quad
+    (k f) (\alpha,\beta) &\overset{\mathrm {def}}{=}  k \bigl( f(\alpha,\beta)\bigr); \quad
     \forall \alpha \in U,  \beta \in V;\ \forall k \in \mathbb{F}; \ \forall f \in \mathscr{L}(U,V;W) .
 \end{align*}
 这样定义的加法和数量乘法使得$\mathscr{L}(U,V;W)$构成线性空间，请读者验证之．
@@ -938,7 +938,7 @@ $\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_n$．
 以及$n$维线性空间$V$中任意矢量$Y=(\boldsymbol{\eta}_1, \cdots,
 \boldsymbol{\eta}_n) (y^1,\cdots,y^n)^T$，用
 \begin{equation}\label{chmla:eqn_bi-fun-form}
-    f(X,Y) \overset{def}{=} x^i y^j a_{ij} = X^T A Y \ \in W
+    f(X,Y) \overset{\mathrm {def}}{=} x^i y^j a_{ij} = X^T A Y \ \in W
 \end{equation}
 来定义的映射$f:U \times V \to W $是双线性的
 （既然已经定义出来，自然解决了双线性映射$f$的存在性问题）；
@@ -1060,7 +1060,7 @@ $\alpha= {\boldsymbol{\epsilon}} X,\ \beta= {\boldsymbol{\epsilon}} Y$，
     设$f(\alpha,\beta)$是$V$上的非退化双线性函数，
     对$V$中一个元素$\alpha$，定义其对偶空间$V^{*}$中的一个元素$\alpha^*$：
     \begin{equation}
-        \alpha^{*}(\beta) \overset{def}{=} f(\alpha,\beta),
+        \alpha^{*}(\beta) \overset{\mathrm {def}}{=} f(\alpha,\beta),
         \qquad \forall \beta \in V.
     \end{equation}
     那么，从$V$到$V^*$的映射$\alpha \to \alpha^*$是一个同构映射．
@@ -1610,7 +1610,7 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
     （下式构造方式与式\eqref{chmla:eqn_tmp12}几乎相同，这是此类映射的通用定义方法）：
     \begin{equation}\label{chmla:eqn_tensorpruduct}
             \tau \left(x^i\boldsymbol{\epsilon}_i, y^j\boldsymbol{\eta}_j\right)
-            \overset{def}{=} \sum\nolimits_{i=1}^{m} \sum\nolimits_{j=1}^{n} x^i y^j \boldsymbol{\omega}_{ij} .
+            \overset{\mathrm {def}}{=} \sum\nolimits_{i=1}^{m} \sum\nolimits_{j=1}^{n} x^i y^j \boldsymbol{\omega}_{ij} .
         \end{equation}
     容易验证这个映射是双线性的，并且有$\tau (\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)
      = \boldsymbol{\omega}_{ij}$，空间$Y$由$\tau(U\times V)$生成．
@@ -1622,7 +1622,7 @@ $\boldsymbol{v}(\boldsymbol{F})$，并依据定义\ref{chmla:def_linear-fun}，
     定义线性映射$g:Y \to Z$：
     \begin{equation}\label{chmla:eqn_fgtau}
             g \left(\sum\nolimits_{i,j}^{m,n} z^{ij}\boldsymbol{\omega}_{ij}\right)
-            \overset{def}{=} \sum\nolimits_{i,j}^{m,n} z^{ij} f(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j) .
+            \overset{\mathrm {def}}{=} \sum\nolimits_{i,j}^{m,n} z^{ij} f(\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j) .
     \end{equation}
     定义左端可作变化$g(\sum_{i,j} z^{ij}\boldsymbol{\omega}_{ij})
     = \sum_{i,j} z^{ij} g(\tau (\boldsymbol{\epsilon}_i, \boldsymbol{\eta}_j)  ) $．
@@ -1865,7 +1865,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
 \begin{equation}\label{chmla:eqn_abfg}
     (\alpha^{**} \otimes \beta^{**} )(f,g) \equiv
     (\alpha \otimes \beta )(f,g)
-    \overset{def}{=} f(\alpha)g(\beta) .
+    \overset{\mathrm {def}}{=} f(\alpha)g(\beta) .
 \end{equation}
     可见映射$\alpha^{**} \otimes \beta^{**}\equiv \alpha \otimes \beta
     \in \mathscr{L}(U^*,V^*;\mathbb{F})$，并且这个映射是双线性的；
@@ -1942,7 +1942,7 @@ ${\rm Span}\{\boldsymbol{\epsilon}_1 \otimes \boldsymbol{\eta}_1,\
     参考式\eqref{chmla:eqn_tmp12}，定义映射如下，
     \begin{equation}\label{chmla:eqn_tp97}
         \phi\bigl(z^{ijk} (\boldsymbol{\epsilon}_i\otimes\boldsymbol{\eta}_j)\otimes \boldsymbol{\omega}_k \bigr)
-        \overset{def}{=}
+        \overset{\mathrm {def}}{=}
         z^{ijk} \boldsymbol{\epsilon}_i\otimes (\boldsymbol{\eta}_j\otimes \boldsymbol{\omega}_k ) .
     \end{equation}
     参考定理\ref{chmla:thm_vvp-basic}“充分性”证明过程中可知映射$\phi$是
@@ -2279,7 +2279,7 @@ $\widetilde{\Phi}^{l_1 \cdots l_p} _{k_1 \cdots k_q}$是
       \alpha_{i_p}\boldsymbol{\epsilon}^{*i_p},\
       v^{j_1}\boldsymbol{\epsilon}_{j_1},\cdots,
       v^{j_q}\boldsymbol{\epsilon}_{j_q} \right)
-      \overset{def}{=} \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
+      \overset{\mathrm {def}}{=} \Phi^{i_1 \cdots i_p} _{j_1 \cdots j_q}
       \alpha_{i_1}\cdots\alpha_{i_p}\ v^{j_1}\cdots v^{j_q} .
 \end{equation*}
 这样定义的映射对每个宗量都是线性的，在基矢变化时定义右端项具有形式不变性．
@@ -2518,7 +2518,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 （见\pageref{chtop:exm_ZhiHuanQun}页例\ref{chtop:exm_ZhiHuanQun}）．
 设$\sigma \in \mathscr{S}(q)$，可定义符号函数${\rm sign}(\sigma)$为：
 \begin{equation}
-    {\rm sign}(\sigma) \overset{def}{=}
+    {\rm sign}(\sigma) \overset{\mathrm {def}}{=}
     \begin{cases}
         +1, & \text{如果$\sigma$是偶置换}; \\
         -1, & \text{如果$\sigma$是奇置换}.
@@ -2585,9 +2585,9 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 \begin{definition}\label{chmla:def_sym-antis}
     用圆括号表示对称，方括号表示反对称，定义如下：
     \begin{align}
-        \xi_{(i_1 i_2 \cdots i_q)}& \overset{def}{=} \frac{1}{q!}
+        \xi_{(i_1 i_2 \cdots i_q)}& \overset{\mathrm {def}}{=} \frac{1}{q!}
         \sum_{\sigma\in \mathscr{S}(q)} \xi_{i_{\sigma(1)} i_{\sigma(2)} \cdots i_{\sigma(q)}}, \\
-        \xi_{[i_1 i_2 \cdots i_q]}& \overset{def}{=} \frac{1}{q!}
+        \xi_{[i_1 i_2 \cdots i_q]}& \overset{\mathrm {def}}{=} \frac{1}{q!}
         \sum_{\sigma\in \mathscr{S}(q)}{\rm sign}(\sigma) \xi_{i_{\sigma(1)} i_{\sigma(2)} \cdots i_{\sigma(q)}}.
     \end{align}
 \end{definition}
@@ -2637,7 +2637,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 
 通常的{\bfseries Kronecker记号}是（一般情况下不区分这个记号的上下指标）：
 \begin{equation}\label{chmla:eqn_ukd}
-    \delta_{ij}\equiv \delta^{ij} \equiv \delta_{j}^{i} \overset{def}{=}
+    \delta_{ij}\equiv \delta^{ij} \equiv \delta_{j}^{i} \overset{\mathrm {def}}{=}
     \begin{cases}
         1, & i=j, \\
         0, & i\neq j.
@@ -2645,7 +2645,7 @@ $\Phi^{ij}\neq \Phi^{ji}$、$\Phi_{ij}\neq \Phi_{ji}$．
 \end{equation}
 现引入{\bfseries 广义Kronecker记号}（广义记号需要区分上下指标）： \index[physwords]{Kronecker记号!广义Kronecker记号}
 \begin{equation}\label{chmla:eqn_gkd}
-    \delta_{j_1 \cdots j_q}^{i_1 \cdots i_q} \overset{def}{=}
+    \delta_{j_1 \cdots j_q}^{i_1 \cdots i_q} \overset{\mathrm {def}}{=}
     \begin{cases}
         +1, & \text{$i_1,  \cdots, i_q$互不相同，且$\{ j\} $是$\{i\}$偶置换}; \\
         -1, & \text{$i_1,  \cdots, i_q$互不相同，且$\{ j\} $是$\{i\}$奇置换}; \\
@@ -3063,7 +3063,7 @@ $(j_1 \cdots j_q)$和$(k_1 \cdots k_q)$必须是满足定义\eqref{chmla:eqn_gkd
 推广到任意个下标，便是
 \begin{equation}\label{chmla:eqn_ep-base}
     \boldsymbol{\epsilon}_{i_1} \wedge \cdots \wedge \boldsymbol{\epsilon}_{i_p}
-    \overset{def}{=} \delta_{i_1 \cdots i_p}^{j_1 \cdots j_p}
+    \overset{\mathrm {def}}{=} \delta_{i_1 \cdots i_p}^{j_1 \cdots j_p}
       \boldsymbol{\epsilon}_{j_1} \otimes
       \cdots \otimes \boldsymbol{\epsilon}_{j_p},
     \qquad 1\leqslant \{i\},  \{j\}  \leqslant m .

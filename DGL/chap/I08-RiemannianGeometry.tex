@@ -271,7 +271,7 @@
 微分流形中的内积需要用度规来描述．
 曲线$\gamma(t)${\heiti 弧长}的定义为（即把式\eqref{chdf:eqn_IonSM}限定在一维）：
 \begin{equation}\label{chrg:eqn_arc-length}
-    L(\gamma)\overset{def}{=}\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\left| g_{ab} \left(\frac{{\rm d}  }
+    L(\gamma)\overset{\mathrm {def}}{=}\sum_{i} \int_{t_i}^{t_{i+1}} \sqrt{\left| g_{ab} \left(\frac{{\rm d}  }
         {{\rm d} t}\right)^a_{\gamma}\left(\frac{{\rm d}  }{{\rm d} t}\right)^b_{\gamma}\right|} {\rm d}t .
 \end{equation}
 因度规可能是不定的，故上式中加了绝对值．
@@ -396,7 +396,7 @@ $\forall X_M^a, Y_M^b \in T_p M$和$\forall X_N^a, Y_N^b \in T_q N$；记
 \end{equation}
 定义积流形$M\times N$的度规为
 \begin{equation}\label{chrg:eqn_metric-product}
-    G_{ab}X^a Y^b \overset{def}{=} g_{ab}X^a_M Y^b_M + h_{ab}X^a_N Y^b_N .
+    G_{ab}X^a Y^b \overset{\mathrm {def}}{=} g_{ab}X^a_M Y^b_M + h_{ab}X^a_N Y^b_N .
 \end{equation}
 由$g_{ab},h_{ab}$的对称性可以得到$G_{ab}$是对称张量；光滑性也可类似得到．
 下面验证它的非退化性，只需验证$G_{ab}$在基矢下的矩阵是非退化的即可；
@@ -438,7 +438,7 @@ $\forall X_M^a, Y_M^b \in T_p M$和$\forall X_N^a, Y_N^b \in T_q N$；记
 
 广义黎曼流形$(M,g)$中已指定度规，约定$R_{\hphantom{a} cab}^d$上标降在第一个位置：
 \begin{equation}\label{chrg:eqn_RiemannianCurvature-d4}
-    R_{dcab} \overset{def}{=} g_{de}R_{\hphantom{a} cab}^e.
+    R_{dcab} \overset{\mathrm {def}}{=} g_{de}R_{\hphantom{a} cab}^e.
 \end{equation}
 由克氏符可求$\Tpq{0}{4}$型黎曼张量的分量表达式，
 由式\eqref{chccr:eqn_Riemannian13-component}和\eqref{chrg:eqn_Christoffel-naturalbases}得
@@ -541,7 +541,7 @@ $m(m-1)(m-2)(m-3)/4!$个限制，最终黎曼曲率张量$R_{abcd}$留下的独�
 Ricci曲率张量定义见式\eqref{chccr:eqn_RicciCurvatured2}（$R_{ab}\equiv R^c_{\hphantom{a}acb}$）．
 定义标量曲率$R$为：
 \begin{align}
-    R \overset{def}{=}& g^{ab} R_{ab}. \label{chrg:eqn_ScalarCurvature}
+    R \overset{\mathrm {def}}{=}& g^{ab} R_{ab}. \label{chrg:eqn_ScalarCurvature}
 \end{align}
 由度量$g_{ab}$决定的黎曼曲率有对称性$R_{abcd}=R_{cdab}$；
 从而可以看出Ricci曲率张量是一个\CJKunderwave{\kaishu 对称张量}，即$R_{ab}=R_{ba}$．
@@ -565,7 +565,7 @@ Ricci曲率张量定义见式\eqref{chccr:eqn_RicciCurvatured2}（$R_{ab}\equiv 
 \subsection{爱因斯坦张量}
 定义爱因斯坦张量$G_{ab}$为
 \begin{equation}\label{chrg:eqn_Einstein-tensor}
-    G_{ab} \overset{def}{=} R_{ab} -\frac{1}{2}g_{ab} R .
+    G_{ab} \overset{\mathrm {def}}{=} R_{ab} -\frac{1}{2}g_{ab} R .
 \end{equation}
 其中$R_{ab},R$分别是Ricci曲率和标量曲率．
 
@@ -629,7 +629,7 @@ Ricci曲率张量定义见式\eqref{chccr:eqn_RicciCurvatured2}（$R_{ab}\equiv 
 设有$m$维广义黎曼流形$(M,g)$，定义Weyl张量（也称作共形张量）为：
 \begin{equation}\label{chrg:eqn_WeylConform-d4}
     \begin{aligned}
-        C_{abcd}\overset{def}{=}& R_{abcd} - \frac{1}{m-2}\left( g_{ac}R_{bd} - g_{ad}R_{bc}
+        C_{abcd}\overset{\mathrm {def}}{=}& R_{abcd} - \frac{1}{m-2}\left( g_{ac}R_{bd} - g_{ad}R_{bc}
         + g_{bd}R_{ac} - g_{bc}R_{ad}\right)  \\
         &  + \frac{1}{(m-1)(m-2)}\left(g_{ac}g_{bd}-g_{ad}g_{bc}\right) R .
     \end{aligned}
@@ -759,10 +759,10 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 \end{equation}
 再引入两个记号
 \begin{align}
-	(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b \
+	(e_\rho)_a &\overset{\mathrm {def}}{=} g_{ab}(e_\rho)^b \
 	= g_{\mu\nu}(e^\mu)_a (e^\nu)_b (e_\rho)^b
 	= g_{\mu\rho}(e^\mu)_a, \\
-	(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b \
+	(e^\rho)^a &\overset{\mathrm {def}}{=} g^{ab}(e^\rho)_b \
 	= g^{\mu\nu}(e_\mu)^a (e_\nu)^b(e^\rho)_b
 	= g^{\mu\rho}(e_\mu)^a .
 \end{align}
@@ -776,12 +776,12 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 \end{equation}
 可以再定义内指标降下来的1型式场和曲率型式：
 \begin{align}
-	(\oversetmy{\bullet\circ}{\omega} _{\mu\nu})_{a} \overset{def}{=}&
+	(\oversetmy{\bullet\circ}{\omega} _{\mu\nu})_{a} \overset{\mathrm {def}}{=}&
 	g_{\mu\sigma} (\oversetmy{\bullet\circ}{\omega}^{\sigma}_{\hphantom{\sigma}\nu})_{a}
 	= g_{\mu\sigma} (e^\sigma)_c \oversetmy{\bullet\circ}{\nabla}_a (e_\nu)^c
 	= (e_\mu)_c \oversetmy{\bullet\circ}{\nabla}_a (e_\nu)^c
 	= g_{\mu\sigma}\oversetmy{\bullet\circ}{\Gamma}^{\sigma}_{\nu\tau} (e^\tau)_a , \label{chrg:eqn_1form-down}\\
-	(\oversetmy{\bullet\circ}{\Omega}_{\mu\nu} )_{ab} \overset{def}{=}& 
+	(\oversetmy{\bullet\circ}{\Omega}_{\mu\nu} )_{ab} \overset{\mathrm {def}}{=}& 
 	g_{\mu\sigma}(\oversetmy{\bullet\circ}{\Omega}_{\hphantom{\sigma} \nu} ^{\sigma})_{ab}
 	= \frac{1}{2} \oversetmy{\bullet\circ}{R}_{\mu \nu \rho\sigma}  (e^\rho)_a \wedge (e^\sigma)_b
 	= \oversetmy{\bullet\circ}{R}_{\mu \nu \rho\sigma} (e^\rho)_a (e^\sigma)_b . \label{chrg:eqn_Cform-down}
@@ -859,8 +859,8 @@ $C_{abcd}$有$R_{abcd}$全部对称性（见定理\ref{chrg:thm_Riemann-Sym-Prop
 \end{align*}
 定义
 \begin{align}
-	K_{bac} \oversetmy{def}{=}& \frac{1}{2}\left(-T_{bac}+ T_{cba} +T_{abc}\right) . \\
-	C_{bac} \oversetmy{def}{=}& \frac{1}{2}\left(L_{bac}-L_{cab}-L_{abc}\right)
+	K_{bac} \overset{\mathrm {def}}{=}& \frac{1}{2}\left(-T_{bac}+ T_{cba} +T_{abc}\right) . \\
+	C_{bac} \overset{\mathrm {def}}{=}& \frac{1}{2}\left(L_{bac}-L_{cab}-L_{abc}\right)
 	=\frac{1}{2}\left( \oversetmy{\bullet\circ}{\nabla}_b g_{ac} 
 	-\oversetmy{\bullet\circ}{\nabla}_c g_{ab}
 	-\oversetmy{\bullet\circ}{\nabla}_a g_{bc} \right) .
@@ -1050,7 +1050,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）惯性指数个数等于$h
     成：$v^a = u^a + u_p^a$，其中$u^a\in U, u_p^a \in U^\perp$．
     现在定义新的等距映射$\nu:V\to W$：
     \begin{equation}
-        \nu (v^a)= \nu(u^a + u_p^a) \overset{def}{=}  \sigma(u^a) + \mu(u_p^a) .
+        \nu (v^a)= \nu(u^a + u_p^a) \overset{\mathrm {def}}{=}  \sigma(u^a) + \mu(u_p^a) .
     \end{equation}
     当$v^a\in U$时，即$u_p^a=0$时，$\nu=\sigma$；故$\nu$是$\sigma$的延拓．
     
@@ -1304,7 +1304,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）惯性指数个数等于$h
 在$N$中已有Levi-Civita联络${\rm D}_a$，利用它，
 可在$M$中定义一个算符$\bar{\nabla}_a$如下（$\bar{\nabla}_X \equiv X^a\bar{\nabla}_a $）：
 \begin{equation}\label{chrg:eqn_bND}
-	\bar{\nabla}_X Y^a \overset{def}{=} \phi^{-1}_* \left( {\rm D}_{\phi_* X} (\phi_*Y^a) \right).
+	\bar{\nabla}_X Y^a \overset{\mathrm {def}}{=} \phi^{-1}_* \left( {\rm D}_{\phi_* X} (\phi_*Y^a) \right).
 \end{equation}
 如果$\phi$仅是浸入映射，则没有逆，无法进行上述定义．
 我们先验证它是$M$上的一个仿射联络，先验证$\mathbb{R}$-线性
@@ -1572,7 +1572,7 @@ $V$、$W$有相同的维数，并且$g$的正（负）惯性指数个数等于$h
     为了更有区分度，我们混用拉丁、希腊字母．映射$\phi_t$将$q$点的度规拉回$p$点，
     由于两点距离无穷小，可记$y^a=x^a+\epsilon^a(x)$；则
     \begin{align*}
-    	\tilde{g}_{ab}(x)\overset{def}{=}&\phi_t^* g_{ab}(q)
+    	\tilde{g}_{ab}(x)\overset{\mathrm {def}}{=}&\phi_t^* g_{ab}(q)
     	= \phi_t^* \left[g_{\alpha\beta}(y)({\rm d}y^\alpha)_a ({\rm d}y^\beta)_b\right]
     	\xlongequal{\ref{chdm:eqn_pull-bases}}
     	\frac{\partial y^\alpha}{\partial x^i}\frac{\partial y^\beta}{\partial x^j} 
@@ -2006,7 +2006,7 @@ $m$阶外积也会产生一个Jacobi行列式；两者刚好互逆，故形式�
 \end{align*}
 可见，我们需要定义
 \begin{equation}\label{chrg:eqn_RV}
-	\epsilon_{\alpha\beta\gamma\delta} \overset{def}{=} \delta_{\alpha\beta\gamma\delta}^{0123}; \qquad
+	\epsilon_{\alpha\beta\gamma\delta} \overset{\mathrm {def}}{=} \delta_{\alpha\beta\gamma\delta}^{0123}; \qquad
 	\epsilon^{\alpha\beta\gamma\delta} =- \delta^{\alpha\beta\gamma\delta}_{0123}.
 \end{equation}
 也就是选择$\epsilon_{0123} = -\epsilon^{0123} = +1$才能使体积元是右手系
@@ -2159,7 +2159,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 那么$f \Omega_{a_1 \cdots a_m}$便是具有紧致支撑集的$m$维型式场．
 此时，我们可以定义标量函数场$f$在$M$上积分为：
 \begin{equation}\label{chrg:eqn_Integral-f-rg}
-	\int_M f \overset{def}{=} \int_{M} \sum_{\alpha}  
+	\int_M f \overset{\mathrm {def}}{=} \int_{M} \sum_{\alpha}  
 	h_\alpha  f  \Omega_{a_1 \cdots a_m} 
 	= \sum_{\alpha}  \int_{U_\alpha} h_\alpha f \sqrt{|g|}\, 
 	({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} .
@@ -2181,7 +2181,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 借助体积元（见式\eqref{chrg:eqn_volume-element}），可定义$M$上的Hodge星对偶算子：
 \begin{subequations}\label{chrg:eqn_Hodge-star}
 \begin{align}
-    &(\star \omega) _{ a_{r+1}  \cdots a_m} \overset{def}{=} 
+    &(\star \omega) _{ a_{r+1}  \cdots a_m} \overset{\mathrm {def}}{=} 
     \frac{1}{r!} \omega^{a_1 \cdots a_r} \Omega_{a_1 \cdots a_r a_{r+1} \cdots a_m},
       \label{chrg:eqn_Hodge-star-1} \\
     &= \frac{\sqrt{|g|}}{r! (m-r)!} \delta_{i_{1} \cdots i_m}^{1 \cdots m}
@@ -2309,7 +2309,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 式\eqref{chrg:eqn_AhsB}中第二个等号的证明留给读者当练习．
 由此可定义$M$上的内积：
 \begin{equation}\label{chrg:eqn_AhsB-inner}
-	\langle A, B\rangle \overset{def}{=}\int_{M} A \wedge (\star B) = \int_{M} (\star A) \wedge B.
+	\langle A, B\rangle \overset{\mathrm {def}}{=}\int_{M} A \wedge (\star B) = \int_{M} (\star A) \wedge B.
 \end{equation}
 
 
@@ -2367,7 +2367,7 @@ $\forall X^a\in \mathfrak{X}(M)$，有$\nabla_X\Omega_{a_1 \cdots a_m}$是$m$次
 \end{equation}
 对于任意的$F\in A^r(M)$，我们定义Hodge--Laplace公式$\nabla^2_H$为：
 \begin{equation}\label{chrg:eqn_HL}
-	\nabla^2_H F \overset{def}{=}
+	\nabla^2_H F \overset{\mathrm {def}}{=}
 	\left({\rm d}\circ{\rm d}^{\dagger} +{\rm d}^{\dagger}\circ{\rm d}\right)F.
 \end{equation}	
 
@@ -2968,7 +2968,7 @@ $\nabla^2_H$与$\square$更一般的差异可参见\parencite{Luqk-2026}式(1.6.
 %由上面的式\eqref{chccr:eqn_1form-transformation}可知，
 %这个问题转化为如下Pfaff方程（未知量是$A_{\hphantom{\mu} j}^{\sigma}$）的求解．
 %\begin{equation}\label{chrg:eqn_tmp109}
-%    (\pi _{\hphantom{\mu} j} ^{\sigma})_a \overset{def}{=}
+%    (\pi _{\hphantom{\mu} j} ^{\sigma})_a \overset{\mathrm {def}}{=}
 %    {\rm d}_a A_{\hphantom{\mu} j}^{\sigma} + (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a  A_{\hphantom{\mu} j}^{\nu}=0,
 %    \ \det(A_{\hphantom{\mu} k}^{\sigma})\neq 0,\ 1 \leqslant j,k,\sigma,\nu \leqslant m .
 %\end{equation}
@@ -3069,7 +3069,7 @@ ${\rm d}_b a_{\hphantom{\mu} j}^{\sigma} =- (\omega ^{\sigma}_{\hphantom{\mu}\nu
 
 定义{\heiti Ricci旋转系数}（Ricci rotation coefficient）为（类似第一类克氏符）
 \begin{equation}\label{chrg:eqn_ricci0}
-    \omega_{\mu\nu\rho} \overset{def}{=} (\omega_{\mu\nu})_a (e_\rho)^{a}
+    \omega_{\mu\nu\rho} \overset{\mathrm {def}}{=} (\omega_{\mu\nu})_a (e_\rho)^{a}
     =g_{\mu\sigma}\Gamma^{\sigma}_{\nu\rho}
     {\quad \Leftrightarrow \quad}
     (\omega_{\mu\nu})_a  = \omega_{\mu\nu\rho} (e^\rho)_{a} .
@@ -3163,7 +3163,7 @@ $ \omega_{\rho\nu\mu} =(e_\rho)^{k}(e_\mu)^{l} (e_\nu)_{k,l}
   \left[ (e_\mu)^{k}(e_\rho)^{l}
      - (e_\rho)^{k}(e_\mu)^{l}  \right]
      \frac{\partial (e_\nu)_{k}}{\partial x^l}
-  \ \overset{def}{=} \Lambda_{\mu\nu\rho}. \label{chrg:eqn_Coef-Lambda1}
+  \ \overset{\mathrm {def}}{=} \Lambda_{\mu\nu\rho}. \label{chrg:eqn_Coef-Lambda1}
 \end{align}
 上式最后一步定义了一个中间步符号$\Lambda_{\mu\nu\rho}$，它还可以表示为
 \begin{align}
@@ -3964,7 +3964,7 @@ $\{u^\alpha\}$是正交、可能非归一基矢$(\frac{\partial }{\partial u^\al
 \end{equation}
 由此可以定义二维截面$[u\wedge v]$的{\heiti 截面曲率}为
 \begin{equation}\label{chrg:eqn_sectional-curvature}
-    K([u\wedge v]) \overset{def}{=}  \frac{R_{abcd} u^a v^b u^c v^d}{Q(u,v)} 
+    K([u\wedge v]) \overset{\mathrm {def}}{=}  \frac{R_{abcd} u^a v^b u^c v^d}{Q(u,v)} 
     = \frac{R_{abcd} u^a v^b u^c v^d}{{u}_a{u}^a \cdot {v}_b{v}^b - ({u}_a{v}^a)^2 } .
 \end{equation}
 其中$K$的参数是由$u^a,v^a$所确定的截面；曲率$K$与$u^a,v^a$本身没有关系，

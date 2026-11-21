@@ -24,13 +24,13 @@
     若$\nabla_a$满足如下条件：
 
     {\bfseries (1)}  $\mathbb{R}$-线性：$\nabla_X (Y^a +\lambda\cdot Z^a)
-       \overset{def}{=}\nabla_X Y^a +\nabla_X (\lambda\cdot Z^a) \equiv  \nabla_X Y^a +\lambda\cdot\nabla_X Z^a$；
+       \overset{\mathrm {def}}{=}\nabla_X Y^a +\nabla_X (\lambda\cdot Z^a) \equiv  \nabla_X Y^a +\lambda\cdot\nabla_X Z^a$；
 
     {\bfseries (2)} 加法：$\nabla_{f\cdot X+Y} Z^a 
-    \overset{def}{=} \nabla_{f\cdot X} Z^a + \nabla_{Y} Z^a
+    \overset{\mathrm {def}}{=} \nabla_{f\cdot X} Z^a + \nabla_{Y} Z^a
     \equiv f \cdot \nabla_{X} Z^a + \nabla_{Y} Z^a $；
 
-    {\bfseries (3)} $\nabla_{X} (f\cdot Y^a) \overset{def}{=} (\nabla_{X} f) Y^a + f\cdot \nabla_{X} Y^a
+    {\bfseries (3)} $\nabla_{X} (f\cdot Y^a) \overset{\mathrm {def}}{=} (\nabla_{X} f) Y^a + f\cdot \nabla_{X} Y^a
      \equiv X(f) Y^a + f\cdot \nabla_{X} Y^a$．
 
     则称$\nabla_a$（或${\rm D}_a$）是光滑流形$M$上的
@@ -50,10 +50,10 @@
 {\bfseries (4)} $\nabla_a$将$M$上任意$\Tpq{r}{s}$型张量场映射为$\Tpq{r}{s+1}$型张量场．
 
 {\bfseries (5)} Leibniz 法则：
-$\nabla_X(K\otimes L)\overset{def}{=} (\nabla_X K)\otimes L+ K\otimes \nabla_X L$；
+$\nabla_X(K\otimes L)\overset{\mathrm {def}}{=} (\nabla_X K)\otimes L+ K\otimes \nabla_X L$；
 
 {\bfseries (6)} $\nabla_X$与缩并运算$C^\times_\times$可交换，即
-$C^\times_\times(\nabla_X K_{\cdots}^{\cdots}) \overset{def}{=} \nabla_X(C^\times_\times K_{\cdots}^{\cdots})$．
+$C^\times_\times(\nabla_X K_{\cdots}^{\cdots}) \overset{\mathrm {def}}{=} \nabla_X(C^\times_\times K_{\cdots}^{\cdots})$．
     
   
     则称$\nabla_a$是作用在光滑流形$M$上张量场的联络，仍称之为仿射联络．
@@ -145,10 +145,10 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 故可定义
 \begin{equation}\label{chccr:eqn_Christoffel2}
     \nabla_{\frac{\partial }{\partial x^i}}
-    \left(\frac{\partial }{\partial x^j}\right) ^a \overset{def}{=}
+    \left(\frac{\partial }{\partial x^j}\right) ^a \overset{\mathrm {def}}{=}
     \Gamma^{k}_{ji} \left(\frac{\partial }{\partial x^k}\right) ^a
       \ \Leftrightarrow \ 
-    \nabla_c \left(\frac{\partial }{\partial x^j}\right) ^a \overset{def}{=}
+    \nabla_c \left(\frac{\partial }{\partial x^j}\right) ^a \overset{\mathrm {def}}{=}
     \Gamma^{k}_{ji} \left(\frac{\partial }{\partial x^k}\right) ^a ({\rm d} x^i)_c .
 \end{equation} %\setlength{\mathindent}{2em}
 其中$\Gamma^{k}_{ji} \in C^\infty(U)$被称为仿射联络$\nabla_a$在自然基底
@@ -276,7 +276,7 @@ $(\frac{\partial }{\partial x^i}) ^b \nabla_b(\frac{\partial }{\partial x^j}) ^a
 =v^i(\frac{\partial}{\partial x^i})^b
 =v^\alpha(\frac{\partial}{\partial y^\alpha})^b$；令
 \begin{equation}\label{chccr:eqn_tmpvc}
-       \left. \nabla_a v^b \right|_{U}  \overset{def}{=}
+       \left. \nabla_a v^b \right|_{U}  \overset{\mathrm {def}}{=}
     \left(\frac{\partial v^i}{\partial x^j} +v^k \Gamma_{kj}^{i}(x) \right)
            \Bigl(\frac{\partial}{\partial x^i}\Bigr)^b ({\rm d}x^j)_a ,
 \end{equation}
@@ -539,7 +539,7 @@ $\frac{\partial^2 x^k}{\partial y^\alpha\partial y^\beta}\neq 0$，
 \begin{definition}
     设$(M,\nabla_a)$是$m$维仿射联络空间，定义挠率张量$T_{bc}^a$：
     \begin{equation}\label{chccr:eqn_Ttorsion}
-        T_{bc}^a{X^b}{Y^c} \overset{def}{=} {\nabla _X}{Y^a} - {\nabla _Y}{X^a} - {\left[ {X,Y} \right]^a} ,
+        T_{bc}^a{X^b}{Y^c} \overset{\mathrm {def}}{=} {\nabla _X}{Y^a} - {\nabla _Y}{X^a} - {\left[ {X,Y} \right]^a} ,
         \qquad \forall X^a, Y^a \in \mathfrak{X}(M) .
     \end{equation}
 \end{definition}
@@ -586,7 +586,7 @@ $\frac{\partial^2 x^k}{\partial y^\alpha\partial y^\beta}\neq 0$，
 \begin{equation}
 	\Gamma^k_{ij} = \frac{1}{2}\left(\Gamma^k_{ij} + \Gamma^k_{ji}\right)
 	+\frac{1}{2}\left(\Gamma^k_{ij} - \Gamma^k_{ji}\right)
-	\overset{def}{=} \oversetmy{s}{\Gamma}^k_{ij} + \oversetmy{a}{\Gamma}^k_{ij}.
+	\overset{\mathrm {def}}{=} \oversetmy{s}{\Gamma}^k_{ij} + \oversetmy{a}{\Gamma}^k_{ij}.
 \end{equation}
 其中$\oversetmy{s}{\Gamma}^k_{ij}$是对称部分，$\oversetmy{a}{\Gamma}^k_{ij}$是反对称部分．
 
@@ -868,7 +868,7 @@ $\gamma(t+\Delta t)$的值之差与$\Delta t$的商的极限；
 \begin{definition}\label{chccr:def_tCurvatures}
     设$(M,\nabla_a)$是$m$维仿射联络空间，定义张量$R^{d}_{\hphantom{a} cab}$如下：
     \begin{equation}\label{chccr:eqn_RiemannianCurvature-13}
-        R_{\hphantom{a} cab}^d{X^a}{Y^b}{Z^c} \overset{def}{=} {\nabla _X}{\nabla _Y}{Z^d} -
+        R_{\hphantom{a} cab}^d{X^a}{Y^b}{Z^c} \overset{\mathrm {def}}{=} {\nabla _X}{\nabla _Y}{Z^d} -
         {\nabla _Y}{\nabla _X}{Z^d} - {\nabla _{[X,Y]}}{Z^d}.
     \end{equation}
     其中$\forall X^a, Y^a, Z^a \in \mathfrak{X}(M)$．
@@ -939,8 +939,8 @@ $\gamma(t+\Delta t)$的值之差与$\Delta t$的商的极限；
 
 我们定义{\bfseries \heiti Ricci曲率}以及另外一个曲率；这两个定义无需度量．
 \begin{align}
-	R_{cb} \overset{def}{=}& R_{\hphantom{a} cab}^a . \label{chccr:eqn_RicciCurvatured2}\\
-	R'_{cd} \overset{def}{=}& R_{\hphantom{a} acd}^a . \label{chccr:eqn_Ricci222}
+	R_{cb} \overset{\mathrm {def}}{=}& R_{\hphantom{a} cab}^a . \label{chccr:eqn_RicciCurvatured2}\\
+	R'_{cd} \overset{\mathrm {def}}{=}& R_{\hphantom{a} acd}^a . \label{chccr:eqn_Ricci222}
 \end{align}
 显然有$R'_{cd} = - R'_{dc}$，曲率\eqref{chccr:eqn_Ricci222}几乎无用．
 
@@ -1241,7 +1241,7 @@ Ricci曲率的局部坐标表达式：
 \end{example}
 切丛上的恒等映射定义为：
 \begin{equation}\label{chccr:eqn_identity}
-	\delta^a_b \overset{def}{=} \sum\nolimits_{i=1}^{m} (e_i)^a (e^i)_b.
+	\delta^a_b \overset{\mathrm {def}}{=} \sum\nolimits_{i=1}^{m} (e_i)^a (e^i)_b.
 \end{equation}
 对于任意切矢量$v^b=v^j (e_j)^b$或余切矢量$\omega_a=\omega_k (e^k)_a$，有
 \begin{align*}
@@ -1274,7 +1274,7 @@ Ricci曲率的局部坐标表达式：
 同样可以定义联络系数（仍记为$\Gamma$）：
 \begin{subequations}\label{chccr:eqn_concoef}
 \begin{align}
-    (e_j)^b \nabla _b (e_i)^a  \overset{def}{=} & +\Gamma^{k}_{ij} (e_k)^a
+    (e_j)^b \nabla _b (e_i)^a  \overset{\mathrm {def}}{=} & +\Gamma^{k}_{ij} (e_k)^a
     {\quad \Leftrightarrow \quad }
     \nabla _b (e_i)^a = +\Gamma^{k}_{ij} (e^j)_b (e_k)^a,   
     \label{chccr:eqn_concoef-a} \\
@@ -1303,7 +1303,7 @@ Ricci曲率的局部坐标表达式：
 
 定义{\heiti\bfseries 联络1型式场}（或联络一型式场，或联络型式场）：
 \begin{equation}\label{chccr:def_1form}
-    (\omega_{\hphantom{a} j}^{k})_a \overset{def}{=} \Gamma_{ji}^k (e^i)_a
+    (\omega_{\hphantom{a} j}^{k})_a \overset{\mathrm {def}}{=} \Gamma_{ji}^k (e^i)_a
     \equiv (e^i)_a (e^k)_c (e_i)^b \nabla _b (e_j)^c
     \equiv (e^k)_c \nabla _a (e_j)^c .
 \end{equation}
@@ -1534,9 +1534,9 @@ $\widetilde{\Gamma}$是一般标架$\{(\tilde{e}_i)^a\}$的联络系数．
 \begin{definition}\label{chccr:def_TCF}
     定义联络$\nabla_a$在局部标架场$(e_i)^a$下的{\heiti 挠率型式}与{\heiti 曲率型式}如下：
     \begin{align}
-        (\Theta ^{i})_{ab} \overset{def}{=} & {\rm d}_a (e^i)_b -
+        (\Theta ^{i})_{ab} \overset{\mathrm {def}}{=} & {\rm d}_a (e^i)_b -
         (e^j)_a \wedge (\omega _{\hphantom{a} j}^i)_b , \label{chccr:eqn_Tform}\\
-        (\Omega_{\hphantom{a} j} ^{i})_{ab} \overset{def}{=} & {\rm d}_a
+        (\Omega_{\hphantom{a} j} ^{i})_{ab} \overset{\mathrm {def}}{=} & {\rm d}_a
         ( \omega _{\hphantom{a} j} ^i  )_b  + ( \omega _{\hphantom{a} l}^i )_a
         \wedge ( \omega _{\hphantom{a} j}^l )_b . \label{chccr:eqn_Cform}
     \end{align}
@@ -1780,7 +1780,7 @@ $U$中测地线必然可以表示成上述直线形式\eqref{chccr:eqn_gd-line}�
 由上面的式\eqref{chccr:eqn_1form-transformation}可知，
 这个问题转化为如下Pfaff方程（未知量是$A_{\hphantom{\mu} j}^{\sigma}$）的求解．
 \begin{equation}\label{chccr:eqn_tmp-pi}
-	(\pi _{\hphantom{\mu} j} ^{\sigma})_a \overset{def}{=}
+	(\pi _{\hphantom{\mu} j} ^{\sigma})_a \overset{\mathrm {def}}{=}
 	{\rm d}_a A_{\hphantom{\mu} j}^{\sigma} + (\omega ^{\sigma}_{\hphantom{\mu}\nu})_a  A_{\hphantom{\mu} j}^{\nu}=0,
 	\ \det(A_{\hphantom{\mu} k}^{\sigma})\neq 0,\ 1 \leqslant j,k,\sigma,\nu \leqslant m .
 \end{equation}

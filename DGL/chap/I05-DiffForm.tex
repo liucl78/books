@@ -314,9 +314,9 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 整个流形$M$上的$\hat{\omega}\in A(M)$，并且有$\omega|_V= \hat{\omega}|_V$．
 根据局部性定理，可将${\rm d}\omega$在$p\in U$点的局部值定义为
 \begin{equation}\label{chdf:eqn_daflg}
-    ({\rm d}\omega )(p) \overset{def}{=} ({\rm d}\hat{\omega} )(p) .
+    ({\rm d}\omega )(p) \overset{\mathrm {def}}{=} ({\rm d}\hat{\omega} )(p) .
 \end{equation}
-定义号“$\overset{def}{=}$”右端是$A(M)$中的型式场，本来就有意义．
+定义号“$\overset{\mathrm {def}}{=}$”右端是$A(M)$中的型式场，本来就有意义．
 需要注意的是，这个定义与开集$V$选取无关；
 可以将$V$换成任意其它开集$V'$，只要满足$V' \subset \overline{V'} \subset U$即可；
 证明过程与上面完全相同．
@@ -341,7 +341,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 把外积“$\wedge$”引入到${\rm d}x\ {\rm d}x$之间：
 \begin{align}
     {\rm d}_{c}({\rm d}_{a}f)&\equiv {\rm d}_{c}\left(\frac{\partial f}{\partial x^\mu} ({\rm d}x^{\mu})_{a}\right)
-    \overset{def}{=}\frac{\partial^2 f}{\partial x^\mu \partial x^\sigma}
+    \overset{\mathrm {def}}{=}\frac{\partial^2 f}{\partial x^\mu \partial x^\sigma}
     ({\rm d}x^{\sigma})_{c}\wedge ({\rm d}x^{\mu})_{a} +
     \frac{\partial f}{\partial x^\mu} {\rm d}_{c}({\rm d}x^{\mu})_{a} \notag \\
     &\xlongequal{{\rm d}\circ{\rm d}x=0}
@@ -352,7 +352,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 {\footnote{条件(4)是自变量$x$两次普通微分恒为零（${\rm d}({\rm d}x)=0$）的推广；
     推广成任何全反对称协变张量场的两次外微分皆为零．
     把作为自变量的坐标的两次外微分定义成两次普通微分，
-即${\rm d}_{c}({\rm d}_{a}x^\mu) \overset{def}{=} {\rm d}({\rm d}x^\mu) =0$，
+即${\rm d}_{c}({\rm d}_{a}x^\mu) \overset{\mathrm {def}}{=} {\rm d}({\rm d}x^\mu) =0$，
 是为了消除可能存在的循环定义．}}；
 最后一步用到了标量函数对偏导数具有对称性，而外积有反对称性，求和为零（展开即可验证）；
 对于标量函数场，这样定义的算符满足条件(4)．
@@ -360,7 +360,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 微分型式场$\omega$有局部表达式\eqref{chdf:eqn_omega-expand-on-bases}，
 则可定义它的外微分局部表达式为：
 \begin{equation}\label{chdf:eqn_exterior-differential}
-    ({\rm d}\omega_{b a_{1}\cdots a_{r}})|_U \overset{def}{=}
+    ({\rm d}\omega_{b a_{1}\cdots a_{r}})|_U \overset{\mathrm {def}}{=}
     \frac{1}{r!} {\rm d}_{b}(\omega_{\mu_{1}\cdots \mu_{r}}) \wedge
     ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge ({\rm d}x^{\mu_r})_{a_{r}}
 \end{equation}
@@ -594,7 +594,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
     证明过程需利用一个具有技巧性的积分，定义映射$I:A^r(U)\to A^{r-1}(U)$如下
     \begin{equation}\label{chdf:eqn_I-omega}
     \begin{aligned}
-        I_r(\omega )_{a_{1}\cdots a_{r-1}} \overset{def}{=}& \sum_{\mu_{1}<\cdots<\mu_{r}}
+        I_r(\omega )_{a_{1}\cdots a_{r-1}} \overset{\mathrm {def}}{=}& \sum_{\mu_{1}<\cdots<\mu_{r}}
          \left( \int_{0}^{1}t^{r-1} \omega_{\mu_{1}\cdots \mu_{r}}(tx){\rm d}t \right) \times
          \sum_{i=1}^{r}  (-)^{i-1} x^{\mu_i} \times \\
          & \times ({\rm d}x^{\mu_1})_{a_{1}} \wedge\cdots\wedge
@@ -945,7 +945,7 @@ $r< \mu,\lambda \leqslant m$．其逆记为$b_\lambda^{\mu'}$，
 即$v^\mu_{\mu'} b_\lambda^{\mu'} =\delta^\mu_\lambda$；
 将逆矩阵乘在式\eqref{chdf:eqn_tmp-v1}上，有
 \begin{align*}
-    (u_\lambda)^a \overset{def}{=}&  \sum_{\mu'=r+1}^{m} b_\lambda^{\mu'} (v_{\mu'})^a
+    (u_\lambda)^a \overset{\mathrm {def}}{=}&  \sum_{\mu'=r+1}^{m} b_\lambda^{\mu'} (v_{\mu'})^a
     =\sum_{\mu'=r+1}^{m} \sum_{\alpha=1}^{r} b_\lambda^{\mu'} v_{\mu'}^\alpha 
     \left(\frac{\partial}{\partial x^\alpha}\right)^a
     +\sum_{\mu,{\mu'}=r+1}^{m} b_\lambda^{\mu'} v_{\mu'}^\mu
@@ -985,7 +985,7 @@ $1\leqslant \alpha \leqslant r$；
 这个方阵自然有逆$b^\gamma_\alpha$，即$\omega^\alpha_\beta b^\gamma_\alpha = \delta^\gamma_\beta$，
 其中$1 \leqslant \gamma \leqslant r$．将逆矩阵乘在式\eqref{chdf:eqn_tmp-w1}上，有
 \begin{align*}
-    (\varphi^\gamma)_a \overset{def}{=}& \sum_{\alpha=1}^{r} b^\gamma_\alpha(\omega^\alpha)_a
+    (\varphi^\gamma)_a \overset{\mathrm {def}}{=}& \sum_{\alpha=1}^{r} b^\gamma_\alpha(\omega^\alpha)_a
     =\sum_{\alpha,\beta=1}^{r} b^\gamma_\alpha\omega^\alpha_\beta ({\rm d}x^\beta)_a
       +\sum_{\nu=r+1}^{m} b^\gamma_\alpha\omega^\alpha_\nu ({\rm d}x^\nu)_a \notag \\
     =&  ({\rm d}x^\gamma)_a + \sum_{\nu=r+1}^{m} c^\gamma_\nu ({\rm d}x^\nu)_a ,
@@ -1369,7 +1369,7 @@ ${\rm i}(\mathbb{R}^m_{-})=\mathbb{R}^m_{-}- \partial \mathbb{R}^m_{-}$称为$\m
 在数学分析中，标量函数$f(x)$的黎曼积分早有定义，并且是一个有限实数；
 在此处，我们可以直接将流形$M$上外微分型式场$\omega$的积分定义成黎曼积分，即
 \begin{equation}\label{chdf:eqn_def-integral-omega}
-    \int_{M} \omega \equiv \int_{M} f(x) ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} \overset{def}{=}
+    \int_{M} \omega \equiv \int_{M} f(x) ({\rm d}x^1)_{a_1} \wedge \cdots \wedge({\rm d}x^m)_{a_m} \overset{\mathrm {def}}{=}
     \int_{\varphi(M)} (f\circ\varphi^{-1}) {\rm d}x^1 \cdots {\rm d}x^m .
 \end{equation}
 下面需要验证，这个定义与局域坐标卡选取无关．
@@ -1424,7 +1424,7 @@ $\sum_{\alpha}h_\alpha =1$，$1 \geqslant h_\alpha \geqslant 0$，所以有
 因${\rm supp}\omega$是紧致的，所以上式右端只有有限项非零，
 即上式右端平凡收敛．命
 \begin{equation}\label{chdf:eqn_def-integral-omega-partition}
-    \int_{M} \omega \overset{def}{=} \int_{M} \sum_{\alpha}  h_\alpha \cdot \omega =
+    \int_{M} \omega \overset{\mathrm {def}}{=} \int_{M} \sum_{\alpha}  h_\alpha \cdot \omega =
     \sum_{\alpha}\int_{\varphi_\alpha(U_\alpha)}
     \bigl( (h_\alpha \cdot f_\alpha )\circ\varphi^{-1}_\alpha\bigr)
     {\rm d}x^1_\alpha \cdots {\rm d}x^m_\alpha .
@@ -1504,7 +1504,7 @@ $m$阶外微分型式场$\omega \in A^m(M)$在$\{V_\lambda\}$中的局部坐标�
 则$\phi^* \omega \in A^r(N)$；
 此时，$\omega$可以在$M$上定义积分为：
 \begin{equation}\label{chdf:eqn_IonSM}
-	\int_{\phi(N)} \omega \overset{def}{=} \int_N \phi^* \omega .
+	\int_{\phi(N)} \omega \overset{\mathrm {def}}{=} \int_N \phi^* \omega .
 \end{equation}
 %%容易判断上式为良定义．
 

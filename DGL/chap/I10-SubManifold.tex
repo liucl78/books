@@ -996,7 +996,7 @@ $\left. \frac{\partial}{\partial s}\right|_{\alpha(a)} \in T_{\alpha(a)}N$，
 因为我们已经规定法矢量${n}^a$是归一化的，所以有$g_{00}={g}_{ab}{n}^a {n}^b=\epsilon=\pm 1$．
 由式\eqref{chsm:eqn_g-metric}可以定义超曲面$\Sigma$上的度规
 \begin{equation}\label{chsm:eqn_h-metric}
-    h_{ab} \overset{def}{=} g_{ab}- \epsilon {n}_a {n}_b = g_{ij} (e^i)_a(e^j)_b.
+    h_{ab} \overset{\mathrm {def}}{=} g_{ab}- \epsilon {n}_a {n}_b = g_{ij} (e^i)_a(e^j)_b.
 \end{equation}
 我们来验证一下上述定义的$h_{ab}$便是诱导度量$\phi^* g_{ab}$．
 %本节几乎所有公式只证明（或验证）${n}_a {n}^a=+1$情形，
@@ -1027,9 +1027,9 @@ $u^a$和$\phi_{*}u^a$是同一个矢量；故继续计算上式得
 这说明$\forall v^a \in T\Sigma$，用$h_{ab}$或$g_{ab}$升降指标是等价的．
 继续进行相似计算：%\setlength{\mathindent}{0.2em}
 \begin{align}
-    h_a^b\overset{def}{=}&h_{ac}g^{cb} =(g_{ac}-\epsilon {n}_a {n}_c)g^{cb}
+    h_a^b\overset{\mathrm {def}}{=}&h_{ac}g^{cb} =(g_{ac}-\epsilon {n}_a {n}_c)g^{cb}
       =\delta_a^b -\epsilon {n}_a {n}^b,  \label{chsm:eqn_hdaub} \\
-    h^{ab}\overset{def}{=}&g^{ac}h_{cd}g^{db} =g^{ac}(g_{cd}-\epsilon {n}_c {n}_d)g^{bc}
+    h^{ab}\overset{\mathrm {def}}{=}&g^{ac}h_{cd}g^{db} =g^{ac}(g_{cd}-\epsilon {n}_c {n}_d)g^{bc}
       = g^{ab}-\epsilon{n}^a {n}^b, \label{chsm:eqn_huaub} \\
     h_{ac}h^{cb}=&\delta_a^b-\epsilon {n}_a {n}^b-\epsilon{n}_a {n}^b
         + {n}_a {n}_c{n}^c {n}^b    =h_a^b . \label{chsm:eqn_hh}
@@ -1088,7 +1088,7 @@ $u^a$和$\phi_{*}u^a$是同一个矢量；故继续计算上式得
 \end{equation}
 我们也可以把式\eqref{chsm:eqn_D-nabla-h}当成${\rm D}_{a}$的\CJKunderwave{定义式}，
 即通过$h_{ab}$把联络$\nabla_a$从流形$M$投影到超曲面$\Sigma$
-（即${\rm D}_{a'} T^{b'}_{c'} \overset{def}{=} h_{a'}^a h^{b'}_b h_{c'}^c {\nabla}_{a} T^b_c$）．
+（即${\rm D}_{a'} T^{b'}_{c'} \overset{\mathrm {def}}{=} h_{a'}^a h^{b'}_b h_{c'}^c {\nabla}_{a} T^b_c$）．
 
 
 
@@ -1155,7 +1155,7 @@ Gauss方程\eqref{chsm:eqn_Gauss-Hypersurface}的第二个等号是这样得到�
 因超曲面$\Sigma$的法空间是一维的，则必有$K^a_{bc} X^b Y^c \propto {n}^a$；
 既然是正比关系，我们可直接假设
 \begin{equation}\label{chsm:eqn_IIbc}
-    (K_{bc} X^b Y^c) {n}^a \overset{def}{=} \epsilon K^a_{bc} X^b Y^c .
+    (K_{bc} X^b Y^c) {n}^a \overset{\mathrm {def}}{=} \epsilon K^a_{bc} X^b Y^c .
     %\quad \Leftrightarrow \quad K'_{bc} \equiv  n_a  K^a_{bc} .
 \end{equation}
 这样定义的$K_{bc}$是对称的（即$K_{bc}=K_{cb}$，见命题\ref{chsm:thm_hII}）．
@@ -1254,7 +1254,7 @@ $X^a,Y^a\in \mathfrak{X}(\Sigma)$的主要作用就是将$K_{bc}$限制在
 \paragraph{标量外曲率}
 我们还需定义第二基本形式的缩并，它是一个标量场
 \begin{equation}\label{chsm:eqn_K-scalar}
-    K \overset{def}{=} h^{ab} K_{ab} = g^{ab} K_{ab} =-\nabla_{a} {n}^a
+    K \overset{\mathrm {def}}{=} h^{ab} K_{ab} = g^{ab} K_{ab} =-\nabla_{a} {n}^a
     =-\frac{1}{2}h^{ab}\Lie_{n} h_{ab}.  %=-\Lie_{n} \sqrt{h^{ab}h_{ab}}
 \end{equation}
 
@@ -2518,7 +2518,7 @@ ADM分解后的坐标系就是一个适配坐标系，所有张量分量对参�
 我们给其增加数次投影，这样的李导数自然仍是类空张量场．
 \begin{equation}
     \dot{T}^{a\cdots}_{b\cdots} \equiv \widetilde{\Lie}_{\partial_t}{T}^{a\cdots}_{b\cdots}
-    \overset{def}{=} h^a_{a'}\cdots h^{b'}_{b}\cdots {\Lie}_{\partial_t}{T}^{a'\cdots}_{b'\cdots} .
+    \overset{\mathrm {def}}{=} h^a_{a'}\cdots h^{b'}_{b}\cdots {\Lie}_{\partial_t}{T}^{a'\cdots}_{b'\cdots} .
 \end{equation}
 $\widetilde{\Lie}_X$表示增加数次投影的${\Lie}_X$．
 可以证明如下重要公式：
@@ -2662,7 +2662,7 @@ $\widetilde{\Lie}_X$表示增加数次投影的${\Lie}_X$．
 \end{equation}
 证明此式需分为两步．第一步，我们定义{\heiti 单位法矢量$n^a$的四加速度}：
 \begin{equation}\label{chsm:eqn_Acceleration}
-    A_a \overset{def}{=} n^b \nabla_b n_a =N^{-1} {\rm D}_a N .
+    A_a \overset{\mathrm {def}}{=} n^b \nabla_b n_a =N^{-1} {\rm D}_a N .
 \end{equation}
 注意到明显有：$n^a A_a =0 $．上式最后一步的计算过程是：  %\setlength{\mathindent}{0em}
 \begin{align*}

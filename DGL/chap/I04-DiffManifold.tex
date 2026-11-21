@@ -178,14 +178,14 @@
 本小节最后，我们引入两个记号（更详尽的讨论见\S\ref{chrg:sec_metric-affine}、\S\ref{chrg:sec_form2}）：
 \begin{subequations}\label{chdm:eqn_eiud}
 	\begin{align}
-		(e_\rho)_a &\overset{def}{=} g_{ab}(e_\rho)^b 
+		(e_\rho)_a &\overset{\mathrm {def}}{=} g_{ab}(e_\rho)^b 
 		= g_{\mu\rho}(e^\mu)_a
 		\quad \text{对应}\quad 
-		\boldsymbol{e}_\rho ^* \overset{def}{=} g_{\mu\rho} \boldsymbol{e}^{*\mu}, \\
-		(e^\rho)^a &\overset{def}{=} g^{ab}(e^\rho)_b 
+		\boldsymbol{e}_\rho ^* \overset{\mathrm {def}}{=} g_{\mu\rho} \boldsymbol{e}^{*\mu}, \\
+		(e^\rho)^a &\overset{\mathrm {def}}{=} g^{ab}(e^\rho)_b 
 		= g^{\mu\rho}(e_\mu)^a 
 		\quad \text{对应}\quad 
-		\boldsymbol{e}^\rho \overset{def}{=} g^{\mu\rho} \boldsymbol{e}_{\mu} .
+		\boldsymbol{e}^\rho \overset{\mathrm {def}}{=} g^{\mu\rho} \boldsymbol{e}_{\mu} .
 	\end{align}
 \end{subequations}
 
@@ -922,9 +922,9 @@ $C^\infty$相容的．与此类似同样可证其余坐标卡也是$C^\infty$相
 对每一对指标$\{(\alpha,i)\in \mathscr{I}_1 \times \mathscr{I}_2\}$，定义
 从$U_\alpha\times V_i$到$\mathbb{R}^{m+n}$的映射如下
 \begin{align*}
-    (\varphi_\alpha \times \psi_i)(x,y)\overset{def}{=}&\bigl(\varphi_\alpha(x),\ \psi_i(y)\bigr),
+    (\varphi_\alpha \times \psi_i)(x,y)\overset{\mathrm {def}}{=}&\bigl(\varphi_\alpha(x),\ \psi_i(y)\bigr),
     \qquad \forall (x,y)\in U_\alpha\times V_i . \\
-    (\varphi_\alpha \times \psi_i)^{-1}(X,Y)\overset{def}{=}&\bigl(\varphi_\alpha^{-1}(X),\ 
+    (\varphi_\alpha \times \psi_i)^{-1}(X,Y)\overset{\mathrm {def}}{=}&\bigl(\varphi_\alpha^{-1}(X),\ 
     \psi_i^{-1}(Y)\bigr),  \qquad \forall (X,Y)\in \varphi_\alpha(U_\alpha)\times \psi_i(V_i) .
 \end{align*}
 不难验证$\varphi_\alpha \times \psi_i$是从$U_\alpha\times V_i$
@@ -935,7 +935,7 @@ $C^\infty$相容的．与此类似同样可证其余坐标卡也是$C^\infty$相
 再者，当$U_\alpha \cap U_\beta \neq \varnothing,\ V_i\cap V_j\neq \varnothing$时，定义
 \begin{equation}
     (\varphi_\alpha \times \psi_i)\circ (\varphi_\beta \times \psi_j)^{-1}
-    \overset{def}{=}(\varphi_\alpha\circ \varphi_\beta^{-1})\times
+    \overset{\mathrm {def}}{=}(\varphi_\alpha\circ \varphi_\beta^{-1})\times
     (\psi_i\circ\psi_j^{-1}) .
 \end{equation}
 在这样定义下，$(U_\alpha\times V_i , \varphi_\alpha \times \psi_i)$与
@@ -1237,14 +1237,14 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 设映射$\gamma:(-a,a)\to M$是微分流形$M$中一条经过固定点$x_0$的光滑曲线，
 其中$x_0=\gamma(0)$，则下面的映射$v^a:C^\infty_{x_0}\to \mathbb{R}$（其中$f\in C_{x_0}^\infty(M)$）
 \begin{equation}\label{chdm:eqn_DiffCurve}
-    v(f)\overset{def}{=} \left. \frac{{\rm d} \bigl(f \circ \gamma (t)\bigr)}{{\rm d} t} \right |_{t=0}
+    v(f)\overset{\mathrm {def}}{=} \left. \frac{{\rm d} \bigl(f \circ \gamma (t)\bigr)}{{\rm d} t} \right |_{t=0}
     \equiv \left. \frac{{\rm d} \Bigl(f \bigl(\gamma (t)\bigr)\Bigr)}{{\rm d} t} \right |_{t=0};
     \quad -a < t < a, \quad a>0.
 \end{equation}
 便确定了$x_0$点的一个切矢量$v^a$；只需验证上面公式满足定义即可．
 线性性的验证是一望而知的．下面验证Leibniz律；需要先指出
 \begin{equation}\label{chdm:eqn_f-cdot-g-circo-gamma}
-    (f\cdot g)\circ \gamma \overset{def}{=} (f\circ \gamma) \cdot (g\circ \gamma)  .
+    (f\cdot g)\circ \gamma \overset{\mathrm {def}}{=} (f\circ \gamma) \cdot (g\circ \gamma)  .
 \end{equation}
 将上式代入式\eqref{chdm:eqn_DiffCurve}，有
 \begin{align*}
@@ -1293,8 +1293,8 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 若在不同切矢量间定义如下关系：
 \begin{subequations}
     \begin{align}
-        (u+v)f & \overset{def}{=} u(f) + v(f),\qquad {\text {$u,v$是$x\in M$的任意切矢量}}; \\
-        (\lambda u) f & \overset{def}{=} \lambda \bigl( u(f)\bigr), \qquad \forall\lambda\in \mathbb{R}.
+        (u+v)f & \overset{\mathrm {def}}{=} u(f) + v(f),\qquad {\text {$u,v$是$x\in M$的任意切矢量}}; \\
+        (\lambda u) f & \overset{\mathrm {def}}{=} \lambda \bigl( u(f)\bigr), \qquad \forall\lambda\in \mathbb{R}.
     \end{align}
 \end{subequations}
 上两式中$f\in C^\infty_x(M)$．有了这样定义之后，不难发现$x\in M$点{\kaishu 全体切矢量}满足
@@ -1403,7 +1403,7 @@ $(U_\beta\times V_j , \varphi_\beta \times \psi_j)$是$C^\infty$相容的．
 \begin{equation}\label{chdm:eqn_dual-natural-bases}
     ({\rm d}x^j)_a \left(\frac{\partial }{\partial x^i}\right)^a_{x_0} \equiv 
     \left< ({\rm d}x^j)_a , \   \left(\frac{\partial }{\partial x^i}\right)^a_{x_0}\right>
-    \overset{def}{=} \delta^j_i .
+    \overset{\mathrm {def}}{=} \delta^j_i .
 \end{equation}
 由上式定义的对偶基矢共有$m$个．
 将$({\rm d}x^j)_a$作用在任意矢量$v^a$上，有
@@ -1579,7 +1579,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
     从$C^\infty_{\phi(x_0)}(N)$到$C^\infty_{x_0}(M)$
     的{\heiti 拉回映射} $\phi^{*}$定义为
     \begin{equation}
-        \phi^{*}(g) \overset{def}{=} g \circ \phi, 
+        \phi^{*}(g) \overset{\mathrm {def}}{=} g \circ \phi, 
         \qquad \forall g\in C^\infty_{\phi(x_0)}(N) .
     \end{equation}
 \end{definition}
@@ -1595,7 +1595,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 \begin{definition}\label{chdm:def_pushforward-vector}
     定义{\heiti 推前映射}，或称为{\heiti 切映射}：
     \begin{equation}
-        (\phi_{*}v)(g) \overset{def}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
+        (\phi_{*}v)(g) \overset{\mathrm {def}}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
         \qquad \forall g\in C^\infty_{\phi(x_0)}(N),\quad \forall v^a \in T_{x_0}M .
     \end{equation}
 \end{definition}
@@ -1606,7 +1606,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$，则
 \begin{definition}\label{chdm:def_pullback-1form}
     {\heiti 拉回映射}可拓展到余切矢量，也称为{\heiti 余切映射}：
     \begin{equation}
-        (\phi^{*}\omega)_a v^a \overset{def}{=} \omega_a (\phi_{*}v)^a ,
+        (\phi^{*}\omega)_a v^a \overset{\mathrm {def}}{=} \omega_a (\phi_{*}v)^a ,
         \qquad \forall \omega_a \in T^{*}_{\phi(x_0)}N,\quad \forall v^a \in T_{x_0}M .
     \end{equation}
 \end{definition}
@@ -2074,7 +2074,7 @@ $\forall \alpha \in I$，
 \begin{small}
 \begin{equation}\label{chdm:eqn_tb_atalas}
     \psi_\alpha\left(v^i \left. \left(\frac{\partial }{\partial x^i}\right)^a 
-    \right | _p \right) \overset{def}{=} \left(x_p^1,\cdots,x_p^m, v^1,\cdots,v^m\right),
+    \right | _p \right) \overset{\mathrm {def}}{=} \left(x_p^1,\cdots,x_p^m, v^1,\cdots,v^m\right),
     \quad \forall p\in U_\alpha,\ v^a\in \pi^{-1} (p).
 \end{equation}
 \end{small}
@@ -2164,8 +2164,8 @@ $U$上{\heiti 自然标架场}，任一$U$上切矢量场$v^a(x)$都可以用此
 （$\forall u^a,v^a \in \mathfrak{X}(M)$，
 和$\forall x\in M$，以及$\forall \lambda \in \mathbb{R}$），有
 \begin{equation}\label{chdm:eqn_rnumtimesv}
-    (u^a+v^a)(x) \overset{def}{=} u^a(x) + v^a(x), \qquad 
-    (\lambda \cdot v^a)(x) \overset{def}{=} \lambda\cdot v^a(x).
+    (u^a+v^a)(x) \overset{\mathrm {def}}{=} u^a(x) + v^a(x), \qquad 
+    (\lambda \cdot v^a)(x) \overset{\mathrm {def}}{=} \lambda\cdot v^a(x).
 \end{equation}
 这样定义后，$\mathfrak{X}(M)$构成了实数域$\mathbb{R}$上的矢量空间．
 因$C^\infty(M)$中存在无穷多个线性无关的光滑函数，故 $\mathfrak X(M)$ 是无穷维的．
@@ -2173,7 +2173,7 @@ $U$上{\heiti 自然标架场}，任一$U$上切矢量场$v^a(x)$都可以用此
 称为\CJKunderwave{$C^r(M)$-线性}，也见定理\ref{chdm:thm_Tensor-Characterization-Lemma}；
 注意与数域$\mathbb{F}$-线性的区别）：
 \begin{equation}\label{chdm:eqn_functimesv}
-    (f \cdot v^a)(x) \overset{def}{=} f(x)\cdot v^a(x); \
+    (f \cdot v^a)(x) \overset{\mathrm {def}}{=} f(x)\cdot v^a(x); \
     \forall x\in M, \ \forall f(x) \in C^\infty(M), \ \forall v^a \in \mathfrak{X}(M) .
 \end{equation}
 流形$M$（或其开子集$U$）上的$C^\infty(M)$构成一个含有幺元的交换环（请读者依照定义\ref{chtop:def_ring}验证）；
@@ -2186,7 +2186,7 @@ $\mathfrak{X}(M)$构成了环$C^\infty(M)$上的矢量空间，也称为$C^\inft
 再设$v^a\in \mathfrak{X}(M)$，及$f(x) \in C^\infty(M)$；
 我们先给出切矢量场作用标量函数上的定义（省略抽象指标记号）：
 \begin{equation}\label{chdm:eqn_vecffunc}
-    \bigl(v(f)\bigr) (x)  \overset{def}{=}  v(x) \bigl( f(x)\bigr) .
+    \bigl(v(f)\bigr) (x)  \overset{\mathrm {def}}{=}  v(x) \bigl( f(x)\bigr) .
 \end{equation}
 利用式\eqref{chdm:eqn_vfnf}，得
 \begin{equation}
@@ -2278,9 +2278,9 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 整个流形$M$上的$\hat{f}\in C^\infty(M)$，并且有$f|_V= \hat{f}|_V$．
 根据局部性定理，我们可以将$\alpha(f)$在$p\in U$点的局部值定义为
 \begin{equation}\label{chdm:eqn_aflg}
-    \bigl(\alpha(f)\bigr)(p) \overset{def}{=} \bigl(\alpha(\hat{f})\bigr)(p) .
+    \bigl(\alpha(f)\bigr)(p) \overset{\mathrm {def}}{=} \bigl(\alpha(\hat{f})\bigr)(p) .
 \end{equation}
-定义号“$\overset{def}{=}$”右端是$C^\infty(M)$中的标量场，本来就有意义．
+定义号“$\overset{\mathrm {def}}{=}$”右端是$C^\infty(M)$中的标量场，本来就有意义．
 需要注意的是，这个定义与开集$V$选取无关；
 可以将$V$换成任意其它开集$V'$，只要满足$V' \subset \overline{V'} \subset U$即可；
 证明过程与上面完全相同．
@@ -2298,7 +2298,7 @@ $\forall p\in U$，选择点$p$的一个足够小邻域$V$，使得$V\subset \ov
 它必然属于某个开覆盖$U_i$；在此点，
 我们定义一个映射$v:C^\infty_p \to \mathbb{R}$如下
 \begin{equation}\label{chdm:eqn_vfgl}
-    \bigl(v(f)\bigr)(p) \equiv \bigl(v(p)\bigr)(f) \overset{def}{=} 
+    \bigl(v(f)\bigr)(p) \equiv \bigl(v(p)\bigr)(f) \overset{\mathrm {def}}{=} 
       \bigl(\alpha({f})\bigr)(p) =\bigl(\alpha(\hat{f})\bigr)(p) , \qquad \forall f\in C^\infty_p .
 \end{equation}
 由于局部映射$\alpha:C^\infty(U)\to C^\infty(U)$同样满足定理\ref{chdm:thm_vf-def2}中的两个条件；
@@ -2346,7 +2346,7 @@ $v^j(p)$也是$C^\infty_p$的；又因$p$是任取的，所以$v^j$是$C^\infty(
 \subsection{Poisson括号}\label{chdm:sec_poisson-lie}
 设$u^a,v^a \in \mathfrak{X}(M)$，$\forall f\in C^\infty(M)$，有
 \begin{equation}\label{chdm:def_poisson-bracket}
-    \left[u,v\right] (f) \overset{def}{=} u\bigl(v(f)\bigr) - v\bigl(u(f)\bigr) .
+    \left[u,v\right] (f) \overset{\mathrm {def}}{=} u\bigl(v(f)\bigr) - v\bigl(u(f)\bigr) .
 \end{equation}
 由上式定义的Poisson括号（也称为对易子）是流形$M$上一个光滑矢量场，即$[u,v]^a \in \mathfrak{X}(M)$．
 证明并不困难，首先从定义式易看出：$\left[u,v\right]:C^\infty(M)\to C^\infty(M)$；
@@ -2443,7 +2443,7 @@ $M$和$N$的局部坐标分别为$(U;x^i)$和$(V;y^\alpha)$．
     从$C^\infty(N)$到$C^\infty(M)$
     的{\heiti 拉回映射} $\phi^{*}$定义为
     \begin{equation}
-        \phi^{*}(g) \overset{def}{=} g \circ \phi, 
+        \phi^{*}(g) \overset{\mathrm {def}}{=} g \circ \phi, 
         \qquad \forall g\in C^\infty(N) .
     \end{equation}
 \end{definition}
@@ -2467,7 +2467,7 @@ $\phi^*(g)$对任意$x\in M$都有定义，且满足场的要求．
 \begin{definition}\label{chdm:def_pullback-1form-onfield}
     余切矢量\CJKunderwave{场}间的{\heiti 拉回映射}定义为：
     \begin{equation}
-        (\phi^{*}\omega)_a v^a \overset{def}{=} \omega_a (\phi_{*}v)^a ,
+        (\phi^{*}\omega)_a v^a \overset{\mathrm {def}}{=} \omega_a (\phi_{*}v)^a ,
         \qquad \forall \omega_a \in \mathfrak{X}^{*}(N),\quad \forall v^a \in T_{x}M .
     \end{equation}
 \end{definition}
@@ -2487,7 +2487,7 @@ $(\phi_{*}v)^a$只需逐点定义即可．
 \begin{definition}\label{chdm:def_pushforward-vector-onfield}
     定义切矢量\CJKunderwave{场}的{\heiti 推前映射}，或称为{\heiti 切映射}（其中$\phi$是微分同胚）
     \begin{equation}\label{chdm:eqn_pushforward-vector-onfield}
-        (\phi_{*}v)(g) \overset{def}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
+        (\phi_{*}v)(g) \overset{\mathrm {def}}{=} v(\phi^{*}(g)) = v (g \circ \phi), 
         \qquad \forall g\in C^\infty_{\phi(x)}(N),\quad \forall v^a \in T_{x}M .
     \end{equation}
 \end{definition}
@@ -2678,7 +2678,7 @@ $\mathfrak{T}^{0}_{2}(M)$中有一类特别子集称作{\heiti 度量}或{\heiti
     流形$M$上张量\CJKunderwave{场}$T_{b_1\cdots b_q}^{a_1\cdots a_p}$的诱导映射定义为
     \begin{equation*}
         (\Phi^{*}T)_{b_1\cdots b_q}^{a_1\cdots a_p} \omega_{a_1}\cdots \omega_{a_p}\  u^{b_1} \cdots u^{b_q}
-        \overset{def}{=} T_{b_1\cdots b_q}^{a_1\cdots a_p}
+        \overset{\mathrm {def}}{=} T_{b_1\cdots b_q}^{a_1\cdots a_p}
         (\phi^{*}\omega_{a_1})\cdots (\phi^{*}\omega_{a_p})
         (\phi_{*}^{-1}u^{b_1})\cdots (\phi_{*}^{-1}u^{b_q}) .
     \end{equation*}
@@ -3148,12 +3148,12 @@ $v^a_p$是积分曲线$\gamma_p(t)$在$p$的切矢量，由式\eqref{chdm:eqn_Di
     由$\phi_t$可定义李导数（Lie Derivative {\footnote{Sophus Lie(1842-1899)，
             挪威数学家．其另一更重大贡献是李群，可见第\ref{chlg}章．}}）：
     \begin{align}
-        \Lie_{X} f(p) &\overset{def}{=} \lim_{t\to 0}
+        \Lie_{X} f(p) &\overset{\mathrm {def}}{=} \lim_{t\to 0}
         \frac{\phi^{*}_{t}(p) f-\phi^{*}_{0}(p)f}{t} = \bigl(X(f)\bigr)(p), \label{chdm:def_LieD-scalar} \\
-        \Lie_{X} Y^{a} &\overset{def}{=} \lim_{t\to 0}
+        \Lie_{X} Y^{a} &\overset{\mathrm {def}}{=} \lim_{t\to 0}
         \frac{(\phi_{-t})_{*} Y^{a}-(\phi_{0})_{*}Y^{a}}{t}=\lim_{t\to 0}
         \frac{\phi^{-1}_{t*} Y^{a}-\phi^{-1}_{0*}Y^{a}}{t},  \label{chdm:def_LieD-vector} \\
-        \Lie_{X} T_{b_1\cdots b_q}^{a_1\cdots a_p} &\overset{def}{=} \lim_{t\to 0}
+        \Lie_{X} T_{b_1\cdots b_q}^{a_1\cdots a_p} &\overset{\mathrm {def}}{=} \lim_{t\to 0}
         \frac{\Phi^{*}_{t} T_{b_1\cdots b_q}^{a_1\cdots a_p}-\Phi^{*}_{0}T_{b_1\cdots b_q}^{a_1\cdots a_p}}{t} .
           \label{chdm:def_LieD-tensor}
     \end{align}
