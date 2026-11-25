@@ -569,9 +569,9 @@ $$\left\langle x,(S T)^{\dagger} y\right\rangle
 
 
 \begin{theorem}
-	设$T$是复Hilbert空间$\mathcal{H}$上的有界线性算符，则
-	{\bfseries (1)} 若$T$是自伴的，则$\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数．
-	{\bfseries (2)} $\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数，则$T$是自伴的．
+	设$T$是复Hilbert空间$\mathcal{H}$上的有界线性算符，那么有
+	{\bfseries (1)} 如果$T$是自伴的，则$\forall x \in \mathcal{H}$有$\langle T x, x\rangle$是实数．
+	反之，{\bfseries (2)} 如果对于任意$x \in \mathcal{H}$都有$\langle T x, x\rangle$是实数，则$T$是自伴的．
 \end{theorem}
 \begin{proof}
 {\bfseries (1)} 若$T$是自伴算符，则对于所有$x \in \mathcal{H}$有
@@ -650,7 +650,7 @@ Hilbert空间上无界伴随算符的定义之所以需要分两步走，
 
 \index[physwords]{对称算符}  \index[physwords]{厄米算符}
 
-\begin{definition}
+\begin{definition}\label{chhs:def_symO}
 	设$T: \mathscr{D}(T) \rightarrow \mathcal{H}$是在复Hilbert空间$\mathcal{H}$中稠定线性算符．
 	如果对于所有$x, y \in \mathscr{D}(T)$有$\langle T x, y\rangle=\langle x, T y\rangle$，
 	则称$T$是{\heiti 对称算符}或{\heiti 厄米算符}．
@@ -698,7 +698,7 @@ $T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
 	则称$T$是{\heiti 自伴线性算符}．
 \end{definition}
 
-%%相等的定义见\S\ref{chhs:sec_norm}
+
 
 由定义可以看出在无界线性算符中，自伴属性强于厄米属性．
 在量子物理中能充当{\kaishu 物理量}的算符必须是自伴的，不能只是厄米．
@@ -711,6 +711,14 @@ $T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
 其实，写到这里才真正进入量子力学的数学基础．
 要进一步阐述相关内容则需要Hilbert空间谱理论，
 这超出了这份“简引”范畴，故就此打住．
+
+
+\begin{remark}
+	在定义\ref{chhs:def_symO}中，我们把无界的对称算符也称为厄米算符，这只是此处的约定．
+	在大多数纯数学文献中，厄米算符限定在有限维、有界；在无界算符中通常无定义．
+	在绝大多数物理文献中，厄米算符通常是指自伴算符．
+\end{remark}
+
 
 \section{Hilbert空间在量子力学中的几例应用}
 
@@ -753,7 +761,7 @@ $T=\left.T^{\dagger}\right|_{\mathscr{D}(T)}$．
 \begin{equation}
 	QP -PQ = \mathbbm{i}\hbar \mathbbm{1} .
 \end{equation}
-然而$Q$、$P$是无界自伴算符，故需要在Hilbert空间中寻找它们共同定义域（不易寻得），这多少有些不便．
+然而$Q$、$P$是无界自伴算符，故需要在Hilbert空间中寻找使它们有意义的定义域（不易寻得），这多少有些不便．
 不论自伴算符$X$是有界还是无界，泛函分析中可以证明算符$\exp(\mathbbm{i}X)$是有界的（略）；
 而有界算符的定义域一定可以延拓至整个Hilbert空间，所以使用有界算符$\exp(\mathbbm{i}X)$描述基本对易关系更加便宜．
 我们参考式\eqref{chlar:eqn_eA+Bh}（$e^A e^B = e^B e^A e^{c\mathbbm{1}}$），
